@@ -1,0 +1,19 @@
+{
+  "name": "community-ui",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Ubiquiti-UI/community-ui",
+  "description": "Community Bower files",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "underscore": "~1.8.2"
+  }
+}

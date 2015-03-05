@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta content="width=device-width, user-scalable=no, maximum-scale=1" name="viewport">
+
+      <meta content="AP,access point,enterprise,wireless,radio,antenna,camera,unifi,routers,switching,surveillance,control,radio,antennas,amplifiers,world network,ubnt" name="keywords">
+      <meta content="© 2014 Ubiquiti Networks, Inc. All rights reserved." name="copyright">
+      <meta content="Ubiquiti Networks Official Website. Ubiquiti provides a variety of high-end wireless networking products that utilize our innovative and ground-breaking wireless technology." name="description">
+      <meta content="telephone=no" name="format-detection">
+      <meta content="Ubiquiti Networks" name="application-name">
+      <meta content="#0193d7" name="msapplication-TileColor">
+      <meta content="/kerblasterpig/favicon-72.png" name="msapplication-square70x70logo">
+      <meta content="/kerblasterpig/favicon-152.png" name="msapplication-square150x150logo">
+      <meta content="/kerblasterpig/favicon-310x150.png" name="msapplication-wide310x150logo">
+
+      <!-- ubnt icon fonts- need to move these locally, so loaded in SCSS instead -->
+      <!-- <link href="//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/style.css" rel="stylesheet" type="text/css"> -->
+
+      <link href="/kerblasterpig.ico" rel="shortcut icon">
+      <link href="/kerblasterpig/favicon.ico" rel="icon">
+      <meta content="UBNT" name="apple-mobile-web-app-title">
+
+      <link rel="icon" type="image/png" href="/kerblasterpig/favicon-32.png">
+      <link href="/kerblasterpig/favicon-152.png" rel="apple-touch-icon-precomposed">
+      <link href="/kerblasterpig/favicon-152.png" rel="apple-touch-icon-precomposed" sizes="152x152">
+      <link href="/kerblasterpig/favicon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+      <link href="/kerblasterpig/favicon-120.png" rel="apple-touch-icon-precomposed" sizes="120x120">
+      <link href="/kerblasterpig/favicon-114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+      <link href="/kerblasterpig/favicon-72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+      <link href="/kerblasterpig/favicon-57.png" rel="apple-touch-icon-precomposed">
+
+      <base href="/">
+
+      
+    <!-- compiled CSS -->
+    <% styles.forEach( function ( file ) { %>
+      <link rel="stylesheet" type="text/css" href="<%= file %>" />
+    <% }); %>
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body>
+    <div class="wrapper" ng-app="pocApp">
+        <div class="community-navbar">
+        </div>
+
+        <div class="community-body">
+          <div class="row row--comfy">
+            <section ui-view></section>
+          </div>
+        </div>
+    </div>
+  </body>
+    <!-- compiled JavaScript -->
+  <% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script>
+  <% }); %>
+</html>

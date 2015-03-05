@@ -1,0 +1,20 @@
+/*
+ * Import SASS files here
+ */
+@import "compass/css3";
+@import "compass/css3/shared";
+@import "compass/css3/user-interface";
+
+// App theme
+@import "../../node_modules/css-app-theme/src/app";
+
+// Project-specific styles can be written here, but ideally should be
+// organized in their own files and folders, and then imported.
+
+/**
+ * 1. Size and position logo within header.
+ */
+.logo-airos {
+  font-size: 70px; /* [1] */
+  line-height: 46px !important; /* [1] */
+}

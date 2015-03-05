@@ -1,0 +1,12 @@
+tmp/
+node_modules/
+vendor/bower/
+build/
+coverage/
+selenium/
+.sass-cache/
+.grunt/
+.DS_Store
+npm-debug.log
+config/config.js
+src/scripts/templates.js

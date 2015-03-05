@@ -1,0 +1,109 @@
+  <div class="community-main col--md9">
+    <!-- {asset name="Content"} -->
+    <div class="row row--comfy">
+        <div class="community__breadcrumbs">
+          <span>Community / Categories / Forums / airMAX</span>
+        </div>
+    </div>
+
+    <div class="row row--comfy">
+      <div class="community__mainsearch">
+        <!-- {if InSection(array("CategoryList", "CategoryDiscussionList", "DiscussionList"))}
+          <div class="well search-form">{searchbox}</div>
+        {/if} -->
+      </div>          
+    </div>
+
+    <div class="row row--comfy thick-separator">
+      <h2>airMAX</h2>
+    </div>
+
+    <div class="row row--comfy">
+      <div class="col--md3"> 
+        <button class="button round">New Topic</button>
+      </div>
+     <!--  <div class="col--md9 col--mdPush7">
+        <span>Page 3 of 350</span>
+        <span>Latest Topics</span>
+      </div>   -->
+    </div>
+
+    <div class="row row-comfy">
+      
+      <div class="row thick-separator-light">
+          <div class="col--md3">
+            <p>Total Results: {{ vm.messageCount }}</p>
+          </div>
+      </div>
+      
+      <div class="row row-comfy">
+        <table style="width: 100%;">
+          <colgroup>
+            <col style="width:50%">
+            <col style="width:11%">
+            <col style="width:11%">
+            <col style="width:11%">
+            <col style="width:11%">
+            <col style="width:5%">
+          </colgroup>
+          <thead class="thin-separator-light alignLeft uppercase">
+            <th></th>
+            <th>Views</th>
+            <th>Comments</th>
+            <th>Kudos</th>
+            <th>Latest Reply</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="message in vm.messageData" class="thin-separator-light">
+              <td>
+                <div>{{ message.subject }}</div> by <a ui-sref="user">{{ message.author.login }}</a>
+              </td>
+              <td>
+                {{ message.views }}
+              </td>
+              <td>
+                {{ message.comments.count }}
+              </td>
+              <td>
+                {{ message.kudos }}
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="community-aside col--md3">
+    <!-- {asset name="Panel"} -->
+    <div class="row row--comfy thick-separator">
+      <h1>Welcome!</h1>
+      <p>FORUMS are the central hub of our community discussions and chatter. Voice your opinion, show what you're working on, and check out the cool things others are doing. And remember, we are all to help each other!</p>
+      <input type="text" placeholder="Search This Forum" />
+    </div>
+    <div class="row row--comfy thick-separator">
+        <h3>airMAX Forum Stats</h3>
+        <div>
+          <h1>{{ vm.statsData.postsToday }} posts today</h1>
+        </div>
+        <div>
+          <h1>{{ vm.statsData.posts }} total posts</h1>
+        </div>
+        <div>
+          <h1>{{ vm.statsData.online }} users in forum</h1>
+        </div>
+         <div>
+          <h1>{{ vm.statsData.view }} total views</h1>
+        </div>
+    </div>
+    <div class="row row--comfy">
+      <h3>Popular Tags</h3>
+        <a  href="#" ng-repeat="tag in vm.tagData">
+          {{ tag.text }}
+        </a>
+    </div>
+  </div>
+  
