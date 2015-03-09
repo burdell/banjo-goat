@@ -1,12 +1,12 @@
 (function(){
 	'use strict';
-	
+
 	var config = function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
 
 	$stateProvider
 		.state('discussions', {
-			url: '/',
+			url: '/index.php',
 			templateUrl: 'discussions.html',
 			controller: 'Discussions as vm',
 			resolve: {
@@ -24,7 +24,6 @@
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-		angular.module('community-discussions', [])
+		angular.module('community-discussions')
 			.config(config);
-
 }());
