@@ -6,8 +6,8 @@
 
 	$stateProvider
 		.state('discussions', {
-			url: '/index.php',
-			templateUrl: 'discussions.html',
+			url: '/',
+			templateUrl: 'discussions/discussions.html',
 			controller: 'Discussions as vm',
 			resolve: {
 				NodeMessages: ['CommunityApiService', function(communityApi){

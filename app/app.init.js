@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 
-	angular.module('communityApp', ['community-shared', 'community-discussions']);
+	angular.module('communityApp', ['ui.router', 'community-shared', 'community-discussions', 'community-templates']);
 
 	angular.element(document).ready(function() {
 		angular.bootstrap(document, ['communityApp']);
