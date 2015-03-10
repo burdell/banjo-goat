@@ -27,16 +27,25 @@ var fontFilter = $.filter(['**/**/*.ttf', '*.ttf', '**/**/*.woff', '*.woff']);
 //
 //
 
+var outputs = {
+    base: 'dist',
+    dev: 'dist/dev',
+    prod: 'dist/prod',
+    js: '/js',
+    css: '/css',
+    img: '/img'
+};
+
+
 var sources = {
-  index: 'Spa/UnitySpa.html',
 	js: ['app/**/*.js'],
     dependencyJs: [
-        'dist/dev/scripts/areas/**/config/*.js',
-        'dist/dev/scripts/areas/**/*.js',
-        'dist/dev/scripts/shared/**/*.module.js',
-        'dist/dev/scripts/shared/**/*.js',
-        'dist/dev/partials/**/*.js',
-        'dist/dev/scripts/app.init.js'
+        outputs.dev + outputs.js + '/areas/**/config/*.js',
+        outputs.dev + outputs.js + '/areas/**/*.js',
+        outputs.dev + outputs.js + '/shared/**/*.module.js',
+        outputs.dev + outputs.js + '/shared/**/*.js',
+        outputs.dev + outputs.js + '/templates/**/*.js',
+        outputs.dev + outputs.js + '/app.init.js'
     ],
 	fonts: ['Content/**/*.ttf'],
 	img: ['content/**/*.png'],
@@ -58,12 +67,12 @@ var sources = {
 gulp.task('index', function () {
     return gulp.src('app/index.html')
         .pipe($.rename("index.html"))
-        .pipe(gulp.dest('dist/dev/'))
-        .pipe(gulp.dest('dist/prod/'));
+        .pipe(gulp.dest(outputs.dev))
+        .pipe(gulp.dest(outputs.prod));
 });
 
 gulp.task('clean', function(){
-    del(['dist/']);
+    del([outputs.base]);
 });
 
 //
@@ -74,7 +83,7 @@ gulp.task('clean', function(){
 
 gulp.task('scripts', function() {
   return gulp.src(sources.js)
-    .pipe(gulp.dest('dist/dev/scripts'));
+    .pipe(gulp.dest(outputs.dev + outputs.js));
 });
 
 gulp.task('prod-scripts', function(){
@@ -82,41 +91,41 @@ gulp.task('prod-scripts', function(){
         .pipe(jsFilter)
         .pipe($.concat('app.min.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest('dist/prod/scripts'))
+        .pipe(gulp.dest(outputs.prod + outputs.js))
         .pipe(jsFilter.restore());
 });
 
 gulp.task('styles', function() {
     return gulp.src(sources.sass)
-        .pipe($.compass({ sass: './app/styles/', css: 'dist/dev/css' }))
+        .pipe($.compass({ sass: './app/styles/', css: outputs.dev + outputs.css }))
         .pipe($.concat('styles.min.css'));
 });
 
 gulp.task('prod-styles', function(){
-    return gulp.src(bowerFiles.concat(['dist/dev/css/*.css']))
+    return gulp.src(bowerFiles.concat([outputs.dev + outputs.css + '/*.css']))
         .pipe(cssFilter)
         .pipe($.minifyCss())
         .pipe($.rename('app.min.css'))
-        .pipe(gulp.dest('dist/prod/css'))
+        .pipe(gulp.dest(outputs.prod + outputs.css))
         .pipe(cssFilter.restore());
 });
 
 gulp.task('partials', function() {
     var partialGlob = gulp.src(sources.partials)
         .pipe($.ngHtml2js({ moduleName: "community-templates" }))
-        .pipe(gulp.dest('dist/dev/partials'));
+        .pipe(gulp.dest(outputs.dev + outputs.js + '/templates'));
 });
 
 gulp.task('img', function() {
     return gulp.src(sources.img)
-        .pipe(gulp.dest('dist/dev/img'))
-        .pipe(gulp.dest('dist/prod/img'));
+        .pipe(gulp.dest(outputs.dev + outputs.img))
+        .pipe(gulp.dest(outputs.prod + outputs.img));
 });
 
 gulp.task('bower', function(){
     return gulp.src(bowerFiles)
         .pipe(jsFilter)
-        .pipe(gulp.dest('dist/dev/scripts/vendor'))
+        .pipe(gulp.dest(outputs.dev + outputs.js + '/vendor'))
         .pipe(jsFilter.restore());
 });
 
@@ -141,7 +150,7 @@ gulp.task('inject', ['build'], function () {
                     var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
                     var extension = cleanFilepath.split('.').pop();
                     if (extension == 'js') {
-                        newPath = '<script src="scripts/vendor/' + cleanFilepath + '"></script>';
+                        newPath = '<script src="js/vendor/' + cleanFilepath + '"></script>';
                     } else if (extension == 'css') {
                         newPath = '<link rel="stylesheet" href="css/vendor/' + cleanFilepath + '">';
                     }
@@ -157,7 +166,7 @@ gulp.task('inject', ['build'], function () {
     prodLayoutPage = prodLayoutPage
         .pipe($.inject(gulp.src(['./prod/css/*.css', './prod/scripts/*.js'], { read: false }), { name: 'app',  addRootSlash: false, ignorePath: "dist/prod/"}))
         .pipe($.rename('index.html'))
-        .pipe(gulp.dest('./dist/prod'));
+        .pipe(gulp.dest(outputs.prod));
 
     return merge(devLayoutPage, prodLayoutPage);
 });
@@ -199,11 +208,11 @@ gulp.task('build', ['dev', 'bower'], function(){
         .pipe(jsFilter)
         .pipe($.concat('app.min.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest('dist/prod/scripts'))
+        .pipe(gulp.dest(outputs.prod + outputs.js))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe($.minifyCss())
         .pipe($.rename('app.min.css'))
-        .pipe(gulp.dest('dist/prod/css'))
+        .pipe(gulp.dest(outputs.prod + outputs.css))
         .pipe(cssFilter.restore());
 });
