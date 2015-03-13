@@ -1,0 +1,45 @@
+<div>
+  <div class="col--md3">
+    <p>Total Results: {{ vm.messageCount }}</p>
+  </div>
+</div>
+
+<div>
+  <table style="width: 100%;">
+    <colgroup>
+      <col style="width:50%">
+      <col style="width:11%">
+      <col style="width:11%">
+      <col style="width:11%">
+      <col style="width:11%">
+      <col style="width:5%">
+    </colgroup>
+    <thead class="thin-separator-light alignLeft uppercase">
+      <th></th>
+      <th>Views</th>
+      <th>Comments</th>
+      <th>Kudos</th>
+      <th>Latest Reply</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="message in vm.messageData" class="thin-separator-light">
+        <td>
+          <div>{{ message.subject }}</div> by <a ui-sref="user">{{ message.author.login }}</a>
+        </td>
+        <td>
+          {{ message.views }}
+        </td>
+        <td>
+          {{ message.comments.count }}
+        </td>
+        <td>
+          {{ message.kudos }}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

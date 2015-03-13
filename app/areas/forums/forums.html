@@ -1,0 +1,24 @@
+  
+<div class="community-main">
+  <discussions-header></discussions-header>
+  <discussions-nav-bar></discussions-nav-bar>
+
+  <div class="row row-comfy">
+    <div class="col-md-6">
+      <a ui-sref="forums.newtopic" class="btn btn-primary">New Topic</a>
+    </div>
+    <div community-filter="Forums.messages" filter-list="vm.messageData" api-args="vm.nodeId" class="col-md-6">
+      <select class="pull-right" ng-model="fm.filter.sort">
+        <option value="latest">Newest</option>
+        <option value="active">Active</option>
+        <option value="hottest">Hottest</option>
+        <option value="mostvoted">Most Voted</option>
+        <option value="unanswered">Unanswered</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ui-view></div>
+  </div>
+</div>

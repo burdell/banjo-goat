@@ -5,6 +5,7 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins({
     scope: ['devDependencies']
 });
+var packageJSON = require('./package');
 
 var mainBowerFiles = require('main-bower-files');
 var bowerFiles = mainBowerFiles({ includeDev: true });
@@ -28,11 +29,11 @@ var fontFilter = $.filter(['**/**/*.ttf', '*.ttf', '**/**/*.woff', '*.woff']);
 //
 
 var outputs = {
-    dev: '../community-themes/UbntUI/dist/dev/js',
-    prod: '../community-themes/UbntUI/dist/prod/js',
+    dev: '../community-themes/UbntUI/applications/uf/js/ui-app/dev',
+    prod: '../community-themes/UbntUI/applications/uf/js/ui-app/prod',
     index: {
-        toDirectory: '../community-themes/UbntUI/applications/ubnt-forums/views/u/',
-        fromDirectory: '../../../dist',
+        toDirectory: '../community-themes/UbntUI/applications/uf/views/u/',
+        fromDirectory: '/applications/uf/js/ui-app',
         filename: 'index.php'
     } 
 };
@@ -75,6 +76,9 @@ gulp.task('clean', function(){
 
 gulp.task('scripts', function() {
   return gulp.src(sources.js)
+    .pipe($.jshint(packageJSON.jshintConfig))
+    .pipe($.jshint.reporter("jshint-stylish"))
+    .pipe($.jshint.reporter('fail'))
     .pipe(gulp.dest(outputs.dev));
 });
 
@@ -89,7 +93,7 @@ gulp.task('prod-scripts', function(){
 
 gulp.task('partials', function() {
     var partialGlob = gulp.src(sources.partials)
-        .pipe($.ngHtml2js({ moduleName: "community-templates" }))
+        .pipe($.ngHtml2js({ moduleName: "community.templates" }))
         .pipe(gulp.dest(outputs.dev + '/templates'));
 });
 
@@ -122,7 +126,7 @@ gulp.task('inject', ['build'], function () {
                     var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
                     var extension = cleanFilepath.split('.').pop();
                     if (extension == 'js') {
-                        newPath = '<script src="' + index.fromDirectory + '/dev/js/vendor/' + cleanFilepath + '"></script>';
+                        newPath = '<script src="' + index.fromDirectory + '/dev/vendor/' + cleanFilepath + '"></script>';
                     } 
                     return newPath;
                 }
@@ -130,7 +134,7 @@ gulp.task('inject', ['build'], function () {
         .pipe($.inject(gulp.src(devAppFiles, { read: false }), { 
             name: 'app',  
             addRootSlash: false, 
-            ignorePath: "../community-themes/UbntUI/dist/",
+            ignorePath: "../community-themes/UbntUI/applications/uf/js/ui-app/",
             transform: function(filepath) {
                 return '<script src="' + index.fromDirectory + '/' + filepath +'"></script>';
             }  
@@ -171,14 +175,14 @@ gulp.task('default', ['dev', 'inject', 'watch']);
 gulp.task('dev', ['scripts', 'partials', 'bower']);
 
 gulp.task('build', ['dev'], function(){
-    //build prod from dev build
-    var jsFilter = $.filter(['**/*.js', '*.js']);
+    // //build prod from dev build
+    // var jsFilter = $.filter(['**/*.js', '*.js']);
    
-    var appFiles = bowerFiles.concat(sources.dependencyJs, ['dist/dev/css/*.css'])
-    return gulp.src(appFiles)
-        .pipe(jsFilter)
-        .pipe($.concat('app.min.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(outputs.prod + outputs.js))
-        .pipe(jsFilter.restore());
+    // var appFiles = bowerFiles.concat(sources.dependencyJs, ['dist/dev/css/*.css'])
+    // return gulp.src(appFiles)
+    //     .pipe(jsFilter)
+    //     .pipe($.concat('app.min.js'))
+    //     .pipe($.uglify())
+    //     .pipe(gulp.dest(outputs.prod + outputs.js))
+    //     .pipe(jsFilter.restore());
 });

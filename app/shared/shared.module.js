@@ -1,6 +1,6 @@
 (function(){
 	'use strict';
 	
-	angular.module('community-shared', []);
+	angular.module('community.shared', []);
 
 }());
