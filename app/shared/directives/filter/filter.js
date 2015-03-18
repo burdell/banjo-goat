@@ -9,26 +9,31 @@
 		var controller = function($scope, $parse, filterService, communityApi, utils) {
 			var filterer = filterService.getNewFilter();
 			var filterOptions = {};
-
+			var filteredListAttribute = null;
+			
 			//ui model
 			this.filter = filterOptions;
 
-			$scope.setFilter = function(apiCall, filterList, apiArgs) {
+			$scope.setFilter = function(apiCall, filterListString, apiArgs) {
+				filteredListAttribute = filterListString;
 				var filterFn = $parse(apiCall)(communityApi);
-				var filteredList = $parse(filterList)($scope);
 				var filterArgs = utils.splitCsv(apiArgs);
 
 				if (filterArgs) {
 					filterArgs = _.map(filterArgs, function(arg){
 						return $parse(arg)($scope);
 					});
-				}
+				}	
 
-				filterer.set(filterOptions, filterFn, filterArgs, filteredList);
+				filterer.set(filterOptions, filterFn, filterArgs);
 			};
 
-			$scope.$watch('fm.filter', function(){
-				filterer.filter();
+			$scope.$watch('fm.filter', function(newValue, oldValue){
+				if (newValue !== oldValue) {
+					filterer.filter().then(function(result){
+						$parse(filteredListAttribute).assign($scope, result.content);
+					});
+				}
 			}, true);
 
 

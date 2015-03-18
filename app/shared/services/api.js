@@ -2,7 +2,7 @@
 	'use strict';
 	
 	var communityApiService = function($http){
-		function goToApi(url, verb, data){
+		function goToApi(url, data, verb){
 			if (_.isUndefined(verb)) {
 				verb = 'GET';
 			}
@@ -15,7 +15,7 @@
 			} else {
 				payload = data;
 			}
-
+			
 			return $http({
 				method: verb,
 				url: url,
@@ -27,19 +27,19 @@
 		}
 		
 		var baseUrls = {
-			Core: '/uc/api/',
-			Forums: '/uf/api/'
+			Core: 'index.php?p=/uc/api/',
+			Forums: 'index.php?p=/uf/api/'
 		};
 
 		var urlSegments = {
 			Node: function(id){
-				return 'nodes/' + id;
+				return 'nodes/' + id + '/';
 			},
 			User: function(id) {
-				return 'users/' + id;
+				return 'users/' + id + '/';
 			},
 			Message: function(id) {
-				return 'messages/' + id;
+				return 'messages/' + id + '/';
 			}
 		};
 
@@ -60,19 +60,17 @@
 				}
 			},
 			Forums: {
-				message: function(messageId) {
-					return goToApi(baseUrls.Core + urlSegments.Message(messageId));
+				message: function(messageId, data, verb) {
+					return goToApi(baseUrls.Forums + urlSegments.Message(messageId));
 				},
-				messages: function(nodeId, options){
-					//console.log("Node: " + nodeId + " Options: " + options);
-					return '';
-					//return goToApi(baseUrls.Core + urlSegments.Node(nodeId)) + 'messages';
+				messages: function(nodeId, data){
+					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId + "_Stories") + 'messages', data);
 				},
-				comments: function(messageId, options) {
-					return goToApi(baseUrls.Core + urlSegments.Message(messageId)) + 'comments';
+				comments: function(messageId, data) {
+					return goToApi(baseUrls.Forums + urlSegments.Message(messageId) + 'comments');
 				},
-				stats: function(nodeId){
-					return goToApi(baseUrls.Core + urlSegments.Node(nodeId)) + 'stats';
+				stats: function(nodeId, data) {
+					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'stats');
 				}
 			}
 		};

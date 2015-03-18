@@ -1,10 +1,20 @@
-<div>
-  <div class="col--md3">
-    <p>Total Results: {{ vm.messageCount }}</p>
+ <div class="row row-comfy">
+ <!--  <div class="col-md-6">
+    <a ui-sref="forums.newtopic" class="btn btn-primary">New Topic</a>
+  </div> -->
+  <div community-filter="Forums.messages" filter-list="vm.messageList" api-args="vm.nodeId" class="col-md-6 pull-right">
+    <select class="pull-right" ng-model="fm.filter.sort">
+      <option value="latest">Newest</option>
+      <option value="active">Active</option>
+      <option value="hottest">Hottest</option>
+      <option value="mostvoted">Most Voted</option>
+      <option value="unanswered">Unanswered</option>
+    </select>
   </div>
 </div>
 
 <div>
+  <p style="margin: 0;">Total Results: {{ vm.messageCount }}</p>
   <table style="width: 100%;">
     <colgroup>
       <col style="width:50%">
@@ -14,7 +24,7 @@
       <col style="width:11%">
       <col style="width:5%">
     </colgroup>
-    <thead class="thin-separator-light alignLeft uppercase">
+    <thead style="border-top: 1px solid gray;">
       <th></th>
       <th>Views</th>
       <th>Comments</th>
@@ -23,20 +33,21 @@
       <th></th>
     </thead>
     <tbody>
-      <tr ng-repeat="message in vm.messageData" class="thin-separator-light">
+      <tr ng-repeat="message in vm.messageList">
         <td>
-          <div>{{ message.subject }}</div> by <a ui-sref="user">{{ message.author.login }}</a>
+          <div>{{ message.subject }}</div> 
+          <span>by <a ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>
         </td>
         <td>
-          {{ message.views }}
+          {{ vm.getStats(message, 'views') }}
         </td>
         <td>
-          {{ message.comments.count }}
+          {{ vm.getStats(message, 'comments') }}
         </td>
         <td>
-          {{ message.kudos }}
+          {{ vm.getStats(message, 'kudos') }}
         </td>
-        <td></td>
+        <td><a>{{ message.latestReply.author.login }}</a><br /> {{ message.latestReply.postTime | timeFromNow }}</td>
         <td></td>
       </tr>
     </tbody>

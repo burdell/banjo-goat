@@ -5,5 +5,15 @@
 	baseTag.setAttribute('href', '/index.php?p=/');
 	document.head.appendChild(baseTag);
 	
-	angular.module('communityApp', ['ui.router', 'community.shared', 'community.forums', 'community.templates']);
+	angular.module('communityApp', [
+		'ui.router', 
+		'community.shared', 
+		'community.forums', 
+		'community.templates'
+	]);
+
+	angular.element(document).ready(function(){
+		angular.bootstrap(document, ['communityApp']);
+	});
+
 }());

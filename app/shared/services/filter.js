@@ -9,10 +9,10 @@
 					this.filterFn = filterFn;
 					this.filterArguments = filterArguments;
 				},
-				filter: function(){
+				filter: function(sourceList){
 					var args = [];
-					if (this.filterArguments) {
-						args.push(this.filterArguments);
+					if (_.isArray(this.filterArguments)) {
+						args = this.filterArguments;
 					}
 					args.push(this.filterModel);
 					return this.filterFn.apply(this, args);
@@ -31,4 +31,4 @@
 
 	angular.module('community.shared')
 		.service('CommunityFilterService', communityFilter);
-}(window.underscore));
+}(window._));

@@ -6,25 +6,19 @@
 		$stateProvider
 			.state('forums', {
 				abstract: true,
-				url: '/uf',
+				url: '/uf/u/nodes/:nodeId/forums',
 				templateUrl: 'forums/forums.html',
-				controller: 'Forum as vm',
-				resolve: {
-					NodeMessages: ['CommunityApiService', function(communityApi){
-						return {}; //communityApi.Node(1).messages();
-					}],
-					NodeStats: ['CommunityApiService', function(communityApi){
-						return {}; //communityApi.Node(1).stats();
-					}],
-					NodeTags: ['CommunityApiService', function(communityApi){
-						return {}; //communityApi.Node(1).tags();
-					}]
-				}
+				controller: 'Forum as vm'
 			})
 			.state('forums.list', {
-				url: '/u',
+				url: '/list',
 				templateUrl: 'forums/forums.list.html',
-				controller: 'ForumList as vm'
+				controller: 'ForumList as vm',
+				resolve: {
+					ForumMessages: ['$stateParams', 'CommunityApiService', function(params, communityApi){
+						return communityApi.Forums.messages(params.nodeId);
+					}]
+				}
 			})
 			.state('forums.thread', {
 				url: '/t',
