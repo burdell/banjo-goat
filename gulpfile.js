@@ -111,7 +111,7 @@ gulp.task('bower', function(){
 //
 
 
-gulp.task('inject', ['build'], function () {
+gulp.task('inject', ['dev'], function () {
     var index = outputs.index;
    	var devLayoutPage = gulp.src(index.toDirectory + index.filename);
     var devAppFiles =   sources.dependencyJs;
@@ -141,14 +141,6 @@ gulp.task('inject', ['build'], function () {
         }))
         .pipe($.rename(index.filename))
         .pipe(gulp.dest(index.toDirectory));
-
-    // var prodLayoutPage = gulp.src('./dist/prod/index.html');
-    // prodLayoutPage = prodLayoutPage
-    //     .pipe($.inject(gulp.src(['./prod/css/*.css', './prod/scripts/*.js'], { read: false }), { name: 'app',  addRootSlash: false, ignorePath: "dist/prod/"}))
-    //     .pipe($.rename('index.html'))
-    //     .pipe(gulp.dest(outputs.prod));
-
-    // return merge(devLayoutPage, prodLayoutPage);
 });
 
 
@@ -174,15 +166,15 @@ gulp.task('default', ['dev', 'inject', 'watch']);
 
 gulp.task('dev', ['scripts', 'partials', 'bower']);
 
-gulp.task('build', ['dev'], function(){
-    // //build prod from dev build
-    // var jsFilter = $.filter(['**/*.js', '*.js']);
+gulp.task('prod', ['dev'], function(){
+    //build prod from dev build
+    var jsFilter = $.filter(['**/*.js', '*.js']);
    
-    // var appFiles = bowerFiles.concat(sources.dependencyJs, ['dist/dev/css/*.css'])
-    // return gulp.src(appFiles)
-    //     .pipe(jsFilter)
-    //     .pipe($.concat('app.min.js'))
-    //     .pipe($.uglify())
-    //     .pipe(gulp.dest(outputs.prod + outputs.js))
-    //     .pipe(jsFilter.restore());
+    var appFiles = bowerFiles.concat(sources.dependencyJs, ['dist/dev/css/*.css'])
+    return gulp.src(appFiles)
+        .pipe(jsFilter)
+        .pipe($.concat('app.min.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest(outputs.prod))
+        .pipe(jsFilter.restore());
 });

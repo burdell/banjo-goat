@@ -3,19 +3,24 @@
 	
 	function communityFilter() {
 		var link = function(scope, element, attrs) {
-		    scope.setFilter(attrs.communityFilter, attrs.filterList, attrs.apiArgs);
+		    scope.setFilter(attrs);
 		};
 
 		var controller = function($scope, $parse, filterService, communityApi, utils) {
-			var filterer = filterService.getNewFilter();
+			var filterer = null;
 			var filterOptions = {};
 			var filteredListAttribute = null;
 			
 			//ui model
 			this.filter = filterOptions;
 
-			$scope.setFilter = function(apiCall, filterListString, apiArgs) {
-				filteredListAttribute = filterListString;
+			$scope.setFilter = function(attrs) {
+				var apiCall = attrs.communityFilter;
+				var apiArgs = attrs.apiArgs;
+
+				filteredListAttribute = attrs.filterList;
+				filterer = attrs.filterFn ? $parse(attrs.filterFn)($scope) : filterService.getNewFilter(); 
+
 				var filterFn = $parse(apiCall)(communityApi);
 				var filterArgs = utils.splitCsv(apiArgs);
 
@@ -25,18 +30,16 @@
 					});
 				}	
 
-				filterer.set(filterOptions, filterFn, filterArgs);
+				filterer.set(filterFn, filterArgs);
 			};
 
 			$scope.$watch('fm.filter', function(newValue, oldValue){
 				if (newValue !== oldValue) {
-					filterer.filter().then(function(result){
+					filterer.filter(newValue).then(function(result){
 						$parse(filteredListAttribute).assign($scope, result.content);
 					});
 				}
 			}, true);
-
-
 		};
 		controller.$inject = ['$scope', '$parse', 'CommunityFilterService', 'CommunityApiService', 'CommunityUtilsService'];
 

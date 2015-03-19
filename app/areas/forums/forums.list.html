@@ -2,19 +2,23 @@
  <!--  <div class="col-md-6">
     <a ui-sref="forums.newtopic" class="btn btn-primary">New Topic</a>
   </div> -->
-  <div community-filter="Forums.messages" filter-list="vm.messageList" api-args="vm.nodeId" class="col-md-6 pull-right">
-    <select class="pull-right" ng-model="fm.filter.sort">
-      <option value="latest">Newest</option>
-      <option value="active">Active</option>
-      <option value="hottest">Hottest</option>
-      <option value="mostvoted">Most Voted</option>
-      <option value="unanswered">Unanswered</option>
-    </select>
+  <div 
+    community-filter="Forums.messages" 
+    filter-list="vm.messageList" 
+    api-args="vm.nodeId" 
+    filter-fn="vm.forumListFilter"
+    class="col-md-6 pull-right">
+      <select 
+        class="pull-right" 
+        ng-model="fm.filter.sort" 
+        ng-options="option.label for option in vm.messageSortOptions track by option.value">
+      </select>
   </div>
 </div>
 
 <div>
-  <p style="margin: 0;">Total Results: {{ vm.messageCount }}</p>
+  <community-pager pager-fn="vm.forumListFilter"></community-pager>
+  <p>Total Results: {{ vm.messageCount }}</p>
   <table style="width: 100%;">
     <colgroup>
       <col style="width:50%">
@@ -36,7 +40,7 @@
       <tr ng-repeat="message in vm.messageList">
         <td>
           <div>{{ message.subject }}</div> 
-          <span>by <a ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>
+          <span>by <a class="appType--micro" ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>
         </td>
         <td>
           {{ vm.getStats(message, 'views') }}

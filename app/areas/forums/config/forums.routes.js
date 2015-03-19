@@ -6,7 +6,7 @@
 		$stateProvider
 			.state('forums', {
 				abstract: true,
-				url: '/uf/u/nodes/:nodeId/forums',
+				url: '/uf/u/nodes/:nodeId',
 				templateUrl: 'forums/forums.html',
 				controller: 'Forum as vm'
 			})
