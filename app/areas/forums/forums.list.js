@@ -1,19 +1,25 @@
 (function(_){
 	'use strict';
 
-	var forumListController = function(forumMessages, dataService, filterService){
+	function ForumListController ($stateParams, dataService, forumListFilter){
 		this.messageSortOptions = dataService.MessageSort;
-		this.messageList = forumMessages.content;
-		this.messageCount = forumMessages.count;
-		this.forumListFilter = filterService.getNewFilter();
-
-		this.getStats = function(message, statKey){
-			return _.findWhere(message.stats, { key: statKey }).value;
-		};
+		this.forumListFilter = forumListFilter;
+		this.nodeId = $stateParams.nodeId;
+		
+		var controller = this;
+		this.forumListFilter.filter().then(function(result){
+			controller.messageList = result.content;
+			controller.messageCount = result.next.total;
+		});
 	};
-	forumListController.$inject = ['ForumMessages', 'CommunityDataService', 'CommunityFilterService'];
+
+	ForumListController.prototype.getStats = function(message, statKey){
+		return _.findWhere(message.stats, { key: statKey }).value;
+	};
+
+	ForumListController.$inject = ['$stateParams', 'CommunityDataService', 'ForumListFilter'];
 
 	angular.module('community.forums')
-		.controller('ForumList', forumListController);
+		.controller('ForumList', ForumListController);
 
 }(window._));

@@ -4,24 +4,28 @@
 	var communityFilter = function(){
 		function Filter(){
 			return {
-				set: function(filterFn, filterArguments){
-					this.filterModel = {};
+				set: function(filterFn, filterArguments, initialModel){
+					this.filterModel = initialModel;
 					this.filterFn = filterFn;
 					this.filterArguments = filterArguments;
+					
+					return this;
+
 				},
 				filter: function(filterData){
 					if (filterData) {
-						this.filterData(filterData);
+						this.setFilterModel(filterData);
 					}
 
 					var args = [];
 					if (_.isArray(this.filterArguments)) {
-						args = this.filterArguments;
+						args = _.clone(this.filterArguments);
 					}
+					
 					args.push(this.filterModel);
 					return this.filterFn.apply(this, args);
 				},
-				filterData: function(filterData){
+				setFilterModel: function(filterData){
 					if (!_.isUndefined(filterData)) {
 						this.filterModel = _.extend(this.filterModel, filterData);
 					}
@@ -41,4 +45,5 @@
 
 	angular.module('community.shared')
 		.service('CommunityFilterService', communityFilter);
+		
 }(window._));

@@ -11,22 +11,32 @@
 			
 
 			var pageData = {
-
+				limit: this.pageSize,
+				offset: 0
 			};
 
 			//ugh ... why $parent? 
-			var filterer = this.pagerFn ? $parse(this.pagerFn)($scope.$parent) : filterService.getNewFilter();  
+			var $parent = $scope.$parent;
+			var filterer = this.pagerFn ? $parse(this.pagerFn)($parent) : filterService.getNewFilter();  
 			
-			function page(){
-				filterer.filter(pageData).then(function(){
-					debugger;
+			var pagedListFn = $parse(this.pagedList);
+			var page = function(){
+				filterer.filter(pageData).then(function(result){
+					pagedListFn.assign($parent, result.content);
 				});
-			} 
+			};
+
 			this.nextPage = function(){
+				pageData.offset += this.pageSize;
 				page();
 			};
 
 			this.previousPage = function(){
+				pageData.offset -= this.pageSize;
+				if (pageData.offset < 0) {
+					pageData.offset = 0;
+				}
+
 				page();
 			};
 		};
@@ -40,6 +50,7 @@
 	        bindToController: true,
 	        restrict: 'AE',
 	        scope: {
+	        	pagedList: '@',
 	        	pageSize: '@',
 	        	allowEnd: '@',
 	        	pagerFn: '@'

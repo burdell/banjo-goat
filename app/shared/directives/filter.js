@@ -3,40 +3,23 @@
 	
 	function communityFilter() {
 		var link = function(scope, element, attrs) {
-		    scope.setFilter(attrs);
+
 		};
 
 		var controller = function($scope, $parse, filterService, communityApi, utils) {
-			var filterer = null;
+			var $parent = $scope.$parent;
+
+			var filterer = $parse(this.filterFn)($parent);
 			var filterOptions = {};
-			var filteredListAttribute = null;
+			var filteredListAttribute = this.filterList;
 			
 			//ui model
 			this.filter = filterOptions;
 
-			$scope.setFilter = function(attrs) {
-				var apiCall = attrs.communityFilter;
-				var apiArgs = attrs.apiArgs;
-
-				filteredListAttribute = attrs.filterList;
-				filterer = attrs.filterFn ? $parse(attrs.filterFn)($scope) : filterService.getNewFilter(); 
-
-				var filterFn = $parse(apiCall)(communityApi);
-				var filterArgs = utils.splitCsv(apiArgs);
-
-				if (filterArgs) {
-					filterArgs = _.map(filterArgs, function(arg){
-						return $parse(arg)($scope);
-					});
-				}	
-
-				filterer.set(filterFn, filterArgs);
-			};
-
-			$scope.$watch('fm.filter', function(newValue, oldValue){
+			$parent.$watch('fm.filter', function(newValue, oldValue){
 				if (newValue !== oldValue) {
 					filterer.filter(newValue).then(function(result){
-						$parse(filteredListAttribute).assign($scope, result.content);
+						$parse(filteredListAttribute).assign($parent, result.content);
 					});
 				}
 			}, true);
@@ -49,7 +32,10 @@
 	        controllerAs: 'fm',
 	        bindToController: true,
 	        restrict: 'A',
-	        scope: true
+	        scope: {
+	        	filterList: '@communityFilter',
+	        	filterFn: '@'
+	        }
 	    };
 
 	    return directive;

@@ -15,8 +15,14 @@
 				templateUrl: 'forums/forums.list.html',
 				controller: 'ForumList as vm',
 				resolve: {
-					ForumMessages: ['$stateParams', 'CommunityApiService', function(params, communityApi){
-						return communityApi.Forums.messages(params.nodeId);
+					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						var apiArgs = [ $stateParams.nodeId ];
+						var initialModel = { 
+							sort: $stateParams.sort, 
+							offset: $stateParams.offset 
+						};
+
+						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);
 					}]
 				}
 			})

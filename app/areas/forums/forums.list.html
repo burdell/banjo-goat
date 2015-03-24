@@ -2,22 +2,19 @@
  <!--  <div class="col-md-6">
     <a ui-sref="forums.newtopic" class="btn btn-primary">New Topic</a>
   </div> -->
-  <div 
-    community-filter="Forums.messages" 
-    filter-list="vm.messageList" 
-    api-args="vm.nodeId" 
-    filter-fn="vm.forumListFilter"
-    class="col-md-6 pull-right">
+  <div community-filter="vm.messageList" filter-fn="vm.forumListFilter" class="col-md-6 pull-right">
       <select 
         class="pull-right" 
-        ng-model="fm.filter.sort" 
-        ng-options="option.label for option in vm.messageSortOptions track by option.value">
+        ng-model="fm.filter.sort">
+          <option ng-repeat="option in vm.messageSortOptions" value="{{ option.value }}">
+            {{ option.label }}
+          </option>
       </select>
   </div>
 </div>
 
 <div>
-  <community-pager pager-fn="vm.forumListFilter"></community-pager>
+  <community-pager paged-list="vm.messageList" pager-fn="vm.forumListFilter"></community-pager>
   <p>Total Results: {{ vm.messageCount }}</p>
   <table style="width: 100%;">
     <colgroup>
