@@ -64,7 +64,7 @@
 					return goToApi(baseUrls.Forums + urlSegments.Message(messageId));
 				},
 				messages: function(nodeId, data){
-					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId + "_Stories") + 'messages', data);
+					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'messages', data);
 				},
 				comments: function(messageId, data) {
 					return goToApi(baseUrls.Forums + urlSegments.Message(messageId) + 'comments');

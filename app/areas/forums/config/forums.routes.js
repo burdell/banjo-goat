@@ -11,7 +11,7 @@
 				controller: 'Forum as vm'
 			})
 			.state('forums.list', {
-				url: '/list',
+				url: '/list?limit&sort',
 				templateUrl: 'forums/forums.list.html',
 				controller: 'ForumList as vm',
 				resolve: {
@@ -19,7 +19,7 @@
 						var apiArgs = [ $stateParams.nodeId ];
 						var initialModel = { 
 							sort: $stateParams.sort, 
-							offset: $stateParams.offset 
+							offset: $stateParams.offset
 						};
 
 						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);

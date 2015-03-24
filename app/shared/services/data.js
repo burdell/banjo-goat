@@ -4,11 +4,9 @@
 	var dataService = function(){
 		return {
 			MessageSort: [
-				{ value: 'latest', label: 'Newest'  },
-				{ value: 'active', label: 'Active'  },
-				{ value: 'hottest', label: 'Hottest'  },
-				{ value: 'mostvoted', label: 'Most Voted'  },
-				{ value: 'unanswered', label: 'Unanswered'  }
+				{ value: 'recent', label: 'Recent Activity', default: true  },
+				{ value: 'postdate', label: 'Post Date'  },
+				{ value: 'popular', label: 'Views'  }
 			]
 		};
 	};
