@@ -11,7 +11,7 @@
 			controller.messageList = result.content;
 			controller.messageCount = result.next.total;
 		});
-	};
+	}
 
 	ForumListController.prototype.getStats = function(message, statKey){
 		return _.findWhere(message.stats, { key: statKey }).value;
