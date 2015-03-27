@@ -2,7 +2,7 @@
 	'use strict';
 	
 	var baseTag = document.createElement('base');
-	baseTag.setAttribute('href', '/index.php?p=/');
+	baseTag.setAttribute('href', '/');
 	document.head.appendChild(baseTag);
 	
 	angular.module('communityApp', [
