@@ -15,14 +15,12 @@
 				offset: 0
 			};
 
-			//ugh ... why $parent? 
-			var $parent = $scope.$parent;
-			var filterer = this.pagerFn ? $parse(this.pagerFn)($parent) : filterService.getNewFilter();  
+			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 			
-			var pagedListFn = $parse(this.pagedList);
+			var pagerCtrl = this;
 			var page = function(){
 				filterer.filter(pageData).then(function(result){
-					pagedListFn.assign($parent, result.content);
+					pagerCtrl.pagedList = result.content;
 				});
 			};
 
@@ -50,10 +48,10 @@
 	        bindToController: true,
 	        restrict: 'AE',
 	        scope: {
-	        	pagedList: '@',
-	        	pageSize: '@',
 	        	allowEnd: '@',
-	        	pagerFn: '@'
+	        	pagedList: '=',
+	        	pageSize: '@',
+	        	pagerFn: '='
 	        }
 	    };
 

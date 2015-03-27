@@ -6,25 +6,22 @@
 
 		};
 
-		var controller = function($scope, $parse, filterService, communityApi, utils) {
-			var $parent = $scope.$parent;
-
-			var filterer = $parse(this.filterFn)($parent);
-			var filterOptions = {};
-			var filteredListAttribute = this.filterList;
-			
+		var controller = function($scope, utils) {
 			//ui model
-			this.filter = filterOptions;
+			this.filter = {};
 
-			$parent.$watch('fm.filter', function(newValue, oldValue){
+			var exclude = this.filterExclude ? utils.splitCsv(this.filterExclude) : null;
+			var filterCtrl = this;
+			//ugh, why $parent?
+			$scope.$parent.$watch('fm.filter', function(newValue, oldValue){
 				if (newValue !== oldValue) {
-					filterer.filter(newValue).then(function(result){
-						$parse(filteredListAttribute).assign($parent, result.content);
+					filterCtrl.filterFn.filter(newValue, exclude).then(function(result){
+						filterCtrl.filterList = result.content;
 					});
 				}
 			}, true);
 		};
-		controller.$inject = ['$scope', '$parse', 'CommunityFilterService', 'CommunityApiService', 'CommunityUtilsService'];
+		controller.$inject = ['$scope', 'CommunityUtilsService'];
 
 	    var directive = {
 	        link: link,
@@ -33,8 +30,9 @@
 	        bindToController: true,
 	        restrict: 'A',
 	        scope: {
-	        	filterList: '@communityFilter',
-	        	filterFn: '@'
+	        	filterExclude: '@',
+	        	filterFn: '=',
+	        	filterList: '=communityFilter'
 	        }
 	    };
 

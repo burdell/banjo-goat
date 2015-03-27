@@ -1,9 +1,14 @@
   
 <div class="community-main">
-  <discussions-header></discussions-header>
   <!-- <discussions-nav-bar></discussions-nav-bar> -->
 
-  <div class="row">
-    <div ui-view></div>
+  <div class="row--comfy">
+  	<div class="col--md9">
+	  	<discussions-header></discussions-header>
+		<div ui-view="mainContent"></div>  		
+  	</div>
+
+	<div class="col--md3" ui-view="sidebar">
+	</div>
   </div>
 </div>

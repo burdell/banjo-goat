@@ -64,6 +64,7 @@
 					return goToApi(baseUrls.Forums + urlSegments.Message(messageId));
 				},
 				messages: function(nodeId, data){
+					console.log(data);
 					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'messages', data);
 				},
 				comments: function(messageId, data) {

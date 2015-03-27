@@ -3,19 +3,25 @@
     <a ui-sref="forums.newtopic" class="btn btn-primary">New Topic</a>
   </div> -->
   
-  <!-- <div community-filter="vm.messageList" filter-fn="vm.forumListFilter" class="col-md-6 pull-right">
+  <div 
+    class="col--mdOffset9 col--md3" 
+    community-filter="vm.forumListService.MessageList" 
+    filter-fn="vm.forumListFilter"
+    filter-exclude="limit, offset">
+      <label>Sort By: </label>
       <select 
-        class="pull-right" 
         ng-model="fm.filter.sort">
           <option ng-repeat="option in vm.messageSortOptions" value="{{ option.value }}">
             {{ option.label }}
           </option>
       </select>
-  </div> -->
+    </div>
 </div>
 
 <div>
-  <!-- <community-pager paged-list="vm.messageList" pager-fn="vm.forumListFilter"></community-pager> -->
+
+  <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager>
+
   <p>Total Results: {{ vm.messageCount }}</p>
   <table style="width: 100%;">
     <colgroup>
@@ -35,7 +41,7 @@
       <th></th>
     </thead>
     <tbody>
-      <tr ng-repeat="message in vm.messageList">
+      <tr ng-repeat="message in vm.forumListService.MessageList">
         <td>
           <div>{{ message.subject }}</div> 
           <span>by <a class="appType--micro" ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>

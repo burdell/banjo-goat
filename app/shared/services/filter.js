@@ -12,9 +12,9 @@
 					return this;
 
 				},
-				filter: function(filterData){
+				filter: function(filterData, exclude){
 					if (filterData) {
-						this.setFilterModel(filterData);
+						this.setFilterModel(filterData, exclude);
 					}
 
 					var args = [];
@@ -25,10 +25,17 @@
 					args.push(this.filterModel);
 					return this.filterFn.apply(this, args);
 				},
-				setFilterModel: function(filterData){
-					if (!_.isUndefined(filterData)) {
-						this.filterModel = _.extend(this.filterModel, filterData);
+				setFilterModel: function(filterData, exclude){
+					if (exclude) {
+						var values = [];
+						values.length = exclude.length;
+
+						var excludeObject = _.object(exclude, values);
+						filterData = _.extend(filterData, excludeObject);
 					}
+					
+					this.filterModel = _.extend(this.filterModel, filterData);
+					
 					return this.filterModel;
 				}
 			};

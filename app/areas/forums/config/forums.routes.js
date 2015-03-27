@@ -11,9 +11,17 @@
 				controller: 'Forum as vm'
 			})
 			.state('forums.list', {
-				url: '/list?limit&sort',
-				templateUrl: 'forums/forums.list.html',
-				controller: 'ForumList as vm',
+				url: '/list?offset&sort', 
+				views: {
+					'mainContent': {
+						templateUrl: 'forums/list/forums.list.html',
+						controller: 'ForumList as vm'
+					},
+					'sidebar': {
+						templateUrl: 'forums/list/forums.list.sidebar.html',
+						controller: 'ForumListSidebar as vm'
+					}
+				},
 				resolve: {
 					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						var apiArgs = [ $stateParams.nodeId ];

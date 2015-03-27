@@ -7,7 +7,10 @@
 				{ value: 'recent', label: 'Recent Activity', default: true  },
 				{ value: 'postdate', label: 'Post Date'  },
 				{ value: 'popular', label: 'Views'  }
-			]
+			],
+			SearchConfig: {
+				delay: 300
+			}
 		};
 	};
 
