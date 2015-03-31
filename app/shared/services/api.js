@@ -27,8 +27,8 @@
 		}
 		
 		var baseUrls = {
-			Core: 'index.php?p=/uc/api/',
-			Forums: 'index.php?p=/uf/api/'
+			Core: '/uc/api/',
+			Forums: '/uf/api/'
 		};
 
 		var urlSegments = {
@@ -64,7 +64,6 @@
 					return goToApi(baseUrls.Forums + urlSegments.Message(messageId));
 				},
 				messages: function(nodeId, data){
-					console.log(data);
 					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'messages', data);
 				},
 				comments: function(messageId, data) {

@@ -1,11 +1,9 @@
 (function(){
 	'use strict';
 
-	var sidebarController = function(forumListFilter, forumListService){
-		this.forumListFilter = forumListFilter;
-		this.forumListService = forumListService;
+	var sidebarController = function(){
 	};
-	sidebarController.$inject = ['ForumListFilter', 'ForumListService'];
+	sidebarController.$inject = [];
 
 	angular.module('community.forums')
 		.controller('ForumListSidebar', sidebarController);

@@ -8,7 +8,21 @@
 				abstract: true,
 				url: '/uf/u/nodes/:nodeId',
 				templateUrl: 'forums/forums.html',
-				controller: 'Forum as vm'
+				controller: 'Forum as vm',
+				resolve: {
+					CommunityNodeStructure: ['$stateParams', function($stateParams){
+						return window.nodeStructure[0];
+					}],
+					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						var apiArgs = [ $stateParams.nodeId ];
+						var initialModel = { 
+							sort: $stateParams.sort, 
+							offset: $stateParams.offset
+						};
+
+						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);
+					}]
+				}
 			})
 			.state('forums.list', {
 				url: '/list?offset&sort', 
@@ -23,15 +37,7 @@
 					}
 				},
 				resolve: {
-					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
-						var apiArgs = [ $stateParams.nodeId ];
-						var initialModel = { 
-							sort: $stateParams.sort, 
-							offset: $stateParams.offset
-						};
-
-						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);
-					}]
+					
 				}
 			})
 			.state('forums.thread', {
@@ -46,6 +52,7 @@
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
 
 		angular.module('community.forums')
 			.config(config);

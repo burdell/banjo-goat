@@ -1,10 +1,28 @@
-  
 <div class="community-main">
   <!-- <discussions-nav-bar></discussions-nav-bar> -->
+  
+  <div class="row">
+  		<div class="col--md9">
+  			<community-breadcrumbs></community-breadcrumbs>	
+  		</div>
+  		<div class="col--md3">
+  			<community-search 
+				search-list="vm.forumListService.MessageList" 
+				filter-fn="vm.forumListFilter" 
+				placeholder="Search Forums"
+				exclude="limit, offset">
+			</community-search>
+  		</div>
+  </div>
 
-  <div class="row--comfy">
+  <div class="row">
+	<discussions-header></discussions-header>
+  </div>
+
+  <div class="row">
   	<div class="col--md9">
-	  	<discussions-header></discussions-header>
+	  	<p>FORUMS are the central hub of our community discussions and chatter. Voice your opinion, show what you're working on, and check out the cool things others are doing. And remember, we are all here to help each other!</p>
+
 		<div ui-view="mainContent"></div>  		
   	</div>
 

@@ -3,7 +3,8 @@
 	
 	var forumListService = function(){
 		return {
-			ForumMessageList: null
+			ForumMessageList: null,
+			CurrentNode: null
 		};
 	};
 	
