@@ -1,12 +1,11 @@
 (function(){
 	'use strict';
 
-	var forumController = function($stateParams, nodeStructure, nodeService, forumListFilter){
-		nodeService.setNodeStructure(nodeStructure);
+	var forumController = function($stateParams, nodeService, forumListFilter){
 		this.currentNode = nodeService.CurrentNode;
 		this.forumListFilter = forumListFilter;
 	};
-	forumController.$inject = ['$stateParams', 'CommunityNodeStructure', 'CommunityNodeService', 'ForumListFilter'];
+	forumController.$inject = ['$stateParams', 'CommunityNodeService', 'ForumListFilter'];
 
 	angular.module('community.forums')
 		.controller('Forum', forumController);

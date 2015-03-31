@@ -27,8 +27,8 @@
 		}
 		
 		var baseUrls = {
-			Core: '/uc/api/',
-			Forums: '/uf/api/'
+			Core: '/api/',
+			Forums: '/api/'
 		};
 
 		var urlSegments = {

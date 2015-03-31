@@ -10,8 +10,8 @@
 				templateUrl: 'forums/forums.html',
 				controller: 'Forum as vm',
 				resolve: {
-					CommunityNodeStructure: ['$stateParams', function($stateParams){
-						return window.nodeStructure[0];
+					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
+						return nodeService.setNodeStructure($stateParams.nodeId);
 					}],
 					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						var apiArgs = [ $stateParams.nodeId ];
@@ -30,14 +30,7 @@
 					'mainContent': {
 						templateUrl: 'forums/list/forums.list.html',
 						controller: 'ForumList as vm'
-					},
-					'sidebar': {
-						templateUrl: 'forums/list/forums.list.sidebar.html',
-						controller: 'ForumListSidebar as vm'
 					}
-				},
-				resolve: {
-					
 				}
 			})
 			.state('forums.thread', {

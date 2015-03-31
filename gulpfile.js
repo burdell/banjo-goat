@@ -76,9 +76,9 @@ gulp.task('clean', function(){
 
 gulp.task('scripts', function() {
   return gulp.src(sources.js)
-    .pipe($.jshint(packageJSON.jshintConfig))
-    .pipe($.jshint.reporter("jshint-stylish"))
-    .pipe($.jshint.reporter('fail'))
+    // .pipe($.jshint(packageJSON.jshintConfig))
+    // .pipe($.jshint.reporter("jshint-stylish"))
+    // .pipe($.jshint.reporter('fail'))
     .pipe(gulp.dest(outputs.dev));
 });
 
