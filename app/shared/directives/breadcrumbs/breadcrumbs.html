@@ -1,0 +1,6 @@
+<div class="community__breadcrumbs">
+	<span ng-repeat="breadcrumb in breadcrumbs.breadcrumbList" class="Breadcrumbs" itemtype="http://data-vocabulary.org/Breadcrumb">
+		 <span class="CrumbLabel HomeCrumb"><a href="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a>&nbsp;/&nbsp;</span>
+	</span>
+	<span itemprop="title">{{ breadcrumbs.currentNode.name }}</span>
+</div>

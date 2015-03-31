@@ -1,0 +1,9 @@
+ <span>
+ 	 <label>Sort By: </label>
+	 <select 
+	    ng-model="sorter.ngModel">
+	      <option ng-repeat="option in sorter.sortOptions" ng-selected="option.default" value="{{ option.value }}">
+	        {{ option.label }}
+	      </option>
+	 </select>
+ </span>
