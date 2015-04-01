@@ -1,10 +1,7 @@
-<div class="row">
+<div class="row row--comfy" style="border-bottom: 1px solid gray;">
 	<ul style="float:right;">
-		<li style="display: inline;">All Forums</li>
-		<li style="display: inline;">Alpha</li>
-		<li style="display: inline;">Beta</li>
-		<li style="display: inline;">Q&A</li>
-		<li style="display: inline;">Stories</li>
-		<li style="display: inline;">Blog</li> 
+		<li ng-repeat="navLink in navbar.navLinks" style="display: inline; padding-left: 1em;">
+			<a ng-class="{ active : navLink.active }" href="{{ navLink.href }}">{{ navLink.display }}</a>
+		</li>
 	</ul>
 </div>

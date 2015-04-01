@@ -1,17 +1,19 @@
- <div class="row row-comfy">
-  <div 
-    class="col--mdOffset9 col--md3" 
-    community-filter="vm.forumListService.MessageList" 
-    filter-fn="vm.forumListFilter"
-    filter-exclude="limit, offset">
-      <community-sort sort-options="vm.messageSortOptions" ng-model="fm.filter.sort"></community-sort>
+ <div>
+  <!-- <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager> -->
+  <div class="row row-comfy" style="border-bottom: 1px solid gray">
+    <h4>Showing {{ vm.messageCount }} results for {{ vm.currentNode.name }}</h4>
+  </div>
+
+  <div class="row">
+    <div 
+        class="col--mdOffset9 col--md3" 
+        community-filter="vm.forumListService.MessageList" 
+        filter-fn="vm.forumListFilter"
+        filter-exclude="limit, offset">
+          <community-sort sort-options="vm.messageSortOptions" ng-model="fm.filter.sort"></community-sort>
     </div>
-</div>
+  </div>
 
-<div>
-
-  <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager>
-  <p>Total Results: {{ vm.messageCount }}</p>
   <table style="width: 100%;">
     <colgroup>
       <col style="width:50%">
@@ -21,7 +23,7 @@
       <col style="width:11%">
       <col style="width:5%">
     </colgroup>
-    <thead style="border-top: 1px solid gray;">
+    <thead style="border-bottom: 1px solid gray;">
       <th></th>
       <th>Views</th>
       <th>Comments</th>
