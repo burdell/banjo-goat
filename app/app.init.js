@@ -6,7 +6,7 @@
 	document.head.appendChild(baseTag);
 	
 	angular.module('communityApp', [
-		'ui.router', 
+		'ui.router',
 		'community.shared', 
 		'community.forums', 
 		'community.templates'

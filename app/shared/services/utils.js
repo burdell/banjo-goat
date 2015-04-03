@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var utils = function(){
+	var utils = function($templateCache){
 		return {
 			splitCsv: function(csvString) {
 				if (_.isUndefined(csvString) || _.isNull(csvString)) {

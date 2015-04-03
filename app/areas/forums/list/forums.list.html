@@ -34,7 +34,15 @@
     <tbody>
       <tr ng-repeat="message in vm.forumListService.MessageList">
         <td>
-          <div>{{ message.subject }}</div> 
+          <div>
+            <span 
+              community-tooltip 
+              data-id-field="{{ message.id }}" 
+              ajax-populate="vm.getMessageData" 
+              tooltip-template="forums/list/forums.list.messagetooltip.html">
+                {{ message.subject }}
+            </span>
+          </div> 
           <span>by <a class="appType--micro" ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>
         </td>
         <td>
