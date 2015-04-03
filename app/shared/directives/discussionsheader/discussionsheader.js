@@ -9,7 +9,7 @@
 	    var directive = {
 	        link: link,
 	        templateUrl: 'directives/discussionsheader/discussionsheader.html',
-	        restrict: 'EA',
+	        restrict: 'E',
 	        replace: true,
 	        scope: true
 	    };

@@ -5,7 +5,7 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function($scope, $parse, filterService, communityApi, utils) {
+		var controller = function($scope, filterService, communityApi, utils) {
 			//defaults
 			this.pageSize = Number(this.pageSize) || 30;
 			
@@ -14,31 +14,35 @@
 				limit: this.pageSize,
 				offset: 0
 			};
-
-			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 			
-			var pagerCtrl = this;
-			var page = function(){
+			var ctrl = this;
+			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
+
+			function Page() {
 				filterer.filter(pageData).then(function(result){
-					pagerCtrl.pagedList = result.content;
+					ctrl.pagedList = result.content;
 				});
 			};
 
-			this.nextPage = function(){
+			function NextPage (){
 				pageData.offset += this.pageSize;
-				page();
+				Page();
 			};
 
-			this.previousPage = function(){
+			function PreviousPage(){
 				pageData.offset -= this.pageSize;
 				if (pageData.offset < 0) {
 					pageData.offset = 0;
 				}
-
-				page();
+				Page();
 			};
+
+			_.extend(ctrl, {
+				nextPage: NextPage,
+				previousPage: PreviousPage
+			});
 		};
-		controller.$inject = ['$scope', '$parse', 'CommunityFilterService', 'CommunityApiService'];
+		controller.$inject = ['$scope', 'CommunityFilterService', 'CommunityApiService'];
 
 	    var directive = {
 	        link: link,

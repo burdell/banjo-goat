@@ -15,7 +15,7 @@
 	        templateUrl: 'directives/sorter/sorter.html',
 	        controllerAs: 'sorter',
 	        bindToController: true,
-	        restrict: 'AE',
+	        restrict: 'E',
 	        scope: {
 	        	'sortOptions': '=',
 	        	'ngModel': '='

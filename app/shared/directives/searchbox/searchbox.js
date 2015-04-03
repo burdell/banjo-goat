@@ -19,7 +19,8 @@
 	        templateUrl: 'directives/searchbox/searchbox.html',
 	        controllerAs: 'searchbox',
 	        bindToController: true,
-	        restrict: 'AE',
+	        restrict: 'E',
+	        replace: true,
 	        scope: {
 	        	exclude: '@',
 	        	filterFn: '=',

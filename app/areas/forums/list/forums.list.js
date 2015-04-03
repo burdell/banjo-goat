@@ -2,23 +2,27 @@
 	'use strict';
 
 	function ForumListController ($stateParams, dataService, forumListFilter, forumListService, nodeService, communityApiService){
-		this.messageSortOptions = dataService.MessageSort;
-		this.forumListFilter = forumListFilter;
-		this.nodeId = $stateParams.nodeId;
-		this.forumListService = forumListService;
-		this.currentNode = nodeService.CurrentNode;
-		this.getMessageData = communityApiService.Forums.message;
-
 		var controller = this;
-		this.forumListFilter.filter().then(function(result){
+
+		forumListFilter.filter().then(function(result){
 			forumListService.MessageList = result.content;
 			controller.messageCount = result.next.total;
 		});
-	}
 
-	ForumListController.prototype.getStats = function(message, statKey){
-		return _.findWhere(message.stats, { key: statKey }).value;
-	};
+		function GetStats(message, statKey) {
+			return _.findWhere(message.stats, { key: statKey }).value;
+		};
+
+		_.extend(controller, {
+			messageSortOptions: dataService.MessageSort,
+			forumListFilter: forumListFilter,
+			nodeId: $stateParams.nodeId,
+			forumListService: forumListService,
+			currentNode: nodeService.CurrentNode,
+			getMessageData: communityApiService.Forums.message,
+			getStats: GetStats
+		});
+	}
 
 	ForumListController.$inject = ['$stateParams', 'CommunityDataService', 'ForumListFilter', 'ForumListService', 'CommunityNodeService', 'CommunityApiService'];
 

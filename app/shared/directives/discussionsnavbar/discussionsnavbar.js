@@ -29,6 +29,7 @@
 					this.navLinks.push({ display: displayName, href: navNode.href, active: navNode == currentNode });
 				}
 			}, this);
+			
 		}
 		controller.$inject = ['CommunityNodeService'];
 	    
@@ -36,11 +37,11 @@
 	        link: link,
 	        controller: controller,
 	        templateUrl: 'directives/discussionsnavbar/discussionsnavbar.html',
-	        restrict: 'EA',
+	        restrict: 'E',
 	        controllerAs: 'navbar',
 	        bindToController: true,
 	        replace: true,
-	        scope: true
+	        scope: {}
 	    };
 
 	    return directive;

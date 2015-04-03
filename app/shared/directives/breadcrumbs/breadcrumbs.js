@@ -6,20 +6,25 @@
 		};
 
 		var controller = function(nodeService) {
-			this.currentNode = nodeService.CurrentNode;
-			this.breadcrumbList = this.getBreadcrumbList(this.currentNode);
-		};
+			function GetBreadcrumbList(currentNode) {
+				var breadCrumbList = [];
 
-		controller.prototype.getBreadcrumbList = function(currentNode){
-			var breadCrumbList = [];
+				var parentNode = currentNode.parent;
+				while(parentNode) {
+					breadCrumbList.unshift(parentNode);
+					parentNode = parentNode.parent;
+				}
 
-			var parentNode = currentNode.parent;
-			while(parentNode) {
-				breadCrumbList.unshift(parentNode);
-				parentNode = parentNode.parent;
+				return breadCrumbList;
 			}
 
-			return breadCrumbList;
+			var breadcrumbList = GetBreadcrumbList(nodeService.CurrentNode);
+
+			var ctrl = this;
+			_.extend(ctrl, {
+				currentNode: nodeService.CurrentNode,
+				breadcrumbList: breadcrumbList
+			});
 		};
 
 		controller.$inject = ['CommunityNodeService'];
@@ -30,8 +35,9 @@
 	        templateUrl: 'directives/breadcrumbs/breadcrumbs.html',
 	        controllerAs: 'breadcrumbs',
 	        bindToController: true,
-	        restrict: 'AE',
-	        scope: true
+	        replace: true,
+	        restrict: 'E',
+	        scope: {}
 	    };
 
 	    return directive;

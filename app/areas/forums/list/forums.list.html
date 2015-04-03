@@ -1,7 +1,7 @@
  <div>
-  <!-- <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager> -->
+  <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager>
   <div class="row row-comfy" style="border-bottom: 1px solid gray">
-    <h4>Showing {{ vm.messageCount }} results for {{ vm.currentNode.name }}</h4>
+    <h4>Showing {{ vm.messageCount }} results for {{ ::vm.currentNode.name }}</h4>
   </div>
 
   <div class="row">
@@ -37,13 +37,13 @@
           <div>
             <span 
               community-tooltip 
-              data-id-field="{{ message.id }}" 
+              data-id-field="{{ ::message.id }}" 
               ajax-populate="vm.getMessageData" 
               tooltip-template="forums/list/forums.list.messagetooltip.html">
-                {{ message.subject }}
+                {{ ::message.subject }}
             </span>
           </div> 
-          <span>by <a class="appType--micro" ui-sref="user">{{ message.author.login }}</a> <span>{{ message.postTime | timeFromNow }}</span></span>
+          <span>by <a class="appType--micro" ui-sref="user">{{ ::message.author.login }}</a> <span>{{ ::message.postTime | timeFromNow }}</span></span>
         </td>
         <td>
           {{ vm.getStats(message, 'views') }}
@@ -54,7 +54,7 @@
         <td>
           {{ vm.getStats(message, 'kudos') }}
         </td>
-        <td><a>{{ message.latestReply.author.login }}</a><br /> {{ message.latestReply.postTime | timeFromNow }}</td>
+        <td><a>{{ ::message.latestReply.author.login }}</a><br /> {{ message.latestReply.postTime | timeFromNow }}</td>
         <td></td>
       </tr>
     </tbody>
