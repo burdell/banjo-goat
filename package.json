@@ -64,6 +64,7 @@
     "unused": "vars",
     "trailing": true,
     "lastsemic": true,
+    "validthis": true,
     "globals": {
       "module": false,
       "require": false,

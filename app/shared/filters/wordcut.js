@@ -1,4 +1,4 @@
-(function(moment){
+(function(_){
 	'use strict';
 	
 	var wordCut = function(){
@@ -19,4 +19,4 @@
 	angular.module('community.filters')
 		.filter('wordCut', wordCut);
 
-}(window.moment));
+}(window._));

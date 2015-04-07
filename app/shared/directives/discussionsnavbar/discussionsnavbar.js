@@ -1,4 +1,4 @@
-(function(){
+(function(_){
 	'use strict';
 
 	function discussionsNavBar() {
@@ -7,7 +7,9 @@
 		}
 
 		function controller(nodeService) {
-			this.navLinks = [];
+			var ctrl = this;
+			
+			ctrl.navLinks = [];
 
 			var standardNavLinks = {
 				'Forums': '_g',
@@ -26,9 +28,9 @@
 					return (node.urlSlug.indexOf(searchValue) >= 0);
 				});
 				if (navNode) {
-					this.navLinks.push({ display: displayName, href: navNode.href, active: navNode == currentNode });
+					this.navLinks.push({ display: displayName, href: navNode.href, active: navNode === currentNode });
 				}
-			}, this);
+			}, ctrl);
 			
 		}
 		controller.$inject = ['CommunityNodeService'];
@@ -49,4 +51,4 @@
 
 	angular.module('community.directives')
 		.directive('discussionsNavBar', discussionsNavBar);
-}());
+}(window._));

@@ -8,8 +8,10 @@
 			setNodeStructure: function(currentNodeName){
 				var nodeData = window.nodeStructure[0];
 				var service = this;
-				var setParent = function(o){
-					if (!o.children) return;
+				var setParent = function(o) {
+					if (!o.children) {
+						return;	
+					} 
 
 				     if(o.children.length > 1){
 				     	_.each(o.children, function(child){

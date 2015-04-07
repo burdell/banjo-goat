@@ -18,28 +18,28 @@
 			var ctrl = this;
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
-			function Page() {
+			function page() {
 				filterer.filter(pageData).then(function(result){
 					ctrl.pagedList = result.content;
 				});
-			};
+			}
 
-			function NextPage (){
+			function nextPage (){
 				pageData.offset += this.pageSize;
-				Page();
-			};
+				page();
+			}
 
-			function PreviousPage(){
+			function previousPage(){
 				pageData.offset -= this.pageSize;
 				if (pageData.offset < 0) {
 					pageData.offset = 0;
 				}
-				Page();
-			};
+				page();
+			}
 
 			_.extend(ctrl, {
-				nextPage: NextPage,
-				previousPage: PreviousPage
+				nextPage: nextPage,
+				previousPage: previousPage
 			});
 		};
 		controller.$inject = ['$scope', 'CommunityFilterService', 'CommunityApiService'];

@@ -11,7 +11,7 @@
 
 		function GetStats(message, statKey) {
 			return _.findWhere(message.stats, { key: statKey }).value;
-		};
+		}
 
 		_.extend(controller, {
 			messageSortOptions: dataService.MessageSort,

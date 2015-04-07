@@ -1,4 +1,4 @@
-(function(){
+(function(_){
 	'use strict';
 	
 	function communityBreadcrumbs() {
@@ -6,7 +6,7 @@
 		};
 
 		var controller = function(nodeService) {
-			function GetBreadcrumbList(currentNode) {
+			function getBreadcrumbList(currentNode) {
 				var breadCrumbList = [];
 
 				var parentNode = currentNode.parent;
@@ -18,7 +18,7 @@
 				return breadCrumbList;
 			}
 
-			var breadcrumbList = GetBreadcrumbList(nodeService.CurrentNode);
+			var breadcrumbList = getBreadcrumbList(nodeService.CurrentNode);
 
 			var ctrl = this;
 			_.extend(ctrl, {
@@ -46,4 +46,4 @@
 	angular.module('community.directives')
 		.directive('communityBreadcrumbs', communityBreadcrumbs);
 		
-}());
+}(window._));

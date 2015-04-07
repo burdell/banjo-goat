@@ -1,4 +1,4 @@
-(function($){
+(function($, _){
 	'use strict';
 	
 	function communityTooltip() {
@@ -31,7 +31,7 @@
 			this.getTemplate = function(templateData) {
 				var tooltipTemplate = $templateCache.get(this.tooltipTemplateName);
 				return $interpolate(tooltipTemplate)(templateData);
-			}
+			};
 		};
 
 		controller.$inject = ['$templateCache', '$interpolate'];
@@ -55,4 +55,4 @@
 	angular.module('community.directives')
 		.directive('communityTooltip', communityTooltip);
 		
-}(window.jQuery));
+}(window.jQuery, window._));

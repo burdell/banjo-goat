@@ -28,7 +28,7 @@
 						$location.search(filterModel);
 
 						return result;
-					});;
+					});
 				},
 				setFilterModel: function(filterData, exclude){
 					if (exclude) {
