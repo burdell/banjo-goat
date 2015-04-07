@@ -14,7 +14,7 @@
 		};
 	};
 
-	angular.module('community.shared')
+	angular.module('community.services')
 		.service('CommunityDataService', dataService);
 
 }(window._));

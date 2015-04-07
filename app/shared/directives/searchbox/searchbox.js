@@ -20,7 +20,6 @@
 	        controllerAs: 'searchbox',
 	        bindToController: true,
 	        restrict: 'E',
-	        replace: true,
 	        scope: {
 	        	exclude: '@',
 	        	filterFn: '=',
@@ -33,7 +32,7 @@
 	    return directive;
 	}
 
-	angular.module('community.shared')
+	angular.module('community.directives')
 		.directive('communitySearch', communitySearch);
 		
 }(window._));

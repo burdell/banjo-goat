@@ -62,7 +62,7 @@
 	    return directive;
 	}
 
-	angular.module('community.shared')
+	angular.module('community.directives')
 		.directive('communityPager', communityFilter);
 		
 }(window._));

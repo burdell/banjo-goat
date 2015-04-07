@@ -13,11 +13,12 @@
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
 					}],
-					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+					ForumListFilter: ['$stateParams', '$location', 'CommunityApiService', 'CommunityFilterService', function($stateParams, $location, communityApi, filterService){
 						var apiArgs = [ $stateParams.nodeId ];
+						var searchValues = $location.search();
 						var initialModel = { 
-							sort: $stateParams.sort, 
-							offset: $stateParams.offset
+							sort: searchValues.sort, 
+							offset: searchValues.offset
 						};
 
 						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);
@@ -31,7 +32,8 @@
 						templateUrl: 'forums/list/forums.list.html',
 						controller: 'ForumList as vm'
 					}
-				}
+				},
+				reloadOnSearch: false
 			})
 			.state('forums.thread', {
 				url: '/t',

@@ -17,6 +17,6 @@
 	    return directive;
 	}
 
-	angular.module('community.shared')
+	angular.module('community.directives')
 		.directive('discussionsHeader', discussionsHeader);
 }());

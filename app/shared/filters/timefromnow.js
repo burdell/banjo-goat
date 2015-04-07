@@ -14,7 +14,7 @@
 		};
 	};
 	
-	angular.module('community.shared')
+	angular.module('community.filters')
 		.filter('timeFromNow', timeFromNow);
 
 }(window.moment));

@@ -17,7 +17,7 @@
 	
 	utils.$inject = [];
 
-	angular.module('community.shared')
+	angular.module('community.services')
 		.service('CommunityUtilsService', utils);
 
 }(window._));

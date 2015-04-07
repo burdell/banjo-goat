@@ -7,7 +7,9 @@
 	
 	angular.module('communityApp', [
 		'ui.router',
-		'community.shared', 
+		'community.services',
+        'community.directives', 
+        'community.filters',  
 		'community.forums', 
 		'community.templates'
 	]);

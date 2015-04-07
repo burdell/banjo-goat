@@ -30,7 +30,7 @@
 	};
 	nodeStructure.$inject = [];
 
-	angular.module('community.shared')
+	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);
 
 }(window._));

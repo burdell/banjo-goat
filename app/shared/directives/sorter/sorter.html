@@ -1,7 +1,7 @@
  <span>
 	 <select 
 	    ng-model="sorter.ngModel">
-	      <option ng-repeat="option in sorter.sortOptions" ng-selected="option.default" value="{{ option.value }}">
+	      <option ng-repeat="option in sorter.sortOptions" value="{{ option.value }}" ng-selected="option.value == sorter.ngModel">
 	        {{ option.label }}
 	      </option>
 	 </select>

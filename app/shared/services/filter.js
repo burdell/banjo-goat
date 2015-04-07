@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 	
-	var communityFilter = function(){
+	var communityFilter = function($location){
 		function Filter(){
 			return {
 				set: function(filterFn, filterArguments, initialModel){
@@ -22,8 +22,13 @@
 						args = _.clone(this.filterArguments);
 					}
 					
-					args.push(this.filterModel);
-					return this.filterFn.apply(this, args);
+					var filterModel = this.filterModel;
+					args.push(filterModel);
+					return this.filterFn.apply(this, args).then(function(result){
+						$location.search(filterModel);
+
+						return result;
+					});;
 				},
 				setFilterModel: function(filterData, exclude){
 					if (exclude) {
@@ -48,9 +53,9 @@
 		};
 	};
 	
-	communityFilter.$inject = [];
+	communityFilter.$inject = ['$location'];
 
-	angular.module('community.shared')
+	angular.module('community.services')
 		.service('CommunityFilterService', communityFilter);
 		
 }(window._));

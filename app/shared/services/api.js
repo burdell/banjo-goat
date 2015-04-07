@@ -80,7 +80,7 @@
 
 	communityApiService.$inject = ['$http'];
 
-	angular.module('community.shared')
+	angular.module('community.services')
 		.service('CommunityApiService', communityApiService);
 
 }(window._));
