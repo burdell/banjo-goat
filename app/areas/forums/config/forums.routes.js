@@ -13,15 +13,12 @@
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
 					}],
-					ForumListFilter: ['$stateParams', '$location', 'CommunityApiService', 'CommunityFilterService', function($stateParams, $location, communityApi, filterService){
-						var apiArgs = [ $stateParams.nodeId ];
-						var searchValues = $location.search();
-						var initialModel = { 
-							sort: searchValues.sort, 
-							offset: searchValues.offset
-						};
-
-						return filterService.getNewFilter({ filterFn: communityApi.Forums.messages, filterArguments: apiArgs, initialModel: initialModel });
+					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Forums.messages, 
+							filterArguments: [ $stateParams.nodeId ], 
+							autoInitModel: true 
+						});
 					}]
 				}
 			})

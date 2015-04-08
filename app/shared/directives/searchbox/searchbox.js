@@ -13,9 +13,9 @@
 				modelOptions: {
 					debounce: searchDelay
 				},
-				searchQuery: null,
+				searchQuery: ctrl.searchFilter.model('q'),
 				search: function(){
-					ctrl.searchFilter.filter({ q: ctrl.searchQuery }, ctrl.exclude)
+					ctrl.searchFilter.filter({ q: ctrl.searchQuery }, ctrl.exclude);
 				}
 			});
 		};

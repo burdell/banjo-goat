@@ -8,7 +8,7 @@
 		var controller = function() {
 			var ctrl = this;
 
-			ctrl.sortValue = null;
+			ctrl.sortValue = ctrl.sortFilter.model('sort');
 			ctrl.sort = function(){
 				ctrl.sortFilter.filter({ sort: ctrl.sortValue }, ctrl.sortExclude);
 			};

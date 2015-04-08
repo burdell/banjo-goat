@@ -13,7 +13,7 @@
 			var setFilterModel = function(filterData, exclude) {
 				if (exclude) {
 					if (!_.isArray(exclude)) {
-						exclude = utils.splitCsv(exclude)
+						exclude = utils.splitCsv(exclude);
 					}
 					
 					var values = [];
@@ -54,12 +54,19 @@
 
 						return result;
 					});
+				},
+				model: function(modelValue){
+					return (modelValue ? options.filterModel[modelValue] : options.filterModel);
 				}
 			};
 		}
 
 		return {
 			getNewFilter: function(options){
+				if (options.autoInitModel) {
+					options.filterModel = $location.search();
+				}
+
 				return new Filter().set(options);
 			}
 		};
