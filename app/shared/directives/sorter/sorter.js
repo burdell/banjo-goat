@@ -6,6 +6,12 @@
 		};
 
 		var controller = function() {
+			var ctrl = this;
+
+			ctrl.sortValue = null;
+			ctrl.sort = function(){
+				ctrl.sortFilter.filter({ sort: ctrl.sortValue }, ctrl.sortExclude);
+			};
 		};
 		controller.$inject = [];
 
@@ -18,7 +24,8 @@
 	        restrict: 'E',
 	        scope: {
 	        	'sortOptions': '=',
-	        	'ngModel': '='
+	        	'sortFilter': '=',
+	        	'sortExclude': '@'
 	        }
 	    };
 

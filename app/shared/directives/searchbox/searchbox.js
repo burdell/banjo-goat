@@ -7,9 +7,17 @@
 
 		var controller = function() {
 			var searchDelay = this.searchDelay || 300;
-			this.modelOptions = {
-				debounce: searchDelay
-			};
+
+			var ctrl = this;
+			_.extend(ctrl, {
+				modelOptions: {
+					debounce: searchDelay
+				},
+				searchQuery: null,
+				search: function(){
+					ctrl.searchFilter.filter({ q: ctrl.searchQuery }, ctrl.exclude)
+				}
+			});
 		};
 		controller.$inject = [];
 
@@ -22,10 +30,9 @@
 	        restrict: 'E',
 	        scope: {
 	        	exclude: '@',
-	        	filterFn: '=',
+	        	searchFilter: '=',
 	        	placeholder: '@',
-	        	searchDelay: '@',
-	        	searchList: '='
+	        	searchDelay: '@'
 	        }
 	    };
 

@@ -1,59 +1,71 @@
 (function(_){
 	'use strict';
 	
-	var communityFilter = function($location){
+	var communityFilter = function($location, utils){
 		function Filter(){
-			return {
-				set: function(filterFn, filterArguments, initialModel){
-					this.filterModel = initialModel;
-					this.filterFn = filterFn;
-					this.filterArguments = filterArguments;
-					
-					return this;
+			var options = {
+				filterModel: {},
+				filterFn: null,
+				filterArguments: null,
+				onFilter: null
+			};
 
+			var setFilterModel = function(filterData, exclude) {
+				if (exclude) {
+					if (!_.isArray(exclude)) {
+						exclude = utils.splitCsv(exclude)
+					}
+					
+					var values = [];
+					values.length = exclude.length;
+
+					var excludeObject = _.object(exclude, values);
+					filterData = _.extend(filterData, excludeObject);
+				}
+				
+				options.filterModel = _.extend(options.filterModel, filterData);
+			};
+
+			return {
+				set: function(newOptions){
+					_.extend(options, newOptions);
+
+					return this;
 				},
 				filter: function(filterData, exclude){
 					if (filterData) {
-						this.setFilterModel(filterData, exclude);
+						setFilterModel(filterData, exclude);
 					}
 
 					var args = [];
-					if (_.isArray(this.filterArguments)) {
-						args = _.clone(this.filterArguments);
+					if (_.isArray(options.filterArguments)) {
+						args = _.clone(options.filterArguments);
 					}
 					
-					var filterModel = this.filterModel;
+					var filterModel = options.filterModel;
 					args.push(filterModel);
-					return this.filterFn.apply(this, args).then(function(result){
+					
+					return options.filterFn.apply(this, args).then(function(result){
 						$location.search(filterModel);
+
+						if (options.onFilter) {
+							options.onFilter(result);
+						}
 
 						return result;
 					});
-				},
-				setFilterModel: function(filterData, exclude){
-					if (exclude) {
-						var values = [];
-						values.length = exclude.length;
-
-						var excludeObject = _.object(exclude, values);
-						filterData = _.extend(filterData, excludeObject);
-					}
-					
-					this.filterModel = _.extend(this.filterModel, filterData);
-					
-					return this.filterModel;
 				}
 			};
 		}
 
 		return {
-			getNewFilter: function(){
-				return new Filter(); 
+			getNewFilter: function(options){
+				return new Filter().set(options);
 			}
 		};
 	};
 	
-	communityFilter.$inject = ['$location'];
+	communityFilter.$inject = ['$location', 'CommunityUtilsService'];
 
 	angular.module('community.services')
 		.service('CommunityFilterService', communityFilter);

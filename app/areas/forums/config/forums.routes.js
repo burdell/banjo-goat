@@ -21,7 +21,7 @@
 							offset: searchValues.offset
 						};
 
-						return filterService.getNewFilter().set(communityApi.Forums.messages, apiArgs, initialModel);
+						return filterService.getNewFilter({ filterFn: communityApi.Forums.messages, filterArguments: apiArgs, initialModel: initialModel });
 					}]
 				}
 			})

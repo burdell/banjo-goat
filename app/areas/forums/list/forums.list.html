@@ -5,12 +5,8 @@
   </div>
 
   <div class="row">
-    <div 
-        class="col--mdOffset9 col--md3" 
-        community-filter="vm.forumListService.MessageList" 
-        filter-fn="vm.forumListFilter"
-        filter-exclude="limit, offset">
-          <community-sort sort-options="vm.messageSortOptions" ng-model="fm.filter.sort"></community-sort>
+    <div class="col--mdOffset9 col--md3">
+      <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
     </div>
   </div>
 

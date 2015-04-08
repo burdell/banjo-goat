@@ -12,6 +12,7 @@
 
 			var exclude = this.filterExclude ? utils.splitCsv(this.filterExclude) : null;
 			var filterCtrl = this;
+			
 			//ugh, why $parent?
 			$scope.$parent.$watch('fm.filter', function(newValue, oldValue){
 				if (newValue !== oldValue) {
@@ -20,6 +21,7 @@
 					});
 				}
 			}, true);
+
 		};
 		controller.$inject = ['$scope', 'CommunityUtilsService'];
 

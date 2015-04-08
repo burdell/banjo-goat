@@ -4,10 +4,11 @@
 	function ForumListController ($stateParams, dataService, forumListFilter, forumListService, nodeService, communityApiService){
 		var controller = this;
 
-		forumListFilter.filter().then(function(result){
+		var setMessageData = function(result){
 			forumListService.MessageList = result.content;
 			controller.messageCount = result.next.total;
-		});
+		}
+		forumListFilter.set({ onFilter: setMessageData }).filter();
 
 		function GetStats(message, statKey) {
 			return _.findWhere(message.stats, { key: statKey }).value;
@@ -23,7 +24,6 @@
 			getStats: GetStats
 		});
 	}
-
 	ForumListController.$inject = ['$stateParams', 'CommunityDataService', 'ForumListFilter', 'ForumListService', 'CommunityNodeService', 'CommunityApiService'];
 
 	angular.module('community.forums')
