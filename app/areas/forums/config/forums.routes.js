@@ -32,10 +32,25 @@
 				},
 				reloadOnSearch: false
 			})
-			.state('forums.thread', {
-				url: '/t',
-				templateUrl: 'forums/forums.thread.html',
-				controller: 'ForumThread as vm'
+			.state('forums.message', {
+				url: '/message/:messageId',
+				views: {
+					'mainContent': {
+						templateUrl: 'forums/message/forums.message.html',
+						controller: 'ForumMessage as vm'
+					}
+				},
+				resolve: {
+					MessageThread: ['$stateParams', '$q', 'CommunityApiService', function($stateParams, $q, communityApi){
+						var currentMessage = $stateParams.messageId;
+						return $q.all([communityApi.Forums.message(currentMessage), communityApi.Forums.comments(currentMessage)])
+							.then(function(result) {
+								var originalMessage = [ result[0].content ];
+								var comments = result[1].content;
+								return originalMessage.concat(comments);
+							});
+					}]
+				}
 			})
 			.state('forums.newtopic', {
 				url: '/n',

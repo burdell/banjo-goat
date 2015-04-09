@@ -1,5 +1,7 @@
  <div>
-  <community-pager paged-list="vm.forumListService.MessageList" pager-fn="vm.forumListFilter"></community-pager>
+    <p>
+      FORUMS are the central hub of our community discussions and chatter. Voice your opinion, show what you're working on, and check out the cool things others are doing. And remember, we are all here to help each other!
+    </p>
   <div class="row row-comfy" style="border-bottom: 1px solid gray">
     <h4>Showing {{ vm.messageCount }} results for {{ ::vm.currentNode.name }}</h4>
   </div>
@@ -32,11 +34,11 @@
         <td>
           <div>
             <span 
-              community-tooltip 
+              community-tooltip
               data-id-field="{{ ::message.id }}" 
               ajax-populate="vm.getMessageData" 
               tooltip-template="forums/list/forums.list.messagetooltip.html">
-                {{ ::message.subject }}
+                <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
             </span>
           </div> 
           <span>by <a class="appType--micro" ui-sref="user">{{ ::message.author.login }}</a> <span>{{ ::message.postTime | timeFromNow }}</span></span>

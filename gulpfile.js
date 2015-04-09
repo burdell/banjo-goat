@@ -35,7 +35,8 @@ var outputs = {
         toDirectory: '../community-themes/UbntUI/applications/uf/views/u/',
         fromDirectory: '/applications/uf/js/ui-app',
         filename: 'index.php'
-    } 
+    },
+    bowerCss: '../community-themes/UbntUI/themes/Ubiquiti/design/ui-vendor/' 
 };
 
 
@@ -101,7 +102,13 @@ gulp.task('bower', function(){
     return gulp.src(bowerFiles)
         .pipe(jsFilter)
         .pipe(gulp.dest(outputs.dev + '/vendor'))
-        .pipe(jsFilter.restore());
+        .pipe(jsFilter.restore())
+        .pipe(cssFilter)
+        .pipe(gulp.dest(outputs.bowerCss))
+        .pipe(cssFilter.restore())
+        .pipe(imgFilter)
+        .pipe(gulp.dest(outputs.bowerCss))
+        .pipe(imgFilter.restore())
 });
 
 //

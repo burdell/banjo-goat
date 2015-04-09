@@ -3,7 +3,7 @@
   		<div class="col--md9">
   			<community-breadcrumbs></community-breadcrumbs>	
   		</div>
-  		<div class="col--md3">
+  		<div class="col--md3" ng-hide="vm.hideSearch()">
   			<community-search 
   				search-filter="vm.forumListFilter" 
   				placeholder="Search Forums"
@@ -19,9 +19,7 @@
 
   <div class="row">
   	<div class="col--md12">
-	  	<p>FORUMS are the central hub of our community discussions and chatter. Voice your opinion, show what you're working on, and check out the cool things others are doing. And remember, we are all here to help each other!</p>
-
-		<div ui-view="mainContent"></div>  		
+		  <div ui-view="mainContent"></div>  		
   	</div>
 	</div>
   </div>

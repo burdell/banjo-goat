@@ -1,0 +1,11 @@
+<div>
+	<div class="row">
+		<h4>{{ ::vm.threadTitle }}</h4>
+	</div>
+	<div class="row">
+		<div ng-repeat="message in vm.messageThread">
+			<div ng-bind-html="message.body | sanitize"></div>
+			<hr />
+		</div>
+	</div>
+</div>
