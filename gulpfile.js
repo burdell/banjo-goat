@@ -17,7 +17,7 @@ var bowerFiles = mainBowerFiles({ includeDev: true });
 //
 
 var jsFilter = $.filter(['**/*.js', '*.js']);
-var cssFilter = $.filter(['**/*.css', '*.css']);
+var cssFilter = $.filter(['**/*.css', '']);
 var imgFilter = $.filter(['/**/*.png', '*.png', '**/*.gif']);
 var sassFilter = $.filter(['/**/*.scss', '*.scss']);
 var fontFilter = $.filter(['**/**/*.ttf', '*.ttf', '**/**/*.woff', '*.woff']);
@@ -36,7 +36,7 @@ var outputs = {
         fromDirectory: '/applications/uf/js/ui-app',
         filename: 'index.php'
     },
-    bowerCss: '../community-themes/UbntUI/themes/Ubiquiti/design/ui-vendor/' 
+    bowerCss: '../community-themes/UbntUI/themes/Ubiquiti/assets/ui-vendor' 
 };
 
 
@@ -108,7 +108,7 @@ gulp.task('bower', function(){
         .pipe(cssFilter.restore())
         .pipe(imgFilter)
         .pipe(gulp.dest(outputs.bowerCss))
-        .pipe(imgFilter.restore())
+        .pipe(imgFilter.restore());
 });
 
 //
