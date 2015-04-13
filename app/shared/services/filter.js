@@ -7,7 +7,10 @@
 				filterModel: {},
 				filterFn: null,
 				filterArguments: null,
-				onFilter: null
+				onFilter: null,
+				setInitialData: true,
+				initialData: null,
+				filterContext: null
 			};
 
 			var setFilterModel = function(filterData, exclude) {
@@ -28,9 +31,21 @@
 
 			return {
 				set: function(newOptions){
+					var filter = this;	
+						
 					_.extend(options, newOptions);
 
-					return this;
+					if (newOptions.onFilter && options.initialData) {
+						newOptions.onFilter(options.initialData);
+						options.initialData = null;
+					} else if (options.setInitialData) {
+						return this.filter(this.filterModel).then(function(result){
+							options.initialData = result;
+							return filter;
+						});
+					}
+					
+					return filter;
 				},
 				filter: function(filterData, exclude){
 					if (filterData) {
@@ -44,8 +59,9 @@
 					
 					var filterModel = options.filterModel;
 					args.push(filterModel);
-					
-					return options.filterFn.apply(this, args).then(function(result){
+
+					var filterContext = options.filterContext ? options.filterContext : this;
+					return options.filterFn.apply(filterContext, args).then(function(result){
 						$location.search(filterModel);
 
 						if (options.onFilter) {

@@ -1,16 +1,16 @@
 (function(_){
 	'use strict';
 
-	var forumMessageController = function(messageThread){
+	var forumMessageController = function(messageThreadFilter){
 		var ctrl = this;
 		
-		_.extend(ctrl, {
-			threadTitle: messageThread[0].subject,
-			messageThread: messageThread
-		});
-		debugger;
+		function setThreadData(dataResult) {
+			ctrl.originalMessage = dataResult[0];
+			ctrl.messageThread = dataResult;
+		}
+		messageThreadFilter.set({ onFilter: setThreadData });
 	};
-	forumMessageController.$inject = ['MessageThread'];
+	forumMessageController.$inject = ['MessageThreadFilter'];
 
 	angular.module('community.forums')
 		.controller('ForumMessage', forumMessageController);

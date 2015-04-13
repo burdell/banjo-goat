@@ -44,13 +44,13 @@
           <span>by <a class="appType--micro" ui-sref="user">{{ ::message.author.login }}</a> <span>{{ ::message.postTime | timeFromNow }}</span></span>
         </td>
         <td>
-          {{ vm.getStats(message, 'views') }}
+          {{  message.stats | extractKey : 'views' }}
         </td>
         <td>
-          {{ vm.getStats(message, 'comments') }}
+          {{ message.stats | extractKey : 'comments' }}
         </td>
         <td>
-          {{ vm.getStats(message, 'kudos') }}
+          {{ message.stats | extractKey : 'kudos' }}
         </td>
         <td><a>{{ ::message.latestReply.author.login }}</a><br /> {{ message.latestReply.postTime | timeFromNow }}</td>
         <td></td>

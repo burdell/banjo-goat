@@ -12,13 +12,6 @@
 				resolve: {
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
-					}],
-					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
-						return filterService.getNewFilter({ 
-							filterFn: communityApi.Forums.messages, 
-							filterArguments: [ $stateParams.nodeId ], 
-							autoInitModel: true 
-						});
 					}]
 				}
 			})
@@ -29,6 +22,15 @@
 						templateUrl: 'forums/list/forums.list.html',
 						controller: 'ForumList as vm'
 					}
+				},
+				resolve: {
+					ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Forums.messages, 
+							filterArguments: [ $stateParams.nodeId ], 
+							autoInitModel: true 
+						});
+					}]
 				},
 				reloadOnSearch: false
 			})
@@ -41,14 +43,12 @@
 					}
 				},
 				resolve: {
-					MessageThread: ['$stateParams', '$q', 'CommunityApiService', function($stateParams, $q, communityApi){
-						var currentMessage = $stateParams.messageId;
-						return $q.all([communityApi.Forums.message(currentMessage), communityApi.Forums.comments(currentMessage)])
-							.then(function(result) {
-								var originalMessage = [ result[0].content ];
-								var comments = result[1].content;
-								return originalMessage.concat(comments);
-							});
+					MessageThreadFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Forums.thread, 
+							filterArguments: [ $stateParams.messageId ],
+							filterContext: communityApi.Forums 
+						});
 					}]
 				}
 			})

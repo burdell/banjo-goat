@@ -8,21 +8,14 @@
 			controller.messageList = result.content;
 			controller.messageCount = result.next.total;
 		}
+		forumListFilter.set({ onFilter: setMessageData });
 		
-		function getStats(message, statKey) {
-			return _.findWhere(message.stats, { key: statKey }).value;
-		}
-
-		forumListFilter.set({ onFilter: setMessageData }).filter();
-
 		_.extend(controller, {
 			messageSortOptions: dataService.MessageSort,
 			forumListFilter: forumListFilter,
 			nodeId: $stateParams.nodeId,
 			currentNode: nodeService.CurrentNode,
-			getMessageData: communityApiService.Forums.message,
-			getStats: getStats,
-			messageList: []
+			getMessageData: communityApiService.Forums.message
 		});
 	}
 	ForumListController.$inject = ['$stateParams', 'CommunityDataService', 'ForumListFilter', 'CommunityNodeService', 'CommunityApiService'];
