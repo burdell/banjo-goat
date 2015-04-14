@@ -1,7 +1,9 @@
-<div class="row row--comfy" style="border-bottom: 1px solid gray;">
-	<ul style="float:right;">
-		<li ng-repeat="navLink in navbar.navLinks" style="display: inline; padding-left: 1em;">
-			<a ng-class="{ active : navLink.active }" href="{{ navLink.href }}">{{ navLink.display }}</a>
-		</li>
-	</ul>
+ <div class="col--md12">
+	 <div class="community__navbar community__navbar__discussions row row--comfy">
+		<ul>
+			<li ng-repeat="navLink in navbar.navLinks">
+				<a ng-class="{ active : navLink.active }" href="{{ navLink.href }}">{{ navLink.display }}</a>
+			</li>
+		</ul>
+	</div>
 </div>

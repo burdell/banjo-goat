@@ -1,15 +1,15 @@
-<div class="community-main">
-  <div class="row">
-  		<div class="col--md9">
-  			<community-breadcrumbs></community-breadcrumbs>	
-  		</div>
+<div class="community__forum">
+  <div class="row row--comfy">
+  		<community-breadcrumbs></community-breadcrumbs>
+      <!-- 
   		<div class="col--md3" ng-hide="vm.hideSearch()">
   			<community-search 
   				search-filter="vm.forumListFilter" 
   				placeholder="Search Forums"
   				exclude="limit, offset">
-			</community-search>
+			 </community-search>
   		</div>
+      -->
   </div>
 
   <div class="row">
@@ -18,9 +18,6 @@
   </div>
 
   <div class="row">
-  	<div class="col--md12">
-		  <div ui-view="mainContent"></div>  		
-  	</div>
+		  <div ui-view="mainContent"></div>  	
 	</div>
-  </div>
 </div>
