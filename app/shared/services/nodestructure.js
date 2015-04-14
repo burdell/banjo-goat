@@ -27,6 +27,17 @@
 				this.NodeStructure = nodeData;
 			
 				return nodeData;
+			},
+			setCurrentSubnode: function(subnodeName){
+				var newNode = {
+					name: subnodeName,
+					parent: this.CurrentNode
+				};
+
+				this.CurrentNode = newNode;
+			},
+			clearCurrentSubnode: function(){
+				this.CurrentNode = this.CurrentNode.parent;
 			}
 		};
 	};

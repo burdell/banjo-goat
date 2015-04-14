@@ -6,8 +6,9 @@
 		};
 
 		var controller = function(nodeService) {
-			function getBreadcrumbList(currentNode) {
+			function getBreadcrumbList() {
 				var breadCrumbList = [];
+				var currentNode = nodeService.CurrentNode;
 
 				var parentNode = currentNode.parent;
 				while(parentNode) {
@@ -18,15 +19,16 @@
 				return breadCrumbList;
 			}
 
-			var breadcrumbList = getBreadcrumbList(nodeService.CurrentNode);
+			function currentNode() {
+				return nodeService.CurrentNode.name;
+			}
 
 			var ctrl = this;
 			_.extend(ctrl, {
-				currentNode: nodeService.CurrentNode,
-				breadcrumbList: breadcrumbList
+				currentNode: currentNode,
+				breadcrumbListFn: getBreadcrumbList
 			});
 		};
-
 		controller.$inject = ['CommunityNodeService'];
 
 	    var directive = {
