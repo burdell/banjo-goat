@@ -1,21 +1,22 @@
 (function(_){
 	'use strict';
 
-	var forumMessageController = function($scope, messageThreadFilter, nodeService){
+	var forumMessageController = function($scope, messageThreadFilter, breadcrumbService){
 		var ctrl = this;
 		function setThreadData(dataResult) {
 			ctrl.originalMessage = dataResult[0];
-			nodeService.setCurrentSubnode(ctrl.originalMessage.subject);
 			ctrl.messageThread = dataResult;
+			
+			breadcrumbService.setCurrentBreadcrumb(ctrl.originalMessage.subject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 
 		$scope.$on('$stateChangeStart', function(){
-			nodeService.clearCurrentSubnode();
+			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
 	};
-	forumMessageController.$inject = ['$scope', 'MessageThreadFilter', 'CommunityNodeService'];
+	forumMessageController.$inject = ['$scope', 'MessageThreadFilter', 'CommunityBreadcrumbService'];
 
 	angular.module('community.forums')
 		.controller('ForumMessage', forumMessageController);

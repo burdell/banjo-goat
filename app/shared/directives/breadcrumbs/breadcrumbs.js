@@ -5,31 +5,22 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function(nodeService) {
-			function getBreadcrumbList() {
-				var breadCrumbList = [];
-				var currentNode = nodeService.CurrentNode;
-
-				var parentNode = currentNode.parent;
-				while(parentNode) {
-					breadCrumbList.unshift(parentNode);
-					parentNode = parentNode.parent;
-				}
-
-				return breadCrumbList;
+		var controller = function(breadcrumbService) {
+			function currentBreadcrumb() {
+				return breadcrumbService.getCurrentBreadcrumb().name;
 			}
 
-			function currentNode() {
-				return nodeService.CurrentNode.name;
+			function breadcrumbListFn(){
+				return breadcrumbService.getBreadcrumbList();
 			}
 
 			var ctrl = this;
 			_.extend(ctrl, {
-				currentNode: currentNode,
-				breadcrumbListFn: getBreadcrumbList
+				currentBreadcrumb: currentBreadcrumb,
+				breadcrumbListFn: breadcrumbListFn
 			});
 		};
-		controller.$inject = ['CommunityNodeService'];
+		controller.$inject = ['CommunityBreadcrumbService'];
 
 	    var directive = {
 	        link: link,
