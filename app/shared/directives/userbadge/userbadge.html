@@ -1,0 +1,13 @@
+<div>
+	<div>
+		<img src="{{ userbadge.user.avatar.href }}" />
+	</div>
+	<div>
+		<a href="{{ userbadge.user.href }}">{{ userbadge.user.login }}</a>
+		<span>{{ userbadge.user.rank }}</span>
+	</div>
+	<div>
+		<p>Total Points: {{ userbadge.user.stats | extractKey : 'totalpoints' }}</p>
+		<p>Location: {{ userbadge.user.location  }}</p>
+	</div>
+</div>

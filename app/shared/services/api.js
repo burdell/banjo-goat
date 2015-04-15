@@ -1,8 +1,8 @@
 (function(_){
 	'use strict';
 	
-	var communityApiService = function($http){
-		function goToApi(url, data, verb){
+	var communityApiService = function($http, $q){
+		function getCallOptions(url, data, verb) {
 			if (_.isUndefined(verb)) {
 				verb = 'GET';
 			}
@@ -15,13 +15,18 @@
 			} else {
 				payload = data;
 			}
-			
-			return $http({
+
+			return {
 				method: verb,
 				url: url,
 				params: params,
 				data: payload
-			}).then(function(result){
+			};
+		}
+
+		function goToApi(url, data, verb){
+			var callOptions = getCallOptions(url, data, verb);
+			return $http(callOptions).then(function(result){
 				return result.data.data;
 			});
 		}
@@ -71,6 +76,14 @@
 				},
 				stats: function(nodeId, data) {
 					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'stats');
+				},
+				thread: function(messageId){
+					return $q.all([ this.message(messageId), this.comments(messageId) ])
+						.then(function(result) {
+							var originalMessage = [ result[0].content ];
+							var comments = result[1].content;
+							return originalMessage.concat(comments);
+						});
 				}
 			}
 		};
@@ -78,7 +91,7 @@
 		return service;
 	};
 
-	communityApiService.$inject = ['$http'];
+	communityApiService.$inject = ['$http', '$q'];
 
 	angular.module('community.services')
 		.service('CommunityApiService', communityApiService);
