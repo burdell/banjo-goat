@@ -12,7 +12,11 @@
         'community.filters',  
 		'community.forums', 
 		'community.templates'
-	]);
+	]).run(['$rootScope', '$window', function($rootScope, $window){
+        $rootScope.$on('$stateChangeSuccess', function(){
+            $window.scrollTo(0,0);
+        })
+    }]);
 
 	angular.element(document).ready(function(){
 		angular.bootstrap(document, ['communityApp']);
