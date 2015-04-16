@@ -6,9 +6,12 @@
 			$(element).tooltipster({
 				contentAsHtml: true,
 				content: 'Loading...',
-				position: 'bottom-left',
-				minWidth: 100,
-				maxWidth: 1200,
+				// position: 'bottom-left',
+				// bottom-left is very blocking; moving to top to see what it looks like
+				position: 'top-left',
+				theme: 'tooltipster-comm',
+				// minWidth: 100, //taken care of in css
+				// maxWidth: 1200,
 				interactive: true,
 				updateAnimation: false,
 				functionBefore: function(origin, continueTooltip) {

@@ -1,13 +1,21 @@
-<div class="row">
-	<div class="col--md8">
-		<div>{{ text | wordCut }}</div>
-		<button>Read Topic</button>
+<div class="tooltip__message">
+	<div class="col--md12 noPadding">
+		<div class="tooltip__message__text">{{ text | wordCut }}</div>
 	</div>
+
+	<!-- 
+	EXCLUDED in the comps, but kept here just in case
 	<div class="col--md4">
 		<div>
 			<img src="{{ author.avatar.href }}" style="display: block;" />
 			<a href="#">{{ author.login }}</a>
 			<p>{{ author.rank }}</p>
 		</div>
+	</div>
+	 -->
+</div>
+<div class="tooltip__button">
+	<div class="col--md3 noPadding">
+		<button class="button-full button-blue-white">Read Topic</button>
 	</div>
 </div>
