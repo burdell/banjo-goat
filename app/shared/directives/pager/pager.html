@@ -1,4 +1,40 @@
 <div>
-	<button ng-click="pager.previousPage()">< Previous</button>
-	<button ng-click="pager.nextPage()">Next ></button>
+	<div class="row row--comfy">
+	  <div class="col--xs12 noPadding">
+	  	<!-- Pagination uses Flexbox -->
+	  	<div class="sg">
+		    <div class="pagination">
+		    	<div class="pagination_scrubber">
+			    	<!-- previous page -->
+					<div class="pagination_control pagination_control_prev">Prev</div>
+
+			    	<!-- scrub numbers left -->
+				    <div class="pagination_arrow pagination_arrow_left" ng-class="{ '{{ pager.info.simpleClass }}' : !pager.info.isFullSlider }"><</div>
+
+			    	<!-- page 1 / anchor the first -->
+			    	<div class="pagination_first pagination_num" data-val="1" ng-class="{ '{{ pager.info.simpleClass }}' : !pager.info.isFullSlider }">1</div>
+
+			    	<div class="pagination_main" ng-class="{ '{{ pager.info.simpleClass }}' : !pager.info.isFullSlider, '{{ pager.info.fullClass }}' : pager.info.isFullSlider }">
+				    	<div class="pagination_main_scrubber">
+				    		<div ng-repeat="pageNumber in pager.pageRange() track by $index" class="pagination_num" data-val="pagenumber-{{ pageNumber}}">{{ pageNumber }}</div>
+				    	</div>
+			    	</div>
+
+			    	<!-- front-biased does not have this -->
+			    	<!-- of 20 -->
+			    	
+			    	<div class="pagination_last enabled" ng-class="{ '{{ pager.info.simpleClass }}' : !pager.info.isFullSlider }">
+			    		<span class="pagination_last_of">of</span><span class="pagination_last_num">{{ pager.info.numberOfPages }}</span>
+			    	</div>
+
+				    <!-- scrub numbers right -->
+				    <div class="pagination_arrow pagination_arrow_right" ng-class="{ '{{ pager.info.simpleClass }}' : !pager.info.isFullSlider }">></div>
+
+			    	<!-- next page -->
+					<div class="pagination_control pagination_control_next">Next</div>
+				</div>
+		    </div>
+		  </div>
+	  </div>
+	</div>
 </div>
