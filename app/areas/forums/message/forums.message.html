@@ -30,6 +30,15 @@
 			<button>Start a Discussion</button>
 		</div>
 
+		 <div class="row">
+		      <div class="col--md3">
+		        <community-pager 
+		          total-results="vm.allMessageCount" 
+		          pager-fn="vm.messageThreadFilter">
+		        </community-pager>
+		      </div>
+		  </div>
+
 		<div class="row">
 			<div class="col--md2">
 			<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }} other people are viewing this thread</span>

@@ -166,12 +166,12 @@
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
 			/**** PAGER DATA *****/
-			var defaultLimit = this.pageSize || 30;
+			var defaultLimit = filterer.model('limit') || 30;
 			var defaultOffset = filterer.model('offset') || 0
 
 			var pageData = {
-				limit: Number(this.pageSize) || defaultLimit,
-				offset: this.pagerFn.model('offset') || defaultOffset
+				limit: defaultLimit,
+				offset: defaultOffset
 			};
 
 			function syncPagerToFilter(){

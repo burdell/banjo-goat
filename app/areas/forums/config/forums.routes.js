@@ -47,7 +47,10 @@
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Forums.thread, 
 							filterArguments: [ $stateParams.messageId ],
-							filterContext: communityApi.Forums 
+							filterContext: communityApi.Forums,
+							filterModel: {
+								limit: 20
+							} 
 						});
 					}]
 				}

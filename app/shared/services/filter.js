@@ -73,8 +73,7 @@
 					return options.filterFn.apply(filterContext, args).then(function(result){
 						$location.search(filterModel);
 						executeOnFilterFns(result);
-
-
+						
 						return result;
 					});
 				},
