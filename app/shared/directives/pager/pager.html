@@ -16,7 +16,7 @@
 			    	<!-- scrub numbers left -->
 				    <div 
 				    	class="pagination_arrow pagination_arrow_left" 
-				    	ng-class="{ '{{ pager.info.simpleClass }}' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollLeft }"
+				    	ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollLeft }"
 				    	ng-click="scroll('left', pager.info.numberOfPages)">
 				    		<
 				    </div>
@@ -41,8 +41,8 @@
 			    	<!-- front-biased does not have this -->
 			    	<!-- of 20 -->
 			    	
-			    	<div class="pagination_last enabled" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider }">
-			    		<span class="pagination_last_of">of</span><span class="pagination_last_num">{{ pager.info.numberOfPages }}</span>
+			    	<div class="pagination_last" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'enabled' : !pager.info.frontBiased }">
+			    		<span class="pagination_last_of">of</span><span class="pagination_last_num" ng-click="pager.goToPage(pager.info.numberOfPages, pager.info.frontBiased)">{{ pager.info.numberOfPages }}</span>
 			    	</div>
 
 				    <!-- scrub numbers right -->

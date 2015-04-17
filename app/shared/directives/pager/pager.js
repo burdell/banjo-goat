@@ -31,6 +31,11 @@
 			};
 
 			function scroll(dir){
+				var previousOrNext = (dir === 'right' ? 'scrollRight' : 'scrollLeft');
+				if (scope.disabledButtons[previousOrNext]) {
+					return;
+				}
+
 				var scrubber = element.find('.pagination_main_scrubber');
 
 				var scrubberWidth = $(scrubber).outerWidth();
@@ -69,9 +74,7 @@
 		  			scrollRight: false
 		  		},
 		  		pagerDisplay: {
-		  			isFullSlider: pagerInfo.numberOfPages >= pagerSettings.minPagesForScroller,
-					simpleClass: 'simple-scroll',
-					fullClass: 'full-scroll'
+		  			isFullSlider: pagerInfo.numberOfPages >= pagerSettings.minPagesForScroller
 		  		},
 		  		pageRange: function(){
 					//first page is hard-coded, therefore start from 2
@@ -158,7 +161,7 @@
 			}
 		};
 
-		var controller = function($scope, filterService, communityApi, utils) {
+		var controller = function($scope, filterService) {
 			var ctrl = this;
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
@@ -182,7 +185,8 @@
 			var numberOfPages = Math.ceil(Number(this.totalResults) / pageData.limit);
 			var pagerInfo = {
 				initialPage: getPageNumber(),
-				numberOfPages: numberOfPages
+				numberOfPages: numberOfPages,
+				frontBiased: this.frontBiased === 'true'
 			};
 
 			/*** CONTROL FUNCTIONS *****/
@@ -192,11 +196,19 @@
 			}
 
 			function nextPage (){
+				if ($scope.disabledButtons.next) {
+					return;
+				}
+
 				pageData.offset += pageData.limit;
 				page();
 			}
 
 			function previousPage(){
+				if ($scope.disabledButtons.previous) {
+					return;
+				}
+
 				pageData.offset -= pageData.limit;
 				if (pageData.offset < 0) {
 					pageData.offset = 0;
@@ -204,7 +216,11 @@
 				page();
 			}
 
-			function goToPage(pageNumber) {
+			function goToPage(pageNumber, disabled) {
+				if (disabled) {
+					return;
+				}
+
 				pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				page();
 			}
@@ -227,7 +243,7 @@
 				info: pagerInfo
 			});
 		};
-		controller.$inject = ['$scope', 'CommunityFilterService', 'CommunityApiService'];
+		controller.$inject = ['$scope', 'CommunityFilterService'];
 
 	    var directive = {
 	        link: link,
@@ -240,7 +256,8 @@
 	        	allowEnd: '@',
 	        	pageSize: '@',
 	        	pagerFn: '=',
-	        	totalResults: '='
+	        	totalResults: '=',
+	        	frontBiased: '@'
 	        }
 	    };
 
