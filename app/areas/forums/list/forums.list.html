@@ -24,7 +24,13 @@
   </div>
 
   <div class="row">
-    <div class="col--md12">
+
+  <div class="row row--comfy">
+
+    <div class="col--md6">
+      <button class="button-full button-blue-white">Start a Topic</button>
+    </div>
+    <div class="col--md6">
       <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset" class="community__sort"></community-sort>
     </div>
   </div>
@@ -35,11 +41,11 @@
 
       <table class="community__forum__threadlist">
         <colgroup>
-          <col style="width:50%">
-          <col style="width:11%">
-          <col style="width:11%">
-          <col style="width:11%">
-          <col style="width:auto">
+          <col class="community__forum__threadlist__col__topic">
+          <col class="community__forum__threadlist__col__counter">
+          <col class="community__forum__threadlist__col__counter">
+          <col class="community__forum__threadlist__col__counter">
+          <col class="community__forum__threadlist__col__reply">
         </colgroup>
 
         <thead class="community__forum__threadlist__head">
@@ -50,10 +56,10 @@
           <th class="community__forum__threadlist__head__reply">Latest Reply</th>
         </thead>
 
-        <tbody class="community__forum__threadlist__body">
-          <tr ng-repeat="message in vm.messageList">
+        <tbody>
 
-            <td class="community__forum__threadlist__body__topic">
+          <tr class="community__forum__threadlist__message" ng-repeat="message in vm.messageList">
+            <td class="community__forum__threadlist__message__topic">
               <a ui-sref="forums.message({messageId: message.id})">
                 <div 
                   community-tooltip
@@ -63,21 +69,28 @@
                   <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
                 </div>
               </a>
-              <span>by <a class="appType--micro" ui-sref="user">{{ ::message.author.login }}</a> <span>{{ ::message.postTime | timeFromNow }}</span></span>
+              <div class="community__forum__threadlist__message__by">
+                <span>by <a ui-sref="user">{{ ::message.author.login }}</a></span> 
+                <span>{{ ::message.postTime | timeFromNow }}</span>
+              </div>
             </td>
 
-            <td class="community__forum__threadlist__body__counter">
+            <td class="community__forum__threadlist__message__counter">
               {{  message.stats | extractKey : 'views' }}
             </td>
-            <td class="community__forum__threadlist__body__counter">
+            <td class="community__forum__threadlist__message__counter">
               {{  message.stats | extractKey : 'comments' }}
             </td>
-            <td class="community__forum__threadlist__body__counter">
+            <td class="community__forum__threadlist__message__counter">
               {{  message.stats | extractKey : 'kudos' }}
             </td>
 
-            <td><a>{{ ::message.latestReply.author.login }}</a><br /> {{ message.latestReply.postTime | timeFromNow }}</td>
+            <td class="community__forum__threadlist__message__latestreply">
+              <a>{{ ::message.latestReply.author.login }}</a>
+              <span>{{ message.latestReply.postTime | timeFromNow }}</span>
+            </td>
           </tr>
+
         </tbody>
       </table>
     </div>
