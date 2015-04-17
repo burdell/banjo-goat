@@ -78,7 +78,6 @@
 					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'stats');
 				},
 				thread: function(messageId, data){
-					debugger;
 					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
 						.then(function(result) {
 							var originalMessage = [ result[0].content ];
