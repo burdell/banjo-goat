@@ -51,7 +51,7 @@
         <thead class="community__forum__threadlist__head">
           <th class="community__forum__threadlist__head__topic">Topic</th>
           <th class="community__forum__threadlist__head__counter">Views</th>
-          <th class="community__forum__threadlist__head__counter">Comments</th>
+          <th class="community__forum__threadlist__head__counter">Replies</th>
           <th class="community__forum__threadlist__head__counter">Kudos</th>
           <th class="community__forum__threadlist__head__reply">Latest Reply</th>
         </thead>
@@ -60,15 +60,13 @@
 
           <tr class="community__forum__threadlist__message" ng-repeat="message in vm.messageList">
             <td class="community__forum__threadlist__message__topic">
-              <a ui-sref="forums.message({messageId: message.id})">
-                <div 
-                  community-tooltip
-                  data-id-field="{{ ::message.id }}" 
-                  ajax-populate="vm.getMessageData" 
-                  tooltip-template="forums/list/forums.list.messagetooltip.html">
-                  <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
-                </div>
-              </a>
+              <div 
+                community-tooltip
+                data-id-field="{{ ::message.id }}" 
+                ajax-populate="vm.getMessageData" 
+                tooltip-template="forums/list/forums.list.messagetooltip.html">
+                <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
+              </div>
               <div class="community__forum__threadlist__message__by">
                 <span>by <a ui-sref="user">{{ ::message.author.login }}</a></span> 
                 <span>{{ ::message.postTime | timeFromNow }}</span>
