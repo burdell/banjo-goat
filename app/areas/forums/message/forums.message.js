@@ -19,9 +19,21 @@
 
 		_.extend(ctrl, {
 			currentReply: null,
+			messageIsBeingRepliedTo: function(messageId){
+				return messageId === this.currentReply
+			},
 			messageThreadFilter: messageThreadFilter,
 			showReply: function(messageId){
 				this.currentReply = messageId;
+			},
+			cancelReply: function(){
+				this.currentReply = null;
+			},
+			submitReply: function(){
+				console.log(replySubmitted);
+			},
+			getMessageReply: function(){
+
 			}
 		})
 

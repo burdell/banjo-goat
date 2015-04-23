@@ -1,67 +1,107 @@
-<div>
-	<div class="row">
-		<h4>{{ ::vm.originalMessage.subject }}</h4>
+<div class="community__forum__messages row row--comfy">
+	<div class="col--md12">
+		<div class="community__forum__messages__subject">
+			<h4>{{ ::vm.originalMessage.subject }}</h4>
+		</div>
 	</div>
-	
-	<div class="row row--comfy">
-		<button>Follow Discussion</button>
-		<button>Start a Discussion</button>
-	</div>
+</div>
 
-	<div class="row row--comfy">
-		<div ng-repeat="message in vm.messageThread" class="row row--comfy">
-			<div class="row row--comfy " style="border: solid 1px gray">
-				<div class="col--md2">
+<div class="row row--comfy">
+	<div class="col--md12">
+		<div class="community__forum__messages__buttons">
+			<button class="button-square button-white-blue">Follow Discussion</button>
+			<button class="button-full button-blue-white">Start a Discussion</button>
+		</div>
+	</div>
+</div>
+
+<div class="row row--comfy">
+	<div class="col--md12">
+
+		<div class="row row--comfy" ng-repeat="message in vm.messageThread">
+
+			<!-- message -->
+			<div class="community__forum__messages__row row row--comfy">
+				<div class="col--md2 noPaddingLeft noPaddingRight">
 					<community-user-badge user="message.author"></community-user-badge>
 				</div>
-				<div class="col--md10">
+
+				<div class="community__forum__messages__maincolumn col--md10">
 					<div class="row">
-						<div><h6>Posted {{ message.postTime | timeFromNow }}</h6></div>
-						<div ng-bind-html="message.body | sanitize"></div>
-					</div class="row row--comfy"> 
-						<div class="col--md8">
-							<button>{{ message.stats | extractKey : 'kudos' }} Kudos +</button>
-							<button> Mark As Helpful</button>
+						<div class="community__forum__messages__postTime col--md12">
+							<h6>Posted {{ message.postTime | timeFromNow }}</h6>
 						</div>
-						<div class="col--md4">
-							<button ng-click="vm.showReply(message.id)">Reply</button>
+					</div>
+					<div class="row">
+						<div class="col--md12">
+							<div class="community__forum__messages__body" ng-bind-html="message.body | sanitize"></div>
+						</div>
+					</div>
+					<div class="community__forum__messages__bottomrow row"> 
+						<div class="community__forum__messages__upvote col--md8">
+							<button class="button-compound button-white-green">
+								<span>{{ message.stats | extractKey : 'kudos' }} Kudos</span>
+								<span class="icon-plus">+</span>
+							</button>
+							<button class="button-compound button-white-green">
+								<span>123 Votes</span>
+								<span>Vote As Helpful</span>
+							</button>
+						</div>
+						<div class="community__forum__messages__reply col--md4">
+							<button 
+								class="button-full button-blue-white" 
+								ng-click="vm.showReply(message.id)">
+									Reply
+							</button>
 						</div>
 					</div>
 				</div>
-				<div class="row row--comfy" ng-show="vm.currentReply === message.id">
+			</div>
+
+			<!-- reply -->
+			<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
 					<div class="col--md2">
 					</div>
 					<div class="col--md10">
-						<p>
-							REPLY to <a href="#">{{ ::message.author.login }}</a>
-						</p>
-						<div>
-							<community-text-editor></community-text-editor>
+						<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
+						<div class="row row--comfy">
+							<community-text-editor ng-model="vm.messageReply"></community-text-editor>
 						</div>
 						<div>
-							<button>Cancel</button>
-							<button>Submit Comment</button>
+							<button 
+								class="button-square button-white-blue" 
+								ng-click="vm.cancelReply()">
+									Cancel
+							</button>
+							<button 
+								class="button-full button-blue-white"
+								ng-click="vm.submitReply()">
+									Submit Comment
+							</button>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
-		<button>Start a Discussion</button>
-		</div>
+	</div>
+</div>
 
-		 <div class="row">
-		      <div class="col--md3">
-		        <community-pager 
-		          total-results="vm.allMessageCount" 
-		          pager-fn="vm.messageThreadFilter">
-		        </community-pager>
-		      </div>
-		  </div>
 
-		<div class="row">
-			<div class="col--md2">
-			<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }} other people are viewing this thread</span>
-			</div>
-		</div>
+<div class="row row--comfy">
+	<div class="community__forum__messages__others col--md12">
+		<button class="button-full button-blue-white">Start a Discussion</button>
+	</div>
+</div>
+
+<div class="row row--comfy">
+	<div class="community__forum__messages__others col--md9">
+		<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }}</span><span>other people are viewing this thread</span>
+	</div>
+
+	<div class="col--md3">
+		<community-pager 
+		  total-results="vm.allMessageCount" 
+		  pager-fn="vm.messageThreadFilter">
+		</community-pager>
 	</div>
 </div>
