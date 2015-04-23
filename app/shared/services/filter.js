@@ -7,7 +7,7 @@
 				filterModel: {},
 				filterFn: null,
 				filterArguments: null,
-				onFilter: null,
+				onFilterFns: [],
 				setInitialData: true,
 				initialData: null,
 				filterContext: null
@@ -29,15 +29,24 @@
 				options.filterModel = _.extend(options.filterModel, filterData);
 			};
 
+			var executeOnFilterFns = function(result){
+				_.each(options.onFilterFns, function(fn){
+					fn(result);
+				});
+			}
+
 			return {
 				set: function(newOptions){
 					var filter = this;	
 						
 					_.extend(options, newOptions);
+					if (newOptions.onFilter) {
+						options.onFilterFns.push(newOptions.onFilter);
 
-					if (newOptions.onFilter && options.initialData) {
-						newOptions.onFilter(options.initialData);
-						options.initialData = null;
+						if (options.initialData) {
+							newOptions.onFilter(options.initialData);
+							options.initialData = null;
+						}
 					} else if (options.setInitialData) {
 						return this.filter(this.filterModel).then(function(result){
 							options.initialData = result;
@@ -63,11 +72,8 @@
 					var filterContext = options.filterContext ? options.filterContext : this;
 					return options.filterFn.apply(filterContext, args).then(function(result){
 						$location.search(filterModel);
-
-						if (options.onFilter) {
-							options.onFilter(result);
-						}
-
+						executeOnFilterFns(result);
+						
 						return result;
 					});
 				},

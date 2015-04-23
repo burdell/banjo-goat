@@ -52,18 +52,25 @@
 			</div>
 
 		</div>
+	</div>
+</div>
 
 
-		<div class="community__forum__messages__etc">
-			<div class="row row--comfy">
-				<button class="button-full button-blue-white">Start a Discussion</button>
-			</div>
-			<div class="row row--comfy">
-				<div class="community__forum__messages__others">
-					<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }}</span><span>other people are viewing this thread</span>
-				</div>
-			</div>
-		</div>
+<div class="row row--comfy">
+	<div class="community__forum__messages__others col--md12">
+		<button class="button-full button-blue-white">Start a Discussion</button>
+	</div>
+</div>
 
+<div class="row row--comfy">
+	<div class="community__forum__messages__others col--md9">
+		<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }}</span><span>other people are viewing this thread</span>
+	</div>
+
+	<div class="col--md3">
+		<community-pager 
+		  total-results="vm.allMessageCount" 
+		  pager-fn="vm.messageThreadFilter">
+		</community-pager>
 	</div>
 </div>

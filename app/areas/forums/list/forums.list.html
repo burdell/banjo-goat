@@ -91,9 +91,15 @@
 
         </tbody>
       </table>
-
-
     </div>
   </div>
-
+  <div class="row">
+      <div class="col--md3">
+        <community-pager 
+          total-results="vm.messageCount" 
+          pager-fn="vm.forumListFilter"
+          front-biased="true">
+        </community-pager>
+      </div>
+  </div>
 </div>
