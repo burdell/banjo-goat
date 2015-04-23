@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var merge = require('merge-stream');
+var _ = require('underscore');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins({
     scope: ['devDependencies']
@@ -9,6 +10,10 @@ var packageJSON = require('./package');
 
 var mainBowerFiles = require('main-bower-files');
 var bowerFiles = mainBowerFiles({ includeDev: true });
+
+//plugins where we want to move the entire plugin folder
+var wholeFolderPlugins = ['vendor/bower/tinymce/**'];
+
 
 //
 //
@@ -98,7 +103,7 @@ gulp.task('partials', function() {
         .pipe(gulp.dest(outputs.dev + '/templates'));
 });
 
-gulp.task('bower', function(){
+gulp.task('bower', ['whole-plugin-folders'], function(){ 
     return gulp.src(bowerFiles)
         .pipe(jsFilter)
         .pipe(gulp.dest(outputs.dev + '/vendor'))
@@ -109,6 +114,11 @@ gulp.task('bower', function(){
         .pipe(imgFilter)
         .pipe(gulp.dest(outputs.bowerCss))
         .pipe(imgFilter.restore());
+});
+
+gulp.task('whole-plugin-folders', function(){
+    return gulp.src(wholeFolderPlugins, { base: 'vendor/bower/' })
+            .pipe(gulp.dest(outputs.dev + '/vendor'))
 });
 
 //

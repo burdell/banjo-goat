@@ -3,7 +3,6 @@
 
 	var forumMessageController = function($scope, messageThreadFilter, breadcrumbService){
 		var ctrl = this;
-		ctrl.messageThreadFilter = messageThreadFilter;
 
 		function setThreadData(dataResult) {
 			ctrl.originalMessage = dataResult[0];
@@ -17,6 +16,14 @@
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
+
+		_.extend(ctrl, {
+			currentReply: null,
+			messageThreadFilter: messageThreadFilter,
+			showReply: function(messageId){
+				this.currentReply = messageId;
+			}
+		})
 
 	};
 	forumMessageController.$inject = ['$scope', 'MessageThreadFilter', 'CommunityBreadcrumbService'];
