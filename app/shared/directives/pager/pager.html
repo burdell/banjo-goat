@@ -1,68 +1,65 @@
-<div>
-	<div class="row row--comfy">
-	  <div class="col--xs12 noPadding">
-	  	<!-- Pagination uses Flexbox -->
-	  	<div class="sg">
-		    <div class="pagination">
-		    	<div class="pagination_scrubber">
-			    	<!-- previous page -->
-					<div 
-						class="pagination_control pagination_control_prev" 
-						ng-click="pager.previousPage()"
-						ng-class="{ 'disabled' : disabledButtons.previous }">
-							Prev
-					</div>
 
-			    	<!-- scrub numbers left -->
-				    <div 
-				    	class="pagination_arrow pagination_arrow_left" 
-				    	ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollLeft }"
-				    	ng-click="scroll('left', pager.info.numberOfPages)">
-				    		<
-				    </div>
-
-			    	<!-- page 1 / anchor the first -->
-			    	<div class="pagination_first pagination_num" data-val="1" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider }" ng-click="pager.goToPage(1)" >
-			    		1
-			    	</div>
-
-			    	<div class="pagination_main" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'full-scroll' : pagerDisplay.isFullSlider }">
-				    	<div class="pagination_main_scrubber">
-				    		<div 
-				    			ng-repeat="pageNumber in pageRange() track by $index"
-				    			ng-click="pager.goToPage(pageNumber)" 
-				    			class="pagination_num" 
-				    			data-val="{{ pageNumber}}">
-				    				{{ pageNumber }}
-				    		</div>
-				    	</div>
-			    	</div>
-
-			    	<!-- front-biased does not have this -->
-			    	<!-- of 20 -->
-			    	
-			    	<div class="pagination_last" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'enabled' : !pager.info.frontBiased }">
-			    		<span class="pagination_last_of">of</span><span class="pagination_last_num" ng-click="pager.goToPage(pager.info.numberOfPages, pager.info.frontBiased)">{{ pager.info.numberOfPages }}</span>
-			    	</div>
-
-				    <!-- scrub numbers right -->
-				    <div 
-				    	class="pagination_arrow pagination_arrow_right" 
-				    	ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollRight }"
-				    	ng-click="scroll('right', pagerDisplay.numberOfPages)">
-				    		>
-				    </div>
-
-			    	<!-- next page -->
-					<div 
-						class="pagination_control pagination_control_next" 
-						ng-click="pager.nextPage()"
-						ng-class="{ 'disabled' : disabledButtons.next }">
-							Next
-					</div>
+<div class="row row--comfy">
+ 	<div class="col--xs12 noPadding">
+  	<!-- Pagination uses Flexbox -->
+	    <div class="pagination">
+	    	<div class="pagination_scrubber">
+		    	<!-- previous page -->
+				<div 
+					class="pagination_control pagination_control_prev" 
+					ng-click="pager.previousPage()"
+					ng-class="{ 'disabled' : disabledButtons.previous }">
+						Prev
 				</div>
-		    </div>
-		  </div>
-	  </div>
+
+		    	<!-- scrub numbers left -->
+			    <div 
+			    	class="pagination_arrow pagination_arrow_left" 
+			    	ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollLeft }"
+			    	ng-click="scroll('left', pager.info.numberOfPages)">
+			    		<
+			    </div>
+
+		    	<!-- page 1 / anchor the first -->
+		    	<div class="pagination_first pagination_num" data-val="1" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider }" ng-click="pager.goToPage(1)" >
+		    		1
+		    	</div>
+
+		    	<div class="pagination_main" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'full-scroll' : pagerDisplay.isFullSlider }">
+			    	<div class="pagination_main_scrubber">
+			    		<div 
+			    			ng-repeat="pageNumber in pageRange() track by $index"
+			    			ng-click="pager.goToPage(pageNumber)" 
+			    			class="pagination_num" 
+			    			data-val="{{ pageNumber}}">
+			    				{{ pageNumber }}
+			    		</div>
+			    	</div>
+		    	</div>
+
+		    	<!-- front-biased does not have this -->
+		    	<!-- of 20 -->
+		    	
+		    	<div class="pagination_last" ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'enabled' : !pager.info.frontBiased }">
+		    		<span class="pagination_last_of">of</span><span class="pagination_last_num" ng-click="pager.goToPage(pager.info.numberOfPages, pager.info.frontBiased)">{{ pager.info.numberOfPages }}</span>
+		    	</div>
+
+			    <!-- scrub numbers right -->
+			    <div 
+			    	class="pagination_arrow pagination_arrow_right" 
+			    	ng-class="{ 'simple-scroll' : !pagerDisplay.isFullSlider, 'disabled' : disabledButtons.scrollRight }"
+			    	ng-click="scroll('right', pagerDisplay.numberOfPages)">
+			    		>
+			    </div>
+
+		    	<!-- next page -->
+				<div 
+					class="pagination_control pagination_control_next" 
+					ng-click="pager.nextPage()"
+					ng-class="{ 'disabled' : disabledButtons.next }">
+						Next
+				</div>
+			</div>
+	    </div>
 	</div>
 </div>
