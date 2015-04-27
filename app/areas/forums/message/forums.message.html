@@ -51,7 +51,8 @@
 						<div class="community__forum__messages__reply col--md4">
 							<button 
 								class="button-full button-blue-white" 
-								ng-click="vm.showReply(message.id)">
+								ng-click="vm.showReply(message.id)"
+								ng-disabled="vm.messageIsBeingRepliedTo(message.id)">
 									Reply
 							</button>
 						</div>

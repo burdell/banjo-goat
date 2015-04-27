@@ -2,24 +2,30 @@
 	'use strict';
 	
 	function communityTextEditor($timeout) {
-		var link = function(scope, element, attrs) {
-			TINYMCE_DEFAULT_CONFIG = {
-			   'plugins': "fullscreen,paste,autoresize",
-			   'theme': "advanced",
-			   'theme_advanced_buttons1' : "bold,italic,strikethrough,bullist,numlistseparator,undo,redo,separator,link,unlink,image"\
-			                               ",separator,cleanup,code,removeformat,charmap,"\
-			                               "fullscreen,paste",
-			   'theme_advanced_buttons2' : "",
-			   'theme_advanced_buttons3' : "",
-			};
-
+		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
+				console.log(scope.texteditor.editorId);
 				var e = element;
 				tinymce.init({
-					selector: '.' + scope.texteditor.className,
+					elements: scope.texteditor.editorId,
+					mode: 'exact',
 					setup: function(editor) {
-						editor.on('change', function(e) {
-						})
+						// function updateEditor() {
+						// 	debugger;
+						// 	editor.save();
+						// 	ngModel.$setViewValue(element.val())
+						// 	if (!scope.$$phase) {
+	     //                        scope.$apply();
+	     //                    }
+						// };
+
+						// editor.on('KeyUp', function(e) {
+						// 	updateEditor()
+						// });
+
+						// editor.on('ExecCommand', function(e) {
+						// 	updateEditor()
+						// });
 					}
 				});
 			}, 0)
@@ -28,7 +34,7 @@
 		var controller = function($scope) {
 			var ctrl = this;
 			_.extend(ctrl, {
-				className: 'community-editor-' + $scope.$id
+				editorId: 'community-editor-' + $scope.$id
 			});
 
 		};
@@ -37,12 +43,13 @@
 	    var directive = {
 	        link: link,
 	        controller: controller,
+	        require: 'ngModel',
 	        templateUrl: 'directives/texteditor/texteditor.html',
 	        controllerAs: 'texteditor',
 	        bindToController: true,
 	        restrict: 'E',
 	        scope: {
-	        	ngModel: '='
+	        	
 	        }
 	    };
 
