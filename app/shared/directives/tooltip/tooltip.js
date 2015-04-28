@@ -6,12 +6,8 @@
 			$(element).tooltipster({
 				contentAsHtml: true,
 				content: 'Loading...',
-				// position: 'bottom-left',
-				// bottom-left is very blocking; moving to top to see what it looks like
 				position: 'top-left',
 				theme: 'tooltipster-comm',
-				// minWidth: 100, //taken care of in css
-				// maxWidth: 1200,
 				interactive: true,
 				updateAnimation: false,
 				functionBefore: function(origin, continueTooltip) {
@@ -33,6 +29,11 @@
 		var controller = function($templateCache, $interpolate) {
 			this.getTemplate = function(templateData) {
 				var tooltipTemplate = $templateCache.get(this.tooltipTemplateName);
+				
+				if (this.localData) {
+					templateData = _.extend(templateData, this.localData);
+				}
+				
 				return $interpolate(tooltipTemplate)(templateData);
 			};
 		};
@@ -48,7 +49,8 @@
 	        scope: {
 	        	ajaxPopulate: '=',
 	        	idField: '@',
-	        	tooltipTemplateName: '@tooltipTemplate'
+	        	tooltipTemplateName: '@tooltipTemplate',
+	        	localData: '='
 	        }
 	    };
 

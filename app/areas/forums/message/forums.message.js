@@ -13,27 +13,31 @@
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 
+		function clearMessageReplyText(){
+			ctrl.messageReplyText = null;
+		}
+
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
 		_.extend(ctrl, {
 			currentReply: null,
+			messageReplyText: null,
+			messageThreadFilter: messageThreadFilter,
 			messageIsBeingRepliedTo: function(messageId){
 				return messageId === this.currentReply
 			},
-			messageThreadFilter: messageThreadFilter,
 			showReply: function(messageId){
+				clearMessageReplyText();
 				this.currentReply = messageId;
 			},
 			cancelReply: function(){
 				this.currentReply = null;
 			},
 			submitReply: function(){
-				console.log(replySubmitted);
-			},
-			getMessageReply: function(){
-
+				clearMessageReplyText();
+				this.currentReply = null;
 			}
 		})
 

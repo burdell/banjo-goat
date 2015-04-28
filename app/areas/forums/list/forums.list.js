@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function ForumListController ($stateParams, dataService, forumListFilter, nodeService, communityApiService){
+	function ForumListController ($stateParams, $state, dataService, forumListFilter, nodeService, communityApiService){
 		var controller = this;
 
 		function setMessageData (result){
@@ -15,10 +15,20 @@
 			forumListFilter: forumListFilter,
 			nodeId: $stateParams.nodeId,
 			currentNode: nodeService.CurrentNode,
-			getMessageData: communityApiService.Forums.message
+			getMessageData: communityApiService.Forums.message,
+			getMessageUrl: function(messageId){
+				return $state.href('forums.message', { messageId: messageId });
+			}
 		});
 	}
-	ForumListController.$inject = ['$stateParams', 'CommunityDataService', 'ForumListFilter', 'CommunityNodeService', 'CommunityApiService'];
+	ForumListController.$inject = [
+		'$stateParams', 
+		'$state',
+		'CommunityDataService', 
+		'ForumListFilter', 
+		'CommunityNodeService', 
+		'CommunityApiService'
+	];
 
 	angular.module('community.forums')
 		.controller('ForumList', ForumListController);

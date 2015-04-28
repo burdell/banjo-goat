@@ -64,8 +64,9 @@
                 community-tooltip
                 data-id-field="{{ ::message.id }}" 
                 ajax-populate="vm.getMessageData" 
-                tooltip-template="forums/list/forums.list.messagetooltip.html">
-                <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
+                tooltip-template="forums/list/forums.list.messagetooltip.html"
+                local-data="{ messageUrl: vm.getMessageUrl(message.id) }">
+                  <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
               </div>
               <div class="community__forum__threadlist__message__by">
                 <span>by <a ui-sref="user">{{ ::message.author.login }}</a></span> 

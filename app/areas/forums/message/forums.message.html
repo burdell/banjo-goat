@@ -62,27 +62,27 @@
 
 			<!-- reply -->
 			<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
-					<div class="col--md2">
+				<div class="col--md2">
+				</div>
+				<div class="col--md10">
+					<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
+					<div class="row row--comfy">
+						<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
 					</div>
-					<div class="col--md10">
-						<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
-						<div class="row row--comfy">
-							<community-text-editor ng-model="vm.messageReply"></community-text-editor>
-						</div>
-						<div>
-							<button 
-								class="button-square button-white-blue" 
-								ng-click="vm.cancelReply()">
-									Cancel
-							</button>
-							<button 
-								class="button-full button-blue-white"
-								ng-click="vm.submitReply()">
-									Submit Comment
-							</button>
-						</div>
+					<div>
+						<button 
+							class="button-square button-white-blue" 
+							ng-click="vm.cancelReply()">
+								Cancel
+						</button>
+						<button 
+							class="button-full button-blue-white"
+							ng-click="vm.submitReply()">
+								Submit Comment
+						</button>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 </div>
