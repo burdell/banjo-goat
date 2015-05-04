@@ -1,7 +1,7 @@
-<div class="community__breadcrumbs">
-  	<div class="col--md12">
-		<span ng-repeat="breadcrumb in breadcrumbs.breadcrumbListFn()" class="Breadcrumbs" itemtype="http://data-vocabulary.org/Breadcrumb">
-			 <span class="CrumbLabel HomeCrumb"><a href="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
+<div class="cmuBreadcrumbs">
+	<div class="row">
+		<span ng-repeat="breadcrumb in breadcrumbs.breadcrumbListFn()" itemtype="http://data-vocabulary.org/Breadcrumb">
+			 <span><a href="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
 		</span>
 		<span itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
 	</div>
