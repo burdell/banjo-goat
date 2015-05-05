@@ -3,6 +3,7 @@
 
 	var forumMessageController = function($scope, messageThreadFilter, breadcrumbService){
 		var ctrl = this;
+		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 
 		function setThreadData(dataResult) {
 			var mtf = messageThreadFilter;
@@ -16,7 +17,7 @@
 			ctrl.messageThread = messageThread;
 			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value + 1;
 			
-			breadcrumbService.setCurrentBreadcrumb(ctrl.originalMessage.subject);
+			setMessageBreadcrumb(ctrl.originalMessage.subject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 

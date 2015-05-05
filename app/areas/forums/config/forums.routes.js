@@ -13,7 +13,7 @@
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
 					}]
-				}
+				},
 			})
 			.state('forums.list', {
 				url: '/list?offset&sort', 
@@ -56,7 +56,8 @@
 							}
 						});
 					}]
-				}
+				},
+				reloadOnSearch: false
 			})
 			.state('forums.newtopic', {
 				url: '/n',

@@ -29,7 +29,7 @@
         <button class="button-full button-blue-white">Start a Topic</button>
       </div>
       <div class="col--md2">
-        <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset" class="community__sort"></community-sort>
+        <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="offset" class="community__sort"></community-sort>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
               {{  message.stats | extractKey : 'views' }}
             </td>
             <td class="forumThreadList__message__counter">
-              {{  message.stats | extractKey : 'comments' }}
+              {{  ( message.stats | extractKey : 'comments') - 1 }}
             </td>
             <td class="community__forum__threadlist__message__counter">
               {{  message.stats | extractKey : 'score' }}
