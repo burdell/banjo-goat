@@ -1,10 +1,9 @@
-(function(_){
+(function(_, tinymce){
 	'use strict';
 	
 	function communityTextEditor($timeout) {
 		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
-				var e = element;
 				var textElement = element.find('#' + scope.texteditor.editorId);
 				var editorInstance = null;
 
@@ -27,18 +26,18 @@
 						function updateModel() {
 							editor.save();
 
-							ngModel.$setViewValue(textElement.val())
+							ngModel.$setViewValue(textElement.val());
 							if (!scope.$$phase) {
 	                            scope.$apply();
 	                        }
-						};
+						}
 
 						editor.on('KeyUp', function(e) {
-							updateModel()
+							updateModel();
 						});
 
 						editor.on('ExecCommand', function(e) {
-							updateModel()
+							updateModel();
 						});
 
 						editor.on('init', function(){
@@ -49,7 +48,7 @@
 						element.find('.mce-path').css('visibility', 'hidden');
 					}
 				});
-			}, 0)
+			}, 0);
 		};
 
 		var controller = function($scope) {
@@ -81,4 +80,4 @@
 	angular.module('community.directives')
 		.directive('communityTextEditor', communityTextEditor);
 		
-}(window._));
+}(window._, window.tinymce));

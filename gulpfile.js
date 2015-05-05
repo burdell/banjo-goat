@@ -32,30 +32,30 @@ var fontFilter = $.filter(['**/**/*.ttf', '*.ttf', '**/**/*.woff', '*.woff']);
 // SOURCES
 //
 //
-
+var devOutput = './dist/dev';
+var prodOutput = './dist/prod';
 var outputs = {
-    dev: '../community-themes/UbntUI/applications/uf/js/ui-app/dev',
-    prod: '../community-themes/UbntUI/applications/uf/js/ui-app/prod',
-    index: {
-        toDirectory: '../community-themes/UbntUI/applications/uf/views/u/',
-        fromDirectory: '/applications/uf/js/ui-app',
-        filename: 'index.php'
-    },
-    bowerCss: '../community-themes/UbntUI/themes/Ubiquiti/assets/ui-vendor' 
+    dev: devOutput,
+    prod: prodOutput,
+    devJs: devOutput + '/js/',
+    prodJs: prodOutput + '/js/',
+    devCss: devOutput + '/css/'
 };
 
 
 var sources = {
+    index: 'app/index.html',
 	js: ['app/**/*.js'],
     dependencyJs: [
-        outputs.dev + '/areas/**/config/*.js',
-        outputs.dev + '/areas/**/*.js',
-        outputs.dev + '/shared/**/*.module.js',
-        outputs.dev + '/shared/**/*.js',
-        outputs.dev + '/templates/**/*.js',
-        outputs.dev + '/app.init.js'
+        outputs.devJs + 'areas/**/config/*.js',
+        outputs.devJs + 'areas/**/*.js',
+        outputs.devJs + 'shared/**/*.module.js',
+        outputs.devJs + 'shared/**/*.js',
+        outputs.devJs + 'templates/**/*.js',
+        outputs.devJs + 'app.init.js'
     ],
-	sass: ['app/styles/*.scss'],
+    css: [outputs.devCss + '**/*.css'],
+	sass: ['assets/**/*.scss'],
 	partials: [
 		'app/areas/**/*.html',
         'app/shared/**/*.html',
@@ -71,7 +71,7 @@ var sources = {
 //
 
 gulp.task('clean', function(){
-    del([outputs.base]);
+    del(['./dist/', './app/design/community.css']);
 });
 
 //
@@ -80,12 +80,56 @@ gulp.task('clean', function(){
 //
 //
 
-gulp.task('scripts', function() {
-  return gulp.src(sources.js)
-    // .pipe($.jshint(packageJSON.jshintConfig))
-    // .pipe($.jshint.reporter("jshint-stylish"))
-    // .pipe($.jshint.reporter('fail'))
-    .pipe(gulp.dest(outputs.dev));
+function areaBuilder(taskFn){
+    var areas = ['forums'];
+
+    _.each(areas, function(areaName){
+        taskFn(areaName);
+    });
+}
+
+function areaPath(areaName) {
+    return outputs.dev + '/' + areaName;
+}
+
+gulp.task('index', function(){
+    areaBuilder(function(areaName){
+        gulp.src(sources.index)
+            .pipe($.replace('{{GULP_BUILD_areaName}}', areaName))
+            .pipe($.rename('index.html'))
+            .pipe(gulp.dest(areaPath(areaName)));
+    });
+});
+
+/****  
+        SCRIPT TASKS 
+                        *****/
+gulp.task('init-script', function(){
+    areaBuilder(function(areaName) {
+         gulp.src([ 'app/app.init.js'])
+            .pipe($.replace('{{GULP_BUILD_areaName}}', areaName))
+            .pipe(gulp.dest(areaPath(areaName) + '/js/'));
+    });
+})
+
+gulp.task('shared-scripts', function(){
+    areaBuilder(function(areaName){
+        gulp.src([ 'app/shared/**/*.js'])
+            // .pipe($.jshint(packageJSON.jshintConfig))
+            // .pipe($.jshint.reporter("jshint-stylish"))
+            // .pipe($.jshint.reporter('fail'))
+            .pipe(gulp.dest(areaPath(areaName) + '/js/shared'));
+    });
+});
+
+gulp.task('scripts', ['shared-scripts', 'init-script'], function() {
+    areaBuilder(function(areaName){
+        gulp.src([ 'app/areas/' + areaName + '/**/*.js' ])
+        // .pipe($.jshint(packageJSON.jshintConfig))
+        // .pipe($.jshint.reporter("jshint-stylish"))
+        // .pipe($.jshint.reporter('fail'))
+        .pipe(gulp.dest(areaPath(areaName) + '/js/'));
+    });
 });
 
 gulp.task('prod-scripts', function(){
@@ -97,28 +141,69 @@ gulp.task('prod-scripts', function(){
         .pipe(jsFilter.restore());
 });
 
-gulp.task('partials', function() {
-    var partialGlob = gulp.src(sources.partials)
-        .pipe($.ngHtml2js({ moduleName: "community.templates" }))
-        .pipe(gulp.dest(outputs.dev + '/templates'));
+
+/**** 
+        TEMPLATE TASKS 
+                        *****/
+gulp.task('shared-templates', function(){
+     var templateBlob = gulp.src(['app/shared/**/*.html', '!app/index.html'])
+            .pipe($.ngHtml2js({ moduleName: "community.templates" }));
+
+    areaBuilder(function(areaName) {
+        templateBlob
+            .pipe(gulp.dest(areaPath(areaName) + '/js/templates'));
+    });
+});
+
+gulp.task('templates', ['shared-templates'], function() {
+    areaBuilder(function(areaName){
+        gulp.src(['app/areas/' + areaName + '/**/*.html','!app/index.html'])
+            .pipe($.ngHtml2js({ moduleName: "community.templates", prefix: areaName + '/' }))
+            .pipe(gulp.dest(areaPath(areaName) + '/js/templates'));
+    });
+});
+
+/***** 
+        STYLE TASKS 
+                        ******/
+gulp.task('compile-stylesheets', function(){
+    return gulp.src(sources.sass)
+        .pipe($.compass({
+           css: 'app/design',
+           sass: 'assets/sass'
+    }));
+});
+
+gulp.task('stylesheets', ['compile-stylesheets'], function(){
+    areaBuilder(function(areaName){
+        gulp.src('app/design/*.css')
+            .pipe(gulp.dest(areaPath(areaName) + '/css'));
+    });
+});
+
+/****** 
+            VENDOR TASKS 
+                            ******/
+gulp.task('whole-plugin-folders', function(){
+    areaBuilder(function(areaName) {
+        gulp.src(wholeFolderPlugins, { base: 'vendor/bower/' })
+            .pipe(gulp.dest(areaPath(areaName) + '/js/vendor/'))
+    });    
 });
 
 gulp.task('bower', ['whole-plugin-folders'], function(){ 
-    return gulp.src(bowerFiles)
-        .pipe(jsFilter)
-        .pipe(gulp.dest(outputs.dev + '/vendor'))
-        .pipe(jsFilter.restore())
-        .pipe(cssFilter)
-        .pipe(gulp.dest(outputs.bowerCss))
-        .pipe(cssFilter.restore())
-        .pipe(imgFilter)
-        .pipe(gulp.dest(outputs.bowerCss))
-        .pipe(imgFilter.restore());
-});
-
-gulp.task('whole-plugin-folders', function(){
-    return gulp.src(wholeFolderPlugins, { base: 'vendor/bower/' })
-            .pipe(gulp.dest(outputs.dev + '/vendor'))
+    areaBuilder(function(areaName){
+        gulp.src(bowerFiles)
+            .pipe(jsFilter)
+            .pipe(gulp.dest(areaPath(areaName) + '/js/vendor'))
+            .pipe(jsFilter.restore());
+            // .pipe(cssFilter)
+            // .pipe(gulp.dest(outputs.devCss + '/vendor'));
+            // .pipe(cssFilter.restore())
+            // .pipe(imgFilter)
+            // .pipe(gulp.dest(outputs.devCss + '/vendor'))
+            // .pipe(imgFilter.restore());
+    });
 });
 
 //
@@ -127,39 +212,59 @@ gulp.task('whole-plugin-folders', function(){
 //
 //
 
-
 gulp.task('inject', ['dev'], function () {
-    var index = outputs.index;
-   	var devLayoutPage = gulp.src(index.toDirectory + index.filename);
-    var devAppFiles =   sources.dependencyJs;
+    var fileDependencyOrder = [
+        'js/**/*.module.js',
+        'js/config/*.js',
+        'js/**/*.js',
+        '!js/app.init.js',
+        '!js/vendor/**/*.js'
+    ];
 
-    return devLayoutPage
-        .pipe($.inject(gulp.src(bowerFiles, { read: false }), {
-                name: 'bower',
-                ignorePath: 'vendor/bower/',
-                addRootSlash: false,
-                transform: function(filepath) {
-                    var newPath;
-                    var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
-                    var extension = cleanFilepath.split('.').pop();
-                    if (extension == 'js') {
-                        newPath = '<script src="' + index.fromDirectory + '/dev/vendor/' + cleanFilepath + '"></script>';
-                    } 
-                    return newPath;
-                }
-            }))
-        .pipe($.inject(gulp.src(devAppFiles, { read: false }), { 
-            name: 'app',  
-            addRootSlash: false, 
-            ignorePath: "../community-themes/UbntUI/applications/uf/js/ui-app/",
-            transform: function(filepath) {
-                return '<script src="' + index.fromDirectory + '/' + filepath +'"></script>';
-            }  
-        }))
-        .pipe($.rename(index.filename))
-        .pipe(gulp.dest(index.toDirectory));
+    areaBuilder(function(areaName){
+            gulp.src('dist/dev/' + areaName + '/index.html')
+                .pipe($.inject(gulp.src(bowerFiles, { read: false }), {
+                    name: 'bower',
+                    ignorePath: 'vendor/bower/',
+                    addRootSlash: false,
+                    transform: function(filepath) {
+                        var newPath;
+                        var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
+                        var extension = cleanFilepath.split('.').pop();
+                        if (extension == 'js') {
+                            return '<script src="forums/js/vendor/' + cleanFilepath + '"></script>';
+                        }
+                    }
+                }))
+            .pipe($.inject(gulp.src(fileDependencyOrder, { read: false, cwd: 'dist/dev/' + areaName }), { name: 'app', addRootSlash: false, addPrefix: areaName }))
+            //UGH
+            .pipe($.inject(gulp.src('js/app.init.js', { read: false, cwd: 'dist/dev/' + areaName }), { name: 'bootstrapper', addRootSlash: false, addPrefix: areaName  }))
+            .pipe($.rename('index.html'))
+            .pipe(gulp.dest(areaPath(areaName)));
+    });
 });
 
+//
+//
+// SERVER
+//
+//
+
+gulp.task('express', function() {
+    var express = require('express');
+    var app = express();
+
+    app.engine('html', require('ejs').renderFile);
+    app.set('views', __dirname + '/dist/dev/');
+    
+    app.use(express.static(__dirname + '/dist/dev/'));
+    app.get('/forums/*', function (req,res) {
+        res.render('forums/index.html');
+        console.log('served forums index.html');
+    });
+   
+    app.listen(4200);
+});
 
 //
 //
@@ -169,8 +274,8 @@ gulp.task('inject', ['dev'], function () {
 
 gulp.task('watch', function () {
 	gulp.watch(sources.js, ['scripts']);
-	gulp.watch(sources.partials, ['partials']);
-	gulp.watch(sources.img, ['img']);
+	gulp.watch(sources.partials, ['templates']);
+    gulp.watch(sources.sass, ['stylesheets']);
 });
 
 //
@@ -179,9 +284,9 @@ gulp.task('watch', function () {
 //
 //
 
-gulp.task('default', ['dev', 'inject', 'watch']);
+gulp.task('default', ['dev', 'inject', 'watch', 'express']);
 
-gulp.task('dev', ['scripts', 'partials', 'bower']);
+gulp.task('dev', ['index', 'scripts', 'templates', 'stylesheets', 'bower']);
 
 gulp.task('prod', ['dev'], function(){
     //build prod from dev build

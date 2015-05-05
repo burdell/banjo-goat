@@ -1,0 +1,51 @@
+
+
+// 
+// SEARCHBOX MODULE
+// @searchbox
+// 
+
+.cmuSearchbox { 
+  padding: $cmu-base 0;
+
+  @include cmu-placeholder {
+      color: $cmu-color-placeholder;
+      font-weight: 400;
+      text-transform: uppercase;
+  }
+  text-align: right;
+}
+
+
+.cmuSearchbox input {
+  background-color: $cmu-searchbox-background-color;
+  font-family: $cmu-searchbox-font-family;
+  margin-bottom: $cmu-base-spacing-unit;
+  height: double($cmu-base-spacing-unit);
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  border: 1px solid $cmu-searchbox-border-color;
+  color: $cmu-searchbox-font-color;
+  display: block;
+  font-size: $cmu-searchbox-font-size;
+  margin: 0 0 $cmu-searchbox-form-spacing 0;
+  padding: $cmu-searchbox-form-spacing / 2;
+  width: 100%;
+
+  // Basic focus styles
+  &:focus {
+    background: $cmu-searchbox-focus-background-color;
+    border-color: $cmu-searchbox-focus-border-color;
+  }
+
+  // Disabled background input background color
+  &[disabled] { 
+    background-color: $cmu-searchbox-disabled-background-color; 
+  }
+}
+

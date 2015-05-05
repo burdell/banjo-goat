@@ -5,8 +5,15 @@
 		var ctrl = this;
 
 		function setThreadData(dataResult) {
-			ctrl.originalMessage = dataResult[0];
-			ctrl.messageThread = dataResult;
+			var mtf = messageThreadFilter;
+			ctrl.originalMessage = dataResult.originalMessage;
+			
+			var messageThread = dataResult.comments;
+			if (!(messageThreadFilter.model('offset') > 0)) {
+				messageThread.unshift(ctrl.originalMessage);
+			}
+
+			ctrl.messageThread = messageThread;
 			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value + 1;
 			
 			breadcrumbService.setCurrentBreadcrumb(ctrl.originalMessage.subject);
@@ -26,7 +33,7 @@
 			messageReplyText: null,
 			messageThreadFilter: messageThreadFilter,
 			messageIsBeingRepliedTo: function(messageId){
-				return messageId === this.currentReply
+				return messageId === this.currentReply;
 			},
 			showReply: function(messageId){
 				clearMessageReplyText();
@@ -39,7 +46,7 @@
 				clearMessageReplyText();
 				this.currentReply = null;
 			}
-		})
+		});
 
 	};
 	forumMessageController.$inject = ['$scope', 'MessageThreadFilter', 'CommunityBreadcrumbService'];

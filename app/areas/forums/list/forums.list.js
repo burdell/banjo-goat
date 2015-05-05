@@ -5,7 +5,7 @@
 		var controller = this;
 
 		function setMessageData (result){
-			controller.messageList = result.content;
+			controller.messageList = result.collection;
 			controller.messageCount = result.next.total;
 		}
 		forumListFilter.set({ onFilter: setMessageData });

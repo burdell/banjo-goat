@@ -1,0 +1,19 @@
+
+$cmu-style-border-thin: 1px solid $cmu-color-black;
+%style-border-bottom-thin { 
+	border-bottom: $cmu-style-border-thin;
+}
+
+$cmu-style-border-thin-light: 1px solid $cmu-color-mdgray;
+%style-border-bottom-thin-light {
+	border-bottom: $cmu-style-border-thin;
+}
+
+$cmu-style-border-medium: 2px solid $cmu-color-black;
+%style-border-medium-blue {
+	border: $cmu-style-border-medium;
+	border-color: $cmu-color-blue;
+}
+%style-border-bottom-medium {
+	border-bottom: $cmu-style-border-medium;
+}

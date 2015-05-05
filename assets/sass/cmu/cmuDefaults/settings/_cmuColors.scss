@@ -1,0 +1,150 @@
+
+// 
+// COLORS
+// Use contextual colors from the Palette (e.g. color-alert or color-ok)
+// 
+
+// 
+// BASE COLOR PALETTE
+// 
+$cmu-color-ltblue: 		#1374AB; 				// this is what was in the comp //#13BCFF; < this is the Sketch spec color;
+$cmu-color-blue: 		#00A0DF;
+$cmu-color-dkblue: 		#0074AD;
+
+$cmu-color-green: 		#48AF65;
+$cmu-color-orange: 		#FFAA00;
+$cmu-color-dkorange:	#F09300;
+$cmu-color-red: 		#FF3516;
+
+$cmu-color-black: 		#000;
+$cmu-color-ltblack: 	#17191D;
+$cmu-color-xdkgray: 	#242931;
+$cmu-color-dkgray: 		#474B52;
+$cmu-color-gray: 		#969BA3;
+$cmu-color-mdgray: 		#BBBBBD;
+$cmu-color-xmdgray: 	#DADADA; 				// need slightly lighter version of mdgray; this one isn't in spec
+$cmu-color-ltgray: 		#EBEBEB; 
+$cmu-color-xltgray: 	#FAFAFA;
+$cmu-color-white: 		#FAFAFA;
+
+$cmu-color-textgray: 	#aeb4b7; 				// this color is on dotcom nav, but is not in palette
+
+
+
+// ******************************
+// 
+// CONTEXTUAL COLORS
+// 
+// ******************************
+
+
+$cmu-color-placeholder: $cmu-color-xmdgray; 	// used as hint color for inputs
+$cmu-color-darken: rgba(0,0,0,0.3); 	// used for button onhover states
+
+$cmu-secondary-border-color: #bbbbbd;
+$cmu-hr-color: $cmu-secondary-border-color;
+
+$cmu-hr-color: $cmu-color-gray;
+$cmu-hr-dark-color: $cmu-color-gray;
+
+
+
+// 
+// STATUS
+// 
+$cmu-status-static-color: #cccccc; /* [1] */
+$cmu-status-primary-color: #00a0df; /* [2] */
+$cmu-status-info-color: #14b0f6; /* [3] */
+$cmu-status-success-color: #13bb72; /* [4] */
+$cmu-status-warning-color: #f09300; /* [5] */
+$cmu-status-danger-color: #ff3000; /* [6] */
+
+// 
+// DEFAULT
+// 
+$cmu-primary-background-color: #fafafa;
+$cmu-primary-font-color: #17191d;
+$cmu-primary-link-color: $cmu-status-primary-color;
+$cmu-primary-hover-link-color: #17191d;
+$cmu-primary-border-color: #c9c9c9;
+
+$cmu-secondary-border-color: #bbbbbd;
+
+
+
+
+
+$cmu-input-icon-color: $cmu-color-mdgray;
+
+
+// 
+// COLOR SETTINGS 
+// 
+.color-background-dark {
+	background-color: $cmu-color-ltblack;
+}
+ 
+
+
+// 
+// MODULES AND COMPONENTS
+// 
+
+
+
+
+
+
+// 
+// BANNER
+// 
+
+// base banner style
+$cmu-banner-background-color: $cmu-color-dkorange;
+$cmu-banner-hover-background-color: darken($cmu-banner-background-color,5);
+
+$cmu-banner-text-color: $cmu-color-ltblack;
+$cmu-banner-hover-text-color: $cmu-color-black;
+
+$cmu-banner-icon-color: $cmu-color-black;
+$cmu-banner-hover-icon-color: $cmu-color-ltblue;
+
+
+// 
+// BREADCRUMBS
+// 
+
+$cmu-breadcrumbs-link-color: $cmu-color-black;
+$cmu-breadcrumbs-hover-link-color: $cmu-color-blue;
+$cmu-breadcrumbs-inactive-link-color: $cmu-color-mdgray;
+
+
+
+
+
+
+
+// 
+// SEARCHBOX
+// 
+
+$cmu-searchbox-font-color: rgba(0,0,0,0.75);
+$cmu-searchbox-background-color: #ffffff;
+$cmu-searchbox-focus-background-color: $cmu-primary-background-color;
+$cmu-searchbox-border-color: #bebec0;
+$cmu-searchbox-focus-border-color: $cmu-primary-link-color;
+$cmu-searchbox-disabled-background-color: #dddddd;
+
+
+
+// 
+// THREADSORT
+// 
+
+$cmu-threadsort-font-color: rgba(0,0,0,0.75);
+$cmu-threadsort-background-color: #ffffff;
+$cmu-threadsort-focus-background-color: $cmu-primary-background-color;
+$cmu-threadsort-border-color: #bebec0;
+$cmu-threadsort-focus-border-color: $cmu-primary-link-color;
+$cmu-threadsort-disabled-background-color: #dddddd;
+

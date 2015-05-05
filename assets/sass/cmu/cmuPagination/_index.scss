@@ -1,0 +1,37 @@
+
+
+// temporary for refactoring
+
+// example pagination - NOT FOR PRODUCTION
+
+// unselectable UI (it's annoying)
+%noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// these drive the example input values for the demo only
+.pagination_ex {
+	div {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: $cmu-base;
+	}
+	input {
+		display: inline-block;
+		width: $cmu-base*6;
+		margin-right: $cmu-base*2;
+	}
+}
+
+
+
+
+
+
+
+@import 'modules/cmuPaginationModule';

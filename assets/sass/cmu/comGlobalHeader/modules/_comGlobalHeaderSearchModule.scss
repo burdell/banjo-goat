@@ -1,0 +1,52 @@
+/* SEARCH FORM */
+.comGlobalHeader__navItemSearchForm {
+  letter-spacing: 0;
+  width: 0;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0 0.7em;
+
+  @include transition-property(width);
+  @include transition-duration(0.35s);
+  @include transition-timing-function(ease-out);
+
+  &.is-nav-search-expanded {
+    width: 226px;
+  }
+
+  /* 
+    1. tablet breakpoint 
+    At this breakpoint the search form will overlap the navRight
+  */
+  @media #{$com-global-header-tablet-nav-only} { /* [1] */
+    position: absolute;
+    top: 12px;
+    right: 47px;
+  }
+
+}
+
+/* SEARCH ICON */
+.comGlobalHeader__navItemSearch {
+  vertical-align: -2px;
+
+  /* 
+    1. tablet breakpoint 
+    Maintain spacing since navItemSearchForm will now be positioned absolute
+  */
+  @media #{$com-global-header-tablet-nav-only} { /* [1] */
+    margin-left: 34px;
+  }
+
+  .comGlobalHeader__navItemLink {
+    font-size: remCalc(15.5px);
+  }
+
+  &.is-nav-search-expanded {
+    .comGlobalHeader__navItemLink {
+      color: $com-global-header-nav-item-link-color-hover;
+    }
+  }
+}

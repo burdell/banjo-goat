@@ -1,0 +1,39 @@
+label {
+  color: $cmu-form-label-color;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.cmuForm--description {
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: $cmu-form-description-font-color;
+  margin-left: 10px;
+}
+
+.cmuForm--required {
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: $cmu-form-required-default-color;
+  float: right;
+}
+
+label,
+.cmuForm--required {
+  &.is-input-invalid {
+    color: $cmu-form-required-invalid-color;
+  }
+}
+
+.cmuCaptchaWrapper {
+    position: relative;
+    margin-top: 36px;
+}
+
+.cmuCaptcha,
+%cmuCaptcha {
+  position: absolute;
+  top: -13px;
+  margin-left: 10px;
+}
+

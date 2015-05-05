@@ -1,0 +1,11 @@
+
+// comDefaults to enable cmu module conversions (e.g. global+footer)
+@import "settings/cmuComDefaults";
+
+// this is imported verbatim from the COM theme
+// it only affects row and padding for header and footer / align consistency
+// IMPORTANT NOTE: Don't let COM overrides determine width or style of community
+
+.comGlobalHeader, .comGlobalFooter {
+	@import "modules/comOverrideGridModule";
+}

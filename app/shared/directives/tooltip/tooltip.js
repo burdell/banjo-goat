@@ -15,8 +15,9 @@
 
 					if (origin.data('ajax') !== 'cached') {
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-							var tooltipData = _.extend(result.content, {
-								text: angular.element(result.content.body).text()
+							var content = result.model;
+							var tooltipData = _.extend(content, {
+								text: angular.element(content.body).text()
 							});
 							var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
 							origin.tooltipster('content', tooltipElement).data('ajax', 'cached');

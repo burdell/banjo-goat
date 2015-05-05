@@ -10,8 +10,8 @@
 		'community.services',
         'community.directives', 
         'community.filters',  
-		'community.forums', 
-		'community.templates'
+		'community.templates',
+        'community.{{GULP_BUILD_areaName}}', 
 	]).run(['$rootScope', '$window', function($rootScope, $window){
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);

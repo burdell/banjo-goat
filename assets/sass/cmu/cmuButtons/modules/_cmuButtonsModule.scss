@@ -1,0 +1,131 @@
+
+
+// 
+// BUTTONS MODULE
+// 
+
+$cmu-style-button-border: remCalc(2px);
+
+// outline / thick border look
+%style-button-square {
+	border: $cmu-style-button-border solid $cmu-color-white;
+	padding: $cmu-base/2 - ($cmu-style-button-border) $cmu-base - ($cmu-style-button-border); // padding will increase box size
+	text-transform: uppercase;
+	font-size: $cmu-base*0.8;
+	@extend %ease-fast;
+
+	&:hover {
+		border-color: $cmu-color-ltgray;
+		background-color: $cmu-color-darken;
+	}
+}
+
+%style-button-full {
+	padding: $cmu-base/2 $cmu-base;
+	text-transform: uppercase;
+	font-size: $cmu-base*0.8;
+	@extend %ease-fast;
+
+	&:hover {
+		background-color: $cmu-color-dkblue;
+	}
+}
+
+%style-button-compound {
+	border: $cmu-style-button-border solid $cmu-color-blue;
+	text-transform: uppercase;
+	font-size: $cmu-base*0.8;
+	@extend %ease-fast;
+	padding: 0;
+
+	span {
+		display: inline-block;
+	}
+
+	span:nth-child(1) {
+		padding: $cmu-base/2 - ($cmu-style-button-border) $cmu-base;
+		background-color: $cmu-color-white;
+		color: $cmu-color-green;
+	}
+
+	span:nth-child(2) {
+		padding: $cmu-base/2 - ($cmu-style-button-border) $cmu-base;
+		line-height: 16px;
+	}
+
+	&:hover {
+		border-color: $cmu-color-green;
+		background-color: $cmu-color-green;
+		span:nth-child(1) {
+			@extend %ease-fast;
+			background-color: $cmu-color-green;
+			color: $cmu-color-white;
+		}
+		span:nth-child(2) {
+			border-color-left: $cmu-color-white;
+			color: $cmu-color-white;
+		}
+	}
+}
+
+// note that all buttons need borders, even the full background ones
+// since border adds "padding"
+button, .button {
+
+	// treat regular buttons as square buttons
+	@extend %style-button-square;
+
+	&.button-square {
+		@extend %style-button-square;
+	}
+
+	&.button-full {
+		@extend %style-button-full;
+		border: 0;
+	}
+
+	&.button-compound {
+		@extend %style-button-compound;
+	}
+
+	&.button-white-green {
+		background-color: $cmu-color-white;
+		color: $cmu-color-green;
+		border-color: $cmu-color-green;
+
+		span {
+			padding: 0 $cmu-base/2;
+			background-color: $cmu-color-green;
+			color: $cmu-color-white;
+		}
+
+		&:hover {
+			color: $cmu-color-white;
+			background-color: $cmu-color-green;
+			border-color: $cmu-color-green;
+		}
+
+	}
+
+	&.button-white-blue {
+		background-color: $cmu-color-white;
+		color: $cmu-color-blue;
+		border-color: $cmu-color-blue;
+
+		&:hover {
+			color: $cmu-color-white;
+			background-color: $cmu-color-blue;
+			border-color: $cmu-color-blue;
+		}
+
+	}
+
+
+	&.button-blue-white {
+		background-color: $cmu-color-blue;
+		color: $cmu-color-white;
+		@extend %style-button-square;
+		border: $cmu-color-blue;
+	}
+
+}

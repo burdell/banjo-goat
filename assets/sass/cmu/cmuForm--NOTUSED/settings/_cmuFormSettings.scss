@@ -1,0 +1,18 @@
+// We use this to set the base for lots of form spacing and positioning styles
+$cmu-form-spacing: remCalc($cmu-base) !default;
+
+// We use these to style the labels in different ways
+$cmu-input-font-family: inherit !default;
+$cmu-input-font-size: remCalc(14) !default;
+$cmu-input-border-radius: 0 !default;
+$cmu-input-box-shadow: none;
+
+// We use this to style the glowing effect of inputs when focused
+$cmu-glowing-effect-fade-time: 0.45s !default;
+
+// Select variables
+$cmu-select-width: 100%;
+
+// Radio variables
+$cmu-radio-width: 13px;
+$cmu-radio-height: 12px;

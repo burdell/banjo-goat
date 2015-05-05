@@ -31,20 +31,16 @@
 			});
 		}
 		
-		var baseUrls = {
-			Core: '/api/',
-			Forums: '/api/'
-		};
-
+		var baseUrl = 'http://comm2-dev.ubnt.com:8080/';
 		var urlSegments = {
 			Node: function(id){
-				return 'nodes/' + id + '/';
+				return 'nodes/id/' + id + '/';
 			},
 			User: function(id) {
 				return 'users/' + id + '/';
 			},
 			Message: function(id) {
-				return 'messages/' + id + '/';
+				return 'topics/' + id + '/';
 			}
 		};
 
@@ -52,37 +48,38 @@
 		var service = {
 			Core: {
 				advert: function(){
-					return goToApi(baseUrls.Core + 'advert');
+					return goToApi(baseUrl + 'advert');
 				},
 				breadcrumbs: function(nodeId){
-					return goToApi(baseUrls.Core + urlSegments.Node(nodeId) + 'breadcrumbs');
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'breadcrumbs');
 				},
 				tags: function(nodeId, options){
-					return goToApi(baseUrls.Core + urlSegments.Node(nodeId) + 'tags');
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'tags');
 				},
 				userSummary: function(userId){
-					return goToApi(baseUrls.Core + urlSegments.User(userId) + 'summary');
+					return goToApi(baseUrl + urlSegments.User(userId) + 'summary');
 				}
 			},
 			Forums: {
 				message: function(messageId, data, verb) {
-					return goToApi(baseUrls.Forums + urlSegments.Message(messageId));
+					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId));
 				},
 				messages: function(nodeId, data){
-					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'messages', data);
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				},
 				comments: function(messageId, data) {
-					return goToApi(baseUrls.Forums + urlSegments.Message(messageId) + 'comments', data);
+					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId) + 'comments', data);
 				},
 				stats: function(nodeId, data) {
-					return goToApi(baseUrls.Forums + urlSegments.Node(nodeId) + 'stats');
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stats');
 				},
 				thread: function(messageId, data){
 					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
 						.then(function(result) {
-							var originalMessage = [ result[0].content ];
-							var comments = result[1].content;
-							return originalMessage.concat(comments);
+							return {
+								originalMessage: result[0].model,
+								comments: result[1].collection
+							}
 						});
 				}
 			}

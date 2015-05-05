@@ -1,0 +1,47 @@
+
+
+// 
+// Banner (Announcements)
+// 
+
+// Note that the html uses Flexbox to center
+.cmuBanner {
+
+	cursor: pointer;
+	// padding: $cmu-base 0;
+	background-color: $cmu-banner-background-color;
+	font-weight: 300; 
+	color: $cmu-banner-text-color;
+	@extend %ease-fast; 
+
+	&:not(.cmuBanner__close):hover {
+		background-color: $cmu-banner-hover-background-color;
+
+		a, span {
+			color: $cmu-banner-hover-text-color;
+			@extend %ease-fast; 
+		}
+	}
+}
+
+	.cmuBanner__main {
+		text-align: left;
+		padding: $cmu-base 0;
+
+	}
+
+	.cmuBanner__message {
+		margin-right: $cmu-base;
+	}
+
+	.cmuBanner__close {
+		padding: $cmu-base;
+		color: $cmu-banner-icon-color;
+		text-align: center;
+		@extend %ease-fast; 
+		cursor: pointer; 
+
+		&:hover { 
+			color: $cmu-banner-hover-icon-color;
+		}
+	}

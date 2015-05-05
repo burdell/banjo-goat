@@ -1,0 +1,39 @@
+
+
+
+// 
+// MIXINS
+// 
+
+// Mixin placeholder text for input fields
+// should this be moved into the placeholder component?
+@mixin cmu-placeholder {
+  ::-webkit-input-placeholder {@content;};
+  :-moz-placeholder           {@content;};
+  ::-moz-placeholder          {@content;};
+  :-ms-input-placeholder      {@content;};
+}
+
+@mixin background-opacity($cmu-color, $opacity: 0.3) {
+    background: $cmu-color; /* The Fallback */
+    background: rgba($cmu-color, $opacity);
+}
+
+@mixin ease($speed){
+    -webkit-transition: all $speed ease;
+    -moz-transition: all $speed ease;
+    -ms-transition: all $speed ease;
+    -o-transition: all $speed ease;
+    transition: all $speed ease;
+}
+%ease{@include ease(230ms);}
+%ease-fast{@include ease(180ms);}
+%ease-slow{@include ease(320ms);}
+
+@mixin ease-out($speed){
+    -webkit-transition: all $speed ease-out 0;
+    -moz-transition: all $speed ease-out 0;
+    -ms-transition: all $speed ease-out 0;
+    -o-transition: all $speed ease-out 0;
+    transition: all $speed ease-out 0;
+}

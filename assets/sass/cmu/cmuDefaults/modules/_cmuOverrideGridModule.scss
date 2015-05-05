@@ -1,0 +1,26 @@
+.row {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+
+  & > div:first-child {
+    padding-left: 0;
+  }
+  & > div:last-child {
+    padding-right: 0;
+  }
+
+  .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media screen and (min-width: $base-lower-medium) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media screen and (min-width: $base-lower-large) {
+    padding-left: 89px;
+    padding-right: 89px;
+  }
+}

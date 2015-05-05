@@ -6,7 +6,7 @@
 		$stateProvider
 			.state('forums', {
 				abstract: true,
-				url: '/uf/u/nodes/:nodeId',
+				url: '/forums/:nodeId',
 				templateUrl: 'forums/forums.html',
 				controller: 'Forum as vm',
 				resolve: {
@@ -28,7 +28,10 @@
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Forums.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
-							autoInitModel: true 
+							autoInitModel: true,
+							constants: {
+								limit: 30
+							} 
 						});
 					}]
 				},
@@ -48,9 +51,9 @@
 							filterFn: communityApi.Forums.thread, 
 							filterArguments: [ $stateParams.messageId ],
 							filterContext: communityApi.Forums,
-							filterModel: {
+							constants: {
 								limit: 20
-							} 
+							}
 						});
 					}]
 				}
@@ -62,6 +65,8 @@
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
+
 
 
 		angular.module('community.forums')

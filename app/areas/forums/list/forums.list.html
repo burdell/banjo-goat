@@ -68,12 +68,12 @@
             <td class="forumThreadList__message__counter">
               {{  message.stats | extractKey : 'comments' }}
             </td>
-            <td class="forumThreadList__message__counter">
-              {{  message.stats | extractKey : 'kudos' }}
+            <td class="community__forum__threadlist__message__counter">
+              {{  message.stats | extractKey : 'score' }}
             </td>
             <td class="forumThreadList__message__latest">
               <a>{{ ::message.latestReply.author.login }}</a>
-              <span>{{ message.latestReply.postTime | timeFromNow }}</span>
+              <span>{{ message.latestComment.postTime | timeFromNow }}</span>
             </td>
           </tr>
 

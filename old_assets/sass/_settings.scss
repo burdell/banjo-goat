@@ -1,0 +1,129 @@
+// /*------------------------------------*\
+//     #SETTINGS
+// \*------------------------------------*/
+
+// /**
+//  * Config switches and environment variables.
+//  */
+// $product:   ubntcom;
+
+
+// /**
+//  * 1. Support IE9 and IE10 linear gradients.
+//  */
+// $experimental-support-for-svg: true; /* [1] */
+
+
+// /**
+//  * Color values.
+//  */
+// $ubnt-color: #00a1df;           // UBNT Blue
+// $blue-color: #14b0f6;           // Blue
+// $mid-blue-color: #0e8ec9;       // Mid Blue
+// $dark-gray-color: #666;         // Dark Gray
+// $gray-color: #525252;           // Light Gray
+// $mid-green-color: #88cc00;      // Mid Green
+// $mid-gray-color: #eaeaec;       // Mid Gray
+// $light-gray-color: #f8f8f8;     // Lightest Gray
+
+// $primary-color: $ubnt-color;    // UBNT Blue
+// $secondary-color: #666;         // Gray
+// $alert-color: #ff3000;          // Red
+// $success-color: #88cc00;        // Green
+// $warning-color: #f08a24;
+// $info-color: $blue-color;       // Blue
+// $border-color: #CCC;            // Light Gray Border
+// $base-link-color: $primary-color;
+
+// $global-header-height: 55px;
+// $global-header-bg-color: #000;
+// $global-header-border-color: #6a6a6a;
+
+
+
+// /**
+// * Global Image Path
+// */
+// $images-path: 'images/';
+
+
+
+
+// /**
+// * Global Fonts Path
+// */
+// $fonts-path: 'fonts/';
+
+
+
+
+// /**
+//  * Lato Fonts
+//  */
+
+// $fallback_fonts: '"Helvetica Neue", Helvetica, Arial, sans-serif';
+
+// $font-lato-regular: 'latoregular', #{$fallback_fonts};
+// $font-lato-italic: 'latoitalic', #{$fallback_fonts};
+// $font-lato-bold: 'latobold', #{$fallback_fonts};
+// $font-lato-bold-italic: 'latobold_italic', #{$fallback_fonts};
+// $font-lato-hairline: 'latohairline', #{$fallback_fonts};
+// $font-lato-hairline-italic: 'latohairline_italic', #{$fallback_fonts};
+// $font-lato-light: 'latolight', #{$fallback_fonts};
+// $font-lato-black: 'latoblack', #{$fallback_fonts};
+// $font-lato-black-italic: 'latoblack_italic', #{$fallback_fonts};
+
+
+
+
+
+// /**
+//  * These are very basic, high-level default settings to get a project started.
+//  */
+// $base-font-size:        16px !default;
+// $base-line-height:      24px !default;
+// $base-text-color:       #17191d !default;
+// $base-font-family:      $font-lato-regular;
+// $base-background-color: #f0f0f0 !default;
+
+
+
+
+
+// /**
+//  * These are private variables that should not be reassigned, overridden, or
+//  * modified. They are for use internally by the framework.
+//  */
+// $base-spacing-unit:     $base-line-height !default;
+// $base-micro-unit:       $base-line-height/6 !default;
+
+
+// /**
+//  * Paragraph settings.
+//  */
+// $p-margin-bottom: 1em !default;
+
+// /**
+//  * Headings sizes. Defined these in pixels for the framework to convert into
+//  * rems (and place on the baseline) later on.
+//  */
+// $heading-size-1:    56px !default;
+// $heading-size-2:    36px !default;
+// $heading-size-3:    28px !default;
+// $heading-size-4:    24px !default;
+// $heading-size-5:    20px !default;
+// $heading-size-6:    16px !default;
+
+// $heading-line-height-1: 62px !default;
+// $heading-line-height-2: 44px !default;
+// $heading-line-height-3: 36px !default;
+// $heading-line-height-4: 32px !default;
+// $heading-line-height-5: 28px !default;
+// $heading-line-height-6: 24px !default;
+
+
+// /**
+//  * Foundation variables
+//  */
+// $include-html-type-classes: false;
+// $include-html-global-classes: false;

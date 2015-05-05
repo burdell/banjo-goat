@@ -1,0 +1,32 @@
+
+// Temporary for the secondary nav
+.cmuNav {
+	@extend .color-background-dark;
+
+	* , a {
+		font-size: $cmu-size-navbar-fontsize;
+		color: $cmu-color-ltgray;
+		text-transform: uppercase;
+	  	letter-spacing: $cmu-size-navbar-letterspacing;
+		&:hover { color: $cmu-color-blue;}
+	}
+
+	cursor: default; // used to prevent cursor from switching to text mode
+
+	ul {
+		padding: $cmu-base 0;
+		li {
+			list-style-type: none;
+			display: inline;
+			margin-right: $cmu-base/2;
+			cursor: pointer;
+		}
+		li:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+// temporary alignment with global nav
+// .cmuNav__left { padding-left: 74px; }
+.cmuNav__right { text-align: right; }

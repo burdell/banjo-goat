@@ -1,0 +1,216 @@
+/*------------------------------------*\
+    #INPUT GROUPS
+\*------------------------------------*/
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include cmuFormDefaults();
+
+  @include appearance(none);
+  @include border-radius($cmu-input-border-radius);
+  @include box-sizing(border-box);
+  @include box-shadow($cmu-input-box-shadow);
+  @include single-transition(all, 0.15s, linear);
+
+  border: 1px solid $cmu-input-border-color;
+  color: $cmu-input-font-color;
+  display: block;
+  font-size: $cmu-input-font-size;
+  margin: 0 0 $cmu-form-spacing 0;
+  padding: $cmu-form-spacing / 2;
+  width: 100%;
+
+  // Basic focus styles
+  &:focus {
+    background: $cmu-input-focus-background-color;
+    border-color: $cmu-input-focus-border-color;
+  }
+
+  // Disabled background input background color
+  &[disabled] { 
+    background-color: $cmu-input-disabled-background-color; 
+  }
+}
+
+/*------------------------------------*\
+    #TEXTAREA
+\*------------------------------------*/
+
+textarea {
+  resize: none;
+  height: remCalc(145px);
+}
+
+/*------------------------------------*\
+    #SELECT GROUP
+\*------------------------------------*/
+select {
+  @include cmuFormDefaults();
+  width: 100%;
+  -webkit-appearance: none !important;
+  background:
+    $cmu-select-background-color
+    url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSAyNzguNjI3LDM3MC4zNDMgDQoJNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=") no-repeat;
+  background-position: right 0.6em top 1.3em;
+  border: 1px solid $cmu-input-border-color;
+  padding: 13px;
+  color: $cmu-input-font-color;
+  font-size: $cmu-input-font-size;
+  @include border-radius(0);
+  background-size: 16px 12px;
+
+  &:hover {
+    border-color: $cmu-input-focus-border-color;
+  }
+}
+
+.cmuForm--dark {
+  select {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIGZpbGw9IiNGREZERkQiIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSANCgkyNzguNjI3LDM3MC4zNDMgNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=");
+    color: $cmu-input-dark-font-color;
+    border-color: $cmu-input-dark-border-color;
+
+    &:hover {
+      border-color: $cmu-input-dark-focus-border-color;
+    }
+  }
+}
+
+.cmuForm--blue {
+  select {
+    background-color: $cmu-input-blue-background-color;
+  }
+}
+
+select::-ms-expand {
+  display:none;
+}
+
+/* Disabled select background */
+select:disabled {
+  background: $cmu-input-disabled-background-color; 
+}
+
+/*------------------------------------*\
+    #RADIO
+\*------------------------------------*/
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline-block;
+  margin-left: $cmu-form-spacing * .5;
+  margin-right: $cmu-form-spacing;
+  margin-bottom: 0;
+  vertical-align: baseline;
+}
+
+input[type="radio"] + label span {
+  background-color:$cmu-radio-background-color;
+  display: inline-block;
+  width: $cmu-radio-width;
+  height: $cmu-radio-width;
+  margin: -1px 8px 0 4px; //#TODO Spacing
+  vertical-align: middle;
+  cursor: pointer;
+  @include border-radius(100%);
+}
+
+input[type="radio"]:checked + label span{
+  background-color: $cmu-radio-checked-background-color;
+}
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  @include single-transition(background-color, 0.2s, linear);
+}
+
+/*------------------------------------*\
+    #CHECKBOX BUTTON
+\*------------------------------------*/
+
+/* Base for label styling */
+input[type="checkbox"]:not(:checked) + label,
+input[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 25px; //#TODO Spacing
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+input[type="checkbox"]:not(:checked) + label:before,
+input[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $cmu-checkbox-border-color;
+  background: #fff;
+  @include border-radius(1px);
+}
+
+/* checked mark aspect */
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 0;
+  left: 4px;
+  color: $cmu-checkbox-check-color;
+  font-size: 0.875rem;
+  @include transition(all .2s);
+}
+
+/* checked mark aspect changes */
+input[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* accessibility */
+input[type="checkbox"]:checked:focus + label:before,
+input[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px dotted $cmu-checkbox-check-color;
+}
+
+/*------------------------------------*\
+    #FILE UPLOAD
+\*------------------------------------*/
+input[type="file"] {
+  display: none;
+}
+
+.cmuInputText--upload {
+  margin-left: 10px;
+}
+
+/*------------------------------------*\
+    #HONEYPOT
+\*------------------------------------*/
+/**
+ * "HP" is used instead of "honeypot" to avoid a malicious script detecting it
+ * based on class name and then ignoring it.
+ */
+input[type="text"].cmuInputHP {
+    display: none;
+}

@@ -1,0 +1,93 @@
+
+// 
+// FORUM THREADCOUNT MODULE
+// @threadcount
+// e.g. "showing 235 results/threads"
+// 
+
+.forumThreadcount {
+	margin-bottom: $cmu-base/2;
+
+	h4 {
+		border-bottom: $cmu-style-border-thin;
+		padding-bottom: $cmu-base/2;
+	}
+}
+
+
+// 
+// FORUM THREADLIST MODULE
+// @threadlist
+// @forum
+// 
+
+// 
+// Define column widths (replaces the old colgroup)
+// 
+%forumThreadList__column--topic {
+	width: 50%;
+}
+%forumThreadList__column--counter {
+	width: 11%;
+}
+%forumThreadList__column--reply {
+	width: auto;
+}
+
+// THREAD DESCRIPTORS
+.forumThreadList thead {
+	border-bottom: $cmu-style-border-thin;
+
+	th {
+		@extend .type-titleThin;
+	}
+}
+	.forumThreadList__head--topic {
+		@extend %forumThreadList__column--topic;
+		text-align: left;
+	}
+	.forumThreadList__head--counter {
+		@extend %forumThreadList__column--counter;
+		text-align: center;
+	}
+	.forumThreadList__head--reply {
+		@extend %forumThreadList__column--reply;
+		text-align: left;
+	}
+
+
+
+// 
+// EACH ROW
+// 
+.forumThreadList__message {
+	@extend %size-community-base;
+	border-top: $cmu-style-border-thin-light;
+	border-bottom: $cmu-style-border-thin-light;
+
+	td {
+		padding: $cmu-base/2 0;
+	}
+}
+
+	.forumThreadList__message__topic {
+		@extend %style-community-link;
+	}
+
+	.forumThreadList__message__by {
+		font-size: $cmu-size-xsmaller;
+		font-style: italic;
+	}
+
+
+	.forumThreadList__message__counter {
+		text-align: center;
+	}
+
+	.forumThreadList__message__latest {
+		span {
+			// white-space: nowrap; 
+			display: block; // force wrap; mixed looks weird
+			// Prevents wrap: if "10 min ago" will probably remain on a single line, otherwise will go to next line
+		}
+	}

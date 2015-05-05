@@ -1,0 +1,13 @@
+
+%style-community-link {
+	a {
+		color: $cmu-color-dkgray;
+		&:hover {
+			color: $cmu-color-blue; 
+		}
+	}
+}
+
+
+// aligns thread message bottom to the avatar bottom
+$cmu-message-bottom-height: 100px;

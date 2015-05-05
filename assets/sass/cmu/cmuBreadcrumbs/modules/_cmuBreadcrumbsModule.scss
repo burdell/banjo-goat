@@ -1,0 +1,30 @@
+
+
+// 
+// BREADCRUMBS MODULE
+// 
+
+.cmuBreadcrumbs {
+	margin: $cmu-base 0;
+	font-weight: 300; 
+
+	* { cursor: default; }
+
+	// previous crumbs
+	& > div > span {
+		span { cursor: pointer; }
+		&:after {content: ' / ';}
+
+		a {
+			color: $cmu-breadcrumbs-link-color;
+			&:hover { color: $cmu-breadcrumbs-hover-link-color; }
+		}
+	}
+
+	// current crumb isn't clickable, so is grayed out
+	& > div > span:last-of-type {
+		color: $cmu-breadcrumbs-inactive-link-color; 
+		&:after { content: ''; }
+	}
+
+}

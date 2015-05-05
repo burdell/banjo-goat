@@ -1,0 +1,17 @@
+html {
+  min-height: 100%;
+  line-height: $com-base-line-height;
+  font-size: 1em;
+}
+
+body {
+  min-height: 100%;
+  overflow-y: scroll;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+img, object, embed {
+  max-width: 100%;
+  height: auto;
+}

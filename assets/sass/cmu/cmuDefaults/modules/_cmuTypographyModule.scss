@@ -1,0 +1,247 @@
+body {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+	font-size: $cmu-base;
+  @include fontSmoothing(subpixel-antialiased);
+}
+
+
+// 
+// TYPOGRAPHY
+// 
+
+// specialized for numbers
+
+%oswald {
+	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+
+// optimized for Lato / body text
+
+%size-smaller {
+	font-size: $cmu-size-smaller;
+	line-height: $cmu-size-smaller-line-height;
+}
+
+%size-xsmaller {
+	font-size: $cmu-size-xsmaller;
+	line-height: $cmu-size-xsmaller-line-height;
+}
+
+h1 {
+	font-size: $cmu-size-h1;
+	line-height: $cmu-size-h1-line-height;
+	font-weight: 300;
+}
+
+h2 {
+	font-size: $cmu-size-h2;
+	line-height: $cmu-size-h2-line-height;
+	font-weight: 300;
+}
+
+h4 {
+	font-size: $cmu-size-h4;
+	line-height: $cmu-size-h4-line-height;
+		font-weight: 600;
+		color: $cmu-color-dkgray;
+}
+
+h6 {
+	font-size: $cmu-size-h6;
+	line-height: $cmu-size-h6-line-height;
+		font-weight: 400;
+		color: $cmu-color-dkgray;
+	font-style: italic;
+}
+
+
+	// 
+	// TYPOGRAPHY STYLES
+	// 
+
+	.style-copy, %style-copy {
+		font-size: $cmu-size-copy;
+		line-height: $cmu-size-copy-line-height;
+  		color: $cmu-color-ltblack;
+	}
+
+	.type-titleThin {
+		@extend %size-smaller;
+		font-weight: 300; 
+		color: $cmu-color-ltblack;
+		text-transform: uppercase;
+		@extend %ease-fast;
+	}
+
+
+	// 
+	// LINK TYPOGRAPHY STYLES
+	// 
+
+	.type-link {
+		color: $cmu-color-ltblack;
+		&.active {
+			color: $cmu-color-blue;
+		}
+		&:hover {
+			color: $cmu-color-blue;
+		}
+	}
+
+
+
+
+
+// h1,
+// .comH1,
+// .comAlpha {
+//   font-size: remCalc(52px);
+//   line-height: remCalc(58px);
+//   font-weight: 300;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+// }
+
+// h2,
+// .comH2,
+// .comBeta {
+//   font-size: remCalc(32px);
+//   line-height: remCalc(38px);
+//   font-weight: 300;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+
+//   @include respondTo(medium-up) {
+//     font-size: remCalc(36px);
+//     line-height: remCalc(44px);
+//   }
+// }
+
+// h3,
+// .comH3,
+// .comGamma {
+//   font-size: remCalc(24px);
+//   line-height: remCalc(30px);
+//   font-weight: 300;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+
+//   @include respondTo(medium-up) {
+//     font-size: remCalc(28px);
+//     line-height: remCalc(36px);
+//   }
+// }
+
+// h4,
+// .comH4,
+// .comDelta {
+//   font-size: remCalc(20px);
+//   line-height: remCalc(26px);
+//   font-weight: 400;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+
+//   @include respondTo(medium-up) {
+//     font-size: remCalc(24px);
+//     line-height: remCalc(32px);
+//   }
+// }
+
+// h5,
+// .comH5,
+// .comEpsilon {
+//   font-size: remCalc(18px);
+//   line-height: remCalc(24px);
+//   font-weight: 400;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+
+//   @include respondTo(medium-up) {
+//     font-size: remCalc(20px);
+//     line-height: remCalc(28px);
+//   }
+// }
+
+// h6,
+// .comH6,
+// .comZeta {
+//   font-size: remCalc(16px);
+//   line-height: remCalc(22px);
+//   font-weight: 700;
+//   @include fontSmoothing;
+//   @include comVerticalRhythm;
+
+//   @include respondTo(medium-up) {
+//     line-height: remCalc(24px);
+//   }
+// }
+
+// .comAlpha,
+// .comBeta,
+// .comGamma,
+// .comDelta,
+// .comEpsilon,
+// .comZeta {
+//    @include fontSmoothing(subpixel-antialiased);
+// }
+
+// h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote, address, table, fieldset, figure, pre {
+//   margin-bottom: .25em;
+// }
+
+// p {
+//   font-size: remCalc(16px);
+//   @include comVerticalRhythm;
+// }
+
+// p,
+// ul,
+// ol {
+//   margin-bottom: 1em;
+//   font-weight: 400;
+//   strong {
+//     font-weight: 700;
+//   }
+// }
+
+// sub, sup {
+//   font-size: 40%;
+// }
+
+// sup {
+//   top: -1.1em;
+//   margin-right: 0.35em;
+// }
+
+// p {
+//   sup {
+//     top: -0.7em;
+//   }
+// }
+
+// ul,
+// ol {
+//   margin-left: 1.5em;
+// }
+
+// /* Firefox only */
+// @-moz-document url-prefix() {
+//   p {
+//     sup {
+//       top: -1.1em;
+//     }
+//   }
+// }
+
+// .comType--micro {
+//   font-size: remCalc(12px);
+//   line-height: remCalc(18px);
+// }
+
+// .comType--light {
+//   font-weight: 300;
+// }
+
+

@@ -1,0 +1,33 @@
+
+
+// 
+// STYLEGUIDE EXAMPLES
+// the styleguide is setup to read styles from the base theme, so we generate styleguide examples from the base
+//  
+	// breakpoint example for medium only displays
+	.sg_breakpoint-mixin { 
+		@include respondTo(medium-only) {
+		  color: red !important;
+		}
+	}
+
+	.sg_color-swatches {
+		 .color-ltblue {background-color: $color-ltblue;}
+		 .color-blue {background-color: $color-blue;}
+		 .color-dkblue {background-color: $color-dkblue;}
+
+		 .color-green {background-color: $color-green;}
+		 .color-orange {background-color: $color-orange;}
+		 .color-red {background-color: $color-red;}
+
+		 .color-black {background-color: $color-black;}
+		 .color-ltblack {background-color: $color-ltblack;}
+		 .color-white {background-color: $color-white;}
+
+		 .color-gray {background-color: $color-gray;}
+		 .color-mdgray {background-color: $color-mdgray;}
+		 .color-ltgray {background-color: $color-ltgray;}
+		 .color-xltgray {background-color: $color-xltgray;}
+	}
+
+

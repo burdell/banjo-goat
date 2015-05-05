@@ -1,0 +1,18 @@
+$com-global-header-logo-hover-breakpoint: 1150px;
+$com-global-header-mobile-nav-breakpoint: 889px;
+$com-global-header-tablet-nav-breakpoint-lower-bound: 890px;
+$com-global-header-tablet-nav-breakpoint-upper-bound: 1090px;
+
+$com-global-header-logo-hover-only: "#{$base-screen} and (min-width: #{$com-global-header-logo-hover-breakpoint})";
+
+/* Only mobile (phone) nav */
+$com-global-header-mobile-nav-only: "#{$base-screen} and (max-width: #{$com-global-header-mobile-nav-breakpoint})";
+
+/* Only tablet nav */
+$com-global-header-tablet-nav-only: "#{$base-screen} and (min-width: #{$com-global-header-tablet-nav-breakpoint-lower-bound}) and (max-width: #{$com-global-header-tablet-nav-breakpoint-upper-bound})";
+
+/* Tablet nav breakpoint and below */
+$com-global-header-tablet-nav-below: "#{$base-screen} and (max-width: #{$com-global-header-tablet-nav-breakpoint-lower-bound})";
+
+/* Above tablet nav breakpoint */
+$com-global-header-tablet-nav-above: "#{$base-screen} and (min-width: #{$com-global-header-tablet-nav-breakpoint-lower-bound + 1})";
