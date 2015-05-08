@@ -175,7 +175,7 @@
 				if ($scope.disabledButtons.next) {
 					return;
 				}
-
+				
 				pageData.offset += pageData.limit;
 				page();
 			}
@@ -196,7 +196,6 @@
 				if (disabled) {
 					return;
 				}
-
 				pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				page();
 			}
@@ -212,8 +211,8 @@
 			}
 
 			/**** PAGER DATA *****/
-			var defaultLimit = filterer.model('limit') || 30;
-			var defaultOffset = filterer.model('offset') || 0;
+			var defaultLimit = Number(filterer.model('limit')) || 30;
+			var defaultOffset = Number(filterer.model('offset')) || 0;
 
 			var pageData = {
 				limit: defaultLimit,
@@ -221,8 +220,11 @@
 			};
 
 			function syncPagerToFilter(){
-				pageData.limit = Number(filterer.model('limit')) || defaultLimit;
-				pageData.offset = Number(filterer.model('offset')) || defaultOffset;
+				var filterLimit = filterer.model('limit');
+				var filterOffset = filterer.model('offset')
+
+				pageData.limit = filterLimit != undefined ? Number(filterLimit) : Number(defaultLimit);
+				pageData.offset = filterOffset != undefined ? Number(filterOffset) : Number(defaultOffset);
 
 				setUiPage();
 			}

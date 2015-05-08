@@ -78,7 +78,7 @@
               {{  message.stats | extractKey : 'views' }}
             </td>
             <td class="forumThreadList__message__counter">
-              {{  message.stats | extractKey : 'comments' }}
+              {{  ( message.stats | extractKey : 'comments') - 1 }}
             </td>
             <td class="forumThreadList__message__counter">
               {{  message.stats | extractKey : 'score' }}
@@ -89,7 +89,6 @@
               <span class="forumThreadList__date">04-24-2015, 03:42 PM</span>
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>

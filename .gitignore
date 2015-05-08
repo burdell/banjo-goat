@@ -1,5 +1,6 @@
 tmp/
 node_modules/
+node/
 vendor/bower/
 dist/
 coverage/

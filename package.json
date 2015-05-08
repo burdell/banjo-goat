@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Ubiquiti-UI/community-ui",
   "dependencies": {
-    "css-base": "Ubiquiti-UI/css-base.git",
+    "css-base": "git+ssh://git@github.com:Ubiquiti-UI/css-base#2.0.1",
     "pageutils": "git+ssh://git@github.com:Ubiquiti-UI/pageutils#1.0.0"
   },
   "devDependencies": {

@@ -19,7 +19,7 @@
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
 							var content = result.model;
 							var tooltipData = _.extend(content, {
-								text: angular.element(content.body).text()
+								text: $('<div>' + content.body + '</div>').text()
 							});
 							var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
 							origin.tooltipster('content', tooltipElement).data('ajax', 'cached');

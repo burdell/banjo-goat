@@ -12,7 +12,7 @@
 			ctrl.navLinks = [];
 
 			var standardNavLinks = {
-				'Forums': '_g',
+				'Forums': '-General',
 				'Q&A': '_QnA',
 				'Stories': '_Stories',
 				//it's spelled wrong on the server :(

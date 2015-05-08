@@ -1,8 +1,9 @@
 (function(_){
 	'use strict';
 
-	var forumMessageController = function($scope, messageThreadFilter, breadcrumbService){
+	var forumMessageController = function($scope, communityApi,  breadcrumbService, currentUser, messageThreadFilter){
 		var ctrl = this;
+		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 
 		function setThreadData(dataResult) {
 			var mtf = messageThreadFilter;
@@ -12,11 +13,10 @@
 			if (!(messageThreadFilter.model('offset') > 0)) {
 				messageThread.unshift(ctrl.originalMessage);
 			}
-
 			ctrl.messageThread = messageThread;
-			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value + 1;
+			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value;
 			
-			breadcrumbService.setCurrentBreadcrumb(ctrl.originalMessage.subject);
+			setMessageBreadcrumb(ctrl.originalMessage.subject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 
@@ -27,6 +27,8 @@
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
+
+		var currentUser = currentUser.get();
 
 		_.extend(ctrl, {
 			currentReply: null,
@@ -42,14 +44,49 @@
 			cancelReply: function(){
 				this.currentReply = null;
 			},
-			submitReply: function(){
-				clearMessageReplyText();
-				this.currentReply = null;
+			submitReply: function(messageRepliedTo){
+				communityApi.Forums.message({
+					body: this.messageReplyText,
+					categoryId: null,
+					subject: '',
+					replyTo: messageRepliedTo,
+					author: currentUser.id
+				}, true).then(function(result){
+					ctrl.currentReply = null;
+					var submittedMessage = result.model;
+
+					var offset = messageThreadFilter.model('offset') || 0;
+					var limit = messageThreadFilter.model('limit');
+					
+					var totalNumberOfPages = Math.floor((ctrl.allMessageCount) / limit);
+					var currentPageNumber = Math.floor(offset / limit) + 1;
+					
+					if (currentPageNumber !== (totalNumberOfPages + 1)) {
+						//if we're not on the last page, go to  page...
+						messageThreadFilter.filter({ offset: totalNumberOfPages * limit });
+							// .then(function(){
+							// 	submittedMessage.author = currentUser;
+							// 	ctrl.messageThread.push(submittedMessage);
+							// });
+					} else {
+						//...otherwise just add the new message to the list
+						ctrl.allMessageCount += 1;
+						submittedMessage.author = currentUser;
+						ctrl.messageThread.push(submittedMessage);
+					}
+				});
+				
 			}
 		});
 
 	};
-	forumMessageController.$inject = ['$scope', 'MessageThreadFilter', 'CommunityBreadcrumbService'];
+	forumMessageController.$inject = [
+		'$scope', 
+		'CommunityApiService',
+		'CommunityBreadcrumbService', 
+		'CurrentUserService', 
+		'MessageThreadFilter'
+	];
 
 	angular.module('community.forums')
 		.controller('ForumMessage', forumMessageController);
