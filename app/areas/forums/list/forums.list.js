@@ -18,6 +18,9 @@
 			getMessageData: communityApiService.Forums.message,
 			getMessageUrl: function(messageId){
 				return $state.href('forums.message', { messageId: messageId });
+			},
+			startNewTopic: function(){
+				$state.go('forums.newtopic');
 			}
 		});
 	}

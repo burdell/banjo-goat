@@ -60,9 +60,13 @@
 				reloadOnSearch: false
 			})
 			.state('forums.newtopic', {
-				url: '/n',
-				templateUrl: 'forums/forums.newtopic.html',
-				controller: 'NewForumTopic as vm'
+				url: '/newtopic',
+				views: {
+					'mainContent': {
+						templateUrl: 'forums/newtopic/forums.newtopic.html',
+						controller: 'NewForumTopic as vm'
+					}
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];

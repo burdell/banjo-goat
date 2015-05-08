@@ -4,7 +4,7 @@
 	function communityTextEditor($timeout) {
 		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
-				var textElement = element.find('#' + scope.texteditor.editorId);
+				var textElement = $(element).find('#' + scope.texteditor.editorId);
 				var editorInstance = null;
 
 				ngModel.$render = function(){
@@ -16,6 +16,7 @@
 				};
 				
 				tinymce.init({
+					height: scope.texteditor.height || 150,
 					elements: scope.texteditor.editorId,
 					mode: 'exact',
 					menubar: false,
@@ -45,7 +46,7 @@
 						});
 					},
 					init_instance_callback: function(){
-						element.find('.mce-path').css('visibility', 'hidden');
+						$(element).find('.mce-path').css('visibility', 'hidden');
 					}
 				});
 			}, 0);
@@ -69,6 +70,7 @@
 	        bindToController: true,
 	        restrict: 'E',
 	        scope: {
+	        	height: '=editorHeight',
 	        	minimalEditor: '@'
 	        }
 	    };

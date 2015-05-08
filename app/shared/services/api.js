@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 	
-	var communityApiService = function($http, $q){
+	var communityApiService = function($http, $q, $timeout){
 		function getCallOptions(url, data, verb) {
 			if (_.isUndefined(verb)) {
 				verb = 'GET';
@@ -40,7 +40,11 @@
 				return 'users/' + id + '/';
 			},
 			Message: function(id) {
-				return 'topics/' + id + '/';
+				var urlString = 'topics/'
+				if (id) {
+					urlString += id + '/';
+				}
+				return urlString;
 			}
 		};
 
@@ -57,12 +61,34 @@
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'tags');
 				},
 				userSummary: function(userId){
-					return goToApi(baseUrl + urlSegments.User(userId) + 'summary');
+					return goToApi(baseUrl + urlSegments.User(userId));
 				}
 			},
 			Forums: {
-				message: function(messageId, data, verb) {
-					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId));
+				message: function(messageData, mock) {
+					if (mock) {
+						return $timeout(function(){
+							return {
+								model: messageData
+							};
+						}, 300);
+					}
+
+					var messageId, messagePayload, verb;
+
+					//POST new message
+					if (_.isObject(messageData)) {
+						messagePayload = messageData;
+						verb = "POST";
+					} 
+					//GET exsiting message
+					else {
+						messageId = messageData;
+						verb = "GET";
+
+					}
+
+					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId), messagePayload, verb);
 				},
 				messages: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
@@ -88,7 +114,7 @@
 		return service;
 	};
 
-	communityApiService.$inject = ['$http', '$q'];
+	communityApiService.$inject = ['$http', '$q', '$timeout'];
 
 	angular.module('community.services')
 		.service('CommunityApiService', communityApiService);

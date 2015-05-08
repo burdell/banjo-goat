@@ -26,7 +26,7 @@
   <div class="forumThreadControl">
     <div class="row">
       <div class="col--md10">
-        <button class="button-full button-blue-white">Start a Topic</button>
+        <button class="button-full button-blue-white" ng-click="vm.startNewTopic()">Start a Topic</button>
       </div>
       <div class="col--md2">
         <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="offset" class="community__sort"></community-sort>
@@ -72,11 +72,10 @@
               {{  message.stats | extractKey : 'score' }}
             </td>
             <td class="forumThreadList__message__latest">
-              <a>{{ ::message.latestReply.author.login }}</a>
+              <a>{{ ::message.latestComment.author.login }}</a>
               <span>{{ message.latestComment.postTime | timeFromNow }}</span>
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>
