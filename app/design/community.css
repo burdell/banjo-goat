@@ -85,6 +85,14 @@
   width: 100% !important;
 }
 
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 /**
  * 1. Support IE10.
  */
@@ -3334,18 +3342,13 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an img tag, or to an element with a background-image.
+ * class either to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
-/**
- * 1. Assume a square image, because we want to the image to retain its
- *    correct proportions if it is squeezed by its container.
- */
 .avatar {
   width: 5em;
-  height: auto;
-  /* [1] */
+  height: 5em;
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3768,6 +3771,72 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
 }
 
 /**
@@ -5368,6 +5437,10 @@ output {
 }
 
 /**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6498,14 +6571,29 @@ tr:last-child td {
   user-select: none;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .forumThreadList thead th, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .tooltipster-comm, .tooltipster-comm .tooltipster-content {
+.cmuNav__navItem:hover a, .cmuNav__navItem.cmuNav__dropItem:hover:after, .cmuNav__dropItem:after {
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
   transition: 0.31s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .forumThreadList thead th, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .tooltipster-comm, .tooltipster-comm .tooltipster-content {
+.cmuNav__navItem:hover a, .cmuNav__navItem.cmuNav__dropItem:hover:after, .cmuNav__dropItem:after {
+  -webkit-transition: all 230ms ease;
+  -moz-transition: all 230ms ease;
+  -ms-transition: all 230ms ease;
+  -o-transition: all 230ms ease;
+  transition: all 230ms ease;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6527,7 +6615,7 @@ tr:last-child td {
 /* [4] */
 /* [5] */
 /* [6] */
-.color-background-dark, .cmuNav {
+.color-background-dark {
   background-color: #17191d;
 }
 
@@ -6584,7 +6672,7 @@ body {
   position: relative !important;
 }
 
-.tooltipster-comm {
+.cmuTooltipster {
   border: 2px solid black;
   border-color: #00a0df;
 }
@@ -6601,9 +6689,14 @@ body {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
-.cmuForumDescriptor, .forumThreadList__message, .type-titleThin, .cmuDiscussionsNavbar *, .forumThreadList thead th, .tooltipster-comm .tooltipster-content {
+.cmuForumDescriptor, .forumThreadList__message, .type-titleThin, .cmuDiscussionsNavbar *, .cmuTooltipster .tooltipster-content {
   font-size: 0.88rem;
   line-height: 1.3rem;
+}
+
+.forumThreadList thead th {
+  font-size: 0.78rem;
+  line-height: 1.22rem;
 }
 
 h1 {
@@ -6639,7 +6732,7 @@ h6 {
   color: #17191d;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .forumThreadList thead th {
+.type-titleThin, .cmuDiscussionsNavbar * {
   font-weight: 300;
   color: #17191d;
   text-transform: uppercase;
@@ -6904,6 +6997,7 @@ pre {
 }
 
 .cmuNav {
+  background-color: #242931;
   cursor: default;
 }
 .cmuNav *, .cmuNav a {
@@ -6912,8 +7006,8 @@ pre {
   text-transform: uppercase;
   letter-spacing: 0.11111rem;
 }
-.cmuNav *:hover, .cmuNav a:hover {
-  color: #00a0df;
+.cmuNav a {
+  padding: 1rem 0;
 }
 .cmuNav ul {
   padding: 1rem 0;
@@ -6928,15 +7022,45 @@ pre {
   margin-right: 0;
 }
 
-.cmuNav__right {
-  text-align: right;
+.cmuNav__navItem {
+  padding: 1rem 0.5rem;
+  position: relative;
+}
+.cmuNav__navItem:hover a, .cmuNav__navItem:hover.cmuNav__dropItem:after {
+  color: #00a0df;
+}
+
+.cmuNav__active, .cmuNav__active a {
+  color: #00a0df;
+}
+
+.cmuNav__dropItem:after {
+  font-family: 'ubnt';
+  content: "\e6d0";
+  position: absolute;
+  top: 26px;
+  left: 45%;
+}
+
+.cmuNav__search {
+  background-color: #474b52;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+}
+.cmuNav__search .icon {
+  font-size: 1rem;
+  line-height: 0;
+  margin-right: 1rem;
+  position: relative;
+  top: 3px;
 }
 
 .cmuBanner {
   cursor: pointer;
   background-color: #f09300;
   font-weight: 300;
-  color: #17191d;
+  color: #474b52;
 }
 .cmuBanner:not(.cmuBanner__close):hover {
   background-color: #d68300;
@@ -6956,12 +7080,15 @@ pre {
 
 .cmuBanner__close {
   padding: 1rem;
+  position: relative;
+  right: -1.5rem;
   color: black;
   text-align: center;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 .cmuBanner__close:hover {
-  color: #1374ab;
+  color: #fafafa;
 }
 
 .cmuFlexCenter {
@@ -6997,7 +7124,8 @@ pre {
 
 .cmuBreadcrumbs {
   margin: 1rem 0;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 0.74rem;
 }
 .cmuBreadcrumbs * {
   cursor: default;
@@ -7006,7 +7134,8 @@ pre {
   cursor: pointer;
 }
 .cmuBreadcrumbs > div > span:after {
-  content: ' / ';
+  content: '/';
+  padding: 0 0.33333rem;
 }
 .cmuBreadcrumbs > div > span a {
   color: black;
@@ -7227,34 +7356,51 @@ button.button-blue-white, .button.button-blue-white {
 }
 
 .cmuForumDescriptor {
-  padding: 1rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .forumThreadcount {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
-.forumThreadcount h4 {
-  border-bottom: 1px solid black;
-  padding-bottom: 0.5rem;
+
+.forumThreadcountRow {
+  border-top: 1px solid black;
+  padding-top: 0.5rem;
 }
 
 .forumThreadList__head--topic {
-  width: 50%;
+  width: 60%;
+}
+
+.forumThreadList__head--author, .forumThreadList__message__author {
+  width: 15%;
+  padding-right: 0.5rem;
 }
 
 .forumThreadList__head--counter {
-  width: 11%;
+  width: auto;
+  padding: 0 0.5rem;
 }
 
-.forumThreadList__head--reply {
-  width: auto;
+.forumThreadList__head--latest, .forumThreadList__message__latest {
+  width: 16%;
+  padding-left: 0.5rem;
 }
 
 .forumThreadList thead {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ebebeb;
+}
+.forumThreadList thead th {
+  font-weight: 400;
+  color: #17191d;
 }
 
 .forumThreadList__head--topic {
+  text-align: left;
+}
+
+.forumThreadList__head--author {
   text-align: left;
 }
 
@@ -7262,29 +7408,27 @@ button.button-blue-white, .button.button-blue-white {
   text-align: center;
 }
 
-.forumThreadList__head--reply {
+.forumThreadList__head--latest {
   text-align: left;
 }
 
-.forumThreadList__message {
-  border-top: 1px solid #bbbbbd;
-  border-bottom: 1px solid #bbbbbd;
-}
-.forumThreadList__message td {
-  padding: 0.5rem 0;
+.forumThreadList__date {
+  color: #474b52;
+  font-size: 0.78rem;
+  display: block;
 }
 
-.forumThreadList__message__by {
-  font-size: 0.78rem;
-  font-style: italic;
+.forumThreadList__message {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.forumThreadList__message td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .forumThreadList__message__counter {
   text-align: center;
-}
-
-.forumThreadList__message__latest span {
-  display: block;
 }
 
 .forumThreadSubject h4 {
@@ -7293,7 +7437,7 @@ button.button-blue-white, .button.button-blue-white {
 }
 
 .forumThreadMessage {
-  border: 1px solid #bbbbbd;
+  border: 1px solid #ebebeb;
   margin-bottom: 1rem;
 }
 
@@ -7329,7 +7473,7 @@ button.button-blue-white, .button.button-blue-white {
 }
 
 .forumThreadMain {
-  border-left: 1px solid #bbbbbd;
+  border-left: 1px solid #ebebeb;
   min-height: 12rem;
   padding: 1rem;
 }
@@ -7557,6 +7701,69 @@ a.appIconInput__icon {
 /*------------------------------------*\
     #GlobalHeader
 \*------------------------------------*/
+.comGlobalHeader__navItem--Community {
+  background-color: #242931;
+}
+.comGlobalHeader__navItem--Community .comGlobalHeader__navItemLink {
+  color: #00a0df;
+}
+
+.comGlobalHeader__nav, .comGlobalHeader__logo {
+  border-bottom: 1px solid #474b52;
+}
+
+.comGlobalHeader__navItem--search {
+  border-right: 1px solid #474b52;
+}
+
+.comGlobalHeader__cmuItem {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  width: 45px;
+  text-align: center;
+  font-size: 20px !important;
+}
+
+.comGlobalHeader__cmuItem--inbox {
+  top: 3px;
+  position: relative;
+}
+
+.comGlobalHeader__cmuItem--notifications {
+  top: 5px;
+  position: relative;
+}
+
+.comGlobalHeader__cmuItem--avatar {
+  width: 60px;
+}
+.comGlobalHeader__cmuItem--avatar:after {
+  content: ' ';
+  display: block;
+  background: #969ba3;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 11px;
+}
+
+.comGlobalHeader__cmuItemLink {
+  display: block;
+  font-size: 1.2rem;
+  color: #aeb4b7;
+}
+.comGlobalHeader__cmuItemLink:hover {
+  color: white;
+}
+.comGlobalHeader__cmuItemLink:focus {
+  color: #aeb4b7;
+}
+.comGlobalHeader__cmuItemLink.is-link-selected {
+  color: #00a0df;
+}
+
 .comGlobalHeader {
   position: fixed;
   z-index: 60;
@@ -7576,7 +7783,7 @@ a.appIconInput__icon {
 }
 
 .comGlobalHeader__content {
-  background-color: #11181c;
+  background-color: #17191d;
   height: 56px;
   width: 100%;
   position: relative;
@@ -7619,7 +7826,7 @@ a.appIconInput__icon {
   vertical-align: middle;
   font-size: 1.8rem;
   color: white;
-  background-color: #00a0df;
+  background-color: #17191d;
   line-height: 0;
   overflow: hidden;
   height: 57px;
@@ -7677,7 +7884,7 @@ a.appIconInput__icon {
 /* NAV */
 .comGlobalHeader__nav {
   vertical-align: middle;
-  padding: 0 0 0 2em;
+  padding: 0 0 0 11px;
   list-style: none;
   background-color: #11181c;
   display: none;
@@ -7731,7 +7938,8 @@ a.appIconInput__icon {
 /* NAV ITEM */
 .comGlobalHeader__navItem {
   letter-spacing: 1.75px;
-  margin-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   text-transform: uppercase;
   /* 
     When a navItem has a subNav and is selected
@@ -7842,7 +8050,6 @@ a.appIconInput__icon {
 @media only screen and (min-width: 890px) and (max-width: 1090px) {
   .comGlobalHeader__navItemSearch {
     /* [1] */
-    margin-left: 34px;
   }
 }
 .comGlobalHeader__navItemSearch .comGlobalHeader__navItemLink {
@@ -8122,22 +8329,22 @@ a:hover, a:focus,
   color: white;
 }
 
-.tooltipster-comm {
+.cmuTooltipster {
   background: #fafafa;
   min-height: 2rem;
-  max-height: 11rem;
+  max-height: 12rem;
   max-width: 35rem !important;
   overflow: hidden;
 }
 
 /* Use this next selector to style things like font-size and line-height: */
-.tooltipster-comm .tooltipster-content {
+.cmuTooltipster .tooltipster-content {
   overflow: hidden;
   padding: 1rem;
 }
 
 .tooltip__message__text {
-  max-height: 6rem;
+  max-height: 6.3rem;
   margin-bottom: 0.75rem;
   overflow: hidden;
 }
@@ -8147,7 +8354,7 @@ a:hover, a:focus,
 }
 
 /* This next selector defines the color of the border on the outside of the arrow. This will automatically match the color and size of the border set on the main tooltip styles. Set display: none; if you would like a border around the tooltip but no border around the arrow */
-.tooltipster-comm .tooltipster-arrow .tooltipster-arrow-border {
+.cmuTooltipster .tooltipster-arrow .tooltipster-arrow-border {
   /* border-color: ... !important; */
 }
 

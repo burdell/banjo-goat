@@ -1,0 +1,646 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Pagination</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <script src="../../app/js/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png">
+  <!-- import gets all the styles from main.scss in the _scss folder -->
+  <link rel="stylesheet" href="../../app/css/styleguide.css">
+</head>
+
+
+
+<body class="sg">  
+
+  <!-- top nav -->
+  <div id="top" class="sg_nav">
+    <ul>
+      <li class="sg_nav_link"><a href="../../index.html" title="Styleguide"><img class="sg_nav_logo" src="../../favicon.png"></a></li>
+      <li class="sg_nav_link active"><a href="../../index.html" title="Styleguide">Guide</a></li>
+      <li class="sg_nav_link "><a href="../../about.html" title="About the Styleguide">About</a></li>
+    </ul>
+  </div>
+
+
+  <!-- body area -->
+  <div class="sg_body">
+
+    <!-- body sidenav -->
+    <div class="sg_sidenav">
+      <ul>
+        
+        
+
+
+        <!--  - got rid of this -->
+        <!-- promoted posts -->
+        <div class="promoted-group">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item   promote">
+              <a href="../../2015/01/Introduction.html">Introduction</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item   promote">
+              <a href="../../2015/01/LayoutGrid.html">Layout & Grid</a>
+            </li>
+          
+        
+        </div>
+
+        <!-- all groups and order are defined manually, since order might switch / are not A-Z -->
+        <!-- warning: some post with a misnamed group might not show up at all in the list -->
+
+        <!-- group: Input -->
+        <div class="nav-group nav-group_inputs">
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Buttons.html">Buttons</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item active ">
+              <a href="../../2015/01/pagination.html">Pagination</a>
+            </li>
+          
+        
+          
+        
+        </div>
+
+
+
+        <!-- catch all -->
+        <div class="nav-group nav-group_general">
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Alerts.html">Alerts</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/Colors.html">Colors</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/CopyTreatment.html">Copy & Text Treatment</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Forms.html">Form Elements</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Navigation.html">Navigation</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/Typography.html">Typography</a>
+            </li>
+          
+        
+        </div>
+      </ul>
+    </div> 
+    <!-- end body sidenav -->
+
+    <!-- body content -->
+    <div class="sg_main">
+      <div class="sg_main_head">
+    
+        <div class="sg_status 1.0">1.0</div>
+    
+    <h1>Pagination</h1>
+    <div class="sg_main_head_summary">Pagination methods across the Community</div>
+
+    <!-- page menu sticky - edit: always display now-->
+    <!-- {-% if page.menu != nil %} -->
+
+      <div class="sg_main_head_menu" data-title="Pagination">
+        
+          <a href="#intro">Intro</li>
+        
+          <a href="#infinitescroll">Infinite Scroll</li>
+        
+          <a href="#front-biased">Front-Biased</li>
+        
+          <a href="#fullpagination">Full Pagination</li>
+        
+        <a class="sg_main_head_menu_title" href="#top">Pagination</a></li>
+      </div>
+    <!-- {-% endif %} -->
+</div>
+
+<div class="sg_main_content">
+    <div class="anchor " id="intro"></div>
+<h2>Intro</h2>
+<p>Pagination comes in three different flavors on Community: <code>Infinite Scroll</code>, <code>Front-Biased</code> pagination, and <code>Full</code> pagination.</p>
+<p>The purpose of this document is to demonstrate style and usage of the pagination. The requirements document can be <a href="https://ubiquiti.atlassian.net/wiki/display/COM/Pagination">found in Confluence / Pagination</a></p>
+<div class="anchor " id="infinitescroll"></div>
+<h2>Infinite Scroll</h2>
+<p>Infinite Scroll is used on sections that encourage content browsing and exploration, with a focus on highlighting new content and less of a focus on keeping track of past content.</p>
+<h3>Functionality</h3>
+<p>Initially load some content, and load more content as the user scrolls down to the bottom of the window.<br />
+We need to limit content-load to three scroll-downs, and show a call-to-action to load in more content, so users can still reach the end of the page.</p>
+<h3>Usage</h3>
+<ul>
+	<li>Stories Thread List Page</li>
+	<li>Stories Landing Page</li>
+	<li>Community Feed</li>
+	<li>Community Landing Page</li>
+</ul>
+<div class="anchor " id="front-biased"></div>
+<h2>Front-Biased</h2>
+<p>&#8220;Front-Biased&#8221; means that we want to make the first few pages easy to access, but make deeper pages increasingly difficult (but not impossible) to access. To achieve this, we force users to click more to access deeper pages.</p>
+<h3>Functionality</h3>
+<ul>
+	<li>The gray box containing the numbers shouldn&#8217;t grow as the numbers get bigger; so the number of pages shown will decrease.</li>
+	<li>Viewing the Next Page is used fairly often, so a button makes it easy to paginate forward. Paginating backwards isn&#8217;t as popular, so users would go back using the numbers in the gray box</li>
+	<li>Note that once in double digits, fewer pages will be shown (because double digit numbers are wider than single digit numbers)</li>
+	<li>When viewing middle numbers, trail 3 values and advance 4 values in double digits, and decrease to trail 2 / advance 2 in triple digits</li>
+</ul>
+<h3>Usage</h3>
+<ul>
+	<li>Forums Thread List Page</li>
+	<li>Q&amp;A Thread List Page</li>
+	<li>Announcements Thread List Page</li>
+	<li>Bugs &amp; Features</li>
+</ul>
+	<div class="community">
+
+		<div class="container container--responsive container--centered">
+
+			<div class="row row--comfy">
+			  <div class="col--xs12 noPadding">
+
+			  	<div class="pagination_ex">
+			  		<div>Current page:</div><input class="activePage" type="text" name="active" readonly>
+			  		<div>Total pages:</div><input class="totalInput" type="number" min="1" name="total">
+			  	</div>
+
+			  	<!-- Pagination uses Flexbox -->
+			    <div class="pagination">
+
+			    	<div class="pagination_scrubber">
+				    	<!-- previous page -->
+						<div class="pagination_control pagination_control_prev">Prev</div>
+
+				    	<!-- scrub numbers left -->
+					    <div class="pagination_arrow pagination_arrow_left"><</div>
+
+				    	<!-- page 1 / anchor the first -->
+				    	<div class="pagination_first pagination_num" data-val="1">1</div>
+				    	
+				    	<div class="pagination_main">
+					    	<div class="pagination_main_scrubber"></div>
+				    	</div>
+
+				    	<!-- front-biased does not have this -->
+				    	<!-- of 20 -->
+				    	
+				    	<div class="pagination_last">
+				    		<span class="pagination_last_of">of</span> <span class="pagination_last_num"></span>
+				    	</div>
+
+					    <!-- scrub numbers right -->
+					    <div class="pagination_arrow pagination_arrow_right">></div>
+
+				    	<!-- next page -->
+						<div class="pagination_control pagination_control_next">Next</div>
+					</div>
+			    </div>
+
+
+			  </div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+<div class="anchor " id="fullpagination"></div>
+<h2>Full Pagination</h2>
+<p>Full pagination uses the ideas from the front-biased pagination, but allows users to quickly access all pages within the range. <del>To achieve this goal, we add a scroller to allow users easy access to the rest of the pages.</del></p>
+<p><del>The scroller will be added to the front-biased navigation, to make it easy to get to the other pages. We may also add a &#8220;Last page&#8221; button as well</del></p>
+<p>We add a last page (of &#8216;##&#8217;), but a scroller might not be necessary if we make the scrubber easy to page forward or backward.</p>
+<h3>Usage</h3>
+<ul>
+	<li>Forums Thread View Page</li>
+	<li>Stories Thread View Page</li>
+	<li>Q&amp;A Thread View Page</li>
+	<li>Announcements Thread View Page (only needed if comments are enabled)</li>
+	<li>Private Messages</li>
+</ul>
+	<div class="community">
+
+		<div class="container container--responsive container--centered">
+
+			<div class="row row--comfy">
+			  <div class="col--xs12 noPadding">
+
+			  	<div class="pagination_ex">
+			  		<div>Current page:</div><input class="activePage" type="text" name="active" readonly>
+			  		<div>Total pages:</div><input class="totalInput" type="number" min="1" name="total">
+			  	</div>
+
+
+
+			  	<!-- Pagination uses Flexbox -->
+			    <div class="pagination">
+
+			    	<div class="pagination_scrubber">
+				    	<!-- previous page -->
+						<div class="pagination_control pagination_control_prev">Prev</div>
+
+				    	<!-- scrub numbers left -->
+					    <div class="pagination_arrow pagination_arrow_left"><</div>
+
+				    	<!-- page 1 / anchor the first -->
+				    	<div class="pagination_first pagination_num" data-val="1">1</div>
+
+				    	<div class="pagination_main">
+					    	<div class="pagination_main_scrubber"></div>
+				    	</div>
+
+				    	<!-- front-biased does not have this -->
+				    	<!-- of 20 -->
+				    	
+				    	<div class="pagination_last enabled">
+				    		<span class="pagination_last_of">of</span> <span class="pagination_last_num"></span>
+				    	</div>
+
+					    <!-- scrub numbers right -->
+					    <div class="pagination_arrow pagination_arrow_right">></div>
+
+				    	<!-- next page -->
+						<div class="pagination_control pagination_control_next">Next</div>
+					</div>
+			    </div>
+
+
+
+
+
+			  </div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+<!-- javascript controller uses jQ, but is inline in the document to make readability easier -->
+<script>
+
+$(function() {
+
+	var curPage = 1, totalPages = 25;
+	var scrollRate = 0.75; // rate of scrolling the scrubber sideways
+	var minPagesForScroller = 8; // minimum number of pages needed to show busy scroller
+
+	// build the total pages
+	setTotalPages(totalPages);
+
+	// set current page, and go to default first page
+	goToPage(curPage);
+
+
+	// 
+	// CONTROLLERS
+	// 
+
+	// set total pages
+	// 
+	function setTotalPages(pages) {
+		totalPages = pages; 
+		output = '';
+
+		// If 7 pages or fewer, apply .simple-scroll:
+		// disable some pagination/scrubber controls for usability
+		// note on 'full-scroll' class- Chrome and FF doesn't override flexbox correctly,
+		// so we tack on / remove this class between the two modes
+		
+		$('.simple-scroll').removeClass('simple-scroll');
+		$('.full-scroll').removeClass('full-scroll');
+		if (totalPages < minPagesForScroller) {
+			$('.pagination_arrow').addClass('simple-scroll');
+			$('.pagination_last').addClass('simple-scroll');
+			$('.pagination_first').addClass('simple-scroll');
+			$('.pagination_scrubber').addClass('simple-scroll');
+			$('.pagination_main').addClass('simple-scroll');
+		} else {
+			$('.pagination_main').addClass('full-scroll');
+		}
+
+
+		// start i at 1, since the first page doesn't scroll with the rest and isn't generated
+		for (i=1; i<pages; i++) {
+			val = i+1;
+			output += '<div class="pagination_num" data-val="'+val+'">'+val+'</div>';
+		}
+		$('.pagination_main_scrubber').html(output);
+
+		// set last page value
+		$('.pagination_last_num').html(totalPages);
+		$('.pagination_last_num').attr("data-val",totalPages);
+
+		// display correct page count
+		$('.totalInput').val(totalPages);
+
+		// reset the scrubber
+		var scrubber = $('.pagination_main_scrubber');
+		$(scrubber).css({left: 0});
+
+		// must rebind all pages since recreated
+		bindPages();
+
+		// required for demo resets
+		goToPage(1);
+	}
+
+
+	// used to "Go" to a page:
+	// 1. set the active page in scrubber
+	// 2. set the scrubber and animate
+	// 3. set state to content
+	function goToPage(page) {
+		if( page>=1 && page<=totalPages) {
+			curPage = page; // this has to happen before scrollscrubber
+
+			// only scroll scrub if we have more pages 
+			if (totalPages >= minPagesForScroller) {
+				scrollScrubber(page);
+			}
+
+			enableControls(position);
+			setActive(page);
+		}
+	}
+
+	// sets the current / active page
+	// this is ONLY used to a page class to active
+	function setActive(page) {
+		curPage = page; 
+		// console.log('set current page to ' + page)
+		$('.pagination_num').removeClass('active');
+		$('.pagination_num[data-val='+page+']').addClass('active');
+
+		// display correct active page
+		$('.activePage').val(curPage);
+	}
+
+	// enable or disable controls. futureOffset is called b/c scrubber is still being scrolled
+	// so scrubberOffset will give the wrong info until css anim stops
+	function enableControls(futureOffset) {
+		var scrubber = $('.pagination_main_scrubber');
+		var scrubberWidth = $(scrubber).outerWidth();
+		var scrubberOffset = parseInt($(scrubber).css('left'), 10) * -1;
+		var numWidth = $('.pagination_num').outerWidth();
+		if (!isNaN(futureOffset)) { scrubberOffset = futureOffset; }
+
+		console.log('curPage: ' + curPage + ' future: ' + futureOffset + ' scrubberWidth: ' + scrubberWidth)
+
+		var maxWidth = (totalPages-1) * numWidth; //using totalpages-1 b/c first page is not in the scrubber
+		var maxPosition = maxWidth - scrubberWidth;
+
+		// enable / disable arrows
+		if( scrubberOffset <= 0 ) { disableLeftArrows(); } else { enableLeftArrows() }
+		if( scrubberOffset >= maxPosition ) { disableRightArrows(); } else { enableRightArrows() } 
+
+		// enable / disable text controls
+		if( curPage == 1 ) { disableLeftControls(); } else { enableLeftControls() }
+		if( curPage == totalPages ) { disableRightControls(); } else { enableRightControls() } 
+
+	};
+
+
+	// 
+	// RESPONSES
+	// 
+
+	// set scrubber position w/respect to a page
+	// tries to scroll the scrubber so the selected page is in center
+	function scrollScrubber(targetPage) {
+
+		// note that we move/animate the entire scrubber within its _main container
+		var scrubber = $('.pagination_main_scrubber');
+		var target = $('.pagination_num[data-val='+targetPage+']');
+
+		// check if target exists, escape if it doesn't
+		if(typeof $(target).position() === 'undefined'){
+		   return -1;
+		 };
+
+		var targetFromLeft = $(target).position().left;
+		var numWidth = $('.pagination_num').outerWidth();
+
+		var scrubberLeft = $(scrubber).position().left;
+		var scrubberWidth = $(scrubber).outerWidth();
+		var scrubberMid = scrubberLeft + scrubberWidth/2;
+		var scrubberOffset = parseInt($(scrubber).css('left'), 10); // everything is relative
+
+		var maxWidth = (totalPages-1) * numWidth; //using totalpages-1 b/c first page is not in the scrubber
+		var maxPosition = maxWidth - scrubberWidth;
+
+		// set midpoint position
+		position = scrubberOffset + targetFromLeft - (scrubberMid - numWidth/2);
+
+		if (position <= 0) {
+			position = 0;
+		} else if (position >= maxPosition ) {
+			position = maxPosition;
+		}
+
+		console.log(" position: " + position + ' maxWidth: ' + maxWidth + ' maxWidth - scrubberWidth: ' + (maxWidth - scrubberWidth));
+
+		// animate the scrubber
+		$(scrubber).css({left: position * -1});
+	}
+
+	// scrolls the scrubber to the left or to the right
+	function scroll(dir) {
+		var scrubber = $('.pagination_main_scrubber');
+		var scrubberWidth = $(scrubber).outerWidth();
+		var numWidth = $('.pagination_num').outerWidth();
+		var scrubberOffset = parseInt($(scrubber).css('left'), 10);
+
+		var maxWidth = (totalPages-1) * numWidth; //using totalpages-1 b/c first page is not in the scrubber
+		var maxPosition = maxWidth - scrubberWidth;
+
+		if (dir == 'left') {
+			scrubberWidth *= -1;
+		}
+		var position = scrubberWidth * scrollRate + scrubberOffset * -1;
+
+		// put in some limiters so we don't overscroll
+		if (position <= 0) {
+			position = 0; 
+		} else if (position >= maxPosition && dir == 'right') {
+			position = maxPosition;
+			console.log('totalPages: ' + totalPages + 'numWidth: ' + numWidth + ' scrubWidth: ' + scrubberWidth + ' position: ' + maxPosition)
+		}
+
+		$(scrubber).css({left: position * -1});
+
+		enableControls(position);
+	}
+
+	function enableRightArrows() { $('.pagination_arrow_right').removeClass('disabled'); }
+	function disableRightArrows() { $('.pagination_arrow_right').addClass('disabled'); }
+	function enableLeftArrows() { $('.pagination_arrow_left').removeClass('disabled'); }
+	function disableLeftArrows() { $('.pagination_arrow_left').addClass('disabled'); }
+
+	function enableRightControls() { $('.pagination_control_next').removeClass('disabled'); }
+	function disableRightControls() { $('.pagination_control_next').addClass('disabled'); }
+	function enableLeftControls() { $('.pagination_control_prev').removeClass('disabled'); }
+	function disableLeftControls() { $('.pagination_control_prev').addClass('disabled'); }
+
+
+
+
+	// 
+	// UI BINDINGS
+	// 
+
+	// click on a number to set the active page
+	function bindPages() {
+		$('.pagination_num').bind('click', function(){ 
+			goToPage($(this).data('val'))
+		});
+	}
+
+	// change the total pages
+	$('.totalInput').bind('input', function(){ 
+		setTotalPages($('.totalInput').val());
+	});
+
+	// only allow clicking to the end if it's enabled (only full pagination)
+	$('.pagination_last').each(function(){ 
+		if( $(this).hasClass('enabled') )  {
+			$(this).children('.pagination_last_num').bind('click', function(){ 
+				goToPage($(this).data('val'))
+			});
+		}
+	});
+
+	// if ($('.pagination_last').hasClass('enabled')) {
+	// 	$('.pagination_last_num').bind('click', function(){ 
+	// 		goToPage($(this).data('val'))
+	// 	});
+	// }
+
+	// scroll scrubber to right
+	$('.pagination_arrow_right').bind('click', function() {
+		scroll('right');
+	});
+
+	// scroll scrubber to right
+	$('.pagination_arrow_left').bind('click', function() {
+		scroll('left');
+	});
+
+	// go to next page
+	$('.pagination_control_next').bind('click', function() {
+		goToPage(++curPage);
+	});
+
+	// go to prev page
+	$('.pagination_control_prev').bind('click', function() {
+		goToPage(--curPage);
+	});
+});
+
+</script>
+  </div>
+
+</div>
+
+    </div>
+
+    <!-- end body content -->
+  </div>
+
+
+  <!-- This thing appears fixed on mobile view to let users scroll up to the menu. This is so fixed menu takes less space -->
+<!--   <a href="#top">
+    <div class="nav-mobile-container">
+      <div class="nav-mobile" data-0="display: none" data-100="display: block">
+        <div class="svg-container icon-uptop ">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <polygon id="arrow-25-icon" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "></polygon> </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+
+ -->
+
+  <script src="../../app/js/jquery.waypoints.min.js"></script>
+  <script src="../../app/js/sticky.min.js"></script>
+  <script src="../../app/js/script.js"></script>
+
+</body>
+</html>

@@ -37,7 +37,7 @@
     Maintain spacing since navItemSearchForm will now be positioned absolute
   */
   @media #{$com-global-header-tablet-nav-only} { /* [1] */
-    margin-left: 34px;
+    // margin-left: 34px;
   }
 
   .comGlobalHeader__navItemLink {

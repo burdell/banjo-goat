@@ -1,0 +1,595 @@
+---
+---
+
+// 
+// This stylesheet is only for styleguide styles. 
+// Grunt will copy over styles from the Community site and actively update this guide
+// all styles wil be prepended by the class name .styleGuide to avoid conflict
+// 
+
+
+
+// core frameworks 
+@import 'bourbon/bourbon';
+@import "neat/neat-helpers"; // or "neat-helpers" when in Rails
+
+// framework files 
+@import "__proto-grid-settings";
+@import '__proto-reset';            // reset formula
+@import 'neat/neat';  
+@import '__proto-framework';        // framework prototype framework. Grids, distances and sizes.
+
+// @import "output/style.css";
+
+// adding '/' refers to server root, and " " refers to relative root (dropbox would use this)
+// needs to match config.yml, but this is for css-loaded assets
+$siteroot: '../../';
+
+
+// 
+// Main Wireframe Files
+// @import "fluidbox.css";  
+@import 'design';                   // wireframe design
+
+
+
+// 
+// COMMUNITY STYLES
+// styles imported from community. Will only work encapsulated within .community
+// 
+
+.community {
+  // @import "community";
+  @import '__proto-reset'; // reset community
+  @import "community_import"; // community framework
+
+}
+
+
+
+$base: 1rem;
+
+// styleguide
+.sg {
+
+  // Values
+  $base: 1rem;
+  $width-sidenav: $base*10;
+  %radius { border-radius: 8px; }
+
+  $color-dkgray: #555;
+  $color-gray: #aaa;
+  $color-mdgray: #ccc;
+  $color-ltgray: #f3f3f3;
+  $color-ubnt: #00a0df;
+  $color-mdubnt: rgba($color-ubnt,0.8);
+  $color-ltubnt: rgba($color-ubnt,0.2);
+  $color-green: #13bb72;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 0.98rem;
+
+
+  @extend %ease-slow;
+  color: $color-dkgray;
+
+  // top nav
+  &_nav {
+    background-color: $color-ltgray;
+    font-weight: 400;
+
+    &_logo {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    ul {
+      display: inline-block;
+    }
+
+    &_link {
+      // float: left;
+      height: 40px;
+      line-height: 40px;
+      list-style-type: none;
+      display: inline-block;
+
+      &:nth-child(n+2) { margin-left: $base; }
+      a {
+        font-size: 0.88rem;
+      }
+
+      &.active {
+        a { color: $color-ubnt; }
+      }
+    }
+  }
+  // end top nav
+
+  // body styles
+  &_body {
+
+    @include media($break-nav-thin-atleast) {
+      margin-top: $base*2;
+    }
+  }
+
+  // side nav
+  &_sidenav {
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: $base/2;
+
+    @include media($break-nav-mobile) {
+      height: $base*8;
+      border-bottom: 1px solid $color-mdgray;
+    }
+    @include media($break-nav-thin-atleast) {
+      width: $width-sidenav;
+      position: absolute; left: 0;
+      // height: 100%; 
+    }
+
+    &_item {
+      list-style-type: none;
+      margin-bottom: $base/3;
+      padding: $base/2;
+
+      &.active {
+        background: $color-ltgray;
+        // border: 1px solid $color-mdgray; // adding a border tends to shift things around weirdly
+        @extend %radius;
+        // border-bottom: 1px solid $color-ltubnt;
+        a { color: $color-ubnt; }
+      }
+      &.draft {
+        a { color: $color-mdgray; }
+      }
+      &.com {
+        a { color: $color-green; }
+      }
+
+      a {
+        // padding: $base/2;
+        display: block;
+      }
+
+      &.promote {
+        font-weight: 500;
+      }
+    }
+
+    // delineate promoted posts
+    .promoted-group {
+      display: block;
+      padding-bottom: $base;
+      margin-bottom: $base;
+      border-bottom: 1px solid $color-ltubnt;
+    }
+
+    // special list groups
+    .nav-group {
+      padding-top: $base;
+      padding-bottom: $base;
+
+      &:before {
+        display: block;
+        font-size: $base*0.88;
+        color: $color-dkgray;
+        border-bottom: 1px solid $color-ltubnt;
+        padding-bottom: $base/2; padding-left: $base/2;
+        margin-bottom: $base/2;
+      }
+
+      &_inputs {
+        &:before {
+          content: 'input controls';
+          font-weight: 300;
+        }
+
+      }
+
+      &_general {
+        &:before {
+          content: 'other styles';
+          font-weight: 300;
+        }
+      }
+    }
+
+
+  }
+
+  // article content
+  &_main {
+    padding: $base*2;
+    padding-top: $base/2; 
+    // font-weight: 400; 
+    line-height: $base*1.5;
+
+    @include media($break-nav-thin-atleast) {
+       //if window is larger than wide left nav + content combined, center content in middle
+       // can't make nav wide yet because the content is getting centered
+       padding-left: $width-sidenav + $base*4;
+    }
+
+    &_head {
+
+      h1 {
+        font-weight: 600;
+        font-size: $base*1.7;
+      }
+      
+      &_summary {
+        margin-top: $base;
+        // padding-bottom: $base*2;
+        // border-bottom: 1px solid rgba($color-ubnt,0.2);
+
+      }
+
+      &_menu {
+        // position: absolute;
+        // width: 100%;
+        background: white;
+        padding: $base 0;
+        @extend %ease-slow;
+
+        &:before {
+          // content: 'Menu';
+          // position: relative;
+          // bottom: 0px;
+          // display: block;
+          // margin-top: $base/2;
+          // margin-bottom: $base/2;
+          // font-weight: 500;
+          // padding-bottom: $base/2;
+          // border-bottom: 1px solid $color-ltubnt; 
+          // width: 50%;
+        }
+
+        a {
+        display: inline-block; margin-right: $base;
+        
+          &.in-view {
+            // background: $color-ltgray;
+            // padding: 8px;
+            // @extend %radius;
+            color: $color-ubnt !important;
+          }
+        }
+
+        // li {
+        //   list-style-type: none;
+        //   display: inline-block; margin-right: $base;
+
+        // }
+
+        a + &_title {
+          // only show left border if there are menu links
+          padding-left: $base;
+          border-left: 1px solid $color-mdgray;
+        }
+        &_title {
+          @extend %ease-slow;
+          font-weight: 400;
+          // margin-left: $base;
+          @extend %ease-slow;
+          opacity: 0;
+          display: inline-block; 
+          &:after { opacity: 0;}
+          &:hover {
+            @extend %ease-slow;
+            &:after {
+              content: ' – back to top';
+              @extend %ease-slow;
+              opacity: 1;
+            }
+          }
+        }
+        &.stuck {
+          z-index: 9000;
+          position:fixed;
+          top:0; 
+          width: 100%;
+          // margin-right: $base*2;
+          @extend %ease-slow;
+
+          .sg_main_head_menu_title {
+            @extend %ease-slow;
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+
+    &_content {
+      // margin-top: $base*2;
+
+      *:not(.community) > a {
+        // text-decoration: underline !important;
+        border-bottom: 1px solid $color-mdgray;
+        @extend %ease-slow;
+        &:hover {
+          border-bottom: 1px solid $color-mdubnt;
+          @extend %ease-slow;
+        }
+      }
+
+      & > .anchor {  
+        // position: relative;
+        // width: 0;
+        // top: -5rem;
+        display: inline-block;
+      }   
+
+      & > p, & > ul {
+        margin-top: $base;
+      }
+
+      ul ul {
+        margin-left: $base*2;
+      }
+
+      *:not(.community) > code {
+        margin: 0 $base/3;
+        @extend %radius;
+        background-color: $color-ltgray;
+        padding: $base/4 $base/2;
+        font-size: $base*0.88;
+        border: 1px solid $color-mdgray;
+      }
+
+      // code examples immediately following an example
+      *:not(.community) > pre.codex {
+        // padding: 0;
+        margin-top: -5rem;
+        border: 1px solid $color-mdgray;
+        background-color: $color-ltgray;
+        border-top: 1px solid $color-mdubnt;
+        code {
+          margin: 0;
+          background-color: transparent;
+        }
+      }
+
+      *:not(.community) > pre code {
+        border: 0; // show border for inline, but not for chunks
+      }
+
+      & > h1 {
+        font-weight: 600;
+        font-size: $base*1.7;
+      }
+
+      // section dividers
+      & > h2 {
+        font-weight: 400;
+        font-size: $base*1.5;
+        // margin-top: $base*3;
+        padding-top: $base;
+
+        &:before {
+          content: ' ';
+          width: 100%; display: block;
+          border-bottom: 1px solid $color-ltubnt; 
+          margin-top: $base*2;
+          margin-bottom: $base*2;
+        }
+      }
+      & > h3 {
+        font-weight: 400;
+        font-size: $base*1.24;
+        margin-top: $base*3;
+
+        &:after {
+          content: ' ';
+          border-top: 1px solid $color-ltubnt;
+          width: 50%;
+          display: block;
+          margin-top: $base/2;
+        }
+      }
+      & > h4 {
+        font-weight: 400;
+        font-size: $base*0.98;
+        margin-top: $base*2;
+
+        &:after {
+          content: ' ';
+          width: 5%;
+          display: block;
+          border-bottom: 1px solid $color-ltubnt;
+          margin-top: $base/2;
+        }
+      }
+      & > h5 {
+        font-weight: 300;
+        font-size: $base*0.83;
+        margin-top: $base*1.5;
+        font-style: italic;
+        margin-bottom: -$base*0.5; //force the p a little higher
+        color: #aaa;
+      }
+
+      & > li {
+        line-height: $base*1.9;
+      }
+
+      // All examples lead with '.community'
+      .community {
+        margin: $base*1.5 0;
+        // padding: $base 0;
+        // padding-bottom: $base*2;
+        // padding-left: $base*2;
+        padding: $base;
+
+        &.noBorder {
+          border: 0;
+        }
+        &.noPadding {
+          padding: 0;
+        }
+        &.noPaddingRight {
+          padding-right: 0 !important;
+        }
+        &.noPaddingLeft {
+          padding-left: 0 !important;
+        }
+
+
+        // padding-bottom: $base*2;
+        border: 1px solid $color-ubnt; 
+        margin-bottom: $base*5;
+
+        & ~ .src {
+          background-color: $color-ltgray;
+          margin-top: $base * -5;
+          border-left: 1px solid $color-mdgray;
+          border-right: 1px solid $color-mdgray;
+          padding: $base/2 $base;
+          &:before {
+            content: 'Source: '
+          }
+
+          font-size: $base * 0.88;
+          // color: $color-ubnt;
+          text-decoration: none;
+          border-bottom: 1px solid $color-mdgray;
+          font-style: italic;
+          
+        }
+
+      }
+
+      .community + .highlight, .src + .highlight, .highlight + .highlight { //only after src blocks
+        border-top: 0px;
+        max-height: 174px;
+        margin-top: 0;
+      }
+      .community + .highlight {
+        margin-top: $base * -5;
+      }
+
+      // & ~ .highlight { //only after src blocks
+      & > .highlight {
+        background-color: $color-ltgray;
+        border: 1px solid $color-mdgray;
+        max-height: $base*14;
+        overflow-y: scroll;
+        margin-top: $base;
+
+
+        .language-scss:before {
+          content: 'SCSS: ';
+          display: block;
+          font-weight: 300;
+          font-style: italic;
+          color: $color-mdgray;
+          font-size: $base * 0.88;
+          margin-top: $base * -1;
+        }
+
+        .language-html:before {
+          content: 'HTML: ';
+          display: block;
+          font-weight: 300;
+          font-style: italic;
+          color: $color-mdgray;
+          font-size: $base * 0.88;
+          margin-top: $base * -1;
+        }
+      }
+
+      & > .note {
+        &:before {
+          content: 'Note: ';
+          margin-right: $base/2;
+          display: inline-block;
+          // @extend %radius;
+          color: $color-green;
+        }
+        font-size: $base*0.88;
+        margin: $base 0;
+        padding: $base/4 $base;
+        background-color: $color-ltgray;
+        // color: white;
+        display: inline-block;
+        @extend %radius;
+      }
+    }
+
+ 
+  }
+
+  // status message e.g. "draft" / "deprecated"
+  &_status {
+    margin-bottom: $base*2;
+    padding: $base/2 $base;
+    background-color: $color-ltgray;
+    @extend %radius;
+
+    &.draft {
+      color: $color-ubnt;
+    }
+
+    &.COM {
+      background-color: $color-green;
+      color: white;
+    }
+  }
+
+  // Elements
+
+  a, a:active, a:link {
+    text-decoration: none; color: $color-dkgray;
+
+    &:hover {
+      color: $color-ubnt;
+    }
+  }
+
+
+
+
+  // import styles that help illustrate examples
+  @import "doc/layoutgrid";
+  @import "doc/colors";
+  @import "doc/pagination";
+
+}
+
+
+
+
+
+
+
+
+// 
+// UNIVERSAL STYLES
+// general, reusable styles
+// 
+
+body, html {
+
+}
+
+
+// syntax highlighting for Rouge
+@import 'syntax';
+
+
+
+
+
+
+
+
+
+
+

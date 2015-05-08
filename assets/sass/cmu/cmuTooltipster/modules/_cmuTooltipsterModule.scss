@@ -4,10 +4,11 @@
 // Modified from the default theme
 //
 
-$tooltip-height: $cmu-base*11;
+$tooltip-text-height: $cmu-base*6.3;
+$tooltip-height: $cmu-base*12;
 $tooltip-width: $cmu-base*35;
 
-.tooltipster-comm {
+.cmuTooltipster {
 	@extend %style-border-medium-blue;
 	background: $cmu-color-white; 
 	min-height: $cmu-base*2;
@@ -20,7 +21,7 @@ $tooltip-width: $cmu-base*35;
 }
 
 /* Use this next selector to style things like font-size and line-height: */
-.tooltipster-comm .tooltipster-content {
+.cmuTooltipster .tooltipster-content {
 	@extend %size-smaller;
 	overflow: hidden;
 	padding: $cmu-base;
@@ -28,7 +29,7 @@ $tooltip-width: $cmu-base*35;
 }
 
 .tooltip__message__text {
-	max-height: $cmu-base*0.6*10;
+	max-height: $tooltip-text-height;
 	margin-bottom: $cmu-base*0.75;
 	overflow: hidden;
 }
@@ -38,7 +39,7 @@ $tooltip-width: $cmu-base*35;
 }
 
 /* This next selector defines the color of the border on the outside of the arrow. This will automatically match the color and size of the border set on the main tooltip styles. Set display: none; if you would like a border around the tooltip but no border around the arrow */
-.tooltipster-comm .tooltipster-arrow .tooltipster-arrow-border {
+.cmuTooltipster .tooltipster-arrow .tooltipster-arrow-border {
 	/* border-color: ... !important; */
 }
 

@@ -7,7 +7,9 @@
 				contentAsHtml: true,
 				content: 'Loading...',
 				position: 'top-left',
-				theme: 'tooltipster-comm',
+				interactiveTolerance: '550',
+				onlyOne: 'true',
+				theme: 'cmuTooltipster',
 				interactive: true,
 				updateAnimation: false,
 				functionBefore: function(origin, continueTooltip) {

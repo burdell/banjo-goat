@@ -6,14 +6,18 @@
 
 .cmuBreadcrumbs {
 	margin: $cmu-base 0;
-	font-weight: 300; 
+	font-weight: 400; 
+	font-size: $cmu-size-breadcrumbs;
 
 	* { cursor: default; }
 
 	// previous crumbs
 	& > div > span {
 		span { cursor: pointer; }
-		&:after {content: ' / ';}
+		&:after {
+			content: '/';
+			padding: 0 $cmu-base/3;
+		}
 
 		a {
 			color: $cmu-breadcrumbs-link-color;

@@ -1,0 +1,32 @@
+---
+layout: layout-post
+title: Alerts
+status: draft
+rootUrl: ../../
+summary: Alert styles
+promote: 
+---
+
+
+
+
+
+div(anchor #colors).   
+
+h2. Alerts
+
+Buttons use the same syntax as the COM theme, but are heavily stylized and modified.
+
+
+
+h3. Standard Alerts
+
+Standard buttons have three states: @base@, @mouse-over@, and @mouse-down@.
+
+
+
+h3. Toast
+
+Standard buttons have three states: @base@, @mouse-over@, and @mouse-down@.
+
+

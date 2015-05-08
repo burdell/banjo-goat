@@ -1,0 +1,60 @@
+---
+layout: layout-post
+title: Typography
+status: version 0.1
+rootUrl: ../../
+summary: We use Lato Sans as the default font for all type.
+menu:
+ - name: Headings
+   url: headings
+ - name: Paragraphs
+   url: paragraphs
+---
+
+
+div(anchor #headings).   
+
+h2. Headings
+
+h3. Heading 1
+
+h5. Usage Notes
+
+Heading 1 is used as the main section title, and is used to denote Discussion Style, current product and main area headings.
+
+
+h5. Example
+
+<notextile>
+	<div class="community">
+		<h1>This is a Large Heading 1</h1>
+	</div>
+</notextile>
+
+
+
+h3. Heading 2
+
+h5. Usage Notes
+
+Heading 2 is used for subsections and for Discussion thread headings.
+
+h5. Example
+
+<notextile>
+	<div class="community">
+		<h2>This is an Example Heading 2</h2>
+	</div>
+</notextile>
+
+
+
+
+
+
+
+
+div(anchor #paragraphs).   
+
+
+h2. Paragraphs

@@ -1,0 +1,115 @@
+
+{% assign url = page.url|remove:'index.html' %}
+
+{% assign groups = "input" | split: "|" %}
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <script src="{{site.baseurl}}{{page.rootUrl}}app/js/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}{{page.rootUrl}}favicon.png">
+  <!-- import gets all the styles from main.scss in the _scss folder -->
+  <link rel="stylesheet" href="{{site.baseurl}}{{page.rootUrl}}app/css/styleguide.css">
+</head>
+
+
+
+<body class="sg">  
+
+  <!-- top nav -->
+  <div id="top" class="sg_nav">
+    <ul>
+      <li class="sg_nav_link"><a href="{{site.baseurl}}{{page.rootUrl}}index.html" title="Styleguide"><img class="sg_nav_logo" src="{{site.baseurl}}{{page.rootUrl}}favicon.png"></a></li>
+      <li class="sg_nav_link {% if page.nav != 'about' %}active{% endif %}"><a href="{{site.baseurl}}{{page.rootUrl}}index.html" title="Styleguide">Guide</a></li>
+      <li class="sg_nav_link {% if page.nav == 'about' %}active{% endif %}"><a href="{{site.baseurl}}{{page.rootUrl}}about.html" title="About the Styleguide">About</a></li>
+    </ul>
+  </div>
+
+
+  <!-- body area -->
+  <div class="sg_body">
+
+    <!-- body sidenav -->
+    <div class="sg_sidenav">
+      <ul>
+        {% assign time_posts = site.posts | sort:"date" %}
+        {% assign sorted_posts = site.posts | sort:"title" %}
+
+
+        <!-- {% if post.status == 'COM' %}com{% endif %} - got rid of this -->
+        <!-- promoted posts -->
+        <div class="promoted-group">
+        {% for post in time_posts %}
+          {% if post.promote == true %}
+            <li class="sg_sidenav_item {% if post.url == page.url %}active{% endif %} {% if post.status == 'draft' %}draft{% endif %} promote">
+              <a href="{{site.baseurl}}{{page.rootUrl}}{{ post.url | remove_first:'/'}}">{{ post.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </div>
+
+        <!-- all groups and order are defined manually, since order might switch / are not A-Z -->
+        <!-- warning: some post with a misnamed group might not show up at all in the list -->
+
+        <!-- group: Input -->
+        <div class="nav-group nav-group_inputs">
+        {% for post in sorted_posts %}
+          {% if post.promote != true and post.group == 'input' %}
+            <li class="sg_sidenav_item {% if post.url == page.url %}active{% endif %} {% if post.status == 'draft' %}draft{% endif %}">
+              <a href="{{site.baseurl}}{{page.rootUrl}}{{ post.url | remove_first:'/'}}">{{ post.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </div>
+
+
+
+        <!-- catch all -->
+        <div class="nav-group nav-group_general">
+        {% for post in sorted_posts %}
+          {% if post.promote != true and post.group == null %}
+            <li class="sg_sidenav_item {% if post.url == page.url %}active{% endif %} {% if post.status == 'draft' %}draft{% endif %}">
+              <a href="{{site.baseurl}}{{page.rootUrl}}{{ post.url | remove_first:'/'}}">{{ post.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </ul>
+    </div> 
+    <!-- end body sidenav -->
+
+    <!-- body content -->
+    <div class="sg_main">
+      {{ content }}
+    </div>
+
+    <!-- end body content -->
+  </div>
+
+
+  <!-- This thing appears fixed on mobile view to let users scroll up to the menu. This is so fixed menu takes less space -->
+<!--   <a href="#top">
+    <div class="nav-mobile-container">
+      <div class="nav-mobile" data-0="display: none" data-100="display: block">
+        <div class="svg-container icon-uptop ">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <polygon id="arrow-25-icon" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "></polygon> </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+
+ -->
+
+  <script src="{{site.buildPath}}{{page.rootUrl}}app/js/jquery.waypoints.min.js"></script>
+  <script src="{{site.buildPath}}{{page.rootUrl}}app/js/sticky.min.js"></script>
+  <script src="{{site.buildPath}}{{page.rootUrl}}app/js/script.js"></script>
+
+</body>
+</html>

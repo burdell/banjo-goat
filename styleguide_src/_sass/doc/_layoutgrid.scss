@@ -1,0 +1,45 @@
+
+
+// example container that overflows with scroll instead of wrap
+.exampleContainerScroll {
+	overflow: scroll !important;
+}
+
+
+// styles for the layout grid page
+
+.docCell {
+	padding: $base/3;
+}
+
+.docCell--even {
+	background-color: $color-ltgray;
+}
+
+.docCell--odd {
+	background-color: $color-green;
+	color: white;
+}
+
+
+
+
+// responsive example; need to show outline for hidden blocks
+
+.sg_breakpoint_example {
+	.docCell--odd {
+		background-color: $color-mdgray;
+		color: black;
+	}
+	span {
+		// background-color: $color-ltgray;
+		display: inline-block;
+		height: 12px;
+		width: 12px;
+		background-color: $color-green;
+		border-radius: 50%;
+		float: right;
+		margin-top: 7px;
+		margin-right: $base/2;
+	}
+}

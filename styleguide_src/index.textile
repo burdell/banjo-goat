@@ -1,0 +1,17 @@
+---
+layout: layout-post
+title: Style Guide
+summary: The styles on this page are updated live based on the currently active community style. Use this guide to quickly understand each piece of design across the community.
+nav: guide
+status: draft
+
+source: /app/posts/intro
+---
+
+h2. Summary
+
+h3. Notes & To Do
+* create Grunt task to automatically compile SCSS into this styleguide
+
+h3. Change Log
+* -build the Jekyll and styleguide SCSS framework for the guide-

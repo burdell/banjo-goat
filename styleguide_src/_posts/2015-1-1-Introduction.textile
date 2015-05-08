@@ -1,0 +1,47 @@
+---
+layout: layout-post
+title: Introduction
+<!-- status: version 0.1 -->
+rootUrl: ../../
+summary: Setting up and installing the styles. Style dependencies and other information
+promote: true
+---
+
+
+
+
+div(anchor #background).   
+
+h2. Background
+
+The Community styles makes use of the Ubiquiti CSS Framework, and uses styles from both the UBNT Base CSS and .COM CSS. Make note that these two styles are not reliant on each other and can live by themselves.
+
+
+h3. Installation
+
+The Community styles inherit from the UBNT Base CSS and the .COM CSS Github repos. Each repo has been added to the npm package `package.json` and can be installed using @npm install@. The main SCSS file imports these module repositories separately before the Community SCSS is run.
+
+Base script: the base is already inherited from the COM theme and doesn't need to be installed separately.
+
+Com script: 
+
+bc. "css-com-theme": "git@github.com:Ubiquiti-UI/css-com-theme.git#(1.0.0)"
+
+
+h3. UBNT CSS Framework Documentation
+
+The official documentation shows both *Base* styles and *.COM* styles in use.
+Documentation for the official UBNT CSS Framework can be found "at this link.":http://ubnt-css.herokuapp.com/#/base/fixed-grid-container
+
+
+h3. Resources
+
+* "UBNT CSS Framework - About":http://ubnt-css.herokuapp.com/#/help/what-is-this
+* "UBNT Base CSS":http://ubnt-css.herokuapp.com/#/base/icons
+* "UBNT COM CSS":http://ubnt-css.herokuapp.com/#/com/basics
+* "UBNT Base Github Repo":https://github.com/Ubiquiti-UI/css-base
+* "UBNT COM Github Repo":https://github.com/Ubiquiti-UI/css-com-theme
+
+
+
+

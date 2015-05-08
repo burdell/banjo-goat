@@ -60,16 +60,36 @@ $cmu-status-warning-color: #f09300; /* [5] */
 $cmu-status-danger-color: #ff3000; /* [6] */
 
 // 
-// DEFAULT
+// DEFAULT FONT COLORS
 // 
 $cmu-primary-background-color: #fafafa;
-$cmu-primary-font-color: #17191d;
+$cmu-primary-font-color: $cmu-color-ltblack;
 $cmu-primary-link-color: $cmu-status-primary-color;
 $cmu-primary-hover-link-color: #17191d;
 $cmu-primary-border-color: #c9c9c9;
 
-$cmu-secondary-border-color: #bbbbbd;
+$cmu-font-highlight: $cmu-color-blue;
 
+
+
+// 
+// GLOBAL MENU COLORS
+// 
+$cmu-menu-background-color: $cmu-color-ltblack;
+$cmu-menu-background-active-color: $cmu-color-xdkgray;
+$cmu-menu-font-active-color: $cmu-color-blue;
+$cmu-menu-border-color: $cmu-color-dkgray;
+
+// 
+// SECONDARY MENU COLORS
+// 
+$cmu-secondmenu-background-color: $cmu-menu-background-active-color;
+$cmu-secondmenu-background-active-color: $cmu-menu-background-active-color;
+$cmu-secondmenu-border-color: #bbbbbd;
+$cmu-secondmenu-font-color: $cmu-color-ltgray;
+$cmu-secondmenu-font-active-color: $cmu-color-blue;
+$cmu-secondmenu-border-color: $cmu-color-dkgray;
+$cmu-secondmenu-search-background-color: $cmu-color-dkgray;
 
 
 
@@ -103,11 +123,11 @@ $cmu-input-icon-color: $cmu-color-mdgray;
 $cmu-banner-background-color: $cmu-color-dkorange;
 $cmu-banner-hover-background-color: darken($cmu-banner-background-color,5);
 
-$cmu-banner-text-color: $cmu-color-ltblack;
+$cmu-banner-text-color: $cmu-color-dkgray;
 $cmu-banner-hover-text-color: $cmu-color-black;
 
 $cmu-banner-icon-color: $cmu-color-black;
-$cmu-banner-hover-icon-color: $cmu-color-ltblue;
+$cmu-banner-hover-icon-color: $cmu-color-white;
 
 
 // 

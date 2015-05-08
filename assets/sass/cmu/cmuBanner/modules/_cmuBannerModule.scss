@@ -36,8 +36,15 @@
 
 	.cmuBanner__close {
 		padding: $cmu-base;
+
+		// add a little bit more on right
+		// padding-right: $cmu-base;
+		position: relative;
+		right: -$cmu-base*1.5;
+
 		color: $cmu-banner-icon-color;
 		text-align: center;
+		font-size: $cmu-base * 1.5;
 		@extend %ease-fast; 
 		cursor: pointer; 
 

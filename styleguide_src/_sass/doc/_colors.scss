@@ -1,0 +1,13 @@
+
+.sg_color-swatches {
+	.swatch {
+		width: 100%;
+		height: $base*6;
+		display: block;
+		@extend %radius;
+	}
+	code {
+		// display: block;
+		margin-left: 0;
+	}
+}

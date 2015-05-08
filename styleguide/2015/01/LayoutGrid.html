@@ -1,0 +1,654 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Layout & Grid</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <script src="../../app/js/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png">
+  <!-- import gets all the styles from main.scss in the _scss folder -->
+  <link rel="stylesheet" href="../../app/css/styleguide.css">
+</head>
+
+
+
+<body class="sg">  
+
+  <!-- top nav -->
+  <div id="top" class="sg_nav">
+    <ul>
+      <li class="sg_nav_link"><a href="../../index.html" title="Styleguide"><img class="sg_nav_logo" src="../../favicon.png"></a></li>
+      <li class="sg_nav_link active"><a href="../../index.html" title="Styleguide">Guide</a></li>
+      <li class="sg_nav_link "><a href="../../about.html" title="About the Styleguide">About</a></li>
+    </ul>
+  </div>
+
+
+  <!-- body area -->
+  <div class="sg_body">
+
+    <!-- body sidenav -->
+    <div class="sg_sidenav">
+      <ul>
+        
+        
+
+
+        <!--  - got rid of this -->
+        <!-- promoted posts -->
+        <div class="promoted-group">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item   promote">
+              <a href="../../2015/01/Introduction.html">Introduction</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item active  promote">
+              <a href="../../2015/01/LayoutGrid.html">Layout & Grid</a>
+            </li>
+          
+        
+        </div>
+
+        <!-- all groups and order are defined manually, since order might switch / are not A-Z -->
+        <!-- warning: some post with a misnamed group might not show up at all in the list -->
+
+        <!-- group: Input -->
+        <div class="nav-group nav-group_inputs">
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Buttons.html">Buttons</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/pagination.html">Pagination</a>
+            </li>
+          
+        
+          
+        
+        </div>
+
+
+
+        <!-- catch all -->
+        <div class="nav-group nav-group_general">
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Alerts.html">Alerts</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/Colors.html">Colors</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/CopyTreatment.html">Copy & Text Treatment</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Forms.html">Form Elements</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Navigation.html">Navigation</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/Typography.html">Typography</a>
+            </li>
+          
+        
+        </div>
+      </ul>
+    </div> 
+    <!-- end body sidenav -->
+
+    <!-- body content -->
+    <div class="sg_main">
+      <div class="sg_main_head">
+    
+        <div class="sg_status COM">COM</div>
+    
+    <h1>Layout & Grid</h1>
+    <div class="sg_main_head_summary">The Community site uses a fully responsive grid and fluid width.</div>
+
+    <!-- page menu sticky - edit: always display now-->
+    <!-- {-% if page.menu != nil %} -->
+
+      <div class="sg_main_head_menu" data-title="Layout & Grid">
+        
+          <a href="#pagelayout">Page Layout</li>
+        
+          <a href="#gridsystem">Grid System</li>
+        
+        <a class="sg_main_head_menu_title" href="#top">Layout & Grid</a></li>
+      </div>
+    <!-- {-% endif %} -->
+</div>
+
+<div class="sg_main_content">
+    <div class="anchor " id="pagelayout"></div>
+<h2>Page Layout</h2>
+<p>The Community uses a fluid (100% width), responsive grid with several breakpoints up to 1440px. The Community is fully responsive, and will additionally support Tapatalk.</p>
+<p>Note that the base code supports site up to <code>2400px</code> by default, but we restrict the Community to a maximum of <code>1440px</code> for now.</p>
+<h3>Default Breakpoint Sizes</h3>
+<p>These are the default breakpoint sizes as defined in the Base Framework.</p>
+<div class="note">These breakpoints are not currently used on the current .<span class="caps">COM</span> site, or anywhere else.</div>
+	<div class="community noPaddingRight noPaddingLeft">
+
+		<div class="exampleContainerScroll container container--responsive container--centered noPaddingLeft">
+
+			<!-- XS -->
+			<div class="row row--comfy">
+			  <div style="width:480px; margin-left: 16px">
+			    <div class="docCell docCell--odd"><span class="visible--xs"></span>Extra Small: 0 to 480px</div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div style="width:800px; margin-left: 16px">
+			    <div class="docCell docCell--even"><span class="visible--xs"></span>Small: 481 to 800px</div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div style="width:1040px; margin-left: 16px">
+			    <div class="docCell docCell--odd"><span class="visible--xs"></span>Medium: 801 to 1040px</div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div style="width:1440px; margin-left: 16px">
+			    <div class="docCell docCell--even"><span class="visible--xs"></span>Large: 1041 to 1440px</div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div style="width:1920px; margin-left: 16px">
+			    <div class="docCell docCell--odd"><span class="visible--xs"></span>X large: 1441 to 1920px</div>
+			  </div>
+			</div>
+			<div class="row row--comfy">
+			  <div style="width:2400px; margin-left: 16px">
+			    <div class="docCell docCell--even"><span class="visible--xs"></span>XX large: 1921 to 2400px</div>
+			  </div>
+			</div>
+		</div>
+
+	</div>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Extra Small: 0 to 480px
+</span><span class="nv">$base-lower-xsmall</span><span class="p">:</span> <span class="m">0px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-xsmall</span><span class="p">:</span> <span class="m">480px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-xsmall-up</span><span class="p">:</span> <span class="nv">$base-screen</span><span class="p">;</span>
+<span class="nv">$base-xsmall-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width: </span><span class="si">#{</span><span class="nv">$base-upper-xsmall</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-xsmall-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width: </span><span class="si">#{</span><span class="nv">$base-upper-xsmall</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+
+<span class="c1">// Small: 481 to 800px
+</span><span class="nv">$base-lower-small</span><span class="p">:</span> <span class="m">481px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-small</span><span class="p">:</span> <span class="m">800px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-small-up</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width: </span><span class="si">#{</span><span class="nv">$base-lower-small</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-small-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width: </span><span class="si">#{</span><span class="nv">$base-upper-small</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-small-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-small</span><span class="si">}</span><span class="s2">) and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-small</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+
+<span class="c1">// Medium: 801 to 1040px
+</span><span class="nv">$base-lower-medium</span><span class="p">:</span> <span class="m">801px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-medium</span><span class="p">:</span> <span class="m">1040px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-medium-up</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-medium</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-medium-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-medium</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-medium-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-medium</span><span class="si">}</span><span class="s2">) and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-medium</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+
+<span class="c1">// Large: 1041 to 1440px
+</span><span class="nv">$base-lower-large</span><span class="p">:</span> <span class="m">1041px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-large</span><span class="p">:</span> <span class="m">1440px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-large-up</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-large</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-large-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-large</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-large-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-large</span><span class="si">}</span><span class="s2">) and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-large</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+
+<span class="c1">// X large: 1441 to 1920px
+</span><span class="nv">$base-lower-xlarge</span><span class="p">:</span> <span class="m">1441px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-xlarge</span><span class="p">:</span> <span class="m">1920px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-xlarge-up</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-xlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-xlarge-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-xlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-xlarge-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-xlarge</span><span class="si">}</span><span class="s2">) and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-xlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+
+<span class="c1">// XX large: 1921 to 2400px
+</span><span class="nv">$base-lower-xxlarge</span><span class="p">:</span> <span class="m">1921px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-upper-xxlarge</span><span class="p">:</span> <span class="m">2400px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$base-xxlarge-up</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-xxlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-xxlarge-down</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-xxlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span>
+<span class="nv">$base-xxlarge-only</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$base-screen</span><span class="si">}</span><span class="s2"> and (min-width:</span><span class="si">#{</span><span class="nv">$base-lower-xxlarge</span><span class="si">}</span><span class="s2">) and (max-width:</span><span class="si">#{</span><span class="nv">$base-upper-xxlarge</span><span class="si">}</span><span class="s2">)"</span><span class="p">;</span></code></pre></div><h3>Breakpoint Display &amp; Visibility</h3>
+<p>Equivalent classes also exist for the breakpoint sizes. These are used to respond to display sizes in markup. A green dot means that the marked class is currently visible.</p>
+	<div class="community noPadding">
+
+		<div class="container noPadding noMargin container--responsive container--centered breakpoint_example">
+
+			<!-- XS -->
+			<div class="row row--comfy">
+			  <div class="col--xs6 noPadding">
+			    <div class="docCell docCell--odd"><span class="visible--xs"></span>(0 to 480) .visible--xs</div>
+			  </div>
+			  <div class="col--xs6 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--xsUp"></span>(0<=) .visible--xsUp</div>
+			  </div>
+			</div>
+
+			<!-- SM -->
+			<div class="row row--comfy">
+			  <div class="col--xs4 noPadding">
+			    <div class="docCell docCell--even"><span class="visible--smDown"></span>(<=800) .visible--smDown</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--odd"><span class="visible--sm"></span>(481 to 800) .visible--sm</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--smUp"></span>(481<=) .visible--smUp</div>
+			  </div>
+			</div>
+
+			<!-- MD -->
+			<div class="row row--comfy">
+			  <div class="col--xs4 noPadding">
+			    <div class="docCell docCell--even"><span class="visible--mdDown"></span>(<=1040) .visible--mdDown</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--odd"><span class="visible--md"></span>(801 to 1040) .visible--md</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--mdUp"></span>(801<=) .visible--mdUp</div>
+			  </div>
+			</div>
+
+			<!-- LG -->
+			<div class="row row--comfy">
+			  <div class="col--xs4 noPadding">
+			    <div class="docCell docCell--even"><span class="visible--lgDown"></span>(<=1440) .visible--lgDown</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--odd"><span class="visible--lg"></span>(1041 to 1440) .visible--lg</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--lgUp"></span>(1041<=) .visible--lgUp</div>
+			  </div>
+			</div>
+
+			<!-- XLG -->
+			<div class="row row--comfy">
+			  <div class="col--xs4 noPadding">
+			    <div class="docCell docCell--even"><span class="visible--xlgDown"></span>(<=1920) .visible--xlgDown</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--odd"><span class="visible--xlg"></span>(1441 to 1920) .visible--xlg</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--xlgUp"></span>(1441<=) .visible--xlgUp</div>
+			  </div>
+			</div>
+
+			<!-- XXLG -->
+			<div class="row row--comfy">
+			  <div class="col--xs4 noPadding">
+			    <div class="docCell docCell--even"><span class="visible--xxlgDown"></span>(<=2400) .visible--xxlgDown</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--odd"><span class="visible--xxlg"></span>(1921 to 2400) .visible--xxlg</div>
+			  </div>
+			  <div class="col--xs4 noPadding">
+			    <div class="visible--xsUp docCell docCell--even"><span class="visible--xxlgUp"></span>(1921<=) .visible--xxlgUp</div>
+			  </div>
+			</div>
+
+
+
+		</div>
+
+	</div>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">//the below will not work since this is the smallest width
+</span><span class="nc">.visible--xs</span><span class="o">,</span> 
+<span class="nc">.visible--xsUp</span><span class="o">,</span> 
+
+<span class="nc">.visible--smDown</span><span class="o">,</span> 
+<span class="nc">.visible--sm</span><span class="o">,</span>
+<span class="nc">.visible--smUp</span>
+
+<span class="nc">.visible--mdDown</span><span class="o">,</span> 
+<span class="nc">.visible--md</span><span class="o">,</span> 
+<span class="nc">.visible--mdUp</span><span class="o">,</span> 
+
+<span class="nc">.visible--lgDown</span><span class="o">,</span>
+<span class="nc">.visible--lg</span><span class="o">,</span>
+<span class="nc">.visible--lgUp</span><span class="o">,</span>
+
+<span class="nc">.visible--xlgDown</span><span class="o">,</span>
+<span class="nc">.visible--xlg</span><span class="o">,</span>
+<span class="nc">.visible--xlgUp</span><span class="o">,</span>
+
+<span class="nc">.visible--xxlgDown</span><span class="o">,</span>
+<span class="nc">.visible--xxlg</span><span class="o">,</span>
+<span class="nc">.visible--xxlgUp</span><span class="o">,</span>
+<span class="o">//</span><span class="nt">the</span> <span class="nt">above</span> <span class="nt">will</span> <span class="nt">not</span> <span class="nt">work</span> <span class="nt">since</span> <span class="nt">this</span> <span class="nt">is</span> <span class="nt">the</span> <span class="nt">highest</span> <span class="nt">width</span></code></pre></div><p>&lt;!&#8212;</p>
+<p><span class="caps">GRID</span> <span class="caps">SYSYEM</span></p>
+&#8212;&gt;
+<div class="anchor " id="gridsystem"></div>
+<h2>Grid System</h2>
+<p>The responsive grid system uses the <a href="http://ubnt-css.herokuapp.com/#/base/grid"><span class="caps">COM</span> grid system</a>, a 12-column, fluid width grid and stretches 100% to fit its parent container. Note to only encapsulate all rows in a <code>container</code> only once.</p>
+	<div class="community">
+		<div class="container">
+		  <div class="row row--comfy">
+		    <div class="col--xs12">
+		      <div class="docCell docCell--even">.col--xs12</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs1">
+		      <div class="docCell docCell--even">.col--xs1</div>
+		    </div>
+		    <div class="col--xs11">
+		      <div class="docCell docCell--odd">.col--xs11</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs2">
+		      <div class="docCell docCell--even">.col--xs2</div>
+		    </div>
+		    <div class="col--xs10">
+		      <div class="docCell docCell--odd">.col--xs10</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs3">
+		      <div class="docCell docCell--even">.col--xs3</div>
+		    </div>
+		    <div class="col--xs9">
+		      <div class="docCell docCell--odd">.col--xs9</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs4">
+		      <div class="docCell docCell--even">.col--xs4</div>
+		    </div>
+		    <div class="col--xs8">
+		      <div class="docCell docCell--odd">.col--xs8</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs5">
+		      <div class="docCell docCell--even">.col--xs5</div>
+		    </div>
+		    <div class="col--xs7">
+		      <div class="docCell docCell--odd">.col--xs7</div>
+		    </div>
+		  </div>
+		  <div class="row row--comfy">
+		    <div class="col--xs6">
+		      <div class="docCell docCell--even">.col--xs6</div>
+		    </div>
+		    <div class="col--xs6">
+		      <div class="docCell docCell--odd">.col--xs6</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="src">
+		<a href="http://ubnt-css.herokuapp.com/#/base/grid">Community Base Grid</a>
+	</div>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"container"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs1"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs1</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs11"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs11</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs2"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs2</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs10"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs10</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs3"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs3</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs9"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs9</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs4"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs4</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs8"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs8</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs5"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs5</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs7"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs7</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"row row--comfy"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs6"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--even"</span><span class="o">&gt;</span><span class="nc">.col--xs6</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"col--xs6"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">"docCell docCell--odd"</span><span class="o">&gt;</span><span class="nc">.col--xs6</span><span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span></code></pre></div><h3>Responsive Columns</h3>
+<h5>Usage Notes</h5>
+<p>Resize the browser to see how the content reacts and reflows to the various breakpoints. Note how the content always fills the full width of the example&#8217;s container, but each column has an equal amount of horizontal padding, unless explicitly set to no padding. Mixing the amount of padding can mess with alignment when changing between breakpoints.</p>
+	<div class="community noPadding">
+
+		<div class="container noPadding noMargin container--responsive container--centered">
+			<div class="row row--comfy">
+			  <div class="col--xs3">
+			    <div class="docCell docCell--even">.col--xs3</div>
+			  </div>
+			  <div class="col--xs3">
+			    <div class="docCell docCell--odd">.col--xs3</div>
+			  </div>
+			  <div class="col--xs3">
+			    <div class="docCell docCell--even">.col--xs3</div>
+			  </div>
+			  <div class="col--xs3">
+			    <div class="docCell docCell--odd">.col--xs3</div>
+			  </div>
+			</div>
+			<div class="row row--comfy">
+			  <div class="col--xs12 col--md4 noPadding">
+			    <div class="docCell docCell--even">.col--xs12 .col--md4 .noPadding</div>
+			  </div>
+			  <div class="col--xs12 col--md4 noPadding">
+			    <div class="docCell docCell--odd">.col--xs12 .col--md4 .noPadding</div>
+			  </div>
+			  <div class="col--xs12 col--md4 noPadding">
+			    <div class="docCell docCell--even">.col--xs12 .col--md4 .noPadding</div>
+			  </div>
+			</div>
+			<div class="row row--comfy">
+			  <div class="col--xs6">
+			    <div class="docCell docCell--even">.col--xs6</div>
+			  </div>
+			  <div class="col--xs6">
+			    <div class="docCell docCell--odd">.col--xs6</div>
+			  </div>
+			</div>
+		</div>
+
+	</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container noPadding noMargin container--responsive container--centered"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row--comfy"</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs3"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--even"</span><span class="nt">&gt;</span>.col--xs3<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs3"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--odd"</span><span class="nt">&gt;</span>.col--xs3<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs3"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--even"</span><span class="nt">&gt;</span>.col--xs3<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs3"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--odd"</span><span class="nt">&gt;</span>.col--xs3<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row--comfy"</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs12 col--md4 noPadding"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--even"</span><span class="nt">&gt;</span>.col--xs12 .col--md4 .noPadding<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs12 col--md4 noPadding"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--odd"</span><span class="nt">&gt;</span>.col--xs12 .col--md4 .noPadding<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs12 col--md4 noPadding"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--even"</span><span class="nt">&gt;</span>.col--xs12 .col--md4 .noPadding<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row--comfy"</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs6"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--even"</span><span class="nt">&gt;</span>.col--xs6<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col--xs6"</span><span class="nt">&gt;</span>
+	    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"docCell docCell--odd"</span><span class="nt">&gt;</span>.col--xs6<span class="nt">&lt;/div&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div><h3>Breakpoint Mixin Usage</h3>
+<p>Here is a corresponding mixing usage example. For example, to create a family of styles that only respond to the extra small breakpoint, we can do the following.</p>
+<div class="note">It&#8217;s important to specify responsive breakpoints from the smallest and up, so avoid using the <code>-down</code> classes. This way, when we specify a style from the smallest breakpoint and up, those styles will apply to all sizes.</div>
+	<div class="community">
+		<div class="sg_breakpoint-mixin">Example text that turns red only on medium display sizes.</div> Widen or shrink the width to change the color.
+	</div>
+	<div class="src">
+		<a href="http://ubnt-css.herokuapp.com/#/base/grid">Community Base Grid</a>
+	</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sg_breakpoint-mixin"</span><span class="nt">&gt;</span>Example text that turns red only on medium displays<span class="nt">&lt;/div&gt;</span></code></pre></div><div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.sg_breakpoint-mixin</span> <span class="p">{</span> 
+	<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">medium-only</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div><p>The mixin values work the exact same way as the breakpoint classes, but have slightly different names from the breakpoint variables and the breakpoint classes. Here they are as follows:</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// XS
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xsmall-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xsmall-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xsmall-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Small
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">small-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">small-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">small-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Medium
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">medium-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">medium-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">medium-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Large
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">large-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">large-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">large-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// XLarge
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xlarge-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xlarge-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xlarge-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// XXLarge
+</span><span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xxlarge-only</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xxlarge-up</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">respondTo</span><span class="p">(</span><span class="n">xxlarge-down</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></div>
+  </div>
+
+</div>
+
+    </div>
+
+    <!-- end body content -->
+  </div>
+
+
+  <!-- This thing appears fixed on mobile view to let users scroll up to the menu. This is so fixed menu takes less space -->
+<!--   <a href="#top">
+    <div class="nav-mobile-container">
+      <div class="nav-mobile" data-0="display: none" data-100="display: block">
+        <div class="svg-container icon-uptop ">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <polygon id="arrow-25-icon" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "></polygon> </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+
+ -->
+
+  <script src="../../app/js/jquery.waypoints.min.js"></script>
+  <script src="../../app/js/sticky.min.js"></script>
+  <script src="../../app/js/script.js"></script>
+
+</body>
+</html>
