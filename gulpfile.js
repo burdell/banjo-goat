@@ -288,6 +288,8 @@ gulp.task('default', ['dev', 'inject', 'watch', 'express']);
 
 gulp.task('dev', ['index', 'scripts', 'templates', 'stylesheets', 'bower']);
 
+gulp.task('deploy', ['dev', 'inject']);
+
 gulp.task('prod', ['dev'], function(){
     //build prod from dev build
     var jsFilter = $.filter(['**/*.js', '*.js']);
