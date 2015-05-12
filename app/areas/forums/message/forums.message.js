@@ -14,7 +14,7 @@
 				messageThread.unshift(ctrl.originalMessage);
 			}
 			ctrl.messageThread = messageThread;
-			ctrl.allMessageCount = messageThread.length;
+			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value;
 			setMessageBreadcrumb(ctrl.originalMessage.subject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });

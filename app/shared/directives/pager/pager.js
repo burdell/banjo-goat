@@ -236,7 +236,7 @@
 				numberOfPages: numberOfPages,
 				frontBiased: this.frontBiased === 'true'
 			};
-
+			
 			/***** EXPOSED PROPERTIES *****/
 			_.extend(ctrl, {
 				nextPage: nextPage,
