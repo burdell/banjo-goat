@@ -31,7 +31,7 @@
 			});
 		}
 		
-		var baseUrl = 'http://comm2-dev.ubnt.com:8080/'; //'http://localhost:8080/';
+		var baseUrl = 'http://comm2-dev.ubnt.com:8080/';
 		var urlSegments = {
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
@@ -40,23 +40,13 @@
 				return 'users/' + id + '/';
 			},
 			Message: function(id) {
-				var urlString = 'topics/'
+				var urlString = 'topics/';
 				if (id) {
 					urlString += id + '/';
 				}
 				return urlString;
 			}
 		};
-
-		/**DEV**/
-		function mocker(data) {
-			return $timeout(function(){
-				return {
-					model: messageData
-				};
-			}, 300);
-		}
-		/**DEV**/
 
 		// ****** API DEFINITION ******
 		var service = {
@@ -81,12 +71,12 @@
 					//POST new message
 					if (_.isObject(messageData)) {
 						messagePayload = messageData;
-						verb = "POST";
+						verb = 'POST';
 					} 
 					//GET exsiting message
 					else {
 						messageId = messageData;
-						verb = "GET";
+						verb = 'GET';
 
 					}
 
@@ -107,7 +97,7 @@
 							return {
 								originalMessage: result[0].model,
 								comments: result[1].collection
-							}
+							};
 						});
 				}
 			}

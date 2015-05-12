@@ -6,11 +6,10 @@
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 
 		function setThreadData(dataResult) {
-			var mtf = messageThreadFilter;
 			ctrl.originalMessage = dataResult.originalMessage;
 			
 			var messageThread = dataResult.comments;
-			if (!(messageThreadFilter.model('offset') > 0)) {
+			if (messageThreadFilter.model('offset') === 0) {
 				messageThread.unshift(ctrl.originalMessage);
 			}
 			ctrl.messageThread = messageThread;
@@ -30,7 +29,7 @@
 		var linkedMessage = $location.hash();
 		if (linkedMessage){
 			$timeout(function(){
-				$anchorScroll()
+				$anchorScroll();
 			}, 0);
 		}		
 
@@ -50,36 +49,35 @@
 				this.currentReply = null;
 			},
 			submitReply: function(messageRepliedTo){
-				communityApi.Forums.message({
-					body: this.messageReplyText,
-					categoryId: null,
-					subject: '',
-					replyTo: messageRepliedTo,
-					author: currentUser.id
-				}, true).then(function(result){
-					ctrl.currentReply = null;
-					var submittedMessage = result.model;
+				// communityApi.Forums.message({
+				// 	body: this.messageReplyText,
+				// 	categoryId: null,
+				// 	subject: '',
+				// 	replyTo: messageRepliedTo,
+				// }, true).then(function(result){
+				// 	ctrl.currentReply = null;
+				// 	var submittedMessage = result.model;
 
-					var offset = messageThreadFilter.model('offset') || 0;
-					var limit = messageThreadFilter.model('limit');
+				// 	var offset = messageThreadFilter.model('offset') || 0;
+				// 	var limit = messageThreadFilter.model('limit');
 					
-					var totalNumberOfPages = Math.floor((ctrl.allMessageCount) / limit);
-					var currentPageNumber = Math.floor(offset / limit) + 1;
+				// 	var totalNumberOfPages = Math.floor((ctrl.allMessageCount) / limit);
+				// 	var currentPageNumber = Math.floor(offset / limit) + 1;
 					
-					if (currentPageNumber !== (totalNumberOfPages + 1)) {
-						//if we're not on the last page, go to  page...
-						messageThreadFilter.filter({ offset: totalNumberOfPages * limit });
-							// .then(function(){
-							// 	submittedMessage.author = currentUser;
-							// 	ctrl.messageThread.push(submittedMessage);
-							// });
-					} else {
-						//...otherwise just add the new message to the list
-						// ctrl.allMessageCount += 1;
-						// submittedMessage.author = currentUser;
-						// ctrl.messageThread.push(submittedMessage);
-					}
-				});
+				// 	if (currentPageNumber !== (totalNumberOfPages + 1)) {
+				// 		//if we're not on the last page, go to  page...
+				// 		messageThreadFilter.filter({ offset: totalNumberOfPages * limit });
+				// 			// .then(function(){
+				// 			// 	submittedMessage.author = currentUser;
+				// 			// 	ctrl.messageThread.push(submittedMessage);
+				// 			// });
+				// 	} else {
+				// 		//...otherwise just add the new message to the list
+				// 		// ctrl.allMessageCount += 1;
+				// 		// submittedMessage.author = currentUser;
+				// 		// ctrl.messageThread.push(submittedMessage);
+				// 	}
+				// });
 				
 			}
 		});
