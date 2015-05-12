@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	var forumMessageController = function($scope, communityApi,  breadcrumbService, currentUser, messageThreadFilter){
+	var forumMessageController = function($anchorScroll, $location, $scope, $timeout, communityApi, breadcrumbService, messageThreadFilter){
 		var ctrl = this;
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 
@@ -14,8 +14,7 @@
 				messageThread.unshift(ctrl.originalMessage);
 			}
 			ctrl.messageThread = messageThread;
-			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value;
-			
+			ctrl.allMessageCount = messageThread.length;
 			setMessageBreadcrumb(ctrl.originalMessage.subject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
@@ -28,12 +27,18 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
-		var currentUser = currentUser.get();
+		var linkedMessage = $location.hash();
+		if (linkedMessage){
+			$timeout(function(){
+				$anchorScroll()
+			}, 0);
+		}		
 
 		_.extend(ctrl, {
 			currentReply: null,
 			messageReplyText: null,
 			messageThreadFilter: messageThreadFilter,
+			linkedMessageId: Number(linkedMessage),
 			messageIsBeingRepliedTo: function(messageId){
 				return messageId === this.currentReply;
 			},
@@ -70,9 +75,9 @@
 							// });
 					} else {
 						//...otherwise just add the new message to the list
-						ctrl.allMessageCount += 1;
-						submittedMessage.author = currentUser;
-						ctrl.messageThread.push(submittedMessage);
+						// ctrl.allMessageCount += 1;
+						// submittedMessage.author = currentUser;
+						// ctrl.messageThread.push(submittedMessage);
 					}
 				});
 				
@@ -81,10 +86,12 @@
 
 	};
 	forumMessageController.$inject = [
-		'$scope', 
+		'$anchorScroll',
+		'$location',
+		'$scope',
+		'$timeout',
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 
-		'CurrentUserService', 
 		'MessageThreadFilter'
 	];
 

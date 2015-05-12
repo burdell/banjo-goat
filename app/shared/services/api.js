@@ -48,6 +48,16 @@
 			}
 		};
 
+		/**DEV**/
+		function mocker(data) {
+			return $timeout(function(){
+				return {
+					model: messageData
+				};
+			}, 300);
+		}
+		/**DEV**/
+
 		// ****** API DEFINITION ******
 		var service = {
 			Core: {
@@ -66,14 +76,6 @@
 			},
 			Forums: {
 				message: function(messageData, mock) {
-					if (mock) {
-						return $timeout(function(){
-							return {
-								model: messageData
-							};
-						}, 300);
-					}
-
 					var messageId, messagePayload, verb;
 
 					//POST new message
