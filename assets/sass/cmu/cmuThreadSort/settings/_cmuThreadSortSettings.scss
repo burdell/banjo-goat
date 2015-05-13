@@ -3,6 +3,6 @@ $cmu-form-spacing: remCalc($cmu-base) !default;
 
 // We use these to style the labels in different ways
 $cmu-threadsort-font-family: inherit !default;
-$cmu-threadsort-font-size: remCalc(14) !default;
+$cmu-threadsort-font-size: $cmu-input-font-size;
 $cmu-threadsort-border-radius: 0 !default;
 $cmu-threadsort-box-shadow: none;

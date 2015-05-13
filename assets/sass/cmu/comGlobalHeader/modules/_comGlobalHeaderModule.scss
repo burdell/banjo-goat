@@ -50,6 +50,15 @@
 }
 .comGlobalHeader__cmuItem--avatar {
   width: 60px;
+  cursor: pointer;
+
+  &:hover {
+    &:after {
+      background: $cmu-color-ltgray;
+      @include transition-duration(0.35s);
+      @include transition-timing-function(ease-out);
+    }
+  }
 
   &:after {
     content: ' ';
@@ -60,6 +69,8 @@
     height: $cmu-base*2;
     position: absolute;
     top: 11px;
+    @include transition-duration(0.35s);
+    @include transition-timing-function(ease-out);
   }
 }
 

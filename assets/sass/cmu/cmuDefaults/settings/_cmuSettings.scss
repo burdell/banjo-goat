@@ -8,6 +8,8 @@ $base-font-size:            $cmu-base !default;
 $cmu-base-font-size:        $base-font-size !default;
 $cmu-base-line-height:      $cmu-base*1.5 !default;
 $cmu-vertical-rhythm: 		$cmu-base !default;
+$cmu-base-cta-height:		$cmu-base*2; // force the standard height for all cta elements
+$cmu-base-cta-height-large: $cmu-base*3;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -16,38 +18,6 @@ $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-base-spacing-unit:     $cmu-base-line-height !default;
 $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 
-
-
-// 
-// SIZES
-// typography sizes
-// 
-
-$cmu-size-smaller: $cmu-base*0.88;
-$cmu-size-smaller-line-height: $cmu-base*1.3;
-
-$cmu-size-xsmaller: $cmu-base*0.78;
-$cmu-size-xsmaller-line-height: $cmu-base*1.22;
-
-$cmu-size-h1: $cmu-base*3; 
-$cmu-size-h1-line-height: $cmu-base*3.75;
-
-$cmu-size-h2: $cmu-base*1.6;
-$cmu-size-h2-line-height: $cmu-base*2.75;
-
-$cmu-size-h4: $cmu-base*1.1;
-$cmu-size-h4-line-height: $cmu-base*1.95;
-
-$cmu-size-h6: $cmu-size-xsmaller;
-$cmu-size-h6-line-height: $cmu-size-xsmaller*1.95;
-
-$cmu-size-copy: $cmu-base*0.88;
-$cmu-size-copy-line-height: $cmu-base*1.45;
-
-$cmu-base-spacing-unit: $cmu-base;
-
-
-$cmu-size-breadcrumbs: $cmu-base*0.74;
 
 
 
@@ -81,18 +51,6 @@ body {
 // }
 
 
-
-// 
-// DEFINE STYLES
-// @styles
-// 
-
-
-
-// Forum Typography
-%size-community-base {
-	@extend %size-smaller;
-} 
 
 
 

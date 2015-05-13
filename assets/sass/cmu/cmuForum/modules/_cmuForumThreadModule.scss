@@ -12,6 +12,7 @@
 .forumThreadMessage {
 	border: $cmu-style-border-thin-light; 
 	margin-bottom: $cmu-vertical-rhythm;
+	@extend .style-copy;
 	// border-top: 0px;
 	// &:first-of-type {
 	// 	border-top: $cmu-style-border-thin-light;
@@ -79,7 +80,7 @@
 	}
 
 	.forumThreadMain__body {
-
+		margin-bottom: $cmu-vertical-rhythm;
 		min-height: $cmu-message-bottom-height;
 		p, ul, ol {
 			@extend .style-copy;

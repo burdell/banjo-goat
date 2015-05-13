@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6593,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination .pagination_control, .cmuPagination .pagination_control:hover:not(.disabled), .cmuPagination .pagination_main .pagination_num, .cmuPagination .pagination_first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white, button.button-full, .button.button-full, button.button-compound, .button.button-compound, button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6601,7 +6601,7 @@ tr:last-child td {
   transition: all 180ms ease;
 }
 
-.cmuPagination .pagination_main, .cmuPagination .pagination_main .pagination_main_scrubber {
+.cmuPagination__main, .cmuPagination__main__scrubber {
   -webkit-transition: all 320ms ease;
   -moz-transition: all 320ms ease;
   -ms-transition: all 320ms ease;
@@ -6635,10 +6635,6 @@ body {
   height: 100%;
   color: black;
   line-height: inherit;
-}
-
-.cmuPagination .pagination_arrow {
-  border-radius: 8px;
 }
 
 .row {
@@ -6689,14 +6685,14 @@ body {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
-.cmuForumDescriptor, .forumThreadList__message, .type-titleThin, .cmuDiscussionsNavbar *, .cmuTooltipster .tooltipster-content {
-  font-size: 0.88rem;
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuForumDescriptor, .forumThreadList__message, .cmuTooltipster .tooltipster-content {
+  font-size: 0.8125rem;
   line-height: 1.3rem;
 }
 
-.forumThreadList thead th {
-  font-size: 0.78rem;
-  line-height: 1.22rem;
+button, .button, .forumThreadList thead th {
+  font-size: 0.6875rem;
+  line-height: 1.5rem;
 }
 
 h1 {
@@ -6718,15 +6714,19 @@ h4 {
   color: #474b52;
 }
 
+h5 {
+  font-size: 0.83rem;
+}
+
 h6 {
-  font-size: 0.78rem;
-  line-height: 1.521rem;
+  font-size: 0.6875rem;
+  line-height: 1.34063rem;
   font-weight: 400;
   color: #474b52;
   font-style: italic;
 }
 
-.style-copy, .forumBadge__username, .forumThreadMain__body p, .forumThreadMain__body ul, .forumThreadMain__body ol {
+.style-copy, .forumThreadMessage, .forumBadge__username, .forumThreadMain__body p, .forumThreadMain__body ul, .forumThreadMain__body ol {
   font-size: 0.88rem;
   line-height: 1.45rem;
   color: #17191d;
@@ -6746,6 +6746,11 @@ h6 {
 }
 .type-link:hover, .cmuDiscussionsNavbar a:hover {
   color: #00a0df;
+}
+
+button, .button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 html {
@@ -6793,6 +6798,20 @@ pre {
   margin-bottom: 0 !important;
 }
 
+/* file size: 0.2ko | already optimized | base64 size: 0.2ko */
+.cmuIcons--arrows_left {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMyIiB2aWV3Qm94PSIwIDAgMTMyIDEzMiI+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTY2IDE2LjV2OTlsLTY2LTQ5LjUgNjYtNDkuNXptNjYgMHY5OWwtNjYtNDkuNSA2Ni00OS41eiIvPjwvc3ZnPg==);
+}
+
+/* file size: 0.2ko | already optimized | base64 size: 0.2ko */
+.cmuIcons--arrows_right {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMyIiB2aWV3Qm94PSIwIDAgMTMyIDEzMiI+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTY2IDExNS41di05OWw2NiA0OS41LTY2IDQ5LjV6bS02NiAwdi05OWw2NiA0OS41LTY2IDQ5LjV6Ii8+PC9zdmc+);
+}
+
+.cmuIcons--pin, .forumThreadList__message--pinned .forumThreadList__message__topic:after {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTI5MiAzODQgMjYgMjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTI5MiAzODQgMjYgMjYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBpZD0iUGFnZS0xIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj48ZyBpZD0iT3ZhbC0yNy1feDJCXy1TaGFwZS1Db3B5IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj48Y2lyY2xlIGlkPSJPdmFsLTI3IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBmaWxsPSIjNDc0QjUyIiBjeD0iLTI3OSIgY3k9IjM5NyIgcj0iMTMiPjwvY2lyY2xlPjxwYXRoIGlkPSJTaGFwZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgZmlsbD0iI0ZGRkZGRiIgZD0iTS0yNzcuNCw0MDIuNWwwLjMtMi40bDAsMGw1LTYuNmwtMy41LTMuNWwtNi42LDVsMCwwbC0yLjQsMC4zbDMsM2wtNC40LDVsMC42LDAuNmw1LTQuNEwtMjc3LjQsNDAyLjV6Ii8+PC9nPjwvZz48L3N2Zz4=);
+}
+
 .cmuPagination * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -6824,67 +6843,62 @@ pre {
 .cmuPagination * {
   display: inline-block;
 }
-.cmuPagination .pagination_scrubber {
+
+.cmuPagination__scrubber {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-end;
   align-content: flex-start;
   align-items: flex-start;
   min-width: 19rem;
 }
-.cmuPagination .pagination_control {
+
+.cmuPagination__txtControl {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   height: 32px;
-  width: 3rem;
-  font-size: 0.88rem;
+  font-size: 0.8125rem;
   cursor: pointer;
 }
-.cmuPagination .pagination_control .pagination_control_right {
+.cmuPagination__txtControl .pagination_control_right {
   text-align: right;
 }
-.cmuPagination .pagination_control:hover:not(.disabled) {
+.cmuPagination__txtControl:hover:not(.disabled) {
   text-decoration: underline;
   color: #00a0df;
 }
-.cmuPagination .pagination_control.disabled {
+.cmuPagination__txtControl.disabled {
   color: #969ba3;
   cursor: default;
 }
-.cmuPagination .pagination_control_next {
-  margin-left: 1rem;
+
+.cmuPagination__txtControl--prev {
+  margin-right: 0.5rem;
 }
-.cmuPagination .pagination_arrow {
+
+.cmuPagination__txtControl--next {
+  margin-left: 0.5rem;
+}
+
+.cmuPagination__arrow {
   height: 32px;
-  text-transform: uppercase;
-  font-weight: 300;
+  line-height: 1.5rem;
   cursor: pointer;
-  background-color: #fafafa;
   padding: 0.25rem;
-  border: 1px solid #969ba3;
 }
-.cmuPagination .pagination_arrow.pagination_arrow_left {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-.cmuPagination .pagination_arrow.pagination_arrow_right {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left: 0;
-}
-.cmuPagination .pagination_arrow:hover:not(.disabled) {
-  background-color: #dadada;
+.cmuPagination__arrow:hover:not(.disabled) {
   cursor: pointer;
+  color: #00a0df;
 }
-.cmuPagination .pagination_arrow.disabled {
-  background-color: white;
+.cmuPagination__arrow.disabled {
   color: #ebebeb;
   cursor: default;
 }
-.cmuPagination .pagination_main {
+
+.cmuPagination__main {
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
@@ -6894,14 +6908,13 @@ pre {
   height: 32px;
   vertical-align: bottom;
   position: relative;
-  border: 1px solid #969ba3;
-  border-left: 0;
 }
-.cmuPagination .pagination_main.full-scroll {
+.cmuPagination__main.cmuPagination__fullScroll {
   flex-basis: 5rem;
   flex-grow: 1;
 }
-.cmuPagination .pagination_main .pagination_main_scrubber {
+
+.cmuPagination__main__scrubber {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -6909,63 +6922,76 @@ pre {
   position: relative;
   left: 0;
 }
-.cmuPagination .pagination_main .pagination_num {
+
+.cmuPagination__num {
   padding: 0.5rem 0;
   text-align: center;
   min-width: 2.5rem;
   cursor: pointer;
-  font-size: 0.88rem;
+  font-size: 0.8125rem;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 2.5rem;
 }
-.cmuPagination .pagination_main .pagination_num.active {
+.cmuPagination__num.active {
   background: #00a0df !important;
   color: white !important;
   cursor: default !important;
 }
-.cmuPagination .pagination_main .pagination_num:hover:not(.active) {
+.cmuPagination__num:hover:not(.active) {
   background-color: #dadada;
 }
-.cmuPagination .pagination_first {
-  background-color: #ebebeb;
+
+.cmuPagination__first {
+  flex-grow: initial;
   padding: 0.25rem 0;
   text-align: center;
   min-width: 2.5rem;
   cursor: pointer;
   height: 32px;
-  border: 1px solid #969ba3;
-  font-size: 0.88rem;
+  font-size: 0.8125rem;
 }
-.cmuPagination .pagination_first.active {
+.cmuPagination__first.active {
   background: #00a0df !important;
   color: white !important;
   cursor: default !important;
 }
-.cmuPagination .pagination_first:hover:not(.active) {
+.cmuPagination__first:not(.active):after {
+  content: ' ... ';
+  padding-left: 0.16667rem;
+}
+.cmuPagination__first:hover:not(.active) {
   background-color: #dadada;
 }
-.cmuPagination .pagination_last {
+
+.cmuPagination__last {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid #969ba3;
   border-left: 0;
-  background-color: #ebebeb;
   cursor: default;
   height: 32px;
-  font-size: 0.88rem;
+  font-size: 0.8125rem;
 }
-.cmuPagination .pagination_last .pagination_last_of {
+.cmuPagination__last:not(.enabled) {
+  color: #bbbbbd;
+}
+.cmuPagination__last.enabled:hover {
+  background-color: #dadada;
+  cursor: pointer;
+}
+
+.cmuPagination__last__of {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 100%;
-  padding-left: 0.5rem;
+  padding-left: 0.25rem;
   padding-right: 0.25rem;
   font-weight: 300;
 }
-.cmuPagination .pagination_last .pagination_last_num {
+
+.cmuPagination__last__num {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6973,26 +6999,20 @@ pre {
   padding: 0 0.5rem;
   padding-left: 0.25rem;
 }
-.cmuPagination .pagination_last:not(.enabled) {
-  color: #bbbbbd;
-}
-.cmuPagination .pagination_last.enabled:hover {
-  background-color: #dadada;
-  cursor: pointer;
-}
-.cmuPagination .simple-scroll.pagination_arrow, .cmuPagination .simple-scroll.pagination_last {
+
+.cmuPagination__isSimple.cmuPagination__arrow, .cmuPagination__isSimple.cmuPagination__last {
   display: none !important;
 }
-.cmuPagination .simple-scroll.pagination_first {
+.cmuPagination__isSimple.cmuPagination__first {
   color: inherit;
   background-color: white;
 }
-.cmuPagination .simple-scroll.pagination_scrubber {
+.cmuPagination__isSimple.cmuPagination__scrubber {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-.cmuPagination .simple-scroll.pagination_main {
+.cmuPagination__isSimple.cmuPagination__main {
   flex-grow: 0;
 }
 
@@ -7058,12 +7078,12 @@ pre {
 
 .cmuBanner {
   cursor: pointer;
-  background-color: #f09300;
+  background-color: #ffb31a;
   font-weight: 300;
   color: #474b52;
 }
 .cmuBanner:not(.cmuBanner__close):hover {
-  background-color: #d68300;
+  background-color: #f09300;
 }
 .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span {
   color: black;
@@ -7081,7 +7101,7 @@ pre {
 .cmuBanner__close {
   padding: 1rem;
   position: relative;
-  right: -1.5rem;
+  right: -1.7rem;
   color: black;
   text-align: center;
   font-size: 1.5rem;
@@ -7151,28 +7171,27 @@ pre {
 }
 
 .cmuSearchbox {
-  padding: 1rem 0;
   text-align: right;
 }
 .cmuSearchbox ::-webkit-input-placeholder {
   color: #dadada;
   font-weight: 400;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
 }
 .cmuSearchbox :-moz-placeholder {
   color: #dadada;
   font-weight: 400;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
 }
 .cmuSearchbox ::-moz-placeholder {
   color: #dadada;
   font-weight: 400;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
 }
 .cmuSearchbox :-ms-input-placeholder {
   color: #dadada;
   font-weight: 400;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
 }
 
 .cmuSearchbox input {
@@ -7183,9 +7202,8 @@ pre {
   border: 1px solid #bebec0;
   color: rgba(0, 0, 0, 0.75);
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   margin: 0 0 0.0625rem 0;
-  padding: 0.03125rem;
   width: 100%;
 }
 .cmuSearchbox input:focus, .cmuSearchbox input:active {
@@ -7214,7 +7232,7 @@ select {
   border: 1px solid #bebec0;
   padding: 0 0.5rem;
   color: rgba(0, 0, 0, 0.75);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -7239,93 +7257,142 @@ select:disabled {
   background: #dddddd;
 }
 
-button, .button, button.button-square, .button.button-square, button.button-blue-white, .button.button-blue-white {
-  border: 0.125rem solid #fafafa;
+/*
+	Button Usage:
+
+	- <button> or .button declares button
+	- declare a button style:
+		- ghost (hollow bg)
+		- solid (default)
+		- compound (ghosted w/ a title)
+	- declare a color scheme
+		- button-background-foreground
+		- button-blue-white (default)
+
+
+	Button notes:
+	- Standard button height are 32px (2rem)
+	- all buttons are defined w/ border for height standardization
+		- solid buttons match border w/ bg color
+*/
+button, .button {
+  line-height: normal;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+button .icon, .button .icon {
+  margin-right: 0.5rem;
+}
+
+button, .button, .button--ghost, .button-blue-white, .button-black-white {
   padding: 0.375rem 0.875rem;
-  text-transform: uppercase;
   font-size: 0.8rem;
 }
-button:hover, .button:hover {
+button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .button-black-white:hover {
   border-color: #ebebeb;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-button.button-full, .button.button-full {
-  padding: 0.5rem 1rem;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+.button--solid {
+  padding: 0.4375rem 1rem;
+  border: 1px solid #00a0df;
 }
-button.button-full:hover, .button.button-full:hover {
+.button--solid:hover {
   background-color: #0074ad;
 }
 
-button.button-compound, .button.button-compound {
+.button-compound {
   border: 0.125rem solid #00a0df;
-  text-transform: uppercase;
   font-size: 0.8rem;
   padding: 0;
 }
-button.button-compound span, .button.button-compound span {
+.button-compound span {
   display: inline-block;
 }
-button.button-compound span:nth-child(1), .button.button-compound span:nth-child(1) {
+.button-compound span:nth-child(1) {
   padding: 0.375rem 1rem;
   background-color: #fafafa;
   color: #48af65;
 }
-button.button-compound span:nth-child(2), .button.button-compound span:nth-child(2) {
+.button-compound span:nth-child(2) {
   padding: 0.375rem 1rem;
   line-height: 16px;
 }
-button.button-compound:hover, .button.button-compound:hover {
+.button-compound:hover {
   border-color: #48af65;
   background-color: #48af65;
 }
-button.button-compound:hover span:nth-child(1), .button.button-compound:hover span:nth-child(1) {
+.button-compound:hover span:nth-child(1) {
   background-color: #48af65;
   color: #fafafa;
 }
-button.button-compound:hover span:nth-child(2), .button.button-compound:hover span:nth-child(2) {
+.button-compound:hover span:nth-child(2) {
   border-color-left: #fafafa;
   color: #fafafa;
 }
 
-button.button-full, .button.button-full {
+button, .button {
+  height: 2rem;
+}
+
+.button--solid {
   border: 0;
 }
-button.button-white-green, .button.button-white-green {
+
+.button-white-green {
   background-color: #fafafa;
   color: #48af65;
   border-color: #48af65;
 }
-button.button-white-green span, .button.button-white-green span {
+.button-white-green span {
   padding: 0 0.5rem;
   background-color: #48af65;
   color: #fafafa;
 }
-button.button-white-green:hover, .button.button-white-green:hover {
+.button-white-green:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-button.button-white-blue, .button.button-white-blue {
+
+.button-white-blue {
   background-color: #fafafa;
   color: #00a0df;
   border-color: #00a0df;
 }
-button.button-white-blue:hover, .button.button-white-blue:hover {
+.button-white-blue:hover {
   color: #fafafa;
   background-color: #00a0df;
   border-color: #00a0df;
 }
-button.button-blue-white, .button.button-blue-white {
+
+.button-blue-white {
   background-color: #00a0df;
   color: #fafafa;
   border: #00a0df;
 }
 
-.cmuDiscussionsHeader h2 {
+.button-black-white {
+  background-color: black;
+  color: #fafafa;
+  border: #00a0df;
+}
+
+.button--wide {
+  width: 100%;
+}
+
+.cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
+}
+
+.cmuDiscussionsHeader h2 {
+  display: inline-block;
+}
+
+.cmuDiscussionsHeader h4 {
+  display: inline-block;
+  padding-left: 0.5rem;
 }
 
 .cmuDiscussionsNavbar {
@@ -7349,43 +7416,56 @@ button.button-blue-white, .button.button-blue-white {
 }
 
 .forumThreadList__message__topic a {
-  color: #474b52;
+  color: black;
 }
 .forumThreadList__message__topic a:hover {
   color: #00a0df;
 }
 
 .cmuForumDescriptor {
-  padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.forumThreadcount {
+.forumThreadCount {
   margin-bottom: 1rem;
 }
 
-.forumThreadcountRow {
-  border-top: 1px solid black;
-  padding-top: 0.5rem;
+.forumThreadCount__message {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 .forumThreadList__head--topic {
-  width: 60%;
-}
-
-.forumThreadList__head--author, .forumThreadList__message__author {
-  width: 15%;
-  padding-right: 0.5rem;
-}
-
-.forumThreadList__head--counter {
   width: auto;
-  padding: 0 0.5rem;
 }
 
-.forumThreadList__head--latest, .forumThreadList__message__latest {
-  width: 16%;
-  padding-left: 0.5rem;
+.forumThreadList__head--author, .forumThreadList__message__author, .forumThreadList__head--authorLast, .forumThreadList__message__authorLast {
+  width: 12%;
+  padding-right: 0.5rem;
+  max-width: 100px;
+}
+
+@media only screen and (max-width: 1040px) {
+  .forumThreadList__head--author, .forumThreadList__message__author {
+    display: none;
+  }
+}
+
+.forumThreadList__head--counter, .forumThreadList__message__counter {
+  width: 6%;
+  text-align: left;
+}
+
+.forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
+  width: 80px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1040px) {
+  .forumThreadList__head--createdDate, .forumThreadList__message__createdDate {
+    display: none;
+  }
 }
 
 .forumThreadList thead {
@@ -7393,7 +7473,7 @@ button.button-blue-white, .button.button-blue-white {
 }
 .forumThreadList thead th {
   font-weight: 400;
-  color: #17191d;
+  color: #969ba3;
 }
 
 .forumThreadList__head--topic {
@@ -7404,31 +7484,88 @@ button.button-blue-white, .button.button-blue-white {
   text-align: left;
 }
 
-.forumThreadList__head--counter {
-  text-align: center;
-}
-
-.forumThreadList__head--latest {
+.forumThreadList__head--authorLast {
   text-align: left;
 }
 
-.forumThreadList__date {
-  color: #474b52;
-  font-size: 0.78rem;
-  display: block;
-}
-
 .forumThreadList__message {
+  position: relative;
   border-top: 1px solid #ebebeb;
   border-bottom: 1px solid #ebebeb;
-}
-.forumThreadList__message td {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  line-height: 2rem;
+}
+.forumThreadList__message td {
+  overflow: hidden;
+}
+
+.forumThreadList__message__topic {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  position: relative;
+  line-height: 1.5rem;
+}
+
+.forumThreadList__message__author {
+  line-height: 1rem;
+}
+
+.forumThreadList__message__authorLast {
+  line-height: 1rem;
 }
 
 .forumThreadList__message__counter {
-  text-align: center;
+  padding-right: 0.5rem;
+}
+
+.forumThreadList__message__latestDate, .forumThreadList__message__createdDate {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1rem;
+  color: #474b52;
+  font-size: 0.6875rem;
+}
+
+.forumThreadList--pinList {
+  border-bottom: 2px solid black;
+  border-color: #474b52;
+}
+
+.forumThreadList__message--pinned .forumThreadList__message__topic:after {
+  content: ' ';
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+}
+
+.forumThreadList__message--active .forumThreadList__message__topic > a:before {
+  content: 'ACTIVE';
+  display: inline-block;
+  background-color: #ff3516;
+  padding: 0.16667rem 0.5rem;
+  margin-right: 0.5rem;
+  color: #fafafa;
+  font-size: 0.5625rem;
+  line-height: 1rem;
+}
+
+.forumThreadList__message--locked .forumThreadList__message__topic > a:after {
+  font-family: 'ubnt';
+  content: '\e787';
+  display: inline-block;
+  padding: 0.16667rem 0.5rem;
+}
+
+.forumThreadList__message--read {
+  background-color: #ebebeb;
+  border-color: #dedede;
+}
+.forumThreadList__message--read a, .forumThreadList__message--read .forumThreadList__message__counter {
+  font-weight: 300;
 }
 
 .forumThreadSubject h4 {
@@ -7453,7 +7590,7 @@ button.button-blue-white, .button.button-blue-white {
 
 .forumBadge__info {
   background-color: #ebebeb;
-  font-size: 0.78rem;
+  font-size: 0.6875rem;
   line-height: 1.45rem;
   text-transform: uppercase;
   margin: 1rem 0;
@@ -7479,6 +7616,7 @@ button.button-blue-white, .button.button-blue-white {
 }
 
 .forumThreadMain__body {
+  margin-bottom: 1rem;
   min-height: 100px;
 }
 .forumThreadMain__body p {
@@ -7495,7 +7633,7 @@ button.button-blue-white, .button.button-blue-white {
 
 .activeCounter {
   margin-bottom: 1rem;
-  font-size: 0.78rem;
+  font-size: 0.6875rem;
 }
 .activeCounter span:nth-child(1) {
   font-weight: 600;
@@ -7528,6 +7666,12 @@ button.button-blue-white, .button.button-blue-white {
   display: block;
 }
 
+.appIconInput__input {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height: 2rem;
+}
+
 /**
  * 1. Make sure icon is on top of input. Input gains z-index of 2 when focused
  *    so we make this z-index 3.
@@ -7537,17 +7681,14 @@ button.button-blue-white, .button.button-blue-white {
   position: absolute;
   z-index: 3;
   /* [1] */
-  padding-top: 1.1rem;
+  padding-top: 0.7rem;
   padding-left: 0.5rem;
   color: #bbbbbd;
   pointer-events: none;
   /* [2] */
   margin-bottom: inherit;
   height: inherit;
-  font-size: 0.88rem;
-}
-.appForm--cozy .appIconInput__icon {
-  top: 0.03125rem;
+  font-size: 0.8125rem;
 }
 
 /**
@@ -7558,11 +7699,6 @@ a.appIconInput__icon {
   /* [1] */
 }
 
-.appIconInput--full {
-  display: block;
-}
-
-.appForm--cozy .appIconInput--right,
 .appIconInput--right {
   /**
    * 1. Prevent input text from overlapping with icon.
@@ -7571,55 +7707,35 @@ a.appIconInput__icon {
    * 1. Prevent select arrow from overlapping with icon.
    */
 }
-.appForm--cozy .appIconInput--right .appIconInput__icon,
 .appIconInput--right .appIconInput__icon {
   right: 0.5em;
 }
-.appForm--cozy .appIconInput--right .appIconInput__input,
 .appIconInput--right .appIconInput__input {
   padding-right: 2rem;
   /* [1] */
 }
-.appForm--cozy .appIconInput--right.appIconInput--comfy .appIconInput__input,
-.appIconInput--right.appIconInput--comfy .appIconInput__input {
-  padding-right: 1.6875em;
-  /* [1] */
-}
-.appForm--cozy .appIconInput--right.appIconInput--select .appIconInput__input,
 .appIconInput--right.appIconInput--select .appIconInput__input {
   padding-right: 3.75em;
   /* [1] */
 }
-.appForm--cozy .appIconInput--right.appIconInput--select .appIconInput__icon,
 .appIconInput--right.appIconInput--select .appIconInput__icon {
   right: 2em;
   /* [1] */
 }
 
-.appForm--cozy .appIconInput--left,
 .appIconInput--left {
   /**
    * 1. Prevent input text from overlapping with icon.
    */
 }
-.appForm--cozy .appIconInput--left .appIconInput__icon,
 .appIconInput--left .appIconInput__icon {
   left: 0.5em;
 }
-.appForm--cozy .appIconInput--left .appIconInput__input,
 .appIconInput--left .appIconInput__input {
   padding-left: 2rem;
   /* [1] */
   margin-bottom: inherit;
-  height: inherit;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 0.88rem;
-}
-.appForm--cozy .appIconInput--left.appIconInput--comfy .appIconInput__input,
-.appIconInput--left.appIconInput--comfy .appIconInput__input {
-  padding-left: 1.6875em;
-  /* [1] */
+  font-size: 0.8125rem;
 }
 
 .comGlobalFooter {
@@ -7737,6 +7853,18 @@ a.appIconInput__icon {
 
 .comGlobalHeader__cmuItem--avatar {
   width: 60px;
+  cursor: pointer;
+}
+.comGlobalHeader__cmuItem--avatar:hover:after {
+  background: #ebebeb;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
 .comGlobalHeader__cmuItem--avatar:after {
   content: ' ';
@@ -7747,6 +7875,14 @@ a.appIconInput__icon {
   height: 2rem;
   position: absolute;
   top: 11px;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
 
 .comGlobalHeader__cmuItemLink {

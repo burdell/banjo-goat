@@ -5,13 +5,14 @@
 // e.g. "showing 235 results/threads"
 // 
 
-.forumThreadcount {
+.forumThreadCount {
 	margin-bottom: $cmu-base;
 }
 
-	.forumThreadcountRow {
-		border-top: $cmu-style-border-thin;
-		padding-top: $cmu-base/2;
+	.forumThreadCount__message {
+		font-size: $cmu-size-smaller;
+		font-weight: 400;
+		line-height: $cmu-base*2;
 	}
 
 
@@ -25,19 +26,36 @@
 // Define column widths (replaces the old colgroup)
 // 
 %forumThreadList__column--topic {
-	width: 60%;
+	width: auto;
+	// @include respondTo(large-up) {
+	// 	width: 40%;
+	// }
+}
+
+%forumThreadList__column--authorLast {
+	width: 12%;
+	padding-right: $cmu-base/2;
+	  max-width: 100px;
 }
 %forumThreadList__column--author {
-	width: 15%;
-	padding-right: $cmu-base/2;
+	@extend %forumThreadList__column--authorLast;
+	@include respondTo(medium-down) {
+		display: none;
+	}
 }
 %forumThreadList__column--counter {
-	width: auto;
-	padding: 0 $cmu-base/2;
+	width: 6%;
+	text-align: left;
 }
-%forumThreadList__column--latest {
-	width: 16%;
-	padding-left: $cmu-base/2;
+%forumThreadList__column--latestDate {
+	width: 80px;
+	text-align: left;
+}
+%forumThreadList__column--createdDate {
+	@extend %forumThreadList__column--latestDate;
+	@include respondTo(medium-down) {
+		display: none;
+	}
 }
 
 // THREAD DESCRIPTORS
@@ -48,7 +66,7 @@
 		// @extend .type-titleThin;
 		font-weight: 400; 
 		@extend %size-xsmaller;
-		color: $cmu-color-ltblack;
+		color: $cmu-color-gray;
 		// text-transform: uppercase;
 		@extend %ease-fast;
 	}
@@ -61,59 +79,139 @@
 		@extend %forumThreadList__column--author;
 		text-align: left;
 	}
-	.forumThreadList__head--counter {
-		@extend %forumThreadList__column--counter;
-		text-align: center;
+	.forumThreadList__head--createdDate {
+		@extend %forumThreadList__column--createdDate;
 	}
-	.forumThreadList__head--latest {
-		@extend %forumThreadList__column--latest;
+	.forumThreadList__head--authorLast {
+		@extend %forumThreadList__column--authorLast;
 		text-align: left;
 	}
-
-
-// Date style
-.forumThreadList__date {
-	color: $cmu-color-dkgray;
-	font-size: $cmu-size-xsmaller;
-	display: block;
-}
+	.forumThreadList__head--counter {
+		@extend %forumThreadList__column--counter;
+	}
+	.forumThreadList__head--latestDate {
+		@extend %forumThreadList__column--latestDate;
+	}
 
 // 
 // EACH ROW
 // 
 .forumThreadList__message {
+	position: relative; //important for icon placement
 	@extend %size-community-base;
 	border-top: $cmu-style-border-thin-light;
 	border-bottom: $cmu-style-border-thin-light;
+	padding-top: $cmu-vertical-rhythm/2;
+	padding-bottom: $cmu-vertical-rhythm/2;
+	line-height: 2rem;
 
 	td {
-		padding-top: $cmu-base/2;
-		padding-bottom: $cmu-base/2;
+		//sometimesusernamesortextcanbejustonelonggarbledthinganddoesntwrapproperly
+		overflow: hidden; 
 	}
 }
 
+	.forumThreadList__message__topic {
+		// * { font-weight: 400; }
+		@extend %style-community-mainlink;
+		padding-left: $cmu-base/2;
+		padding-right: $cmu-base/2;
+		position: relative; //important for icon placement
+		line-height: $cmu-base*1.5;
+	}
+
 	.forumThreadList__message__author {
 		@extend %forumThreadList__column--author;
-	}
-	.forumThreadList__message__topic {
-		@extend %style-community-link;
+		line-height: $cmu-base;
 	}
 
-	.forumThreadList__message__by {
-		// font-size: $cmu-size-xsmaller;
-		// font-style: italic;
+	.forumThreadList__message__authorLast {
+		@extend %forumThreadList__column--authorLast;
+		line-height: $cmu-base;
 	}
-
 
 	.forumThreadList__message__counter {
-		text-align: center;
+		@extend %forumThreadList__column--counter;
+		padding-right: $cmu-base/2;
+		// font-weight: 300;
 	}
 
-	.forumThreadList__message__latest {
-		@extend %forumThreadList__column--latest;
-		span {
-			// white-space: nowrap; 
-			// display: block; // force wrap; mixed looks weird
-			// Prevents wrap: if "10 min ago" will probably remain on a single line, otherwise will go to next line
-		}
+	.forumThreadList__message__latestDate {
+		@extend %forumThreadList__column--latestDate;
+		padding-left: $cmu-base/2;
+		padding-right: $cmu-base/2;
+		line-height: 1rem;
+
+		color: $cmu-color-dkgray;
+		font-size: $cmu-size-xsmaller;
 	}
+	.forumThreadList__message__createdDate {
+		@extend .forumThreadList__message__latestDate;
+		@extend %forumThreadList__column--createdDate;
+	}
+
+
+// 
+// Pinned / Locked Styles
+// 
+
+.forumThreadList--pinList {
+	border-bottom: $cmu-style-border-medium;
+	border-color: $cmu-color-dkgray;
+}
+
+
+// 
+// THREAD STYLES
+// 
+
+// Pinned Thread
+.forumThreadList__message--pinned {
+	.forumThreadList__message__topic:after {
+		content: ' ';
+		display: inline-block;
+		position: relative;
+			top: 4px;
+		width: $cmu-base*1.2;
+		height: $cmu-base*1.2;
+
+		@extend .cmuIcons--pin;
+  		background-repeat: no-repeat;
+	}
+}
+
+// Active Thread
+.forumThreadList__message--active {
+	.forumThreadList__message__topic > a:before {
+		content: 'ACTIVE';
+		display: inline-block;
+		background-color: $cmu-color-red;
+		padding: $cmu-base/6 $cmu-base/2;
+		margin-right: $cmu-base/2;
+		color: $cmu-color-white;
+		font-size: $cmu-size-xxsmaller;
+		line-height: $cmu-base;
+	}
+}
+
+// Locked Thread
+.forumThreadList__message--locked {
+	.forumThreadList__message__topic > a:after {
+		font-family: 'ubnt';
+		content: '\e787';
+		display: inline-block;
+		padding: $cmu-base/6 $cmu-base/2;
+		// font-size: $cmu-size-xxsmaller;
+	}
+}
+
+// Read Thread
+.forumThreadList__message--read {
+	a, .forumThreadList__message__counter { font-weight: 300; }
+	background-color: $cmu-color-ltgray;
+	border-color: darken($cmu-color-ltgray,5);
+}
+
+
+
+

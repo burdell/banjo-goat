@@ -3,7 +3,7 @@ $cmu-searchbox-form-spacing: remCalc($cmu-base) !default;
 
 // We use these to style the labels in different ways
 $cmu-searchbox-font-family: inherit !default;
-$cmu-searchbox-font-size: remCalc(14) !default;
+$cmu-searchbox-font-size: $cmu-input-font-size;
 $cmu-searchbox-border-radius: 0 !default;
 $cmu-searchbox-box-shadow: none;
 

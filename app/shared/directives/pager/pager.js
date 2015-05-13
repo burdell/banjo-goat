@@ -37,10 +37,10 @@
 					return;
 				}
 
-				var scrubber = $element.find('.pagination_main_scrubber');
+				var scrubber = $element.find('.cmuPagination__main__scrubber');
 
 				var scrubberWidth = $(scrubber).outerWidth();
-				var numWidth = $element.find('.pagination_num').outerWidth();
+				var numWidth = $element.find('.cmuPagination__num').outerWidth();
 				var scrubberOffset = parseInt(scrubber.css('left'), 10);
 
 				var totalPages = scope.pager.info.numberOfPages;
@@ -90,7 +90,7 @@
 
 		  	/****** INTERNAL PROPERTIES ******/
 			function setActive(page) {
-				$element.find('.pagination_num')
+				$element.find('.cmuPagination__num')
 					.removeClass('active')
 					.filter(function(index, el){
 						return el.dataset.val === (page + '');
@@ -100,8 +100,8 @@
 
 			function scrollScrubber(targetPage, totalPages) {
 				// note that we move/animate the entire scrubber within its _main container
-			   	var scrubber = $element.find('.pagination_main_scrubber');
-			    var target = $element.find('.pagination_num[data-val='+targetPage+']');
+			   	var scrubber = $element.find('.cmuPagination__main__scrubber');
+			    var target = $element.find('.cmuPagination__num[data-val='+targetPage+']');
 			    var targetPosition = target.position();
 
 			    // check if target exists, escape if it doesn't
@@ -110,7 +110,7 @@
 			    }
 
 			    var targetFromLeft = target.position().left;
-			    var numWidth = $element.find('.pagination_num').outerWidth();
+			    var numWidth = $element.find('.cmuPagination__num').outerWidth();
 
 			    var scrubberLeft = scrubber.position().left;
 			    var scrubberWidth = scrubber.outerWidth();
@@ -136,11 +136,11 @@
 			}
 
 			function enableScrollControls(futureOffset, totalPages) {
-				var scrubber = $element.find('.pagination_main_scrubber');
+				var scrubber = $element.find('.cmuPagination__main__scrubber');
 
 				var scrubberWidth = scrubber.outerWidth();
 				var scrubberOffset = parseInt(scrubber.css('left'), 10) * -1;
-				var numWidth = $('.pagination_num').outerWidth();
+				var numWidth = $('.cmuPagination__num').outerWidth();
 				if (!isNaN(futureOffset)) { scrubberOffset = futureOffset; }
 
 

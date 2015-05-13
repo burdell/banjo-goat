@@ -6,12 +6,22 @@
 
 <div class="forumThreadControl">
 	<div class="row">
-		<!-- <div class="community__forum__messages__buttons"> -->
-			<button class="button-square button-white-blue">Follow Discussion</button>
-			<button class="button-full button-blue-white">Start a Discussion</button>
-		<!-- </div> -->
-	</div>
+        <div class="col--md6 noPaddingLeft">
+	        <button class="button--solid button-blue-white">Create a Topic</button>
+
+			<button class="button--ghost button-blue-white">Follow Topic</button>
+		</div>
+
+		<div class="col--md6 noPaddingRight">
+			<community-pager 
+			  total-results="vm.allMessageCount" 
+			  pager-fn="vm.messageThreadFilter">
+			</community-pager>
+		</div>
+    </div>
 </div>
+
+
 
 <div class="forumThreadMessageContainer" ng-repeat="message in vm.messageThread">
 	<div class="row">
@@ -26,8 +36,7 @@
 				<div class="forumThreadMain__posted">
 					<h6>Posted {{ message.postTime | timeFromNow }}</h6>
 				</div>
-				<div class="forumThreadMain__body">
-					<div class="community__forum__messages__body" ng-bind-html="message.body | sanitize"></div>
+				<div class="forumThreadMain__body" ng-bind-html="message.body | sanitize">
 				</div>
 				<div class="forumThreadMain__controls"> 
 					<div class="forumThreadMain__controls__main col--md8 noPadding">
@@ -64,7 +73,7 @@
 					</div>
 					<div>
 						<button 
-							class="button-square button-white-blue" 
+							class="button-ghost button-white-blue" 
 							ng-click="vm.cancelReply()">
 								Cancel
 						</button>

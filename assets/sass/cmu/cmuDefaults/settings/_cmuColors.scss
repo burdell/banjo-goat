@@ -13,6 +13,7 @@ $cmu-color-dkblue: 		#0074AD;
 
 $cmu-color-green: 		#48AF65;
 $cmu-color-orange: 		#FFAA00;
+$cmu-color-ltorange: 	lighten($cmu-color-orange,5);
 $cmu-color-dkorange:	#F09300;
 $cmu-color-red: 		#FF3516;
 
@@ -120,8 +121,8 @@ $cmu-input-icon-color: $cmu-color-mdgray;
 // 
 
 // base banner style
-$cmu-banner-background-color: $cmu-color-dkorange;
-$cmu-banner-hover-background-color: darken($cmu-banner-background-color,5);
+$cmu-banner-background-color: $cmu-color-ltorange;
+$cmu-banner-hover-background-color: $cmu-color-dkorange;
 
 $cmu-banner-text-color: $cmu-color-dkgray;
 $cmu-banner-hover-text-color: $cmu-color-black;

@@ -3,13 +3,22 @@
 // Slightly overridden from App
 // 
 
-
+// 
+// Standard CTA height is 2rem
+// 
 
 .appIconInput {
   // position: relative;
   // display: inline-block; // modified for Community
   display: block;
+
 }
+
+  .appIconInput__input {
+    padding-top: $cmu-base/2;
+    padding-bottom: $cmu-base/2;
+    height: $cmu-base-cta-height;
+  }
 
   /**
    * 1. Make sure icon is on top of input. Input gains z-index of 2 when focused
@@ -19,17 +28,13 @@
   .appIconInput__icon {
     position: absolute;
     z-index: 3; /* [1] */
-    padding-top: $cmu-base*1.1;
+    padding-top: $cmu-base*0.7;
     padding-left: $cmu-base/2;
     // top: $cmu-base*1.1;
     // left: $cmu-base/2;
 
     color: $cmu-input-icon-color;
     pointer-events: none; /* [2] */
-
-    .appForm--cozy & {
-      top: remCalc($cmu-base/2);
-    }
 
     margin-bottom: inherit;
     height: inherit;
@@ -45,11 +50,7 @@
     pointer-events: auto; /* [1] */
   }
 
-.appIconInput--full {
-  display: block;
-}
 
-.appForm--cozy .appIconInput--right,
 .appIconInput--right {
 
   .appIconInput__icon {
@@ -61,12 +62,6 @@
    */
   .appIconInput__input {
     padding-right: $app-icon-input-control-offset; /* [1] */
-  }
-
-  &.appIconInput--comfy {
-    .appIconInput__input {
-      padding-right: $app-icon-input-control-comfy-offset; /* [1] */
-    }
   }
 
   /**
@@ -82,7 +77,7 @@
   }
 }
 
-.appForm--cozy .appIconInput--left,
+
 .appIconInput--left {
 
   .appIconInput__icon {
@@ -94,17 +89,8 @@
    */
   .appIconInput__input {
     padding-left: $app-icon-input-control-offset; /* [1] */
-    
     margin-bottom: inherit;
-    height: inherit;
-    padding-top: $cmu-base;
-    padding-bottom: $cmu-base; // weigh text slightly towards bottom; TODO: find a better way /flexbox?
     font-size: $cmu-size-smaller;
   }
 
-  &.appIconInput--comfy {
-    .appIconInput__input {
-      padding-left: $app-icon-input-control-comfy-offset; /* [1] */
-    }
-  }
 }

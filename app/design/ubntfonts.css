@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'ubnt';
-	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/fonts/ubnt.eot?l3ageo');
-	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/fonts/ubnt.eot?#iefixl3ageo') format('embedded-opentype'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/fonts/ubnt.woff?l3ageo') format('woff'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/fonts/ubnt.ttf?l3ageo') format('truetype'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/0.0.5/fonts/ubnt.svg?l3ageo#ubnt') format('svg');
+	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.eot?l3ageo');
+	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.eot?#iefixl3ageo') format('embedded-opentype'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.woff?l3ageo') format('woff'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.ttf?l3ageo') format('truetype'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.svg?l3ageo#ubnt') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,68 +23,165 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.ubnt-icon--lock-alert:before {
-	content: "\e784";
+
+.ubnt-icon--mobile-phone:before {
+	content: "\e79e";
 }
 
-.ubnt-icon--lock-open:before {
-	content: "\e785";
+.ubnt-icon--signal-offline:before {
+	content: "\e79f";
 }
 
-.ubnt-icon--lock-positive:before {
-	content: "\e786";
+.ubnt-icon--sine-wave-alert:before {
+	content: "\e7a0";
 }
 
-.ubnt-icon--lock:before {
-	content: "\e787";
+.ubnt-icon--sine-wave-offline:before {
+	content: "\e7a1";
 }
 
-.ubnt-icon--alert-fill:before {
-	content: "\e788";
+.ubnt-icon--aircrm-operations-beta:before {
+	content: "\e79c";
 }
 
-.ubnt-icon--minus:before {
-	content: "\e789";
+.ubnt-icon--aircrm-operations:before {
+	content: "\e79d";
 }
 
-.ubnt-icon--airfiber-x-antenna:before {
-	content: "\e782";
+.ubnt-icon--edgepoint:before {
+	content: "\e79b";
 }
 
-.ubnt-icon--airfiber-5x:before {
-	content: "\e783";
-}
-
-.ubnt-icon--airfiber-x:before {
-	content: "\e781";
-}
-
-.ubnt-icon--airfiber-5t:before {
-	content: "\e780";
-}
-
-.ubnt-icon--unifi-video-camera-micro:before {
-	content: "\e755";
-}
-
-.ubnt-icon--apple-outline:before {
-	content: "\e77b";
-}
-
-.ubnt-icon--desktop-monitor:before {
-	content: "\e77c";
-}
-
-.ubnt-icon--share-android:before {
+.ubnt-icon--arrow-status-high:before {
 	content: "\e77d";
 }
 
-.ubnt-icon--rocket-ac:before {
+.ubnt-icon--arrow-status-normal:before {
 	content: "\e77e";
 }
 
-.ubnt-icon--airfiber-24hd:before {
+.ubnt-icon--arrow-status-low:before {
+	content: "\e799";
+}
+
+.ubnt-icon--arrow-status-critical:before {
+	content: "\e79a";
+}
+
+.ubnt-icon--edgebox:before {
+	content: "\e77c";
+}
+
+.ubnt-icon--x-circle:before {
+	content: "\e798";
+}
+
+.ubnt-icon--precision-alignment-kit:before {
 	content: "\e77f";
+}
+
+.ubnt-icon--rocketdish-lw:before {
+	content: "\e780";
+}
+
+.ubnt-icon--isobeam:before {
+	content: "\e781";
+}
+
+.ubnt-icon--edgerouter-x-sfp:before {
+	content: "\e782";
+}
+
+.ubnt-icon--edgerouter-x:before {
+	content: "\e783";
+}
+
+.ubnt-icon--alert-fill:before {
+	content: "\e784";
+}
+
+.ubnt-icon--minus:before {
+	content: "\e785";
+}
+
+.ubnt-icon--airfiber-x-antenna:before {
+	content: "\e786";
+}
+
+.ubnt-icon--airfiber-5x:before {
+	content: "\e787";
+}
+
+.ubnt-icon--check-circle2:before {
+	content: "\e788";
+}
+
+.ubnt-icon--airfiber-antenna:before {
+	content: "\e789";
+}
+
+.ubnt-icon--airfiber-x:before {
+	content: "\e78a";
+}
+
+.ubnt-icon--email2:before {
+	content: "\e78b";
+}
+
+.ubnt-icon--network-drive-small:before {
+	content: "\e78c";
+}
+
+.ubnt-icon--lock-open:before {
+	content: "\e78d";
+}
+
+.ubnt-icon--lock:before {
+	content: "\e78e";
+}
+
+.ubnt-icon--lock-positive:before {
+	content: "\e78f";
+}
+
+.ubnt-icon--lock-alert:before {
+	content: "\e790";
+}
+
+.ubnt-icon--cloud2:before {
+	content: "\e791";
+}
+
+.ubnt-icon--airfiber-5t:before {
+	content: "\e792";
+}
+
+.ubnt-icon--unifi-video-camera-micro:before {
+	content: "\e793";
+}
+
+.ubnt-icon--eye22:before {
+	content: "\e794";
+}
+
+.ubnt-icon--apple-outline2:before {
+	content: "\e795";
+}
+
+.ubnt-icon--desktop-monitor2:before {
+	content: "\e796";
+}
+
+.ubnt-icon--share-android2:before {
+	content: "\e797";
+}
+
+.ubnt-icon--airfiber-24hd:before {
+	content: "\e755";
+}
+
+.ubnt-icon--rocket-ac:before {
+	content: "\e77b";
 }
 
 .ubnt-icon--arrows-updown-leftright:before {
@@ -1598,4 +1695,5 @@
 .ubnt-icon--acc-logo:before {
 	content: "\e714";
 }
+
 

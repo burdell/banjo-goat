@@ -6,6 +6,14 @@
 
 // are styles different for only the discussions?
 // header uses h2
-.cmuDiscussionsHeader h2 {
+.cmuDiscussionsHeaderRow {
 	border-bottom: $cmu-style-border-medium;
 }
+.cmuDiscussionsHeader h2 {
+	display: inline-block;
+}
+.cmuDiscussionsHeader h4 {
+	display: inline-block;
+	padding-left: $cmu-base/2;
+}
+

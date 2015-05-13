@@ -1,4 +1,11 @@
 
+// this helps vertically align scrubber
+$paginationHeight: 32px;
+$paginationPadding: $cmu-base/4;
+
+// 
+// General Pagination (flex)
+// 
 .cmuPagination {
 
 	// vertical flexbox to account for multiple pagination methods
@@ -9,197 +16,191 @@
     align-content: flex-start;
     // align-items: center;
 	
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-vertical-rhythm;
 
 	* {
 		display: inline-block;
   		@extend %noselect;
 	}
-
-
+}
 
 	// 
 	// SCRUBBER
 	// settings for the scrubber controls
 	// 
 
-	// this helps vertically align everything
-	$paginationHeight: 32px;
-	$paginationPadding: $cmu-base/4;
 
-	.pagination_scrubber {
+	.cmuPagination__scrubber {
 	    display:flex;
 	    flex-direction: row;
 	    flex-wrap: nowrap;
-	    // justify-content: space-between;
+	    justify-content: flex-end;
 	    align-content: flex-start;
 	    align-items: flex-start;
 	  	min-width: 19rem; //so things don't look too weird scrunched up
 	}
-	// pagination controls
 
-	.pagination_control {
 
-		// places text in center
-	    display:flex;
+
+// 
+// Text Controls (prev, next, last, etc.)
+// 
+.cmuPagination__txtControl {
+
+	// places text in center
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: $paginationHeight;
+    // width: $cmu-base*3;
+		@extend %ease-fast;
+
+    .pagination_control_right {
+    	text-align: right;
+    }
+
+	// font-weight: 300;
+	font-size: $cmu-size-smaller;
+
+	cursor: pointer;
+
+	&:hover:not(.disabled) {
+		text-decoration: underline;
+		color: $cmu-color-blue;
+			@extend %ease-fast;
+	}
+
+	&.disabled {
+		color: $cmu-color-gray;
+		cursor: default;
+	}
+}
+
+	.cmuPagination__txtControl--prev { 
+		margin-right: $cmu-base/2; 
+	}
+
+	.cmuPagination__txtControl--next { 
+		margin-left: $cmu-base/2; 
+	}
+
+
+
+
+
+// 
+// Arrow Controls
+// 
+
+.cmuPagination__arrow {
+	height: $paginationHeight;
+	line-height: $cmu-base*1.5;
+	// text-transform: uppercase;
+	// font-weight: 300;
+	cursor: pointer;
+	// font-size: 1.2rem;
+	// background-color: $cmu-color-xltgray;
+	// @extend %radius;
+	padding: $paginationPadding;
+	// border: 1px solid $cmu-color-gray;
+	@extend %ease-fast;
+
+	&:hover:not(.disabled) {
+		// background-color: $cmu-color-xmdgray;
+		cursor: pointer;
+		@extend %ease-fast;
+		color: $cmu-color-blue;
+	}
+
+	&.disabled {
+		// background-color: white;
+		color: $cmu-color-ltgray;
+		cursor: default;
+	}
+}
+
+.cmuPagination__arrow--left {
+	// border-top-right-radius: 0;
+	// border-bottom-right-radius: 0;
+	// border-right: 0;
+}
+.cmuPagination__arrow--right {
+	// border-top-left-radius: 0;
+	// border-bottom-left-radius: 0;
+	// border-left: 0;
+}
+
+
+
+
+// 
+// Main number area
+// 
+
+
+.cmuPagination__main {
+	// flexy main area from outer container
+    flex-shrink: 0;
+    // flex-basis: $cmu-base*5; // moved to full-scroll
+
+    display:flex; // center and fill scrubber
+    flex-direction: row;
+    flex-wrap: nowrap;
+	align-items: center;
+
+	// padding: $cmu-base/2 $cmu-base;
+	// max-width: 100%;
+
+	// change to overflow: scroll to see the numbers scroll sideways
+	overflow: hidden;
+	height: $paginationHeight;
+  	vertical-align: bottom;
+
+  	position: relative; // this allows page numbers to move relatively
+
+	// border: 1px solid $cmu-color-gray;
+	// border-right: 0; 
+	// border-left: 0;
+
+	@extend %ease-slow;
+
+	// this class is added for flex-basis, since chrome doesn't recalculate properly
+	&.cmuPagination__fullScroll {
+		flex-basis: $cmu-base*5; 
+		flex-grow: 1;
+	}
+
+}
+	.cmuPagination__main__scrubber {
+
+		@extend %ease-slow;
+	    // main area is a flexy container for numbers
+	    display:flex; // this is enough to make content not wrap
 	    flex-direction: row;
 	    flex-wrap: nowrap;
 	    align-items: center;
-	    height: $paginationHeight;
-	    width: $cmu-base*3;
-  		@extend %ease-fast;
 
-	    .pagination_control_right {
-	    	text-align: right;
-	    }
-
-		// font-weight: 300;
-		font-size: $cmu-size-smaller;
-
-		cursor: pointer;
-
-		&:hover:not(.disabled) {
-			text-decoration: underline;
-			color: $cmu-color-blue;
-  			@extend %ease-fast;
-		}
-
-		&.disabled {
-			color: $cmu-color-gray;
-			cursor: default;
-		}
+  		position: relative; // this allows page numbers to move relatively
+  		left: 0; // important for scroller to work
 	}
 
-	.pagination_control_next { margin-left: $cmu-base; }
-
-	.pagination_arrow {
-		height: $paginationHeight;
-		text-transform: uppercase;
-		font-weight: 300;
-		cursor: pointer;
-		// font-size: 1.2rem;
-		background-color: $cmu-color-xltgray;
-		@extend %radius;
-		padding: $paginationPadding;
-		border: 1px solid $cmu-color-gray;
-
-		&.pagination_arrow_left {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			border-right: 0;
-		}
-		&.pagination_arrow_right {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			border-left: 0;
-		}
-
-		&:hover:not(.disabled) {
-			background-color: $cmu-color-xmdgray;
-			cursor: pointer;
-		}
-
-		&.disabled {
-			background-color: white;
-			color: $cmu-color-ltgray;
-			cursor: default;
-		}
-
-	}
-
-	.pagination_main {
-		// flexy main area from outer container
-	    flex-shrink: 0;
-	    // flex-basis: $cmu-base*5; // moved to full-scroll
-
-	    display:flex; // center and fill scrubber
-	    flex-direction: row;
-	    flex-wrap: nowrap;
-		align-items: center;
-
-		// padding: $cmu-base/2 $cmu-base;
-		// max-width: 100%;
-
-		// change to overflow: scroll to see the numbers scroll sideways
-		overflow: hidden;
-		height: $paginationHeight;
-	  	vertical-align: bottom;
-
-	  	position: relative; // this allows page numbers to move relatively
-
-		border: 1px solid $cmu-color-gray;
-		// border-right: 0; 
-		border-left: 0;
-
-  		@extend %ease-slow;
-
-  		// this class is added for flex-basis, since chrome doesn't recalculate properly
-  		&.full-scroll {
-  			flex-basis: $cmu-base*5; 
-  			flex-grow: 1;
-  		}
-
-		.pagination_main_scrubber {
-
-  			@extend %ease-slow;
-		    // main area is a flexy container for numbers
-		    display:flex; // this is enough to make content not wrap
-		    flex-direction: row;
-		    flex-wrap: nowrap;
-		    align-items: center;
-
-	  		position: relative; // this allows page numbers to move relatively
-	  		left: 0; // important for scroller to work
-		}
-
-		.pagination_num {
-			// padding: $cmu-base/2 $cmu-base/4;
-			padding: $cmu-base/2 0;
-			text-align: center;
-			min-width: $cmu-base*2.5;
-			cursor: pointer;
-			// height: $paginationHeight;
-			font-size: $cmu-size-smaller;
-
-  			@extend %ease-fast;
-
-			// if fewer pages than the full width,
-			// uncomment these to make the page numbers stretch across the width
-		    flex-grow: 1;
-		    flex-shrink: 0;
-		    flex-basis: $cmu-base*2.5;
-
-			&.active {
-				background: $cmu-color-blue !important;
-				color: white !important; 
-				cursor: default !important;
-			}
-
-			&:first-of-type {
-				// color: red;
-				// padding-left: $cmu-base;
-			}
-
-			&:hover:not(.active) {
-				background-color: $cmu-color-xmdgray;
-			}
-		}
-
-	}
-
-	.pagination_first {
+	.cmuPagination__num {
 		// padding: $cmu-base/2 $cmu-base/4;
-		background-color: $cmu-color-ltgray;
-		padding: $paginationPadding 0;
+		padding: $cmu-base/2 0;
 		text-align: center;
 		min-width: $cmu-base*2.5;
 		cursor: pointer;
-		height: $paginationHeight;
-		border: 1px solid $cmu-color-gray;
+		// height: $paginationHeight;
 		font-size: $cmu-size-smaller;
-		// border-right: 0;
 
-		@extend %ease-fast;
+			@extend %ease-fast;
+
+		// if fewer pages than the full width,
+		// uncomment these to make the page numbers stretch across the width
+	    flex-grow: 1;
+	    flex-shrink: 0;
+	    flex-basis: $cmu-base*2.5;
 
 		&.active {
 			background: $cmu-color-blue !important;
@@ -207,80 +208,121 @@
 			cursor: default !important;
 		}
 
+		&:first-of-type {
+			// color: red;
+			// padding-left: $cmu-base;
+		}
+
 		&:hover:not(.active) {
 			background-color: $cmu-color-xmdgray;
 		}
 	}
 
-	.pagination_last {
+.cmuPagination__first {
+	// padding: $cmu-base/2 $cmu-base/4;
+	// background-color: $cmu-color-ltgray;
+	flex-grow: initial;
+	padding: $paginationPadding 0;
+	text-align: center;
+	min-width: $cmu-base*2.5;
+	cursor: pointer;
+	height: $paginationHeight;
+	// border: 1px solid $cmu-color-gray;
+	font-size: $cmu-size-smaller;
+	// border-right: 0;
+
+	@extend %ease-fast;
+
+	&.active {
+		background: $cmu-color-blue !important;
+		color: white !important; 
+		cursor: default !important;
+	}
+
+	&:not(.active) {
+		&:after {
+			content: ' ... ';
+			padding-left: $cmu-base/6;
+		}
+	}
+
+	&:hover:not(.active) {
+		background-color: $cmu-color-xmdgray;
+	}
+}
+
+.cmuPagination__last {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+
+	// border: 1px solid $cmu-color-gray;
+	border-left: 0; 
+	// background-color: $cmu-color-ltgray;
+	cursor: default;
+	height: $paginationHeight;
+	font-size: $cmu-size-smaller;
+
+	// disabled pagination
+	&:not(.enabled) {
+		color: $cmu-color-mdgray;
+	}
+
+	&.enabled:hover {
+		background-color: $cmu-color-xmdgray;
+		cursor: pointer;
+	}
+}
+
+	.cmuPagination__last__of {
   		display: flex;
 	    flex-direction: row;
 	    align-items: center;
+	    height: 100%;
 
-		border: 1px solid $cmu-color-gray;
-		border-left: 0; 
-		background-color: $cmu-color-ltgray;
-		cursor: default;
-		height: $paginationHeight;
-		font-size: $cmu-size-smaller;
-
-		.pagination_last_of {
-	  		display: flex;
-		    flex-direction: row;
-		    align-items: center;
-		    height: 100%;
-
-			padding-left: $cmu-base/2;
-			padding-right: $cmu-base/4;
-			font-weight: 300;
-		}
-
-		.pagination_last_num {
-	  		display: flex;
-		    flex-direction: row;
-		    align-items: center;
-		    height: 100%;
-
-			padding: 0 $cmu-base/2;
-			padding-left: $cmu-base/4;
-		}
-
-		// disabled pagination
-		&:not(.enabled) {
-			color: $cmu-color-mdgray;
-		}
-
-		&.enabled:hover {
-			background-color: $cmu-color-xmdgray;
-			cursor: pointer;
-		}
+		padding-left: $cmu-base/4;
+		padding-right: $cmu-base/4;
+		font-weight: 300;
 	}
 
-	// for 7 or fewer pages - simplify pagination
-	// call "is-pagination-simple" 
-	.simple-scroll {
+	.cmuPagination__last__num {
+  		display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    height: 100%;
 
-		// remove a lot of pagination
-		&.pagination_arrow, &.pagination_last {
-			display: none !important;
-		}
+		padding: 0 $cmu-base/2;
+		padding-left: $cmu-base/4;
+	}
+// 
+// Simple Scroll
+// for 7 or fewer pages - simplify pagination
+// call "is-pagination-simple" 
+// 
+.cmuPagination__isSimple {
 
-		// make first page not look 'persistent'
-		&.pagination_first {
-			color: inherit; 
-			background-color: white;
-		}
-
-		// align the scrubber to the right, since only a few pages
-		&.pagination_scrubber {
-	  		display: flex;
-		    flex-direction: row;
-			justify-content: flex-end;
-		}
-
-		&.pagination_main {
-			flex-grow: 0;
-		}
+	// remove a lot of pagination
+	&.cmuPagination__arrow, &.cmuPagination__last {
+		display: none !important;
 	}
 
+	// make first page not look 'persistent'
+	&.cmuPagination__first {
+		color: inherit; 
+		background-color: white;
+	}
+
+	// align the scrubber to the right, since only a few pages
+	&.cmuPagination__scrubber {
+  		display: flex;
+	    flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	&.cmuPagination__main {
+		flex-grow: 0;
+	}
 }
+
+
+
