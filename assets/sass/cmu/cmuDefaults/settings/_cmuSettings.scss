@@ -8,8 +8,8 @@ $base-font-size:            $cmu-base !default;
 $cmu-base-font-size:        $base-font-size !default;
 $cmu-base-line-height:      $cmu-base*1.5 !default;
 $cmu-vertical-rhythm: 		$cmu-base !default;
-$cmu-base-cta-height:		$cmu-base*2; // force the standard height for all cta elements
-$cmu-base-cta-height-large: $cmu-base*3;
+$cmu-cta-height:		$cmu-base*2; // force the standard height for all cta elements
+$cmu-cta-height-large: $cmu-base*3;
 
 /**
  * These are private variables that should not be reassigned, overridden, or

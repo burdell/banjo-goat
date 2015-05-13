@@ -7,7 +7,7 @@ body {
 
 
 // 
-// TYPOGRAPHY
+// TYPOGRAPHY`
 // 
 
 // specialized for numbers
@@ -28,6 +28,9 @@ body {
 // SIZES
 // typography sizes
 // 
+
+$cmu-size-normal: remCalc($cmu-base);
+$cmu-size-normal-line-height: $cmu-base*1.3;
 
 $cmu-size-smaller: remCalc(13px);
 $cmu-size-smaller-line-height: $cmu-base*1.3;
@@ -143,12 +146,12 @@ h6 {
 	// CTA Styles
 	// 
 
-	// Default, uppercase
-	%style-cta {
-		text-transform: uppercase;
-		@extend %size-xsmaller;
-		letter-spacing: 1px;
-	}
+	// // Default, uppercase
+	// %style-cta {
+	// 	text-transform: uppercase;
+	// 	@extend %size-xsmaller;
+	// 	letter-spacing: 1px;
+	// }
 
 $cmu-input-font-size: $cmu-size-smaller;
 

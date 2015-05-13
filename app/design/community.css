@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6593,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6690,7 +6690,7 @@ body {
   line-height: 1.3rem;
 }
 
-button, .button, .forumThreadList thead th {
+.forumThreadList thead th {
   font-size: 0.6875rem;
   line-height: 1.5rem;
 }
@@ -6746,11 +6746,6 @@ h6 {
 }
 .type-link:hover, .cmuDiscussionsNavbar a:hover {
   color: #00a0df;
-}
-
-button, .button {
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 html {
@@ -6910,7 +6905,7 @@ pre {
   position: relative;
 }
 .cmuPagination__main.cmuPagination__fullScroll {
-  flex-basis: 5rem;
+  flex-basis: 2rem;
   flex-grow: 1;
 }
 
@@ -7276,21 +7271,18 @@ select:disabled {
 		- solid buttons match border w/ bg color
 */
 button, .button {
-  line-height: normal;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  line-height: 1.5rem;
+  letter-spacing: 0.0625rem;
   border-width: 0.125rem;
   border-style: solid;
-}
-button .icon, .button .icon {
-  margin-right: 0.5rem;
+  border-color: #00a0df;
 }
 
-button, .button, .button--ghost, .button-blue-white, .button-black-white {
+.button--ghost {
   padding: 0.375rem 0.875rem;
-  font-size: 0.8rem;
-}
-button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .button-black-white:hover {
-  border-color: #ebebeb;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: transparent !important;
 }
 
 .button--solid {
@@ -7303,7 +7295,7 @@ button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .bu
 
 .button-compound {
   border: 0.125rem solid #00a0df;
-  font-size: 0.8rem;
+  font-size: 0.6875rem;
   padding: 0;
 }
 .button-compound span {
@@ -7329,10 +7321,6 @@ button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .bu
 .button-compound:hover span:nth-child(2) {
   border-color-left: #fafafa;
   color: #fafafa;
-}
-
-button, .button {
-  height: 2rem;
 }
 
 .button--solid {
@@ -7380,6 +7368,10 @@ button, .button {
 
 .button--wide {
   width: 100%;
+}
+
+button .icon, .button .icon {
+  margin-right: 0.5rem;
 }
 
 .cmuDiscussionsHeaderRow {
@@ -7459,7 +7451,7 @@ button, .button {
 
 .forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
   padding-left: 0.5rem;
-  width: 80px;
+  width: 85px;
   text-align: left;
 }
 
@@ -7479,6 +7471,7 @@ button, .button {
 
 .forumThreadList__head--topic {
   text-align: left;
+  padding-left: 0.5rem;
 }
 
 .forumThreadList__head--author {
