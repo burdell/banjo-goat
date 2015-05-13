@@ -28,7 +28,7 @@
 
       <div class="forumThreadControl__row">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--solid button-blue-white">Create a Topic</button>
+          <button class="button--solid button-blue-white" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
 
         <div class="col--md2">
@@ -227,7 +227,7 @@
                 local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
                 empty-text="This post contains embedded media only."
                 href="{{ vm.getMessageUrl(message.id) }}">
-                  {{ ::message.subject }}
+                  {{ ::message.subject | htmlUnescape }}
               </a>
             </td>
             <td class="forumThreadList__message__author">
@@ -259,7 +259,7 @@
   <div class="forumPagination">
     <div class="row">
         <div class="col--md6 noPaddingLeft">
-          <button class="button--solid button-blue-white">Create a Topic</button>
+          <button class="button--solid button-blue-white" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
         <div class="col--md6 noPaddingLeft">
           <community-pager 
@@ -281,7 +281,7 @@
         </div>
 
         <div class="col--md2 noPaddingRight">
-           <a href="#pageTop" class="button button--wide button--solid button-black-white"><span class="icon ubnt-icon--pointer-up"></span>Back to top</a>
+          <page-scroll></page-scroll>
         </div>
 
       </div>
