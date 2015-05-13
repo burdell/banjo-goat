@@ -231,7 +231,8 @@
               </a>
             </td>
             <td class="forumThreadList__message__author">
-              <a ui-sref="user">{{ ::message.author.login }}</a>
+              <!-- <a ui-sref="user">{{ ::message.author.login }}</a> -->
+              <community-username user="message.author"></community-username>
             </td>
             <td class="forumThreadList__message__createdDate">{{ ::message.postTime | timeFromNow }}
             </td>
@@ -245,7 +246,7 @@
               {{  message.stats | extractKey : 'score'  | number}}
             </td>
             <td class="forumThreadList__message__authorLast">
-              <a>{{ ::message.latestComment.author.login }}</a>
+              <community-username user="message.latestComment.author"></community-username>
               <!-- <span class="forumThreadList__date">04-24-2015, 03:42 PM</span> -->
             </td>
             <td class="forumThreadList__message__latestDate">{{ message.latestComment.postTime | timeFromNow }}
