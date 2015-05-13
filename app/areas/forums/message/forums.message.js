@@ -9,7 +9,7 @@
 			ctrl.originalMessage = dataResult.originalMessage;
 			
 			var messageThread = dataResult.comments;
-			if (messageThreadFilter.model('offset') === 0) {
+			if (!messageThreadFilter.model('offset')) {
 				messageThread.unshift(ctrl.originalMessage);
 			}
 			ctrl.messageThread = messageThread;

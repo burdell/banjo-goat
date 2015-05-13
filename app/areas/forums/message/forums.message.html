@@ -10,7 +10,7 @@
 
 <div class="forumThreadSubject">
 	<div class="row">
-		<h4>{{ ::vm.originalMessage.subject }}</h4>
+		<h4>{{ ::vm.originalMessage.subject | htmlUnescape }}</h4>
 	</div>
 </div>
 

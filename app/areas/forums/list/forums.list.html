@@ -54,8 +54,9 @@
                 data-id-field="{{ ::message.id }}" 
                 ajax-populate="vm.getMessageData" 
                 tooltip-template="forums/list/forums.list.messagetooltip.html"
-                local-data="{ messageUrl: vm.getMessageUrl(message.id) }">
-                  <a ui-sref="forums.message({messageId: message.id})">{{ ::message.subject }}</a>
+                local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
+                empty-text="This post contains embedded media only.">
+                  <a href="{{ vm.getMessageUrl(message.id) }}">{{ ::message.subject | htmlUnescape }}</a>
               </div>
               <div class="forumThreadList__message__by">
                 <span>by <a ui-sref="user">{{ ::message.author.login }}</a></span> 

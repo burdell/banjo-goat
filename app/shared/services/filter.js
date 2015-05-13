@@ -11,7 +11,7 @@
 				onFilterFns: [],
 				setInitialData: true,
 				initialData: null,
-				filterContext: null
+				filterContext: null,
 			};
 
 			var setFilterModel = function(filterData, exclude) {
@@ -96,7 +96,7 @@
 
 		return {
 			getNewFilter: function(options){
-				if (options.autoInitModel) {
+				if (options.autoInitModel !== false) {
 					options.filterModel = $location.search();
 				}
 
