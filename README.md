@@ -1,4 +1,4 @@
 # community-ui
 UI for Community
 
-Automatic builds setup with jenkins.
+Automatic builds currentyl working with jenkins.
