@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^([\w]+)/js/(.+)$     $1/js/$2
+    RewriteRule ^([\w]+)/css/(.+)$    $1/css/$2
+    RewriteRule ^([\w]+)/.*/list/?$   $1/index.html
+</IfModule>
