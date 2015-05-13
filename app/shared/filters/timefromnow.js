@@ -7,7 +7,7 @@
 			var postDate = moment(unixTimestamp);
 						
 			if (rightNow.subtract(3, 'days').isAfter(postDate)) {
-				return postDate.format('MM-DD-YYYY');
+				return postDate.format('YYYY-MM-DD');
 			}
 
 			return postDate.fromNow() + ", " + postDate.format('hh:mm a');

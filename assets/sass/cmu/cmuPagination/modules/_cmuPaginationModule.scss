@@ -189,7 +189,7 @@ $paginationPadding: $cmu-base/4;
 		// padding: $cmu-base/2 $cmu-base/4;
 		padding: $cmu-base/2 0;
 		text-align: center;
-		min-width: $cmu-base*2.5;
+		min-width: $cmu-base*2;
 		cursor: pointer;
 		// height: $paginationHeight;
 		font-size: $cmu-size-smaller;
@@ -200,7 +200,7 @@ $paginationPadding: $cmu-base/4;
 		// uncomment these to make the page numbers stretch across the width
 	    flex-grow: 1;
 	    flex-shrink: 0;
-	    flex-basis: $cmu-base*2.5;
+	    flex-basis: $cmu-base*2;
 
 		&.active {
 			background: $cmu-color-blue !important;
@@ -224,7 +224,7 @@ $paginationPadding: $cmu-base/4;
 	flex-grow: initial;
 	padding: $paginationPadding 0;
 	text-align: center;
-	min-width: $cmu-base*2.5;
+	min-width: $cmu-base*2;
 	cursor: pointer;
 	height: $paginationHeight;
 	// border: 1px solid $cmu-color-gray;
@@ -242,7 +242,7 @@ $paginationPadding: $cmu-base/4;
 	&:not(.active) {
 		&:after {
 			content: ' ... ';
-			padding-left: $cmu-base/6;
+			padding-left: $cmu-base/3;
 		}
 	}
 

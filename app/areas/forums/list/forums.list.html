@@ -77,7 +77,7 @@
           <th class="forumThreadList__head--topic">Topic</th>
           <th class="forumThreadList__head--author">Author</th>
           <th class="forumThreadList__head--createdDate">Created</th>
-          <th class="forumThreadList__head--counter">Views</th>
+          <th class="forumThreadList__head--counter forumThreadList__head--counter--views">Views</th>
           <th class="forumThreadList__head--counter">Replies</th>
           <th class="forumThreadList__head--counter">Kudos</th>
           <th class="forumThreadList__head--authorLast">Latest Reply</th>
@@ -226,7 +226,7 @@
                 tooltip-template="forums/list/forums.list.messagetooltip.html"
                 local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
                 ui-sref="forums.message({messageId: message.id})">
-                  {{ ::message.subject }}
+                  {{ ::message.subject | htmlUnescape }}
               </a>
             </td>
             <td class="forumThreadList__message__author">
@@ -234,7 +234,7 @@
             </td>
             <td class="forumThreadList__message__createdDate">{{ ::message.postTime | timeFromNow }}
             </td>
-            <td class="forumThreadList__message__counter" title="views">
+            <td class="forumThreadList__message__counter forumThreadList__message__counter--views" title="views">
               {{  message.stats | extractKey : 'views' | number}}
             </td>
             <td class="forumThreadList__message__counter" title="comments">

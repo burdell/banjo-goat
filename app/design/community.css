@@ -6926,12 +6926,12 @@ pre {
 .cmuPagination__num {
   padding: 0.5rem 0;
   text-align: center;
-  min-width: 2.5rem;
+  min-width: 2rem;
   cursor: pointer;
   font-size: 0.8125rem;
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 2.5rem;
+  flex-basis: 2rem;
 }
 .cmuPagination__num.active {
   background: #00a0df !important;
@@ -6946,7 +6946,7 @@ pre {
   flex-grow: initial;
   padding: 0.25rem 0;
   text-align: center;
-  min-width: 2.5rem;
+  min-width: 2rem;
   cursor: pointer;
   height: 32px;
   font-size: 0.8125rem;
@@ -6958,7 +6958,7 @@ pre {
 }
 .cmuPagination__first:not(.active):after {
   content: ' ... ';
-  padding-left: 0.16667rem;
+  padding-left: 0.33333rem;
 }
 .cmuPagination__first:hover:not(.active) {
   background-color: #dadada;
@@ -7452,12 +7452,13 @@ button, .button {
   }
 }
 
-.forumThreadList__head--counter, .forumThreadList__message__counter {
-  width: 6%;
+.forumThreadList__head--counter, .forumThreadList__head--counter--views, .forumThreadList__message__counter {
+  width: 5%;
   text-align: left;
 }
 
 .forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
+  padding-left: 0.5rem;
   width: 80px;
   text-align: left;
 }
@@ -7486,6 +7487,10 @@ button, .button {
 
 .forumThreadList__head--authorLast {
   text-align: left;
+}
+
+.forumThreadList__head--counter--views {
+  width: 6%;
 }
 
 .forumThreadList__message {
@@ -7517,10 +7522,14 @@ button, .button {
 
 .forumThreadList__message__counter {
   padding-right: 0.5rem;
+  font-size: 0.6875rem;
+}
+
+.forumThreadList__message__counter--views {
+  width: 6%;
 }
 
 .forumThreadList__message__latestDate, .forumThreadList__message__createdDate {
-  padding-left: 0.5rem;
   padding-right: 0.5rem;
   line-height: 1rem;
   color: #474b52;
