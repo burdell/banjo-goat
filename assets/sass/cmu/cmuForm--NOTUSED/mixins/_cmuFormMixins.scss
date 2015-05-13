@@ -1,0 +1,12 @@
+@mixin cmuFormDefaults() {
+  background-color: $cmu-input-background-color;
+  font-family: $cmu-input-font-family;
+  margin-bottom: $cmu-base-spacing-unit;
+  height: double($cmu-base-spacing-unit);
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+  }
+}

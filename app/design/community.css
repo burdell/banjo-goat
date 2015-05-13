@@ -1,0 +1,8797 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    COMMUNITY STYLES
+\*------------------------------------*/
+/**
+ * Functions borrowed from Foundation.
+ */
+.alignLeft {
+  text-align: left !important;
+}
+
+.alignCenter {
+  text-align: center !important;
+}
+
+.alignRight {
+  text-align: right !important;
+}
+
+.noMarginTop {
+  margin-top: 0 !important;
+}
+
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+
+.noVerticalMargin {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.noMarginLeft {
+  margin-left: 0 !important;
+}
+
+.noMarginRight {
+  margin-right: 0 !important;
+}
+
+.noHorizontalMargin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.noMargin {
+  margin: 0 !important;
+}
+
+.noPaddingTop {
+  padding-top: 0 !important;
+}
+
+.noPaddingBottom {
+  padding-bottom: 0 !important;
+}
+
+.noVerticalPadding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.noPaddingLeft {
+  padding-left: 0 !important;
+}
+
+.noPaddingRight {
+  padding-right: 0 !important;
+}
+
+.noHorizontalPadding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.noPadding {
+  padding: 0 !important;
+}
+
+.fullHeight {
+  height: 100% !important;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+/**
+ * 1. Support IE10.
+ */
+/**
+ * 1. Support IE10.
+ */
+/**
+ * 1. Support IE10.
+ */
+/**
+ * 1. Support IE10.
+ */
+/**
+ * A container for one or more fixed-width items, and one fluid-width item.
+ * The fluid-width item will expand so that the items fill the container.
+ */
+/**
+ * A container that vertically and horizontally centers its child.
+ */
+/**
+ * Import styles in your project like this in your main.scss file:
+ *
+ * ```
+ * // First import layout and tools, for use when building project styles.
+ * @import "path/to/bower_components/css-base/src/baseLayout/index";
+ * @import "path/to/bower_components/css-base/src/baseTools/index";
+ *
+ * // Import your theme-specific defaults.
+ * @import "src/theme-styles/defaultsFile"
+ *
+ * // Import the rest of base by importing this file.
+ * @import "path/to/bower_components/css-base/src/base";
+
+ * // Lastly, import your theme's styles.
+ * @import "src/theme-styles/mainFile"
+ * ```
+ */
+/**
+ * Respond to media queries.
+ * e.g:
+ *
+    .full-width-on-mobile-and-bigscreentv {
+        width: 50%;
+        @include respondTo(small-only xxlarge-only) {
+            width: 100%;
+        }
+    }
+ *
+ */
+/**
+ * Hide everything except for
+ * .visible--xs, .visible--xsUp, .visible--smDown, .visible--mdDown, .visible--lgDown,
+ * .visible--xlgDown
+ */
+@media only screen and (max-width: 480px) {
+  .visible--sm,
+  .visible--smUp,
+  .visible--md,
+  .visible--mdUp,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--sm, .visible--smUp, .visible--smDown, .visible--mdDown,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+  .visible--xs,
+  .visible--md,
+  .visible--mdUp,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--md, .visible--mdUp, .visible--mdDown,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@media only screen and (min-width: 801px) and (max-width: 1040px) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lg, .visible--lgUp,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@media only screen and (min-width: 1041px) and (max-width: 1440px) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lgUp, .visible--xlg,
+ * .visible--xlgUp, .visible--xlgDown
+ */
+@media only screen and (min-width: 1441px) and (max-width: 1920px) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--lg,
+  .visible--lgDown,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lgUp, .visible--xlgUp,
+ * .visible--xxlg, .visible-xxlgUp
+ */
+@media only screen and (min-width: 1921px) and (max-width: 2400px) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--lg,
+  .visible--lgDown,
+  .visible--xlg,
+  .visible--xlgDown {
+    display: none !important;
+  }
+}
+/**
+ * Accessible hiding. From Snook Research and the HTML5 boilerplate.
+ * http://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/
+ */
+.offstage {
+  position: absolute !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*------------------------------------*\
+    #ANIMATE ATTENTION SEEKERS
+    bounce, flash, pulse, shake
+    swing, tada, wobble
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+
+@-webkit-keyframes tada {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes tada {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    -ms-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    -ms-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    -ms-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    -ms-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  15% {
+    -webkit-transform: translateX(-25%) rotate(-5deg);
+    transform: translateX(-25%) rotate(-5deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(20%) rotate(3deg);
+    transform: translateX(20%) rotate(3deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15%) rotate(-3deg);
+    transform: translateX(-15%) rotate(-3deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(10%) rotate(2deg);
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-5%) rotate(-1deg);
+    transform: translateX(-5%) rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  15% {
+    -webkit-transform: translateX(-25%) rotate(-5deg);
+    -ms-transform: translateX(-25%) rotate(-5deg);
+    transform: translateX(-25%) rotate(-5deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(20%) rotate(3deg);
+    -ms-transform: translateX(20%) rotate(3deg);
+    transform: translateX(20%) rotate(3deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15%) rotate(-3deg);
+    -ms-transform: translateX(-15%) rotate(-3deg);
+    transform: translateX(-15%) rotate(-3deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(10%) rotate(2deg);
+    -ms-transform: translateX(10%) rotate(2deg);
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-5%) rotate(-1deg);
+    -ms-transform: translateX(-5%) rotate(-1deg);
+    transform: translateX(-5%) rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+.wobble {
+  -webkit-animation-name: wobble;
+  animation-name: wobble;
+}
+
+/*------------------------------------*\
+    #ANIMATE BOUNCE IN
+    bounceIn, bounceInDown, bounceInLeft
+    bounceInRight, bounceInUp
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  70% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+
+  80% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+
+  80% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+
+@-webkit-keyframes bounceInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-30px);
+    transform: translateX(-30px);
+  }
+
+  80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);
+    transform: translateX(-30px);
+  }
+
+  80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.bounceInRight {
+  -webkit-animation-name: bounceInRight;
+  animation-name: bounceInRight;
+}
+
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+/*------------------------------------*\
+    #ANIMATE BOUNCE OUT
+    bounceOut, bounceOutDown,
+    bounceOutLeft, bounceOutRight,
+    bounceOutUp
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes bounceOut {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  25% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  25% {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+}
+
+.bounceOut {
+  -webkit-animation-name: bounceOut;
+  animation-name: bounceOut;
+}
+
+@-webkit-keyframes bounceOutDown {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+@keyframes bounceOutDown {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+.bounceOutDown {
+  -webkit-animation-name: bounceOutDown;
+  animation-name: bounceOutDown;
+}
+
+@-webkit-keyframes bounceOutLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes bounceOutLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft;
+}
+
+@-webkit-keyframes bounceOutRight {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes bounceOutRight {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+.bounceOutRight {
+  -webkit-animation-name: bounceOutRight;
+  animation-name: bounceOutRight;
+}
+
+@-webkit-keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+}
+
+/*------------------------------------*\
+    #ANIMATE FADE IN
+    fadeIn, fadeInDown, fadeInDownBig,
+    fadeInLeft, fadeInLeftBig,
+    fadeInRight, fadeInRightBig,
+    fadeInUp, fadeInUpBig
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+}
+
+/*------------------------------------*\
+    #ANIMATE FADE OUT
+    fadeOut, fadeOutDown, fadeOutDownBig,
+    fadeOutLeft, fadeOutLeftBig,
+    fadeOutRight, fadeOutRightBig,
+    fadeOutUp, fadeOutUpBig
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+@-webkit-keyframes fadeOutDownBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+@keyframes fadeOutDownBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+.fadeOutDownBig {
+  -webkit-animation-name: fadeOutDownBig;
+  animation-name: fadeOutDownBig;
+}
+
+@-webkit-keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+
+.fadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+@-webkit-keyframes fadeOutLeftBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes fadeOutLeftBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+.fadeOutLeftBig {
+  -webkit-animation-name: fadeOutLeftBig;
+  animation-name: fadeOutLeftBig;
+}
+
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+}
+
+.fadeOutRight {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+@-webkit-keyframes fadeOutRightBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes fadeOutRightBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+.fadeOutRightBig {
+  -webkit-animation-name: fadeOutRightBig;
+  animation-name: fadeOutRightBig;
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+@-webkit-keyframes fadeOutUpBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes fadeOutUpBig {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+.fadeOutUpBig {
+  -webkit-animation-name: fadeOutUpBig;
+  animation-name: fadeOutUpBig;
+}
+
+/*------------------------------------*\
+    #ANIMATE FLIP
+    flip, flipInX, flipInY,
+    flipOutX, flipOutY
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+.animated.flip {
+  -webkit-backface-visibility: visible;
+  -ms-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip;
+  animation-name: flip;
+}
+
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    -ms-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    -ms-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    -ms-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    -ms-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+}
+
+@-webkit-keyframes flipInY {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateY(-10deg);
+    transform: perspective(400px) rotateY(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateY(10deg);
+    transform: perspective(400px) rotateY(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipInY {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    -ms-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateY(-10deg);
+    -ms-transform: perspective(400px) rotateY(-10deg);
+    transform: perspective(400px) rotateY(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateY(10deg);
+    -ms-transform: perspective(400px) rotateY(10deg);
+    transform: perspective(400px) rotateY(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    -ms-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.flipInY {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+}
+
+@-webkit-keyframes flipOutX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOutX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    -ms-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    -ms-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+.flipOutX {
+  -webkit-animation-name: flipOutX;
+  animation-name: flipOutX;
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+@-webkit-keyframes flipOutY {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOutY {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    -ms-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    -ms-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+.flipOutY {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipOutY;
+  animation-name: flipOutY;
+}
+
+/*------------------------------------*\
+    #ANIMATE LIGHT SPEED
+    lightSpeedIn, lightSpeedOut
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes lightSpeedIn {
+  0% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-transform: translateX(-20%) skewX(30deg);
+    transform: translateX(-20%) skewX(30deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: translateX(0%) skewX(-15deg);
+    transform: translateX(0%) skewX(-15deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes lightSpeedIn {
+  0% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    -ms-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-transform: translateX(-20%) skewX(30deg);
+    -ms-transform: translateX(-20%) skewX(30deg);
+    transform: translateX(-20%) skewX(30deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: translateX(0%) skewX(-15deg);
+    -ms-transform: translateX(0%) skewX(-15deg);
+    transform: translateX(0%) skewX(-15deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    -ms-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+.lightSpeedIn {
+  -webkit-animation-name: lightSpeedIn;
+  animation-name: lightSpeedIn;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes lightSpeedOut {
+  0% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    -ms-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    -ms-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+.lightSpeedOut {
+  -webkit-animation-name: lightSpeedOut;
+  animation-name: lightSpeedOut;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+
+/*------------------------------------*\
+    #ANIMATE ROTATE IN
+    rotateIn, rotateInDownLeft,
+    rotateInDownRight, rotateInUpLeft,
+    rotateInUpRight
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes rotateIn {
+  0% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(-200deg);
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(-200deg);
+    -ms-transform: rotate(-200deg);
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateIn {
+  -webkit-animation-name: rotateIn;
+  animation-name: rotateIn;
+}
+
+@-webkit-keyframes rotateInDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateInDownLeft {
+  -webkit-animation-name: rotateInDownLeft;
+  animation-name: rotateInDownLeft;
+}
+
+@-webkit-keyframes rotateInDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateInDownRight {
+  -webkit-animation-name: rotateInDownRight;
+  animation-name: rotateInDownRight;
+}
+
+@-webkit-keyframes rotateInUpLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInUpLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateInUpLeft {
+  -webkit-animation-name: rotateInUpLeft;
+  animation-name: rotateInUpLeft;
+}
+
+@-webkit-keyframes rotateInUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+.rotateInUpRight {
+  -webkit-animation-name: rotateInUpRight;
+  animation-name: rotateInUpRight;
+}
+
+/*------------------------------------*\
+    #ANIMATE ROTATE OUT
+    rotateOut, rotateOutDownLeft,
+    rotateOutDownRight, rotateOutUpLeft,
+    rotateOutUpRight
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes rotateOut {
+  0% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(200deg);
+    transform: rotate(200deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(200deg);
+    -ms-transform: rotate(200deg);
+    transform: rotate(200deg);
+    opacity: 0;
+  }
+}
+
+.rotateOut {
+  -webkit-animation-name: rotateOut;
+  animation-name: rotateOut;
+}
+
+@-webkit-keyframes rotateOutDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutDownLeft {
+  -webkit-animation-name: rotateOutDownLeft;
+  animation-name: rotateOutDownLeft;
+}
+
+@-webkit-keyframes rotateOutDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutDownRight {
+  -webkit-animation-name: rotateOutDownRight;
+  animation-name: rotateOutDownRight;
+}
+
+@-webkit-keyframes rotateOutUpLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpLeft {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutUpLeft {
+  -webkit-animation-name: rotateOutUpLeft;
+  animation-name: rotateOutUpLeft;
+}
+
+@-webkit-keyframes rotateOutUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutUpRight {
+  -webkit-animation-name: rotateOutUpRight;
+  animation-name: rotateOutUpRight;
+}
+
+/*------------------------------------*\
+    #ANIMATE SLIDER
+    slideInDown, slideInLeft, 
+    slideInRight, slideOutLeft,
+    slideOutRight, slideOutUp
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes slideInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+@-webkit-keyframes slideOutLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+.slideOutLeft {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
+
+@-webkit-keyframes slideOutRight {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+.slideOutRight {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}
+
+@-webkit-keyframes slideOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes slideOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+.slideOutUp {
+  -webkit-animation-name: slideOutUp;
+  animation-name: slideOutUp;
+}
+
+/*------------------------------------*\
+    #ANIMATE SPECIAL
+    hinge, rollIn, rollOut
+\*------------------------------------*/
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+*/
+@-webkit-keyframes hinge {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    -webkit-transform: rotate(80deg);
+    transform: rotate(80deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  40% {
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    -webkit-transform: rotate(60deg) translateY(0);
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    -webkit-transform: translateY(700px);
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+@keyframes hinge {
+  0% {
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    -webkit-transform: rotate(80deg);
+    -ms-transform: rotate(80deg);
+    transform: rotate(80deg);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  40% {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    -webkit-transform: rotate(60deg) translateY(0);
+    -ms-transform: rotate(60deg) translateY(0);
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    -webkit-transform: translateY(700px);
+    -ms-transform: translateY(700px);
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+.hinge {
+  -webkit-animation-name: hinge;
+  animation-name: hinge;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes rollIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    -ms-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    -ms-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+.rollIn {
+  -webkit-animation-name: rollIn;
+  animation-name: rollIn;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes rollOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg);
+    transform: translateX(100%) rotate(120deg);
+  }
+}
+
+@keyframes rollOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    -ms-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg);
+    -ms-transform: translateX(100%) rotate(120deg);
+    transform: translateX(100%) rotate(120deg);
+  }
+}
+
+.rollOut {
+  -webkit-animation-name: rollOut;
+  animation-name: rollOut;
+}
+
+/**
+ * The avatar component styles images as if they are avatar images. Apply this
+ * class either to an element with a background-image.
+ *
+ * Override the width and height to change its size.
+ */
+.avatar {
+  width: 5em;
+  height: 5em;
+  background-position: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.avatar--circle {
+  border-radius: 100%;
+}
+
+/**
+ * Buttons can be grouped together when wrapped with the buttonGroup object.
+ *
+ * 1. Allows vertical alignment and to leverage table-layout:fixed.
+ * 2. Creates equally sized buttons inside the buttonGroup.
+ * 3. Conforms to full width of parent container.
+ * 4. Reset ul styles, which may or may not be present.
+ */
+.buttonGroup {
+  display: table;
+  /* [1] */
+  table-layout: fixed;
+  /* [2] */
+  width: 100%;
+  /* [3] */
+  list-style: none;
+  /* [4] */
+  margin: 0;
+  /* [4] */
+  padding: 0;
+  /* [4] */
+  /**
+   * When buttons are inside a buttonGroup they require certian
+   * default button styles cleared.
+   *
+   * 1. Creates equally sized buttons inside the buttonGroup.
+   * 2. Remove the shadows from the buttons because they overlap. The theme's
+   *    buttonGroup should re-apply this shadow to the buttonGroup element.
+   * 3. Buttons should be flush against one another.
+   * 4. Buttons in the middle should not have any rounded corners.
+   * 5. First and last buttons should only have border radius on outer edges.
+   */
+  /**
+   * 1. Remove doubled-up borders created by buttons being flush up against
+   *    one another.
+   */
+}
+.buttonGroup button,
+.buttonGroup .button {
+  display: table-cell;
+  /* [1] */
+  vertical-align: middle;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  /* [2] */
+}
+.buttonGroup button:not(:first-child):not(:last-child),
+.buttonGroup .button:not(:first-child):not(:last-child) {
+  margin-left: 0;
+  /* [3] */
+  margin-right: 0;
+  /* [3] */
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  /* [4] */
+}
+.buttonGroup button:first-child,
+.buttonGroup .button:first-child {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  /* [5] */
+}
+.buttonGroup button:last-child,
+.buttonGroup .button:last-child {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* [5] */
+}
+.buttonGroup li + li button,
+.buttonGroup li + li .button, .buttonGroup li + li.button {
+  border-left: 0;
+  /* [1] */
+}
+
+.buttonGroup--shrink {
+  display: block;
+  width: auto;
+}
+
+/**
+ * DEPRECATED
+ *
+ * These children of the buttonGroup provide the layout of individual
+ * buttons in the group.
+ *
+ * 1. Needed in order to take advantage of parent display:table
+ */
+.buttonGroup__item {
+  display: table-cell;
+  /* [1] */
+}
+
+/**
+ * This is the button object. Alone this is not a fully functional
+ * button. It should be combined with a class in modules/_button.scss.
+ *
+ * 1. Margin 0 is needed to reset the HTML button element.
+ * 2. Outline none to reset HTML button behaviour.
+ */
+button,
+.button {
+  margin: 0;
+  /* [1] */
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+button:hover, button:focus,
+.button:hover,
+.button:focus {
+  outline: none;
+  /* [2] */
+}
+
+/**
+ * An icon may accompany the button's text. The default
+ * accomidates an icon on the left.
+ *
+ * 1. Vertically align icon with text.
+ * 2. Provides space between icon and text when icon is left of text.
+ */
+.button__icon {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [1] */
+  margin-top: -0.125em;
+  /* [1] */
+  margin-right: 0.7em;
+  /* [2] */
+}
+
+/**
+ * An icon to the right of button text
+ *
+ * 1. Undoes margin-right in .button__icon
+ * 2. Provides space between icon and text when icon is right of text.
+ */
+.button__icon--right {
+  margin-right: 0;
+  /* [1] */
+  margin-left: 0.7em;
+  /* [2] */
+}
+
+.button--full {
+  width: 100%;
+}
+
+/**
+ * TODO: generic/clearfix should use this mixin.
+ */
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing over
+ * and over in your markup.
+ *
+ * TODO: Update these classes to use tools/clearfix.
+ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**
+ * This is a counter that displays how many of
+ * something there is.
+ *
+ * 1. Makes the container slightly taller than the text inside.
+ * 2. Default width is slightly wider than text, but is horizontally
+ *    flexible to allow large numbers.
+ * 3. Allows usage of table-cell in .count__value.
+ */
+.count {
+  height: 1.6em;
+  /* [1] */
+  min-width: 1.6em;
+  /* [2] */
+  display: table;
+  /* [3] */
+  font-weight: 700;
+  line-height: 1em;
+}
+
+/**
+ * The count object is a counter that displays how many of
+ * something there is.
+ *
+ * 1. Table-cell to leverage vertical-align.
+ * 2. Centers text
+ */
+.count__value {
+  display: table-cell;
+  /* [1] */
+  text-align: center;
+  /* [2] */
+  vertical-align: middle;
+  /* [2] */
+  padding: 0 .3em;
+  /**
+   * Removes padding from the counter.
+   *
+   */
+}
+.count--smash .count__value {
+  padding: 0;
+}
+
+/**
+ * A counter with round corners.
+ */
+.count--round {
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+  padding: 0 .5ex;
+}
+
+/**
+ * A counter that is positioned to the far right of it's parent.
+ *
+ * 1. Used instead of float to avoid wrapping.
+ * 2. As size increases,
+ */
+.count--right {
+  position: absolute;
+  /* [1] */
+  right: 0px;
+  top: 0px;
+}
+
+/**
+ * A counter that is positioned to the far right of it's parent.
+ *
+ * 1. Used instead of float to avoid wrapping.
+ * 2. Push it towards the outside of its container.
+ */
+.count--outerRight {
+  position: absolute;
+  /* [1] */
+  right: -10px;
+  /* [2] */
+  top: -2px;
+}
+
+/**
+ * DEPRECATED 11/17/14
+ *
+ * The flag object is a design pattern similar to the media object, however it
+ * utilises `display: table[-cell];` to give us control over the vertical
+ * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+ *
+ * 1. Allows us to control vertical alignments
+ * 2. Force the object to be the full width of its parent. Combined with [1],
+ *    this makes the object behave in a quasi-`display: block;` manner.
+ */
+.flag {
+  display: table;
+  /* [1] */
+  width: 100%;
+  /* [2] */
+}
+
+/**
+ * Items within a flag object. There should only ever be one of each.
+ *
+ * 1. Default to aligning content to their middles.
+ */
+.flag__img,
+.flag__body {
+  display: table-cell;
+  vertical-align: middle;
+  /* [1] */
+}
+
+/**
+ * Flag images have a space between them and the body of the object.
+ */
+.flag__img {
+  padding-right: 0.75rem;
+}
+.flag__img > img {
+  display: block;
+  max-width: none;
+}
+
+/**
+ * The container for the main content of the flag object.
+ *
+ * 1. Forces the `.flag__body` to take up all remaining space.
+ */
+.flag__body {
+  width: 100%;
+  /* [1] */
+}
+
+/**
+ * Reversed flag objects have their image-content to the right, and text-content
+ * to the left.
+ *
+ * 1. Swap the rendered direction of the object…
+ * 2. …and reset it.
+ * 3. Reassign margins to the correct sides.
+ */
+.flag--rev {
+  direction: rtl;
+  /* [1] */
+}
+.flag--rev > .flag__img,
+.flag--rev > .flag__body {
+  direction: ltr;
+  /* [2] */
+}
+.flag--rev > .flag__img {
+  padding-right: 0;
+  /* [3] */
+  padding-left: 0.75rem;
+  /* [3] */
+}
+
+/**
+ * Size variants.
+ */
+.flag--small > .flag__img {
+  padding-right: 0.375rem;
+}
+.flag--small.flag--rev > .flag__img {
+  padding-right: 0;
+  padding-left: 0.375rem;
+}
+
+.flag--large > .flag__img {
+  padding-right: 1.5rem;
+}
+.flag--large.flag--rev > .flag__img {
+  padding-right: 0;
+  padding-left: 1.5rem;
+}
+
+/**
+ * Vertical alignment variations of the flag object. Either align image- and
+ * text-content to the tops of bottoms of each other.
+ */
+.flag--top > .flag__img,
+.flag--top > .flag__body {
+  vertical-align: top;
+}
+
+.flag--bottom > .flag__img,
+.flag--bottom > .flag__body {
+  vertical-align: bottom;
+}
+
+/**
+ * Flush flag objects have no space between the image- and text-content.
+ */
+.flag--flush > .flag__img {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.flexFlag {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+  -webkit-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  /* [1] */
+  align-items: flex-start;
+}
+
+.flexFlag__body {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.flexFlag--centered {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexFlag--vertical {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
+}
+
+/**
+ * All inputs except radios and checkboxes, plus textarea and select elements.
+ */
+/**
+ * Radios and checkboxes.
+ */
+/**
+ * All form components.
+ */
+/**
+ * 1. Remove default browser style.
+ */
+input,
+select,
+output,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* [1] */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.label--right {
+  text-align: right;
+}
+
+.label--inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.select--full {
+  width: 100%;
+}
+
+.select--flex {
+  -webkit-flex-grow: 1;
+  -ms-flex: 1;
+  /* [1] */
+  flex-grow: 1;
+}
+
+select,
+input[type="range"] {
+  cursor: pointer;
+}
+
+.input--full {
+  width: 100%;
+  margin-left: 0;
+}
+
+.input--flex {
+  -webkit-flex-grow: 1;
+  -ms-flex: 1;
+  /* [1] */
+  flex-grow: 1;
+}
+
+output {
+  cursor: text;
+}
+
+.output--full {
+  width: 100%;
+}
+
+.output--flex {
+  -webkit-flex-grow: 1;
+  -ms-flex: 1;
+  /* [1] */
+  flex-grow: 1;
+}
+
+.textarea--full {
+  width: 100%;
+  margin-left: 0;
+}
+
+.textarea--flex {
+  -webkit-flex-grow: 1;
+  -ms-flex: 1;
+  /* [1] */
+  flex-grow: 1;
+}
+
+/**
+ * 1. Padding between columns. Gets divided in half for the left and right.
+ */
+/* [1] */
+/* [1] */
+.container {
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+  *zoom: 1;
+}
+.container:before, .container:after {
+  content: " ";
+  display: table;
+}
+.container:after {
+  clear: both;
+}
+
+.container--centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container--responsive {
+  max-width: 100%;
+}
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+  .container--responsive {
+    max-width: 25rem;
+  }
+}
+@media only screen and (min-width: 801px) and (max-width: 1040px) {
+  .container--responsive {
+    max-width: 37.5rem;
+  }
+}
+@media only screen and (min-width: 1041px) and (max-width: 1440px) {
+  .container--responsive {
+    max-width: 56.25rem;
+  }
+}
+@media only screen and (min-width: 1441px) and (max-width: 1920px) {
+  .container--responsive {
+    max-width: 75rem;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .container--responsive {
+    max-width: 100rem;
+  }
+}
+
+.container--fixed {
+  max-width: 60rem;
+}
+
+.container--smash {
+  margin: 0;
+  padding: 0;
+}
+.container--smash .row {
+  margin: 0;
+  padding: 0;
+}
+.container--smash .row div[class*="col--"] {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Columns with a comfy margin on the left and right
+ */
+.container--comfy {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  *zoom: 1;
+  /* [1] */
+  /* [1] */
+}
+.container--comfy:before, .container--comfy:after {
+  content: " ";
+  display: table;
+}
+.container--comfy:after {
+  clear: both;
+}
+.container--comfy .row {
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
+  *zoom: 1;
+  /* [1] */
+}
+.container--comfy .row:before, .container--comfy .row:after {
+  content: " ";
+  display: table;
+}
+.container--comfy .row:after {
+  clear: both;
+}
+.container--comfy .col--xs1, .container--comfy .col--sm1, .container--comfy .col--md1, .container--comfy .col--lg1, .container--comfy .col--xlg1, .container--comfy .col--xxlg1, .container--comfy .col--xs2, .container--comfy .col--sm2, .container--comfy .col--md2, .container--comfy .col--lg2, .container--comfy .col--xlg2, .container--comfy .col--xxlg2, .container--comfy .col--xs3, .container--comfy .col--sm3, .container--comfy .col--md3, .container--comfy .col--lg3, .container--comfy .col--xlg3, .container--comfy .col--xxlg3, .container--comfy .col--xs4, .container--comfy .col--sm4, .container--comfy .col--md4, .container--comfy .col--lg4, .container--comfy .col--xlg4, .container--comfy .col--xxlg4, .container--comfy .col--xs5, .container--comfy .col--sm5, .container--comfy .col--md5, .container--comfy .col--lg5, .container--comfy .col--xlg5, .container--comfy .col--xxlg5, .container--comfy .col--xs6, .container--comfy .col--sm6, .container--comfy .col--md6, .container--comfy .col--lg6, .container--comfy .col--xlg6, .container--comfy .col--xxlg6, .container--comfy .col--xs7, .container--comfy .col--sm7, .container--comfy .col--md7, .container--comfy .col--lg7, .container--comfy .col--xlg7, .container--comfy .col--xxlg7, .container--comfy .col--xs8, .container--comfy .col--sm8, .container--comfy .col--md8, .container--comfy .col--lg8, .container--comfy .col--xlg8, .container--comfy .col--xxlg8, .container--comfy .col--xs9, .container--comfy .col--sm9, .container--comfy .col--md9, .container--comfy .col--lg9, .container--comfy .col--xlg9, .container--comfy .col--xxlg9, .container--comfy .col--xs10, .container--comfy .col--sm10, .container--comfy .col--md10, .container--comfy .col--lg10, .container--comfy .col--xlg10, .container--comfy .col--xxlg10, .container--comfy .col--xs11, .container--comfy .col--sm11, .container--comfy .col--md11, .container--comfy .col--lg11, .container--comfy .col--xlg11, .container--comfy .col--xxlg11, .container--comfy .col--xs12, .container--comfy .col--sm12, .container--comfy .col--md12, .container--comfy .col--lg12, .container--comfy .col--xlg12, .container--comfy .col--xxlg12 {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+.row {
+  margin-left: -0.3125rem;
+  margin-right: -0.3125rem;
+  *zoom: 1;
+}
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
+.row--comfy {
+  margin-bottom: 1rem;
+}
+
+.row--smash {
+  margin: 0;
+  padding: 0;
+}
+.row--smash div[class*="col--"] {
+  margin: 0;
+  padding: 0;
+}
+
+.col--xs1, .col--sm1, .col--md1, .col--lg1, .col--xlg1, .col--xxlg1, .col--xs2, .col--sm2, .col--md2, .col--lg2, .col--xlg2, .col--xxlg2, .col--xs3, .col--sm3, .col--md3, .col--lg3, .col--xlg3, .col--xxlg3, .col--xs4, .col--sm4, .col--md4, .col--lg4, .col--xlg4, .col--xxlg4, .col--xs5, .col--sm5, .col--md5, .col--lg5, .col--xlg5, .col--xxlg5, .col--xs6, .col--sm6, .col--md6, .col--lg6, .col--xlg6, .col--xxlg6, .col--xs7, .col--sm7, .col--md7, .col--lg7, .col--xlg7, .col--xxlg7, .col--xs8, .col--sm8, .col--md8, .col--lg8, .col--xlg8, .col--xxlg8, .col--xs9, .col--sm9, .col--md9, .col--lg9, .col--xlg9, .col--xxlg9, .col--xs10, .col--sm10, .col--md10, .col--lg10, .col--xlg10, .col--xxlg10, .col--xs11, .col--sm11, .col--md11, .col--lg11, .col--xlg11, .col--xxlg11, .col--xs12, .col--sm12, .col--md12, .col--lg12, .col--xlg12, .col--xxlg12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+}
+
+.col--comfy {
+  margin-bottom: 1rem;
+}
+
+.col--smash {
+  margin: 0;
+  padding: 0;
+}
+
+.col--xs1, .col--xs2, .col--xs3, .col--xs4, .col--xs5, .col--xs6, .col--xs7, .col--xs8, .col--xs9, .col--xs10, .col--xs11, .col--xs12 {
+  float: left;
+}
+
+.col--xs1 {
+  width: 8.33333%;
+}
+
+.col--xs2 {
+  width: 16.66667%;
+}
+
+.col--xs3 {
+  width: 25%;
+}
+
+.col--xs4 {
+  width: 33.33333%;
+}
+
+.col--xs5 {
+  width: 41.66667%;
+}
+
+.col--xs6 {
+  width: 50%;
+}
+
+.col--xs7 {
+  width: 58.33333%;
+}
+
+.col--xs8 {
+  width: 66.66667%;
+}
+
+.col--xs9 {
+  width: 75%;
+}
+
+.col--xs10 {
+  width: 83.33333%;
+}
+
+.col--xs11 {
+  width: 91.66667%;
+}
+
+.col--xs12 {
+  width: 100%;
+}
+
+.col--xsPull0 {
+  right: 0%;
+}
+
+.col--xsPull1 {
+  right: 8.33333%;
+}
+
+.col--xsPull2 {
+  right: 16.66667%;
+}
+
+.col--xsPull3 {
+  right: 25%;
+}
+
+.col--xsPull4 {
+  right: 33.33333%;
+}
+
+.col--xsPull5 {
+  right: 41.66667%;
+}
+
+.col--xsPull6 {
+  right: 50%;
+}
+
+.col--xsPull7 {
+  right: 58.33333%;
+}
+
+.col--xsPull8 {
+  right: 66.66667%;
+}
+
+.col--xsPull9 {
+  right: 75%;
+}
+
+.col--xsPull10 {
+  right: 83.33333%;
+}
+
+.col--xsPull11 {
+  right: 91.66667%;
+}
+
+.col--xsPull12 {
+  right: 100%;
+}
+
+.col--xsPush0 {
+  left: 0%;
+}
+
+.col--xsPush1 {
+  left: 8.33333%;
+}
+
+.col--xsPush2 {
+  left: 16.66667%;
+}
+
+.col--xsPush3 {
+  left: 25%;
+}
+
+.col--xsPush4 {
+  left: 33.33333%;
+}
+
+.col--xsPush5 {
+  left: 41.66667%;
+}
+
+.col--xsPush6 {
+  left: 50%;
+}
+
+.col--xsPush7 {
+  left: 58.33333%;
+}
+
+.col--xsPush8 {
+  left: 66.66667%;
+}
+
+.col--xsPush9 {
+  left: 75%;
+}
+
+.col--xsPush10 {
+  left: 83.33333%;
+}
+
+.col--xsPush11 {
+  left: 91.66667%;
+}
+
+.col--xsPush12 {
+  left: 100%;
+}
+
+.col--xsOffset0 {
+  margin-left: 0%;
+}
+
+.col--xsOffset1 {
+  margin-left: 8.33333%;
+}
+
+.col--xsOffset2 {
+  margin-left: 16.66667%;
+}
+
+.col--xsOffset3 {
+  margin-left: 25%;
+}
+
+.col--xsOffset4 {
+  margin-left: 33.33333%;
+}
+
+.col--xsOffset5 {
+  margin-left: 41.66667%;
+}
+
+.col--xsOffset6 {
+  margin-left: 50%;
+}
+
+.col--xsOffset7 {
+  margin-left: 58.33333%;
+}
+
+.col--xsOffset8 {
+  margin-left: 66.66667%;
+}
+
+.col--xsOffset9 {
+  margin-left: 75%;
+}
+
+.col--xsOffset10 {
+  margin-left: 83.33333%;
+}
+
+.col--xsOffset11 {
+  margin-left: 91.66667%;
+}
+
+.col--xsOffset12 {
+  margin-left: 100%;
+}
+
+@media only screen and (min-width: 481px) {
+  .col--sm1, .col--sm2, .col--sm3, .col--sm4, .col--sm5, .col--sm6, .col--sm7, .col--sm8, .col--sm9, .col--sm10, .col--sm11, .col--sm12 {
+    float: left;
+  }
+
+  .col--sm1 {
+    width: 8.33333%;
+  }
+
+  .col--sm2 {
+    width: 16.66667%;
+  }
+
+  .col--sm3 {
+    width: 25%;
+  }
+
+  .col--sm4 {
+    width: 33.33333%;
+  }
+
+  .col--sm5 {
+    width: 41.66667%;
+  }
+
+  .col--sm6 {
+    width: 50%;
+  }
+
+  .col--sm7 {
+    width: 58.33333%;
+  }
+
+  .col--sm8 {
+    width: 66.66667%;
+  }
+
+  .col--sm9 {
+    width: 75%;
+  }
+
+  .col--sm10 {
+    width: 83.33333%;
+  }
+
+  .col--sm11 {
+    width: 91.66667%;
+  }
+
+  .col--sm12 {
+    width: 100%;
+  }
+
+  .col--smPull0 {
+    right: 0%;
+  }
+
+  .col--smPull1 {
+    right: 8.33333%;
+  }
+
+  .col--smPull2 {
+    right: 16.66667%;
+  }
+
+  .col--smPull3 {
+    right: 25%;
+  }
+
+  .col--smPull4 {
+    right: 33.33333%;
+  }
+
+  .col--smPull5 {
+    right: 41.66667%;
+  }
+
+  .col--smPull6 {
+    right: 50%;
+  }
+
+  .col--smPull7 {
+    right: 58.33333%;
+  }
+
+  .col--smPull8 {
+    right: 66.66667%;
+  }
+
+  .col--smPull9 {
+    right: 75%;
+  }
+
+  .col--smPull10 {
+    right: 83.33333%;
+  }
+
+  .col--smPull11 {
+    right: 91.66667%;
+  }
+
+  .col--smPull12 {
+    right: 100%;
+  }
+
+  .col--smPush0 {
+    left: 0%;
+  }
+
+  .col--smPush1 {
+    left: 8.33333%;
+  }
+
+  .col--smPush2 {
+    left: 16.66667%;
+  }
+
+  .col--smPush3 {
+    left: 25%;
+  }
+
+  .col--smPush4 {
+    left: 33.33333%;
+  }
+
+  .col--smPush5 {
+    left: 41.66667%;
+  }
+
+  .col--smPush6 {
+    left: 50%;
+  }
+
+  .col--smPush7 {
+    left: 58.33333%;
+  }
+
+  .col--smPush8 {
+    left: 66.66667%;
+  }
+
+  .col--smPush9 {
+    left: 75%;
+  }
+
+  .col--smPush10 {
+    left: 83.33333%;
+  }
+
+  .col--smPush11 {
+    left: 91.66667%;
+  }
+
+  .col--smPush12 {
+    left: 100%;
+  }
+
+  .col--smOffset0 {
+    margin-left: 0%;
+  }
+
+  .col--smOffset1 {
+    margin-left: 8.33333%;
+  }
+
+  .col--smOffset2 {
+    margin-left: 16.66667%;
+  }
+
+  .col--smOffset3 {
+    margin-left: 25%;
+  }
+
+  .col--smOffset4 {
+    margin-left: 33.33333%;
+  }
+
+  .col--smOffset5 {
+    margin-left: 41.66667%;
+  }
+
+  .col--smOffset6 {
+    margin-left: 50%;
+  }
+
+  .col--smOffset7 {
+    margin-left: 58.33333%;
+  }
+
+  .col--smOffset8 {
+    margin-left: 66.66667%;
+  }
+
+  .col--smOffset9 {
+    margin-left: 75%;
+  }
+
+  .col--smOffset10 {
+    margin-left: 83.33333%;
+  }
+
+  .col--smOffset11 {
+    margin-left: 91.66667%;
+  }
+
+  .col--smOffset12 {
+    margin-left: 100%;
+  }
+}
+@media only screen and (min-width: 801px) {
+  .col--md1, .col--md2, .col--md3, .col--md4, .col--md5, .col--md6, .col--md7, .col--md8, .col--md9, .col--md10, .col--md11, .col--md12 {
+    float: left;
+  }
+
+  .col--md1 {
+    width: 8.33333%;
+  }
+
+  .col--md2 {
+    width: 16.66667%;
+  }
+
+  .col--md3 {
+    width: 25%;
+  }
+
+  .col--md4 {
+    width: 33.33333%;
+  }
+
+  .col--md5 {
+    width: 41.66667%;
+  }
+
+  .col--md6 {
+    width: 50%;
+  }
+
+  .col--md7 {
+    width: 58.33333%;
+  }
+
+  .col--md8 {
+    width: 66.66667%;
+  }
+
+  .col--md9 {
+    width: 75%;
+  }
+
+  .col--md10 {
+    width: 83.33333%;
+  }
+
+  .col--md11 {
+    width: 91.66667%;
+  }
+
+  .col--md12 {
+    width: 100%;
+  }
+
+  .col--mdPull0 {
+    right: 0%;
+  }
+
+  .col--mdPull1 {
+    right: 8.33333%;
+  }
+
+  .col--mdPull2 {
+    right: 16.66667%;
+  }
+
+  .col--mdPull3 {
+    right: 25%;
+  }
+
+  .col--mdPull4 {
+    right: 33.33333%;
+  }
+
+  .col--mdPull5 {
+    right: 41.66667%;
+  }
+
+  .col--mdPull6 {
+    right: 50%;
+  }
+
+  .col--mdPull7 {
+    right: 58.33333%;
+  }
+
+  .col--mdPull8 {
+    right: 66.66667%;
+  }
+
+  .col--mdPull9 {
+    right: 75%;
+  }
+
+  .col--mdPull10 {
+    right: 83.33333%;
+  }
+
+  .col--mdPull11 {
+    right: 91.66667%;
+  }
+
+  .col--mdPull12 {
+    right: 100%;
+  }
+
+  .col--mdPush0 {
+    left: 0%;
+  }
+
+  .col--mdPush1 {
+    left: 8.33333%;
+  }
+
+  .col--mdPush2 {
+    left: 16.66667%;
+  }
+
+  .col--mdPush3 {
+    left: 25%;
+  }
+
+  .col--mdPush4 {
+    left: 33.33333%;
+  }
+
+  .col--mdPush5 {
+    left: 41.66667%;
+  }
+
+  .col--mdPush6 {
+    left: 50%;
+  }
+
+  .col--mdPush7 {
+    left: 58.33333%;
+  }
+
+  .col--mdPush8 {
+    left: 66.66667%;
+  }
+
+  .col--mdPush9 {
+    left: 75%;
+  }
+
+  .col--mdPush10 {
+    left: 83.33333%;
+  }
+
+  .col--mdPush11 {
+    left: 91.66667%;
+  }
+
+  .col--mdPush12 {
+    left: 100%;
+  }
+
+  .col--mdOffset0 {
+    margin-left: 0%;
+  }
+
+  .col--mdOffset1 {
+    margin-left: 8.33333%;
+  }
+
+  .col--mdOffset2 {
+    margin-left: 16.66667%;
+  }
+
+  .col--mdOffset3 {
+    margin-left: 25%;
+  }
+
+  .col--mdOffset4 {
+    margin-left: 33.33333%;
+  }
+
+  .col--mdOffset5 {
+    margin-left: 41.66667%;
+  }
+
+  .col--mdOffset6 {
+    margin-left: 50%;
+  }
+
+  .col--mdOffset7 {
+    margin-left: 58.33333%;
+  }
+
+  .col--mdOffset8 {
+    margin-left: 66.66667%;
+  }
+
+  .col--mdOffset9 {
+    margin-left: 75%;
+  }
+
+  .col--mdOffset10 {
+    margin-left: 83.33333%;
+  }
+
+  .col--mdOffset11 {
+    margin-left: 91.66667%;
+  }
+
+  .col--mdOffset12 {
+    margin-left: 100%;
+  }
+}
+@media only screen and (min-width: 1041px) {
+  .col--lg1, .col--lg2, .col--lg3, .col--lg4, .col--lg5, .col--lg6, .col--lg7, .col--lg8, .col--lg9, .col--lg10, .col--lg11, .col--lg12 {
+    float: left;
+  }
+
+  .col--lg1 {
+    width: 8.33333%;
+  }
+
+  .col--lg2 {
+    width: 16.66667%;
+  }
+
+  .col--lg3 {
+    width: 25%;
+  }
+
+  .col--lg4 {
+    width: 33.33333%;
+  }
+
+  .col--lg5 {
+    width: 41.66667%;
+  }
+
+  .col--lg6 {
+    width: 50%;
+  }
+
+  .col--lg7 {
+    width: 58.33333%;
+  }
+
+  .col--lg8 {
+    width: 66.66667%;
+  }
+
+  .col--lg9 {
+    width: 75%;
+  }
+
+  .col--lg10 {
+    width: 83.33333%;
+  }
+
+  .col--lg11 {
+    width: 91.66667%;
+  }
+
+  .col--lg12 {
+    width: 100%;
+  }
+
+  .col--lgPull0 {
+    right: 0%;
+  }
+
+  .col--lgPull1 {
+    right: 8.33333%;
+  }
+
+  .col--lgPull2 {
+    right: 16.66667%;
+  }
+
+  .col--lgPull3 {
+    right: 25%;
+  }
+
+  .col--lgPull4 {
+    right: 33.33333%;
+  }
+
+  .col--lgPull5 {
+    right: 41.66667%;
+  }
+
+  .col--lgPull6 {
+    right: 50%;
+  }
+
+  .col--lgPull7 {
+    right: 58.33333%;
+  }
+
+  .col--lgPull8 {
+    right: 66.66667%;
+  }
+
+  .col--lgPull9 {
+    right: 75%;
+  }
+
+  .col--lgPull10 {
+    right: 83.33333%;
+  }
+
+  .col--lgPull11 {
+    right: 91.66667%;
+  }
+
+  .col--lgPull12 {
+    right: 100%;
+  }
+
+  .col--lgPush0 {
+    left: 0%;
+  }
+
+  .col--lgPush1 {
+    left: 8.33333%;
+  }
+
+  .col--lgPush2 {
+    left: 16.66667%;
+  }
+
+  .col--lgPush3 {
+    left: 25%;
+  }
+
+  .col--lgPush4 {
+    left: 33.33333%;
+  }
+
+  .col--lgPush5 {
+    left: 41.66667%;
+  }
+
+  .col--lgPush6 {
+    left: 50%;
+  }
+
+  .col--lgPush7 {
+    left: 58.33333%;
+  }
+
+  .col--lgPush8 {
+    left: 66.66667%;
+  }
+
+  .col--lgPush9 {
+    left: 75%;
+  }
+
+  .col--lgPush10 {
+    left: 83.33333%;
+  }
+
+  .col--lgPush11 {
+    left: 91.66667%;
+  }
+
+  .col--lgPush12 {
+    left: 100%;
+  }
+
+  .col--lgOffset0 {
+    margin-left: 0%;
+  }
+
+  .col--lgOffset1 {
+    margin-left: 8.33333%;
+  }
+
+  .col--lgOffset2 {
+    margin-left: 16.66667%;
+  }
+
+  .col--lgOffset3 {
+    margin-left: 25%;
+  }
+
+  .col--lgOffset4 {
+    margin-left: 33.33333%;
+  }
+
+  .col--lgOffset5 {
+    margin-left: 41.66667%;
+  }
+
+  .col--lgOffset6 {
+    margin-left: 50%;
+  }
+
+  .col--lgOffset7 {
+    margin-left: 58.33333%;
+  }
+
+  .col--lgOffset8 {
+    margin-left: 66.66667%;
+  }
+
+  .col--lgOffset9 {
+    margin-left: 75%;
+  }
+
+  .col--lgOffset10 {
+    margin-left: 83.33333%;
+  }
+
+  .col--lgOffset11 {
+    margin-left: 91.66667%;
+  }
+
+  .col--lgOffset12 {
+    margin-left: 100%;
+  }
+}
+@media only screen and (min-width: 1441px) {
+  .col--xlg1, .col--xlg2, .col--xlg3, .col--xlg4, .col--xlg5, .col--xlg6, .col--xlg7, .col--xlg8, .col--xlg9, .col--xlg10, .col--xlg11, .col--xlg12 {
+    float: left;
+  }
+
+  .col--xlg1 {
+    width: 8.33333%;
+  }
+
+  .col--xlg2 {
+    width: 16.66667%;
+  }
+
+  .col--xlg3 {
+    width: 25%;
+  }
+
+  .col--xlg4 {
+    width: 33.33333%;
+  }
+
+  .col--xlg5 {
+    width: 41.66667%;
+  }
+
+  .col--xlg6 {
+    width: 50%;
+  }
+
+  .col--xlg7 {
+    width: 58.33333%;
+  }
+
+  .col--xlg8 {
+    width: 66.66667%;
+  }
+
+  .col--xlg9 {
+    width: 75%;
+  }
+
+  .col--xlg10 {
+    width: 83.33333%;
+  }
+
+  .col--xlg11 {
+    width: 91.66667%;
+  }
+
+  .col--xlg12 {
+    width: 100%;
+  }
+
+  .col--xlgPull0 {
+    right: 0%;
+  }
+
+  .col--xlgPull1 {
+    right: 8.33333%;
+  }
+
+  .col--xlgPull2 {
+    right: 16.66667%;
+  }
+
+  .col--xlgPull3 {
+    right: 25%;
+  }
+
+  .col--xlgPull4 {
+    right: 33.33333%;
+  }
+
+  .col--xlgPull5 {
+    right: 41.66667%;
+  }
+
+  .col--xlgPull6 {
+    right: 50%;
+  }
+
+  .col--xlgPull7 {
+    right: 58.33333%;
+  }
+
+  .col--xlgPull8 {
+    right: 66.66667%;
+  }
+
+  .col--xlgPull9 {
+    right: 75%;
+  }
+
+  .col--xlgPull10 {
+    right: 83.33333%;
+  }
+
+  .col--xlgPull11 {
+    right: 91.66667%;
+  }
+
+  .col--xlgPull12 {
+    right: 100%;
+  }
+
+  .col--xlgPush0 {
+    left: 0%;
+  }
+
+  .col--xlgPush1 {
+    left: 8.33333%;
+  }
+
+  .col--xlgPush2 {
+    left: 16.66667%;
+  }
+
+  .col--xlgPush3 {
+    left: 25%;
+  }
+
+  .col--xlgPush4 {
+    left: 33.33333%;
+  }
+
+  .col--xlgPush5 {
+    left: 41.66667%;
+  }
+
+  .col--xlgPush6 {
+    left: 50%;
+  }
+
+  .col--xlgPush7 {
+    left: 58.33333%;
+  }
+
+  .col--xlgPush8 {
+    left: 66.66667%;
+  }
+
+  .col--xlgPush9 {
+    left: 75%;
+  }
+
+  .col--xlgPush10 {
+    left: 83.33333%;
+  }
+
+  .col--xlgPush11 {
+    left: 91.66667%;
+  }
+
+  .col--xlgPush12 {
+    left: 100%;
+  }
+
+  .col--xlgOffset0 {
+    margin-left: 0%;
+  }
+
+  .col--xlgOffset1 {
+    margin-left: 8.33333%;
+  }
+
+  .col--xlgOffset2 {
+    margin-left: 16.66667%;
+  }
+
+  .col--xlgOffset3 {
+    margin-left: 25%;
+  }
+
+  .col--xlgOffset4 {
+    margin-left: 33.33333%;
+  }
+
+  .col--xlgOffset5 {
+    margin-left: 41.66667%;
+  }
+
+  .col--xlgOffset6 {
+    margin-left: 50%;
+  }
+
+  .col--xlgOffset7 {
+    margin-left: 58.33333%;
+  }
+
+  .col--xlgOffset8 {
+    margin-left: 66.66667%;
+  }
+
+  .col--xlgOffset9 {
+    margin-left: 75%;
+  }
+
+  .col--xlgOffset10 {
+    margin-left: 83.33333%;
+  }
+
+  .col--xlgOffset11 {
+    margin-left: 91.66667%;
+  }
+
+  .col--xlgOffset12 {
+    margin-left: 100%;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .col--xxlg1, .col--xxlg2, .col--xxlg3, .col--xxlg4, .col--xxlg5, .col--xxlg6, .col--xxlg7, .col--xxlg8, .col--xxlg9, .col--xxlg10, .col--xxlg11, .col--xxlg12 {
+    float: left;
+  }
+
+  .col--xxlg1 {
+    width: 8.33333%;
+  }
+
+  .col--xxlg2 {
+    width: 16.66667%;
+  }
+
+  .col--xxlg3 {
+    width: 25%;
+  }
+
+  .col--xxlg4 {
+    width: 33.33333%;
+  }
+
+  .col--xxlg5 {
+    width: 41.66667%;
+  }
+
+  .col--xxlg6 {
+    width: 50%;
+  }
+
+  .col--xxlg7 {
+    width: 58.33333%;
+  }
+
+  .col--xxlg8 {
+    width: 66.66667%;
+  }
+
+  .col--xxlg9 {
+    width: 75%;
+  }
+
+  .col--xxlg10 {
+    width: 83.33333%;
+  }
+
+  .col--xxlg11 {
+    width: 91.66667%;
+  }
+
+  .col--xxlg12 {
+    width: 100%;
+  }
+
+  .col--xxlgPull0 {
+    right: 0%;
+  }
+
+  .col--xxlgPull1 {
+    right: 8.33333%;
+  }
+
+  .col--xxlgPull2 {
+    right: 16.66667%;
+  }
+
+  .col--xxlgPull3 {
+    right: 25%;
+  }
+
+  .col--xxlgPull4 {
+    right: 33.33333%;
+  }
+
+  .col--xxlgPull5 {
+    right: 41.66667%;
+  }
+
+  .col--xxlgPull6 {
+    right: 50%;
+  }
+
+  .col--xxlgPull7 {
+    right: 58.33333%;
+  }
+
+  .col--xxlgPull8 {
+    right: 66.66667%;
+  }
+
+  .col--xxlgPull9 {
+    right: 75%;
+  }
+
+  .col--xxlgPull10 {
+    right: 83.33333%;
+  }
+
+  .col--xxlgPull11 {
+    right: 91.66667%;
+  }
+
+  .col--xxlgPull12 {
+    right: 100%;
+  }
+
+  .col--xxlgPush0 {
+    left: 0%;
+  }
+
+  .col--xxlgPush1 {
+    left: 8.33333%;
+  }
+
+  .col--xxlgPush2 {
+    left: 16.66667%;
+  }
+
+  .col--xxlgPush3 {
+    left: 25%;
+  }
+
+  .col--xxlgPush4 {
+    left: 33.33333%;
+  }
+
+  .col--xxlgPush5 {
+    left: 41.66667%;
+  }
+
+  .col--xxlgPush6 {
+    left: 50%;
+  }
+
+  .col--xxlgPush7 {
+    left: 58.33333%;
+  }
+
+  .col--xxlgPush8 {
+    left: 66.66667%;
+  }
+
+  .col--xxlgPush9 {
+    left: 75%;
+  }
+
+  .col--xxlgPush10 {
+    left: 83.33333%;
+  }
+
+  .col--xxlgPush11 {
+    left: 91.66667%;
+  }
+
+  .col--xxlgPush12 {
+    left: 100%;
+  }
+
+  .col--xxlgOffset0 {
+    margin-left: 0%;
+  }
+
+  .col--xxlgOffset1 {
+    margin-left: 8.33333%;
+  }
+
+  .col--xxlgOffset2 {
+    margin-left: 16.66667%;
+  }
+
+  .col--xxlgOffset3 {
+    margin-left: 25%;
+  }
+
+  .col--xxlgOffset4 {
+    margin-left: 33.33333%;
+  }
+
+  .col--xxlgOffset5 {
+    margin-left: 41.66667%;
+  }
+
+  .col--xxlgOffset6 {
+    margin-left: 50%;
+  }
+
+  .col--xxlgOffset7 {
+    margin-left: 58.33333%;
+  }
+
+  .col--xxlgOffset8 {
+    margin-left: 66.66667%;
+  }
+
+  .col--xxlgOffset9 {
+    margin-left: 75%;
+  }
+
+  .col--xxlgOffset10 {
+    margin-left: 83.33333%;
+  }
+
+  .col--xxlgOffset11 {
+    margin-left: 91.66667%;
+  }
+
+  .col--xxlgOffset12 {
+    margin-left: 100%;
+  }
+}
+.icon {
+  font-family: 'ubnt';
+}
+
+.icon--inline {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+/**
+ * 1. Provide a container around icon text so that it can be aligned left, right
+ *    etc, as a single inline element.
+ */
+.iconTextContainer {
+  display: inline-block;
+  /* [1] */
+}
+
+/**
+ * Icon with link text.
+ */
+/**
+ * 1. Space out lists of iconTexts.
+ */
+.iconText {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+  padding-top: 0.3em;
+  /* [1] */
+  padding-bottom: 0.3em;
+  /* [1] */
+}
+
+.iconText__icon {
+  font-size: 1.5em;
+  padding-right: 0.6875rem;
+}
+
+.iconText--small .iconText__icon {
+  font-size: 1em;
+}
+
+.iconText--medium .iconText__icon {
+  font-size: 1.55em;
+}
+
+.iconText--large .iconText__icon {
+  font-size: 2em;
+}
+
+/**
+ * 1. Space out condensed lists of iconTexts.
+ */
+.iconText--cozy {
+  padding-top: 0;
+  /* [1] */
+  padding-bottom: 0;
+  /* [1] */
+}
+
+/**
+ * 1. Space out expanded lists of iconTexts.
+ */
+.iconText--comfy {
+  padding-top: 0.6em;
+  /* [1] */
+  padding-bottom: 0.6em;
+  /* [1] */
+}
+
+/**
+ * 1. Position icon above the text.
+ * 2. Reset display value.
+ * 3. Center everything.
+ * 4. Spacing.
+ */
+.iconText--stacked {
+  display: inline-block;
+  /* [2] */
+  text-align: center;
+  /* [3] */
+}
+.iconText--stacked .iconText__icon {
+  display: block;
+  /* [1] */
+  padding-right: 0;
+  /* [4] */
+}
+.iconText--stacked .iconText__text {
+  padding-top: 5px;
+  /* [4] */
+  display: block;
+  /* [1] */
+  width: auto;
+  /* [3] */
+}
+
+/**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
+ * Remove the bullet-points and any indents from lists.
+ *
+ * @extend this class when creating a list-based component if you want to
+ * get rid of the bullets.
+ */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li,
+.list .list__item {
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+.list--inline {
+  *zoom: 1;
+}
+.list--inline:before, .list--inline:after {
+  content: " ";
+  display: table;
+}
+.list--inline:after {
+  clear: both;
+}
+.list--inline li,
+.list--inline .list__item {
+  float: left;
+  margin: 0 1.5em;
+}
+.list--inline.list--comfy li,
+.list--inline.list--comfy .list__item {
+  margin: 0 2em;
+}
+.list--inline.list--cozy li,
+.list--inline.list--cozy .list__item {
+  margin: 0 1em;
+}
+
+.list--comfy li,
+.list--comfy .list__item {
+  margin: 1em 0;
+}
+
+.list--cozy li,
+.list--cozy .list__item {
+  margin: 0.25em 0;
+}
+
+.list--smash li,
+.list--smash .list__item {
+  margin: 0;
+}
+
+/**
+ * Blackout is for darkening the main UI while presenting
+ * a modal or other takeover UI component.
+ *
+ * 1. Display higher than other elements.
+ * 2. 50% opacity black background.
+ */
+.blackout {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* [1] */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* [2] */
+}
+
+/**
+ * 1. Use flexbox positioning to center the modal.
+ */
+.blackout,
+.blackout__inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  /* [1] */
+  /* [1] */
+}
+
+/**
+ * In case you need to nest a few container elements inside the blackout.
+ */
+.blackout__inner {
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * DEPRECATED 11/18/14
+ */
+.blackout--absolute {
+  position: absolute;
+}
+
+/**
+ * Modal Object.
+ *
+ * 1. Provides for positioning of modal__close.
+ * 2. Hide modal on page-load.
+ * 3. Display higher than other elements.
+ * 4. Make modal narrow by default.
+ */
+.modal,
+.modal--narrow {
+  position: relative;
+  /* [1] */
+  overflow: hidden;
+  /* [2] */
+  z-index: 120;
+  /* [3] */
+  width: calc(100% - 1rem);
+  /* [4] */
+  max-width: 50rem;
+  /* [4] */
+}
+
+.modal__header {
+  /**
+   * DEPRECATED 11/11/14
+   */
+}
+.modal__header h1, .modal__header h2, .modal__header h3, .modal__header h4, .modal__header h5, .modal__header h6 {
+  margin-bottom: 0;
+}
+
+/**
+ * Modal close button
+ *
+ * 1. Position button at top right of modal.
+ */
+.modal__close {
+  position: absolute;
+  /* [1] */
+  cursor: pointer;
+}
+
+/**
+ * DEPRECATED
+ * 11/11/14
+ */
+.modal--wide {
+  max-width: 87.5rem;
+}
+
+/**
+ * DEPRECATED
+ * 10/31/14
+ */
+.modal--comfy .modal__header,
+.modal--comfy .modal__content {
+  padding: 1.5rem 2.25rem;
+}
+
+/**
+ * Set the global `box-sizing` state to `border-box`.
+ */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * If we have included this file, set a variable to tell the rest of the
+ * framework that global `box-sizing: border-box` has been set.
+ */
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+script {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+ * 1. Hide arrow in IE10.
+ */
+select::-ms-expand {
+  display: none;
+  /* [1] */
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
+/**
+ * As well as using normalize.css, it is often advantageous to remove all
+ * margins from certain elements.
+ */
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+table, th, td, caption,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u,
+ins {
+  text-decoration: none;
+}
+
+/**
+ * Apply faux underlines to inserted text via `border-bottom`.
+ */
+ins {
+  border-bottom: 1px solid;
+}
+
+/**
+ * Always use high-quality bicubic interpolation mode.
+ */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+a > img {
+  border: none;
+}
+
+/**
+ * Address, make non italic and remove bottom margin
+ */
+address {
+  font-style: normal;
+  margin-bottom: 0;
+}
+
+.statusBall {
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  display: inline-block;
+  border-radius: 100%;
+  vertical-align: bottom;
+}
+
+.statusBar {
+  overflow: hidden;
+}
+
+/**
+ * Tables with scrollable content.
+ */
+.table--scrollable {
+  position: relative;
+  /**
+   * 1. The scroll bar creates some extra padding on the right side of the
+   *    header. Add a border to the last th to clearly separate the th from this
+   *    extra space.
+   */
+  /**
+  * Scrollable styles
+  *
+  * NOTE: The cells must have their 'width' attribute set since we are making
+  * our sections use display: block.
+  *
+  * NOTE: The table body will need to have an explicit pixel height set. Tall,
+  # medium, and short defaults are available.
+  */
+  /**
+  * Table Header
+  *
+  * 1. Position it at the top.
+  * 2. Give it a full width.
+  * 3. Give it an explicit height.
+  * 4. Reduce the width of the header to match the reduced width of the tbody
+  *    caused by the presence of a scrollbar. This ensures the header cells
+  *    align with the row cells.
+  */
+  /**
+   * 1. Give it a full width.
+   * 2. Reset the display back to table.
+   */
+  /**
+  * Table Body
+  *
+  * NOTE: The table body will need to have an explicit pixel height set.
+  *
+  * 1. Add vertical scrolling. Make sure scrollbar is always visible with scroll
+  *    instead of auto, because of the width adjustment we've made to the thead,
+  *    which is unconditional.
+  */
+  /**
+  * Table Body
+  *
+  * NOTE: The table body will need to have an explicit pixel height set.
+  *
+  * 1. Give it a margin top to push it under the absolutely positioned header.
+  */
+  /**
+   * 1. Give it a full width.
+   * 3. Reset the display back to table.
+   */
+}
+.table--scrollable .th:last-child,
+.table--scrollable th:last-child {
+  border-right-width: 1px;
+  /* [1] */
+  border-right-style: solid;
+  /* [1] */
+}
+.table--scrollable .thead,
+.table--scrollable thead {
+  position: absolute;
+  /* [1] */
+  display: block;
+  left: 0;
+  /* [2] */
+  right: 0;
+  /* [2] */
+  height: 36px;
+  /* [3] */
+  padding-right: 15px;
+  /* [4] */
+}
+.table--scrollable .thead .tr,
+.table--scrollable thead tr {
+  width: 100%;
+  /* [1] */
+  display: table;
+  /* [2] */
+}
+.table--scrollable .tbody,
+.table--scrollable tbody {
+  display: block;
+  overflow-y: scroll;
+  /* [1] */
+}
+.table--scrollable .thead + .tbody,
+.table--scrollable thead + tbody {
+  margin-top: 36px;
+  /* [1] */
+}
+.table--scrollable .tbody .tr,
+.table--scrollable tbody tr {
+  width: 100%;
+  /* [1] */
+  display: table;
+  /* [2] */
+}
+
+/**
+ * Note that these classes must be nested within a .table--scrollable to
+ * take effect.
+ */
+/**
+ * Tables with a short height, and scrollable content.
+ */
+.tbody--short {
+  height: 12rem;
+}
+
+/**
+ * Tables with a medium height, and scrollable content.
+ */
+.tbody--medium {
+  height: 30rem;
+}
+
+/**
+ * Tables with a tall height, and scrollable content.
+ */
+.tbody--tall {
+  height: 54rem;
+}
+
+/**
+ * 1. Allow table styles to be applied to non-table elements.
+ */
+table,
+.table {
+  display: table;
+  /* [1] */
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.thead,
+thead {
+  display: table-header-group;
+  /* [1] */
+}
+
+.th,
+.td,
+th,
+td {
+  display: table-cell;
+  /* [1] */
+  vertical-align: middle;
+}
+
+.tbody {
+  display: table-row-group;
+  /* [1] */
+}
+
+.tr {
+  display: table-row;
+  /* [1] */
+}
+
+/**
+ * A simple way to force tables to have equal-width columns. Use in conjunction
+ * with colspans adding up to 24, as per: csswizardry.com/2013/11/taming-data-tables
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--grid {
+  table-layout: fixed !important;
+}
+
+/**
+ * Add borders around a table.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solid .th,
+.table--solid .td,
+.table--solid th,
+.table--solid td {
+  border: 1px solid !important;
+}
+
+/**
+ * Add borders only to table’s rows.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solidRows,
+.table--solidRows .th,
+.table--solidRows .td,
+.table--solidRows th,
+.table--solidRows td {
+  border-width: 0 !important;
+  border-style: solid !important;
+}
+.table--solidRows .tbody .td,
+.table--solidRows tbody td {
+  border-bottom-width: 1px !important;
+}
+.table--solidRows .tr:last-child .td
+tr:last-child td {
+  border-bottom-width: 0px !important;
+}
+
+/**
+ * Add borders only to table’s columns.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solidColumns {
+  border-left-width: 1px !important;
+}
+.table--solidColumns,
+.table--solidColumns .th,
+.table--solidColumns .td,
+.table--solidColumns th,
+.table--solidColumns td {
+  border-width: 0 !important;
+  border-style: solid !important;
+}
+.table--solidColumns .th,
+.table--solidColumns .td,
+.table--solidColumns th,
+.table--solidColumns td {
+  border-right-width: 1px !important;
+}
+
+/**
+ * Tighly packed tables.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--cozy .th,
+.table--cozy .td,
+.table--cozy th,
+.table--cozy td {
+  padding: 0.5rem !important;
+}
+
+/**
+ * Large-padded tables.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--comfy .th,
+.table--comfy .td,
+.table--comfy th,
+.table--comfy td {
+  padding: 1rem !important;
+}
+
+/**
+ * Row padding modifiers.
+ *
+ * NOTE: Padding adjustments for rows only. To be used with the default header height.
+ *
+ *
+ * 1. Apply padding to just top and bottom padding to keep header and
+ *    body cell text aligned.
+ *
+ * THESE MODIFIERS ARE DEPRECATED.
+ */
+.table--comfyRows .td,
+.table--comfyRows td {
+  padding-top: 1rem !important;
+  /* [1] */
+  padding-bottom: 1rem !important;
+  /* [1] */
+}
+
+.table--cozyRows .td,
+.table--cozyRows td {
+  padding-top: 0.5rem !important;
+  /* [1] */
+  padding-bottom: 0.5rem !important;
+  /* [1] */
+}
+
+/**
+ * Tabs object.
+ *
+ * 1. Reset of table properties
+ * 2. Reset of ul properties
+ * 3. Make tabs full width of parent container
+ * 4. Remove space around tabs (hack to make inline-block work)
+ */
+.tabs {
+  margin: 0;
+  /* [1] */
+  padding: 0;
+  /* [1] */
+  list-style: none;
+  /* [2] */
+  width: 100%;
+  /* [3] */
+  text-align: center;
+  font-size: 0;
+  /* [4] */
+}
+
+/**
+ * Individual tab items.
+ *
+ * 1. Allow the parents text-align center to center the tabs.
+ * 2. Reset font-size.
+ * 3. Disabled state for item.
+ * 4. This is correct, but doesn't work in Chrome.
+ */
+.tabs__item {
+  cursor: pointer;
+  display: inline-block;
+  /* [1] */
+  width: 100px;
+  font-size: 1rem;
+  /* [2] */
+}
+.tabs__item.is-tab-disabled {
+  /* [3] */
+  pointer-events: none;
+  cursor: not-allowed;
+  /* [4] */
+}
+
+/**
+ * DEPRECATED 10/30/14
+ *
+ * Tabs are full width and evenly spaced.
+ *
+ * 1. Provides text alignment and equal spacing of tabs
+ * 2. Determines equal widths of tabs
+ * 3. Provides equal width of tabs via display:table and
+ *    table-layout:fixed properties of parent
+ */
+.tabs--full {
+  display: table;
+  /* [1] */
+  table-layout: fixed;
+  /* [2] */
+}
+.tabs--full .tabs__item {
+  display: table-cell;
+  /* [3] */
+}
+
+/**
+ * DEPRECATED 10/30/14
+ */
+.tabs--cozy .tabs__item {
+  padding: 0.5rem;
+}
+
+/**
+ * DEPRECATED 10/30/14
+ */
+.tabs--comfy .tabs__item {
+  padding: 1rem;
+}
+
+/**
+ * 1. Fit into the enclosing block element, e.g. p or h1.
+ * 2. Don't word wrap to next line because that would mess up the visual
+ *    integrity of the tag.
+ * 3. Don't inherit the enclosing element's font weight.
+ */
+.tag {
+  display: inline-block;
+  /* [1] */
+  line-height: 1;
+  /* [1] */
+  white-space: nowrap;
+  /* [2] */
+  font-weight: normal;
+  /* [3] */
+}
+
+.toggle {
+  width: 100%;
+  height: 1em;
+  background: #bbb;
+  position: relative;
+  font-size: 1em;
+}
+.toggle:after, .toggle:before {
+  width: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.5em;
+  line-height: 0.5em;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.25em;
+  z-index: 0;
+  color: #fff;
+}
+.toggle:after {
+  content: attr(data-off);
+  right: 0;
+}
+.toggle:before {
+  content: attr(data-on);
+  left: 0;
+}
+.toggle label {
+  width: 100%;
+  height: 1em;
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.toggle label:after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: #ddd;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.toggle input[type="checkbox"] {
+  visibility: hidden;
+}
+.toggle input[type="checkbox"]:checked + label:after {
+  left: 50%;
+}
+
+/**
+ * Setting this to hidden will typically solve webkit text flicker issues
+ * during transitions.
+ */
+.type--small {
+  font-size: 85%;
+}
+
+.type--large {
+  font-size: 125%;
+}
+
+.type--reverse {
+  color: white;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmuPagination * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.cmuNav__navItem:hover a, .cmuNav__navItem.cmuNav__dropItem:hover:after, .cmuNav__dropItem:after {
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+  -webkit-transition: 0.31s;
+  -moz-transition: 0.31s;
+  -o-transition: 0.31s;
+  transition: 0.31s;
+}
+
+.cmuNav__navItem:hover a, .cmuNav__navItem.cmuNav__dropItem:hover:after, .cmuNav__dropItem:after {
+  -webkit-transition: all 230ms ease;
+  -moz-transition: all 230ms ease;
+  -ms-transition: all 230ms ease;
+  -o-transition: all 230ms ease;
+  transition: all 230ms ease;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+  -webkit-transition: all 180ms ease;
+  -moz-transition: all 180ms ease;
+  -ms-transition: all 180ms ease;
+  -o-transition: all 180ms ease;
+  transition: all 180ms ease;
+}
+
+.cmuPagination__main, .cmuPagination__main__scrubber {
+  -webkit-transition: all 320ms ease;
+  -moz-transition: all 320ms ease;
+  -ms-transition: all 320ms ease;
+  -o-transition: all 320ms ease;
+  transition: all 320ms ease;
+}
+
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] */
+/* [5] */
+/* [6] */
+.color-background-dark {
+  background-color: #17191d;
+}
+
+/**
+ * These are very basic, high-level default settings to get a project started.
+ */
+/**
+ * These are private variables that should not be reassigned, overridden, or
+ * modified. They are for use internally by the framework.
+ */
+.cmuWrapper {
+  min-height: 100%;
+}
+
+body {
+  background-color: #fafafa;
+  height: 100%;
+  color: black;
+  line-height: inherit;
+}
+
+.row {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+.row > div:first-child {
+  padding-left: 0;
+}
+.row > div:last-child {
+  padding-right: 0;
+}
+.row .row {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media screen and (min-width: 801px) {
+  .row {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (min-width: 1041px) {
+  .row {
+    padding-left: 89px;
+    padding-right: 89px;
+  }
+}
+
+.comGlobalHeader {
+  position: relative !important;
+}
+
+.cmuTooltipster {
+  border: 2px solid black;
+  border-color: #00a0df;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+.forumBadge__info__points span:nth-child(2) {
+  font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuForumDescriptor, .forumThreadList__message, .cmuTooltipster .tooltipster-content {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+}
+
+button, .button, .forumThreadList thead th {
+  font-size: 0.6875rem;
+  line-height: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3.75rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 2.75rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.1rem;
+  line-height: 1.95rem;
+  font-weight: 600;
+  color: #474b52;
+}
+
+h5 {
+  font-size: 0.83rem;
+}
+
+h6 {
+  font-size: 0.6875rem;
+  line-height: 1.34063rem;
+  font-weight: 400;
+  color: #474b52;
+  font-style: italic;
+}
+
+.style-copy, .forumThreadMessage, .forumBadge__username, .forumThreadMain__body p, .forumThreadMain__body ul, .forumThreadMain__body ol {
+  font-size: 0.88rem;
+  line-height: 1.45rem;
+  color: #17191d;
+}
+
+.type-titleThin, .cmuDiscussionsNavbar * {
+  font-weight: 300;
+  color: #17191d;
+  text-transform: uppercase;
+}
+
+.type-link, .cmuDiscussionsNavbar a {
+  color: #17191d;
+}
+.type-link.active, .cmuDiscussionsNavbar a.active {
+  color: #00a0df;
+}
+.type-link:hover, .cmuDiscussionsNavbar a:hover {
+  color: #00a0df;
+}
+
+button, .button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+html {
+  min-height: 100%;
+  line-height: 1.5rem;
+  font-size: 1em;
+}
+
+body {
+  min-height: 100%;
+  overflow-y: scroll;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+img, object, embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+hgroup, hr,
+ul, ol, dl,
+blockquote, address,
+table,
+fieldset, figure,
+pre {
+  margin-bottom: 1rem;
+}
+
+.noMarginTop {
+  margin-top: 0 !important;
+}
+
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+
+.noVerticalMargin {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* file size: 0.2ko | already optimized | base64 size: 0.2ko */
+.cmuIcons--arrows_left {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMyIiB2aWV3Qm94PSIwIDAgMTMyIDEzMiI+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTY2IDE2LjV2OTlsLTY2LTQ5LjUgNjYtNDkuNXptNjYgMHY5OWwtNjYtNDkuNSA2Ni00OS41eiIvPjwvc3ZnPg==);
+}
+
+/* file size: 0.2ko | already optimized | base64 size: 0.2ko */
+.cmuIcons--arrows_right {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMyIiB2aWV3Qm94PSIwIDAgMTMyIDEzMiI+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTY2IDExNS41di05OWw2NiA0OS41LTY2IDQ5LjV6bS02NiAwdi05OWw2NiA0OS41LTY2IDQ5LjV6Ii8+PC9zdmc+);
+}
+
+.cmuIcons--pin, .forumThreadList__message--pinned .forumThreadList__message__topic:after {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTI5MiAzODQgMjYgMjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTI5MiAzODQgMjYgMjYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBpZD0iUGFnZS0xIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj48ZyBpZD0iT3ZhbC0yNy1feDJCXy1TaGFwZS1Db3B5IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj48Y2lyY2xlIGlkPSJPdmFsLTI3IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBmaWxsPSIjNDc0QjUyIiBjeD0iLTI3OSIgY3k9IjM5NyIgcj0iMTMiPjwvY2lyY2xlPjxwYXRoIGlkPSJTaGFwZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgZmlsbD0iI0ZGRkZGRiIgZD0iTS0yNzcuNCw0MDIuNWwwLjMtMi40bDAsMGw1LTYuNmwtMy41LTMuNWwtNi42LDVsMCwwbC0yLjQsMC4zbDMsM2wtNC40LDVsMC42LDAuNmw1LTQuNEwtMjc3LjQsNDAyLjV6Ii8+PC9nPjwvZz48L3N2Zz4=);
+}
+
+.cmuPagination * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pagination_ex div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+.pagination_ex input {
+  display: inline-block;
+  width: 6rem;
+  margin-right: 2rem;
+}
+
+.cmuPagination {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: flex-start;
+  margin-bottom: 1rem;
+}
+.cmuPagination * {
+  display: inline-block;
+}
+
+.cmuPagination__scrubber {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: flex-start;
+  align-items: flex-start;
+  min-width: 19rem;
+}
+
+.cmuPagination__txtControl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 32px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.cmuPagination__txtControl .pagination_control_right {
+  text-align: right;
+}
+.cmuPagination__txtControl:hover:not(.disabled) {
+  text-decoration: underline;
+  color: #00a0df;
+}
+.cmuPagination__txtControl.disabled {
+  color: #969ba3;
+  cursor: default;
+}
+
+.cmuPagination__txtControl--prev {
+  margin-right: 0.5rem;
+}
+
+.cmuPagination__txtControl--next {
+  margin-left: 0.5rem;
+}
+
+.cmuPagination__arrow {
+  height: 32px;
+  line-height: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+.cmuPagination__arrow:hover:not(.disabled) {
+  cursor: pointer;
+  color: #00a0df;
+}
+.cmuPagination__arrow.disabled {
+  color: #ebebeb;
+  cursor: default;
+}
+
+.cmuPagination__main {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow: hidden;
+  height: 32px;
+  vertical-align: bottom;
+  position: relative;
+}
+.cmuPagination__main.cmuPagination__fullScroll {
+  flex-basis: 5rem;
+  flex-grow: 1;
+}
+
+.cmuPagination__main__scrubber {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+  left: 0;
+}
+
+.cmuPagination__num {
+  padding: 0.5rem 0;
+  text-align: center;
+  min-width: 2.5rem;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 2.5rem;
+}
+.cmuPagination__num.active {
+  background: #00a0df !important;
+  color: white !important;
+  cursor: default !important;
+}
+.cmuPagination__num:hover:not(.active) {
+  background-color: #dadada;
+}
+
+.cmuPagination__first {
+  flex-grow: initial;
+  padding: 0.25rem 0;
+  text-align: center;
+  min-width: 2.5rem;
+  cursor: pointer;
+  height: 32px;
+  font-size: 0.8125rem;
+}
+.cmuPagination__first.active {
+  background: #00a0df !important;
+  color: white !important;
+  cursor: default !important;
+}
+.cmuPagination__first:not(.active):after {
+  content: ' ... ';
+  padding-left: 0.16667rem;
+}
+.cmuPagination__first:hover:not(.active) {
+  background-color: #dadada;
+}
+
+.cmuPagination__last {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-left: 0;
+  cursor: default;
+  height: 32px;
+  font-size: 0.8125rem;
+}
+.cmuPagination__last:not(.enabled) {
+  color: #bbbbbd;
+}
+.cmuPagination__last.enabled:hover {
+  background-color: #dadada;
+  cursor: pointer;
+}
+
+.cmuPagination__last__of {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-weight: 300;
+}
+
+.cmuPagination__last__num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.cmuPagination__isSimple.cmuPagination__arrow, .cmuPagination__isSimple.cmuPagination__last {
+  display: none !important;
+}
+.cmuPagination__isSimple.cmuPagination__first {
+  color: inherit;
+  background-color: white;
+}
+.cmuPagination__isSimple.cmuPagination__scrubber {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.cmuPagination__isSimple.cmuPagination__main {
+  flex-grow: 0;
+}
+
+.cmuNav {
+  background-color: #242931;
+  cursor: default;
+}
+.cmuNav *, .cmuNav a {
+  font-size: 0.71875rem;
+  color: #ebebeb;
+  text-transform: uppercase;
+  letter-spacing: 0.11111rem;
+}
+.cmuNav a {
+  padding: 1rem 0;
+}
+.cmuNav ul {
+  padding: 1rem 0;
+}
+.cmuNav ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.cmuNav ul li:last-of-type {
+  margin-right: 0;
+}
+
+.cmuNav__navItem {
+  padding: 1rem 0.5rem;
+  position: relative;
+}
+.cmuNav__navItem:hover a, .cmuNav__navItem:hover.cmuNav__dropItem:after {
+  color: #00a0df;
+}
+
+.cmuNav__active, .cmuNav__active a {
+  color: #00a0df;
+}
+
+.cmuNav__dropItem:after {
+  font-family: 'ubnt';
+  content: "\e6d0";
+  position: absolute;
+  top: 26px;
+  left: 45%;
+}
+
+.cmuNav__search {
+  background-color: #474b52;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+}
+.cmuNav__search .icon {
+  font-size: 1rem;
+  line-height: 0;
+  margin-right: 1rem;
+  position: relative;
+  top: 3px;
+}
+
+.cmuBanner {
+  cursor: pointer;
+  background-color: #ffb31a;
+  font-weight: 300;
+  color: #474b52;
+}
+.cmuBanner:not(.cmuBanner__close):hover {
+  background-color: #f09300;
+}
+.cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span {
+  color: black;
+}
+
+.cmuBanner__main {
+  text-align: left;
+  padding: 1rem 0;
+}
+
+.cmuBanner__message {
+  margin-right: 1rem;
+}
+
+.cmuBanner__close {
+  padding: 1rem;
+  position: relative;
+  right: -1.7rem;
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.cmuBanner__close:hover {
+  color: #fafafa;
+}
+
+.cmuFlexCenter {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  /* [1] */
+}
+
+.cmuFlexStretchHeight {
+  -webkit-flex-grow: 1;
+  -ms-flex: 1;
+  /* [1] */
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: 1;
+  flex-basis: 1;
+}
+
+.cmuBreadcrumbs {
+  margin: 1rem 0;
+  font-weight: 400;
+  font-size: 0.74rem;
+}
+.cmuBreadcrumbs * {
+  cursor: default;
+}
+.cmuBreadcrumbs > div > span span {
+  cursor: pointer;
+}
+.cmuBreadcrumbs > div > span:after {
+  content: '/';
+  padding: 0 0.33333rem;
+}
+.cmuBreadcrumbs > div > span a {
+  color: black;
+}
+.cmuBreadcrumbs > div > span a:hover {
+  color: #00a0df;
+}
+.cmuBreadcrumbs > div > span:last-of-type {
+  color: #bbbbbd;
+}
+.cmuBreadcrumbs > div > span:last-of-type:after {
+  content: '';
+}
+
+.cmuSearchbox {
+  text-align: right;
+}
+.cmuSearchbox ::-webkit-input-placeholder {
+  color: #dadada;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox :-moz-placeholder {
+  color: #dadada;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox ::-moz-placeholder {
+  color: #dadada;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox :-ms-input-placeholder {
+  color: #dadada;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+.cmuSearchbox input {
+  background-color: white;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  height: 2rem;
+  border: 1px solid #bebec0;
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-size: 0.8125rem;
+  margin: 0 0 0.0625rem 0;
+  width: 100%;
+}
+.cmuSearchbox input:focus, .cmuSearchbox input:active {
+  outline-color: transparent;
+  outline-style: none;
+}
+.cmuSearchbox input:focus {
+  background: #fafafa;
+  border-color: #00a0df;
+}
+.cmuSearchbox input[disabled] {
+  background-color: #dddddd;
+}
+
+/*------------------------------------*\
+    #SELECT GROUP
+\*------------------------------------*/
+select {
+  background-color: white;
+  font-family: inherit;
+  height: 2rem;
+  width: 100%;
+  -webkit-appearance: none !important;
+  background: white url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSAyNzguNjI3LDM3MC4zNDMgDQoJNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=") no-repeat;
+  background-position: right 0.6em top 0.6rem;
+  border: 1px solid #bebec0;
+  padding: 0 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 0.8125rem;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-size: 16px 12px;
+}
+select:focus, select:active {
+  outline-color: transparent;
+  outline-style: none;
+}
+select:hover {
+  border-color: #00a0df;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Disabled select background */
+select:disabled {
+  background: #dddddd;
+}
+
+/*
+	Button Usage:
+
+	- <button> or .button declares button
+	- declare a button style:
+		- ghost (hollow bg)
+		- solid (default)
+		- compound (ghosted w/ a title)
+	- declare a color scheme
+		- button-background-foreground
+		- button-blue-white (default)
+
+
+	Button notes:
+	- Standard button height are 32px (2rem)
+	- all buttons are defined w/ border for height standardization
+		- solid buttons match border w/ bg color
+*/
+button, .button {
+  line-height: normal;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+button .icon, .button .icon {
+  margin-right: 0.5rem;
+}
+
+button, .button, .button--ghost, .button-blue-white, .button-black-white {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8rem;
+}
+button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .button-black-white:hover {
+  border-color: #ebebeb;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.button--solid {
+  padding: 0.4375rem 1rem;
+  border: 1px solid #00a0df;
+}
+.button--solid:hover {
+  background-color: #0074ad;
+}
+
+.button-compound {
+  border: 0.125rem solid #00a0df;
+  font-size: 0.8rem;
+  padding: 0;
+}
+.button-compound span {
+  display: inline-block;
+}
+.button-compound span:nth-child(1) {
+  padding: 0.375rem 1rem;
+  background-color: #fafafa;
+  color: #48af65;
+}
+.button-compound span:nth-child(2) {
+  padding: 0.375rem 1rem;
+  line-height: 16px;
+}
+.button-compound:hover {
+  border-color: #48af65;
+  background-color: #48af65;
+}
+.button-compound:hover span:nth-child(1) {
+  background-color: #48af65;
+  color: #fafafa;
+}
+.button-compound:hover span:nth-child(2) {
+  border-color-left: #fafafa;
+  color: #fafafa;
+}
+
+button, .button {
+  height: 2rem;
+}
+
+.button--solid {
+  border: 0;
+}
+
+.button-white-green {
+  background-color: #fafafa;
+  color: #48af65;
+  border-color: #48af65;
+}
+.button-white-green span {
+  padding: 0 0.5rem;
+  background-color: #48af65;
+  color: #fafafa;
+}
+.button-white-green:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+
+.button-white-blue {
+  background-color: #fafafa;
+  color: #00a0df;
+  border-color: #00a0df;
+}
+.button-white-blue:hover {
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+
+.button-blue-white {
+  background-color: #00a0df;
+  color: #fafafa;
+  border: #00a0df;
+}
+
+.button-black-white {
+  background-color: black;
+  color: #fafafa;
+  border: #00a0df;
+}
+
+.button--wide {
+  width: 100%;
+}
+
+.cmuDiscussionsHeaderRow {
+  border-bottom: 2px solid black;
+}
+
+.cmuDiscussionsHeader h2 {
+  display: inline-block;
+}
+
+.cmuDiscussionsHeader h4 {
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+
+.cmuDiscussionsNavbar {
+  cursor: default;
+  margin-bottom: 1rem;
+}
+.cmuDiscussionsNavbar ul {
+  float: left;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 1rem 0;
+}
+.cmuDiscussionsNavbar li {
+  display: inline;
+  padding-left: 1em;
+}
+.cmuDiscussionsNavbar li:first-of-type {
+  padding-left: 0;
+}
+
+.forumThreadList__message__topic a {
+  color: black;
+}
+.forumThreadList__message__topic a:hover {
+  color: #00a0df;
+}
+
+.cmuForumDescriptor {
+  padding-bottom: 1rem;
+}
+
+.forumThreadCount {
+  margin-bottom: 1rem;
+}
+
+.forumThreadCount__message {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.forumThreadList__head--topic {
+  width: auto;
+}
+
+.forumThreadList__head--author, .forumThreadList__message__author, .forumThreadList__head--authorLast, .forumThreadList__message__authorLast {
+  width: 12%;
+  padding-right: 0.5rem;
+  max-width: 100px;
+}
+
+@media only screen and (max-width: 1040px) {
+  .forumThreadList__head--author, .forumThreadList__message__author {
+    display: none;
+  }
+}
+
+.forumThreadList__head--counter, .forumThreadList__message__counter {
+  width: 6%;
+  text-align: left;
+}
+
+.forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
+  width: 80px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1040px) {
+  .forumThreadList__head--createdDate, .forumThreadList__message__createdDate {
+    display: none;
+  }
+}
+
+.forumThreadList thead {
+  border-bottom: 1px solid #ebebeb;
+}
+.forumThreadList thead th {
+  font-weight: 400;
+  color: #969ba3;
+}
+
+.forumThreadList__head--topic {
+  text-align: left;
+}
+
+.forumThreadList__head--author {
+  text-align: left;
+}
+
+.forumThreadList__head--authorLast {
+  text-align: left;
+}
+
+.forumThreadList__message {
+  position: relative;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 2rem;
+}
+.forumThreadList__message td {
+  overflow: hidden;
+}
+
+.forumThreadList__message__topic {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  position: relative;
+  line-height: 1.5rem;
+}
+
+.forumThreadList__message__author {
+  line-height: 1rem;
+}
+
+.forumThreadList__message__authorLast {
+  line-height: 1rem;
+}
+
+.forumThreadList__message__counter {
+  padding-right: 0.5rem;
+}
+
+.forumThreadList__message__latestDate, .forumThreadList__message__createdDate {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1rem;
+  color: #474b52;
+  font-size: 0.6875rem;
+}
+
+.forumThreadList--pinList {
+  border-bottom: 2px solid black;
+  border-color: #474b52;
+}
+
+.forumThreadList__message--pinned .forumThreadList__message__topic:after {
+  content: ' ';
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+}
+
+.forumThreadList__message--active .forumThreadList__message__topic > a:before {
+  content: 'ACTIVE';
+  display: inline-block;
+  background-color: #ff3516;
+  padding: 0.16667rem 0.5rem;
+  margin-right: 0.5rem;
+  color: #fafafa;
+  font-size: 0.5625rem;
+  line-height: 1rem;
+}
+
+.forumThreadList__message--locked .forumThreadList__message__topic > a:after {
+  font-family: 'ubnt';
+  content: '\e787';
+  display: inline-block;
+  padding: 0.16667rem 0.5rem;
+}
+
+.forumThreadList__message--read {
+  background-color: #ebebeb;
+  border-color: #dedede;
+}
+.forumThreadList__message--read a, .forumThreadList__message--read .forumThreadList__message__counter {
+  font-weight: 300;
+}
+
+.forumThreadSubject h4 {
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.forumThreadMessage {
+  border: 1px solid #ebebeb;
+  margin-bottom: 1rem;
+}
+
+.forumBadge {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.forumBadge__avatar img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.forumBadge__info {
+  background-color: #ebebeb;
+  font-size: 0.6875rem;
+  line-height: 1.45rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+
+.forumBadge__info__points span:nth-child(2) {
+  letter-spacing: 1.4px;
+  padding-left: 0.33333rem;
+}
+
+.forumBadge__info__location span:nth-child(2) {
+  text-transform: capitalize;
+  padding-left: 0.33333rem;
+  word-wrap: break-word;
+}
+
+.forumThreadMain {
+  border-left: 1px solid #ebebeb;
+  min-height: 12rem;
+  padding: 1rem;
+}
+
+.forumThreadMain__body {
+  margin-bottom: 1rem;
+  min-height: 100px;
+}
+.forumThreadMain__body p {
+  margin-bottom: 0;
+}
+
+.forumThreadMain__controls__reply button {
+  float: right;
+}
+
+.forumThreadMain__bottomControls {
+  margin-bottom: 1rem;
+}
+
+.activeCounter {
+  margin-bottom: 1rem;
+  font-size: 0.6875rem;
+}
+.activeCounter span:nth-child(1) {
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  background-color: #00a0df;
+  color: #fafafa;
+}
+.activeCounter span:nth-child(2) {
+  background-color: #ebebeb;
+  padding: 0.5rem 0.75rem;
+}
+
+.forumThreadControl {
+  margin-bottom: 1rem;
+}
+
+/**
+ * Typography.
+ *
+ * 1. Default font color.
+ * 2. Sometimes text needs to appear disabled, e.g. disabled table rows.
+ * 3. Less noticeable than the default color.
+ * 4. Less noticeable than the subdued color.
+ */
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] */
+.appIconInput {
+  display: block;
+}
+
+.appIconInput__input {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height: 2rem;
+}
+
+/**
+ * 1. Make sure icon is on top of input. Input gains z-index of 2 when focused
+ *    so we make this z-index 3.
+ * 2. Clicks on icon should pass through to the input.
+ */
+.appIconInput__icon {
+  position: absolute;
+  z-index: 3;
+  /* [1] */
+  padding-top: 0.7rem;
+  padding-left: 0.5rem;
+  color: #bbbbbd;
+  pointer-events: none;
+  /* [2] */
+  margin-bottom: inherit;
+  height: inherit;
+  font-size: 0.8125rem;
+}
+
+/**
+ * 1. Using an anchor with an icon should make it clickable.
+ */
+a.appIconInput__icon {
+  pointer-events: auto;
+  /* [1] */
+}
+
+.appIconInput--right {
+  /**
+   * 1. Prevent input text from overlapping with icon.
+   */
+  /**
+   * 1. Prevent select arrow from overlapping with icon.
+   */
+}
+.appIconInput--right .appIconInput__icon {
+  right: 0.5em;
+}
+.appIconInput--right .appIconInput__input {
+  padding-right: 2rem;
+  /* [1] */
+}
+.appIconInput--right.appIconInput--select .appIconInput__input {
+  padding-right: 3.75em;
+  /* [1] */
+}
+.appIconInput--right.appIconInput--select .appIconInput__icon {
+  right: 2em;
+  /* [1] */
+}
+
+.appIconInput--left {
+  /**
+   * 1. Prevent input text from overlapping with icon.
+   */
+}
+.appIconInput--left .appIconInput__icon {
+  left: 0.5em;
+}
+.appIconInput--left .appIconInput__input {
+  padding-left: 2rem;
+  /* [1] */
+  margin-bottom: inherit;
+  font-size: 0.8125rem;
+}
+
+.comGlobalFooter {
+  padding: 0 89px;
+}
+
+.comGlobalFooter h4 {
+  margin: 12px 0 4px;
+  color: #666;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media only screen and (min-width: 801px) {
+  .comGlobalFooter h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+/*------------------------------------*\
+    #STATUS
+\*------------------------------------*/
+/**
+ * Status colors.
+ *
+ * 1. Gray
+ * 2. UBNT Blue
+ * 3. Blue
+ * 4. Green
+ * 5. Yellow
+ * 6. Red
+ */
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] */
+/* [5] */
+/* [6] */
+/*------------------------------------*\
+    #DEFAULT
+\*------------------------------------*/
+/*------------------------------------*\
+    LINK
+\*------------------------------------*/
+/*------------------------------------*\
+    GLOBAL FOOTER
+\*------------------------------------*/
+/*------------------------------------*\
+    GLOBAL HEADER
+\*------------------------------------*/
+.comGlobalHeader .row, .comGlobalFooter .row {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+.comGlobalHeader .row .row, .comGlobalFooter .row .row {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media screen and (min-width: 801px) {
+  .comGlobalHeader .row, .comGlobalFooter .row {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (min-width: 1041px) {
+  .comGlobalHeader .row, .comGlobalFooter .row {
+    padding-left: 89px;
+    padding-right: 89px;
+  }
+}
+
+/* Only mobile (phone) nav */
+/* Only tablet nav */
+/* Tablet nav breakpoint and below */
+/* Above tablet nav breakpoint */
+/*------------------------------------*\
+    #GlobalHeader
+\*------------------------------------*/
+.comGlobalHeader__navItem--Community {
+  background-color: #242931;
+}
+.comGlobalHeader__navItem--Community .comGlobalHeader__navItemLink {
+  color: #00a0df;
+}
+
+.comGlobalHeader__nav, .comGlobalHeader__logo {
+  border-bottom: 1px solid #474b52;
+}
+
+.comGlobalHeader__navItem--search {
+  border-right: 1px solid #474b52;
+}
+
+.comGlobalHeader__cmuItem {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  width: 45px;
+  text-align: center;
+  font-size: 20px !important;
+}
+
+.comGlobalHeader__cmuItem--inbox {
+  top: 3px;
+  position: relative;
+}
+
+.comGlobalHeader__cmuItem--notifications {
+  top: 5px;
+  position: relative;
+}
+
+.comGlobalHeader__cmuItem--avatar {
+  width: 60px;
+  cursor: pointer;
+}
+.comGlobalHeader__cmuItem--avatar:hover:after {
+  background: #ebebeb;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__cmuItem--avatar:after {
+  content: ' ';
+  display: block;
+  background: #969ba3;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 11px;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.comGlobalHeader__cmuItemLink {
+  display: block;
+  font-size: 1.2rem;
+  color: #aeb4b7;
+}
+.comGlobalHeader__cmuItemLink:hover {
+  color: white;
+}
+.comGlobalHeader__cmuItemLink:focus {
+  color: #aeb4b7;
+}
+.comGlobalHeader__cmuItemLink.is-link-selected {
+  color: #00a0df;
+}
+
+.comGlobalHeader {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 57px;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media only screen and (max-width: 890px) {
+  .comGlobalHeader {
+    height: 48px;
+  }
+}
+
+.comGlobalHeader__content {
+  background-color: #17191d;
+  height: 56px;
+  width: 100%;
+  position: relative;
+  left: 0;
+  display: table;
+  max-width: 1400px;
+  margin: 0 auto;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+@media only screen and (max-width: 890px) {
+  .comGlobalHeader__content {
+    height: 48px;
+  }
+  .comGlobalHeader__content > .comGlobalHeader__logo {
+    height: 48px;
+  }
+  .comGlobalHeader__content > .comGlobalHeader__logo > .icon {
+    top: -16px;
+  }
+  .comGlobalHeader__content > .comGlobalHeader__nav {
+    display: none;
+  }
+}
+
+/* LOGO */
+/*
+* 1. Custom breakpoints for logo hover animation 
+*/
+.comGlobalHeader__logo {
+  display: table-cell;
+  width: 57px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.8rem;
+  color: white;
+  background-color: #17191d;
+  line-height: 0;
+  overflow: hidden;
+  height: 57px;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__logo:hover {
+  color: white;
+}
+@media only screen and (min-width: 1150px) {
+  .comGlobalHeader__logo:hover {
+    width: 132px;
+  }
+  .comGlobalHeader__logo:hover > .icon {
+    width: 105px;
+  }
+}
+.comGlobalHeader__logo:focus {
+  color: white;
+}
+.comGlobalHeader__logo > .icon {
+  position: absolute;
+  top: -11px;
+  left: 7px;
+  margin-left: 8px;
+  display: inline-block;
+  overflow: hidden;
+  height: 67px;
+  width: 32px;
+  font-size: 4.125rem;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+/* NAV */
+.comGlobalHeader__nav {
+  vertical-align: middle;
+  padding: 0 0 0 11px;
+  list-style: none;
+  background-color: #11181c;
+  display: none;
+}
+@media only screen and (min-width: 891px) {
+  .comGlobalHeader__nav {
+    display: table-cell;
+  }
+}
+
+/* SUB NAV */
+.comGlobalHeader__subNav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  padding-left: 93px;
+  z-index: -1;
+  background-color: #11181c;
+  line-height: 1;
+  border-top: 1px solid #212E35;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition-property: top;
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  transition-property: top;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__subNav .comGlobalHeader__navItem {
+  text-transform: none;
+  letter-spacing: 1.5px;
+  margin-right: 24px;
+}
+
+/* NAV RIGHT */
+.comGlobalHeader__navRight {
+  text-align: right;
+  padding-left: 0;
+}
+
+/* NAV ITEM */
+.comGlobalHeader__navItem {
+  letter-spacing: 1.75px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  /* 
+    When a navItem has a subNav and is selected
+  */
+}
+.comGlobalHeader__navItem.is-nav-item-selected > .comGlobalHeader__navItemLink {
+  color: white;
+  border-bottom: 1px solid #00a0df;
+}
+.comGlobalHeader__navItem.is-nav-item-selected .comGlobalHeader__subNav {
+  top: 57px;
+}
+@media only screen and (min-width: 801px) {
+  .comGlobalHeader__navItem {
+    display: inline-block;
+    line-height: 56px;
+  }
+}
+
+/* Mobile Menu Item (hamburger) */
+.comGlobalHeader__navItemMobile {
+  display: table-cell;
+  text-align: right;
+  padding: 0 1em 0 0;
+  vertical-align: middle;
+  line-height: 48px;
+}
+@media only screen and (min-width: 891px) {
+  .comGlobalHeader__navItemMobile {
+    display: none;
+  }
+}
+.comGlobalHeader__navItemMobile .comGlobalHeader__navItemLink {
+  font-size: 1.6rem;
+  color: #FFFFFF;
+}
+.comGlobalHeader__navItemMobile .comGlobalHeader__navItemLink:hover {
+  color: #00a0df;
+}
+
+/* NAV LINK */
+.comGlobalHeader__navItemLink {
+  display: block;
+  font-size: 1.5rem;
+  color: #aeb4b7;
+}
+.comGlobalHeader__navItemLink:hover {
+  color: white;
+}
+.comGlobalHeader__navItemLink:focus {
+  color: #aeb4b7;
+}
+.comGlobalHeader__navItemLink.is-link-selected {
+  color: #00a0df;
+}
+@media only screen and (min-width: 801px) {
+  .comGlobalHeader__navItemLink {
+    font-size: 0.71875rem;
+  }
+}
+
+/* SEARCH FORM */
+.comGlobalHeader__navItemSearchForm {
+  letter-spacing: 0;
+  width: 0;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0 0.7em;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  /* 
+    1. tablet breakpoint 
+    At this breakpoint the search form will overlap the navRight
+  */
+}
+.comGlobalHeader__navItemSearchForm.is-nav-search-expanded {
+  width: 226px;
+}
+@media only screen and (min-width: 890px) and (max-width: 1090px) {
+  .comGlobalHeader__navItemSearchForm {
+    /* [1] */
+    position: absolute;
+    top: 12px;
+    right: 47px;
+  }
+}
+
+/* SEARCH ICON */
+.comGlobalHeader__navItemSearch {
+  vertical-align: -2px;
+  /* 
+    1. tablet breakpoint 
+    Maintain spacing since navItemSearchForm will now be positioned absolute
+  */
+}
+@media only screen and (min-width: 890px) and (max-width: 1090px) {
+  .comGlobalHeader__navItemSearch {
+    /* [1] */
+  }
+}
+.comGlobalHeader__navItemSearch .comGlobalHeader__navItemLink {
+  font-size: 0.96875rem;
+}
+.comGlobalHeader__navItemSearch.is-nav-search-expanded .comGlobalHeader__navItemLink {
+  color: white;
+}
+
+/* MOBILE CONTENT */
+.comGlobalHeader__mobileContent {
+  display: block;
+  position: fixed;
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: 2em;
+  padding-left: 3.9em;
+  top: 48px;
+  bottom: 0;
+  left: 100%;
+  background-color: #11181c;
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  /* Hide mobile nav when above tablet nav breakpoint */
+  /* SECONDARY NAV ITEMS */
+  /* MOBILE SEARCH */
+}
+.comGlobalHeader__mobileContent.is-mobile-nav-expanded {
+  left: 0;
+}
+@media only screen and (min-width: 891px) {
+  .comGlobalHeader__mobileContent {
+    display: none;
+  }
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__nav {
+  display: block;
+  margin-bottom: 3.2rem;
+  border-bottom: 1px solid #272C31;
+  padding-left: 0;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__subNav {
+  position: relative;
+  z-index: 0;
+  border: 0 none;
+  box-shadow: none;
+  padding-left: 2.5em;
+  margin-top: 1.2em;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 0;
+  display: none;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItem {
+  margin-bottom: 1.2em;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItemLink {
+  color: #aeb4b7;
+  font-size: 1.2rem;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItemLink:hover {
+  color: white;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItem {
+  margin-bottom: 1.4em;
+  margin-right: 0;
+  display: list-item;
+  letter-spacing: 0;
+  line-height: 1;
+  /* mobile subnav expanded */
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected > .comGlobalHeader__navItemLink {
+  color: inherit;
+  border-bottom: 0 none;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .comGlobalHeader__subNav {
+  top: 0;
+  height: auto;
+  display: block;
+  -webkit-transition-property: height;
+  -moz-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .ubnt-icon--pointer-down {
+  display: none;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .ubnt-icon--pointer-up {
+  display: block;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemIcon {
+  margin-right: 0.3em;
+  font-size: 1.8rem;
+  color: #87898B;
+  vertical-align: middle;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemSecondary .comGlobalHeader__navItemLabel {
+  color: #848484;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemSecondary .comGlobalHeader__navItemLabel:hover {
+  color: white;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink {
+  width: 100%;
+  display: inline-block;
+  font-size: 1rem;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink > .comGlobalHeader__subNavIcon {
+  color: #aeb4b7;
+  float: right;
+  margin-right: 1rem;
+  padding-top: 0.4em;
+  font-size: 1rem;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink .ubnt-icon--pointer-up {
+  display: none;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemLabel {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
+.comGlobalHeader__mobileContent .comGlobalHeader__navItemSearchForm {
+  position: relative;
+  padding-top: 1.4em;
+  margin-left: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  display: block;
+}
+
+/*------------------------------------*\
+    #GlobalFooter
+\*------------------------------------*/
+.comGlobalFooter {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  padding: 0 0 24px 0;
+  text-align: center;
+  background-color: #fafafa;
+  display: none;
+}
+@media only screen and (min-width: 891px) {
+  .comGlobalFooter {
+    display: block;
+  }
+}
+
+.comGlobalFooter__border {
+  border-top: 1px solid #cccccc;
+  padding-top: 48px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+@media only screen and (max-width: 800px) {
+  .comGlobalFooter__border {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1041px) {
+  .comGlobalFooter__border {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.comGlobalFooter__col {
+  width: 20%;
+}
+
+.comGlobalFooter__icon {
+  color: #00a0df;
+  font-size: 2.5rem;
+}
+
+.comGlobalFooter__newsIcon {
+  font-size: 2.125rem;
+}
+
+.comGlobalFooter__title {
+  margin: 12px 0 4px;
+  color: #666666;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.comGlobalFooter__newsTitle {
+  margin-top: 18px;
+}
+
+.comGlobalFooter__legal {
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding-top: 24px;
+  color: #666666;
+  padding-bottom: 24px;
+  margin: 0;
+}
+@media only screen and (min-width: 801px) {
+  .comGlobalFooter__legal .comGlobalFooter__border {
+    padding-top: 24px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .comGlobalFooter__legal .comGlobalFooter__border {
+    border-top: none;
+  }
+}
+
+.comGlobalFooter--noTopBorder .comGlobalFooter {
+  padding-top: 48px;
+}
+.comGlobalFooter--noTopBorder .comGlobalFooter__border {
+  display: none;
+}
+
+/**
+ * Plain link
+ */
+a,
+.comLink {
+  color: #00a0df;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s;
+}
+a:hover,
+.comLink:hover {
+  color: #17191d;
+}
+a.is-link-selected,
+.comLink.is-link-selected {
+  color: #00a0df;
+}
+a:hover, a:focus,
+.comLink:hover,
+.comLink:focus {
+  outline: none;
+}
+
+.comLink--secondary {
+  color: #17191d;
+}
+.comLink--secondary:hover, .comLink--secondary.is-link-selected {
+  color: #00a0df;
+}
+
+.comLink--reverse {
+  color: white;
+}
+.comLink--reverse:hover, .comLink--reverse.is-link-selected {
+  color: white;
+}
+
+.cmuTooltipster {
+  background: #fafafa;
+  min-height: 2rem;
+  max-height: 12rem;
+  max-width: 35rem !important;
+  overflow: hidden;
+}
+
+/* Use this next selector to style things like font-size and line-height: */
+.cmuTooltipster .tooltipster-content {
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.tooltip__message__text {
+  max-height: 6.3rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.tooltip__button button {
+  margin-bottom: 0.75rem;
+}
+
+/* This next selector defines the color of the border on the outside of the arrow. This will automatically match the color and size of the border set on the main tooltip styles. Set display: none; if you would like a border around the tooltip but no border around the arrow */
+.cmuTooltipster .tooltipster-arrow .tooltipster-arrow-border {
+  /* border-color: ... !important; */
+}
+
+/* If you're using the icon option, use this next selector to style them */
+.tooltipster-icon {
+  cursor: help;
+  margin-left: 4px;
+}
+
+/* This is the base styling required to make all Tooltipsters work */
+.tooltipster-base {
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999999;
+  pointer-events: none;
+  width: auto;
+  overflow: visible;
+}
+
+.tooltipster-base .tooltipster-content {
+  overflow: hidden;
+}
+
+/* These next classes handle the styles for the little arrow attached to the tooltip. By default, the arrow will inherit the same colors and border as what is set on the main tooltip itself. */
+.tooltipster-arrow {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.tooltipster-arrow span, .tooltipster-arrow-border {
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.tooltipster-arrow-top span, .tooltipster-arrow-top-right span, .tooltipster-arrow-top-left span {
+  border-left: 8px solid transparent !important;
+  border-right: 8px solid transparent !important;
+  border-top: 8px solid;
+  bottom: -7px;
+}
+
+.tooltipster-arrow-top .tooltipster-arrow-border, .tooltipster-arrow-top-right .tooltipster-arrow-border, .tooltipster-arrow-top-left .tooltipster-arrow-border {
+  border-left: 9px solid transparent !important;
+  border-right: 9px solid transparent !important;
+  border-top: 9px solid;
+  bottom: -7px;
+}
+
+.tooltipster-arrow-bottom span, .tooltipster-arrow-bottom-right span, .tooltipster-arrow-bottom-left span {
+  border-left: 8px solid transparent !important;
+  border-right: 8px solid transparent !important;
+  border-bottom: 8px solid;
+  top: -7px;
+}
+
+.tooltipster-arrow-bottom .tooltipster-arrow-border, .tooltipster-arrow-bottom-right .tooltipster-arrow-border, .tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+  border-left: 9px solid transparent !important;
+  border-right: 9px solid transparent !important;
+  border-bottom: 9px solid;
+  top: -7px;
+}
+
+.tooltipster-arrow-top span, .tooltipster-arrow-top .tooltipster-arrow-border, .tooltipster-arrow-bottom span, .tooltipster-arrow-bottom .tooltipster-arrow-border {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.tooltipster-arrow-top-left span, .tooltipster-arrow-bottom-left span {
+  left: 6px;
+}
+
+.tooltipster-arrow-top-left .tooltipster-arrow-border, .tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+  left: 5px;
+}
+
+.tooltipster-arrow-top-right span, .tooltipster-arrow-bottom-right span {
+  right: 6px;
+}
+
+.tooltipster-arrow-top-right .tooltipster-arrow-border, .tooltipster-arrow-bottom-right .tooltipster-arrow-border {
+  right: 5px;
+}
+
+.tooltipster-arrow-left span, .tooltipster-arrow-left .tooltipster-arrow-border {
+  border-top: 8px solid transparent !important;
+  border-bottom: 8px solid transparent !important;
+  border-left: 8px solid;
+  top: 50%;
+  margin-top: -7px;
+  right: -7px;
+}
+
+.tooltipster-arrow-left .tooltipster-arrow-border {
+  border-top: 9px solid transparent !important;
+  border-bottom: 9px solid transparent !important;
+  border-left: 9px solid;
+  margin-top: -8px;
+}
+
+.tooltipster-arrow-right span, .tooltipster-arrow-right .tooltipster-arrow-border {
+  border-top: 8px solid transparent !important;
+  border-bottom: 8px solid transparent !important;
+  border-right: 8px solid;
+  top: 50%;
+  margin-top: -7px;
+  left: -7px;
+}
+
+.tooltipster-arrow-right .tooltipster-arrow-border {
+  border-top: 9px solid transparent !important;
+  border-bottom: 9px solid transparent !important;
+  border-right: 9px solid;
+  margin-top: -8px;
+}
+
+/* Some CSS magic for the awesome animations - feel free to make your own custom animations and reference it in your Tooltipster settings! */
+.tooltipster-fade {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.tooltipster-fade-show {
+  opacity: 1;
+}
+
+.tooltipster-grow {
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-backface-visibility: hidden;
+}
+
+.tooltipster-grow-show {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.tooltipster-swing {
+  opacity: 0;
+  -webkit-transform: rotateZ(4deg);
+  -moz-transform: rotateZ(4deg);
+  -o-transform: rotateZ(4deg);
+  -ms-transform: rotateZ(4deg);
+  transform: rotateZ(4deg);
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+}
+
+.tooltipster-swing-show {
+  opacity: 1;
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  -o-transform: rotateZ(0deg);
+  -ms-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 2.4);
+  -moz-transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 2.4);
+  -ms-transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 2.4);
+  -o-transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 2.4);
+  transition-timing-function: cubic-bezier(0.23, 0.635, 0.495, 2.4);
+}
+
+.tooltipster-fall {
+  top: 0;
+  -webkit-transition-property: top;
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  -ms-transition-property: top;
+  transition-property: top;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.tooltipster-fall.tooltipster-dying {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  top: 0px !important;
+  opacity: 0;
+}
+
+.tooltipster-slide {
+  left: -40px;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  -ms-transition-property: left;
+  transition-property: left;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.tooltipster-slide.tooltipster-dying {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  left: 0px !important;
+  opacity: 0;
+}
+
+/* CSS transition for when contenting is changing in a tooltip that is still open. The only properties that will NOT transition are: width, height, top, and left */
+.tooltipster-content-changing {
+  opacity: 0.5;
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1040px) {
+  .sg_breakpoint-mixin {
+    color: red !important;
+  }
+}
+
+.sg_color-swatches .color-ltblue {
+  background-color: #1374ab;
+}
+.sg_color-swatches .color-blue {
+  background-color: #00a0df;
+}
+.sg_color-swatches .color-dkblue {
+  background-color: #0074ad;
+}
+.sg_color-swatches .color-green {
+  background-color: #48af65;
+}
+.sg_color-swatches .color-orange {
+  background-color: #ffaa00;
+}
+.sg_color-swatches .color-red {
+  background-color: #ff3516;
+}
+.sg_color-swatches .color-black {
+  background-color: black;
+}
+.sg_color-swatches .color-ltblack {
+  background-color: #17191d;
+}
+.sg_color-swatches .color-white {
+  background-color: #fafafa;
+}
+.sg_color-swatches .color-gray {
+  background-color: #969ba3;
+}
+.sg_color-swatches .color-mdgray {
+  background-color: #bbbbbd;
+}
+.sg_color-swatches .color-ltgray {
+  background-color: #ebebeb;
+}
+.sg_color-swatches .color-xltgray {
+  background-color: #fafafa;
+}

@@ -1,0 +1,33 @@
+---
+layout: layout-post
+title: Buttons
+status: draft
+rootUrl: ../../
+summary: Button styles
+promote: 
+group: input
+---
+
+
+
+
+
+div(anchor #colors).   
+
+h2. Buttons
+
+Buttons use the same syntax as the COM theme, but are heavily stylized and modified.
+
+
+
+h3. Standard Buttons
+
+Standard buttons have three states: @base@, @mouse-over@, and @mouse-down@.
+
+
+
+h3. Button Group
+
+Standard buttons have three states: @base@, @mouse-over@, and @mouse-down@.
+
+

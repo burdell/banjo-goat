@@ -1,0 +1,29 @@
+
+
+// 
+// PLACEHOLDERS
+// 
+
+%noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+%ease {
+	// base ease speed (used by global nav), but seems a bit slow
+	-webkit-transition: 0.35s;
+	-moz-transition: 0.35s;
+	-o-transition: 0.35s;
+	transition: 0.35s;
+}
+%ease-fast {
+	// faster ease speed
+	-webkit-transition: 0.31s;
+	-moz-transition: 0.31s;
+	-o-transition: 0.31s;
+	transition: 0.31s;
+}

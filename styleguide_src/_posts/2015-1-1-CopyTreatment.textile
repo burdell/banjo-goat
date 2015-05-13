@@ -1,0 +1,22 @@
+---
+layout: layout-post
+title: Copy & Text Treatment
+status: draft
+rootUrl: ../../
+summary: Summarizes copy treatment and wording / verbiage
+promote: 
+group:
+---
+
+
+div(anchor #intro).   
+
+h2. Call to Action
+
+* All calls to action (or CTA: e.g. Sign Up, Read Stories) should start with a verb.
+** Instead of showing a button as [Stories], show it as [Read Stories]
+** Instead of [New Question], show it as [Ask a New Question]
+
+* In some instances there might be multiple actions. Try to choose a verb that accompanies all the possible actions. 
+** For example, a CTA to the Stories section would be Read Stories, rather than Publish a Story. Similarly, a CTA to the Q&A section would be Browse Questions, instead of Ask Questions, since asking (or answering questions) is only a small subset of things a users can do, and might lead users to think there's only one possible action.
+

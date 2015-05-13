@@ -1,0 +1,146 @@
+/* MOBILE CONTENT */
+.comGlobalHeader__mobileContent {
+  display: block;
+  position: fixed;
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: 2em;
+  padding-left: 3.9em;
+  top: $com-global-header-mobile-nav-height;
+  bottom: 0;
+  left: 100%;
+  background-color: $com-global-header-background-color;
+  -webkit-overflow-scrolling: touch;
+  @include backface-visibility(hidden);
+  @include transition-property(left);
+  @include transition-duration(0.4s);
+
+  &.is-mobile-nav-expanded {
+    left: 0;
+  }
+
+  /* Hide mobile nav when above tablet nav breakpoint */
+  @media #{$com-global-header-tablet-nav-above} {
+    display: none;
+  }
+
+  .comGlobalHeader__nav {
+    display: block;
+    margin-bottom: 3.2rem;
+    border-bottom: 1px solid #272C31;
+    padding-left: 0;
+  }
+
+  .comGlobalHeader__subNav {
+    position: relative;
+    z-index: 0;
+    border: 0 none;
+    box-shadow: none;
+    padding-left: 2.5em;
+    margin-top: 1.2em;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: 0;
+    display: none;
+
+    .comGlobalHeader__navItem {
+      margin-bottom: 1.2em;
+    }
+
+    .comGlobalHeader__navItemLink {
+      color: $com-global-header-nav-item-link-color;
+      font-size: 1.2rem;
+
+      &:hover {
+        color: $com-global-header-nav-item-link-color-hover;
+      }
+    }
+  }
+
+  .comGlobalHeader__navItem {
+    margin-bottom: 1.4em;
+    margin-right: 0;
+    display: list-item;
+    letter-spacing: 0;
+    line-height: 1;
+
+    /* mobile subnav expanded */
+    &.is-nav-item-selected {
+      > .comGlobalHeader__navItemLink {
+        color: inherit;
+        border-bottom: 0 none;
+      }
+
+      .comGlobalHeader__subNav {
+        top: 0;
+        height: auto;
+        display: block;
+        @include transition-property(height);
+        @include transition-duration(0.4s);
+      }
+
+      .ubnt-icon--pointer-down {
+        display: none;
+      }
+
+      .ubnt-icon--pointer-up {
+        display: block;
+      }
+    }
+  }
+
+  .comGlobalHeader__navItemIcon {
+    margin-right: 0.3em;
+    font-size: 1.8rem;
+    color: #87898B;
+    vertical-align: middle;
+  }
+
+  /* SECONDARY NAV ITEMS */
+  .comGlobalHeader__navItemSecondary {
+    .comGlobalHeader__navItemLabel {
+      color: #848484;
+
+      &:hover {
+        color: $com-global-header-nav-item-link-color-hover;
+      }
+    }
+  }
+
+  .comGlobalHeader__navItemLink {
+    width: 100%;
+    display: inline-block;
+    font-size: remCalc(16px);
+
+    > .comGlobalHeader__subNavIcon {
+      color: $com-global-header-nav-item-link-color;
+      float: right;
+      margin-right: 1rem;
+      padding-top: 0.4em;
+      font-size: remCalc(16px);
+    }
+
+    .ubnt-icon--pointer-up {
+      display: none;
+    }
+  }
+
+  .comGlobalHeader__navItemLabel {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+  }
+
+  /* MOBILE SEARCH */
+  .comGlobalHeader__navItemSearchForm {
+    position: relative;
+    padding-top: 1.4em;
+    margin-left: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    display: block;
+  }
+}

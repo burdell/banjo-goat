@@ -5,12 +5,13 @@
 		function Filter(){
 			var options = {
 				filterModel: {},
+				constants: {},
 				filterFn: null,
 				filterArguments: null,
 				onFilterFns: [],
 				setInitialData: true,
 				initialData: null,
-				filterContext: null
+				filterContext: null,
 			};
 
 			var setFilterModel = function(filterData, exclude) {
@@ -33,7 +34,17 @@
 				_.each(options.onFilterFns, function(fn){
 					fn(result);
 				});
-			}
+			};
+
+			var setQueryParams = function(queryModel) {
+				var queryParams = {};
+				_.each(queryModel, function(value, key) {
+					if (_.isUndefined(options.constants[key])) {
+						queryParams[key] = value;
+					}
+				});
+				$location.search(queryParams);
+			};
 
 			return {
 				set: function(newOptions){
@@ -66,12 +77,12 @@
 						args = _.clone(options.filterArguments);
 					}
 					
-					var filterModel = options.filterModel;
+					var filterModel = _.extend(options.filterModel, options.constants);
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;
 					return options.filterFn.apply(filterContext, args).then(function(result){
-						$location.search(filterModel);
+						setQueryParams(filterModel);
 						executeOnFilterFns(result);
 						
 						return result;
@@ -85,7 +96,7 @@
 
 		return {
 			getNewFilter: function(options){
-				if (options.autoInitModel) {
+				if (options.autoInitModel !== false) {
 					options.filterModel = $location.search();
 				}
 

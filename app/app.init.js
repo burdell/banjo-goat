@@ -10,12 +10,26 @@
 		'community.services',
         'community.directives', 
         'community.filters',  
-		'community.forums', 
-		'community.templates'
-	]).run(['$rootScope', '$window', function($rootScope, $window){
+		'community.templates',
+        'community.{{GULP_BUILD_areaName}}', 
+	]).run(['$rootScope', '$window', 'CurrentUserService', function($rootScope, $window, currentUser){
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);
         })
+
+        //MOCKED
+        currentUser.set({
+            id: 259,
+            avatar: {
+                height: 0,
+                url: null,
+                width: 0
+            },
+            href: '/users/259',
+            login: 'UBNT-Matt',
+            rank: 'authorRank',
+            stats: []
+        });
     }]);
 
 	angular.element(document).ready(function(){
@@ -37,6 +51,7 @@ window.nodeStructure = [
         "id": 75,
         "urlSlug": "products",
         "href": "/api/nodes/products/",
+        "invisible": true,
         "children": [
           {
             "name": "airMAX",
@@ -48,7 +63,7 @@ window.nodeStructure = [
                 "name": "airMAX Alpha",
                 "id": 1004,
                 "urlSlug": "airMAX_a",
-                "href": "/api/nodes/airMAX_a/",
+                "href": "/forums/airMAX-General/list/",
                 "children": [ ]
               }, {
                 "name": "airMAX Beta",
@@ -59,8 +74,8 @@ window.nodeStructure = [
               }, {
                 "name": "airMAX General",
                 "id": 1006,
-                "urlSlug": "airMAX_g",
-                "href": "/api/nodes/airMAX_g/",
+                "urlSlug": "airMAX-General",
+                "href": "/forums/airMAX-General/list",
                 "children": [ ]
               }, {
                 "name": "airMAX Stories",

@@ -1,0 +1,123 @@
+
+
+// 
+// FORUM MESSAGES
+// 
+
+.forumThreadSubject h4 {
+	border-bottom: $cmu-style-border-thin; 
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+.forumThreadMessage {
+	border: $cmu-style-border-thin-light; 
+	margin-bottom: $cmu-vertical-rhythm;
+	@extend .style-copy;
+	// border-top: 0px;
+	// &:first-of-type {
+	// 	border-top: $cmu-style-border-thin-light;
+	// }
+}
+
+// 
+// Badge / Avatar area
+// 
+
+.forumBadge {
+	text-align: center;
+	margin-top: $cmu-base;
+}
+
+	.forumBadge__avatar {
+		img {
+			height: $cmu-base*3;
+			width: $cmu-base*3;
+		}
+
+	}
+
+	.forumBadge__username {
+		@extend .style-copy;
+	}
+
+	.forumBadge__info {
+		background-color: $cmu-color-ltgray;
+
+		font-size: $cmu-size-xsmaller;
+		line-height: $cmu-size-copy-line-height;
+		text-transform: uppercase;
+
+		margin: $cmu-base 0; margin-bottom: 0;
+		padding: $cmu-base/2 0;
+
+	}
+	.forumBadge__info__points span:nth-child(2)  {
+		@extend %oswald;
+		letter-spacing: 1.4px;
+		padding-left: $cmu-base/3;
+
+	}
+	.forumBadge__info__location span:nth-child(2) {
+		text-transform: capitalize;
+		padding-left: $cmu-base/3;
+		word-wrap: break-word;
+	}
+
+
+
+
+// 
+// Main Message Body
+// 
+.forumThreadMain {
+	border-left: $cmu-style-border-thin-light; 
+	min-height: $cmu-base*12;
+	padding: $cmu-base;
+
+}
+	.forumThreadMain__posted {
+		// padding-top: $cmu-base;
+	}
+
+	.forumThreadMain__body {
+		margin-bottom: $cmu-vertical-rhythm;
+		min-height: $cmu-message-bottom-height;
+		p, ul, ol {
+			@extend .style-copy;
+		}
+
+		// users like to add empty paragraphs that lithium doesn't strip out
+		// we need to deal with it in code, so this is temporary
+		p {
+			margin-bottom: 0;
+		}
+	} 
+
+// bottom row of buttons in a message
+
+.forumThreadMain__controls__reply button {
+	float: right;
+}
+
+// bottom row of controls of the thread
+
+.forumThreadMain__bottomControls {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+.activeCounter {
+	margin-bottom: $cmu-vertical-rhythm;
+	font-size: $cmu-size-xsmaller;
+	span:nth-child(1) {
+		font-weight: 600;
+		padding: $cmu-base/2 $cmu-base*3/4;
+		background-color: $cmu-color-blue;
+		color: $cmu-color-white;
+	}
+	span:nth-child(2) {
+		background-color: $cmu-color-ltgray;
+		padding: $cmu-base/2 $cmu-base*3/4;
+	}
+}
+
+

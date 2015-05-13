@@ -1,0 +1,21 @@
+---
+layout: layout-post
+title: About the Styleguide
+summary: The Ubiquiti Community pattern library is a byproduct of our move to a more responsive, nimble, and intuitive approach to building the Community App.
+nav: about
+
+source: /app/posts/intro
+---
+
+The Styleguide is a collection of UX patterns, design styles, animations, and ideas that combine to 
+
+{% highlight scss linenos %}
+
+  $color-dkgray: #333;
+  $color-ltgray: #eee;
+  $color-ubnt: #00a1df;
+  font-family: "Lato", sans-serif;
+  font-size: 0.98rem;
+
+
+{% endhighlight %}

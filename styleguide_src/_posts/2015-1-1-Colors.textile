@@ -1,0 +1,166 @@
+---
+layout: layout-post
+title: Colors
+status: version 0.1
+rootUrl: ../../
+summary: The Ubiquiti Community color palette expands on the base colors.
+promote: 
+---
+
+
+
+
+
+div(anchor #colors).   
+
+h2. Colors
+
+We create a full palette of colors using both the default color swatches and adding our own. Colors are used to not only add visual flair, but to create hierarchy and add information.
+
+
+
+
+h3. Ubnt Color Swatches
+
+These are the default breakpoint sizes as defined in the Base Framework. 
+
+
+<notextile>
+	<div class="community noBorder noPaddingRight noPaddingLeft">
+
+		<div class="exampleContainerScroll container container--responsive container--centered noPaddingLeft">
+
+			<div class="row row--comfy">
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-blue"></div>
+			    <div class="desc">
+			    	<div>blue (brand color)</div>
+			    	<code>$color-blue</code><br/>
+			    	<code>#00A0DF</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltblue"></div>
+			    <div class="desc">
+			    	<div>light blue</div>
+			    	<code>$color-ltblue</code><br/>
+			    	<code>#13BCFF</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-dkblue"></div>
+			    <div class="desc">
+			    	<div>dark blue</div>
+			    	<code>$color-dkblue</code><br/>
+			    	<code>#0074AD</code>
+			    </div>
+			  </div>
+			</div>
+
+
+
+			<div class="row row--comfy">
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-green"></div>
+			    <div class="desc">
+			    	<div>green</div>
+			    	<code>$color-green</code><br/>
+			    	<code>#48AF65</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-orange"></div>
+			    <div class="desc">
+			    	<div>orange</div>
+			    	<code>$color-orange</code><br/>
+			    	<code>#FFAA00</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-red"></div>
+			    <div class="desc">
+			    	<div>red</div>
+			    	<code>$color-red</code><br/>
+			    	<code>#FF3516</code>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-xxltgray"></div>
+			    <div class="desc">
+			    	<div>double extra light gray</div>
+			    	<code>$color-xxltgray</code><br/>
+			    	<code>#FAFAFA</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-xltgray"></div>
+			    <div class="desc">
+			    	<div>extra light gray</div>
+			    	<code>$color-xltgray</code><br/>
+			    	<code>#EBEBEB</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltgray"></div>
+			    <div class="desc">
+			    	<div>light gray</div>
+			    	<code>$color-ltgray</code><br/>
+			    	<code>#969BA3</code>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-gray"></div>
+			    <div class="desc">
+			    	<div>gray</div>
+			    	<code>$color-gray</code><br/>
+			    	<code>#474B52</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltblack"></div>
+			    <div class="desc">
+			    	<div>light black</div>
+			    	<code>$color-ltblack</code><br/>
+			    	<code>#17191D</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-black"></div>
+			    <div class="desc">
+			    	<div>black</div>
+			    	<code>$color-black</code><br/>
+			    	<code>#000000</code>
+			    </div>
+			  </div>
+			</div>
+
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-white" style="border: 1px solid #EBEBEB"></div>
+			    <div class="desc">
+			    	<div>white</div>
+			    	<code>$color-white</code><br/>
+			    	<code>#FFFFFF</code>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+
+	</div>
+</notextile>
+
+

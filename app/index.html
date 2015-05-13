@@ -1,30 +1,45 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
-	  <!-- bower:css -->
-	  <!-- endinject -->
+		<base href="/">
 
-	  <!-- app:css -->
-	  <!-- endinject -->
+		<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+      	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
-	  <base href="/">
+      	<link href='{{GULP_BUILD_areaName}}/css/ubntfonts.css' rel='stylesheet' type='text/css'>
+      	<link href='{{GULP_BUILD_areaName}}/css/community.css' rel='stylesheet' type='text/css'>
+
 	</head>
 	<body>
 	<div class="wrapper">
-	    <div class="community-navbar">
-	    </div>
+		<div class="cmuWrapper">
+			<div ng-include="'partials/globalheader.html'"></div>
+			
+			<main-nav-bar></main-nav-bar>
+			<community-announcement></community-announcement>
 
-	    <div class="community-body">
-	    <h2></h2>
-	      <div class="row row--comfy">
-	        <section ui-view></section>
-	      </div>
-	    </div>
+		    <div class="community__content container">
+				<div id='main-content'>
+					<div ui-view></div>
+				</div>
+			</div>
+
+			<div ng-include="'partials/globalfooter.html'"></div>
+		</div>
 	</div>
+
 	  <!-- bower:js -->
 	  <!-- endinject -->
 	  
+	  <!-- manually injected files -->
+	  <script src="forums/js/vendor/tinymce/tinymce.min.js"></script>
+
+
 	  <!-- app:js -->
+	  <!-- endinject -->
+
+	  <!-- bootstrapper:js -->
 	  <!-- endinject -->
 	</body>
 </html>

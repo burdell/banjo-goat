@@ -1,18 +1,18 @@
-<div class="community__forum__messages__badge">
-	<div class="community__forum__messages__badge__avatar">
-		<img src="{{ userbadge.user.avatar.href }}" />
+<div class="forumBadge">
+	<div class="forumBadge__avatar">
+		<img src="{{ userbadge.user.avatar.url }}" />
 	</div>
-	<div class="community__forum__messages__badge__login">
+	<div class="forumBadge__username">
 		<a href="{{ userbadge.user.href }}">{{ userbadge.user.login }}</a>
 		<!-- <span>{{ userbadge.user.rank }}</span> -->
 	</div>
-	<div class="community__forum__messages__badge__info">
-		<div class="community__forum__messages__badge__points">
-			<span>Total Points:</span>
+	<div class="forumBadge__info">
+		<div class="forumBadge__info__points">
+			<span>Score:</span>
 			<!-- <span>{{ userbadge.user.stats | extractKey : 'totalpoints' }}</span> -->
 			<span>1,234</span>
 		</div>
-		<div class="community__forum__messages__badge__location">
+		<div class="forumBadge__info__location">
 			<span>Location:</span><span>Los Angeles, CA</span>
 			<!-- <span>Location:</span><span>{{ userbadge.user.location }}</span> -->
 		</div>

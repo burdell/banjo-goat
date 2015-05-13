@@ -6,11 +6,11 @@
 			var rightNow = moment();
 			var postDate = moment(unixTimestamp);
 						
-			if (rightNow.subtract(3, 'weeks').isAfter(postDate)) {
-				return postDate.format('MMMM D, YYYY');
+			if (rightNow.subtract(3, 'days').isAfter(postDate)) {
+				return postDate.format('MM-DD-YYYY');
 			}
 
-			return postDate.fromNow();
+			return postDate.fromNow() + ", " + postDate.format('hh:mm a');
 		};
 	};
 	

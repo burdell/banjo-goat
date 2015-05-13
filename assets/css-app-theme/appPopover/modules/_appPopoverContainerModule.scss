@@ -1,0 +1,8 @@
+/**
+ * 1. Absolutely position the popover.
+ * 2. Shrink-wrap.
+ */
+.appPopoverContainer {
+  position: relative; /* [1] */
+  display: inline-block; /* [2] */
+}

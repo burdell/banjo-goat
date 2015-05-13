@@ -1,0 +1,18 @@
+
+/**
+ * Typography.
+ *
+ * 1. Default font color.
+ * 2. Sometimes text needs to appear disabled, e.g. disabled table rows.
+ * 3. Less noticeable than the default color.
+ * 4. Less noticeable than the subdued color.
+ */
+
+$app-light-default-font-color: #000000 !default; /* [1] */
+$app-light-default-disabled-font-color: #cccccc !default; /* [2] */
+$app-light-quiet-font-color: #616770 !default; /* [3] */
+$app-light-quieter-font-color: #969ba3 !default; /* [4] */
+
+// from default app vars
+$app-form-icon-input-icon-color: $app-light-quieter-font-color !default;
+

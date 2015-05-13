@@ -1,0 +1,44 @@
+/**
+ * Plain link
+ */
+a,
+.comLink {
+  color: $com-link-color;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+
+  @include transition($com-link-transition);
+
+  &:hover {
+    color: $com-link-hover-color;
+  }
+
+  &.is-link-selected {
+    color: $com-link-selected-color;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.comLink--secondary {
+  color: $com-link-secondary-color;
+
+  &:hover,
+  &.is-link-selected {
+    color: $com-link-secondary-hover-color;
+  }
+}
+
+.comLink--reverse {
+  color: $com-link-reverse-font-color;
+
+  &:hover,
+  &.is-link-selected {
+    color: $com-link-reverse-hover-font-color;
+  }
+}

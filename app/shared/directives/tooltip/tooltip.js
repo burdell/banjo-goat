@@ -6,12 +6,10 @@
 			$(element).tooltipster({
 				contentAsHtml: true,
 				content: 'Loading...',
-				// position: 'bottom-left',
-				// bottom-left is very blocking; moving to top to see what it looks like
 				position: 'top-left',
-				theme: 'tooltipster-comm',
-				// minWidth: 100, //taken care of in css
-				// maxWidth: 1200,
+				interactiveTolerance: '550',
+				onlyOne: 'true',
+				theme: 'cmuTooltipster',
 				interactive: true,
 				updateAnimation: false,
 				functionBefore: function(origin, continueTooltip) {
@@ -19,8 +17,15 @@
 
 					if (origin.data('ajax') !== 'cached') {
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-							var tooltipData = _.extend(result.content, {
-								text: angular.element(result.content.body).text()
+							var content = result.model;
+
+							var tooltipText = $('<div>' + content.body + '</div>').text();
+							if (tooltipText === "") {
+								tooltipText = "<strong>" + scope.tooltip.emptyText + "</strong>";
+							}
+
+							var tooltipData = _.extend(content, {
+								text: tooltipText
 							});
 							var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
 							origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
@@ -33,6 +38,11 @@
 		var controller = function($templateCache, $interpolate) {
 			this.getTemplate = function(templateData) {
 				var tooltipTemplate = $templateCache.get(this.tooltipTemplateName);
+				
+				if (this.localData) {
+					templateData = _.extend(templateData, this.localData);
+				}
+				
 				return $interpolate(tooltipTemplate)(templateData);
 			};
 		};
@@ -47,7 +57,9 @@
 	        restrict: 'AE',
 	        scope: {
 	        	ajaxPopulate: '=',
+	        	emptyText: '@',
 	        	idField: '@',
+	        	localData: '=',
 	        	tooltipTemplateName: '@tooltipTemplate'
 	        }
 	    };

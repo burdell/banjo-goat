@@ -6,14 +6,14 @@
 		$stateProvider
 			.state('forums', {
 				abstract: true,
-				url: '/uf/u/nodes/:nodeId',
+				url: '/forums/:nodeId',
 				templateUrl: 'forums/forums.html',
 				controller: 'Forum as vm',
 				resolve: {
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
 					}]
-				}
+				},
 			})
 			.state('forums.list', {
 				url: '/list?offset&sort', 
@@ -28,7 +28,9 @@
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Forums.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
-							autoInitModel: true 
+							constants: {
+								limit: 30
+							} 
 						});
 					}]
 				},
@@ -48,20 +50,27 @@
 							filterFn: communityApi.Forums.thread, 
 							filterArguments: [ $stateParams.messageId ],
 							filterContext: communityApi.Forums,
-							filterModel: {
+							constants: {
 								limit: 20
-							} 
+							}
 						});
 					}]
-				}
+				},
+				reloadOnSearch: false
 			})
 			.state('forums.newtopic', {
-				url: '/n',
-				templateUrl: 'forums/forums.newtopic.html',
-				controller: 'NewForumTopic as vm'
+				url: '/newtopic',
+				views: {
+					'mainContent': {
+						templateUrl: 'forums/newtopic/forums.newtopic.html',
+						controller: 'NewForumTopic as vm'
+					}
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
+
 
 
 		angular.module('community.forums')

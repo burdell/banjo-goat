@@ -11,7 +11,9 @@
 				var currentBreadcrumb = this.getCurrentBreadcrumb();
 				var parentNode = currentBreadcrumb.parent;
 				while(parentNode) {
-					breadCrumbList.unshift(parentNode);
+					if (!parentNode.invisible) {
+						breadCrumbList.unshift(parentNode);
+					}
 					parentNode = parentNode.parent;
 				}
 

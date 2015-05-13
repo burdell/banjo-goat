@@ -1,0 +1,358 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Colors</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <script src="../../app/js/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png">
+  <!-- import gets all the styles from main.scss in the _scss folder -->
+  <link rel="stylesheet" href="../../app/css/styleguide.css">
+</head>
+
+
+
+<body class="sg">  
+
+  <!-- top nav -->
+  <div id="top" class="sg_nav">
+    <ul>
+      <li class="sg_nav_link"><a href="../../index.html" title="Styleguide"><img class="sg_nav_logo" src="../../favicon.png"></a></li>
+      <li class="sg_nav_link active"><a href="../../index.html" title="Styleguide">Guide</a></li>
+      <li class="sg_nav_link "><a href="../../about.html" title="About the Styleguide">About</a></li>
+    </ul>
+  </div>
+
+
+  <!-- body area -->
+  <div class="sg_body">
+
+    <!-- body sidenav -->
+    <div class="sg_sidenav">
+      <ul>
+        
+        
+
+
+        <!--  - got rid of this -->
+        <!-- promoted posts -->
+        <div class="promoted-group">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item   promote">
+              <a href="../../2015/01/Introduction.html">Introduction</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item   promote">
+              <a href="../../2015/01/LayoutGrid.html">Layout & Grid</a>
+            </li>
+          
+        
+        </div>
+
+        <!-- all groups and order are defined manually, since order might switch / are not A-Z -->
+        <!-- warning: some post with a misnamed group might not show up at all in the list -->
+
+        <!-- group: Input -->
+        <div class="nav-group nav-group_inputs">
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Buttons.html">Buttons</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/pagination.html">Pagination</a>
+            </li>
+          
+        
+          
+        
+        </div>
+
+
+
+        <!-- catch all -->
+        <div class="nav-group nav-group_general">
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Alerts.html">Alerts</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item active ">
+              <a href="../../2015/01/Colors.html">Colors</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/CopyTreatment.html">Copy & Text Treatment</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Forms.html">Form Elements</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft">
+              <a href="../../2015/01/Navigation.html">Navigation</a>
+            </li>
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  ">
+              <a href="../../2015/01/Typography.html">Typography</a>
+            </li>
+          
+        
+        </div>
+      </ul>
+    </div> 
+    <!-- end body sidenav -->
+
+    <!-- body content -->
+    <div class="sg_main">
+      <div class="sg_main_head">
+    
+        <div class="sg_status version 0.1">version 0.1</div>
+    
+    <h1>Colors</h1>
+    <div class="sg_main_head_summary">The Ubiquiti Community color palette expands on the base colors.</div>
+
+    <!-- page menu sticky - edit: always display now-->
+    <!-- {-% if page.menu != nil %} -->
+
+      <div class="sg_main_head_menu" data-title="Colors">
+        
+        <a class="sg_main_head_menu_title" href="#top">Colors</a></li>
+      </div>
+    <!-- {-% endif %} -->
+</div>
+
+<div class="sg_main_content">
+    <div class="anchor " id="colors"></div>
+<h2>Colors</h2>
+<p>We create a full palette of colors using both the default color swatches and adding our own. Colors are used to not only add visual flair, but to create hierarchy and add information.</p>
+<h3>Ubnt Color Swatches</h3>
+<p>These are the default breakpoint sizes as defined in the Base Framework.</p>
+	<div class="community noBorder noPaddingRight noPaddingLeft">
+
+		<div class="exampleContainerScroll container container--responsive container--centered noPaddingLeft">
+
+			<div class="row row--comfy">
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-blue"></div>
+			    <div class="desc">
+			    	<div>blue (brand color)</div>
+			    	<code>$color-blue</code><br/>
+			    	<code>#00A0DF</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltblue"></div>
+			    <div class="desc">
+			    	<div>light blue</div>
+			    	<code>$color-ltblue</code><br/>
+			    	<code>#13BCFF</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-dkblue"></div>
+			    <div class="desc">
+			    	<div>dark blue</div>
+			    	<code>$color-dkblue</code><br/>
+			    	<code>#0074AD</code>
+			    </div>
+			  </div>
+			</div>
+
+
+
+			<div class="row row--comfy">
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-green"></div>
+			    <div class="desc">
+			    	<div>green</div>
+			    	<code>$color-green</code><br/>
+			    	<code>#48AF65</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-orange"></div>
+			    <div class="desc">
+			    	<div>orange</div>
+			    	<code>$color-orange</code><br/>
+			    	<code>#FFAA00</code>
+			    </div>
+			  </div>
+
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-red"></div>
+			    <div class="desc">
+			    	<div>red</div>
+			    	<code>$color-red</code><br/>
+			    	<code>#FF3516</code>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-xxltgray"></div>
+			    <div class="desc">
+			    	<div>double extra light gray</div>
+			    	<code>$color-xxltgray</code><br/>
+			    	<code>#FAFAFA</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-xltgray"></div>
+			    <div class="desc">
+			    	<div>extra light gray</div>
+			    	<code>$color-xltgray</code><br/>
+			    	<code>#EBEBEB</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltgray"></div>
+			    <div class="desc">
+			    	<div>light gray</div>
+			    	<code>$color-ltgray</code><br/>
+			    	<code>#969BA3</code>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-gray"></div>
+			    <div class="desc">
+			    	<div>gray</div>
+			    	<code>$color-gray</code><br/>
+			    	<code>#474B52</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-ltblack"></div>
+			    <div class="desc">
+			    	<div>light black</div>
+			    	<code>$color-ltblack</code><br/>
+			    	<code>#17191D</code>
+			    </div>
+			  </div>
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-black"></div>
+			    <div class="desc">
+			    	<div>black</div>
+			    	<code>$color-black</code><br/>
+			    	<code>#000000</code>
+			    </div>
+			  </div>
+			</div>
+
+
+			<div class="row row--comfy">
+			  <div class="col--xs3 sg_color-swatches">
+			    <div class="swatch color-white" style="border: 1px solid #EBEBEB"></div>
+			    <div class="desc">
+			    	<div>white</div>
+			    	<code>$color-white</code><br/>
+			    	<code>#FFFFFF</code>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+
+	</div>
+  </div>
+
+</div>
+
+    </div>
+
+    <!-- end body content -->
+  </div>
+
+
+  <!-- This thing appears fixed on mobile view to let users scroll up to the menu. This is so fixed menu takes less space -->
+<!--   <a href="#top">
+    <div class="nav-mobile-container">
+      <div class="nav-mobile" data-0="display: none" data-100="display: block">
+        <div class="svg-container icon-uptop ">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <polygon id="arrow-25-icon" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "></polygon> </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+
+ -->
+
+  <script src="../../app/js/jquery.waypoints.min.js"></script>
+  <script src="../../app/js/sticky.min.js"></script>
+  <script src="../../app/js/script.js"></script>
+
+</body>
+</html>

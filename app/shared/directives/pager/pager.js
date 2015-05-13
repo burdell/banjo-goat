@@ -1,12 +1,13 @@
-(function(_){
-	//'use strict';
+(function(_, $){
+	'use strict';
 	
 	function communityFilter($timeout) {
 		var link = function(scope, element, attrs) {
 			var pagerSettings = {
-				scrollRate: .75,
+				scrollRate: 0.75,
 				minPagesForScroller: 8,
 			};
+			var $element = $(element);
 
 			/****** EXPOSED PROPERTIES ******/
 			function setUiPage(page) {
@@ -28,7 +29,7 @@
 
 					setActive(page);
 				}
-			};
+			}
 
 			function scroll(dir){
 				var previousOrNext = (dir === 'right' ? 'scrollRight' : 'scrollLeft');
@@ -36,17 +37,17 @@
 					return;
 				}
 
-				var scrubber = element.find('.pagination_main_scrubber');
+				var scrubber = $element.find('.cmuPagination__main__scrubber');
 
 				var scrubberWidth = $(scrubber).outerWidth();
-				var numWidth = element.find('.pagination_num').outerWidth();
+				var numWidth = $element.find('.cmuPagination__num').outerWidth();
 				var scrubberOffset = parseInt(scrubber.css('left'), 10);
 
 				var totalPages = scope.pager.info.numberOfPages;
 				var maxWidth = (totalPages-1) * numWidth; //using totalpages-1 b/c first page is not in the scrubber
 				var maxPosition = maxWidth - scrubberWidth;
 
-				if (dir == 'left') {
+				if (dir === 'left') {
 					scrubberWidth *= -1;
 				}
 
@@ -55,13 +56,13 @@
 				// put in some limiters so we don't overscroll
 				if (position <= 0) {
 					position = 0; 
-				} else if (position >= maxPosition && dir == 'right') {
+				} else if (position >= maxPosition && dir === 'right') {
 					position = maxPosition;
 				}
 
 				scrubber.css({left: position * -1}); 
 				enableScrollControls(position, totalPages);
-			};
+			}
 
 			var pagerInfo = scope.pager.info;
 		  	_.extend(scope, {
@@ -85,12 +86,11 @@
 		  	//use $timeout so DOM is rendered before this runs
 		  	$timeout(function(){
 				scope.setUiPage();
-			}, 0)
+			}, 0);
 
 		  	/****** INTERNAL PROPERTIES ******/
 			function setActive(page) {
-				curPage = page; 
-				element.find('.pagination_num')
+				$element.find('.cmuPagination__num')
 					.removeClass('active')
 					.filter(function(index, el){
 						return el.dataset.val === (page + '');
@@ -100,17 +100,17 @@
 
 			function scrollScrubber(targetPage, totalPages) {
 				// note that we move/animate the entire scrubber within its _main container
-			   	var scrubber = element.find('.pagination_main_scrubber');
-			    var target = element.find('.pagination_num[data-val='+targetPage+']');
+			   	var scrubber = $element.find('.cmuPagination__main__scrubber');
+			    var target = $element.find('.cmuPagination__num[data-val='+targetPage+']');
 			    var targetPosition = target.position();
 
 			    // check if target exists, escape if it doesn't
 			    if(typeof targetPosition === 'undefined'){
 			       return;
-			     };
+			    }
 
 			    var targetFromLeft = target.position().left;
-			    var numWidth = element.find('.pagination_num').outerWidth();
+			    var numWidth = $element.find('.cmuPagination__num').outerWidth();
 
 			    var scrubberLeft = scrubber.position().left;
 			    var scrubberWidth = scrubber.outerWidth();
@@ -136,11 +136,11 @@
 			}
 
 			function enableScrollControls(futureOffset, totalPages) {
-				var scrubber = element.find('.pagination_main_scrubber');
+				var scrubber = $element.find('.cmuPagination__main__scrubber');
 
 				var scrubberWidth = scrubber.outerWidth();
 				var scrubberOffset = parseInt(scrubber.css('left'), 10) * -1;
-				var numWidth = $('.pagination_num').outerWidth();
+				var numWidth = $('.cmuPagination__num').outerWidth();
 				if (!isNaN(futureOffset)) { scrubberOffset = futureOffset; }
 
 
@@ -151,7 +151,7 @@
 					scrollLeft: scrubberOffset <= 0,
 					scrollRight: scrubberOffset >= maxPosition
 				});
-			};
+			}
 
 			function enableNextAndPrevious(currentPage, totalPages){
 				_.extend(scope.disabledButtons, {
@@ -165,30 +165,6 @@
 			var ctrl = this;
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
-			/**** PAGER DATA *****/
-			var defaultLimit = filterer.model('limit') || 30;
-			var defaultOffset = filterer.model('offset') || 0
-
-			var pageData = {
-				limit: defaultLimit,
-				offset: defaultOffset
-			};
-
-			function syncPagerToFilter(){
-				pageData.limit = Number(filterer.model('limit')) || defaultLimit;
-				pageData.offset = Number(filterer.model('offset')) || defaultOffset;
-
-				setUiPage();
-			}
-			filterer.set({ onFilter: syncPagerToFilter });
-
-			var numberOfPages = Math.ceil(Number(this.totalResults) / pageData.limit);
-			var pagerInfo = {
-				initialPage: getPageNumber(),
-				numberOfPages: numberOfPages,
-				frontBiased: this.frontBiased === 'true'
-			};
-
 			/*** CONTROL FUNCTIONS *****/
 			function page() {
 				setUiPage();
@@ -199,7 +175,7 @@
 				if ($scope.disabledButtons.next) {
 					return;
 				}
-
+				
 				pageData.offset += pageData.limit;
 				page();
 			}
@@ -220,7 +196,6 @@
 				if (disabled) {
 					return;
 				}
-
 				pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				page();
 			}
@@ -235,6 +210,33 @@
 				$scope.setUiPage(currentPage);
 			}
 
+			/**** PAGER DATA *****/
+			var defaultLimit = Number(filterer.model('limit')) || 30;
+			var defaultOffset = Number(filterer.model('offset')) || 0;
+
+			var pageData = {
+				limit: defaultLimit,
+				offset: defaultOffset
+			};
+
+			function syncPagerToFilter(){
+				var filterLimit = filterer.model('limit');
+				var filterOffset = filterer.model('offset');
+
+				pageData.limit = filterLimit !== undefined ? Number(filterLimit) : Number(defaultLimit);
+				pageData.offset = filterOffset !== undefined ? Number(filterOffset) : Number(defaultOffset);
+
+				setUiPage();
+			}
+			filterer.set({ onFilter: syncPagerToFilter });
+
+			var numberOfPages = Math.ceil(Number(this.totalResults) / pageData.limit);
+			var pagerInfo = {
+				initialPage: getPageNumber(),
+				numberOfPages: numberOfPages,
+				frontBiased: this.frontBiased === 'true'
+			};
+			
 			/***** EXPOSED PROPERTIES *****/
 			_.extend(ctrl, {
 				nextPage: nextPage,
@@ -268,4 +270,4 @@
 	angular.module('community.directives')
 		.directive('communityPager', communityFilter);
 		
-}(window._));
+}(window._, window.jQuery));

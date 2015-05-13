@@ -1,0 +1,23 @@
+title : Styleguide
+port: 8888
+
+markdown: rdiscount
+highlighter: pygments
+permalink: /:year/:month/:title.html
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "notes.txt"]
+
+destination: ../styleguide
+
+# leave this with '/' if using 'serve'
+baseurl: 
+# buildPath: /
+
+highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  style: :expanded
+  # nested
+  # expanded
+  # compact
+  # compressed

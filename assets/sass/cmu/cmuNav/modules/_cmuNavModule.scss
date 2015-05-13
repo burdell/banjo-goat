@@ -1,0 +1,80 @@
+
+// Temporary for the secondary nav
+.cmuNav {
+	background-color: $cmu-secondmenu-background-color;
+
+	* , a {
+		font-size: $cmu-size-navbar-fontsize;
+		color: $cmu-secondmenu-font-color;
+		text-transform: uppercase;
+	  	letter-spacing: $cmu-size-navbar-letterspacing;
+	}
+
+	a { padding: $cmu-base 0; }
+
+	cursor: default; // used to prevent cursor from switching to text mode
+
+	ul {
+		padding: $cmu-base 0;
+		li {
+			list-style-type: none;
+			display: inline;
+			margin-right: $cmu-base/2;
+			cursor: pointer;
+		}
+		li:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.cmuNav__navItem {
+	padding: $cmu-base $cmu-base/2;
+	position: relative;
+
+	&:hover { 
+		a, &.cmuNav__dropItem:after  {
+			color: $cmu-secondmenu-font-active-color;
+			@extend %ease;
+		}
+	}
+
+}
+
+.cmuNav__active {
+	&, a {
+		color: $cmu-font-highlight;
+	}
+}
+
+.cmuNav__dropItem {
+	&:after {
+		font-family: 'ubnt';
+		content: "\e6d0";
+		position: absolute;
+		// top: 10px;
+		top: 26px;
+		left: 45%;
+		@extend %ease;
+	}
+}
+
+.cmuNav__search {
+	background-color: $cmu-secondmenu-search-background-color;
+	position: absolute;
+	right: 0;
+	padding: $cmu-base;
+
+	// icon
+	.icon {
+		font-size: $cmu-base;
+		line-height: 0;
+		margin-right: $cmu-base;
+		position: relative;
+		top: 3px;
+	}
+}
+
+// temporary alignment with global nav
+// .cmuNav__left { padding-left: 74px; }
+// .cmuNav__right { text-align: right; }

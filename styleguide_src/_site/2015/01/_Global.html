@@ -1,0 +1,180 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Global Info</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <script src="app/js/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+  <!-- import gets all the styles from main.scss in the _scss folder -->
+  <link rel="stylesheet" href="app/css/import.css">
+</head>
+
+
+
+<body class="sg">  
+
+  <!-- top nav -->
+  <div id="top" class="sg_nav">
+    <ul>
+      <li class="sg_nav_link"><a href="index.html" title="Styleguide"><img class="sg_nav_logo" src="favicon.png"></a></li>
+      <li class="sg_nav_link active"><a href="index.html" title="Styleguide">Guide</a></li>
+      <li class="sg_nav_link "><a href="about.html" title="About the Styleguide">About</a></li>
+    </ul>
+  </div>
+
+
+  <!-- body area -->
+  <div class="sg_body">
+
+    <!-- body sidenav -->
+    <div class="sg_sidenav">
+      <ul>
+        
+
+        <!-- promoted posts -->
+        <div class="promoted-group">
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item active   promote">
+              <a href="2015/01/_Global.html">Global Info</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item   com promote">
+              <a href="2015/01/Grid.html">Layout & Grid</a>
+            </li>
+          
+        
+          
+        
+          
+        
+        </div>
+
+        
+          
+            <li class="sg_sidenav_item  draft ">
+              <a href="2015/01/Animations.html">Animations</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item  draft ">
+              <a href="2015/01/Forms.html">Form Elements</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+            <li class="sg_sidenav_item  draft ">
+              <a href="2015/01/Navigation.html">Navigation</a>
+            </li>
+          
+        
+          
+            <li class="sg_sidenav_item   ">
+              <a href="2015/01/Typography.html">Typography</a>
+            </li>
+          
+        
+      </ul>
+    </div> 
+    <!-- end body sidenav -->
+
+    <!-- body content -->
+    <div class="sg_main">
+      <div class="sg_main_head">
+    
+    <h1>Global Info</h1>
+
+    <!-- page menu sticky -->
+    
+      <div class="sg_main_head_summary">The general page styles, including width, breakpoint information, mobile, and other</div>
+
+      <div class="sg_main_head_menu" data-title="Global Info">
+        
+          <a href="#background">Background</li>
+        
+          <a href="#pagestyles">Page Styles</li>
+        
+        <a class="sg_main_head_menu_title" href="#top">Global Info</a></li>
+      </div>
+    
+</div>
+
+<div class="sg_main_content">
+    <div class="anchor " id="background"></div>
+<h2>Background</h2>
+<p>The Community styles makes use of the Ubiquiti <span class="caps">CSS</span> Framework, and uses styles from both the <span class="caps">UBNT</span> Base <span class="caps">CSS</span> and .<span class="caps">COM</span> <span class="caps">CSS</span>. Make note that these two styles are not reliant on each other and can live by themselves.</p>
+<h3>Installation</h3>
+<p>The Community styles inherit from the <span class="caps">UBNT</span> Base <span class="caps">CSS</span> and the .<span class="caps">COM</span> <span class="caps">CSS</span> Github repos. Each repo has been added to the npm package `package.json` and can be installed using <code>npm install</code>. The main <span class="caps">SCSS</span> file imports these module repositories separately before the Community <span class="caps">SCSS</span> is run.</p>
+<p>Base script:</p>
+<pre><code>"css-base": "git@github.com:Ubiquiti-UI/css-base.git#(1.2.0)"</code></pre>
+<p>Com script:</p>
+<pre><code>"css-com-theme": "git@github.com:Ubiquiti-UI/css-com-theme.git#(1.0.0)"</code></pre>
+<h3><span class="caps">UBNT</span> <span class="caps">CSS</span> Framework Documentation</h3>
+<p>The official documentation shows both <strong>Base</strong> styles and <strong>.<span class="caps">COM</span></strong> styles in use.<br />
+Documentation for the official <span class="caps">UBNT</span> <span class="caps">CSS</span> Framework can be found <a href="http://ubnt-css.herokuapp.com/#/base/fixed-grid-container">at this link.</a></p>
+<h3>Resources</h3>
+<ul>
+	<li><a href="http://ubnt-css.herokuapp.com/#/help/what-is-this"><span class="caps">UBNT</span> <span class="caps">CSS</span> Framework &#8211; About</a></li>
+	<li><a href="http://ubnt-css.herokuapp.com/#/base/icons"><span class="caps">UBNT</span> Base <span class="caps">CSS</span></a></li>
+	<li><a href="http://ubnt-css.herokuapp.com/#/com/basics"><span class="caps">UBNT</span> <span class="caps">COM</span> <span class="caps">CSS</span></a></li>
+	<li><a href="https://github.com/Ubiquiti-UI/css-base"><span class="caps">UBNT</span> Base Github Repo</a></li>
+	<li><a href="https://github.com/Ubiquiti-UI/css-com-theme"><span class="caps">UBNT</span> <span class="caps">COM</span> Github Repo</a></li>
+</ul>
+<div class="anchor " id="paragraphs"></div>
+<h2>Page Styles</h2>
+<p>The general page styles, including width, breakpoint information, mobile, and other information.</p>
+<h3>Page Width</h3>
+<p>The Community styles inherit both from the <span class="caps">UBNT</span> Base <span class="caps">CSS</span> and the .<span class="caps">COM</span> <span class="caps">CSS</span>.</p>
+<h3><span class="caps">UBNT</span> <span class="caps">CSS</span> Framework Documentation</h3>
+<p>The official documentation shows both <strong>Base</strong> styles and <strong>.<span class="caps">COM</span></strong> styles in use.<br />
+Documentation for the official <span class="caps">UBNT</span> <span class="caps">CSS</span> Framework can be found <a href="http://ubnt-css.herokuapp.com/#/base/fixed-grid-container">at this link.</a></p>
+<h5>Example</h5>
+	<div class="community">
+		<h1>Heading 1</h1>
+	</div>
+  </div>
+
+</div>
+
+    </div>
+
+    <!-- end body content -->
+  </div>
+
+
+  <!-- This thing appears fixed on mobile view to let users scroll up to the menu. This is so fixed menu takes less space -->
+<!--   <a href="#top">
+    <div class="nav-mobile-container">
+      <div class="nav-mobile" data-0="display: none" data-100="display: block">
+        <div class="svg-container icon-uptop ">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <polygon id="arrow-25-icon" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "></polygon> </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+
+ -->
+
+  <script src="app/js/jquery.waypoints.min.js"></script>
+  <script src="app/js/sticky.min.js"></script>
+  <script src="app/js/script.js"></script>
+
+</body>
+</html>

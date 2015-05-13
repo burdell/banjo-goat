@@ -1,34 +1,55 @@
-(function(_){
+(function(_, tinymce, $){
 	'use strict';
 	
 	function communityTextEditor($timeout) {
 		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
-				console.log(scope.texteditor.editorId);
-				var e = element;
+				var textElement = $(element).find('#' + scope.texteditor.editorId);
+				var editorInstance = null;
+
+				ngModel.$render = function(){
+					if (!editorInstance) {
+						editorInstance = tinymce.get(scope.texteditor.editorId);
+					}
+
+					editorInstance.setContent(ngModel.$viewValue || '');
+				};
+				
 				tinymce.init({
+					height: scope.texteditor.height || 150,
 					elements: scope.texteditor.editorId,
 					mode: 'exact',
+					menubar: false,
+					preview_styles: false,
+					browser_spellcheck: true,
+					toolbar: scope.texteditor.minimalEditor === 'true' ? false : undefined,
 					setup: function(editor) {
-						// function updateEditor() {
-						// 	debugger;
-						// 	editor.save();
-						// 	ngModel.$setViewValue(element.val())
-						// 	if (!scope.$$phase) {
-	     //                        scope.$apply();
-	     //                    }
-						// };
+						function updateModel() {
+							editor.save();
 
-						// editor.on('KeyUp', function(e) {
-						// 	updateEditor()
-						// });
+							ngModel.$setViewValue(textElement.val());
+							if (!scope.$$phase) {
+	                            scope.$apply();
+	                        }
+						}
 
-						// editor.on('ExecCommand', function(e) {
-						// 	updateEditor()
-						// });
+						editor.on('KeyUp', function(e) {
+							updateModel();
+						});
+
+						editor.on('ExecCommand', function(e) {
+							updateModel();
+						});
+
+						editor.on('init', function(){
+							ngModel.$render();
+						});
+					},
+					init_instance_callback: function(){
+						$(element).find('.mce-path').css('visibility', 'hidden');
 					}
 				});
-			}, 0)
+			}, 0);
 		};
 
 		var controller = function($scope) {
@@ -49,7 +70,8 @@
 	        bindToController: true,
 	        restrict: 'E',
 	        scope: {
-	        	
+	        	height: '=editorHeight',
+	        	minimalEditor: '@'
 	        }
 	    };
 
@@ -60,4 +82,4 @@
 	angular.module('community.directives')
 		.directive('communityTextEditor', communityTextEditor);
 		
-}(window._));
+}(window._, window.tinymce, window.jQuery));

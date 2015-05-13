@@ -1,0 +1,10 @@
+hr, .cmuHr {
+  border-style: solid;
+  border-color: $cmu-hr-color;
+  border-bottom-width: 0;
+  @include cmuVerticalRhythm;
+}
+
+.cmuHr--dark {
+  border-color: $cmu-hr-dark-color;
+}

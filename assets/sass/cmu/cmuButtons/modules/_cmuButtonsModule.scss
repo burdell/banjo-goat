@@ -1,0 +1,183 @@
+
+
+// 
+// BUTTONS MODULE
+// 
+
+/*
+	Button Usage:
+
+	- <button> or .button declares button
+	- declare a button style:
+		- ghost (hollow bg)
+		- solid (default)
+		- compound (ghosted w/ a title)
+	- declare a color scheme
+		- button-background-foreground
+		- button-blue-white (default)
+
+
+	Button notes:
+	- Standard button height are 32px (2rem)
+	- all buttons are defined w/ border for height standardization
+		- solid buttons match border w/ bg color
+*/
+
+// 
+// 
+// 
+
+$cmu-style-button-borderwidth: remCalc(2px);
+
+button, .button {
+	line-height: normal;
+	border-width: $cmu-style-button-borderwidth;
+	border-style: solid;
+
+	@extend %style-cta;
+
+	.icon {
+		margin-right: $cmu-base/2;
+	}
+}
+
+
+// 
+// BUTTON STYLES
+// 
+
+// GHOST Buttons
+// thick outline w/ transparent background
+%style-button-ghost {
+	padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base - ($cmu-style-button-borderwidth); // padding will increase box size
+	font-size: $cmu-base*0.8;
+	@extend %ease-fast;
+
+	&:hover {
+		border-color: $cmu-color-ltgray;
+		background-color: $cmu-color-darken;
+	}
+}
+
+// SOLID Buttons
+%style-button-solid {
+	padding: $cmu-base/2 - remCalc(1) $cmu-base;
+	border: 1px solid $cmu-color-blue;
+	@extend %ease-fast;
+
+	&:hover {
+		background-color: $cmu-color-dkblue;
+	}
+}
+
+// COMPOUND Buttons
+%style-button-compound {
+	border: $cmu-style-button-borderwidth solid $cmu-color-blue;
+	font-size: $cmu-base*0.8;
+	@extend %ease-fast;
+	padding: 0;
+
+	span {
+		display: inline-block;
+	}
+
+	span:nth-child(1) {
+		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
+		background-color: $cmu-color-white;
+		color: $cmu-color-green;
+	}
+
+	span:nth-child(2) {
+		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
+		line-height: 16px;
+	}
+
+	&:hover {
+		border-color: $cmu-color-green;
+		background-color: $cmu-color-green;
+		span:nth-child(1) {
+			@extend %ease-fast;
+			background-color: $cmu-color-green;
+			color: $cmu-color-white;
+		}
+		span:nth-child(2) {
+			border-color-left: $cmu-color-white;
+			color: $cmu-color-white;
+		}
+	}
+}
+
+// note that all buttons need borders, even the full background ones
+// since border adds "padding"
+button, .button {
+	height: $cmu-base-cta-height;
+
+	// treat regular buttons as ghost buttons
+	@extend %style-button-ghost;
+}
+
+
+.button--ghost {
+	@extend %style-button-ghost;
+}
+
+.button--solid {
+	@extend %style-button-solid;
+	border: 0;
+}
+
+.button-compound {
+	@extend %style-button-compound;
+}
+
+.button-white-green {
+	background-color: $cmu-color-white;
+	color: $cmu-color-green;
+	border-color: $cmu-color-green;
+
+	span {
+		padding: 0 $cmu-base/2;
+		background-color: $cmu-color-green;
+		color: $cmu-color-white;
+	}
+
+	&:hover {
+		color: $cmu-color-white;
+		background-color: $cmu-color-green;
+		border-color: $cmu-color-green;
+	}
+
+}
+
+.button-white-blue {
+	background-color: $cmu-color-white;
+	color: $cmu-color-blue;
+	border-color: $cmu-color-blue;
+
+	&:hover {
+		color: $cmu-color-white;
+		background-color: $cmu-color-blue;
+		border-color: $cmu-color-blue;
+	}
+
+}
+
+
+.button-blue-white {
+	background-color: $cmu-color-blue;
+	color: $cmu-color-white;
+	@extend %style-button-ghost;
+	border: $cmu-color-blue;
+}
+
+.button-black-white {
+	background-color: $cmu-color-black;
+	color: $cmu-color-white;
+	@extend %style-button-ghost;
+	border: $cmu-color-blue;
+}
+
+
+.button--wide {
+	width: 100%
+ }

@@ -4,7 +4,7 @@
 	var extractKey = function(){
 		return function(objectList, key){
 			var foundObject = _.findWhere(objectList, { key: key });
-			return (foundObject ? foundObject.value : "");
+			return (foundObject ? foundObject.value : '');
 		};
 	};
 

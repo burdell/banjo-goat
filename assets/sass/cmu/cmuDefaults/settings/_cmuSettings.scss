@@ -1,0 +1,60 @@
+
+
+/**
+ * These are very basic, high-level default settings to get a project started.
+ */
+$cmu-base:					1rem !default; // 1rem = 16px is standard for browsers
+$base-font-size:            $cmu-base !default;
+$cmu-base-font-size:        $base-font-size !default;
+$cmu-base-line-height:      $cmu-base*1.5 !default;
+$cmu-vertical-rhythm: 		$cmu-base !default;
+$cmu-base-cta-height:		$cmu-base*2; // force the standard height for all cta elements
+$cmu-base-cta-height-large: $cmu-base*3;
+
+/**
+ * These are private variables that should not be reassigned, overridden, or
+ * modified. They are for use internally by the framework.
+ */
+$cmu-base-spacing-unit:     $cmu-base-line-height !default;
+$cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
+
+
+
+
+// 
+// BASIC COMMUNITY RESET STYLES
+// 
+
+.cmuWrapper {
+	min-height: 100%;
+}
+
+body {
+	background-color: $cmu-color-white;
+	height: 100%;
+	color: black;
+	line-height: inherit;
+}
+
+
+
+%radius { border-radius: 8px; }
+
+
+// CONTAINER--RESPONSIVE IS NOT USED
+// responsive containers are always 100% wide, and have no side margins
+// the community container will constrain the responsive container's max width
+// .container--responsive {
+// 	margin-left: 0 !important;
+// 	margin-right: 0 !important;
+// 	max-width: 100%;
+// }
+
+
+
+
+
+
+
+
+

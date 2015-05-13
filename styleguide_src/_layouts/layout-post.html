@@ -1,0 +1,28 @@
+---
+layout: layout-site
+---
+
+<div class="sg_main_head">
+    {% if page.status != nil %}
+        <div class="sg_status {{ page.status }}">{{ page.status }}</div>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <div class="sg_main_head_summary">{{ page.summary }}</div>
+
+    <!-- page menu sticky - edit: always display now-->
+    <!-- {-% if page.menu != nil %} -->
+
+      <div class="sg_main_head_menu" data-title="{{ page.title }}">
+        {% for menu in page.menu %}
+          <a href="#{{ menu.url }}">{{ menu.name }}</li>
+        {% endfor %}
+        <a class="sg_main_head_menu_title" href="#top">{{ page.title }}</a></li>
+      </div>
+    <!-- {-% endif %} -->
+</div>
+
+<div class="sg_main_content">
+    {{ content }}
+  </div>
+
+</div>
