@@ -1,4 +1,4 @@
-(function(_, tinymce){
+(function(_, tinymce, $){
 	'use strict';
 	
 	function communityTextEditor($timeout) {
@@ -82,4 +82,4 @@
 	angular.module('community.directives')
 		.directive('communityTextEditor', communityTextEditor);
 		
-}(window._, window.tinymce));
+}(window._, window.tinymce, window.jQuery));

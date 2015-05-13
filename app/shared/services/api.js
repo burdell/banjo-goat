@@ -40,7 +40,7 @@
 				return 'users/' + id + '/';
 			},
 			Message: function(id) {
-				var urlString = 'topics/'
+				var urlString = 'topics/';
 				if (id) {
 					urlString += id + '/';
 				}
@@ -66,25 +66,17 @@
 			},
 			Forums: {
 				message: function(messageData, mock) {
-					if (mock) {
-						return $timeout(function(){
-							return {
-								model: messageData
-							};
-						}, 300);
-					}
-
 					var messageId, messagePayload, verb;
 
 					//POST new message
 					if (_.isObject(messageData)) {
 						messagePayload = messageData;
-						verb = "POST";
+						verb = 'POST';
 					} 
 					//GET exsiting message
 					else {
 						messageId = messageData;
-						verb = "GET";
+						verb = 'GET';
 
 					}
 
@@ -105,7 +97,7 @@
 							return {
 								originalMessage: result[0].model,
 								comments: result[1].collection
-							}
+							};
 						});
 				}
 			}

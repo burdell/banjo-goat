@@ -51,6 +51,7 @@ window.nodeStructure = [
         "id": 75,
         "urlSlug": "products",
         "href": "/api/nodes/products/",
+        "invisible": true,
         "children": [
           {
             "name": "airMAX",

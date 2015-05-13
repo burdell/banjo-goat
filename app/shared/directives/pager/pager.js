@@ -221,10 +221,10 @@
 
 			function syncPagerToFilter(){
 				var filterLimit = filterer.model('limit');
-				var filterOffset = filterer.model('offset')
+				var filterOffset = filterer.model('offset');
 
-				pageData.limit = filterLimit != undefined ? Number(filterLimit) : Number(defaultLimit);
-				pageData.offset = filterOffset != undefined ? Number(filterOffset) : Number(defaultOffset);
+				pageData.limit = filterLimit !== undefined ? Number(filterLimit) : Number(defaultLimit);
+				pageData.offset = filterOffset !== undefined ? Number(filterOffset) : Number(defaultOffset);
 
 				setUiPage();
 			}
@@ -236,7 +236,7 @@
 				numberOfPages: numberOfPages,
 				frontBiased: this.frontBiased === 'true'
 			};
-
+			
 			/***** EXPOSED PROPERTIES *****/
 			_.extend(ctrl, {
 				nextPage: nextPage,

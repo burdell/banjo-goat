@@ -1,6 +1,16 @@
+
+<!-- TESTING STYLE -->
+ <style type="text/css" scoped>
+    div.forumThreadMessage__linked
+    {
+      background-color: magenta;
+    }
+  </style>
+<!-- TESTING STYLE -->
+
 <div class="forumThreadSubject">
 	<div class="row">
-		<h4>{{ ::vm.originalMessage.subject }}</h4>
+		<h4>{{ ::vm.originalMessage.subject | htmlUnescape }}</h4>
 	</div>
 </div>
 
@@ -24,7 +34,7 @@
 
 
 <div class="forumThreadMessageContainer" ng-repeat="message in vm.messageThread">
-	<div class="row">
+	<div class="row" id="{{ message.id }}">
 		<div class="forumThreadMessage clearfix">
 		<!-- message -->
 
@@ -32,7 +42,7 @@
 				<community-user-badge user="message.author"></community-user-badge>
 			</div>
 
-			<div class="forumThreadMain col--md10">
+			<div class="forumThreadMain col--md10" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == message.id }">
 				<div class="forumThreadMain__posted">
 					<h6>Posted {{ message.postTime | timeFromNow }}</h6>
 				</div>

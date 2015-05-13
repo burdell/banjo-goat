@@ -15,7 +15,7 @@
 
 				return user[attr];
 			}
-		}
+		};
 	};
 
 	angular.module('community.services')

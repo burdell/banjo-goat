@@ -28,7 +28,6 @@
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Forums.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
-							autoInitModel: true,
 							constants: {
 								limit: 30
 							} 
