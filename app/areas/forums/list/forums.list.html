@@ -225,7 +225,8 @@
                 ajax-populate="vm.getMessageData" 
                 tooltip-template="forums/list/forums.list.messagetooltip.html"
                 local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-                ui-sref="forums.message({messageId: message.id})">
+                empty-text="This post contains embedded media only."
+                href="{{ vm.getMessageUrl(message.id) }}">
                   {{ ::message.subject }}
               </a>
             </td>
