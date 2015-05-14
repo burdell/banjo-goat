@@ -1,6 +1,6 @@
 
 
-$cmu-forum-size-thread: $cmu-size-smaller;
+$cmu-forum-size-thread: $cmu-size-normal;
 $cmu-forum-size-numerical: $cmu-size-xsmaller;
 
 $cmu-forum-size-counterWidth: 5%;
@@ -41,9 +41,10 @@ $cmu-forum-size-maxWidth--author: 100px;
 }
 
 %forumThreadList__column--authorLast {
-	width: 12%;
+	width: 15%;
 	padding-right: $cmu-base/2;
 	max-width: $cmu-forum-size-maxWidth--author;
+	font-size: $cmu-size-normal;
 }
 %forumThreadList__column--author {
 	@extend %forumThreadList__column--authorLast;
@@ -58,6 +59,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 %forumThreadList__column--latestDate {
 	padding-left: $cmu-base/2;
 	width: 85px;
+  	min-width: 80px;
 	text-align: left;
 }
 %forumThreadList__column--createdDate {

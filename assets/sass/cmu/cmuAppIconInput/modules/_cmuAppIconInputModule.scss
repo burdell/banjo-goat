@@ -40,7 +40,7 @@
     height: inherit;
     // padding-top: $cmu-base;
     // padding-bottom: $cmu-base; // weigh text slightly towards bottom; TODO: find a better way /flexbox?
-    font-size: $cmu-size-smaller;
+    font-size: $cmu-size-normal;
   }
 
   /**
@@ -90,7 +90,7 @@
   .appIconInput__input {
     padding-left: $app-icon-input-control-offset; /* [1] */
     margin-bottom: inherit;
-    font-size: $cmu-size-smaller;
+    font-size: $cmu-size-normal;
   }
 
 }

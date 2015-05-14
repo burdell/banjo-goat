@@ -28,7 +28,7 @@
 
       <div class="forumThreadControl__row">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--ghost button-blue-white">Create a Topic</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
 
         <div class="col--md2">
@@ -225,12 +225,14 @@
                 ajax-populate="vm.getMessageData" 
                 tooltip-template="forums/list/forums.list.messagetooltip.html"
                 local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-                ui-sref="forums.message({messageId: message.id})">
+                empty-text="This post contains embedded media."
+                href="{{ vm.getMessageUrl(message.id) }}">
                   {{ ::message.subject | htmlUnescape }}
               </a>
             </td>
             <td class="forumThreadList__message__author">
-              <a ui-sref="user">{{ ::message.author.login }}</a>
+              <!-- <a ui-sref="user">{{ ::message.author.login }}</a> -->
+              <community-username user="message.author"></community-username>
             </td>
             <td class="forumThreadList__message__createdDate">{{ ::message.postTime | timeFromNow }}
             </td>
@@ -244,7 +246,7 @@
               {{  message.stats | extractKey : 'score'  | number}}
             </td>
             <td class="forumThreadList__message__authorLast">
-              <a>{{ ::message.latestComment.author.login }}</a>
+              <community-username user="message.latestComment.author"></community-username>
               <!-- <span class="forumThreadList__date">04-24-2015, 03:42 PM</span> -->
             </td>
             <td class="forumThreadList__message__latestDate">{{ message.latestComment.postTime | timeFromNow }}
@@ -258,7 +260,7 @@
   <div class="forumPagination">
     <div class="row">
         <div class="col--md6 noPaddingLeft">
-          <button class="button--solid button-blue-white">Create a Topic</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
         <div class="col--md6 noPaddingLeft">
           <community-pager 
@@ -280,7 +282,7 @@
         </div>
 
         <div class="col--md2 noPaddingRight">
-           <a href="#pageTop" class="button button--wide button--solid button-black-white"><span class="icon ubnt-icon--pointer-up"></span>Back to top</a>
+          <page-scroll></page-scroll>
         </div>
 
       </div>

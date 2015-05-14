@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6593,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -7261,8 +7261,8 @@ select:disabled {
 		- solid (default)
 		- compound (ghosted w/ a title)
 	- declare a color scheme
-		- button-background-foreground
-		- button-blue-white (default)
+		- button-foreground-background
+		- button-white-blue (default)
 
 
 	Button notes:
@@ -7273,105 +7273,155 @@ select:disabled {
 button, .button {
   font-size: 0.6875rem;
   text-transform: uppercase;
-  line-height: 1.5rem;
-  letter-spacing: 0.0625rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.03125rem;
   border-width: 0.125rem;
   border-style: solid;
-  border-color: #00a0df;
+  padding: 0 0.5rem;
+  color: black;
+  background-color: default;
+  color: black;
+  background-color: #fafafa;
+  border-color: black;
+}
+button:hover, .button:hover {
+  color: #fafafa;
+  background-color: black;
+  border-color: black;
 }
 
 .button--ghost {
-  padding: 0.375rem 0.875rem;
-  background-color: transparent !important;
+  color: black;
+  background-color: default;
+  color: black;
+  background-color: #fafafa;
+  border-color: black;
+}
+.button--ghost:hover {
+  color: #fafafa;
+  background-color: black;
+  border-color: black;
+}
+.button--ghost.button-green-on-white {
+  color: #48af65;
+  background-color: default;
+  color: #48af65;
+  background-color: #fafafa;
+  border-color: #48af65;
+}
+.button--ghost.button-green-on-white:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+.button--ghost.button-black-on-white {
+  color: black;
+  background-color: default;
+  color: black;
+  background-color: #fafafa;
+  border-color: black;
+}
+.button--ghost.button-black-on-white:hover {
+  color: #fafafa;
+  background-color: black;
+  border-color: black;
+}
+.button--ghost.button-gray-on-white {
+  color: #bbbbbd;
+  background-color: default;
+  color: #bbbbbd;
+  background-color: #fafafa;
+  border-color: #bbbbbd;
+}
+.button--ghost.button-gray-on-white:hover {
+  color: #fafafa;
+  background-color: #bbbbbd;
+  border-color: #bbbbbd;
 }
 
 .button--solid {
-  padding: 0.4375rem 1rem;
-  border: 1px solid #00a0df;
+  color: #fafafa;
+  background-color: #00a0df;
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
 }
 .button--solid:hover {
-  background-color: #0074ad;
-}
-
-.button-compound {
-  border: 0.125rem solid #00a0df;
-  font-size: 0.6875rem;
-  padding: 0;
-}
-.button-compound span {
-  display: inline-block;
-}
-.button-compound span:nth-child(1) {
-  padding: 0.375rem 1rem;
-  background-color: #fafafa;
-  color: #48af65;
-}
-.button-compound span:nth-child(2) {
-  padding: 0.375rem 1rem;
-  line-height: 16px;
-}
-.button-compound:hover {
-  border-color: #48af65;
-  background-color: #48af65;
-}
-.button-compound:hover span:nth-child(1) {
-  background-color: #48af65;
   color: #fafafa;
+  background-color: #007bac;
+  border-color: #007bac;
 }
-.button-compound:hover span:nth-child(2) {
-  border-color-left: #fafafa;
+.button--solid.button-white-on-green {
   color: #fafafa;
-}
-
-.button--solid {
-  border: 0;
-}
-
-.button-white-green {
-  background-color: #fafafa;
-  color: #48af65;
-  border-color: #48af65;
-}
-.button-white-green span {
-  padding: 0 0.5rem;
   background-color: #48af65;
-  color: #fafafa;
-}
-.button-white-green:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-
-.button-white-blue {
-  background-color: #fafafa;
-  color: #00a0df;
-  border-color: #00a0df;
-}
-.button-white-blue:hover {
+.button--solid.button-white-on-green:hover {
   color: #fafafa;
-  background-color: #00a0df;
-  border-color: #00a0df;
+  background-color: #398b50;
+  border-color: #398b50;
 }
-
-.button-blue-white {
-  background-color: #00a0df;
+.button--solid.button-white-on-black {
   color: #fafafa;
-  border: #00a0df;
-}
-
-.button-black-white {
   background-color: black;
   color: #fafafa;
-  border: #00a0df;
+  background-color: black;
+  border-color: black;
+}
+.button--solid.button-white-on-black:hover {
+  color: #fafafa;
+  background-color: black;
+  border-color: black;
+}
+
+.button--naked {
+  text-align: left;
+  color: #00a0df;
+  background-color: #fafafa;
+  color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked.button--naked--right {
+  text-align: right;
+  padding-right: 0;
+}
+.button--naked:hover {
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked.button-black-on-white {
+  color: black;
+  background-color: #fafafa;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked.button-black-on-white:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button .icon, .button .icon {
+  margin-right: 0.5rem;
 }
 
 .button--wide {
   width: 100%;
 }
 
-button .icon, .button .icon {
-  margin-right: 0.5rem;
+.cmuUsername .cmuUsername__icon {
+  margin-right: 0.25rem;
+  font-size: 0.5rem;
+  background: rgba(0, 160, 223, 0.5);
+  color: white;
+  padding: 0.33333rem;
+  position: relative;
+  top: -2px;
 }
 
 .cmuDiscussionsHeaderRow {
@@ -7433,9 +7483,10 @@ button .icon, .button .icon {
 }
 
 .forumThreadList__head--author, .forumThreadList__message__author, .forumThreadList__head--authorLast, .forumThreadList__message__authorLast {
-  width: 12%;
+  width: 15%;
   padding-right: 0.5rem;
   max-width: 100px;
+  font-size: 0.8125rem;
 }
 
 @media only screen and (max-width: 1040px) {
@@ -7452,6 +7503,7 @@ button .icon, .button .icon {
 .forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
   padding-left: 0.5rem;
   width: 85px;
+  min-width: 80px;
   text-align: left;
 }
 

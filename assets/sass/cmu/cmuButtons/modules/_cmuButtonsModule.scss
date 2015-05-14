@@ -13,8 +13,8 @@
 		- solid (default)
 		- compound (ghosted w/ a title)
 	- declare a color scheme
-		- button-background-foreground
-		- button-blue-white (default)
+		- button-foreground-background
+		- button-white-blue (default)
 
 
 	Button notes:
@@ -30,26 +30,90 @@
 $cmu-style-button-borderwidth: remCalc(2px);
 
 $cmu-button-fontsize: $cmu-size-xsmaller;
-$cmu-button-lineheight: $cmu-size-xsmaller-line-height;
-$cmu-button-letterspacing: remCalc(1px);
+$cmu-button-lineheight: $cmu-cta-height;
+$cmu-button-letterspacing: remCalc(0.5px);
 
-$cmu-button-color-base: $cmu-color-blue;
+$cmu-button-color-base: $cmu-color-black;
 
+
+@mixin cmuButton($type, $fgColor: $cmu-button-color-base, $bgColor:default, $hoverFgColor:default, $hoverBgColor:default) {
+
+	color: $fgColor;
+	background-color: $bgColor;
+	// bgcolor is just defaulted to the background color
+
+	// border-color: $borderColor;
+	@if $type == 'solid' {
+		@if $bgColor == default {
+			$bgColor: $cmu-color-blue;
+		}
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $fgColor; // can't use transparent
+			background-color: darken($bgColor, 10);
+			border-color: darken($bgColor, 10);
+		}
+
+	} @else if $type == 'compound' {
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $bgColor; // can't use transparent
+			background-color: purple !important;
+			border-color: $fgColor;
+		}
+
+	} @else if $type == 'ghost' {
+		@if $bgColor == default {
+			$bgColor: $cmu-color-white;
+		}
+
+		// ghost is default
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $fgColor;
+
+		&:hover {
+			color: $cmu-color-white; // can't use transparent
+			background-color: $fgColor;
+			border-color: $fgColor;
+		}
+	} @else if $type == 'naked' {
+		$bgColor: transparent;
+
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $hoverFgColor; // can't use transparent
+			background-color: $bgColor;
+			border-color: $bgColor;
+		}
+	}
+
+
+}
 
 
 
 button, .button {
-
 	font-size: $cmu-size-xsmaller;
 	text-transform: uppercase;
-	line-height: $cmu-size-xsmaller-line-height;
+
+	line-height: $cmu-button-lineheight - $cmu-style-button-borderwidth * 2;
 	letter-spacing: $cmu-button-letterspacing;
 
 	// all buttons need borders, even if they're the same color as the bg
 	border-width: $cmu-style-button-borderwidth;
 	border-style: solid;
-	border-color: $cmu-button-color-base;
+	padding: 0 $cmu-base/2;
 
+	@include cmuButton('ghost');
 	@extend %ease-fast;
 }
 
@@ -63,24 +127,53 @@ button, .button {
 // GHOST Buttons
 // thick outline w/ transparent background
 .button--ghost {
-	padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base - ($cmu-style-button-borderwidth); // padding will increase box size
-	background-color: transparent !important;
-	// &:hover {
-	// 	border-color: $cmu-color-ltgray;
-	// 	background-color: $cmu-color-darken;
-	// }
+	@include cmuButton('ghost',$cmu-button-color-base);
+
+	&.button-green-on-white {
+		@include cmuButton('ghost',$cmu-color-green);
+	}
+	&.button-black-on-white {
+		@include cmuButton('ghost',$cmu-color-black);
+	}
+	&.button-gray-on-white {
+		@include cmuButton('ghost',$cmu-color-mdgray);
+	}
 }
 
 // SOLID Buttons
-%style-button-solid {
-	padding: $cmu-base/2 - remCalc(1) $cmu-base;
-	border: 1px solid $cmu-color-blue;
-	@extend %ease-fast;
+.button--solid {
+	@include cmuButton('solid',$cmu-color-white,$cmu-color-blue);
 
-	&:hover {
-		background-color: $cmu-color-dkblue;
+	&.button-white-on-green {
+		@include cmuButton('solid',$cmu-color-white,$cmu-color-green);
+	}
+	&.button-white-on-black {
+		@include cmuButton('solid',$cmu-color-white,$cmu-color-black);
 	}
 }
+
+// NAKED Buttons
+// Buttons without the chrome (acts like buttons, unlike links will align with other buttons)
+// these are used for smaller / less precedence
+// default: placed left
+
+.button--naked {
+	text-align: left;
+	&.button--naked--right {
+		text-align: right;
+		padding-right: 0;
+	}
+
+	@include cmuButton('naked',$cmu-color-blue,$cmu-color-white,$cmu-color-black);
+
+	&.button-black-on-white {
+		@include cmuButton('naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+	}
+	// &.button-white-on-black {
+	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
+	// }
+}
+
 
 // COMPOUND Buttons
 %style-button-compound {
@@ -121,66 +214,64 @@ button, .button {
 
 
 
-.button--solid {
-	@extend %style-button-solid;
-	border: 0;
-}
+// .button--solid {
+// 	@extend %style-button-solid;
+// 	border: 0;
+// }
 
-.button-compound {
-	@extend %style-button-compound;
-}
-
-.button-white-green {
-	background-color: $cmu-color-white;
-	color: $cmu-color-green;
-	border-color: $cmu-color-green;
-
-	span {
-		padding: 0 $cmu-base/2;
-		background-color: $cmu-color-green;
-		color: $cmu-color-white;
-	}
-
-	&:hover {
-		color: $cmu-color-white;
-		background-color: $cmu-color-green;
-		border-color: $cmu-color-green;
-	}
-
-}
-
-.button-white-blue {
-	background-color: $cmu-color-white;
-	color: $cmu-color-blue;
-	border-color: $cmu-color-blue;
-
-	&:hover {
-		color: $cmu-color-white;
-		background-color: $cmu-color-blue;
-		border-color: $cmu-color-blue;
-	}
-
-}
+// .button-compound {
+// 	@extend %style-button-compound;
+// }
 
 
-.button-blue-white {
-	background-color: $cmu-color-blue;
-	color: $cmu-color-white;
-	// @extend %style-button-ghost;
-	border: $cmu-color-blue;
-}
+// .button-white-green {
+// 	background-color: $cmu-color-white;
+// 	color: $cmu-color-green;
+// 	border-color: $cmu-color-green;
+// }
+// 	span {
+// 		padding: 0 $cmu-base/2;
+// 		background-color: $cmu-color-green;
+// 		color: $cmu-color-white;
+// 	}
 
-.button-black-white {
-	background-color: $cmu-color-black;
-	color: $cmu-color-white;
-	// @extend %style-button-ghost;
-	border: $cmu-color-blue;
-}
+// 	&:hover {
+// 		color: $cmu-color-white;
+// 		background-color: $cmu-color-green;
+// 		border-color: $cmu-color-green;
+// 	}
+
+// }
+
+// .button-white-blue {
+// 	background-color: $cmu-color-white;
+// 	color: $cmu-color-blue;
+// 	border-color: $cmu-color-blue;
+
+// 	&:hover {
+// 		color: $cmu-color-white;
+// 		background-color: $cmu-color-blue;
+// 		border-color: $cmu-color-blue;
+// 	}
+
+// }
 
 
-.button--wide {
-	width: 100%
- }
+// .button-blue-white {
+// 	// background-color: $cmu-color-blue;
+// 	// color: $cmu-color-white;
+// 	// @extend %style-button-ghost;
+// 	// border: $cmu-color-blue;
+// }
+
+// .button-black-white {
+// 	background-color: $cmu-color-black;
+// 	color: $cmu-color-white;
+// 	// @extend %style-button-ghost;
+// 	border: $cmu-color-blue;
+// }
+
+
 
 // 
 // SPECIAL STYLES
@@ -194,3 +285,7 @@ button, .button {
 		margin-right: $cmu-base/2;
 	}
 }
+
+.button--wide {
+	width: 100%
+ }
