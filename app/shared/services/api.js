@@ -31,7 +31,7 @@
 			});
 		}
 		
-		var baseUrl = 'http://comm2-dev.ubnt.com:8080/';
+		var baseUrl = 'http://52.6.50.176:8080/';
 		var urlSegments = {
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
