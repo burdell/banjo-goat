@@ -81,7 +81,7 @@ gulp.task('clean', function(){
 //
 
 function areaBuilder(taskFn){
-    var areas = ['forums'];
+    var areas = ['forums', 'announcements'];
 
     _.each(areas, function(areaName){
         taskFn(areaName);
@@ -261,6 +261,10 @@ gulp.task('express', function() {
     app.get('/forums/*', function (req,res) {
         res.render('forums/index.html');
         console.log('served forums index.html');
+    });
+    app.get('/announcements/*', function (req,res) {
+        res.render('announcements/index.html');
+        console.log('served announcements index.html');
     });
    
     app.listen(4200);

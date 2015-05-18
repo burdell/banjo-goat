@@ -3,32 +3,40 @@
 
 	function discussionsNavBar() {
 		function link(scope, element, attrs) {
-		    
 		}
 
 		function controller(nodeService) {
 			var ctrl = this;
-			
-			ctrl.navLinks = [];
-
+		
 			var standardNavLinks = {
 				'Forums': '-General',
 				'Q&A': '_QnA',
 				'Stories': '_Stories',
-				//it's spelled wrong on the server :(
-				'Announcements': '_Annoucements',
+				'Announcements': 'Blog_',
 				'Feature Requests': '_Features',
 				'Bugs': '_Bugs'
 			};
 
 			var currentNode = nodeService.CurrentNode;
 			var siblingNodeList = currentNode.parent.children;
+
+			_.extend(ctrl, {
+				navLinks: []
+			})
+
 			_.each(standardNavLinks, function(searchValue, displayName){
 				var navNode = _.find(siblingNodeList, function(node){
 					return (node.urlSlug.indexOf(searchValue) >= 0);
 				});
 				if (navNode) {
-					this.navLinks.push({ display: displayName, href: navNode.href, active: navNode === currentNode });
+					this.navLinks.push({ 
+						display: displayName, 
+						href: navNode.href, 
+						active: navNode === currentNode,
+						target: function(){
+							return (!this.active ? '_self' : "");
+						} 
+					});
 				}
 			}, ctrl);
 			

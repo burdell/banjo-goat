@@ -1,0 +1,41 @@
+<div>
+	<h4>{{ vm.currentAnnouncement.subject }}</h4>
+	<div class="row">
+		<div class="forumThreadMessageContainer">
+			<div class="forumThreadMessage clearfix">
+			<!-- message -->
+				<div class="col--md2 noPadding">
+					<community-user-badge user="vm.currentAnnouncement.author"></community-user-badge>
+				</div>
+
+				<div class="forumThreadMain col--md10">
+					<div class="forumThreadMain__posted">
+						<h6>Posted {{ vm.currentAnnouncement.postTime | timeFromNow }}</h6>
+					</div>
+					<div class="forumThreadMain__body" ng-bind-html="vm.currentAnnouncement.body | sanitize">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<h4>{{ vm.currentComments.length }} comments</h4>
+		<hr />
+		<div class="row" ng-repeat="comment in vm.currentComments">
+			<div class="forumThreadMessageContainer">
+				<div class="forumThreadMessage clearfix">
+				<!-- message -->
+					<div class="col--md10">
+						<community-username user="comment.author"></community-username>
+					</div>						
+					<div class="forumThreadMain__posted col--md2">
+						<h6 class="alignRight">{{ comment.postTime | timeFromNow }}</h6>
+					</div>
+					<div class="forumThreadMain__body col--md12" ng-bind-html="comment.body | sanitize">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
