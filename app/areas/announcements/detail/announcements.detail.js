@@ -6,7 +6,14 @@
 		
 		_.extend(ctrl, {
 			currentAnnouncement: announcementDetail.originalMessage,
-			currentComments: announcementDetail.comments
+			currentComments: announcementDetail.comments,
+			replyInProgress: false,
+			showReply: function(){
+				ctrl.replyInProgress = true;
+			},
+			cancelReply: function(){
+				ctrl.replyInProgress = false;
+			}
 		});
 	}
 	AnnouncementListController.$inject = ['$state', 'AnnouncementDetail'];

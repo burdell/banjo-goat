@@ -17,6 +17,33 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row row--comfy">
+			<div class="row row--comfy" ng-hide="vm.replyInProgress">
+				<div class="md--col2 alignRight">
+					<button class="button-full button-blue-white" ng-click="vm.showReply()">
+									Reply
+							</button>
+				</div>
+			</div>
+			<div class="row row--comfy" ng-hide="!vm.replyInProgress">
+				<div class="row row--comfy">
+						<community-text-editor ng-model="vm.replyText" minimal-editor="true"></community-text-editor>
+				</div>
+				<div>
+					<button 
+						class="button-ghost button-white-blue" 
+						ng-click="vm.cancelReply()">
+							Cancel
+					</button>
+					<button 
+						class="button-full button-blue-white"
+						ng-click="vm.submitReply()">
+							Submit Comment
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="row">
