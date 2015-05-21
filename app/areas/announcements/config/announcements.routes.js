@@ -28,7 +28,7 @@
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Forums.thread($stateParams.announcementId, { limit: 30 });
+						return communityApi.Forums.thread($stateParams.announcementId, { limit: 300 });
 					}]
 				}
 			});

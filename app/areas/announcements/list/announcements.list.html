@@ -8,8 +8,12 @@
 	</div>
 	<div class="col--md3">
 		<h4>Announcement Timeline</h4>
-		<div ng-repeat="announcement in vm.announcementList">
+		<!-- <div ng-repeat="announcement in vm.announcementList">
 			<a ui-sref="announcements.detail({ announcementId: announcement.id })">{{ announcement.subject }}</a>
-		</div>
+		</div> -->
+		<community-timeline 
+			timeline-model="vm.announcementList" 
+			date-attribute="postTime">
+		</community-timeline>
 	</div>
 </div>

@@ -1,0 +1,20 @@
+<div>
+	<div ng-repeat="yearData in timeline.timelineData">
+		<div ng-click="timeline.yearClicked(yearData.year)"
+			<h4>{{ yearData.year }} ({{ yearData.count }})</h4>
+		</div>
+
+		<div ng-show="timeline.showYear(yearData.year)">
+			<div ng-repeat="monthData in yearData.yearData" style="padding-left: 10px;">
+				<div ng-click="timeline.monthClicked(monthData.month)">
+					<h5>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h5>
+				</div>
+				<div ng-show="timeline.showMonth(monthData.month, yearData.year)">
+					<div ng-repeat="data in monthData.monthData" style="padding-left: 10px;">
+						<a ui-sref="announcements.detail({ announcementId: data.id })">{{ data.subject }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
