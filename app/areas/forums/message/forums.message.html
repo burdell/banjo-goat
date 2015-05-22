@@ -34,43 +34,10 @@
 
 
 <div class="forumThreadMessageContainer" ng-repeat="message in vm.messageThread">
-	<div class="row" id="{{ message.id }}">
-		<div class="forumThreadMessage clearfix">
-		<!-- message -->
-
-			<div class="col--md2 noPadding">
-				<community-user-badge user="message.author"></community-user-badge>
-			</div>
-
-			<div class="forumThreadMain col--md10" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == message.id }">
-				<div class="forumThreadMain__posted">
-					<h6>Posted {{ message.postTime | timeFromNow }}</h6>
-				</div>
-				<div class="forumThreadMain__body" ng-bind-html="message.body | sanitize">
-				</div>
-				<div class="forumThreadMain__controls"> 
-					<div class="forumThreadMain__controls__main col--md8 noPadding">
-						<button class="button-compound button-white-green">
-							<span>{{ message.stats | extractKey : 'kudos' }} Kudos</span>
-							<span class="icon-plus">+</span>
-						</button>
-						<button class="button-compound button-white-green">
-							<span>123 Votes</span>
-							<span>Vote As Helpful</span>
-						</button>
-					</div>
-					<div class="forumThreadMain__controls__reply col--md4 noPadding">
-						<button 
-							class="button-full button-blue-white" 
-							ng-click="vm.showReply(message.id)"
-							ng-disabled="vm.messageIsBeingRepliedTo(message.id)">
-								Reply
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<community-message 
+		message="message"
+		reply-click-fn="vm.showReply">
+	</community-message>
 
 	<!-- reply -->
 	<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">

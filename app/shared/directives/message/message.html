@@ -1,0 +1,38 @@
+<div class="row" id="{{ messageDisplay.message.id }}">
+	<div class="forumThreadMessage clearfix">
+	<!-- message -->
+
+		<div class="col--md2 noPadding">
+			<community-user-badge user="messageDisplay.message.author"></community-user-badge>
+		</div>
+
+		<div class="forumThreadMain col--md10" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == message.id && false }">
+			<div class="forumThreadMain__posted">
+				<h6>Posted {{ messageDisplay.message.postTime | timeFromNow }}</h6>
+			</div>
+			<div class="forumThreadMain__body" ng-bind-html="messageDisplay.message.body | sanitize">
+			</div>
+			<div class="forumThreadMain__controls"> 
+				<div class="forumThreadMain__controls__main col--md8 noPadding">
+					<div ng-if="!messageDisplay.hideVoteButtons">
+						<button class="button-compound button-white-green">
+							<span>{{ messageDisplay.message.stats | extractKey : 'kudos' }} Kudos</span>
+							<span class="icon-plus">+</span>
+						</button>
+						<button class="button-compound button-white-green">
+							<span>123 Votes</span>
+							<span>Vote As Helpful</span>
+						</button>
+					</div>
+				</div>
+				<div class="forumThreadMain__controls__reply col--md4 noPadding">
+					<button 
+						class="button-full button-blue-white" 
+						ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
+							Reply
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

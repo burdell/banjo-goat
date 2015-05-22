@@ -1,31 +1,13 @@
 <div>
 	<h4>{{ vm.currentAnnouncement.subject }}</h4>
 	<div class="row">
-		<div class="forumThreadMessageContainer">
-			<div class="forumThreadMessage clearfix">
-			<!-- message -->
-				<div class="col--md2 noPadding">
-					<community-user-badge user="vm.currentAnnouncement.author"></community-user-badge>
-				</div>
-
-				<div class="forumThreadMain col--md10">
-					<div class="forumThreadMain__posted">
-						<h6>Posted {{ vm.currentAnnouncement.postTime | timeFromNow }}</h6>
-					</div>
-					<div class="forumThreadMain__body" ng-bind-html="vm.currentAnnouncement.body | sanitize">
-					</div>
-				</div>
-			</div>
-		</div>
+		<community-message 
+			message="vm.currentAnnouncement"
+			reply-click-fn="vm.showReply"
+			hide-vote-buttons="true">
+		</community-message>
 
 		<div class="row row--comfy">
-			<div class="row row--comfy" ng-hide="vm.replyInProgress">
-				<div class="md--col2 alignRight">
-					<button class="button-full button-blue-white" ng-click="vm.showReply()">
-									Reply
-							</button>
-				</div>
-			</div>
 			<div class="row row--comfy" ng-hide="!vm.replyInProgress">
 				<div class="row row--comfy">
 						<community-text-editor ng-model="vm.replyText" minimal-editor="true"></community-text-editor>
@@ -47,7 +29,7 @@
 	</div>
 
 	<div class="row">
-		<h4>{{ vm.currentComments.length }} comments</h4>
+		<h4 ng-pluralize count="vm.currentComments.length" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></h4>
 		<hr />
 		<div class="row" ng-repeat="comment in vm.currentComments">
 			<div class="forumThreadMessageContainer">
