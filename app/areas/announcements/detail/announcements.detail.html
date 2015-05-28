@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="row">
-		<h4 ng-pluralize count="vm.currentComments.length" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></h4>
+		<h4 ng-pluralize count="vm.commentData.total" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></h4>
 		<hr />
 		<div class="row" ng-repeat="comment in vm.currentComments">
 			<div class="forumThreadMessageContainer">
@@ -46,5 +46,10 @@
 				</div>
 			</div>
 		</div>
+		<community-load-more
+			list-model="vm.currentComments"
+			load-filter="vm.moreCommentsFilter"
+			list-metadata="vm.commentData">
+		</community-load-more>
 	</div>
 </div>

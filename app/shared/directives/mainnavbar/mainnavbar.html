@@ -1,12 +1,18 @@
 <div class="cmuNav container">
       <div class="row">
         <ul class="cmuNav__left col--md9 noMargin">
-          <li class="cmuNav__navItem"><a href="/">Activity</a></li>
+          <li 
+            ng-repeat="navItem in mainnavbar.navList"
+            class="cmuNav__navItem" 
+            ng-class="{ 'cmuNav__dropItem': navItem.dropItem }">
+              <a href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">{{ navItem.display }}</a>
+          </li>
+       <!--    <li class="cmuNav__navItem"><a href="/">Activity</a></li>
           <li class="cmuNav__active cmuNav__navItem cmuNav__dropItem"><a href="/">Discussions</a></li>
           <li class="cmuNav__navItem cmuNav__dropItem"><a href="/">Resources</a></li>
           <li class="cmuNav__navItem"><a href="/">Q&amp;A</a></li>
           <li class="cmuNav__navItem"><a href="/">Stories</a></li>
-          <li class="cmuNav__navItem"><a href="/">Announcements</a></li>
+          <li class="cmuNav__navItem"><a href="/announcements">Announcements</a></li> -->
           <!-- <li><a href="/categories" class="">Categories</a></li> -->
           <!-- <li><a href="/discussions" class="">Discussions</a></li> -->
           <!-- <li><a href="/activity" class="">Activity</a></li> -->

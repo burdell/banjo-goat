@@ -12,10 +12,10 @@
         'community.filters',  
 		'community.templates',
         'community.{{GULP_BUILD_areaName}}', 
-	]).run(['$rootScope', '$window', 'CurrentUserService', function($rootScope, $window, currentUser){
+	]).run(['$rootScope', '$state', '$window', 'CurrentUserService', function($rootScope, $state, $window, currentUser){
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);
-        })
+        });
 
         //MOCKED
         currentUser.set({

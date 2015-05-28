@@ -5,7 +5,7 @@
 		var ctrl = this;
 
 		_.extend(ctrl, {
-			announcementList: announcements.collection
+			announcementList: announcements
 		});
 
 		//redirect to newest announcement if no specific announcement

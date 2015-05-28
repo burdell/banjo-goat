@@ -5,16 +5,36 @@
 		$locationProvider.html5Mode(true);
 
 		$stateProvider
+			.state('announcementsLanding', {
+				url: '/announcements/',
+				templateUrl: 'announcements/landing/announcements.landing.html',
+				resolve: {
+					CommunityNodeStructure: ['CommunityBreadcrumbService', 'CommunityNodeService', function(breadcrumbService, nodeService){
+						var nodeStructure = nodeService.setNodeStructure('announcements');
+						breadcrumbService.syncToNodeStructure();
+						return nodeStructure;
+					}]
+				}
+			})
 			.state('announcements', {
 				url: '/announcements/:nodeId/',
 				templateUrl: 'announcements/list/announcements.list.html',
 				controller: 'CommunityAnnouncements as vm',
 				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
-						return nodeService.setNodeStructure($stateParams.nodeId);
+					CommunityNodeStructure: ['$stateParams', 'CommunityBreadcrumbService', 'CommunityNodeService', function($stateParams, breadcrumbService, nodeService){
+						var nodeStructure = nodeService.setNodeStructure($stateParams.nodeId);
+						breadcrumbService.syncToNodeStructure();
+						return nodeStructure;
 					}],
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Forums.messages($stateParams.nodeId);
+						var nodeId = $stateParams.nodeId;
+						return communityApi.Forums.messageCount(nodeId)
+							.then(function(result){
+								return communityApi.Forums.messages($stateParams.nodeId, { limit: result.count, sort: 'postdate' });
+							})
+							.then(function(result) {
+								return result.collection;
+							});
 					}]
 				}
 			})
@@ -28,7 +48,7 @@
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Forums.thread($stateParams.announcementId, { limit: 300 });
+						return communityApi.Forums.thread($stateParams.announcementId, { limit: 10, offset: 0 });
 					}]
 				}
 			});

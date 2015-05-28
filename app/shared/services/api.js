@@ -85,6 +85,9 @@
 				messages: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				},
+				messageCount: function(nodeId) {
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics/count', null, "GET");
+				},
 				comments: function(messageId, data) {
 					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId) + 'comments', data);
 				},
@@ -96,7 +99,8 @@
 						.then(function(result) {
 							return {
 								originalMessage: result[0].model,
-								comments: result[1].collection
+								comments: result[1].collection,
+								nextCommentMetaData: result[1].next
 							};
 						});
 				}
