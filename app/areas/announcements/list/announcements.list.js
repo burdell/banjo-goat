@@ -10,7 +10,7 @@
 
 		//redirect to newest announcement if no specific announcement
 		if (!$state.params.announcementId) {
-			$state.go('announcements.detail', { announcementId: ctrl.announcementList[0].id });
+			$state.go('announcements.detail', { announcementId: ctrl.announcementList[0].id }, { location: 'replace' });
 		}
 
 	};
