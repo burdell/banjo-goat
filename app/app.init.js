@@ -81,7 +81,7 @@ window.nodeStructure = [
                 "name": "airMAX Stories",
                 "id": 396,
                 "urlSlug": "airMAX_Stories",
-                "href": "/api/nodes/airMAX_Stories/",
+                "href": "/stories/airMAX_Stories/list",
                 "children": [ ]
               }, {
                 "name": "airMAX Q&A",
