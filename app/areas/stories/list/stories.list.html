@@ -1,5 +1,11 @@
+<div class="row row--comfy">
+	<div class="col--md8">
+		<button class="button--solid button-blue-white">New Story</button>
+	</div>
+</div>
+
 <div class="row">
-	<span ng-repeat="story in vm.storyList">
-		<h3>{{ story.subject }}</h3>
+	<div class="col--md4" ng-repeat="story in vm.storyList">
+		<story-display story="story"></story-display>
 	</span>
 </div>

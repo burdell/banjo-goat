@@ -30,12 +30,26 @@
 							filterFn: communityApi.Forums.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
-								limit: 30
+								limit: 9
 							} 
 						});
 					}]
 				},
 				reloadOnSearch: false
+			})
+			.state('stories.detail', {
+				url: '/{storyId:int}', 
+				views: {
+					'mainContent': {
+						templateUrl: 'stories/detail/stories.detail.html',
+						controller: 'StoryDetail as vm'
+					}
+				},
+				resolve: {
+					StoryThread: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi) {
+						return communityApi.Forums.thread($stateParams.storyId, { limit: 10, offset: 0 });
+					}]
+				}
 			})
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];

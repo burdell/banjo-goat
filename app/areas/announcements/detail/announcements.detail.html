@@ -28,28 +28,9 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<h4 ng-pluralize count="vm.commentData.total" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></h4>
-		<hr />
-		<div class="row" ng-repeat="comment in vm.currentComments">
-			<div class="forumThreadMessageContainer">
-				<div class="forumThreadMessage clearfix">
-				<!-- message -->
-					<div class="col--md10">
-						<community-username user="comment.author"></community-username>
-					</div>						
-					<div class="forumThreadMain__posted col--md2">
-						<h6 class="alignRight">{{ comment.postTime | timeFromNow }}</h6>
-					</div>
-					<div class="forumThreadMain__body col--md12" ng-bind-html="comment.body | sanitize">
-					</div>
-				</div>
-			</div>
-		</div>
-		<community-load-more
-			list-model="vm.currentComments"
-			load-filter="vm.moreCommentsFilter"
-			list-metadata="vm.commentData">
-		</community-load-more>
-	</div>
+	<community-comment-list
+		current-comments="vm.currentComments"
+		comment-metadata="vm.commentData"
+		comment-filter="vm.moreCommentsFilter">
+	</community-comment-list>
 </div>
