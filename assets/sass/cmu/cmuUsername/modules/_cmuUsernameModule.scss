@@ -10,11 +10,12 @@
 
 // maybe use fittext?
 .cmuUsername {
+	display: inline-block;
 
 	.cmuUsername__icon {
 		margin-right: $cmu-base/4;
 		font-size: $cmu-base/2;
-		background: rgba($cmu-color-blue,0.5);
+		background: $cmu-color-blue;
 		color: white;
 		padding: $cmu-base/3;
 		position: relative;

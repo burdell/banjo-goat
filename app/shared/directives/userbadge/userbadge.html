@@ -1,20 +1,38 @@
-<div class="forumBadge">
-	<div class="forumBadge__avatar">
-		<img src="{{ userbadge.user.avatar.url }}" />
-	</div>
-	<div class="forumBadge__username">
-		<community-username user="userbadge.user"></community-username>
-		<!-- <span>{{ userbadge.user.rank }}</span> -->
-	</div>
-	<div class="forumBadge__info">
-		<div class="forumBadge__info__points">
-			<span>Score:</span>
-			<!-- <span>{{ userbadge.user.stats | extractKey : 'totalpoints' }}</span> -->
-			<span>1,234</span>
+<div class="cmuUserbadge" ng-class="{ '{{ ::userbadge.userType }}' : userbadge.userType }">
+	<div class="cmuUserbadge__account">
+		<div class="cmuUserbadge__avatar">
+			<!-- <img src="{{ userbadge.user.avatar.url }}" /> -->
+			<div class="cmuUserbadge__activity cmuUserbadge__activity--active">
+			</div>
 		</div>
-		<div class="forumBadge__info__location">
-			<span>Location:</span><span>Los Angeles, CA</span>
-			<!-- <span>Location:</span><span>{{ userbadge.user.location }}</span> -->
+		<div class="cmuUserbadge__username">
+			<community-username user="userbadge.user"></community-username>
+			<span class="cmuUserbadge__status__op"></span>
+		</div>
+		<div class="cmuUserbadge__rank">
+			{{ userbadge.user.rank }} 
+		</div>
+		<!-- <div class="cmuUserbadge__status">
+			<span class="cmuUserbadge__status__op"></span>
+		</div> -->
+	</div>
+	<div class="cmuUserbadge__info">
+		<!-- <div class="cmuUserbadge__gameInfo"> -->
+			<!-- {{ userbadge.user.stats | extractKey : 'totalpoints' }} -->
+			<!-- <div class="cmuUserbadge__level"></div>
+			<div class="cmuUserbadge__levelDesc" data-desc="Kudos">152</div>
+			<div class="cmuUserbadge__levelDesc" data-desc="Posts">623</div>
+			<div class="cmuUserbadge__levelDesc" data-desc="Helpful">214</div> -->
+			<!-- <div class="cmuUserbadge__levelDesc" data-desc="Answers">14</div> -->
+			<!-- <div class="cmuUserbadge__levelDesc" data-desc="Stories">12</div> -->
+		<!-- </div> -->
+		<div class="cmuUserbadge__descriptors">
+			<div data-desc="Kudos">152</div>
+			<div data-desc="Posts">623</div>
+			<div data-desc="Helpful">214</div>
+			<div data-desc="Location">San Francisco, CA</div>
+			<div data-desc="Joined">08-07-2008</div>
+			<div data-desc="IP">89.184.153.167</div>
 		</div>
 	</div>
 </div>

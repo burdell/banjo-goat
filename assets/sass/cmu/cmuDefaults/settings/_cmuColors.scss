@@ -10,6 +10,7 @@
 $cmu-color-ltblue: 		#1374AB; 				// this is what was in the comp //#13BCFF; < this is the Sketch spec color;
 $cmu-color-blue: 		#00A0DF;
 $cmu-color-dkblue: 		#0074AD;
+$cmu-color-xltblue: 	lighten($cmu-color-blue,50);
 
 $cmu-color-green: 		#48AF65;
 $cmu-color-orange: 		#FFAA00;
@@ -24,7 +25,8 @@ $cmu-color-dkgray: 		#474B52;
 $cmu-color-gray: 		#969BA3;
 $cmu-color-mdgray: 		#BBBBBD;
 $cmu-color-xmdgray: 	#DADADA; 				// need slightly lighter version of mdgray; this one isn't in spec
-$cmu-color-ltgray: 		#EBEBEB; 
+$cmu-color-ltgray: 		#EBEBEB;
+$cmu-color-mltgray: 	#F7F7F7;
 $cmu-color-xltgray: 	#FAFAFA;
 $cmu-color-white: 		#FAFAFA;
 

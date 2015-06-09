@@ -45,6 +45,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	padding-right: $cmu-base/2;
 	max-width: $cmu-forum-size-maxWidth--author;
 	font-size: $cmu-size-normal;
+	white-space: nowrap;
 }
 %forumThreadList__column--author {
 	@extend %forumThreadList__column--authorLast;
@@ -130,10 +131,9 @@ $cmu-forum-size-maxWidth--author: 100px;
 	.forumThreadList__message__topic {
 		// * { font-weight: 400; }
 		@extend %style-community-mainlink;
-		padding-left: $cmu-base/2;
-		padding-right: $cmu-base/2;
+		line-height: $cmu-base;
+		padding: $cmu-base/4 $cmu-base/2;
 		position: relative; //important for icon placement
-		line-height: $cmu-base*1.5;
 	}
 
 	.forumThreadList__message__author {
@@ -218,7 +218,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 		font-family: 'ubnt';
 		content: '\e787';
 		display: inline-block;
-		padding: $cmu-base/6 $cmu-base/2;
+		padding: $cmu-base/6 $cmu-base/4;
 		// font-size: $cmu-size-xxsmaller;
 	}
 }

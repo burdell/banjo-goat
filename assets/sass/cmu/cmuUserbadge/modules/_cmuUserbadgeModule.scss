@@ -1,0 +1,204 @@
+
+// 
+// Badge / Avatar area
+// 
+
+.cmuUserbadge {
+	text-align: center;
+
+	display: table-cell;
+	width: 16%;
+	height: 100%;
+
+	// opacity onhover is contextual to the discussion style
+	// so this is moved to each discussion module ex: forumthreadmodule
+	@extend %ease-fast;
+	opacity: 0.46;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+
+// 
+// Main account information
+// 
+.cmuUserbadge__account {
+	padding-top: $cmu-base;
+	// padding-bottom: $cmu-base;
+
+	cursor: pointer;
+	&:hover {
+
+		a {
+			color: $cmu-color-black;
+		}
+		.cmuUserbadge__avatar:after {
+			background: $cmu-color-mdgray;
+			@extend %ease-fast;
+		}
+	}
+}
+
+// ubnt employees
+.cmuUserbadge--ubnt {
+	background-color: $cmu-color-xltblue;
+
+	.cmuUserbadge__account {
+  		border-top: $cmu-line-thick $cmu-color-blue solid;
+	}
+}
+
+.cmuUserbadge__avatar {
+
+	display: inline-block;
+	line-height: 0;
+	padding: 0 $cmu-base/2;
+	width: 45px;
+	text-align: center;
+	font-size: 20px !important;
+
+	width: 60px;
+	cursor: pointer;
+
+
+	&:after {
+		content: ' ';
+		display:block;
+		background: $cmu-color-gray;
+		border-radius: 50%;
+		width: $cmu-base*3;
+		height: $cmu-base*3;
+		// position: absolute;
+		top: 11px;
+		@include transition-duration(0.35s);
+		@include transition-timing-function(ease-out);
+	}
+
+	// img {
+	// 	height: $cmu-base*3;
+	// 	width: $cmu-base*3;
+	// }
+
+}
+
+.cmuUserbadge__username {
+	font-size: $cmu-size-normal;
+	line-height: $cmu-size-normal-line-height;
+	padding: 0 $cmu-base/3;
+}
+
+.cmuUserbadge__rank {
+	font-size: $cmu-size-smaller;
+	line-height: $cmu-size-smaller-line-height;
+}
+
+.cmuUserbadge__status {
+	font-size: $cmu-size-smaller;
+	line-height: $cmu-size-smaller-line-height;
+	margin: $cmu-base/2 0 $cmu-base 0;
+}
+
+	.cmuUserbadge__status__op:after {
+		content: 'OP';
+		@extend %oswald;
+		font-size: $cmu-size-xxsmaller;
+		border: $cmu-line-thin solid $cmu-color-dkgray;
+		padding: $cmu-base/10 $cmu-base/4;
+	}	
+
+
+%cmuUserbadge__info {
+	background-color: $cmu-color-ltgray;
+	// opacity: 0.5;
+	text-align: left;
+	padding: $cmu-base/2;
+
+	font-size: $cmu-size-xsmaller;
+	line-height: $cmu-size-copy-line-height;
+	text-transform: uppercase;
+
+	// margin: $cmu-base 0; margin-bottom: 0;
+}
+
+	.cmuUserbadge__gameInfo {
+		@extend %cmuUserbadge__info;
+		@extend %oswald;
+		letter-spacing: 1.4px;
+		padding-left: $cmu-base/2;
+		background-color: $cmu-color-ltgray;
+		color: $cmu-color-black;
+		width: 100%;
+	}
+		.cmuUserbadge__level {
+			font-size: $cmu-size-xsmaller;
+			display: block;
+			padding-bottom: $cmu-base/3;
+			width: 100%;
+			position: relative;
+			&:before {
+				// content: "3830/5000";
+				content: "AARDVARK L.14";
+				color: $cmu-color-white;
+				background: $cmu-color-blue;
+				font-size: $cmu-size-xsmaller;
+				width: 75%;
+				display: inline-block;
+				position: absolute;
+				// top: 23px;
+				padding-left: $cmu-base/2;
+			}
+			&:after {
+				content: "    ";
+				background: $cmu-color-mdgray;
+				width: 100%;
+				height: 23px;
+				display: block;
+			}
+		}
+		.cmuUserbadge__levelDesc {
+			text-align: left;
+			word-wrap: break-word;
+			line-height: $cmu-base;
+			// padding-bottom: $cmu-base/6;
+			text-transform: capitalize;
+			font-size: $cmu-size-xsmaller;
+			color: $cmu-color-dkgray;
+			&:before {
+				// text-transform: uppercase;
+				font-weight: 300;
+				@extend %font-lato;
+				letter-spacing: normal;
+				padding-left: $cmu-base/2;
+				content: attr(data-desc) ": ";
+				display: inline-block;
+				white-space: pre;
+				margin-right: $cmu-base/4;
+			}
+		}
+
+
+	.cmuUserbadge__descriptors {
+		@extend %cmuUserbadge__info;
+		padding-left: $cmu-base/2;
+		word-wrap: break-word;
+		background-color: transparent;
+
+		// description tag
+		div {
+			line-height: $cmu-base;
+			padding-bottom: $cmu-base/6;
+			text-transform: capitalize;
+			font-size: $cmu-size-xsmaller;
+			color: $cmu-color-black;
+			&:before {
+				// text-transform: uppercase;
+				font-weight: 300;
+				color: $cmu-color-black;
+				content: attr(data-desc) ": ";
+				display: inline-block;
+				white-space: pre;
+				margin-right: $cmu-base/4;
+			}
+		}
+	}

@@ -33,7 +33,7 @@ $cmu-button-fontsize: $cmu-size-xsmaller;
 $cmu-button-lineheight: $cmu-cta-height;
 $cmu-button-letterspacing: remCalc(0.5px);
 
-$cmu-button-color-base: $cmu-color-black;
+$cmu-button-color-base: $cmu-color-blue;
 
 
 @mixin cmuButton($type, $fgColor: $cmu-button-color-base, $bgColor:default, $hoverFgColor:default, $hoverBgColor:default) {
@@ -60,11 +60,38 @@ $cmu-button-color-base: $cmu-color-black;
 	} @else if $type == 'compound' {
 		background-color: $bgColor;
 		border-color: $bgColor;
+		border-color: $cmu-color-white;
+		// border-left-color: $bgColor;
+		
+		.button--compound--data {
+			color: $bgColor;
+			background-color: $fgColor;
+		}
+		.button--compound--action {
+			background: $bgColor;
+			color: $fgColor;
+		}
+
 
 		&:hover {
-			color: $bgColor; // can't use transparent
-			background-color: purple !important;
-			border-color: $fgColor;
+			border-color: $bgColor;
+			.button--compound--data {
+				// color: $fgColor; // can't use transparent
+				// background-color: $bgColor !important;
+			}
+		}
+
+	} @else if $type == 'compound-naked' {
+		$bgColor: transparent;
+
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $hoverFgColor; // can't use transparent
+			background-color: $bgColor;
+			border-color: $hoverFgColor;
 		}
 
 	} @else if $type == 'ghost' {
@@ -97,6 +124,13 @@ $cmu-button-color-base: $cmu-color-black;
 	}
 
 
+	// specialty icons
+	.icon {
+		font-weight: 800;
+		font-size: $cmu-size-normal;
+		position: relative;
+		top: 1px;
+	}
 }
 
 
@@ -115,6 +149,11 @@ button, .button {
 
 	@include cmuButton('ghost');
 	@extend %ease-fast;
+
+	// space them out if next to each other
+	&+& {
+		margin-left: $cmu-base/2;
+	}
 }
 
 
@@ -133,7 +172,7 @@ button, .button {
 		@include cmuButton('ghost',$cmu-color-green);
 	}
 	&.button-black-on-white {
-		@include cmuButton('ghost',$cmu-color-black);
+		@include cmuButton('ghost',$cmu-color-xdkgray);
 	}
 	&.button-gray-on-white {
 		@include cmuButton('ghost',$cmu-color-mdgray);
@@ -148,7 +187,7 @@ button, .button {
 		@include cmuButton('solid',$cmu-color-white,$cmu-color-green);
 	}
 	&.button-white-on-black {
-		@include cmuButton('solid',$cmu-color-white,$cmu-color-black);
+		@include cmuButton('solid',$cmu-color-white,$cmu-color-xdkgray);
 	}
 }
 
@@ -176,102 +215,72 @@ button, .button {
 
 
 // COMPOUND Buttons
-%style-button-compound {
-	border: $cmu-style-button-borderwidth solid $cmu-color-blue;
-	font-size: $cmu-button-fontsize;
-	@extend %ease-fast;
-	padding: 0;
+// these have an ACTIVE state / class which can be turned on or off
+// (default is off)
+.button--compound {
+	@include cmuButton('compound',$cmu-color-white,$cmu-color-blue);
 
-	span {
-		display: inline-block;
-	}
-
-	span:nth-child(1) {
-		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
-		background-color: $cmu-color-white;
-		color: $cmu-color-green;
-	}
-
-	span:nth-child(2) {
-		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
-		line-height: 16px;
-	}
-
+	// border: $cmu-style-button-borderwidth solid $cmu-color-blue;
+	// @extend %ease-fast;
 	&:hover {
-		border-color: $cmu-color-green;
-		background-color: $cmu-color-green;
-		span:nth-child(1) {
-			@extend %ease-fast;
-			background-color: $cmu-color-green;
-			color: $cmu-color-white;
+		// @extend %ease-fast;
+
+		.button--compound--data {
+			padding: 0 $cmu-base/2 !important;
 		}
-		span:nth-child(2) {
-			border-color-left: $cmu-color-white;
-			color: $cmu-color-white;
+
+		.button--compound--action {
+			display: inherit;
 		}
 	}
+	padding: 0;
+	div { display: inline-block;}
+
+	.button--compound--data {
+		padding: 0 $cmu-base/2;
+		padding-left: 0;
+		@extend %ease-fast;
+		.icon {margin-right: 0;}
+	}
+
+	.button--compound--action {
+		padding: 0 $cmu-base/2;
+		display: none;
+		// specialty icons
+		// .icon {margin-right: 0;}
+	}
+
+	&.button-green-on-white {
+		@include cmuButton('compound',$cmu-color-white,$cmu-color-green);
+	}
+
+}
+
+// COMPOUND NAKED
+// similar to COMPOUND, these don't have any of the chrome, bg and outlines
+.button--compound-naked {
+
+	text-align: left;
+
+	@include cmuButton('compound-naked',$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
+
+	&.button-black-on-white {
+		@include cmuButton('compound-naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+	}
+	// &.button-white-on-black {
+	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
+	// }
 }
 
 
-
-// .button--solid {
-// 	@extend %style-button-solid;
-// 	border: 0;
-// }
-
-// .button-compound {
-// 	@extend %style-button-compound;
-// }
-
-
-// .button-white-green {
-// 	background-color: $cmu-color-white;
-// 	color: $cmu-color-green;
-// 	border-color: $cmu-color-green;
-// }
-// 	span {
-// 		padding: 0 $cmu-base/2;
-// 		background-color: $cmu-color-green;
-// 		color: $cmu-color-white;
-// 	}
-
-// 	&:hover {
-// 		color: $cmu-color-white;
-// 		background-color: $cmu-color-green;
-// 		border-color: $cmu-color-green;
-// 	}
-
-// }
-
-// .button-white-blue {
-// 	background-color: $cmu-color-white;
-// 	color: $cmu-color-blue;
-// 	border-color: $cmu-color-blue;
-
-// 	&:hover {
-// 		color: $cmu-color-white;
-// 		background-color: $cmu-color-blue;
-// 		border-color: $cmu-color-blue;
-// 	}
-
-// }
-
-
-// .button-blue-white {
-// 	// background-color: $cmu-color-blue;
-// 	// color: $cmu-color-white;
-// 	// @extend %style-button-ghost;
-// 	// border: $cmu-color-blue;
-// }
-
-// .button-black-white {
-// 	background-color: $cmu-color-black;
-// 	color: $cmu-color-white;
-// 	// @extend %style-button-ghost;
-// 	border: $cmu-color-blue;
-// }
-
-
+.button--kudos {
+	&:hover {
+		span:before {
+			content: "+1";
+			margin-right: $cmu-base/4;
+		}
+	}
+}
 
 // 
 // SPECIAL STYLES
@@ -282,7 +291,7 @@ button, .button {
 
 	// default treat icon on the left
 	.icon {
-		margin-right: $cmu-base/2;
+		margin-right: $cmu-base/4;
 	}
 }
 

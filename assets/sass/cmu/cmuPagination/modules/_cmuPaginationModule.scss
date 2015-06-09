@@ -237,7 +237,7 @@ $cmu-pagination-width: $cmu-base*2;
 
 	&.active {
 		background: $cmu-color-blue !important;
-		color: white !important; 
+		color: $cmu-color-white !important; 
 		cursor: default !important;
 	}
 
@@ -311,7 +311,12 @@ $cmu-pagination-width: $cmu-base*2;
 	// make first page not look 'persistent'
 	&.cmuPagination__first {
 		color: inherit; 
-		background-color: white;
+		background-color: inherit;
+
+		&:after {
+			content: '';
+			padding-left: inherit;
+		}
 	}
 
 	// align the scrubber to the right, since only a few pages

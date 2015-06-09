@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6593,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6641,12 +6641,6 @@ body {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
 }
-.row > div:first-child {
-  padding-left: 0;
-}
-.row > div:last-child {
-  padding-right: 0;
-}
 .row .row {
   padding-left: 0;
   padding-right: 0;
@@ -6681,8 +6675,12 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-.forumBadge__info__points span:nth-child(2) {
+.cmuUserbadge__status__op:after, .cmuUserbadge__gameInfo {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+.cmuUserbadge__levelDesc:before {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .type-titleThin, .cmuDiscussionsNavbar *, .cmuForumDescriptor, .forumThreadList__message, .cmuTooltipster .tooltipster-content {
@@ -6692,7 +6690,7 @@ body {
 
 .forumThreadList thead th {
   font-size: 0.6875rem;
-  line-height: 1.5rem;
+  line-height: 1.1875rem;
 }
 
 h1 {
@@ -6705,6 +6703,13 @@ h2 {
   font-size: 1.6rem;
   line-height: 2.75rem;
   font-weight: 300;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  font-weight: 600;
+  color: #474b52;
 }
 
 h4 {
@@ -6726,7 +6731,7 @@ h6 {
   font-style: italic;
 }
 
-.style-copy, .forumThreadMessage, .forumBadge__username, .forumThreadMain__body p, .forumThreadMain__body ul, .forumThreadMain__body ol {
+.style-copy {
   font-size: 0.88rem;
   line-height: 1.45rem;
   color: #17191d;
@@ -6751,14 +6756,14 @@ h6 {
 html {
   min-height: 100%;
   line-height: 1.5rem;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 body {
   min-height: 100%;
   overflow-y: scroll;
   margin: 0 auto;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 img, object, embed {
@@ -6948,7 +6953,7 @@ pre {
 }
 .cmuPagination__first.active {
   background: #00a0df !important;
-  color: white !important;
+  color: #fafafa !important;
   cursor: default !important;
 }
 .cmuPagination__first:not(.active):after {
@@ -7000,7 +7005,11 @@ pre {
 }
 .cmuPagination__isSimple.cmuPagination__first {
   color: inherit;
-  background-color: white;
+  background-color: inherit;
+}
+.cmuPagination__isSimple.cmuPagination__first:after {
+  content: '';
+  padding-left: inherit;
 }
 .cmuPagination__isSimple.cmuPagination__scrubber {
   display: flex;
@@ -7278,29 +7287,44 @@ button, .button {
   border-width: 0.125rem;
   border-style: solid;
   padding: 0 0.5rem;
-  color: black;
+  color: #00a0df;
   background-color: default;
-  color: black;
+  color: #00a0df;
   background-color: #fafafa;
-  border-color: black;
+  border-color: #00a0df;
 }
 button:hover, .button:hover {
   color: #fafafa;
-  background-color: black;
-  border-color: black;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+button .icon, .button .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+button + button, .button + .button {
+  margin-left: 0.5rem;
 }
 
 .button--ghost {
-  color: black;
+  color: #00a0df;
   background-color: default;
-  color: black;
+  color: #00a0df;
   background-color: #fafafa;
-  border-color: black;
+  border-color: #00a0df;
 }
 .button--ghost:hover {
   color: #fafafa;
-  background-color: black;
-  border-color: black;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+.button--ghost .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 .button--ghost.button-green-on-white {
   color: #48af65;
@@ -7314,17 +7338,29 @@ button:hover, .button:hover {
   background-color: #48af65;
   border-color: #48af65;
 }
+.button--ghost.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
 .button--ghost.button-black-on-white {
-  color: black;
+  color: #242931;
   background-color: default;
-  color: black;
+  color: #242931;
   background-color: #fafafa;
-  border-color: black;
+  border-color: #242931;
 }
 .button--ghost.button-black-on-white:hover {
   color: #fafafa;
-  background-color: black;
-  border-color: black;
+  background-color: #242931;
+  border-color: #242931;
+}
+.button--ghost.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 .button--ghost.button-gray-on-white {
   color: #bbbbbd;
@@ -7337,6 +7373,12 @@ button:hover, .button:hover {
   color: #fafafa;
   background-color: #bbbbbd;
   border-color: #bbbbbd;
+}
+.button--ghost.button-gray-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 
 .button--solid {
@@ -7351,6 +7393,12 @@ button:hover, .button:hover {
   background-color: #007bac;
   border-color: #007bac;
 }
+.button--solid .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
 .button--solid.button-white-on-green {
   color: #fafafa;
   background-color: #48af65;
@@ -7363,17 +7411,29 @@ button:hover, .button:hover {
   background-color: #398b50;
   border-color: #398b50;
 }
+.button--solid.button-white-on-green .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
 .button--solid.button-white-on-black {
   color: #fafafa;
-  background-color: black;
+  background-color: #242931;
   color: #fafafa;
-  background-color: black;
-  border-color: black;
+  background-color: #242931;
+  border-color: #242931;
 }
 .button--solid.button-white-on-black:hover {
   color: #fafafa;
-  background-color: black;
-  border-color: black;
+  background-color: #0e1014;
+  border-color: #0e1014;
+}
+.button--solid.button-white-on-black .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 
 .button--naked {
@@ -7393,6 +7453,12 @@ button:hover, .button:hover {
   background-color: transparent;
   border-color: transparent;
 }
+.button--naked .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
 .button--naked.button-black-on-white {
   color: black;
   background-color: #fafafa;
@@ -7405,23 +7471,307 @@ button:hover, .button:hover {
   background-color: transparent;
   border-color: transparent;
 }
+.button--naked.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.button--compound {
+  color: #fafafa;
+  background-color: #00a0df;
+  background-color: #00a0df;
+  border-color: #00a0df;
+  border-color: #fafafa;
+  padding: 0;
+}
+.button--compound .button--compound--data {
+  color: #00a0df;
+  background-color: #fafafa;
+}
+.button--compound .button--compound--action {
+  background: #00a0df;
+  color: #fafafa;
+}
+.button--compound:hover {
+  border-color: #00a0df;
+}
+.button--compound .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--compound:hover .button--compound--data {
+  padding: 0 0.5rem !important;
+}
+.button--compound:hover .button--compound--action {
+  display: inherit;
+}
+.button--compound div {
+  display: inline-block;
+}
+.button--compound .button--compound--data {
+  padding: 0 0.5rem;
+  padding-left: 0;
+}
+.button--compound .button--compound--data .icon {
+  margin-right: 0;
+}
+.button--compound .button--compound--action {
+  padding: 0 0.5rem;
+  display: none;
+}
+.button--compound.button-green-on-white {
+  color: #fafafa;
+  background-color: #48af65;
+  background-color: #48af65;
+  border-color: #48af65;
+  border-color: #fafafa;
+}
+.button--compound.button-green-on-white .button--compound--data {
+  color: #48af65;
+  background-color: #fafafa;
+}
+.button--compound.button-green-on-white .button--compound--action {
+  background: #48af65;
+  color: #fafafa;
+}
+.button--compound.button-green-on-white:hover {
+  border-color: #48af65;
+}
+.button--compound.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.button--compound-naked {
+  text-align: left;
+  color: #00a0df;
+  background-color: #fafafa;
+  color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--compound-naked:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: #00a0df;
+}
+.button--compound-naked .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--compound-naked.button-black-on-white {
+  color: black;
+  background-color: #fafafa;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--compound-naked.button-black-on-white:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: #00a0df;
+}
+.button--compound-naked.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.button--kudos:hover span:before {
+  content: "+1";
+  margin-right: 0.25rem;
+}
 
 button .icon, .button .icon {
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
 }
 
 .button--wide {
   width: 100%;
 }
 
+.cmuUsername {
+  display: inline-block;
+}
 .cmuUsername .cmuUsername__icon {
   margin-right: 0.25rem;
   font-size: 0.5rem;
-  background: rgba(0, 160, 223, 0.5);
+  background: #00a0df;
   color: white;
   padding: 0.33333rem;
   position: relative;
   top: -2px;
+}
+
+.cmuUserbadge {
+  text-align: center;
+  display: table-cell;
+  width: 16%;
+  height: 100%;
+  opacity: 0.46;
+}
+.cmuUserbadge:hover {
+  opacity: 1;
+}
+
+.cmuUserbadge__account {
+  padding-top: 1rem;
+  cursor: pointer;
+}
+.cmuUserbadge__account:hover a {
+  color: black;
+}
+.cmuUserbadge__account:hover .cmuUserbadge__avatar:after {
+  background: #bbbbbd;
+}
+
+.cmuUserbadge--ubnt {
+  background-color: #dff6ff;
+}
+.cmuUserbadge--ubnt .cmuUserbadge__account {
+  border-top: 0.33333rem #00a0df solid;
+}
+
+.cmuUserbadge__avatar {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  width: 45px;
+  text-align: center;
+  font-size: 20px !important;
+  width: 60px;
+  cursor: pointer;
+}
+.cmuUserbadge__avatar:after {
+  content: ' ';
+  display: block;
+  background: #969ba3;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  top: 11px;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.cmuUserbadge__username {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+  padding: 0 0.33333rem;
+}
+
+.cmuUserbadge__rank {
+  font-size: 0.75rem;
+  line-height: 1.3rem;
+}
+
+.cmuUserbadge__status {
+  font-size: 0.75rem;
+  line-height: 1.3rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.cmuUserbadge__status__op:after {
+  content: 'OP';
+  font-size: 0.5625rem;
+  border: 1px solid #474b52;
+  padding: 0.1rem 0.25rem;
+}
+
+.cmuUserbadge__gameInfo, .cmuUserbadge__descriptors {
+  background-color: #ebebeb;
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.45rem;
+  text-transform: uppercase;
+}
+
+.cmuUserbadge__gameInfo {
+  letter-spacing: 1.4px;
+  padding-left: 0.5rem;
+  background-color: #ebebeb;
+  color: black;
+  width: 100%;
+}
+
+.cmuUserbadge__level {
+  font-size: 0.6875rem;
+  display: block;
+  padding-bottom: 0.33333rem;
+  width: 100%;
+  position: relative;
+}
+.cmuUserbadge__level:before {
+  content: "AARDVARK L.14";
+  color: #fafafa;
+  background: #00a0df;
+  font-size: 0.6875rem;
+  width: 75%;
+  display: inline-block;
+  position: absolute;
+  padding-left: 0.5rem;
+}
+.cmuUserbadge__level:after {
+  content: "    ";
+  background: #bbbbbd;
+  width: 100%;
+  height: 23px;
+  display: block;
+}
+
+.cmuUserbadge__levelDesc {
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 1rem;
+  text-transform: capitalize;
+  font-size: 0.6875rem;
+  color: #474b52;
+}
+.cmuUserbadge__levelDesc:before {
+  font-weight: 300;
+  letter-spacing: normal;
+  padding-left: 0.5rem;
+  content: attr(data-desc) ": ";
+  display: inline-block;
+  white-space: pre;
+  margin-right: 0.25rem;
+}
+
+.cmuUserbadge__descriptors {
+  padding-left: 0.5rem;
+  word-wrap: break-word;
+  background-color: transparent;
+}
+.cmuUserbadge__descriptors div {
+  line-height: 1rem;
+  padding-bottom: 0.16667rem;
+  text-transform: capitalize;
+  font-size: 0.6875rem;
+  color: black;
+}
+.cmuUserbadge__descriptors div:before {
+  font-weight: 300;
+  color: black;
+  content: attr(data-desc) ": ";
+  display: inline-block;
+  white-space: pre;
+  margin-right: 0.25rem;
 }
 
 .cmuDiscussionsHeaderRow {
@@ -7447,7 +7797,7 @@ button .icon, .button .icon {
   display: block;
   width: 100%;
   border-bottom: 1px solid black;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 .cmuDiscussionsNavbar li {
   display: inline;
@@ -7487,6 +7837,7 @@ button .icon, .button .icon {
   padding-right: 0.5rem;
   max-width: 100px;
   font-size: 0.8125rem;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 1040px) {
@@ -7551,10 +7902,9 @@ button .icon, .button .icon {
 }
 
 .forumThreadList__message__topic {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
   position: relative;
-  line-height: 1.5rem;
 }
 
 .forumThreadList__message__author {
@@ -7611,7 +7961,7 @@ button .icon, .button .icon {
   font-family: 'ubnt';
   content: '\e787';
   display: inline-block;
-  padding: 0.16667rem 0.5rem;
+  padding: 0.16667rem 0.25rem;
 }
 
 .forumThreadList__message--read {
@@ -7622,66 +7972,133 @@ button .icon, .button .icon {
   font-weight: 300;
 }
 
-.forumThreadSubject h4 {
-  border-bottom: 1px solid black;
+.forumThread__subject h3 {
   margin-bottom: 1rem;
 }
 
-.forumThreadMessage {
+.forumThread__subject--active h3:before {
+  content: 'ACTIVE';
+  display: inline-block;
+  background-color: #ff3516;
+  color: #fafafa;
+  padding: 0.16667rem 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.5625rem;
+  line-height: 1rem;
+  position: relative;
+  top: -5px;
+}
+
+.forumThread__subject--active h3:after {
+  font-size: 1rem;
+  font-family: 'ubnt';
+  content: '\e787';
+  display: inline-block;
+  padding: 0.16667rem 0.5rem;
+  color: #969ba3;
+}
+
+.forumThreadContainer {
+  counter-reset: messageCtr;
+}
+
+.forumThreadMessage__row {
   border: 1px solid #ebebeb;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  display: table;
+  width: 100%;
+}
+.forumThreadMessage__row .forumThreadMessage__controls {
+  opacity: 0.3;
+}
+.forumThreadMessage__row:hover .forumThreadMessage__controls {
+  opacity: 1;
+}
+.forumThreadMessage__row .cmuUserbadge {
+  opacity: 0.46;
+}
+.forumThreadMessage__row:hover .cmuUserbadge {
+  opacity: 1;
 }
 
-.forumBadge {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.forumBadge__avatar img {
-  height: 3rem;
-  width: 3rem;
-}
-
-.forumBadge__info {
-  background-color: #ebebeb;
-  font-size: 0.6875rem;
-  line-height: 1.45rem;
-  text-transform: uppercase;
-  margin: 1rem 0;
-  margin-bottom: 0;
-  padding: 0.5rem 0;
-}
-
-.forumBadge__info__points span:nth-child(2) {
-  letter-spacing: 1.4px;
-  padding-left: 0.33333rem;
-}
-
-.forumBadge__info__location span:nth-child(2) {
-  text-transform: capitalize;
-  padding-left: 0.33333rem;
-  word-wrap: break-word;
-}
-
-.forumThreadMain {
+.forumThreadMessage__body {
+  display: table-cell;
+  vertical-align: top;
+  width: 80%;
   border-left: 1px solid #ebebeb;
-  min-height: 12rem;
   padding: 1rem;
+  padding-top: 0.5rem;
 }
 
-.forumThreadMain__body {
-  margin-bottom: 1rem;
-  min-height: 100px;
+.forumThreadMessage__header {
+  font-size: 0.6875rem;
+  color: #bbbbbd;
 }
-.forumThreadMain__body p {
+
+.forumThreadMessage:nth-child(n+2) .forumThreadMessage__messageTopic:before {
+  content: "Re: ";
+}
+
+.forumThreadMessage__date {
+  text-align: right;
+  display: inline-block;
+}
+
+.forumThreadMessage__content {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  min-height: 8rem;
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+}
+.forumThreadMessage__content br {
+  content: " ";
+  display: block;
+  margin-bottom: 0.5em;
+}
+.forumThreadMessage__content p {
   margin-bottom: 0;
 }
-
-.forumThreadMain__controls__reply button {
-  float: right;
+.forumThreadMessage__content blockquote table {
+  border-color: transparent;
+  padding: 0.5rem 0.25rem;
+  border-left: 0.33333rem #00a0df solid;
+  display: block;
+  background-color: #ebebeb;
+}
+.forumThreadMessage__content blockquote td {
+  border: 0;
+  padding: 0 1rem;
 }
 
-.forumThreadMain__bottomControls {
+.forumThreadMessage__signature {
+  border-top: 1px solid #ebebeb;
+  padding-top: 0.25rem;
+  font-size: 0.6875rem;
+  line-height: 1.1875rem;
+  margin-bottom: 0.5rem;
+  max-height: 3rem;
+  overflow: hidden;
+}
+
+.forumThreadMessage__messageCounter {
+  display: inline-block;
+  text-align: right;
+}
+.forumThreadMessage__messageCounter:before {
+  counter-increment: messageCtr;
+  content: counter(messageCtr) " of 20 ";
+}
+.forumThreadMessage__messageCounter:after {
+  content: ' | ';
+  margin: 0 0.5rem;
+}
+
+.forumThreadMessage__controls--reply {
+  text-align: right;
+}
+
+.forumThreadMessage__main__bottomControls {
   margin-bottom: 1rem;
 }
 
