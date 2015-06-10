@@ -14,14 +14,14 @@
 
 <div class="row">
 	<div class="row">
-		<img style="width: 100%; max-height: 500px;" src="http://thecatapi.com/api/images/get">
+		<img style="width: 100%; max-height: 500px;" src="{{ vm.story.coverPhotoUrl }}">
 	</div>
 
 	<div class="row row--com">
 		<div class="col--md9">
 			<div class="row row--comfy">
-				<h1>{{ vm.story.subject }}</h1>
-					<div class="row"></div>
+				<h1>{{ vm.story.subject }}</h1>	
+				<h3>{{ vm.story.summary }}</h3>
 				<div>
 					<img src="{{ vm.story.author.avatar.url }}" />
 				</div>
@@ -36,6 +36,37 @@
 				<div ng-bind-html="vm.story.body | sanitize"></div>		
 			</div>
 		</div>
+		<div class="col--md3">
+			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mitchell_Map-06full2.jpg/1280px-Mitchell_Map-06full2.jpg" />
+			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
+				<label>Installation</label>
+				<p>{{ vm.story.location }}</p>
+			</div>
+			<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
+				<label>Project Role</label>
+				<p>{{ vm.story.projectRole }}</p>
+			</div>
+			<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
+				<label>Finish Date</label>
+				<p>{{ vm.story.finishDate | date }}</p>
+			</div>
+			<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
+				<label>Users in Networks</label>
+				<p>{{ vm.story.numberOfUsers }}</p>
+			</div>
+			<div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
+				<label>Budget</label>
+				<p>{{ vm.story.budgetAmount | currency }}</p>
+			</div>
+			<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
+				<label>Data Requirement</label>
+				<p>{{ vm.story.dataRequirement }}</p>
+			</div>
+			<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
+				<label>Bandwidth</label>
+				<p>{{ vm.story.bandwidth }}</p>
+			</div>
+		</div>
 	</div>
 
 	<div class="row row--comfy">
@@ -45,10 +76,13 @@
 		</button>
 	</div>
 
-	<community-comment-list
-		current-comments="vm.comments"
-		comment-metadata="vm.commentData"
-		comment-filter="vm.moreCommentsFilter">
-	</community-comment-list>
-
+	<div class="row">
+		<div class="col--md9">
+			<community-comment-list
+				current-comments="vm.comments"
+				comment-metadata="vm.commentData"
+				comment-filter="vm.moreCommentsFilter">
+			</community-comment-list>
+		</div>
+	</div>
 </div>

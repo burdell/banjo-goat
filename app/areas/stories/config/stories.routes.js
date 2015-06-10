@@ -27,7 +27,7 @@
 				resolve: {
 					StoryListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Forums.messages, 
+							filterFn: communityApi.Stories.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
 								limit: 9
@@ -47,7 +47,7 @@
 				},
 				resolve: {
 					StoryThread: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi) {
-						return communityApi.Forums.thread($stateParams.storyId, { limit: 10, offset: 0 });
+						return communityApi.Stories.thread($stateParams.storyId, { limit: 10, offset: 0 });
 					}]
 				}
 			})

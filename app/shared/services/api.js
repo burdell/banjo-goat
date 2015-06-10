@@ -31,7 +31,7 @@
 			});
 		}
 		
-		var baseUrl = 'http://comm2-dev.ubnt.com:8080/';
+		var baseUrl = 'http://localhost:8080/'; //'http://comm2-dev.ubnt.com:8080/';
 		var urlSegments = {
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
@@ -103,6 +103,62 @@
 								nextCommentMetaData: result[1].next
 							};
 						});
+				}
+			},
+			Stories: {
+				thread: function(messageId, data){
+					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
+						.then(function(result) {
+							return {
+								originalMessage: result[0].model,
+								comments: result[1].collection,
+								nextCommentMetaData: result[1].next
+							};
+						});
+				},
+				message: function(messageData, mock) {
+					var messageId, messagePayload, verb;
+
+					//POST new message
+					if (_.isObject(messageData)) {
+						messagePayload = messageData;
+						verb = 'POST';
+					} 
+					//GET exsiting message
+					else {
+						messageId = messageData;
+						verb = 'GET';
+
+					}
+					
+					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId), messagePayload, verb).then(function(result){
+						_.extend(result.model, { 
+							summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." ,
+							location: 'Atlanta, GA',
+							projectRole: 'Engineer',
+							finishDate: "2013-08-21T11:33:28.000-04:00",
+							numberofUsers: 200,
+							budgetAmount: 50000,
+							numberOfWorkers: 4,							
+							dataRequirement: "HELLO THERE",
+							bandwidth: "HELLO THERE",
+							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src"
+						});
+
+						return result;
+					});
+				},
+				comments: function(messageId, data) {
+					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId) + 'comments', data).then(function(result) {
+						_.each(result.collection, function(message){
+							_.extend(message, { summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." })
+						});
+
+						return result;
+					})
+				},
+				messages: function(nodeId, data){
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				}
 			}
 		};
