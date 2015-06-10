@@ -1,3 +1,8 @@
-<div ng-show="loadmore.listMetadata.hasMore">
-	<a ng-click="loadmore.load()">Load more</a>
+<div>
+	<div ng-show="!loadmore.isLoading && loadmore.listMetadata.hasMore && !loadmore.infiniteScroll">
+		<a ng-click="loadmore.load()">Load more</a>
+	</div>
+	<div ng-show="loadmore.isLoading">
+		<h6>Loading...</h6>
+	</div>
 </div>

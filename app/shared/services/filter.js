@@ -93,6 +93,11 @@
 				},
 				model: function(modelValue){
 					return (modelValue ? options.filterModel[modelValue] : options.filterModel);
+				},
+				initialData: function(){
+					var initialData = options.initialData;
+					options.initialData = null;
+					return initialData;
 				}
 			};
 		}

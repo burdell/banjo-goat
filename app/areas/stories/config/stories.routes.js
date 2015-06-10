@@ -31,7 +31,8 @@
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
 								limit: 9
-							} 
+							},
+							persistFilterModel: false 
 						});
 					}]
 				},

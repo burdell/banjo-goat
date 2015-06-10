@@ -1,17 +1,15 @@
 (function(_){
 	'use strict';
 
-	function StoriesListController (storiesFilter){
+	function StoriesListController (storyFilter){
 		var ctrl = this;
 
-		function setStoryData (result){
-			ctrl.storyList = result.collection;
-			ctrl.storyCount = result.next.total;
-		}
-		storiesFilter.set({ onFilter: setStoryData });
+		var intitialList = storyFilter.initialData();
 
 		_.extend(ctrl, {
-
+			storyFilter: storyFilter,
+			storyList: intitialList.collection,
+			storyMetadata: intitialList.next
 		});
 	}
 	StoriesListController.$inject = ['StoryListFilter'];
