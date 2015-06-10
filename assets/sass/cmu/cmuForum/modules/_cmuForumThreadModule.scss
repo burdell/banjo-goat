@@ -4,104 +4,195 @@
 // FORUM MESSAGES
 // 
 
-.forumThreadSubject h4 {
-	border-bottom: $cmu-style-border-thin; 
+
+
+// SUBJECT
+.forumThread__subject h3 {
 	margin-bottom: $cmu-vertical-rhythm;
 }
+	// Active Thread
+	.forumThread__subject--active {
+		h3:before {
+			content: 'ACTIVE';
+			display: inline-block;
+			background-color: $cmu-color-red;
+			color: $cmu-color-white;
+			padding: $cmu-base/6 $cmu-base/2;
+			margin-right: $cmu-base/2;
+			font-size: $cmu-size-xxsmaller;
+			line-height: $cmu-base;
+			position: relative;
+			top: -5px;
+		}
+	}
 
-.forumThreadMessage {
+	// Locked Thread
+	.forumThread__subject--active {
+		h3:after {
+			font-size: $cmu-size-large;
+			font-family: 'ubnt';
+			content: '\e787';
+			display: inline-block;
+			padding: $cmu-base/6 $cmu-base/2;
+			color: $cmu-color-gray;
+			// font-size: $cmu-size-xxsmaller;
+		}
+	}
+
+
+// 
+// MESSAGE CONTAINER & BODY
+// badge is handled in cmuUserbadge
+// 
+
+.forumThreadContainer {
+	counter-reset: messageCtr;
+}
+
+.forumThreadMessage__row {
 	border: $cmu-style-border-thin-light; 
-	margin-bottom: $cmu-vertical-rhythm;
-	@extend .style-copy;
+	margin-bottom: $cmu-vertical-rhythm/2;
+	display: table;
+	width: 100%; // may not work as parent needs width declaration
+	// @extend .style-copy;
 	// border-top: 0px;
 	// &:first-of-type {
 	// 	border-top: $cmu-style-border-thin-light;
 	// }
-}
 
-// 
-// Badge / Avatar area
-// 
 
-.forumBadge {
-	text-align: center;
-	margin-top: $cmu-base;
-}
-
-	.forumBadge__avatar {
-		img {
-			height: $cmu-base*3;
-			width: $cmu-base*3;
+	// bottom row of buttons in a message
+	@extend %ease-fast;
+	.forumThreadMessage__controls {
+		opacity: 0.3; 
+		@extend %ease-fast;
+	}
+	&:hover {
+		.forumThreadMessage__controls {
+			opacity: 1; 
+			@extend %ease-fast;
 		}
-
 	}
 
-	.forumBadge__username {
-		@extend .style-copy;
+	// fade in / out the user badge
+	.cmuUserbadge {
+		@extend %ease-fast;
+		opacity: 0.46;
+		
+	}
+	&:hover {
+		.cmuUserbadge {
+			@extend %ease-fast;
+			opacity: 1;
+		}
 	}
 
-	.forumBadge__info {
-		background-color: $cmu-color-ltgray;
+}
 
-		font-size: $cmu-size-xsmaller;
-		line-height: $cmu-size-copy-line-height;
-		text-transform: uppercase;
+.forumThreadMessage__body {
+	display: table-cell;
+	vertical-align: top;
+	width: 80%;
 
-		margin: $cmu-base 0; margin-bottom: 0;
-		padding: $cmu-base/2 0;
-
-	}
-	.forumBadge__info__points span:nth-child(2)  {
-		@extend %oswald;
-		letter-spacing: 1.4px;
-		padding-left: $cmu-base/3;
-
-	}
-	.forumBadge__info__location span:nth-child(2) {
-		text-transform: capitalize;
-		padding-left: $cmu-base/3;
-		word-wrap: break-word;
-	}
-
-
-
-
-// 
-// Main Message Body
-// 
-.forumThreadMain {
 	border-left: $cmu-style-border-thin-light; 
-	min-height: $cmu-base*12;
 	padding: $cmu-base;
-
+	padding-top: $cmu-base/2;
 }
-	.forumThreadMain__posted {
-		// padding-top: $cmu-base;
+
+.forumThreadMessage__header {
+	font-size: $cmu-size-xsmaller;
+	color: $cmu-color-mdgray;
+}
+	
+	// add "Re:" to replies
+	.forumThreadMessage:nth-child(n+2) {
+		.forumThreadMessage__messageTopic:before {
+			content: 'Re: '
+		}
 	}
 
-	.forumThreadMain__body {
-		margin-bottom: $cmu-vertical-rhythm;
-		min-height: $cmu-message-bottom-height;
-		p, ul, ol {
-			@extend .style-copy;
+	.forumThreadMessage__date {
+		text-align: right;
+		display: inline-block;
+	}
+
+
+.forumThreadMessage__content {
+	margin-top: $cmu-base/2;
+	margin-bottom: $cmu-vertical-rhythm;
+	min-height: $cmu-thread-message-height;
+
+	font-size: $cmu-size-normal;
+	line-height: $cmu-size-normal-line-height;
+
+	// not sure about x-browser support
+	// br is notoriously weird
+	br {
+		content: " ";
+		display: block;
+		margin-bottom: 0.5em;
+	}
+
+
+	// users like to add empty paragraphs that lithium doesn't strip out
+	// we need to deal with it in code, so this is temporary
+	p {
+		margin-bottom: 0;
+	}
+
+	blockquote {
+
+		// border width is unfortunately set into the html
+		table {
+			border-color: transparent;
+  			padding: $cmu-base/2 $cmu-base/4;
+  			border-left: $cmu-line-thick $cmu-color-blue solid; 
+  			display: block;
+  			background-color: $cmu-color-ltgray;
 		}
-
-		// users like to add empty paragraphs that lithium doesn't strip out
-		// we need to deal with it in code, so this is temporary
-		p {
-			margin-bottom: 0;
+		td {
+			border: 0;
+			padding: 0 $cmu-base;
 		}
-	} 
+	}
+} 
 
-// bottom row of buttons in a message
 
-.forumThreadMain__controls__reply button {
-	float: right;
+.forumThreadMessage__signature {
+	border-top: $cmu-line-thin solid $cmu-color-ltgray;
+	// padding: $cmu-base;
+	padding-top: $cmu-base/4;
+	font-size: $cmu-size-xsmaller;
+	line-height: $cmu-size-xsmaller-line-height;
+	margin-bottom: $cmu-base/2;
+
+	max-height: $cmu-base*3; 
+	overflow: hidden;
+}
+
+	.forumThreadMessage__messageCounter {
+		display: inline-block;
+		text-align: right;
+
+  		
+  		// FPO
+  		&:before {
+			counter-increment: messageCtr;
+			content: counter(messageCtr) " of 20 ";
+  		}
+		&:after {
+			content: ' | ';
+			margin: 0 $cmu-base/2;
+		}
+	}
+
+.forumThreadMessage__controls--reply {
+	text-align: right;
 }
 
 // bottom row of controls of the thread
 
-.forumThreadMain__bottomControls {
+.forumThreadMessage__main__bottomControls {
 	margin-bottom: $cmu-vertical-rhythm;
 }
 

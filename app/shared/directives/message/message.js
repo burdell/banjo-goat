@@ -26,7 +26,9 @@
 	        scope: {
 	        	hideVoteButtons: '=',
 	        	message: '=',
-	        	replyClickFn: '='
+	        	replyClickFn: '=',
+	        	originalMessage: '=',
+	        	showOp: '='
 	        }
 	    };
 
