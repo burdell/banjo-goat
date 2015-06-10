@@ -13,8 +13,8 @@
 		- solid (default)
 		- compound (ghosted w/ a title)
 	- declare a color scheme
-		- button-background-foreground
-		- button-blue-white (default)
+		- button-foreground-background
+		- button-white-blue (default)
 
 
 	Button notes:
@@ -29,17 +29,134 @@
 
 $cmu-style-button-borderwidth: remCalc(2px);
 
-button, .button {
-	line-height: normal;
-	border-width: $cmu-style-button-borderwidth;
-	border-style: solid;
+$cmu-button-fontsize: $cmu-size-xsmaller;
+$cmu-button-lineheight: $cmu-cta-height;
+$cmu-button-letterspacing: remCalc(0.5px);
 
-	@extend %style-cta;
+$cmu-button-color-base: $cmu-color-blue;
 
+
+@mixin cmuButton($type, $fgColor: $cmu-button-color-base, $bgColor:default, $hoverFgColor:default, $hoverBgColor:default) {
+
+	color: $fgColor;
+	background-color: $bgColor;
+	// bgcolor is just defaulted to the background color
+
+	// border-color: $borderColor;
+	@if $type == 'solid' {
+		@if $bgColor == default {
+			$bgColor: $cmu-color-blue;
+		}
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $fgColor; // can't use transparent
+			background-color: darken($bgColor, 10);
+			border-color: darken($bgColor, 10);
+		}
+
+	} @else if $type == 'compound' {
+		background-color: $bgColor;
+		border-color: $bgColor;
+		border-color: $cmu-color-white;
+		// border-left-color: $bgColor;
+		
+		.button--compound--data {
+			color: $bgColor;
+			background-color: $fgColor;
+		}
+		.button--compound--action {
+			background: $bgColor;
+			color: $fgColor;
+		}
+
+
+		&:hover {
+			border-color: $bgColor;
+			.button--compound--data {
+				// color: $fgColor; // can't use transparent
+				// background-color: $bgColor !important;
+			}
+		}
+
+	} @else if $type == 'compound-naked' {
+		$bgColor: transparent;
+
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $hoverFgColor; // can't use transparent
+			background-color: $bgColor;
+			border-color: $hoverFgColor;
+		}
+
+	} @else if $type == 'ghost' {
+		@if $bgColor == default {
+			$bgColor: $cmu-color-white;
+		}
+
+		// ghost is default
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $fgColor;
+
+		&:hover {
+			color: $cmu-color-white; // can't use transparent
+			background-color: $fgColor;
+			border-color: $fgColor;
+		}
+	} @else if $type == 'naked' {
+		$bgColor: transparent;
+
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $bgColor;
+
+		&:hover {
+			color: $hoverFgColor; // can't use transparent
+			background-color: $bgColor;
+			border-color: $bgColor;
+		}
+	}
+
+
+	// specialty icons
 	.icon {
-		margin-right: $cmu-base/2;
+		font-weight: 800;
+		font-size: $cmu-size-normal;
+		position: relative;
+		top: 1px;
 	}
 }
+
+
+
+button, .button {
+	font-size: $cmu-size-xsmaller;
+	text-transform: uppercase;
+
+	line-height: $cmu-button-lineheight - $cmu-style-button-borderwidth * 2;
+	letter-spacing: $cmu-button-letterspacing;
+
+	// all buttons need borders, even if they're the same color as the bg
+	border-width: $cmu-style-button-borderwidth;
+	border-style: solid;
+	padding: 0 $cmu-base/2;
+
+	@include cmuButton('ghost');
+	@extend %ease-fast;
+
+	// space them out if next to each other
+	&+& {
+		margin-left: $cmu-base/2;
+	}
+}
+
+
 
 
 // 
@@ -48,135 +165,135 @@ button, .button {
 
 // GHOST Buttons
 // thick outline w/ transparent background
-%style-button-ghost {
-	padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base - ($cmu-style-button-borderwidth); // padding will increase box size
-	font-size: $cmu-base*0.8;
-	@extend %ease-fast;
+.button--ghost {
+	@include cmuButton('ghost',$cmu-button-color-base);
 
-	&:hover {
-		border-color: $cmu-color-ltgray;
-		background-color: $cmu-color-darken;
+	&.button-green-on-white {
+		@include cmuButton('ghost',$cmu-color-green);
+	}
+	&.button-black-on-white {
+		@include cmuButton('ghost',$cmu-color-xdkgray);
+	}
+	&.button-gray-on-white {
+		@include cmuButton('ghost',$cmu-color-mdgray);
 	}
 }
 
 // SOLID Buttons
-%style-button-solid {
-	padding: $cmu-base/2 - remCalc(1) $cmu-base;
-	border: 1px solid $cmu-color-blue;
-	@extend %ease-fast;
+.button--solid {
+	@include cmuButton('solid',$cmu-color-white,$cmu-color-blue);
 
-	&:hover {
-		background-color: $cmu-color-dkblue;
+	&.button-white-on-green {
+		@include cmuButton('solid',$cmu-color-white,$cmu-color-green);
+	}
+	&.button-white-on-black {
+		@include cmuButton('solid',$cmu-color-white,$cmu-color-xdkgray);
 	}
 }
+
+// NAKED Buttons
+// Buttons without the chrome (acts like buttons, unlike links will align with other buttons)
+// these are used for smaller / less precedence
+// default: placed left
+
+.button--naked {
+	text-align: left;
+	&.button--naked--right {
+		text-align: right;
+		padding-right: 0;
+	}
+
+	@include cmuButton('naked',$cmu-color-blue,$cmu-color-white,$cmu-color-black);
+
+	&.button-black-on-white {
+		@include cmuButton('naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+	}
+	// &.button-white-on-black {
+	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
+	// }
+}
+
 
 // COMPOUND Buttons
-%style-button-compound {
-	border: $cmu-style-button-borderwidth solid $cmu-color-blue;
-	font-size: $cmu-base*0.8;
-	@extend %ease-fast;
+// these have an ACTIVE state / class which can be turned on or off
+// (default is off)
+.button--compound {
+	@include cmuButton('compound',$cmu-color-white,$cmu-color-blue);
+
+	// border: $cmu-style-button-borderwidth solid $cmu-color-blue;
+	// @extend %ease-fast;
+	&:hover {
+		// @extend %ease-fast;
+
+		.button--compound--data {
+			padding: 0 $cmu-base/2 !important;
+		}
+
+		.button--compound--action {
+			display: inherit;
+		}
+	}
 	padding: 0;
+	div { display: inline-block;}
 
-	span {
-		display: inline-block;
-	}
-
-	span:nth-child(1) {
-		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
-		background-color: $cmu-color-white;
-		color: $cmu-color-green;
-	}
-
-	span:nth-child(2) {
-		padding: $cmu-base/2 - ($cmu-style-button-borderwidth) $cmu-base;
-		line-height: 16px;
-	}
-
-	&:hover {
-		border-color: $cmu-color-green;
-		background-color: $cmu-color-green;
-		span:nth-child(1) {
-			@extend %ease-fast;
-			background-color: $cmu-color-green;
-			color: $cmu-color-white;
-		}
-		span:nth-child(2) {
-			border-color-left: $cmu-color-white;
-			color: $cmu-color-white;
-		}
-	}
-}
-
-// note that all buttons need borders, even the full background ones
-// since border adds "padding"
-button, .button {
-	height: $cmu-base-cta-height;
-
-	// treat regular buttons as ghost buttons
-	@extend %style-button-ghost;
-}
-
-
-.button--ghost {
-	@extend %style-button-ghost;
-}
-
-.button--solid {
-	@extend %style-button-solid;
-	border: 0;
-}
-
-.button-compound {
-	@extend %style-button-compound;
-}
-
-.button-white-green {
-	background-color: $cmu-color-white;
-	color: $cmu-color-green;
-	border-color: $cmu-color-green;
-
-	span {
+	.button--compound--data {
 		padding: 0 $cmu-base/2;
-		background-color: $cmu-color-green;
-		color: $cmu-color-white;
+		padding-left: 0;
+		@extend %ease-fast;
+		.icon {margin-right: 0;}
 	}
 
+	.button--compound--action {
+		padding: 0 $cmu-base/2;
+		display: none;
+		// specialty icons
+		// .icon {margin-right: 0;}
+	}
+
+	&.button-green-on-white {
+		@include cmuButton('compound',$cmu-color-white,$cmu-color-green);
+	}
+
+}
+
+// COMPOUND NAKED
+// similar to COMPOUND, these don't have any of the chrome, bg and outlines
+.button--compound-naked {
+
+	text-align: left;
+
+	@include cmuButton('compound-naked',$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
+
+	&.button-black-on-white {
+		@include cmuButton('compound-naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+	}
+	// &.button-white-on-black {
+	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
+	// }
+}
+
+
+.button--kudos {
 	&:hover {
-		color: $cmu-color-white;
-		background-color: $cmu-color-green;
-		border-color: $cmu-color-green;
+		span:before {
+			content: "+1";
+			margin-right: $cmu-base/4;
+		}
 	}
-
 }
 
-.button-white-blue {
-	background-color: $cmu-color-white;
-	color: $cmu-color-blue;
-	border-color: $cmu-color-blue;
+// 
+// SPECIAL STYLES
+// 
 
-	&:hover {
-		color: $cmu-color-white;
-		background-color: $cmu-color-blue;
-		border-color: $cmu-color-blue;
+// buttons with icons
+button, .button {
+
+	// default treat icon on the left
+	.icon {
+		margin-right: $cmu-base/4;
 	}
-
 }
-
-
-.button-blue-white {
-	background-color: $cmu-color-blue;
-	color: $cmu-color-white;
-	@extend %style-button-ghost;
-	border: $cmu-color-blue;
-}
-
-.button-black-white {
-	background-color: $cmu-color-black;
-	color: $cmu-color-white;
-	@extend %style-button-ghost;
-	border: $cmu-color-blue;
-}
-
 
 .button--wide {
 	width: 100%

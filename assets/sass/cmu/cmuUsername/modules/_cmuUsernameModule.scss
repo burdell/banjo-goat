@@ -1,0 +1,24 @@
+
+
+// 
+// Username
+// 
+
+// This module is used with the shared username module
+// Usernames appear in thread lists, in threads, and in many different areas around community
+
+
+// maybe use fittext?
+.cmuUsername {
+	display: inline-block;
+
+	.cmuUsername__icon {
+		margin-right: $cmu-base/4;
+		font-size: $cmu-base/2;
+		background: $cmu-color-blue;
+		color: white;
+		padding: $cmu-base/3;
+		position: relative;
+		top: -2px;
+	}
+}

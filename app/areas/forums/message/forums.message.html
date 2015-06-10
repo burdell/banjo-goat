@@ -8,21 +8,22 @@
   </style>
 <!-- TESTING STYLE -->
 
-<div class="forumThreadSubject">
+<div class="forumThread__subject
+	          forumThread__subject--locked
+	          forumThread__subject--active">
 	<div class="row">
-		<h4>{{ ::vm.originalMessage.subject | htmlUnescape }}</h4>
+		<h3>{{ ::vm.originalMessage.subject | htmlUnescape }}</h3>
 	</div>
 </div>
 
 <div class="forumThreadControl">
 	<div class="row">
-        <div class="col--md6 noPaddingLeft">
-	        <button class="button--solid button-blue-white">Create a Topic</button>
-
-			<button class="button--ghost button-blue-white">Follow Topic</button>
+        <div class="col--md8 noPaddingLeft">
+        	<button class="button--solid button-blue-white">Post Reply</button>
+			<button class="button--ghost button-black-on-white">Follow Topic</button>
 		</div>
 
-		<div class="col--md6 noPaddingRight">
+		<div class="col--md4 noPaddingRight">
 			<community-pager 
 			  total-results="vm.allMessageCount" 
 			  pager-fn="vm.messageThreadFilter">
@@ -32,46 +33,51 @@
 </div>
 
 
+<div class="forumThreadContainer">
+	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread">
+		<community-message 
+			message="message"
+			original-message="vm.originalMessage"
+			reply-click-fn="vm.showReply"
+			show-op="vm.originalMessage.author.id">
+		</community-message>
 
-<div class="forumThreadMessageContainer" ng-repeat="message in vm.messageThread">
-	<community-message 
-		message="message"
-		reply-click-fn="vm.showReply">
-	</community-message>
-
-	<!-- reply -->
-	<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
-			<div class="col--md2">
-			</div>
-			<div class="col--md10">
-				<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
-				<div class="row row--comfy">
-					<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
+		<!-- reply -->
+		<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
+				<div class="col--md2">
 				</div>
-				<div>
-					<button 
-						class="button-ghost button-white-blue" 
-						ng-click="vm.cancelReply()">
-							Cancel
-					</button>
-					<button 
-						class="button-full button-blue-white"
-						ng-click="vm.submitReply(message.id)">
-							Submit Comment
-					</button>
+				<div class="col--md10">
+					<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
+					<div class="row row--comfy">
+						<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
+					</div>
+					<div>
+						<button 
+							class="button-ghost button-white-blue" 
+							ng-click="vm.cancelReply()">
+								Cancel
+						</button>
+						<button 
+							class="button-full button-blue-white"
+							ng-click="vm.submitReply(message.id)">
+								Submit Comment
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 
 
-<div class="forumThreadMain__bottomControls">
+<div class="forumThreadMessage__main__bottomControls">
 	<div class="row">
-		<div class="col--md6">
-			<button class="button-full button-blue-white">Start a Discussion</button>
+        <div class="col--md8 noPaddingLeft">
+        	<button class="button--solid button-blue-white">Post Reply</button>
+			<button class="button--ghost button-black-on-white">Follow Topic</button>
 		</div>
-		<div class="col--md6">
+		<div class="col--md4 noPaddingRight">
 			<community-pager 
 			  total-results="vm.allMessageCount" 
 			  pager-fn="vm.messageThreadFilter">
@@ -81,7 +87,7 @@
 </div>
 
 
-<div class="forumThreadMain__activeCount ">
+<div class="forumThread__viewCounter">
 	<div class="row">
 		<div class="activeCounter">
 			<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }}</span><span>other people are viewing this thread</span>

@@ -2,6 +2,8 @@
 // this helps vertically align scrubber
 $paginationHeight: 32px;
 $paginationPadding: $cmu-base/4;
+$cmu-pagination-fontsize: $cmu-size-normal;
+$cmu-pagination-width: $cmu-base*2;
 
 // 
 // General Pagination (flex)
@@ -54,21 +56,21 @@ $paginationPadding: $cmu-base/4;
     align-items: center;
     height: $paginationHeight;
     // width: $cmu-base*3;
-		@extend %ease-fast;
+	@extend %ease-fast;
 
     .pagination_control_right {
     	text-align: right;
     }
 
 	// font-weight: 300;
-	font-size: $cmu-size-smaller;
+	font-size: $cmu-pagination-fontsize;
 
 	cursor: pointer;
 
 	&:hover:not(.disabled) {
 		text-decoration: underline;
 		color: $cmu-color-blue;
-			@extend %ease-fast;
+		@extend %ease-fast;
 	}
 
 	&.disabled {
@@ -167,7 +169,7 @@ $paginationPadding: $cmu-base/4;
 
 	// this class is added for flex-basis, since chrome doesn't recalculate properly
 	&.cmuPagination__fullScroll {
-		flex-basis: $cmu-base*5; 
+		flex-basis: $cmu-pagination-width; 
 		flex-grow: 1;
 	}
 
@@ -189,10 +191,10 @@ $paginationPadding: $cmu-base/4;
 		// padding: $cmu-base/2 $cmu-base/4;
 		padding: $cmu-base/2 0;
 		text-align: center;
-		min-width: $cmu-base*2.5;
+		min-width: $cmu-pagination-width;
 		cursor: pointer;
 		// height: $paginationHeight;
-		font-size: $cmu-size-smaller;
+		font-size: $cmu-pagination-fontsize;
 
 			@extend %ease-fast;
 
@@ -200,7 +202,7 @@ $paginationPadding: $cmu-base/4;
 		// uncomment these to make the page numbers stretch across the width
 	    flex-grow: 1;
 	    flex-shrink: 0;
-	    flex-basis: $cmu-base*2.5;
+	    flex-basis: $cmu-pagination-width;
 
 		&.active {
 			background: $cmu-color-blue !important;
@@ -224,25 +226,25 @@ $paginationPadding: $cmu-base/4;
 	flex-grow: initial;
 	padding: $paginationPadding 0;
 	text-align: center;
-	min-width: $cmu-base*2.5;
+	min-width: $cmu-pagination-width;
 	cursor: pointer;
 	height: $paginationHeight;
 	// border: 1px solid $cmu-color-gray;
-	font-size: $cmu-size-smaller;
+	font-size: $cmu-pagination-fontsize;
 	// border-right: 0;
 
 	@extend %ease-fast;
 
 	&.active {
 		background: $cmu-color-blue !important;
-		color: white !important; 
+		color: $cmu-color-white !important; 
 		cursor: default !important;
 	}
 
 	&:not(.active) {
 		&:after {
 			content: ' ... ';
-			padding-left: $cmu-base/6;
+			padding-left: $cmu-base/3;
 		}
 	}
 
@@ -261,7 +263,7 @@ $paginationPadding: $cmu-base/4;
 	// background-color: $cmu-color-ltgray;
 	cursor: default;
 	height: $paginationHeight;
-	font-size: $cmu-size-smaller;
+	font-size: $cmu-pagination-fontsize;
 
 	// disabled pagination
 	&:not(.enabled) {
@@ -309,7 +311,12 @@ $paginationPadding: $cmu-base/4;
 	// make first page not look 'persistent'
 	&.cmuPagination__first {
 		color: inherit; 
-		background-color: white;
+		background-color: inherit;
+
+		&:after {
+			content: '';
+			padding-left: inherit;
+		}
 	}
 
 	// align the scrubber to the right, since only a few pages

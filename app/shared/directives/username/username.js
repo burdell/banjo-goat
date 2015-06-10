@@ -11,7 +11,8 @@
 				userMatched: function(){
 					return user && user.login.indexOf("UBNT-") >= 0;
 				},
-				iconClass: 'ubnt-icon--u'
+				iconClass: 'ubnt-icon--u',
+				userType: 'cmuUsername--ubnt'
 			}
 
 			var specialUsernames = [ ubntEmployee ];
