@@ -8312,6 +8312,73 @@ a.appIconInput__icon {
   font-size: 20px !important;
 }
 
+.comGlobalHeader__login {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: 12px;
+  background-color: #00a0df;
+  position: relative;
+  left: -3px;
+  padding: 0 !important;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__login a {
+  color: #fafafa;
+  padding: 0 15px !important;
+}
+.comGlobalHeader__login:hover {
+  background-color: #0074ad;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.comGlobalHeader__register {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: 12px;
+  padding: 0 !important;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__register a {
+  padding: 0 15px !important;
+}
+
 .comGlobalHeader__cmuItem--inbox {
   top: 3px;
   position: relative;
@@ -8396,7 +8463,6 @@ a.appIconInput__icon {
   position: relative;
   left: 0;
   display: table;
-  max-width: 1400px;
   margin: 0 auto;
   -webkit-transition-property: left;
   -moz-transition-property: left;
