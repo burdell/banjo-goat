@@ -1,10 +1,6 @@
 <div class="row row--comfy">
 	<div class="col--md8">
-		<button class="button-compound button-white-green">
-			<span> {{ vm.story.stats | extractKey : 'score' }} Kudos</span>
-			<span class="icon-plus">+</span>
-		</button>
-
+		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
 		<button class="button-ghost button-white-blue">Comment</button>
 	</div>
 	<div class="col--md4">
@@ -13,67 +9,9 @@
 </div>
 
 <div class="row">
-	<div class="row">
-		<img style="width: 100%; max-height: 500px;" src="{{ vm.story.coverPhotoUrl }}">
-	</div>
-
-	<div class="row row--com">
-		<div class="col--md9">
-			<div class="row row--comfy">
-				<h1>{{ vm.story.subject }}</h1>	
-				<h3>{{ vm.story.summary }}</h3>
-				<div>
-					<img src="{{ vm.story.author.avatar.url }}" />
-				</div>
-				<div>
-					<h6 style="display: inline"> by&nbsp; <community-username user="vm.story.author"></community-username></h6>
-					<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.story.author.location }}</h6>
-					
-				</div>
-			</div>
-
-			<div class="row">
-				<div ng-bind-html="vm.story.body | sanitize"></div>		
-			</div>
-		</div>
-		<div class="col--md3">
-			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mitchell_Map-06full2.jpg/1280px-Mitchell_Map-06full2.jpg" />
-			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
-				<label>Installation</label>
-				<p>{{ vm.story.location }}</p>
-			</div>
-			<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
-				<label>Project Role</label>
-				<p>{{ vm.story.projectRole }}</p>
-			</div>
-			<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
-				<label>Finish Date</label>
-				<p>{{ vm.story.finishDate | date }}</p>
-			</div>
-			<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
-				<label>Users in Networks</label>
-				<p>{{ vm.story.numberOfUsers }}</p>
-			</div>
-			<div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
-				<label>Budget</label>
-				<p>{{ vm.story.budgetAmount | currency }}</p>
-			</div>
-			<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
-				<label>Data Requirement</label>
-				<p>{{ vm.story.dataRequirement }}</p>
-			</div>
-			<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
-				<label>Bandwidth</label>
-				<p>{{ vm.story.bandwidth }}</p>
-			</div>
-		</div>
-	</div>
-
+	<div ng-include="'stories/detail/stories.body.html'"></div>
 	<div class="row row--comfy">
-		<button class="button-compound button-white-green">
-			<span> {{ vm.story.stats | extractKey : 'score' }} Kudos</span>
-			<span class="icon-plus">+</span>
-		</button>
+		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
 	</div>
 
 	<div class="row">

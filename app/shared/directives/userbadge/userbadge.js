@@ -22,7 +22,6 @@
 			
 			var ctrl = this;			
 			_.extend(ctrl, specialUser);
-			debugger;
 		};
 		controller.$inject = [];
 

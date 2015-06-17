@@ -7,7 +7,7 @@
 				var windowEl = $(window);
 				var documentEl = $(document);
 				windowEl.bind('scroll', function() {
-					if(windowEl.scrollTop() == documentEl.height() - windowEl.height()){
+					if(!scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
 						scope.loadmore.load();
 					}
 				});
@@ -21,9 +21,9 @@
 			_.extend(ctrl, {
 				load: function(){
 					var metaData = this.listMetadata;
-					
 					metaData.offset += metaData.limit;
 					ctrl.isLoading = true;
+
 					this.loadFilter.filter({
 						limit: this.listMetadata.limit,
 						offset: this.listMetadata.offset

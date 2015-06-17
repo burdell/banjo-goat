@@ -1,0 +1,61 @@
+<div>
+	<div class="row row--comfy">
+		<h1>{{ vm.story.subject || vm.placeholders.subject }}</h1>	
+		<h3 ng-show="vm.story.summary">{{ vm.story.summary }}</h3>
+		<div>
+			<img src="{{ vm.story.author.avatar.url }}" />
+		</div>
+		<div>
+			<h6 style="display: inline"> by&nbsp; <community-username user="vm.story.author"></community-username></h6>
+			<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.story.author.location }}</h6>
+			
+		</div>
+	</div>
+
+	<div class="row">
+		<img style="width: 100%; max-height: 300px;" src="{{ vm.story.coverPhotoUrl || vm.placeholders.coverPhotoUrl }}">
+	</div>
+
+	<div class="row row--comfy">
+		<div class="col--md9">
+			<div class="row">
+				<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>		
+			</div>
+		</div>
+		<div class="col--md3">
+			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
+				<community-map map-coordinates="vm.story.location.coordinates"></community-map>
+				<h5>Location</h5>
+				<p>{{ vm.story.location.display }}</p>
+			</div>
+			<div ng-if="vm.story.productsUsed">
+				<h5>Products Used</h5>
+				<p>{{ vm.story.productsUsed }}</p>
+			</div>
+			<!-- <div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
+			 	<label>Project Role</label>
+				<p>{{ vm.story.projectRole }}</p>
+			</div>
+			<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
+				<label>Finish Date</label>
+				<p>{{ vm.story.finishDate | date }}</p>
+			</div>
+			<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
+				<label>Users in Networks</label>
+				<p>{{ vm.story.numberOfUsers }}</p>
+			</div>
+			<div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
+				<label>Budget</label>
+				<p>{{ vm.story.budgetAmount | currency }}</p>
+			</div>
+			<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
+				<label>Data Requirement</label>
+				<p>{{ vm.story.dataRequirement }}</p>
+			</div>
+			<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
+				<label>Bandwidth</label>
+				<p>{{ vm.story.bandwidth }}</p>
+			</div> -->
+		</div>
+	</div>
+</div>

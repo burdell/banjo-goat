@@ -52,6 +52,15 @@
 					}]
 				}
 			})
+			.state('stories.new', {
+				url: '/new',
+				views: {
+					'mainContent': {
+						templateUrl: 'stories/newstory/stories.newstory.html',
+						controller: 'NewStory as vm'
+					}
+				}
+			})
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 

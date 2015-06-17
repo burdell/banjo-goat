@@ -1,0 +1,62 @@
+<div class="row row--comfy">
+	<button>Cancel</button>
+</div>
+
+<div class="row">
+	<div class="row row--comfy">
+		<div class="col--md3">
+			<h2>Tell Your Story</h2>
+		</div>
+		<div class="col--md9">
+			<h2>Story Preview</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col--md3">
+			<div>
+				<input class="appIconInput__input" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
+				<h5>{{ vm.titleCharactersLeft() }} Characters left</h5>
+			</div>
+			<div>
+				<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
+				<h5>{{ vm.subtitleWordsLeft() }} Words left</h5>
+			</div>
+			<div>
+			  <community-text-editor 
+		          ng-model="vm.story.body"
+		          editor-height="300"
+		          minimal-editor="true">
+		        </community-text-editor>
+			</div>
+			<div>
+				<input class="appIconInput__input"
+					community-location-search 
+					location-model="vm.story.location" 
+					placeholder="{{ ::vm.placeholders.location }}" />
+			</div>
+			<div>
+				<input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" />
+			</div> 
+			<div>
+				<h5>Images & Video</h5>
+				<h6>Make your story 1000% more interesting</h6>
+				<div>
+					<button>Upload Image</button>
+				</div>
+				<div>
+					<input placeholder="Attach Image, YouTube, or Vimeo Url" />
+					<button>Add Url</button>
+				</div>
+			</div>
+			<button>Publish</button>
+		</div>
+		<div class="col--md9">
+			<div class="row">
+				<div ng-include="'stories/detail/stories.body.html'"></div>
+				<!-- <community-map></community-map> -->
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+</div>
