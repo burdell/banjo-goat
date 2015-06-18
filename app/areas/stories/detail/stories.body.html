@@ -28,9 +28,9 @@
 				<h5>Location</h5>
 				<p>{{ vm.story.location.display }}</p>
 			</div>
-			<div ng-if="vm.story.productsUsed">
+			<div ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
 				<h5>Products Used</h5>
-				<p>{{ vm.story.productsUsed }}</p>
+				<div ng-repeat="productName in vm.story.productsUsed">{{ productName }}</div>
 			</div>
 			<!-- <div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
 			 	<label>Project Role</label>

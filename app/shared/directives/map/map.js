@@ -4,22 +4,44 @@
 	function communityMap() {
 		var link = function(scope, element, attrs) {
 			var coordinates = scope.map.mapCoordinates;	
+			var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
 			var mapOptions = {
 			    zoom: 4,
-			    center: new google.maps.LatLng(coordinates.lat, coordinates.lng),
-			    mapTypeId: google.maps.MapTypeId.TERRAIN
+			    center: latLng,
+			    mapTypeId: google.maps.MapTypeId.TERRAIN,
+			    streetViewControl: false,
+			    mapTypeControl: false
 			}
 			var mapElement = $(element).find('.map-canvas')[0];
 			scope.map.mapInstance = new google.maps.Map(mapElement, mapOptions);
+			scope.map.setMarker(latLng);
 		};
 
 		var controller = function($scope) {
 			var ctrl = this;
 
+			_.extend(ctrl, {
+				setMarker: function(latLng){
+					if (ctrl.marker) {
+						ctrl.marker.setMap(null);
+						ctrl.marker = null;
+					}
+					
+					ctrl.marker = new google.maps.Marker({
+						position: latLng,
+						map: ctrl.mapInstance
+					});
+				}
+			});
+
 			function setMapCoordinates() {
 				var mapInstance = ctrl.mapInstance;
 				var coordinates = ctrl.mapCoordinates;
-				mapInstance.setCenter(new google.maps.LatLng(coordinates.lat, coordinates.lng))
+
+				var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+
+				mapInstance.setCenter(latLng);
+				ctrl.setMarker(latLng);
 			}
 
 			$scope.$watch('map.mapCoordinates', function(newVal, oldVal){

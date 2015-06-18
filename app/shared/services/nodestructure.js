@@ -5,6 +5,7 @@
 		return {
 			NodeStructure: null,
 			CurrentNode: null,
+			ProductList: null,
 			setNodeStructure: function(currentNodeName){
 				var nodeData = window.nodeStructure[0];
 				var service = this;

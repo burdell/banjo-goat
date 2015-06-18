@@ -4,16 +4,16 @@
 
 <div class="row">
 	<div class="row row--comfy">
-		<div class="col--md3">
+		<div class="col--md4">
 			<h2>Tell Your Story</h2>
 		</div>
-		<div class="col--md9">
+		<div class="col--md8">
 			<h2>Story Preview</h2>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col--md3">
+		<div class="col--md4">
 			<div>
 				<input class="appIconInput__input" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
 				<h5>{{ vm.titleCharactersLeft() }} Characters left</h5>
@@ -36,7 +36,13 @@
 					placeholder="{{ ::vm.placeholders.location }}" />
 			</div>
 			<div>
-				<input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" />
+				<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
+				<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.story.productsUsed">
+				    <ui-select-match placeholder="List products used in your project">{{ $item.name }}</ui-select-match>
+				    <ui-select-choices repeat="product.name as product in vm.productList | filter: { name: $select.search }">
+				      	<span ng-bind-html="product.name | highlight: $select.search"></span>
+				    </ui-select-choices>
+				</ui-select>
 			</div> 
 			<div>
 				<h5>Images & Video</h5>
@@ -51,7 +57,7 @@
 			</div>
 			<button>Publish</button>
 		</div>
-		<div class="col--md9">
+		<div class="col--md8">
 			<div class="row">
 				<div ng-include="'stories/detail/stories.body.html'"></div>
 				<!-- <community-map></community-map> -->

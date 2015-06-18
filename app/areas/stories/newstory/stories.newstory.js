@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, breadcrumbService, currentUserService){
+	function NewStoryController ($scope, breadcrumbService, productService, currentUserService){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -13,6 +13,7 @@
 		_.extend(ctrl, {
 			titleCharacterLimit: 140,
 			subtitleWordLimit: 35,
+			productList: productService.getProductList(),
 			placeholders: {
 				subject: 'Story Title',
 				summary: 'Subtitle',
@@ -37,7 +38,7 @@
 			}
 		});
 	}
-	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CurrentUserService'];
+	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityProductService', 'CurrentUserService'];
 
 	angular.module('community.stories')
 		.controller('NewStory', NewStoryController);

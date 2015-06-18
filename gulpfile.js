@@ -166,6 +166,7 @@ gulp.task('templates', ['shared-templates'], function() {
 /***** 
         STYLE TASKS 
                         ******/
+
 gulp.task('compile-stylesheets', function(){
     return gulp.src(sources.sass)
         .pipe($.compass({
@@ -196,10 +197,10 @@ gulp.task('bower', ['whole-plugin-folders'], function(){
         gulp.src(bowerFiles)
             .pipe(jsFilter)
             .pipe(gulp.dest(areaPath(areaName) + '/js/vendor'))
-            .pipe(jsFilter.restore());
-            // .pipe(cssFilter)
-            // .pipe(gulp.dest(outputs.devCss + '/vendor'));
-            // .pipe(cssFilter.restore())
+            .pipe(jsFilter.restore())
+            .pipe(cssFilter)
+            .pipe(gulp.dest(areaPath(areaName) + '/css/vendor'))
+            .pipe(cssFilter.restore());
             // .pipe(imgFilter)
             // .pipe(gulp.dest(outputs.devCss + '/vendor'))
             // .pipe(imgFilter.restore());
@@ -232,7 +233,9 @@ gulp.task('inject', ['dev'], function () {
                         var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
                         var extension = cleanFilepath.split('.').pop();
                         if (extension == 'js') {
-                            return '<script src="forums/js/vendor/' + cleanFilepath + '"></script>';
+                            return '<script src="' + areaName + '/js/vendor/' + cleanFilepath + '"></script>';
+                        } else if (extension == 'css') {
+                            return '<link href="' + areaName + '/css/vendor/' + cleanFilepath + '" rel="stylesheet" type="text/css">'
                         }
                     }
                 }))

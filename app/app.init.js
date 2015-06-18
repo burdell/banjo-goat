@@ -7,6 +7,8 @@
 	
 	angular.module('communityApp', [
 		'ui.router',
+        'ui.select',
+        'ngSanitize',
 		'community.services',
         'community.directives', 
         'community.filters',  
