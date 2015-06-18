@@ -18,9 +18,9 @@
 				subject: 'Story Title',
 				summary: 'Subtitle',
 				coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
-				body: 'Tell Your Story',
-				location: 'Location',
-				productsUsed: 'Products Used'
+				body: 'Project description will go here. Talk about any challenges and how you overcame the obstacles.',
+				location: 'Project Location',
+				productsUsed: 'List products used in your project'
 			},
 			story: {
 				author: currentUserService.get()
