@@ -37,17 +37,54 @@
 					<h4>Add Media</h4>
 					<h6>Upload your images from your device or add links to your images or videos. You may add content from YouTube and Vimeo.</h6>
 					<div>
-						<button>Upload Image</button>
+						<community-file-upload
+							file-list-model="vm.story.imageList">
+						</community-file-upload>
+						<div>
+							<div ng-repeat="imageUpload in vm.story.imageList">
+								<div>
+									<div>
+										<button ng-click="vm.setCoverPhoto(imageUpload)" ng-show="vm.notCoverPhoto(imageUpload)">Set As Cover</button>
+										<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(imageUpload)">Remove As Cover</button>
+										<button ng-click="vm.deletePhoto($index)">Delete</button>
+									</div>
+									<img ng-src="{{ imageUpload.fileUrl }}" style="max-height: 150px;">
+								</div>
+								<input ng-model="imageUpload.fileCaption" placeholder="Image Caption" />
+							</div>
+						</div>
 					</div>
-					<div>
+					<!-- <div>
 						<input placeholder="Attach Image, YouTube, or Vimeo Url" />
 						<button>Add Url</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 
 			<div class="row row--comfy">
-				<h4>Additional Info</h4>
+				<div ng-click="vm.showAdditionalInfoFields = !vm.showAdditionalInfoFields">
+					<h4><span class="icon" ng-class="{ 'ubnt-icon--minus-circle': vm.showAdditionalInfoFields, 'ubnt-icon--plus-circle': !vm.showAdditionalInfoFields }"></span> Additional Info</h4>
+				</div>
+				<div ng-show="vm.showAdditionalInfoFields">
+					<div>
+						<input ng-model="vm.story.projectRole" placeholder="Project Role" />						
+					</div>
+					<div>
+						<input ng-model="vm.story.finishDate" placeholder="Finish Date" />						
+					</div>
+					<div>
+						<input ng-model="vm.story.numberOfUsers" placeholder="Number of Users" />						
+					</div>
+					<div>
+						<input ng-model="vm.story.budgetAmount" placeholder="Budget Amount" />						
+					</div>
+					<div>
+						<input ng-model="vm.story.dataRequirement" placeholder="Data Requirement" />						
+					</div>
+					<div>
+						<input ng-model="vm.story.bandwidth" placeholder="Bandwidth" />						
+					</div>
+				</div>
 			</div>
 
 			<div class="row row--comfy">

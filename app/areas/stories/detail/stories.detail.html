@@ -1,21 +1,12 @@
-<div class="row row--comfy">
-	<div class="col--md8">
-		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
-		<button class="button-ghost button-white-blue">Comment</button>
-	</div>
-	<div class="col--md4">
-		<button class="button--solid button-blue-white" style="float: right;">New Story</button>
-	</div>
-</div>
-
 <div class="row">
-	<div ng-include="'stories/detail/stories.body.html'"></div>
+	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
 	<div class="row row--comfy">
+		<button class="button-ghost button-white-blue">Comment</button>
 		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
 	</div>
 
 	<div class="row">
-		<div class="col--md9">
+		<div class="col--md12">
 			<community-comment-list
 				current-comments="vm.comments"
 				comment-metadata="vm.commentData"

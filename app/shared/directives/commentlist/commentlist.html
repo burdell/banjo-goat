@@ -1,17 +1,22 @@
 <div class="row">
 	<h4 ng-pluralize count="commentlist.commentData.total" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></h4>
 	<hr />
-	<div class="row" ng-repeat="comment in commentlist.currentComments">
+	<div class="row" ng-repeat="comment in commentlist.currentComments" style="margin: 10px; 0">
 		<div class="forumThreadMessageContainer">
 			<div class="forumThreadMessage clearfix">
 			<!-- message -->
-				<div class="col--md10">
-					<community-username user="comment.author"></community-username>
-				</div>						
-				<div class="forumThreadMain__posted col--md2">
-					<h6 class="alignRight">{{ comment.postTime | timeFromNow }}</h6>
+				<div class="col--md2">
+					<span style="float: left;">
+						<community-user-avatar user="vm.story.author"></community-user-avatar>
+					</span>
+					<span>
+						<h6>by <community-username user="comment.author"></community-username></h6>
+						<h6>{{ comment.postTime | timeFromNow }}</h6>
+					</span>
 				</div>
-				<div class="forumThreadMain__body col--md12" ng-bind-html="comment.body | sanitize">
+
+				<div class="col--md10">
+					<div class="forumThreadMain__body col--md12" ng-bind-html="comment.body | sanitize">
 				</div>
 			</div>
 		</div>

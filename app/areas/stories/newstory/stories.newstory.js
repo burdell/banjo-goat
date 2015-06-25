@@ -11,6 +11,7 @@
 		var ctrl = this;
 
 		_.extend(ctrl, {
+			hideStoryControls: true,
 			titleCharacterLimit: 140,
 			subtitleWordLimit: 35,
 			productList: productService.getProductList(),
@@ -35,6 +36,27 @@
 				var subtitle = ctrl.story.summary;
 				return subtitle ? limit - subtitle.split(' ').length : limit; 
 
+			},
+			deletePhoto: function(photoIndex) {
+				var removedItem = ctrl.story.imageList.splice(photoIndex, 1);
+
+				if (ctrl.cover && (removedItem[0].$$hashKey === ctrl.cover.$$hashKey)) {
+					ctrl.removeCoverPhoto()
+				}
+			},
+			setCoverPhoto: function(imageObj){
+				if (ctrl.cover) {
+					ctrl.cover.isCover = false;
+				}
+				imageObj.isCover = true;
+
+				ctrl.cover = imageObj;
+			},
+			removeCoverPhoto: function(){
+				ctrl.cover = null;	
+			},
+			notCoverPhoto: function(imageObj) {
+				return !(ctrl.cover && (ctrl.cover === imageObj));
 			}
 		});
 	}

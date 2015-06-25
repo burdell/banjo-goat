@@ -142,7 +142,15 @@
 							numberOfWorkers: 4,							
 							dataRequirement: "HELLO THERE",
 							bandwidth: "HELLO THERE",
-							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src"
+							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
+							location: {
+								display: 'Atlanta, GA, USA',
+								coordinates: {
+									lat: 65.93364,
+									lng: 61.17582
+								}
+							},
+							productsUsed: ['airMAX', 'UniFi']
 						});
 
 						return result;
@@ -160,8 +168,38 @@
 				messages: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				}
+			},
+			Files: {
+				upload: function(fileData){
+					//http://i.imgur.com/ezJLz9L.jpg
+					//http://www.dogster.com/wp-content/uploads/2015/05/doge.jpg
+					//http://i1.kym-cdn.com/entries/icons/facebook/000/011/656/sophiscated_cat.PNG
+					var fd = new FormData();
+			        fd.append('file', fileData.file);
+
+			        var images = [
+			        	'http://i.imgur.com/ezJLz9L.jpg',
+			        	'http://www.dogster.com/wp-content/uploads/2015/05/doge.jpg',
+			        	'http://i1.kym-cdn.com/entries/icons/facebook/000/011/656/sophiscated_cat.PNG'
+			        ];
+			        var bleh = Math.floor(Math.random() * images.length)
+
+					return $timeout(function(){
+						return {
+							fileUrl: images[bleh],
+							fileCaption: fileData.fileCaption
+						}
+					}, 700)
+					
+			        // $http.post(uploadUrl, fd, {
+			        //     transformRequest: angular.identity,
+			        //     headers: {'Content-Type': undefined}
+			        // }).then(function(){
+
+			        // });
+				}
 			}
-		};
+		}
 
 		return service;
 	};
