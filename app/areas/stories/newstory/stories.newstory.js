@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, breadcrumbService, productService, currentUserService){
+	function NewStoryController ($scope, breadcrumbService, mediaService, productService, currentUserService){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -9,6 +9,8 @@
 		});
 
 		var ctrl = this;
+
+		var mediaList = [];
 
 		_.extend(ctrl, {
 			hideStoryControls: true,
@@ -24,21 +26,18 @@
 				productsUsed: 'List products used in your project'
 			},
 			story: {
-				author: currentUserService.get()
+				author: currentUserService.get(),
+				mediaList: mediaList
 			},
-			titleCharactersLeft: function() {
-				var limit = ctrl.titleCharacterLimit;
-				var subject = ctrl.story.subject;
-				return  subject ? limit - subject.length : limit; 
-			},
-			subtitleWordsLeft: function(){
-				var limit = ctrl.subtitleWordLimit;
-				var subtitle = ctrl.story.summary;
-				return subtitle ? limit - subtitle.split(' ').length : limit; 
-
-			},
+			addPhoto: _.bind(function(result){
+				var fileData = result;
+				mediaList.push({
+					type: 'image',
+					imageUrl: fileData.fileUrl
+				});
+			}, ctrl),
 			deletePhoto: function(photoIndex) {
-				var removedItem = ctrl.story.imageList.splice(photoIndex, 1);
+				var removedItem = ctrl.story.mediaList.splice(photoIndex, 1);
 
 				if (ctrl.cover && (removedItem[0].$$hashKey === ctrl.cover.$$hashKey)) {
 					ctrl.removeCoverPhoto()
@@ -48,6 +47,7 @@
 				if (ctrl.cover) {
 					ctrl.cover.isCover = false;
 				}
+
 				imageObj.isCover = true;
 
 				ctrl.cover = imageObj;
@@ -57,10 +57,16 @@
 			},
 			notCoverPhoto: function(imageObj) {
 				return !(ctrl.cover && (ctrl.cover === imageObj));
+			},
+			addVideo: function(newVideoUrl){
+				mediaService.getMediaData(newVideoUrl).then(function(result){
+					mediaList.push(_.extend(result, { type: 'video' }));
+					ctrl.newVideoUrl = null;
+				});
 			}
 		});
 	}
-	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityProductService', 'CurrentUserService'];
+	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityMediaService', 'CommunityProductService', 'CurrentUserService'];
 
 	angular.module('community.stories')
 		.controller('NewStory', NewStoryController);

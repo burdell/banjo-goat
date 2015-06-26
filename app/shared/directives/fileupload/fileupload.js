@@ -25,15 +25,21 @@
 					ctrl.uploadInProgress = true;
 					communityApi.Files.upload(file).then(function(result){
 						ctrl.uploadInProgress = false;
-						if (!ctrl.fileListModel) {
-							ctrl.fileListModel = [];
+
+						if (ctrl.onSuccessFn) {
+							ctrl.onSuccessFn(result);
+						} else {
+							if (!ctrl.fileListModel) {
+								ctrl.fileListModel = [];
+							}
+							
+							var fileData = result;
+							ctrl.fileListModel.push({
+								fileUrl: fileData.fileUrl,
+								fileCaption: fileData.fileCaption
+							});
+
 						}
-						
-						var fileData = result;
-						ctrl.fileListModel.push({
-							fileUrl: fileData.fileUrl,
-							fileCaption: fileData.fileCaption
-						});
 
 						ctrl.resetInput();
 					});
@@ -51,7 +57,8 @@
 	        bindToController: true,
 	        replace: true,
 	        scope: {
-	        	fileListModel: '='
+	        	fileListModel: '=',
+	        	onSuccessFn: '='
 	        }
 	    };
 

@@ -38,26 +38,33 @@
 					<h6>Upload your images from your device or add links to your images or videos. You may add content from YouTube and Vimeo.</h6>
 					<div>
 						<community-file-upload
-							file-list-model="vm.story.imageList">
+							on-success-fn="vm.addPhoto">
 						</community-file-upload>
-						<div>
-							<div ng-repeat="imageUpload in vm.story.imageList">
-								<div>
-									<div>
-										<button ng-click="vm.setCoverPhoto(imageUpload)" ng-show="vm.notCoverPhoto(imageUpload)">Set As Cover</button>
-										<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(imageUpload)">Remove As Cover</button>
-										<button ng-click="vm.deletePhoto($index)">Delete</button>
-									</div>
-									<img ng-src="{{ imageUpload.fileUrl }}" style="max-height: 150px;">
-								</div>
-								<input ng-model="imageUpload.fileCaption" placeholder="Image Caption" />
-							</div>
+					</div>
+
+					<div>
+						<input ng-model="vm.newVideoUrl" placeholder="Add YouTube or Vimeo Url" />
+						<button ng-click="vm.addVideo(vm.newVideoUrl)">Add Video</button>
+						<div ng-repeat="video in vm.videoList">
+							<h5>{{ video.title }}</h5>
+							<img ng-src="{{ video.imageUrl.url }}" />
 						</div>
 					</div>
-					<!-- <div>
-						<input placeholder="Attach Image, YouTube, or Vimeo Url" />
-						<button>Add Url</button>
-					</div> -->
+
+					<div>
+						<div ng-repeat="mediaUpload in vm.story.mediaList">
+							<div>
+								<div>
+									<button ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</button>
+									<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</button>
+									<button ng-click="vm.deletePhoto($index)">Delete</button>
+								</div>
+								<h5>{{ mediaUpload.title }}</h5>
+								<img ng-src="{{ mediaUpload.imageUrl }}" style="max-height: 150px;">
+							</div>
+							<input ng-model="mediaUpload.fileCaption" placeholder="Add a Caption" />
+						</div>
+					</div>
 				</div>
 			</div>
 
