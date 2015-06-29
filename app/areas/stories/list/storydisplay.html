@@ -1,6 +1,6 @@
 <div class="community-story" style="padding: 10px;" ng-click="storydisplay.goStory()">
 	<div>
-		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })"><img src="http://thecatapi.com/api/images/get?format=src"></a>
+		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })"><img ng-src="{{ storydisplay.story.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
 	</div>
 	<div>
 		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })">{{ ::storydisplay.story.subject }}</a>	

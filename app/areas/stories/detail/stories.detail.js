@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function StoryDetailController ($scope, communityApi, breadcrumbService, filterService, storyThread){
+	function StoryDetailController ($scope, communityApi, breadcrumbService, filterService, storyThread, storyDefaults){
 		var ctrl = this;
 
 		_.extend(ctrl, {
@@ -16,12 +16,27 @@
 			})
 		});
 
+		var cover = _.where(this.story.mediaList, { isCover: true });
+		if (!cover || cover.length === 0) {
+			cover = {
+				imageUrl: storyDefaults.coverPhoto
+			}
+		}
+		ctrl.cover = cover;
+
 		breadcrumbService.setCurrentBreadcrumb(this.story.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 	}
-	StoryDetailController.$inject = ['$scope', 'CommunityApiService', 'CommunityBreadcrumbService',  'CommunityFilterService', 'StoryThread'];
+	StoryDetailController.$inject = [
+		'$scope', 
+		'CommunityApiService', 
+		'CommunityBreadcrumbService',  
+		'CommunityFilterService', 
+		'StoryThread', 
+		'StoryDefaults'
+	];
 
 	angular.module('community.stories')
 		.controller('StoryDetail', StoryDetailController);

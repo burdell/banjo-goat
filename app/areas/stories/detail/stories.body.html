@@ -20,8 +20,8 @@
 
 	<div class="row row--comfy">
 		<div class="col--md10">
-			<img style="width: 100%; max-height: 500px;" ng-src="{{ vm.cover.imageUrl || vm.placeholders.coverPhotoUrl }}">
-			<h6>{{ vm.cover.photoCaption }}</h6>
+			<img style="width: 100%; max-height: 250px;" ng-src="{{ vm.cover.imageUrl || vm.placeholders.coverPhotoUrl }}">
+			<h6>{{ vm.cover.fileCaption }}</h6>
 		</div>
 		<div class="col--md2">
 			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
@@ -84,9 +84,6 @@
 					<h5 ng-bind="mediaUpload.title"></h5>
 					<div community-video-embed video-id="mediaUpload.videoId">
 					</div>
-					<!-- <iframe id="ytplayer" type="text/html" width="640" height="390"
-					  src="http://www.youtube.com/embed/{{ mediaUpload.videoId }}?autoplay=1&origin=http://example.com"
-					  frameborder="0"/> -->
 				</div>
 
 				<h6 ng-bind="mediaUpload.fileCaption"></h6>

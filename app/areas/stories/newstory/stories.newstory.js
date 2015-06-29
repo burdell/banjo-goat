@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, breadcrumbService, mediaService, productService, currentUserService){
+	function NewStoryController ($scope, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -20,7 +20,7 @@
 			placeholders: {
 				subject: 'Story Title',
 				summary: 'Subtitle',
-				coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
+				coverPhotoUrl: storyDefaults.coverPhoto,
 				body: 'Project description will go here. Talk about any challenges and how you overcame the obstacles.',
 				location: 'Project Location',
 				productsUsed: 'List products used in your project'
@@ -66,7 +66,7 @@
 			}
 		});
 	}
-	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityMediaService', 'CommunityProductService', 'CurrentUserService'];
+	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityMediaService', 'CommunityProductService', 'CurrentUserService', 'StoryDefaults'];
 
 	angular.module('community.stories')
 		.controller('NewStory', NewStoryController);

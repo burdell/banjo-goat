@@ -13,7 +13,12 @@
 				resolve: {
 					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
 						return nodeService.setNodeStructure($stateParams.nodeId);
-					}]
+					}],
+					StoryDefaults: function(){
+						return {
+							coverPhoto: "http://thecatapi.com/api/images/get?format=src"
+						}
+					}
 				},
 			})
 			.state('stories.list', {

@@ -98,6 +98,10 @@
 			getMediaType: function(mediaUrl) {
 				var mediaType = parseMediaUrl(mediaUrl);
 				return mediaType.getMediaData(mediaUrl);
+			},
+			MediaTypes: {
+				'image': 1,
+				'video': 2
 			}
 		};
 	};

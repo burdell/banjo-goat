@@ -5,13 +5,10 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function(timelineService) {
+		var controller = function() {
 			var ctrl = this;
-
+			debugger;
 			_.extend(ctrl, {
-				goToStory: function(){
-					
-				}
 			})
 		};
 		controller.$inject = [];
@@ -26,7 +23,7 @@
 	        restrict: 'E',
 	        scope: {
 	        	story: '=',
-
+	        	defaultPhotoUrl: '='
 	        }
 	    };
 
