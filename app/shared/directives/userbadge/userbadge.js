@@ -34,7 +34,8 @@
 	        templateUrl: 'directives/userbadge/userbadge.html',
 	        restrict: 'E',
 	        scope: {
-	        	user: '='
+	        	user: '=',
+	        	opId: '='
 	        }
 	    };
 

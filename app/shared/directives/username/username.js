@@ -9,7 +9,7 @@
 			var user = this.user;
 			var ubntEmployee = {
 				userMatched: function(){
-					return user.login.indexOf("UBNT-") >= 0;
+					return user && user.login.indexOf("UBNT-") >= 0;
 				},
 				iconClass: 'ubnt-icon--u',
 				userType: 'cmuUsername--ubnt'

@@ -1,40 +1,56 @@
+
 <!DOCTYPE html>
 
 <html>
 	<head>
 		<base href="/">
-
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
       	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
+      	<!-- bower:css -->
+	  	<!-- endinject -->
+	  	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+
       	<link href='{{GULP_BUILD_areaName}}/css/ubntfonts.css' rel='stylesheet' type='text/css'>
       	<link href='{{GULP_BUILD_areaName}}/css/community.css' rel='stylesheet' type='text/css'>
+      	
+      	<style>
+			html, body {
+				height: 100%;
+				width: 100%;
+			}
 
+			div.map-container { position: relative; height: 250px; }
+			div.map-canvas { position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+
+    	</style>
 	</head>
 	<body>
-	<div class="wrapper">
-		<div class="cmuWrapper" id="pageTop">
-			<div ng-include="'partials/globalheader.html'"></div>
-			
-			<main-nav-bar></main-nav-bar>
-			<community-announcement></community-announcement>
+		<div class="wrapper">
+			<div class="cmuWrapper" id="pageTop">
+				<div ng-include="'partials/globalheader.html'"></div>
+				
+				<main-nav-bar></main-nav-bar>
+				<community-announcement></community-announcement>
 
-		    <div class="community__content container">
-				<div id='main-content'>
-					<div ui-view></div>
+			    <div class="community__content container">
+			    	
+					<div id='main-content'>
+						<div ui-view></div>
+					</div>
 				</div>
+				<div ng-include="'partials/globalfooter.html'"></div>
 			</div>
-
-			<div ng-include="'partials/globalfooter.html'"></div>
 		</div>
-	</div>
 
 	  <!-- bower:js -->
 	  <!-- endinject -->
 	  
 	  <!-- manually injected files -->
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+      <script src="https://www.youtube.com/iframe_api"></script>
 	  <script src="forums/js/vendor/tinymce/tinymce.min.js"></script>
-
 
 	  <!-- app:js -->
 	  <!-- endinject -->

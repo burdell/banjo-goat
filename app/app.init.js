@@ -7,15 +7,17 @@
 	
 	angular.module('communityApp', [
 		'ui.router',
+        'ui.select',
+        'ngSanitize',
 		'community.services',
         'community.directives', 
         'community.filters',  
 		'community.templates',
         'community.{{GULP_BUILD_areaName}}', 
-	]).run(['$rootScope', '$window', 'CurrentUserService', function($rootScope, $window, currentUser){
+	]).run(['$rootScope', '$state', '$window', 'CurrentUserService', function($rootScope, $state, $window, currentUser){
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);
-        })
+        });
 
         //MOCKED
         currentUser.set({
@@ -81,7 +83,7 @@ window.nodeStructure = [
                 "name": "airMAX Stories",
                 "id": 396,
                 "urlSlug": "airMAX_Stories",
-                "href": "/api/nodes/airMAX_Stories/",
+                "href": "/stories/airMAX_Stories/list",
                 "children": [ ]
               }, {
                 "name": "airMAX Q&A",
@@ -92,8 +94,8 @@ window.nodeStructure = [
               }, {
                 "name": "airMAX Announcements",
                 "id": 1008,
-                "urlSlug": "airMAX_Annoucements",
-                "href": "/api/nodes/airMAX_Annoucements/",
+                "urlSlug": "Blog_airMAX",
+                "href": "/announcements/Blog_airMAX/",
                 "children": [ ]
               }, {
                 "name": "airMAX Feature Requests",

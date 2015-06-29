@@ -1,0 +1,17 @@
+<div class="row">
+	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
+	<div class="row row--comfy">
+		<button class="button-ghost button-white-blue">Comment</button>
+		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
+	</div>
+
+	<div class="row">
+		<div class="col--md12">
+			<community-comment-list
+				current-comments="vm.comments"
+				comment-metadata="vm.commentData"
+				comment-filter="vm.moreCommentsFilter">
+			</community-comment-list>
+		</div>
+	</div>
+</div>
