@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var mediaService = function($http){
+	var mediaService = function($http, $q){
 		//functions/data without underscores are 'public' API and should be implemented for each type of media
 		var youTube = {
 			getMediaData: function(videoUrl) {
@@ -20,6 +20,7 @@
 					var snippet = videoData.snippet;
 
 					return {
+						type: 'video',
 						title: snippet.title,
 						imageUrl: snippet.thumbnails.medium.url,
 						videoId: videoData.id
@@ -45,7 +46,9 @@
 					method: 'get',
 					url: 'https://api.vimeo.com/videos/' + videoId
 				}).then(function(result) {
-					return {};
+					return {
+						type: 'image'
+					};
 				});
 
 			},
@@ -64,28 +67,41 @@
 			}
 		};
 
+		var images = {
+			getMediaData: function(imageUrl) {
+				return $q.when({
+					type: 'image',
+					imageUrl: imageUrl
+				});
+			}
+		}
+
 		var parseMediaUrl = function(mediaUrl){
-			
+			//YouTube
 			if (mediaUrl.indexOf('youtube.com') >= 0) {
 				return youTube;
 			} 
+			//Vimeo
 			// else if (mediaUrl.indexOf('vimeo.com') >= 0) {
 			// 	return vimeo;
 			// } 
+			//Pictures
+			else if (mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+				return images;
+			}
 			else {
 				//ERROR
 			}
 		};
 
 		return {
-			getMediaData: function(videoUrl) {
-				var typedMediaObject = parseMediaUrl(videoUrl);
-
-				return typedMediaObject.getMediaData(videoUrl); 
+			getMediaType: function(mediaUrl) {
+				var mediaType = parseMediaUrl(mediaUrl);
+				return mediaType.getMediaData(mediaUrl);
 			}
 		};
 	};
-	mediaService.$inject = ['$http'];
+	mediaService.$inject = ['$http', '$q'];
 
 	angular.module('community.services')
 		.service('CommunityMediaService', mediaService);

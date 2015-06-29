@@ -43,8 +43,9 @@
 					</div>
 
 					<div>
-						<input ng-model="vm.newVideoUrl" placeholder="Add YouTube or Vimeo Url" />
-						<button ng-click="vm.addVideo(vm.newVideoUrl)">Add Video</button>
+						<input ng-model="vm.newMediaUrl" placeholder="Link to image / YouTube or Vimeo Video" />
+						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
+
 						<div ng-repeat="video in vm.videoList">
 							<h5>{{ video.title }}</h5>
 							<img ng-src="{{ video.imageUrl.url }}" />

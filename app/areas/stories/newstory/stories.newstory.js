@@ -58,10 +58,10 @@
 			notCoverPhoto: function(imageObj) {
 				return !(ctrl.cover && (ctrl.cover === imageObj));
 			},
-			addVideo: function(newVideoUrl){
-				mediaService.getMediaData(newVideoUrl).then(function(result){
-					mediaList.push(_.extend(result, { type: 'video' }));
-					ctrl.newVideoUrl = null;
+			addNewMedia: function(newMediaUrl){
+				mediaService.getMediaType(newMediaUrl).then(function(result){
+					mediaList.push(result);
+					ctrl.newMediaUrl = null;
 				});
 			}
 		});
