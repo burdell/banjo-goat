@@ -11,6 +11,10 @@
 		var ctrl = this;
 
 		var mediaList = [];
+		var updateMediaList = function(data){
+			data.sortOrder = mediaList.length;
+			mediaList.push(data);
+		};
 
 		_.extend(ctrl, {
 			hideStoryControls: true,
@@ -31,7 +35,7 @@
 			},
 			addPhoto: _.bind(function(result){
 				var fileData = result;
-				mediaList.push({
+				updateMediaList({
 					type: 'image',
 					imageUrl: fileData.fileUrl
 				});
@@ -60,9 +64,20 @@
 			},
 			addNewMedia: function(newMediaUrl){
 				mediaService.getMediaType(newMediaUrl).then(function(result){
-					mediaList.push(result);
+					updateMediaList(result);
 					ctrl.newMediaUrl = null;
 				});
+			},
+			postStory: function(){
+				console.log(ctrl.story);
+			},			
+			sortConfig: {
+				onUpdate: function(event) {
+					_.each(event.models, function(mediaModel, index) {
+						mediaModel.sortOrder = index;
+					});
+				},
+				handle: '.ubnt-icon--arrows-downup'
 			}
 		});
 	}

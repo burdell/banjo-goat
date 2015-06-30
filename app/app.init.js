@@ -9,6 +9,7 @@
 		'ui.router',
         'ui.select',
         'ngSanitize',
+        'ng-sortable',
 		'community.services',
         'community.directives', 
         'community.filters',  

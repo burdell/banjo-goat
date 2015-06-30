@@ -52,7 +52,7 @@
 						</div>
 					</div>
 
-					<div>
+					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
 						<div ng-repeat="mediaUpload in vm.story.mediaList">
 							<div>
 								<div>
@@ -62,8 +62,9 @@
 								</div>
 								<h5>{{ mediaUpload.title }}</h5>
 								<img ng-src="{{ mediaUpload.imageUrl }}" style="max-height: 150px;">
+								<span class="ubnt-icon--arrows-downup"></span>
 							</div>
-							<input ng-model="mediaUpload.fileCaption" placeholder="Add a Caption" />
+							<input ng-model="mediaUpload.captionText" placeholder="Add a Caption" />
 						</div>
 					</div>
 				</div>
@@ -96,14 +97,13 @@
 			</div>
 
 			<div class="row row--comfy">
-				<button>Publish</button>
+				<button ng-click="vm.postStory()">Publish</button>
 				<button>Cancel</button>
 			</div>
 		</div>
 		<div class="col--md8">
 			<div class="row">
 				<div ng-include="'stories/detail/stories.body.html'"></div>
-				<!-- <community-map></community-map> -->
 				<div id="map"></div>
 			</div>
 		</div>

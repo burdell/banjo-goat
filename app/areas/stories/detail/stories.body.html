@@ -21,7 +21,7 @@
 	<div class="row row--comfy">
 		<div class="col--md10">
 			<img style="width: 100%; max-height: 250px;" ng-src="{{ vm.cover.imageUrl || vm.placeholders.coverPhotoUrl }}">
-			<h6>{{ vm.cover.fileCaption }}</h6>
+			<h6>{{ vm.cover.captionText }}</h6>
 		</div>
 		<div class="col--md2">
 			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
@@ -82,11 +82,10 @@
 
 				<div ng-if="mediaUpload.type === 'video'">
 					<h5 ng-bind="mediaUpload.title"></h5>
-					<div community-video-embed video-id="mediaUpload.videoId">
-					</div>
+					<div community-video-embed video-id="mediaUpload.videoId"></div>
 				</div>
 
-				<h6 ng-bind="mediaUpload.fileCaption"></h6>
+				<h6 ng-bind="mediaUpload.captionText"></h6>
 			</div>
 		</div>
 
