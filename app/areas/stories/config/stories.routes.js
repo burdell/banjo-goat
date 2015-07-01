@@ -32,7 +32,7 @@
 				resolve: {
 					StoryListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Stories.messages, 
+							filterFn: communityApi.Stories.stories, 
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
 								limit: 9

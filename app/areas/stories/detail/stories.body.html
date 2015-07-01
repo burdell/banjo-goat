@@ -20,38 +20,9 @@
 
 	<div class="row row--comfy">
 		<div class="col--md10">
-			<img style="width: 100%; max-height: 250px;" ng-src="{{ vm.cover.imageUrl || vm.placeholders.coverPhotoUrl }}">
-			<h6>{{ vm.cover.captionText }}</h6>
-		</div>
-		<div class="col--md2">
-			<div ng-if="vm.story.location" style="margin-bottom: 10px;">
-				<community-map map-coordinates="vm.story.location.coordinates"></community-map>
-				<h5>Location</h5>
-				<p>{{ vm.story.location.display }}</p>
-			</div>
-			<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
-			 	<label>Project Role</label>
-				<p>{{ vm.story.projectRole }}</p>
-			</div>
-		<!-- 	<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
-				<label>Finish Date</label>
-				<p>{{ vm.story.finishDate | date }}</p>
-			</div> -->
-			<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
-				<label>Users in Networks</label>
-				<p>{{ vm.story.numberOfUsers }}</p>
-			</div>
-			<!-- <div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
-				<label>Budget</label>
-				<p>{{ vm.story.budgetAmount | currency }}</p>
-			</div>
-			<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
-				<label>Data Requirement</label>
-				<p>{{ vm.story.dataRequirement }}</p>
-			</div> -->
-			<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
-				<label>Bandwidth</label>
-				<p>{{ vm.story.bandwidth }}</p>
+			<div ng-show="vm.cover">
+				<img style="width: 100%; max-height: 350px;" ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
+				<h6>{{ vm.cover.caption }}</h6>
 			</div>
 		</div>
 	</div>
@@ -59,44 +30,76 @@
 	<div class="row row--comfy">
 		<div class="row">
 			<span style="float: left;">
-				<community-user-avatar user="vm.story.author"></community-user-avatar>
+				<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
 			</span>
 			
 			<span>
-				<h6 style="display: inline"> by&nbsp; <community-username user="vm.story.author"></community-username></h6>
-				<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.story.author.location }}</h6>
+				<h6 style="display: inline"> by&nbsp; <community-username user="vm.storyAuthor"></community-username></h6>
+				<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.storyAuthor.location }}</h6>
 			</span>
 		</div>
 		<hr />
 
 		<div class="row row--comfy">
-			<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>		
-		</div>
+			<div class="col--md10">
+				<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>	
+				<div class="row row--comfy">
+					<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
+						<div ng-if="mediaUpload.type === 'image'">
+							<img ng-src="{{ mediaUpload.url }}" >
+						</div>
 
+						<div ng-if="mediaUpload.type === 'video'">
+							<h5 ng-bind="mediaUpload.meta.title"></h5>
+							<div community-video-embed video-id="mediaUpload.meta.videoId"></div>
+						</div>
 
-		<div class="row row--comfy">
-			<div ng-repeat="mediaUpload in vm.story.mediaList | filter:vm.notCoverPhoto">				
-				<div ng-if="mediaUpload.type === 'image'">
-					<img ng-src="{{ mediaUpload.imageUrl }}" >
+						<h6 ng-bind="mediaUpload.caption"></h6>
+					</div>
 				</div>
 
-				<div ng-if="mediaUpload.type === 'video'">
-					<h5 ng-bind="mediaUpload.title"></h5>
-					<div community-video-embed video-id="mediaUpload.videoId"></div>
+				<div class="row" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
+					<h4>Products Used In This Story</h4>
+					<div ng-repeat="product in vm.story.productsUsed" class="col--md3">
+						<div>{{ product }}</div>
+						<div>
+							<a href="#">Stories </a> | <a href="#">Product</a> 
+						</div>
+					</div>
 				</div>
-
-				<h6 ng-bind="mediaUpload.captionText"></h6>
 			</div>
-		</div>
 
-		<div class="row" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
-			<h4>Products Used In This Story</h4>
-			<div ng-repeat="product in vm.story.productsUsed" class="col--md3">
-				<div>{{ product }}</div>
-				<div>
-					<a href="#">Stories </a> | <a href="#">Product</a> 
+			<div class="col--md2">
+				<div ng-if="vm.story.location" style="margin-bottom: 10px;">
+					<community-map map-coordinates="vm.story.location.coordinates"></community-map>
+					<h5>Location</h5>
+					<p>{{ vm.story.location.display }}</p>
 				</div>
-			</div>
+				<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
+				 	<label>Project Role</label>
+					<p>{{ vm.story.projectRole }}</p>
+				</div>
+			<!-- 	<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
+					<label>Finish Date</label>
+					<p>{{ vm.story.finishDate | date }}</p>
+				</div> -->
+				<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
+					<label>Users in Networks</label>
+					<p>{{ vm.story.numberOfUsers }}</p>
+				</div>
+				<!-- <div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
+					<label>Budget</label>
+					<p>{{ vm.story.budgetAmount | currency }}</p>
+				</div>
+				<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
+					<label>Data Requirement</label>
+					<p>{{ vm.story.dataRequirement }}</p>
+				</div> -->
+				<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
+					<label>Bandwidth</label>
+					<p>{{ vm.story.bandwidth }}</p>
+				</div>
+			</div>	
 		</div>
 	</div>
 </div>

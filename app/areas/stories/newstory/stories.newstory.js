@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, communityApi, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -12,9 +12,10 @@
 
 		var mediaList = [];
 		var updateMediaList = function(data){
-			data.sortOrder = mediaList.length;
 			mediaList.push(data);
 		};
+
+		var currentUser = currentUserService.get();
 
 		_.extend(ctrl, {
 			hideStoryControls: true,
@@ -29,19 +30,20 @@
 				location: 'Project Location',
 				productsUsed: 'List products used in your project'
 			},
+			storyAuthor: currentUser,
 			story: {
-				author: currentUserService.get(),
-				mediaList: mediaList
+				currentUserId: currentUser.id,
+				media: mediaList
 			},
 			addPhoto: _.bind(function(result){
 				var fileData = result;
 				updateMediaList({
-					type: 'image',
-					imageUrl: fileData.fileUrl
+					url: fileData.fileUrl,
+					type: 'image'
 				});
 			}, ctrl),
 			deletePhoto: function(photoIndex) {
-				var removedItem = ctrl.story.mediaList.splice(photoIndex, 1);
+				var removedItem = mediaList.splice(photoIndex, 1);
 
 				if (ctrl.cover && (removedItem[0].$$hashKey === ctrl.cover.$$hashKey)) {
 					ctrl.removeCoverPhoto()
@@ -49,10 +51,13 @@
 			},
 			setCoverPhoto: function(imageObj){
 				if (ctrl.cover) {
-					ctrl.cover.isCover = false;
+					ctrl.cover.meta.isCover = false;
 				}
 
-				imageObj.isCover = true;
+				if (!imageObj.meta) {
+					imageObj.meta = {};
+				}
+				imageObj.meta.isCover = true;
 
 				ctrl.cover = imageObj;
 			},
@@ -69,19 +74,30 @@
 				});
 			},
 			postStory: function(){
-				console.log(ctrl.story);
+				ctrl.isPublishing = true;
+
+				communityApi.Stories.story(ctrl.story).then(
+					function(){
+						debugger;
+					},
+					function(){
+						ctrl.isPublishing = false;
+					});
 			},			
 			sortConfig: {
-				onUpdate: function(event) {
-					_.each(event.models, function(mediaModel, index) {
-						mediaModel.sortOrder = index;
-					});
-				},
 				handle: '.ubnt-icon--arrows-downup'
 			}
 		});
 	}
-	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityMediaService', 'CommunityProductService', 'CurrentUserService', 'StoryDefaults'];
+	NewStoryController.$inject = [
+		'$scope', 
+		'CommunityApiService',
+		'CommunityBreadcrumbService', 
+		'CommunityMediaService', 
+		'CommunityProductService', 
+		'CurrentUserService', 
+		'StoryDefaults'
+	];
 
 	angular.module('community.stories')
 		.controller('NewStory', NewStoryController);

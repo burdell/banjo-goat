@@ -3,9 +3,12 @@
 
 	function StoryDetailController ($scope, communityApi, breadcrumbService, filterService, storyThread, storyDefaults){
 		var ctrl = this;
-
+		var story = storyThread.originalMessage;
+		var storyAuthor = story.author;
+		
 		_.extend(ctrl, {
-			story: storyThread.originalMessage,
+			story: story,
+			storyAuthor: storyAuthor,
 			comments: storyThread.comments,
 			commentData: storyThread.nextCommentMetaData,
 			moreCommentsFilter: filterService.getNewFilter({ 

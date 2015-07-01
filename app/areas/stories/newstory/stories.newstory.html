@@ -45,26 +45,21 @@
 					<div>
 						<input ng-model="vm.newMediaUrl" placeholder="Link to image / YouTube or Vimeo Video" />
 						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
-
-						<div ng-repeat="video in vm.videoList">
-							<h5>{{ video.title }}</h5>
-							<img ng-src="{{ video.imageUrl.url }}" />
-						</div>
 					</div>
 
 					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
-						<div ng-repeat="mediaUpload in vm.story.mediaList">
+						<div ng-repeat="mediaUpload in vm.story.media">
 							<div>
 								<div>
 									<button ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</button>
 									<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</button>
 									<button ng-click="vm.deletePhoto($index)">Delete</button>
 								</div>
-								<h5>{{ mediaUpload.title }}</h5>
-								<img ng-src="{{ mediaUpload.imageUrl }}" style="max-height: 150px;">
+								<h5>{{ mediaUpload.meta.title }}</h5>
+								<img ng-src="{{ mediaUpload.url }}" style="max-height: 150px;">
 								<span class="ubnt-icon--arrows-downup"></span>
 							</div>
-							<input ng-model="mediaUpload.captionText" placeholder="Add a Caption" />
+							<input ng-model="mediaUpload.caption" placeholder="Add a Caption" />
 						</div>
 					</div>
 				</div>
@@ -97,8 +92,13 @@
 			</div>
 
 			<div class="row row--comfy">
-				<button ng-click="vm.postStory()">Publish</button>
-				<button>Cancel</button>
+				<div ng-hide="vm.isPublishing">
+					<button ng-click="vm.postStory()">Publish</button>
+					<button>Cancel</button>
+				</div>
+				<div ng-show="vm.isPublishing">
+					<button disabled>Publishing Your Story...</button>
+				</div>
 			</div>
 		</div>
 		<div class="col--md8">

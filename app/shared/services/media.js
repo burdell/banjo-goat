@@ -20,10 +20,12 @@
 					var snippet = videoData.snippet;
 
 					return {
+						meta: {
+							videoId: videoData.id,
+							title: snippet.title
+						},
 						type: 'video',
-						title: snippet.title,
-						imageUrl: snippet.thumbnails.medium.url,
-						videoId: videoData.id
+						url: snippet.thumbnails.medium.url,
 					}
 				});
 			},
@@ -47,7 +49,9 @@
 					url: 'https://api.vimeo.com/videos/' + videoId
 				}).then(function(result) {
 					return {
-						type: 'image'
+						meta: {
+							type: 'video'
+						}
 					};
 				});
 
@@ -70,8 +74,8 @@
 		var images = {
 			getMediaData: function(imageUrl) {
 				return $q.when({
-					type: 'image',
-					imageUrl: imageUrl
+					url: imageUrl,
+					type: 'image'
 				});
 			}
 		}
