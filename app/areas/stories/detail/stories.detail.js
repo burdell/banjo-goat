@@ -22,7 +22,7 @@
 		var cover = _.where(this.story.mediaList, { isCover: true });
 		if (!cover || cover.length === 0) {
 			cover = {
-				imageUrl: storyDefaults.coverPhoto
+				url: storyDefaults.coverPhoto
 			}
 		}
 		ctrl.cover = cover;

@@ -20,56 +20,12 @@
 
 	<div class="row row--comfy">
 		<div class="col--md10">
-			<div ng-show="vm.cover">
+			<div>
 				<img style="width: 100%; max-height: 350px;" ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
 				<h6>{{ vm.cover.caption }}</h6>
 			</div>
 		</div>
-	</div>
-
-	<div class="row row--comfy">
-		<div class="row">
-			<span style="float: left;">
-				<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
-			</span>
-			
-			<span>
-				<h6 style="display: inline"> by&nbsp; <community-username user="vm.storyAuthor"></community-username></h6>
-				<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.storyAuthor.location }}</h6>
-			</span>
-		</div>
-		<hr />
-
-		<div class="row row--comfy">
-			<div class="col--md10">
-				<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>	
-				<div class="row row--comfy">
-					<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
-						<div ng-if="mediaUpload.type === 'image'">
-							<img ng-src="{{ mediaUpload.url }}" >
-						</div>
-
-						<div ng-if="mediaUpload.type === 'video'">
-							<h5 ng-bind="mediaUpload.meta.title"></h5>
-							<div community-video-embed video-id="mediaUpload.meta.videoId"></div>
-						</div>
-
-						<h6 ng-bind="mediaUpload.caption"></h6>
-					</div>
-				</div>
-
-				<div class="row" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
-					<h4>Products Used In This Story</h4>
-					<div ng-repeat="product in vm.story.productsUsed" class="col--md3">
-						<div>{{ product }}</div>
-						<div>
-							<a href="#">Stories </a> | <a href="#">Product</a> 
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col--md2">
+		<div class="col--md2">
 				<div ng-if="vm.story.location" style="margin-bottom: 10px;">
 					<community-map map-coordinates="vm.story.location.coordinates"></community-map>
 					<h5>Location</h5>
@@ -100,6 +56,49 @@
 					<p>{{ vm.story.bandwidth }}</p>
 				</div>
 			</div>	
+	</div>
+
+	<div class="row row--comfy">
+		<div class="row">
+			<span style="float: left;">
+				<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
+			</span>
+			
+			<span>
+				<h6 style="display: inline"> by&nbsp; <community-username user="vm.storyAuthor"></community-username></h6>
+				<h6>{{ vm.story.postTime | timeFromNow }} | {{ vm.storyAuthor.location }}</h6>
+			</span>
+		</div>
+		<hr />
+
+		<div class="row row--comfy">
+			<div class="col--md12">
+				<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>	
+				<div class="row row--comfy">
+					<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
+						<div ng-if="mediaUpload.type === 'image'">
+							<img ng-src="{{ mediaUpload.url }}" >
+						</div>
+
+						<div ng-if="mediaUpload.type === 'video'">
+							<h5 ng-bind="mediaUpload.meta.title"></h5>
+							<div community-video-embed video-id="mediaUpload.meta.videoId"></div>
+						</div>
+
+						<h6 ng-bind="mediaUpload.caption"></h6>
+					</div>
+				</div>
+
+				<div class="row" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
+					<h4>Products Used In This Story</h4>
+					<div ng-repeat="product in vm.story.productsUsed" class="col--md3">
+						<div>{{ product }}</div>
+						<div>
+							<a href="#">Stories </a> | <a href="#">Product</a> 
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
