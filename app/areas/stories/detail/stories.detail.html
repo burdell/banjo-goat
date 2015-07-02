@@ -1,8 +1,12 @@
 <div class="row">
 	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
 	<div class="row row--comfy">
-		<button class="button-ghost button-white-blue">Comment</button>
+		<button class="button-ghost button-white-blue" ng-click="vm.toggleCommentForm()">Comment</button>
 		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
+	</div>
+
+	<div class="row row--comfy" ng-show="vm.replyInProgress" id="comment">
+		<div ng-include="'partials/commentform.html'"></div>
 	</div>
 
 	<div class="row">

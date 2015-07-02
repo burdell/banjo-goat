@@ -9,21 +9,7 @@
 
 		<div class="row row--comfy">
 			<div class="row row--comfy" ng-hide="!vm.replyInProgress">
-				<div class="row row--comfy">
-						<community-text-editor ng-model="vm.replyText" minimal-editor="true"></community-text-editor>
-				</div>
-				<div>
-					<button 
-						class="button-ghost button-white-blue" 
-						ng-click="vm.cancelReply()">
-							Cancel
-					</button>
-					<button 
-						class="button-full button-blue-white"
-						ng-click="vm.submitReply()">
-							Submit Comment
-					</button>
-				</div>
+				<div ng-include="'partials/commentform.html'"></div>
 			</div>
 		</div>
 	</div>

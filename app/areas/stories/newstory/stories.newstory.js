@@ -77,8 +77,8 @@
 				ctrl.isPublishing = true;
 
 				communityApi.Stories.story(ctrl.story).then(
-					function(){
-						debugger;
+					function(result){
+						
 					},
 					function(){
 						ctrl.isPublishing = false;
