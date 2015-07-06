@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var del = require('del');
-var merge = require('merge-stream');
 var _ = require('underscore');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins({
