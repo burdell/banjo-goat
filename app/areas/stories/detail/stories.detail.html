@@ -1,8 +1,11 @@
 <div class="cmuStories__storyDetail">
 	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
 	<div class="row row--comfy">
-		<button class="button-ghost button-white-blue" ng-click="vm.toggleCommentForm()">Comment</button>
-		<button class="button--kudos button--compound-naked" data-val="321"><span>{{ vm.story.stats | extractKey : 'score' }} </span> kudos</button>
+		<button class="button-ghost button--thin button-white-blue" ng-click="vm.toggleCommentForm()">Add Comment</button>
+		
+		<button class="button--vote button--compound-naked">
+			{{ vm.story.stats | extractKey : 'score' }} kudos
+		</button>
 	</div>
 
 	<div class="cmuStories__commentForm" ng-show="vm.replyInProgress" id="comment">

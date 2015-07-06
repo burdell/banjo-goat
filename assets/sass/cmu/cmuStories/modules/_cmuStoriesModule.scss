@@ -5,6 +5,11 @@
 }
 
 
+
+// 
+// Stories Grid
+// 
+
 .cmuStoryItem {
 	@extend %ease-fast;
 	&:hover {
@@ -90,3 +95,147 @@
 		margin-right: $cmu-base/2;
 	}
 }
+
+
+
+
+
+
+// 
+// Story Page
+// 
+
+.cmuStories__title {
+
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 48px;
+  color: $cmu-color-dkgray;
+}
+
+.cmuStories__summary {
+	font-style: italic;
+	font-size: $cmu-base * 1.1;
+	line-height: $cmu-base * 1.6;
+  	color: $cmu-color-gray;
+
+}
+
+.cmuStories__story__controlsTop {
+	margin-top: $cmu-base;
+	margin-bottom: $cmu-base;
+}
+
+	.cmuStories__author--avatar {
+		float: left;
+		
+		.cmuUserbadge__avatar {
+			margin-left: -3px;
+  			width: 32px;
+			padding-left: 0;
+			height: 1rem;
+			&:after {
+			  width: 2rem;
+			  height: 2rem;
+			}
+		}
+	}
+
+	.cmuStories__author--info {
+
+		float: left;
+		font-size: 11px;
+		line-height: 16px;
+		padding-left: $cmu-base/2;
+		padding-top: $cmu-base/2;
+	}
+		.cmuStories__postTime {
+			color: $cmu-color-gray;
+
+			&:before {
+				content: ' | ';
+				padding: 0 4px;
+			}
+		}
+
+.cmuStories__story__cover {
+	.cmuStories__story__cover--img {
+		text-align: center;
+		background-color: $cmu-color-ltgray;
+		margin-bottom: $cmu-base;
+
+		img {
+			// width: 100%; 
+			max-height: 400px;
+		}
+	}
+}
+
+.cmuStories__story__info {
+	float: right;
+	margin-left: 12px;
+}
+
+// 
+// Right Rail Info Box
+// 
+.cmuStories__story__info--map {
+	margin-bottom: $cmu-base;
+}
+
+.cmuStories__story__info--title {
+	font-weight: 700;
+}
+
+// 
+// Products
+// 
+
+.cmuStories__story__products--title {
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+	.cmuStories__story__products--item {
+		display: block; 
+		margin-bottom: $cmu-base;
+
+		&:nth-child(1) {
+			padding-left: 0;
+		}
+
+		&:before {
+			content: ' ';
+			display: block;
+			height: 50px;
+			width: 80px;
+			background-color: $cmu-color-ltgray;
+		}
+	}
+
+	.cmuStories__story__products--name {
+		margin-top: 4px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -144,8 +144,8 @@
 							numberofUsers: 200,
 							budgetAmount: 50000,
 							numberOfWorkers: 4,							
-							dataRequirement: "HELLO THERE",
-							bandwidth: "HELLO THERE",
+							dataRequirement: "{data}",
+							bandwidth: "{bandwidth}",
 							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
 							location: {
 								display: 'Atlanta, GA, USA',
