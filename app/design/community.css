@@ -85,6 +85,14 @@
   width: 100% !important;
 }
 
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 /**
  * 1. Support IE10.
  */
@@ -3334,18 +3342,13 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an img tag, or to an element with a background-image.
+ * class either to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
-/**
- * 1. Assume a square image, because we want to the image to retain its
- *    correct proportions if it is squeezed by its container.
- */
 .avatar {
   width: 5em;
-  height: auto;
-  /* [1] */
+  height: 5em;
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3768,6 +3771,72 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
 }
 
 /**
@@ -5368,6 +5437,10 @@ output {
 }
 
 /**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6505,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6520,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6682,15 +6755,14 @@ h6 {
 
 html {
   min-height: 100%;
-  line-height: 1.5rem;
-  font-size: 1rem;
+  line-height: 1.2rem;
 }
 
 body {
   min-height: 100%;
   overflow-y: scroll;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 0.8125rem;
 }
 
 img, object, embed {
@@ -6765,7 +6837,6 @@ pre {
   flex-wrap: nowrap;
   justify-content: center;
   align-content: flex-start;
-  margin-bottom: 1rem;
 }
 .cmuPagination * {
   display: inline-block;
@@ -6778,7 +6849,7 @@ pre {
   justify-content: flex-end;
   align-content: flex-start;
   align-items: flex-start;
-  min-width: 19rem;
+  min-width: 17rem;
 }
 
 .cmuPagination__txtControl {
@@ -6871,7 +6942,7 @@ pre {
 
 .cmuPagination__first {
   flex-grow: initial;
-  padding: 0.25rem 0;
+  line-height: 1rem;
   text-align: center;
   min-width: 2rem;
   cursor: pointer;
@@ -7308,6 +7379,91 @@ button + button, .button + .button {
   top: 1px;
 }
 
+.button--outline {
+  color: #00a0df;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
+}
+.button--outline:hover {
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+.button--outline .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-green-on-white {
+  color: #48af65;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #48af65;
+  background-color: #fafafa;
+  border-color: #48af65;
+}
+.button--outline.button-green-on-white:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+.button--outline.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-black-on-white {
+  color: #242931;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #242931;
+  background-color: #fafafa;
+  border-color: #242931;
+}
+.button--outline.button-black-on-white:hover {
+  color: #fafafa;
+  background-color: #242931;
+  border-color: #242931;
+}
+.button--outline.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-gray-on-white {
+  color: #969ba3;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+}
+.button--outline.button-gray-on-white:hover {
+  color: #fafafa;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.button--outline.button-gray-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
 .button--solid {
   color: #fafafa;
   background-color: #00a0df;
@@ -7513,17 +7669,67 @@ button + button, .button + .button {
   top: 1px;
 }
 
-.button--kudos:hover span:before {
-  content: "+1";
-  margin-right: 0.25rem;
-}
-
 button .icon, .button .icon {
   margin-right: 0.25rem;
 }
 
+.button--padded {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.button--thin {
+  line-height: 1.3125rem;
+  font-size: 10px;
+}
+
+.button--vote {
+  text-align: left;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 0;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+  line-height: 1.3125rem;
+  font-size: 10px;
+}
+.button--vote:hover {
+  color: #fafafa;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.button--vote .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--vote:after {
+  content: '+';
+  color: white;
+  padding: 8px 8px 8px 9px;
+  margin-left: 6px;
+  margin-right: -1px;
+  background-color: #969ba3;
+}
+.button--vote:hover:after {
+  font-family: "lato";
+  content: '+1';
+  padding: 8px 5px 8px 6px;
+}
+
 .button--wide {
   width: 100%;
+}
+
+.button--icon {
+  padding-left: 8px;
 }
 
 .cmuUsername {
@@ -7534,15 +7740,17 @@ button .icon, .button .icon {
   font-size: 0.5rem;
   background: #00a0df;
   color: white;
-  padding: 0.33333rem;
   position: relative;
   top: -2px;
+}
+.cmuUsername .cmuUsername__icon.ubnt-icon--u {
+  padding: 0.33333rem;
 }
 
 .cmuUserbadge {
   text-align: center;
   display: table-cell;
-  width: 16%;
+  width: 21%;
   height: 100%;
   opacity: 0.46;
 }
@@ -7552,6 +7760,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__account {
   padding-top: 1rem;
+  overflow: hidden;
   cursor: pointer;
 }
 .cmuUserbadge__account:hover a {
@@ -7568,10 +7777,16 @@ button .icon, .button .icon {
   border-top: 0.33333rem #00a0df solid;
 }
 
+.cmuUserbadge__right {
+  text-align: left;
+  padding-left: 4px;
+}
+
 .cmuUserbadge__avatar {
   display: inline-block;
   line-height: 0;
-  padding: 0 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 4px;
   width: 45px;
   text-align: center;
   font-size: 20px !important;
@@ -7597,27 +7812,38 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__username {
+  text-align: left;
   font-size: 0.8125rem;
-  line-height: 1.3rem;
-  padding: 0 0.33333rem;
+  line-height: 0.8rem;
+  padding-top: 4px;
+  word-break: break-all;
+}
+
+.cmuUsername__icon {
+  line-height: 1.2rem !important;
 }
 
 .cmuUserbadge__rank {
-  font-size: 0.75rem;
-  line-height: 1.3rem;
+  font-size: 0.6875rem;
+  line-height: 0.9rem;
+  display: inline-block;
+  text-align: left;
+  padding-top: 4px;
 }
 
 .cmuUserbadge__status {
+  text-align: left;
   font-size: 0.75rem;
   line-height: 1.3rem;
-  margin: 0.5rem 0 1rem 0;
+  display: inline;
 }
 
 .cmuUserbadge__status__op:after {
   content: 'OP';
   font-size: 0.5625rem;
-  border: 1px solid #474b52;
-  padding: 0.1rem 0.25rem;
+  border: 1px solid #969ba3;
+  padding: 0px 0.25rem;
+  margin-right: 1px;
 }
 
 .cmuUserbadge__gameInfo, .cmuUserbadge__descriptors {
@@ -7701,8 +7927,61 @@ button .icon, .button .icon {
   margin-right: 0.25rem;
 }
 
+.cmuComments__header {
+  font-size: 0.8125rem;
+  border-bottom: 3px solid #474b52;
+}
+
+.cmuComments__row {
+  margin-bottom: 0.2rem;
+  padding: 0.5rem 0;
+  background-color: #ebebeb;
+}
+
+.cmuComments__user {
+  padding-top: 2px;
+}
+
+.cmuComments__user--avatar .cmuUserbadge__avatar {
+  padding-left: 0;
+  height: 1rem;
+}
+.cmuComments__user--avatar .cmuUserbadge__avatar:after {
+  width: 2rem;
+  height: 2rem;
+}
+
+.cmuComments__user--info {
+  font-size: 11px;
+  line-height: 16px;
+  padding-left: 6px;
+}
+
+.cmuComments__postTime {
+  color: #969ba3;
+}
+
+.cmuComments__body-content {
+  margin-right: 1rem;
+}
+
+.cmuComments__body {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+}
+
+.cmuViewingCounter__count {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.6875rem;
+  border: 1px solid #969ba3;
+  padding: 3px 12px;
+  font-style: italic;
+}
+
 .cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
+  padding: 0;
 }
 
 .cmuDiscussionsHeader h2 {
@@ -7930,7 +8209,7 @@ button .icon, .button .icon {
 }
 
 .forumThreadMessage__row {
-  border: 1px solid #ebebeb;
+  border: 1px solid #bbbbbd;
   margin-bottom: 0.5rem;
   display: table;
   width: 100%;
@@ -7952,7 +8231,7 @@ button .icon, .button .icon {
   display: table-cell;
   vertical-align: top;
   width: 80%;
-  border-left: 1px solid #ebebeb;
+  border-left: 1px solid #bbbbbd;
   padding: 1rem;
   padding-top: 0.5rem;
 }
@@ -7962,8 +8241,26 @@ button .icon, .button .icon {
   color: #bbbbbd;
 }
 
-.forumThreadMessage:nth-child(n+2) .forumThreadMessage__messageTopic:before {
-  content: "Re: ";
+.forumThreadMessage .forumThreadMessage__messageTopic {
+  display: none;
+}
+
+.forumThreadMessage:nth-child(2) .forumThreadMessage__messageTopic {
+  display: inline-block;
+}
+
+.forumThreadMessage__messageTopic {
+  display: inline-block;
+  color: #00a0df;
+}
+.forumThreadMessage__messageTopic:before {
+  content: 'Re: ';
+  color: #969ba3;
+}
+.forumThreadMessage__messageTopic:after {
+  content: ' | ';
+  color: #969ba3;
+  margin: 0 0.5rem;
 }
 
 .forumThreadMessage__date {
@@ -7974,7 +8271,7 @@ button .icon, .button .icon {
 .forumThreadMessage__content {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  min-height: 8rem;
+  min-height: 3rem;
   font-size: 0.8125rem;
   line-height: 1.3rem;
 }
@@ -7985,6 +8282,15 @@ button .icon, .button .icon {
 }
 .forumThreadMessage__content p {
   margin-bottom: 0;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+.forumThreadMessage__content blockquote {
+  border: 1px solid #969ba3;
+  border-left-width: 3px;
+  padding: 0.5rem 1rem;
+}
+.forumThreadMessage__content blockquote hr {
+  display: none;
 }
 .forumThreadMessage__content blockquote table {
   border-color: transparent;
@@ -8029,23 +8335,70 @@ button .icon, .button .icon {
   margin-bottom: 1rem;
 }
 
-.activeCounter {
-  margin-bottom: 1rem;
-  font-size: 0.6875rem;
-}
-.activeCounter span:nth-child(1) {
-  font-weight: 600;
-  padding: 0.5rem 0.75rem;
-  background-color: #00a0df;
-  color: #fafafa;
-}
-.activeCounter span:nth-child(2) {
-  background-color: #ebebeb;
-  padding: 0.5rem 0.75rem;
-}
-
 .forumThreadControl {
   margin-bottom: 1rem;
+}
+
+.cmuStoryItem:hover img {
+  opacity: 0.4;
+}
+.cmuStoryItem:hover a {
+  color: #00a0df;
+}
+
+.cmuStoryItem--image {
+  background-color: white;
+  font-size: 0px;
+  line-height: 0;
+}
+.cmuStoryItem--image img {
+  width: 100%;
+  max-height: 420px;
+}
+
+.cmuStoryItem--featured {
+  position: relative;
+}
+.cmuStoryItem--featured:before {
+  display: block;
+  font-family: 'ubnt';
+  content: '\e719';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  /* padding-top: 7px; */
+  line-height: 34px;
+  border-radius: 100%;
+  color: white;
+  background-color: #43ceae;
+  font-size: 18px;
+}
+
+.cmuStoryItem--main {
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.cmuStoryItem--link {
+  color: #474b52;
+}
+.cmuStoryItem--link:hover {
+  color: #00a0df;
+}
+
+.cmuStoryItem--meta {
+  padding: 0.5rem;
+  background-color: #ebebeb;
+  margin-bottom: 1rem;
+}
+.cmuStoryItem--meta .icon {
+  margin-right: 0.5rem;
+}
+.cmuStoryItem--meta > span {
+  margin-right: 0.5rem;
 }
 
 /**

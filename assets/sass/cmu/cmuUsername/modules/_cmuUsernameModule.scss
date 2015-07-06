@@ -17,8 +17,13 @@
 		font-size: $cmu-base/2;
 		background: $cmu-color-blue;
 		color: white;
-		padding: $cmu-base/3;
+		// padding: $cmu-base/3;
 		position: relative;
 		top: -2px;
+		
+		&.ubnt-icon--u {
+			padding: $cmu-base/3;
+		}
 	}
+
 }

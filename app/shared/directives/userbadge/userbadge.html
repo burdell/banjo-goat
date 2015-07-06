@@ -1,12 +1,18 @@
 <div class="cmuUserbadge" ng-class="{ '{{ ::userbadge.userType }}' : userbadge.userType }">
-	<div class="cmuUserbadge__account">
-		<community-user-avatar user="userbadge.user"></community-user-avatar>
-		<div class="cmuUserbadge__username">
-			<community-username user="userbadge.user"></community-username>
-			<span ng-show="userbadge.opId === userbadge.user.id" class="cmuUserbadge__status__op"></span>
+	<div class="cmuUserbadge__account clearfix">
+		<div class="cmuUserbadge__left col--md4">
+			<community-user-avatar user="userbadge.user"></community-user-avatar>
 		</div>
-		<div class="cmuUserbadge__rank">
-			{{ userbadge.user.rank }} 
+		<div class="cmuUserbadge__right col--md8">
+			<div class="cmuUserbadge__username">
+				<community-username user="userbadge.user"></community-username>
+			</div>
+			<div class="cmuUserbadge__status">
+				<span ng-show="userbadge.opId === userbadge.user.id" class="cmuUserbadge__status__op"></span>
+			</div>
+			<div class="cmuUserbadge__rank">
+				{{ userbadge.user.rank }} 
+			</div>
 		</div>
 		<!-- <div class="cmuUserbadge__status">
 			<span class="cmuUserbadge__status__op"></span>
@@ -24,8 +30,8 @@
 		<!-- </div> -->
 		<div class="cmuUserbadge__descriptors">
 			<div data-desc="Kudos">152</div>
-			<div data-desc="Posts">623</div>
-			<div data-desc="Helpful">214</div>
+			<!-- <div data-desc="Posts">623</div>
+			<div data-desc="Helpful">214</div> -->
 			<div data-desc="Location">San Francisco, CA</div>
 			<div data-desc="Joined">08-07-2008</div>
 			<div data-desc="IP">89.184.153.167</div>

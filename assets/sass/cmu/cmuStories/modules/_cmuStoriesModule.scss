@@ -1,0 +1,92 @@
+
+// entire stories section
+.cmuStories {
+
+}
+
+
+.cmuStoryItem {
+	@extend %ease-fast;
+	&:hover {
+		@extend %ease-fast;
+		img {
+			@extend %ease-fast;
+			opacity: 0.4;
+		}
+		a {
+			color: $cmu-color-blue;
+			@extend %ease-fast;
+		}
+	}
+}
+
+// each story item in the grid
+.cmuStoryItem--image {
+	background-color: $cmu-color-purewhite;
+
+	// fixes weird spacing problems w/ images
+	font-size: 0px;
+	line-height: 0;
+
+	img {
+		@extend %ease-fast;
+		width: 100%;
+		max-height: 420px;
+	}
+}
+
+// featured story
+.cmuStoryItem--featured {
+	position: relative;
+
+	&:before {
+		display: block;
+		font-family: 'ubnt';
+		content: '\e719';  
+
+		position: absolute;
+		top: 10px;
+		left: 10px;
+
+		height: 32px;
+		width: 32px;
+
+		text-align: center;
+		/* padding-top: 7px; */
+		line-height: 34px;
+
+		border-radius: 100%;
+		color: white;
+		background-color: $cmu-color-teal;
+
+		font-size: 18px;
+	}
+}
+// each story item in the grid
+.cmuStoryItem--main {
+	background-color: $cmu-color-purewhite;
+	padding: $cmu-base/2;
+
+}
+
+.cmuStoryItem--link {
+	color: $cmu-color-dkgray;
+	// font-size: $cmu-base-font;
+
+	&:hover {
+		color: $cmu-color-blue;
+	}
+}
+
+.cmuStoryItem--meta {
+	padding: $cmu-base/2;
+	background-color: $cmu-color-ltgray;
+	margin-bottom: $cmu-base;
+
+	.icon {
+		margin-right: $cmu-base/2;
+	}
+	&>span {
+		margin-right: $cmu-base/2;
+	}
+}

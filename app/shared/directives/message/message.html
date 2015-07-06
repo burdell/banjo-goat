@@ -9,48 +9,53 @@
 			<div class="forumThreadMessage__header">
 				<div class="row">
 					<div class="col--md6">
-						<div class="forumThreadMessage__messageTopic">{{ ::messageDisplay.originalMessage.subject | htmlUnescape }}</div>
-					</div>
-					<div class="col--md6 alignRight">
+						<div class="forumThreadMessage__messageTopic">
+						UBNT-Matt [1]
+						<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
+						</div>
+
 						<div class="forumThreadMessage__messageCounter"></div>
 						<div class="forumThreadMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
 					</div>
-				</div>
-			</div>
-			<div class="forumThreadMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
-			</div>
-			<div class="forumThreadMessage__signature">
-				<div>
-					WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
+					<div class="col--md6 alignRight">
+						<div class="forumThreadMessage__controls"> 
+							<div class="forumThreadMessage__controls--reply noPadding">
+								<button class="button--vote button--compound-naked" data-val="321">
+									123 kudos
+									<!-- <div class="button--compound--data">123{{ message.stats | extractKey : 'kudos' }} kudos</div><div class="button--compound--action"> -->
+										<!-- <span class="icon ubnt-icon--plus">KUDOS</span> -->
+										<!-- +1 -->
+									<!-- </div> -->
+								</button>
+								<button class="button--vote button--compound-naked ">
+									<span class="icon ubnt-icon--tools"></span> Helpful
+									<!-- <div class="button--compound--data"><span class="icon ubnt-icon--tools"></span></div> -->
+									<!-- <div class="button--compound--action"> -->
+										<!-- <span class="icon ubnt-icon--plus">KUDOS</span> -->
+										<!-- Helpful -->
+									<!-- </div> -->
+								</button>
+								<button 
+									class="button--solid button--thin button-white-on-blue" 
+									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
+										Reply
+								</button>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 
-			<div class="forumThreadMessage__controls"> 
-				<div class="forumThreadMessage__controls--vote col--md4 noPadding">
-				</div>
-				<div class="forumThreadMessage__controls--reply col--md8 noPadding">
-					<button class="button--kudos button--compound-naked" data-val="321">
-						<span>123</span> kudos
-						<!-- <div class="button--compound--data">123{{ message.stats | extractKey : 'kudos' }} kudos</div><div class="button--compound--action"> -->
-							<!-- <span class="icon ubnt-icon--plus">KUDOS</span> -->
-							<!-- +1 -->
-						<!-- </div> -->
-					</button>
-					<button class="button--compound-naked">
-						<span class="icon ubnt-icon--tools"></span> Helpful
-						<!-- <div class="button--compound--data"><span class="icon ubnt-icon--tools"></span></div> -->
-						<!-- <div class="button--compound--action"> -->
-							<!-- <span class="icon ubnt-icon--plus">KUDOS</span> -->
-							<!-- Helpful -->
-						<!-- </div> -->
-					</button>
-					<button 
-						class="button--solid button-white-on-blue" 
-						ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
-							Reply
-					</button>
-				</div>
+			<div class="forumThreadMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
 			</div>
+			<!-- <div class="forumThreadMessage__signature">
+				<div>
+					WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
+				</div>
+			</div> -->
+
+			
 		</div>
 	</div>
 </div>

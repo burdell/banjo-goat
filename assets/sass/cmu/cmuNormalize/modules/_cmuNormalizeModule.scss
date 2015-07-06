@@ -6,14 +6,14 @@
 html {
   min-height: 100%;
   line-height: $cmu-base-line-height;
-  font-size: $cmu-base;
+  // font-size: $cmu-base-font;
 }
 
 body {
   min-height: 100%;
   overflow-y: scroll;
   margin: 0 auto;
-  font-size: $cmu-base;
+  font-size: $cmu-base-font;
 }
 
 img, object, embed {

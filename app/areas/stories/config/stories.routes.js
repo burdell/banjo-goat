@@ -16,7 +16,7 @@
 					}],
 					StoryDefaults: function(){
 						return {
-							coverPhoto: "http://thecatapi.com/api/images/get?format=src"
+							coverPhoto: "http://thecatapi.com/api/images/get?format=src&type=png"
 						}
 					}
 				},
