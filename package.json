@@ -4,7 +4,7 @@
   "description": "UI for community ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'Error: no test specified' && exit 1"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "bower": "^1.3.12",
     "compass": "^0.1.1",
+    "compass": "0.12.7",
     "del": "^1.1.1",
     "ejs": "^2.3.1",
     "express": "^4.12.3",

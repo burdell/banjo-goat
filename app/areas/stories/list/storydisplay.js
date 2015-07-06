@@ -7,6 +7,7 @@
 
 		var controller = function() {
 			var ctrl = this;
+			
 			_.extend(ctrl, {
 			})
 		};

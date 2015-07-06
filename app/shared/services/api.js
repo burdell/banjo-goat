@@ -61,6 +61,7 @@
 		}
 		
 		var baseUrl = 'http://comm2-dev.ubnt.com:8080/'; //'http://localhost:8080/'
+
 		var urlSegments = {
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
@@ -143,8 +144,8 @@
 							numberofUsers: 200,
 							budgetAmount: 50000,
 							numberOfWorkers: 4,							
-							dataRequirement: "HELLO THERE",
-							bandwidth: "HELLO THERE",
+							dataRequirement: "{data}",
+							bandwidth: "{bandwidth}",
 							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
 							location: {
 								display: 'Atlanta, GA, USA',

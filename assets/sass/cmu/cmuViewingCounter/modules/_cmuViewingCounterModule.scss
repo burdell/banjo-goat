@@ -1,0 +1,28 @@
+
+// 
+// "5 other people are viewing this thread"
+// 
+
+// .activeCounter {
+// 	margin-bottom: $cmu-vertical-rhythm;
+// 	font-size: $cmu-size-xsmaller;
+// 	span:nth-child(1) {
+// 		font-weight: 600;
+// 		padding: $cmu-base/2 $cmu-base*3/4;
+// 		background-color: $cmu-color-blue;
+// 		color: $cmu-color-white;
+// 	}
+// 	span:nth-child(2) {
+// 		background-color: $cmu-color-ltgray;
+// 		padding: $cmu-base/2 $cmu-base*3/4;
+// 	}
+// }
+
+.cmuViewingCounter__count {
+	display: inline-block;
+	margin-bottom: $cmu-vertical-rhythm;
+	font-size: $cmu-size-xsmaller;
+	border: 1px solid $cmu-color-gray;
+  	padding: 3px 12px;
+  	font-style: italic;
+}

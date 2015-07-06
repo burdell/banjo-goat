@@ -5,8 +5,8 @@
  */
 $cmu-base:					1rem !default; // 1rem = 16px is standard for browsers
 $base-font-size:            $cmu-base !default;
-$cmu-base-font-size:        $base-font-size !default;
-$cmu-base-line-height:      $cmu-base*1.5 !default;
+$cmu-base-font:        		remCalc(13px) !default;	// less whitespace
+$cmu-base-line-height:      $cmu-base*1.2 !default;
 $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
@@ -20,7 +20,7 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 
 
 
-$cmu-thread-message-height:	$cmu-base * 8;
+// $cmu-thread-message-height:	$cmu-base * 8;
 
 // 
 // BASIC COMMUNITY RESET STYLES

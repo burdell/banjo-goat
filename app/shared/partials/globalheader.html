@@ -1,93 +1,54 @@
 
 <!-- heavily edited for prototype -->
 
+
+
+<!-- logged out state -->
+<!-- 
 <div class="comGlobalHeader">
-    <div class="comGlobalHeader__content"><a href="#" class="comGlobalHeader__logo"><span class="icon ubnt-icon--logo-lockup"><span class="offstage">Ubiquiti Networks</span></span></a>
-      <ul class="comGlobalHeader__nav"><li class="comGlobalHeader__navItem"><a href="#" title="Broadband" class="comGlobalHeader__navItemLink">Broadband</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Enterprise" class="comGlobalHeader__navItemLink">Enterprise</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Products" class="comGlobalHeader__navItemLink">Products</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Support</a><li class="comGlobalHeader__navItem comGlobalHeader__navItem--Community"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Community</a><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Buy</a>
-        </li>
-      </ul>
-      <ul class="comGlobalHeader__nav comGlobalHeader__navRight">
-        <span class="">
-          <li class="comGlobalHeader__navItem comGlobalHeader__navItem--apps"><a href="#" title="APPS" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--grid"></span> APPS</a></li>
-          <li class="comGlobalHeader__navItem comGlobalHeader__navItem--search comGlobalHeader__navItemSearch js-search-toggle"><a class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--search-2"><span class="offstage">Search</span></span></a></li>
-        </span>
-        <span class="">
-          <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--inbox"><a href="#" title="UWN" class="comGlobalHeader__cmuItemLink">
-            <span class="icon ubnt-icon--inbox"></span></a>
-          </li>
-          <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--notifications"><a href="#" title="UWN" class="comGlobalHeader__cmuItemLink">
-            <span class="icon ubnt-icon--world"></span></a>
-          </li>
-          <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--avatar">
-          </li>
-        </span>
-      </ul>
-      <div class="comGlobalHeader__navItem comGlobalHeader__navItemMobile"><a href="#" class="comGlobalHeader__cmuItemLink js-toggle-mobile-nav"><span class="icon ubnt-icon--menu"><span class="offstage">Menu</span></span></a></div>
-    </div>
-    <div class="comGlobalHeader__mobileContent js-mobile-nav-content">
-      <ul class="comGlobalHeader__nav">
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSearchForm"><span class="icon ubnt-icon--magnifying-glass comGlobalHeader__navItemIcon"></span>
-          <form name="search" action="/" method="get" class="comFormSearch comFormSearch--mobile ng-pristine ng-valid">
-            <div class="comFormSearch__searchBox"><a class="comFormSearch__clearButton js-search-clear"><span class="icon ubnt-icon--x"></span></a>
-              <input name="q" type="text" required="" class="comFormSearch__input">
-            </div>
-            <button type="submit" class="comFormSearch__submitButton"><span class="icon ubnt-icon--search-2"><span class="offstage">Search</span></span></button>
-          </form>
-        </li>
-      </ul>
-      <ul class="comGlobalHeader__nav">
-        <li class="comGlobalHeader__navItem"><a href="#" title="Broadband" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--dish comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Broadband</span></a></li>
-        <li class="comGlobalHeader__navItem"><a href="#" title="Enterprise" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--disc-2 comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Enterprise</span></a></li>
-        <li class="comGlobalHeader__navItem"><a href="#" title="Products" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--box comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Products</span></a></li>
-        <li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink is-link-selected"><span class="icon ubnt-icon--support comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Support</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-          <ul class="comGlobalHeader__subNav">
-            <li class="comGlobalHeader__navItem"><a href="#" title="Knowledge Base" class="comGlobalHeader__navItemLink">Knowledge Base</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Forums" class="comGlobalHeader__navItemLink">Forums</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Downloads" class="comGlobalHeader__navItemLink">Downloads</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Videos" class="comGlobalHeader__navItemLink">Videos</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Requests" class="comGlobalHeader__navItemLink">Requests</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Compliance" class="comGlobalHeader__navItemLink">Compliance</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Warranty" class="comGlobalHeader__navItemLink">Warranty</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Security Rewards" class="comGlobalHeader__navItemLink">Security Rewards</a></li>
-          </ul>
-        </li>
-        <li class="comGlobalHeader__navItem"><a href="#" title="Buy" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--cart comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Buy</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-        </li>
-      </ul>
-      <ul class="comGlobalHeader__nav">
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSecondary"><a href="#" title="UWN" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--world comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">UWN</span></a></li>
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSecondary"><a href="#" title="Social" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--chat-bubbles-2 comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Social</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-          <ul class="comGlobalHeader__subNav">
-            <li class="comGlobalHeader__navItem"><a href="#" title="Community" class="comGlobalHeader__navItemLink">Community</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Facebook" class="comGlobalHeader__navItemLink">Facebook</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Twitter" class="comGlobalHeader__navItemLink">Twitter</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="YouTube" class="comGlobalHeader__navItemLink">YouTube</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="comGlobalHeader__nav">
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSecondary"><a href="#" title="Company" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--buildings comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Company</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-          <ul class="comGlobalHeader__subNav">
-            <li class="comGlobalHeader__navItem"><a href="#" title="Careers" class="comGlobalHeader__navItemLink">Careers</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Contact Us" class="comGlobalHeader__navItemLink">Contact Us</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Investors" class="comGlobalHeader__navItemLink">Investors</a></li>
-          </ul>
-        </li>
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSecondary"><a href="#" title="In the News" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--news comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">In the News</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-          <ul class="comGlobalHeader__subNav">
-            <li class="comGlobalHeader__navItem"><a href="#" title="Product Updates" class="comGlobalHeader__navItemLink">Product Updates</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Newsletters" class="comGlobalHeader__navItemLink">Newsletters</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Case Studies" class="comGlobalHeader__navItemLink">Case Studies</a></li>
-          </ul>
-        </li>
-        <li class="comGlobalHeader__navItem comGlobalHeader__navItemSecondary"><a href="#" title="Training" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--cap comGlobalHeader__navItemIcon"></span><span class="comGlobalHeader__navItemLabel">Training</span><span class="icon ubnt-icon--pointer-down comGlobalHeader__subNavIcon"></span><span class="icon ubnt-icon--pointer-up comGlobalHeader__subNavIcon"></span></a>
-          <ul class="comGlobalHeader__subNav">
-            <li class="comGlobalHeader__navItem"><a href="#" title="Courses" class="comGlobalHeader__navItemLink">Courses</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Calendar" class="comGlobalHeader__navItemLink">Calendar</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Trainers" class="comGlobalHeader__navItemLink">Trainers</a></li>
-            <li class="comGlobalHeader__navItem"><a href="#" title="Become a Trainer" class="comGlobalHeader__navItemLink">Become a Trainer</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+  <div class="comGlobalHeader__content"><a href="#" class="comGlobalHeader__logo"><span class="icon ubnt-icon--logo-lockup"><span class="offstage">Ubiquiti Networks</span></span></a>
+    <ul class="comGlobalHeader__nav"><li class="comGlobalHeader__navItem"><a href="#" title="Broadband" class="comGlobalHeader__navItemLink">Broadband</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Enterprise" class="comGlobalHeader__navItemLink">Enterprise</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Products" class="comGlobalHeader__navItemLink">Products</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Support</a><li class="comGlobalHeader__navItem comGlobalHeader__navItem--Community"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Community</a><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Buy</a>
+      </li>
+    </ul>
+    <ul class="comGlobalHeader__nav comGlobalHeader__navRight">
+      <span class="">
+        <li class="comGlobalHeader__navItem comGlobalHeader__navItem--apps"><a href="#" title="APPS" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--grid"></span> APPS</a></li>
+        <li class="comGlobalHeader__navItem comGlobalHeader__navItem--search comGlobalHeader__navItemSearch js-search-toggle"><a class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--search-2"><span class="offstage">Search</span></span></a></li>
+      </span>
+      <span class="">
+        <li class="comGlobalHeader__navItem comGlobalHeader__login"><a class="comGlobalHeader__navItemLink">LOGIN</a></li>
+        <li class="comGlobalHeader__navItem comGlobalHeader__register"><a class="comGlobalHeader__navItemLink">REGISTER</a></li>
+      </span>
+    </ul>
+    <div class="comGlobalHeader__navItem comGlobalHeader__navItemMobile"><a href="#" class="comGlobalHeader__cmuItemLink js-toggle-mobile-nav"><span class="icon ubnt-icon--menu"><span class="offstage">Menu</span></span></a></div>
   </div>
+</div>
+ -->
+
+
+<!-- logged in state -->
+<div class="comGlobalHeader">
+  <div class="comGlobalHeader__content"><a href="#" class="comGlobalHeader__logo"><span class="icon ubnt-icon--logo-lockup"><span class="offstage">Ubiquiti Networks</span></span></a>
+    <ul class="comGlobalHeader__nav"><li class="comGlobalHeader__navItem"><a href="#" title="Broadband" class="comGlobalHeader__navItemLink">Broadband</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Enterprise" class="comGlobalHeader__navItemLink">Enterprise</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Products" class="comGlobalHeader__navItemLink">Products</a></li><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Support</a><li class="comGlobalHeader__navItem comGlobalHeader__navItem--Community"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Community</a><li class="comGlobalHeader__navItem"><a href="#" title="Support" class="comGlobalHeader__navItemLink">Buy</a>
+      </li>
+    </ul>
+    <ul class="comGlobalHeader__nav comGlobalHeader__navRight">
+      <span class="">
+        <li class="comGlobalHeader__navItem comGlobalHeader__navItem--apps"><a href="#" title="APPS" class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--grid"></span> APPS</a></li>
+        <li class="comGlobalHeader__navItem comGlobalHeader__navItem--search comGlobalHeader__navItemSearch js-search-toggle"><a class="comGlobalHeader__navItemLink"><span class="icon ubnt-icon--search-2"><span class="offstage">Search</span></span></a></li>
+      </span>
+      <span class="">
+        <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--notifications"><a href="#" title="UWN" class="comGlobalHeader__cmuItemLink">
+          <span class="icon ubnt-icon--bell"></span></a>
+        </li>
+        <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--inbox"><a href="#" title="UWN" class="comGlobalHeader__cmuItemLink">
+          <span class="icon ubnt-icon--inbox"></span></a>
+        </li>
+        <li class="comGlobalHeader__cmuItem comGlobalHeader__cmuItem--avatar">
+        </li>
+      </span>
+    </ul>
+    <div class="comGlobalHeader__navItem comGlobalHeader__navItemMobile"><a href="#" class="comGlobalHeader__cmuItemLink js-toggle-mobile-nav"><span class="icon ubnt-icon--menu"><span class="offstage">Menu</span></span></a></div>
+  </div>
+</div>
+

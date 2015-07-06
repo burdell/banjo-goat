@@ -7,7 +7,7 @@
 	text-align: center;
 
 	display: table-cell;
-	width: 16%;
+	width: 21%;
 	height: 100%;
 
 	// opacity onhover is contextual to the discussion style
@@ -25,6 +25,7 @@
 // 
 .cmuUserbadge__account {
 	padding-top: $cmu-base;
+	overflow: hidden;
 	// padding-bottom: $cmu-base;
 
 	cursor: pointer;
@@ -49,11 +50,18 @@
 	}
 }
 
+// right avatar area
+.cmuUserbadge__right {
+	text-align: left;
+ 	padding-left: 4px;
+}
+
 .cmuUserbadge__avatar {
 
 	display: inline-block;
 	line-height: 0;
-	padding: 0 $cmu-base/2;
+	padding-right: $cmu-base/2;
+	padding-left: 4px;
 	width: 45px;
 	text-align: center;
 	font-size: 20px !important;
@@ -83,28 +91,42 @@
 }
 
 .cmuUserbadge__username {
+	text-align: left;
 	font-size: $cmu-size-normal;
-	line-height: $cmu-size-normal-line-height;
-	padding: 0 $cmu-base/3;
+	line-height: 0.8rem;
+	padding-top: 4px;
+	word-break: break-all;
 }
+	.cmuUsername__icon {
+		line-height: 1.2rem !important;
+	}
+	.cmuUsername__login {
+		// line-height: 1.2rem;
+	}
 
 .cmuUserbadge__rank {
-	font-size: $cmu-size-smaller;
-	line-height: $cmu-size-smaller-line-height;
+	font-size: $cmu-size-xsmaller;
+	line-height: 0.9rem;
+	display: inline-block;
+	text-align: left;  
+	padding-top: 4px;
 }
 
 .cmuUserbadge__status {
+	text-align: left;
 	font-size: $cmu-size-smaller;
 	line-height: $cmu-size-smaller-line-height;
-	margin: $cmu-base/2 0 $cmu-base 0;
+	// margin: $cmu-base/2 0 $cmu-base 0;
+	display: inline;
 }
 
 	.cmuUserbadge__status__op:after {
 		content: 'OP';
 		@extend %oswald;
 		font-size: $cmu-size-xxsmaller;
-		border: $cmu-line-thin solid $cmu-color-dkgray;
-		padding: $cmu-base/10 $cmu-base/4;
+		border: $cmu-line-thin solid $cmu-color-gray;
+		padding: 0px $cmu-base/4;
+		margin-right: 1px;
 	}	
 
 

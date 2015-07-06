@@ -1,4 +1,7 @@
 
+// #NEEDSATTENTION
+// this page needs so mcu attention and rewriting to clean up the code + modularlization
+
 // this helps vertically align scrubber
 $paginationHeight: 32px;
 $paginationPadding: $cmu-base/4;
@@ -18,7 +21,7 @@ $cmu-pagination-width: $cmu-base*2;
     align-content: flex-start;
     // align-items: center;
 	
-	margin-bottom: $cmu-vertical-rhythm;
+	// margin-bottom: $cmu-vertical-rhythm;
 
 	* {
 		display: inline-block;
@@ -39,7 +42,7 @@ $cmu-pagination-width: $cmu-base*2;
 	    justify-content: flex-end;
 	    align-content: flex-start;
 	    align-items: flex-start;
-	  	min-width: 19rem; //so things don't look too weird scrunched up
+	  	min-width: 17rem; //so things don't look too weird scrunched up
 	}
 
 
@@ -224,7 +227,8 @@ $cmu-pagination-width: $cmu-base*2;
 	// padding: $cmu-base/2 $cmu-base/4;
 	// background-color: $cmu-color-ltgray;
 	flex-grow: initial;
-	padding: $paginationPadding 0;
+	// padding: $paginationPadding 0;
+	line-height: $cmu-base;
 	text-align: center;
 	min-width: $cmu-pagination-width;
 	cursor: pointer;

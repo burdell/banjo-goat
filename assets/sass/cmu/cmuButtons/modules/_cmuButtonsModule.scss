@@ -109,6 +109,25 @@ $cmu-button-color-base: $cmu-color-blue;
 			background-color: $fgColor;
 			border-color: $fgColor;
 		}
+	} @else if $type == 'outline' {
+		border-width: 1px;
+		padding-top: 1px;
+		padding-bottom: 1px;
+
+		@if $bgColor == default {
+			$bgColor: $cmu-color-white;
+		}
+
+		// ghost is default
+		color: $fgColor;
+		background-color: $bgColor;
+		border-color: $fgColor;
+
+		&:hover {
+			color: $cmu-color-white; // can't use transparent
+			background-color: $fgColor;
+			border-color: $fgColor;
+		}
 	} @else if $type == 'naked' {
 		$bgColor: transparent;
 
@@ -178,6 +197,23 @@ button, .button {
 		@include cmuButton('ghost',$cmu-color-mdgray);
 	}
 }
+
+// OUTLINE Buttons
+// thin outline w/ transparent background
+.button--outline {
+	@include cmuButton('outline',$cmu-button-color-base);
+
+	&.button-green-on-white {
+		@include cmuButton('outline',$cmu-color-green);
+	}
+	&.button-black-on-white {
+		@include cmuButton('outline',$cmu-color-xdkgray);
+	}
+	&.button-gray-on-white {
+		@include cmuButton('outline',$cmu-color-gray);
+	}
+}
+
 
 // SOLID Buttons
 .button--solid {
@@ -261,7 +297,6 @@ button, .button {
 .button--compound-naked {
 
 	text-align: left;
-
 	@include cmuButton('compound-naked',$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
 
 	&.button-black-on-white {
@@ -273,14 +308,6 @@ button, .button {
 }
 
 
-.button--kudos {
-	&:hover {
-		span:before {
-			content: "+1";
-			margin-right: $cmu-base/4;
-		}
-	}
-}
 
 // 
 // SPECIAL STYLES
@@ -295,6 +322,57 @@ button, .button {
 	}
 }
 
+.button--padded {
+	padding-left: 32px;
+	padding-right: 32px;
+ }
+
+.button--thin {
+	line-height: remCalc(21px);
+	font-size: 10px;
+
+	&:hover {
+		// border-width: 1px; 
+	}
+ }
+
+.button--vote {
+
+	text-align: left;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 0;
+	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
+
+	line-height: remCalc(21px);
+	font-size: 10px;
+
+	&:after {
+		// font-family: "ubnt";
+		content: '+';
+		color: white; 
+		padding: 8px 8px 8px 9px;
+		margin-left: 6px;
+		margin-right: -1px;
+		background-color: $cmu-color-gray;
+	}
+	&:hover {
+		&:after {
+			font-family: "lato";
+			content: '+1';
+			padding: 8px 5px 8px 6px;
+		}
+	}
+}
+
 .button--wide {
 	width: 100%
  }
+
+// handling icons inside buttons
+.button--icon {
+	padding-left: 8px;
+}
+
+
+
