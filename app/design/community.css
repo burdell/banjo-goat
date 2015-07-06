@@ -85,6 +85,14 @@
   width: 100% !important;
 }
 
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 /**
  * 1. Support IE10.
  */
@@ -3334,18 +3342,13 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an img tag, or to an element with a background-image.
+ * class either to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
-/**
- * 1. Assume a square image, because we want to the image to retain its
- *    correct proportions if it is squeezed by its container.
- */
 .avatar {
   width: 5em;
-  height: auto;
-  /* [1] */
+  height: 5em;
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3768,6 +3771,72 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
 }
 
 /**
@@ -5368,6 +5437,10 @@ output {
 }
 
 /**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6505,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6520,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--ghost, .button-blue-white, .button-black-white, .button--solid, .button-compound, .button-compound:hover span:nth-child(1), .forumThreadList thead th, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6568,12 +6641,6 @@ body {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
 }
-.row > div:first-child {
-  padding-left: 0;
-}
-.row > div:last-child {
-  padding-right: 0;
-}
 .row .row {
   padding-left: 0;
   padding-right: 0;
@@ -6608,8 +6675,12 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-.forumBadge__info__points span:nth-child(2) {
+.cmuUserbadge__status__op:after, .cmuUserbadge__gameInfo {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+.cmuUserbadge__levelDesc:before {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .type-titleThin, .cmuDiscussionsNavbar *, .cmuForumDescriptor, .forumThreadList__message, .cmuTooltipster .tooltipster-content {
@@ -6617,9 +6688,9 @@ body {
   line-height: 1.3rem;
 }
 
-button, .button, .forumThreadList thead th {
+.forumThreadList thead th {
   font-size: 0.6875rem;
-  line-height: 1.5rem;
+  line-height: 1.1875rem;
 }
 
 h1 {
@@ -6632,6 +6703,13 @@ h2 {
   font-size: 1.6rem;
   line-height: 2.75rem;
   font-weight: 300;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  font-weight: 600;
+  color: #474b52;
 }
 
 h4 {
@@ -6653,7 +6731,7 @@ h6 {
   font-style: italic;
 }
 
-.style-copy, .forumThreadMessage, .forumBadge__username, .forumThreadMain__body p, .forumThreadMain__body ul, .forumThreadMain__body ol {
+.style-copy {
   font-size: 0.88rem;
   line-height: 1.45rem;
   color: #17191d;
@@ -6675,22 +6753,16 @@ h6 {
   color: #00a0df;
 }
 
-button, .button {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
 html {
   min-height: 100%;
-  line-height: 1.5rem;
-  font-size: 1em;
+  line-height: 1.2rem;
 }
 
 body {
   min-height: 100%;
   overflow-y: scroll;
   margin: 0 auto;
-  font-size: 1em;
+  font-size: 0.8125rem;
 }
 
 img, object, embed {
@@ -6765,7 +6837,6 @@ pre {
   flex-wrap: nowrap;
   justify-content: center;
   align-content: flex-start;
-  margin-bottom: 1rem;
 }
 .cmuPagination * {
   display: inline-block;
@@ -6778,7 +6849,7 @@ pre {
   justify-content: flex-end;
   align-content: flex-start;
   align-items: flex-start;
-  min-width: 19rem;
+  min-width: 17rem;
 }
 
 .cmuPagination__txtControl {
@@ -6837,7 +6908,7 @@ pre {
   position: relative;
 }
 .cmuPagination__main.cmuPagination__fullScroll {
-  flex-basis: 5rem;
+  flex-basis: 2rem;
   flex-grow: 1;
 }
 
@@ -6853,12 +6924,12 @@ pre {
 .cmuPagination__num {
   padding: 0.5rem 0;
   text-align: center;
-  min-width: 2.5rem;
+  min-width: 2rem;
   cursor: pointer;
   font-size: 0.8125rem;
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 2.5rem;
+  flex-basis: 2rem;
 }
 .cmuPagination__num.active {
   background: #00a0df !important;
@@ -6871,21 +6942,21 @@ pre {
 
 .cmuPagination__first {
   flex-grow: initial;
-  padding: 0.25rem 0;
+  line-height: 1rem;
   text-align: center;
-  min-width: 2.5rem;
+  min-width: 2rem;
   cursor: pointer;
   height: 32px;
   font-size: 0.8125rem;
 }
 .cmuPagination__first.active {
   background: #00a0df !important;
-  color: white !important;
+  color: #fafafa !important;
   cursor: default !important;
 }
 .cmuPagination__first:not(.active):after {
   content: ' ... ';
-  padding-left: 0.16667rem;
+  padding-left: 0.33333rem;
 }
 .cmuPagination__first:hover:not(.active) {
   background-color: #dadada;
@@ -6932,7 +7003,11 @@ pre {
 }
 .cmuPagination__isSimple.cmuPagination__first {
   color: inherit;
-  background-color: white;
+  background-color: inherit;
+}
+.cmuPagination__isSimple.cmuPagination__first:after {
+  content: '';
+  padding-left: inherit;
 }
 .cmuPagination__isSimple.cmuPagination__scrubber {
   display: flex;
@@ -7193,8 +7268,8 @@ select:disabled {
 		- solid (default)
 		- compound (ghosted w/ a title)
 	- declare a color scheme
-		- button-background-foreground
-		- button-blue-white (default)
+		- button-foreground-background
+		- button-white-blue (default)
 
 
 	Button notes:
@@ -7203,114 +7278,710 @@ select:disabled {
 		- solid buttons match border w/ bg color
 */
 button, .button {
-  line-height: normal;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  line-height: 1.75rem;
+  letter-spacing: 0.03125rem;
   border-width: 0.125rem;
   border-style: solid;
+  padding: 0 0.5rem;
+  color: #00a0df;
+  background-color: default;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
+}
+button:hover, .button:hover {
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
 }
 button .icon, .button .icon {
-  margin-right: 0.5rem;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+button + button, .button + .button {
+  margin-left: 0.5rem;
 }
 
-button, .button, .button--ghost, .button-blue-white, .button-black-white {
-  padding: 0.375rem 0.875rem;
-  font-size: 0.8rem;
+.button--ghost {
+  color: #00a0df;
+  background-color: default;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
 }
-button:hover, .button:hover, .button--ghost:hover, .button-blue-white:hover, .button-black-white:hover {
-  border-color: #ebebeb;
-  background-color: rgba(0, 0, 0, 0.3);
+.button--ghost:hover {
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+.button--ghost .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--ghost.button-green-on-white {
+  color: #48af65;
+  background-color: default;
+  color: #48af65;
+  background-color: #fafafa;
+  border-color: #48af65;
+}
+.button--ghost.button-green-on-white:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+.button--ghost.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--ghost.button-black-on-white {
+  color: #242931;
+  background-color: default;
+  color: #242931;
+  background-color: #fafafa;
+  border-color: #242931;
+}
+.button--ghost.button-black-on-white:hover {
+  color: #fafafa;
+  background-color: #242931;
+  border-color: #242931;
+}
+.button--ghost.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--ghost.button-gray-on-white {
+  color: #bbbbbd;
+  background-color: default;
+  color: #bbbbbd;
+  background-color: #fafafa;
+  border-color: #bbbbbd;
+}
+.button--ghost.button-gray-on-white:hover {
+  color: #fafafa;
+  background-color: #bbbbbd;
+  border-color: #bbbbbd;
+}
+.button--ghost.button-gray-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.button--outline {
+  color: #00a0df;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
+}
+.button--outline:hover {
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+.button--outline .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-green-on-white {
+  color: #48af65;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #48af65;
+  background-color: #fafafa;
+  border-color: #48af65;
+}
+.button--outline.button-green-on-white:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+.button--outline.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-black-on-white {
+  color: #242931;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #242931;
+  background-color: #fafafa;
+  border-color: #242931;
+}
+.button--outline.button-black-on-white:hover {
+  color: #fafafa;
+  background-color: #242931;
+  border-color: #242931;
+}
+.button--outline.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--outline.button-gray-on-white {
+  color: #969ba3;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+}
+.button--outline.button-gray-on-white:hover {
+  color: #fafafa;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.button--outline.button-gray-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 
 .button--solid {
-  padding: 0.4375rem 1rem;
-  border: 1px solid #00a0df;
+  color: #fafafa;
+  background-color: #00a0df;
+  color: #fafafa;
+  background-color: #00a0df;
+  border-color: #00a0df;
 }
 .button--solid:hover {
-  background-color: #0074ad;
-}
-
-.button-compound {
-  border: 0.125rem solid #00a0df;
-  font-size: 0.8rem;
-  padding: 0;
-}
-.button-compound span {
-  display: inline-block;
-}
-.button-compound span:nth-child(1) {
-  padding: 0.375rem 1rem;
-  background-color: #fafafa;
-  color: #48af65;
-}
-.button-compound span:nth-child(2) {
-  padding: 0.375rem 1rem;
-  line-height: 16px;
-}
-.button-compound:hover {
-  border-color: #48af65;
-  background-color: #48af65;
-}
-.button-compound:hover span:nth-child(1) {
-  background-color: #48af65;
   color: #fafafa;
+  background-color: #007bac;
+  border-color: #007bac;
 }
-.button-compound:hover span:nth-child(2) {
-  border-color-left: #fafafa;
+.button--solid .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--solid.button-white-on-green {
   color: #fafafa;
-}
-
-button, .button {
-  height: 2rem;
-}
-
-.button--solid {
-  border: 0;
-}
-
-.button-white-green {
-  background-color: #fafafa;
-  color: #48af65;
-  border-color: #48af65;
-}
-.button-white-green span {
-  padding: 0 0.5rem;
   background-color: #48af65;
-  color: #fafafa;
-}
-.button-white-green:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
+.button--solid.button-white-on-green:hover {
+  color: #fafafa;
+  background-color: #398b50;
+  border-color: #398b50;
+}
+.button--solid.button-white-on-green .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--solid.button-white-on-black {
+  color: #fafafa;
+  background-color: #242931;
+  color: #fafafa;
+  background-color: #242931;
+  border-color: #242931;
+}
+.button--solid.button-white-on-black:hover {
+  color: #fafafa;
+  background-color: #0e1014;
+  border-color: #0e1014;
+}
+.button--solid.button-white-on-black .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
 
-.button-white-blue {
+.button--naked {
+  text-align: left;
+  color: #00a0df;
   background-color: #fafafa;
   color: #00a0df;
-  border-color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
 }
-.button-white-blue:hover {
-  color: #fafafa;
-  background-color: #00a0df;
-  border-color: #00a0df;
+.button--naked.button--naked--right {
+  text-align: right;
+  padding-right: 0;
+}
+.button--naked:hover {
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--naked.button-black-on-white {
+  color: black;
+  background-color: #fafafa;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked.button-black-on-white:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--naked.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 
-.button-blue-white {
-  background-color: #00a0df;
+.button--compound {
   color: #fafafa;
-  border: #00a0df;
+  background-color: #00a0df;
+  background-color: #00a0df;
+  border-color: #00a0df;
+  border-color: #fafafa;
+  padding: 0;
+}
+.button--compound .button--compound--data {
+  color: #00a0df;
+  background-color: #fafafa;
+}
+.button--compound .button--compound--action {
+  background: #00a0df;
+  color: #fafafa;
+}
+.button--compound:hover {
+  border-color: #00a0df;
+}
+.button--compound .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--compound:hover .button--compound--data {
+  padding: 0 0.5rem !important;
+}
+.button--compound:hover .button--compound--action {
+  display: inherit;
+}
+.button--compound div {
+  display: inline-block;
+}
+.button--compound .button--compound--data {
+  padding: 0 0.5rem;
+  padding-left: 0;
+}
+.button--compound .button--compound--data .icon {
+  margin-right: 0;
+}
+.button--compound .button--compound--action {
+  padding: 0 0.5rem;
+  display: none;
+}
+.button--compound.button-green-on-white {
+  color: #fafafa;
+  background-color: #48af65;
+  background-color: #48af65;
+  border-color: #48af65;
+  border-color: #fafafa;
+}
+.button--compound.button-green-on-white .button--compound--data {
+  color: #48af65;
+  background-color: #fafafa;
+}
+.button--compound.button-green-on-white .button--compound--action {
+  background: #48af65;
+  color: #fafafa;
+}
+.button--compound.button-green-on-white:hover {
+  border-color: #48af65;
+}
+.button--compound.button-green-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
 }
 
-.button-black-white {
-  background-color: black;
+.button--compound-naked {
+  text-align: left;
+  color: #00a0df;
+  background-color: #fafafa;
+  color: #00a0df;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--compound-naked:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: #00a0df;
+}
+.button--compound-naked .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--compound-naked.button-black-on-white {
+  color: black;
+  background-color: #fafafa;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--compound-naked.button-black-on-white:hover {
+  color: #00a0df;
+  background-color: transparent;
+  border-color: #00a0df;
+}
+.button--compound-naked.button-black-on-white .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+button .icon, .button .icon {
+  margin-right: 0.25rem;
+}
+
+.button--padded {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.button--thin {
+  line-height: 1.3125rem;
+  font-size: 10px;
+}
+
+.button--vote {
+  text-align: left;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 0;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+  line-height: 1.3125rem;
+  font-size: 10px;
+}
+.button--vote:hover {
   color: #fafafa;
-  border: #00a0df;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.button--vote .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--vote:after {
+  content: '+';
+  color: white;
+  padding: 8px 8px 8px 9px;
+  margin-left: 6px;
+  margin-right: -1px;
+  background-color: #969ba3;
+}
+.button--vote:hover:after {
+  font-family: "lato";
+  content: '+1';
+  padding: 8px 5px 8px 6px;
 }
 
 .button--wide {
   width: 100%;
 }
 
+.button--icon {
+  padding-left: 8px;
+}
+
+.cmuUsername {
+  display: inline-block;
+}
+.cmuUsername .cmuUsername__icon {
+  margin-right: 0.25rem;
+  font-size: 0.5rem;
+  background: #00a0df;
+  color: white;
+  position: relative;
+  top: -2px;
+}
+.cmuUsername .cmuUsername__icon.ubnt-icon--u {
+  padding: 0.33333rem;
+}
+
+.cmuUserbadge {
+  text-align: center;
+  display: table-cell;
+  width: 21%;
+  height: 100%;
+  opacity: 0.46;
+}
+.cmuUserbadge:hover {
+  opacity: 1;
+}
+
+.cmuUserbadge__account {
+  padding-top: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.cmuUserbadge__account:hover a {
+  color: black;
+}
+.cmuUserbadge__account:hover .cmuUserbadge__avatar:after {
+  background: #bbbbbd;
+}
+
+.cmuUserbadge--ubnt {
+  background-color: #dff6ff;
+}
+.cmuUserbadge--ubnt .cmuUserbadge__account {
+  border-top: 0.33333rem #00a0df solid;
+}
+
+.cmuUserbadge__right {
+  text-align: left;
+  padding-left: 4px;
+}
+
+.cmuUserbadge__avatar {
+  display: inline-block;
+  line-height: 0;
+  padding-right: 0.5rem;
+  padding-left: 4px;
+  width: 45px;
+  text-align: center;
+  font-size: 20px !important;
+  width: 60px;
+  cursor: pointer;
+}
+.cmuUserbadge__avatar:after {
+  content: ' ';
+  display: block;
+  background: #969ba3;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  top: 11px;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.cmuUserbadge__username {
+  text-align: left;
+  font-size: 0.8125rem;
+  line-height: 0.8rem;
+  padding-top: 4px;
+  word-break: break-all;
+}
+
+.cmuUsername__icon {
+  line-height: 1.2rem !important;
+}
+
+.cmuUserbadge__rank {
+  font-size: 0.6875rem;
+  line-height: 0.9rem;
+  display: inline-block;
+  text-align: left;
+  padding-top: 4px;
+}
+
+.cmuUserbadge__status {
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1.3rem;
+  display: inline;
+}
+
+.cmuUserbadge__status__op:after {
+  content: 'OP';
+  font-size: 0.5625rem;
+  border: 1px solid #969ba3;
+  padding: 0px 0.25rem;
+  margin-right: 1px;
+}
+
+.cmuUserbadge__gameInfo, .cmuUserbadge__descriptors {
+  background-color: #ebebeb;
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.45rem;
+  text-transform: uppercase;
+}
+
+.cmuUserbadge__gameInfo {
+  letter-spacing: 1.4px;
+  padding-left: 0.5rem;
+  background-color: #ebebeb;
+  color: black;
+  width: 100%;
+}
+
+.cmuUserbadge__level {
+  font-size: 0.6875rem;
+  display: block;
+  padding-bottom: 0.33333rem;
+  width: 100%;
+  position: relative;
+}
+.cmuUserbadge__level:before {
+  content: "AARDVARK L.14";
+  color: #fafafa;
+  background: #00a0df;
+  font-size: 0.6875rem;
+  width: 75%;
+  display: inline-block;
+  position: absolute;
+  padding-left: 0.5rem;
+}
+.cmuUserbadge__level:after {
+  content: "    ";
+  background: #bbbbbd;
+  width: 100%;
+  height: 23px;
+  display: block;
+}
+
+.cmuUserbadge__levelDesc {
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 1rem;
+  text-transform: capitalize;
+  font-size: 0.6875rem;
+  color: #474b52;
+}
+.cmuUserbadge__levelDesc:before {
+  font-weight: 300;
+  letter-spacing: normal;
+  padding-left: 0.5rem;
+  content: attr(data-desc) ": ";
+  display: inline-block;
+  white-space: pre;
+  margin-right: 0.25rem;
+}
+
+.cmuUserbadge__descriptors {
+  padding-left: 0.5rem;
+  word-wrap: break-word;
+  background-color: transparent;
+}
+.cmuUserbadge__descriptors div {
+  line-height: 1rem;
+  padding-bottom: 0.16667rem;
+  text-transform: capitalize;
+  font-size: 0.6875rem;
+  color: black;
+}
+.cmuUserbadge__descriptors div:before {
+  font-weight: 300;
+  color: black;
+  content: attr(data-desc) ": ";
+  display: inline-block;
+  white-space: pre;
+  margin-right: 0.25rem;
+}
+
+.cmuComments__header {
+  font-size: 0.8125rem;
+  border-bottom: 3px solid #474b52;
+}
+
+.cmuComments__row {
+  margin-bottom: 0.2rem;
+  padding: 0.5rem 0;
+  background-color: #ebebeb;
+}
+
+.cmuComments__user {
+  padding-top: 2px;
+}
+
+.cmuComments__user--avatar .cmuUserbadge__avatar {
+  padding-left: 0;
+  height: 1rem;
+}
+.cmuComments__user--avatar .cmuUserbadge__avatar:after {
+  width: 2rem;
+  height: 2rem;
+}
+
+.cmuComments__user--info {
+  font-size: 11px;
+  line-height: 16px;
+  padding-left: 6px;
+}
+
+.cmuComments__postTime {
+  color: #969ba3;
+}
+
+.cmuComments__body-content {
+  margin-right: 1rem;
+}
+
+.cmuComments__body {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+}
+
+.cmuViewingCounter__count {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.6875rem;
+  border: 1px solid #969ba3;
+  padding: 3px 12px;
+  font-style: italic;
+}
+
 .cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
+  padding: 0;
 }
 
 .cmuDiscussionsHeader h2 {
@@ -7332,7 +8003,7 @@ button, .button {
   display: block;
   width: 100%;
   border-bottom: 1px solid black;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 .cmuDiscussionsNavbar li {
   display: inline;
@@ -7368,9 +8039,11 @@ button, .button {
 }
 
 .forumThreadList__head--author, .forumThreadList__message__author, .forumThreadList__head--authorLast, .forumThreadList__message__authorLast {
-  width: 12%;
+  width: 15%;
   padding-right: 0.5rem;
   max-width: 100px;
+  font-size: 0.8125rem;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 1040px) {
@@ -7379,13 +8052,15 @@ button, .button {
   }
 }
 
-.forumThreadList__head--counter, .forumThreadList__message__counter {
-  width: 6%;
+.forumThreadList__head--counter, .forumThreadList__head--counter--views, .forumThreadList__message__counter {
+  width: 5%;
   text-align: left;
 }
 
 .forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
-  width: 80px;
+  padding-left: 0.5rem;
+  width: 85px;
+  min-width: 80px;
   text-align: left;
 }
 
@@ -7405,6 +8080,7 @@ button, .button {
 
 .forumThreadList__head--topic {
   text-align: left;
+  padding-left: 0.5rem;
 }
 
 .forumThreadList__head--author {
@@ -7413,6 +8089,10 @@ button, .button {
 
 .forumThreadList__head--authorLast {
   text-align: left;
+}
+
+.forumThreadList__head--counter--views {
+  width: 6%;
 }
 
 .forumThreadList__message {
@@ -7428,10 +8108,9 @@ button, .button {
 }
 
 .forumThreadList__message__topic {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
   position: relative;
-  line-height: 1.5rem;
 }
 
 .forumThreadList__message__author {
@@ -7444,10 +8123,14 @@ button, .button {
 
 .forumThreadList__message__counter {
   padding-right: 0.5rem;
+  font-size: 0.6875rem;
+}
+
+.forumThreadList__message__counter--views {
+  width: 6%;
 }
 
 .forumThreadList__message__latestDate, .forumThreadList__message__createdDate {
-  padding-left: 0.5rem;
   padding-right: 0.5rem;
   line-height: 1rem;
   color: #474b52;
@@ -7484,7 +8167,7 @@ button, .button {
   font-family: 'ubnt';
   content: '\e787';
   display: inline-block;
-  padding: 0.16667rem 0.5rem;
+  padding: 0.16667rem 0.25rem;
 }
 
 .forumThreadList__message--read {
@@ -7495,86 +8178,322 @@ button, .button {
   font-weight: 300;
 }
 
-.forumThreadSubject h4 {
-  border-bottom: 1px solid black;
+.forumThread__subject h3 {
   margin-bottom: 1rem;
 }
 
-.forumThreadMessage {
-  border: 1px solid #ebebeb;
-  margin-bottom: 1rem;
-}
-
-.forumBadge {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.forumBadge__avatar img {
-  height: 3rem;
-  width: 3rem;
-}
-
-.forumBadge__info {
-  background-color: #ebebeb;
-  font-size: 0.6875rem;
-  line-height: 1.45rem;
-  text-transform: uppercase;
-  margin: 1rem 0;
-  margin-bottom: 0;
-  padding: 0.5rem 0;
-}
-
-.forumBadge__info__points span:nth-child(2) {
-  letter-spacing: 1.4px;
-  padding-left: 0.33333rem;
-}
-
-.forumBadge__info__location span:nth-child(2) {
-  text-transform: capitalize;
-  padding-left: 0.33333rem;
-  word-wrap: break-word;
-}
-
-.forumThreadMain {
-  border-left: 1px solid #ebebeb;
-  min-height: 12rem;
-  padding: 1rem;
-}
-
-.forumThreadMain__body {
-  margin-bottom: 1rem;
-  min-height: 100px;
-}
-.forumThreadMain__body p {
-  margin-bottom: 0;
-}
-
-.forumThreadMain__controls__reply button {
-  float: right;
-}
-
-.forumThreadMain__bottomControls {
-  margin-bottom: 1rem;
-}
-
-.activeCounter {
-  margin-bottom: 1rem;
-  font-size: 0.6875rem;
-}
-.activeCounter span:nth-child(1) {
-  font-weight: 600;
-  padding: 0.5rem 0.75rem;
-  background-color: #00a0df;
+.forumThread__subject--active h3:before {
+  content: 'ACTIVE';
+  display: inline-block;
+  background-color: #ff3516;
   color: #fafafa;
+  padding: 0.16667rem 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.5625rem;
+  line-height: 1rem;
+  position: relative;
+  top: -5px;
 }
-.activeCounter span:nth-child(2) {
+
+.forumThread__subject--active h3:after {
+  font-size: 1rem;
+  font-family: 'ubnt';
+  content: '\e787';
+  display: inline-block;
+  padding: 0.16667rem 0.5rem;
+  color: #969ba3;
+}
+
+.forumThreadContainer {
+  counter-reset: messageCtr;
+}
+
+.forumThreadMessage__row {
+  border: 1px solid #bbbbbd;
+  margin-bottom: 0.5rem;
+  display: table;
+  width: 100%;
+}
+.forumThreadMessage__row .forumThreadMessage__controls {
+  opacity: 0.3;
+}
+.forumThreadMessage__row:hover .forumThreadMessage__controls {
+  opacity: 1;
+}
+.forumThreadMessage__row .cmuUserbadge {
+  opacity: 0.46;
+}
+.forumThreadMessage__row:hover .cmuUserbadge {
+  opacity: 1;
+}
+
+.forumThreadMessage__body {
+  display: table-cell;
+  vertical-align: top;
+  width: 80%;
+  border-left: 1px solid #bbbbbd;
+  padding: 1rem;
+  padding-top: 0.5rem;
+}
+
+.forumThreadMessage__header {
+  font-size: 0.6875rem;
+  color: #bbbbbd;
+}
+
+.forumThreadMessage .forumThreadMessage__messageTopic {
+  display: none;
+}
+
+.forumThreadMessage:nth-child(2) .forumThreadMessage__messageTopic {
+  display: inline-block;
+}
+
+.forumThreadMessage__messageTopic {
+  display: inline-block;
+  color: #00a0df;
+}
+.forumThreadMessage__messageTopic:before {
+  content: 'Re: ';
+  color: #969ba3;
+}
+.forumThreadMessage__messageTopic:after {
+  content: ' | ';
+  color: #969ba3;
+  margin: 0 0.5rem;
+}
+
+.forumThreadMessage__date {
+  text-align: right;
+  display: inline-block;
+}
+
+.forumThreadMessage__content {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+}
+.forumThreadMessage__content br {
+  content: " ";
+  display: block;
+  margin-bottom: 0.5em;
+}
+.forumThreadMessage__content p {
+  margin-bottom: 0;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+.forumThreadMessage__content blockquote {
+  border: 1px solid #969ba3;
+  border-left-width: 3px;
+  padding: 0.5rem 1rem;
+}
+.forumThreadMessage__content blockquote hr {
+  display: none;
+}
+.forumThreadMessage__content blockquote table {
+  border-color: transparent;
+  padding: 0.5rem 0.25rem;
+  border-left: 0.33333rem #00a0df solid;
+  display: block;
   background-color: #ebebeb;
-  padding: 0.5rem 0.75rem;
+}
+.forumThreadMessage__content blockquote td {
+  border: 0;
+  padding: 0 1rem;
+}
+
+.forumThreadMessage__signature {
+  border-top: 1px solid #ebebeb;
+  padding-top: 0.25rem;
+  font-size: 0.6875rem;
+  line-height: 1.1875rem;
+  margin-bottom: 0.5rem;
+  max-height: 3rem;
+  overflow: hidden;
+}
+
+.forumThreadMessage__messageCounter {
+  display: inline-block;
+  text-align: right;
+}
+.forumThreadMessage__messageCounter:before {
+  counter-increment: messageCtr;
+  content: counter(messageCtr) " of 20 ";
+}
+.forumThreadMessage__messageCounter:after {
+  content: ' | ';
+  margin: 0 0.5rem;
+}
+
+.forumThreadMessage__controls--reply {
+  text-align: right;
+}
+
+.forumThreadMessage__main__bottomControls {
+  margin-bottom: 1rem;
 }
 
 .forumThreadControl {
   margin-bottom: 1rem;
+}
+
+.cmuStoryItem:hover img {
+  opacity: 0.4;
+}
+.cmuStoryItem:hover a {
+  color: #00a0df;
+}
+
+.cmuStoryItem--image {
+  background-color: white;
+  font-size: 0px;
+  line-height: 0;
+}
+.cmuStoryItem--image img {
+  width: 100%;
+  max-height: 420px;
+}
+
+.cmuStoryItem--featured {
+  position: relative;
+}
+.cmuStoryItem--featured:before {
+  display: block;
+  font-family: 'ubnt';
+  content: '\e719';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  /* padding-top: 7px; */
+  line-height: 34px;
+  border-radius: 100%;
+  color: white;
+  background-color: #43ceae;
+  font-size: 18px;
+}
+
+.cmuStoryItem--main {
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.cmuStoryItem--link {
+  color: #474b52;
+}
+.cmuStoryItem--link:hover {
+  color: #00a0df;
+}
+
+.cmuStoryItem--meta {
+  padding: 0.5rem;
+  background-color: #ebebeb;
+  margin-bottom: 1rem;
+}
+.cmuStoryItem--meta .icon {
+  margin-right: 0.5rem;
+}
+.cmuStoryItem--meta > span {
+  margin-right: 0.5rem;
+}
+
+.cmuStories__title {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 48px;
+  color: #474b52;
+}
+
+.cmuStories__summary {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  color: #969ba3;
+}
+
+.cmuStories__story__controlsTop {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cmuStories__author--avatar {
+  float: left;
+}
+.cmuStories__author--avatar .cmuUserbadge__avatar {
+  margin-left: -3px;
+  width: 32px;
+  padding-left: 0;
+  height: 1rem;
+}
+.cmuStories__author--avatar .cmuUserbadge__avatar:after {
+  width: 2rem;
+  height: 2rem;
+}
+
+.cmuStories__author--info {
+  float: left;
+  font-size: 11px;
+  line-height: 16px;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.cmuStories__postTime {
+  color: #969ba3;
+}
+.cmuStories__postTime:before {
+  content: ' | ';
+  padding: 0 4px;
+}
+
+.cmuStories__story__cover .cmuStories__story__cover--img {
+  text-align: center;
+  background-color: #ebebeb;
+  margin-bottom: 1rem;
+}
+.cmuStories__story__cover .cmuStories__story__cover--img img {
+  max-height: 400px;
+}
+
+.cmuStories__story__info {
+  float: right;
+  margin-left: 12px;
+}
+
+.cmuStories__story__info--map {
+  margin-bottom: 1rem;
+}
+
+.cmuStories__story__info--title {
+  font-weight: 700;
+}
+
+.cmuStories__story__products--title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cmuStories__story__products--item {
+  display: block;
+  margin-bottom: 1rem;
+}
+.cmuStories__story__products--item:nth-child(1) {
+  padding-left: 0;
+}
+.cmuStories__story__products--item:before {
+  content: ' ';
+  display: block;
+  height: 50px;
+  width: 80px;
+  background-color: #ebebeb;
+}
+
+.cmuStories__story__products--name {
+  margin-top: 4px;
 }
 
 /**
@@ -7768,6 +8687,73 @@ a.appIconInput__icon {
   font-size: 20px !important;
 }
 
+.comGlobalHeader__login {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: 12px;
+  background-color: #00a0df;
+  position: relative;
+  left: -3px;
+  padding: 0 !important;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__login a {
+  color: #fafafa;
+  padding: 0 15px !important;
+}
+.comGlobalHeader__login:hover {
+  background-color: #0074ad;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.comGlobalHeader__register {
+  display: inline-block;
+  line-height: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: 12px;
+  padding: 0 !important;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.comGlobalHeader__register a {
+  padding: 0 15px !important;
+}
+
 .comGlobalHeader__cmuItem--inbox {
   top: 3px;
   position: relative;
@@ -7852,7 +8838,6 @@ a.appIconInput__icon {
   position: relative;
   left: 0;
   display: table;
-  max-width: 1400px;
   margin: 0 auto;
   -webkit-transition-property: left;
   -moz-transition-property: left;

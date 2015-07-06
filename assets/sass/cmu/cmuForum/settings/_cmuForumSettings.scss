@@ -12,11 +12,8 @@
 
 // Forum Typography
 %size-community-base {
-	@extend %size-smaller;
+	@extend %size-normal;
 } 
 
 
 
-
-// aligns thread message bottom to the avatar bottom
-$cmu-message-bottom-height: 100px;

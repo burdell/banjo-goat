@@ -1,4 +1,6 @@
 
+
+$cmu-line-thin: 1px;
 $cmu-style-border-thin: 1px solid $cmu-color-black;
 %style-border-bottom-thin { 
 	border-bottom: $cmu-style-border-thin;
@@ -9,6 +11,9 @@ $cmu-style-border-thin-light: 1px solid $cmu-color-ltgray;
 	border-bottom: $cmu-style-border-thin;
 }
 
+$cmu-style-border-thin-dark: 1px solid $cmu-color-mdgray;
+
+$cmu-line-medium: 2px;
 $cmu-style-border-medium: 2px solid $cmu-color-black;
 %style-border-medium-blue {
 	border: $cmu-style-border-medium;
@@ -17,3 +22,12 @@ $cmu-style-border-medium: 2px solid $cmu-color-black;
 %style-border-bottom-medium {
 	border-bottom: $cmu-style-border-medium;
 }
+
+$cmu-line-thick: $cmu-base/3;
+%style-border-thick {
+	border: $cmu-style-border-medium;
+	border-color: $cmu-color-blue;
+}
+
+
+$cmu-line-xthick: $cmu-base/2;

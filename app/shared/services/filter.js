@@ -12,6 +12,7 @@
 				setInitialData: true,
 				initialData: null,
 				filterContext: null,
+				persistFilterModel: true
 			};
 
 			var setFilterModel = function(filterData, exclude) {
@@ -82,7 +83,9 @@
 
 					var filterContext = options.filterContext ? options.filterContext : this;
 					return options.filterFn.apply(filterContext, args).then(function(result){
-						setQueryParams(filterModel);
+						if (options.persistFilterModel) {
+							setQueryParams(filterModel);
+						}
 						executeOnFilterFns(result);
 						
 						return result;
@@ -90,13 +93,18 @@
 				},
 				model: function(modelValue){
 					return (modelValue ? options.filterModel[modelValue] : options.filterModel);
+				},
+				initialData: function(){
+					var initialData = options.initialData;
+					options.initialData = null;
+					return initialData;
 				}
 			};
 		}
 
 		return {
 			getNewFilter: function(options){
-				if (options.autoInitModel !== false) {
+				if (options.autoInitModel !== false || options.persistFilterModel !== false) {
 					options.filterModel = $location.search();
 				}
 

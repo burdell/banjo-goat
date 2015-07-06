@@ -1,0 +1,14 @@
+<div class="row" style="background-color: #F78181;" ng-show="error.errorList.length > 0">
+	<div class="row">
+		<div class="col--md11">
+			<ul>
+				<li ng-repeat="errorMessage in error.errorList track by $index">
+					{{ errorMessage }}
+				</li>
+			</ul>
+		</div>
+		<div class="col--md1">
+			<span class="cmuBanner__close icon ubnt-icon--x col--md1" ng-click="error.clearErrors()"></span>
+		</div>
+	</div>
+</div>

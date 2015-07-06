@@ -7,13 +7,22 @@ body {
 
 
 // 
-// TYPOGRAPHY
+// TYPOGRAPHY`
 // 
 
 // specialized for numbers
 
+// deprecate this
 %oswald {
 	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+%font-oswald {
+	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+
+%font-lato {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 
@@ -29,20 +38,30 @@ body {
 // typography sizes
 // 
 
-$cmu-size-smaller: remCalc(13px);
+// used to be normal
+$cmu-size-large: remCalc(16px);
+$cmu-size-large-line-height: $cmu-base*1.6;
+
+$cmu-size-normal: remCalc(13px);
+$cmu-size-normal-line-height: $cmu-base*1.3;
+
+$cmu-size-smaller: remCalc(12px);
 $cmu-size-smaller-line-height: $cmu-base*1.3;
 
 $cmu-size-xsmaller: remCalc(11px);
-$cmu-size-xsmaller-line-height: remCalc(24px);
+$cmu-size-xsmaller-line-height: remCalc(19px);
 
 $cmu-size-xxsmaller: remCalc(9px);
-$cmu-size-xxsmaller-line-height: $cmu-base*1.22;
+$cmu-size-xxsmaller-line-height: $cmu-base*1.02;
 
 $cmu-size-h1: $cmu-base*3; 
 $cmu-size-h1-line-height: $cmu-base*3.75;
 
 $cmu-size-h2: $cmu-base*1.6;
 $cmu-size-h2-line-height: $cmu-base*2.75;
+
+$cmu-size-h3: $cmu-base*1.5;
+$cmu-size-h3-line-height: $cmu-base*2.1;
 
 $cmu-size-h4: $cmu-base*1.1;
 $cmu-size-h4-line-height: $cmu-base*1.95;
@@ -63,6 +82,10 @@ $cmu-size-breadcrumbs: $cmu-base*0.74;
 
 
 
+%size-normal {
+	font-size: $cmu-size-normal;
+	line-height: $cmu-size-normal-line-height;
+}
 
 %size-smaller {
 	font-size: $cmu-size-smaller;
@@ -86,11 +109,18 @@ h2 {
 	font-weight: 300;
 }
 
+h3 {
+	font-size: $cmu-size-h3;
+	line-height: $cmu-size-h3-line-height;
+	font-weight: 600;
+	color: $cmu-color-dkgray;
+}
+
 h4 {
 	font-size: $cmu-size-h4;
 	line-height: $cmu-size-h4-line-height;
-		font-weight: 600;
-		color: $cmu-color-dkgray;
+	font-weight: 600;
+	color: $cmu-color-dkgray;
 }
 
 h5, %h5 {
@@ -116,7 +146,7 @@ h6 {
 	}
 
 	.type-titleThin {
-		@extend %size-smaller;
+		@extend %size-normal;
 		font-weight: 300; 
 		color: $cmu-color-ltblack;
 		text-transform: uppercase;
@@ -143,14 +173,14 @@ h6 {
 	// CTA Styles
 	// 
 
-	// Default, uppercase
-	%style-cta {
-		text-transform: uppercase;
-		@extend %size-xsmaller;
-		letter-spacing: 1px;
-	}
+	// // Default, uppercase
+	// %style-cta {
+	// 	text-transform: uppercase;
+	// 	@extend %size-xsmaller;
+	// 	letter-spacing: 1px;
+	// }
 
-$cmu-input-font-size: $cmu-size-smaller;
+$cmu-input-font-size: $cmu-size-normal;
 
 
 

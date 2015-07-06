@@ -3,7 +3,9 @@
 	<div class="row">
 		<ul>
 			<li ng-repeat="navLink in navbar.navLinks">
-				<a ng-class="{ active : navLink.active }" href="{{ navLink.href }}">{{ navLink.display }}</a>
+				<a ng-class="{ active : navLink.active }" href="{{ ::navLink.href }}" target=" {{ ::navLink.target() }}">
+					{{ navLink.display }}
+				</a>
 			</li>
 		</ul>
 	</div>

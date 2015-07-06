@@ -43,7 +43,7 @@
 			},
 			showReply: function(messageId){
 				clearMessageReplyText();
-				this.currentReply = messageId;
+				ctrl.currentReply = messageId;
 			},
 			cancelReply: function(){
 				this.currentReply = null;

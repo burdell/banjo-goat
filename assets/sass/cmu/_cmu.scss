@@ -17,13 +17,21 @@
 @import "cmuSearchbox/index";		// Search filter for threads (not cmu search)
 @import "cmuThreadSort/index";		// Select input topic filter
 @import "cmuButtons/index";			// Community buttons, CTAs, etc.
+@import "cmuUsername/index";		// User's name displayed consistently across the site
+@import "cmuUserbadge/index";		// User area displayed in a thread	
+@import "cmuComments/index";		// Comments area 
+@import "cmuViewingCounter/index";	// "5 others are viewing" 
+
 
 
 //  
 // COMMUNITY DISCUSSION TYPES
 // 
-@import "cmuDiscussions/index";			// includes anything in forum
+@import "cmuDiscussions/index";		// includes anything in forum
 @import "cmuForum/index";			// includes anything in forum
+
+// STORIES
+@import "cmuStories/index";	// "5 others are viewing" 
 
 
 // 

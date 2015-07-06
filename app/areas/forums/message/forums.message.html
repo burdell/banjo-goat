@@ -8,21 +8,22 @@
   </style>
 <!-- TESTING STYLE -->
 
-<div class="forumThreadSubject">
+<div class="forumThread__subject
+	          forumThread__subject--locked
+	          forumThread__subject--active">
 	<div class="row">
-		<h4>{{ ::vm.originalMessage.subject | htmlUnescape }}</h4>
+		<h3>{{ ::vm.originalMessage.subject | htmlUnescape }}</h3>
 	</div>
 </div>
 
 <div class="forumThreadControl">
 	<div class="row">
-        <div class="col--md6 noPaddingLeft">
-	        <button class="button--solid button-blue-white">Create a Topic</button>
-
-			<button class="button--ghost button-blue-white">Follow Topic</button>
+        <div class="col--md8 noPaddingLeft">
+        	<button class="button--solid button--padded button-blue-white">Reply</button>
+			<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
 		</div>
 
-		<div class="col--md6 noPaddingRight">
+		<div class="col--md4 noPaddingRight">
 			<community-pager 
 			  total-results="vm.allMessageCount" 
 			  pager-fn="vm.messageThreadFilter">
@@ -32,45 +33,14 @@
 </div>
 
 
-
-<div class="forumThreadMessageContainer" ng-repeat="message in vm.messageThread">
-	<div class="row" id="{{ message.id }}">
-		<div class="forumThreadMessage clearfix">
-		<!-- message -->
-
-			<div class="col--md2 noPadding">
-				<community-user-badge user="message.author"></community-user-badge>
-			</div>
-
-			<div class="forumThreadMain col--md10" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == message.id }">
-				<div class="forumThreadMain__posted">
-					<h6>Posted {{ message.postTime | timeFromNow }}</h6>
-				</div>
-				<div class="forumThreadMain__body" ng-bind-html="message.body | sanitize">
-				</div>
-				<div class="forumThreadMain__controls"> 
-					<div class="forumThreadMain__controls__main col--md8 noPadding">
-						<button class="button-compound button-white-green">
-							<span>{{ message.stats | extractKey : 'kudos' }} Kudos</span>
-							<span class="icon-plus">+</span>
-						</button>
-						<button class="button-compound button-white-green">
-							<span>123 Votes</span>
-							<span>Vote As Helpful</span>
-						</button>
-					</div>
-					<div class="forumThreadMain__controls__reply col--md4 noPadding">
-						<button 
-							class="button-full button-blue-white" 
-							ng-click="vm.showReply(message.id)"
-							ng-disabled="vm.messageIsBeingRepliedTo(message.id)">
-								Reply
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="forumThreadContainer">
+	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread">
+		<community-message 
+			message="message"
+			original-message="vm.originalMessage"
+			reply-click-fn="vm.showReply"
+			show-op="vm.originalMessage.author.id">
+		</community-message>
 
 		<!-- reply -->
 		<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
@@ -100,12 +70,14 @@
 </div>
 
 
-<div class="forumThreadMain__bottomControls">
+
+<div class="forumThreadMessage__main__bottomControls">
 	<div class="row">
-		<div class="col--md6">
-			<button class="button-full button-blue-white">Start a Discussion</button>
+        <div class="col--md8 noPaddingLeft">
+        	<button class="button--solid button-blue-white">Post Reply</button>
+			<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
 		</div>
-		<div class="col--md6">
+		<div class="col--md4 noPaddingRight">
 			<community-pager 
 			  total-results="vm.allMessageCount" 
 			  pager-fn="vm.messageThreadFilter">
@@ -114,11 +86,10 @@
 	</div>
 </div>
 
-
-<div class="forumThreadMain__activeCount ">
+<div class="cmuViewingCounter">
 	<div class="row">
-		<div class="activeCounter">
-			<span>{{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }}</span><span>other people are viewing this thread</span>
+		<div class="cmuViewingCounter__count">
+			5 {{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }} users viewing this thread
 		</div>
 	</div>
 </div>

@@ -1,0 +1,49 @@
+<div class="row row--comfy">
+	<div class="col--md10 noPaddingLeft">
+		<button class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
+	</div>
+	<div class="col--md2 noPaddingRight">
+          <community-sort 
+          	sort-options="vm.sortOptions" 
+          	sort-filter="vm.storyFilter" 
+          	class="community__sort">
+          </community-sort>
+	</div>
+</div>
+
+<div class="row">
+	<div class="cmuStories--left col--md4 noPaddingLeft">
+		<div ng-repeat="story in vm.storyList">
+			<div ng-show="$index % 3 == 0">
+				<story-display 
+				story="story"
+				default-photo-url="vm.defaultPhoto"></story-display>
+			</div>
+		</div>
+	</div>
+	<div class="col--md4 cmuStories--mid">
+		<div ng-repeat="story in vm.storyList">
+			<div ng-show="$index % 3 == 1">
+				<story-display 
+				story="story"
+				default-photo-url="vm.defaultPhoto"></story-display>
+			</div>
+		</div>
+	</div>
+	<div class="cmuStories--right noPaddingRight col--md4 ">
+		<divcm ng-repeat="story in vm.storyList">
+			<div ng-show="$index % 3 == 2">
+				<story-display 
+				story="story"
+				default-photo-url="vm.defaultPhoto"></story-display>
+			</div>
+		</div>
+	</div>
+</div>
+
+<community-load-more
+	list-model="vm.storyList"
+	load-filter="vm.storyFilter"
+	list-metadata="vm.storyMetadata"
+	infinite-scroll="true">
+</community-load-more>

@@ -36,6 +36,9 @@
 			},
 			clearCurrentBreadcrumb: function(){
 				this.CurrentBreadcrumb = this.CurrentBreadcrumb.parent;
+			},
+			syncToNodeStructure: function(){
+				this.CurrentBreadcrumb = nodeService.CurrentNode;
 			}
 		};
 	};

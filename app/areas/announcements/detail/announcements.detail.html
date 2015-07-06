@@ -1,0 +1,22 @@
+<div>
+	<h4>{{ vm.currentAnnouncement.subject }}</h4>
+	<div class="row">
+		<community-message 
+			message="vm.currentAnnouncement"
+			reply-click-fn="vm.showReply"
+			hide-vote-buttons="true">
+		</community-message>
+
+		<div class="row row--comfy">
+			<div class="row row--comfy" ng-hide="!vm.replyInProgress">
+				<div ng-include="'partials/commentform.html'"></div>
+			</div>
+		</div>
+	</div>
+
+	<community-comment-list
+		current-comments="vm.currentComments"
+		comment-metadata="vm.commentData"
+		comment-filter="vm.moreCommentsFilter">
+	</community-comment-list>
+</div>

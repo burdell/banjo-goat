@@ -28,7 +28,7 @@
 
       <div class="forumThreadControl__row">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--solid button-blue-white" ng-click="vm.startNewTopic()">Create a Topic</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
 
         <div class="col--md2">
@@ -53,14 +53,14 @@
   <div class="forumThreadCount">
     <div class="row">
 
-      <div class="forumThreadCount__row col--md6 noPaddingLeft">
+      <div class="forumThreadCount__row col--md8 noPaddingLeft">
         <div class="forumThreadCount__message">Showing 30 out of {{ vm.messageCount | number}} topics for {{ ::vm.currentNode.name }}
         <!-- </div> -->
         <!-- <div class="forumThreadCount__message">Showing page ## out of 178 pages for {{ ::vm.currentNode.name }} -->
         </div>
       </div>
 
-      <div class="col--md6 noPaddingRight">
+      <div class="col--md4 noPaddingRight">
         <community-pager 
           total-results="vm.messageCount" 
           pager-fn="vm.forumListFilter"
@@ -77,11 +77,11 @@
           <th class="forumThreadList__head--topic">Topic</th>
           <th class="forumThreadList__head--author">Author</th>
           <th class="forumThreadList__head--createdDate">Created</th>
-          <th class="forumThreadList__head--counter">Views</th>
+          <th class="forumThreadList__head--counter forumThreadList__head--counter--views">Views</th>
           <th class="forumThreadList__head--counter">Replies</th>
           <th class="forumThreadList__head--counter">Kudos</th>
           <th class="forumThreadList__head--authorLast">Latest Reply</th>
-          <th class="forumThreadList__head--latestDate">Latest Activity</th>
+          <th class="forumThreadList__head--latestDate">Latest Date</th>
         </thead>
 
         <tbody class="forumThreadList--pinList">
@@ -225,7 +225,7 @@
                 ajax-populate="vm.getMessageData" 
                 tooltip-template="forums/list/forums.list.messagetooltip.html"
                 local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-                empty-text="This post contains embedded media only."
+                empty-text="This post only contains images or video."
                 href="{{ vm.getMessageUrl(message.id) }}">
                   {{ ::message.subject | htmlUnescape }}
               </a>
@@ -236,7 +236,7 @@
             </td>
             <td class="forumThreadList__message__createdDate">{{ ::message.postTime | timeFromNow }}
             </td>
-            <td class="forumThreadList__message__counter" title="views">
+            <td class="forumThreadList__message__counter forumThreadList__message__counter--views" title="views">
               {{  message.stats | extractKey : 'views' | number}}
             </td>
             <td class="forumThreadList__message__counter" title="comments">
@@ -259,10 +259,10 @@
 
   <div class="forumPagination">
     <div class="row">
-        <div class="col--md6 noPaddingLeft">
-          <button class="button--solid button-blue-white" ng-click="vm.startNewTopic()">Create a Topic</button>
+        <div class="col--md8 noPaddingLeft">
+          <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
-        <div class="col--md6 noPaddingLeft">
+        <div class="col--md4 noPaddingLeft">
           <community-pager 
             total-results="vm.messageCount" 
             pager-fn="vm.forumListFilter">

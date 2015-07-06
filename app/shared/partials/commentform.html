@@ -1,0 +1,19 @@
+
+<div>
+	<div class="row row--comfy">
+			<community-text-editor ng-model="vm.replyText" minimal-editor="true"></community-text-editor>
+	</div>
+	<div>
+		<button 
+			class="button-ghost button-white-blue" 
+			ng-click="vm.cancelReply()">
+				Cancel
+		</button>
+		<button 
+			class="button-full button-blue-white"
+			ng-click="vm.submitReply()">
+				Submit Comment
+		</button>
+	</div>
+</div>
+
