@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, communityApi, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -11,6 +11,11 @@
 		var ctrl = this;
 
 		var mediaList = [];
+		var updateMediaList = function(data){
+			mediaList.push(data);
+		};
+
+		var currentUser = currentUserService.get();
 
 		_.extend(ctrl, {
 			hideStoryControls: true,
@@ -25,19 +30,20 @@
 				location: 'Project Location',
 				productsUsed: 'List products used in your project'
 			},
+			storyAuthor: currentUser,
 			story: {
-				author: currentUserService.get(),
-				mediaList: mediaList
+				currentUserId: currentUser.id,
+				media: mediaList
 			},
 			addPhoto: _.bind(function(result){
 				var fileData = result;
-				mediaList.push({
-					type: 'image',
-					imageUrl: fileData.fileUrl
+				updateMediaList({
+					url: fileData.fileUrl,
+					type: 'image'
 				});
 			}, ctrl),
 			deletePhoto: function(photoIndex) {
-				var removedItem = ctrl.story.mediaList.splice(photoIndex, 1);
+				var removedItem = mediaList.splice(photoIndex, 1);
 
 				if (ctrl.cover && (removedItem[0].$$hashKey === ctrl.cover.$$hashKey)) {
 					ctrl.removeCoverPhoto()
@@ -45,10 +51,13 @@
 			},
 			setCoverPhoto: function(imageObj){
 				if (ctrl.cover) {
-					ctrl.cover.isCover = false;
+					ctrl.cover.meta.isCover = false;
 				}
 
-				imageObj.isCover = true;
+				if (!imageObj.meta) {
+					imageObj.meta = {};
+				}
+				imageObj.meta.isCover = true;
 
 				ctrl.cover = imageObj;
 			},
@@ -60,13 +69,35 @@
 			},
 			addNewMedia: function(newMediaUrl){
 				mediaService.getMediaType(newMediaUrl).then(function(result){
-					mediaList.push(result);
+					updateMediaList(result);
 					ctrl.newMediaUrl = null;
 				});
+			},
+			postStory: function(){
+				ctrl.isPublishing = true;
+
+				communityApi.Stories.story(ctrl.story).then(
+					function(result){
+						
+					},
+					function(){
+						ctrl.isPublishing = false;
+					});
+			},			
+			sortConfig: {
+				handle: '.ubnt-icon--arrows-downup'
 			}
 		});
 	}
-	NewStoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityMediaService', 'CommunityProductService', 'CurrentUserService', 'StoryDefaults'];
+	NewStoryController.$inject = [
+		'$scope', 
+		'CommunityApiService',
+		'CommunityBreadcrumbService', 
+		'CommunityMediaService', 
+		'CommunityProductService', 
+		'CurrentUserService', 
+		'StoryDefaults'
+	];
 
 	angular.module('community.stories')
 		.controller('NewStory', NewStoryController);
