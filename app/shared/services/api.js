@@ -181,9 +181,10 @@
 			        fd.append('file', fileData.file);
 
 			        var images = [
-			        	'http://i.imgur.com/ezJLz9L.jpg',
-			        	'http://www.dogster.com/wp-content/uploads/2015/05/doge.jpg',
-			        	'http://i1.kym-cdn.com/entries/icons/facebook/000/011/656/sophiscated_cat.PNG'
+			        	'http://i.imgur.com/oaIMnB1.jpg',
+			        	'http://i.imgur.com/sonXcK6.jpg',
+			        	'http://i.imgur.com/8anTa91.jpg',
+			        	'http://i.imgur.com/VR650uJ.jpg'
 			        ];
 			        var bleh = Math.floor(Math.random() * images.length)
 
