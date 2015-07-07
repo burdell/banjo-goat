@@ -9,10 +9,10 @@
 			<!-- <h4>Tell Your Story, {{ vm.story.author.login }}</h4> -->
 		</div>
 		<div class="cmuStoriesNew__Form--subject">
-			<input class="cmuInput cmuInput--wide" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
+			<input class="cmuInput cmuInput--stacked cmuInput--wide" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" required/>
 		</div>
 		<div class="cmuStoriesNew__Form--summary">
-			<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
+			<input class="cmuInput cmuInput--stacked cmuInput--wide" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" required/>
 		</div>
 		<div class="cmuStoriesNew__Form--text">
 		  <community-text-editor 

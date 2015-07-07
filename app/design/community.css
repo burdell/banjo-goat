@@ -7989,6 +7989,10 @@ button .icon, .button .icon {
   width: 100%;
 }
 
+.cmuInput--stacked:invalid {
+  border: solid red 2px;
+}
+
 .cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
   padding: 0;

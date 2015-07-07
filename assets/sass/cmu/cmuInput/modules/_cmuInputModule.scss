@@ -13,6 +13,20 @@
 
 
 // 
+.cmuInput--stacked {
+
+	// filled field
+	// if filled, keep open, like in focus
+	&:invalid { border: solid red 2px; }
+
+
+	// empty field
+	&:valid {
+
+	}
+}
+
+// 
 // Input Placeholder text
 // 
 
