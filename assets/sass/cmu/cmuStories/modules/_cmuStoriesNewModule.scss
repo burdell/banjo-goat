@@ -1,0 +1,36 @@
+
+
+
+
+// 
+// Preview Window
+// 
+
+.cmuStoriesNew__Title {
+  font-size: 16px;
+  margin-bottom: $cmu-base/2;
+
+}
+.cmuStoriesNew__Form {
+	padding-top: $cmu-base/2;
+ 	padding-left: 0;
+ 	padding-right: 1rem;
+
+}
+	.cmuStoriesNew__Form--intro {
+	 	padding-bottom: $cmu-base/2;
+	}
+
+
+
+.cmuStoriesNew__Preview {
+	border: 1px solid $cmu-color-ltgray;
+	background-color: $cmu-color-purewhite;
+ 	padding: 8px 21px;
+}
+
+	.cmuStoriesNew__Preview--intro {
+		text-transform: uppercase;
+		color: $cmu-color-gray;
+		font-size: $cmu-base*0.65;
+	}

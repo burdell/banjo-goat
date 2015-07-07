@@ -7979,6 +7979,16 @@ button .icon, .button .icon {
   font-style: italic;
 }
 
+.cmuInput {
+  border: 1px solid #969ba3;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.cmuInput--wide {
+  width: 100%;
+}
+
 .cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
   padding: 0;
@@ -8289,19 +8299,15 @@ button .icon, .button .icon {
   border-left-width: 3px;
   padding: 0.5rem 1rem;
 }
-.forumThreadMessage__content blockquote hr {
-  display: none;
-}
 .forumThreadMessage__content blockquote table {
-  border-color: transparent;
-  padding: 0.5rem 0.25rem;
-  border-left: 0.33333rem #00a0df solid;
   display: block;
-  background-color: #ebebeb;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 .forumThreadMessage__content blockquote td {
   border: 0;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .forumThreadMessage__signature {
@@ -8494,6 +8500,33 @@ button .icon, .button .icon {
 
 .cmuStories__story__products--name {
   margin-top: 4px;
+}
+
+.cmuStoriesNew__Title {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.cmuStoriesNew__Form {
+  padding-top: 0.5rem;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+.cmuStoriesNew__Form--intro {
+  padding-bottom: 0.5rem;
+}
+
+.cmuStoriesNew__Preview {
+  border: 1px solid #ebebeb;
+  background-color: white;
+  padding: 8px 21px;
+}
+
+.cmuStoriesNew__Preview--intro {
+  text-transform: uppercase;
+  color: #969ba3;
+  font-size: 0.65rem;
 }
 
 /**

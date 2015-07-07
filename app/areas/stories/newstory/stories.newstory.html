@@ -1,111 +1,114 @@
-<div class="row">
-	<div class="row">
-		<div class="col--md4">
-			<div class="row row--comfy">
-				<div>
-					<h4>Tell Your Story, {{ vm.story.author.login }}</h4>
-				</div>
-				<div>
-					<input class="appIconInput__input" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
-				</div>
-				<div>
-					<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
-				</div>
-				<div>
-				  <community-text-editor 
-			          ng-model="vm.story.body"
-			          editor-height="300"
-			          minimal-editor="true">
-			        </community-text-editor>
-				</div>
-				<div>
-					<input class="appIconInput__input"
-						community-location-search 
-						location-model="vm.story.location" 
-						placeholder="{{ ::vm.placeholders.location }}" />
-				</div>
-				<div>
-					<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
-					<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.story.productsUsed">
-					    <ui-select-match placeholder="{{ ::vm.placeholders.productsUsed }}">{{ $item.name }}</ui-select-match>
-					    <ui-select-choices repeat="product.name as product in vm.productList | filter: { name: $select.search }">
-					      	<span ng-bind-html="product.name | highlight: $select.search"></span>
-					    </ui-select-choices>
-					</ui-select>
-				</div> 
-				<div>
-					<h4>Add Media</h4>
-					<h6>Upload your images from your device or add links to your images or videos. You may add content from YouTube and Vimeo.</h6>
-					<div>
-						<community-file-upload
-							on-success-fn="vm.addPhoto">
-						</community-file-upload>
-					</div>
+<div class="cmuStoriesNew row">
 
-					<div>
-						<input ng-model="vm.newMediaUrl" placeholder="Link to image / YouTube or Vimeo Video" />
-						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
-					</div>
+	<div class="cmuStoriesNew__Title">
+		Tell us a Story!
+	</div>
+	<div class="cmuStoriesNew__Form col--md4">
+		<div class="cmuStoriesNew__Form--intro">
+			Give us some details about your project.
+			<!-- <h4>Tell Your Story, {{ vm.story.author.login }}</h4> -->
+		</div>
+		<div class="cmuStoriesNew__Form--subject">
+			<input class="cmuInput cmuInput--wide" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
+		</div>
+		<div class="cmuStoriesNew__Form--summary">
+			<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
+		</div>
+		<div class="cmuStoriesNew__Form--text">
+		  <community-text-editor 
+	          ng-model="vm.story.body"
+	          editor-height="300"
+	          minimal-editor="true">
+	        </community-text-editor>
+		</div>
+		<div class="cmuStoriesNew__Form--location">
+			<input class="appIconInput__input"
+				community-location-search 
+				location-model="vm.story.location" 
+				placeholder="{{ ::vm.placeholders.location }}" />
+		</div>
+		<div class="cmuStoriesNew__Form--products">
+			<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
+			<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.story.productsUsed">
+			    <ui-select-match placeholder="{{ ::vm.placeholders.productsUsed }}">{{ $item.name }}</ui-select-match>
+			    <ui-select-choices repeat="product.name as product in vm.productList | filter: { name: $select.search }">
+			      	<span ng-bind-html="product.name | highlight: $select.search"></span>
+			    </ui-select-choices>
+			</ui-select>
+		</div> 
+		<div>
+			<h4>Add Media</h4>
+			<h6>Upload your images from your device or add links to your images or videos. You may add content from YouTube and Vimeo.</h6>
+			<div>
+				<community-file-upload
+					on-success-fn="vm.addPhoto">
+				</community-file-upload>
+			</div>
 
-					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
-						<div ng-repeat="mediaUpload in vm.story.media">
-							<div>
-								<div>
-									<button ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</button>
-									<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</button>
-									<button ng-click="vm.deletePhoto($index)">Delete</button>
-								</div>
-								<h5>{{ mediaUpload.meta.title }}</h5>
-								<img ng-src="{{ mediaUpload.url }}" style="max-height: 150px;">
-								<span class="ubnt-icon--arrows-downup"></span>
-							</div>
-							<input ng-model="mediaUpload.caption" placeholder="Add a Caption" />
+			<div>
+				<input ng-model="vm.newMediaUrl" placeholder="Link to image / YouTube or Vimeo Video" />
+				<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
+			</div>
+
+			<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
+				<div ng-repeat="mediaUpload in vm.story.media">
+					<div>
+						<div>
+							<button ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</button>
+							<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</button>
+							<button ng-click="vm.deletePhoto($index)">Delete</button>
 						</div>
+						<h5>{{ mediaUpload.meta.title }}</h5>
+						<img ng-src="{{ mediaUpload.url }}" style="max-height: 150px;">
+						<span class="ubnt-icon--arrows-downup"></span>
 					</div>
-				</div>
-			</div>
-
-			<div class="row row--comfy">
-				<div ng-click="vm.showAdditionalInfoFields = !vm.showAdditionalInfoFields">
-					<h4><span class="icon" ng-class="{ 'ubnt-icon--minus-circle': vm.showAdditionalInfoFields, 'ubnt-icon--plus-circle': !vm.showAdditionalInfoFields }"></span> Additional Info</h4>
-				</div>
-				<div ng-show="vm.showAdditionalInfoFields">
-					<div>
-						<input ng-model="vm.story.projectRole" placeholder="Project Role" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.finishDate" placeholder="Finish Date" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.numberOfUsers" placeholder="Number of Users" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.budgetAmount" placeholder="Budget Amount" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.dataRequirement" placeholder="Data Requirement" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.bandwidth" placeholder="Bandwidth" />						
-					</div>
-				</div>
-			</div>
-
-			<div class="row row--comfy">
-				<div ng-hide="vm.isPublishing">
-					<button ng-click="vm.postStory()">Publish</button>
-					<button>Cancel</button>
-				</div>
-				<div ng-show="vm.isPublishing">
-					<button disabled>Publishing Your Story...</button>
+					<input ng-model="mediaUpload.caption" placeholder="Add a Caption" />
 				</div>
 			</div>
 		</div>
-		<div class="col--md8">
-			<div class="row">
-				<div ng-include="'stories/detail/stories.body.html'"></div>
-				<div id="map"></div>
+
+		<div class="row row--comfy">
+			<div ng-click="vm.showAdditionalInfoFields = !vm.showAdditionalInfoFields">
+				<h4><span class="icon" ng-class="{ 'ubnt-icon--minus-circle': vm.showAdditionalInfoFields, 'ubnt-icon--plus-circle': !vm.showAdditionalInfoFields }"></span> Additional Info</h4>
 			</div>
+			<div ng-show="vm.showAdditionalInfoFields">
+				<div>
+					<input ng-model="vm.story.projectRole" placeholder="Project Role" />						
+				</div>
+				<div>
+					<input ng-model="vm.story.finishDate" placeholder="Finish Date" />						
+				</div>
+				<div>
+					<input ng-model="vm.story.numberOfUsers" placeholder="Number of Users" />						
+				</div>
+				<div>
+					<input ng-model="vm.story.budgetAmount" placeholder="Budget Amount" />						
+				</div>
+				<div>
+					<input ng-model="vm.story.dataRequirement" placeholder="Data Requirement" />						
+				</div>
+				<div>
+					<input ng-model="vm.story.bandwidth" placeholder="Bandwidth" />						
+				</div>
+			</div>
+		</div>
+
+		<div class="row row--comfy">
+			<div ng-hide="vm.isPublishing">
+				<button ng-click="vm.postStory()">Publish</button>
+				<button>Cancel</button>
+			</div>
+			<div ng-show="vm.isPublishing">
+				<button disabled>Publishing Your Story...</button>
+			</div>
+		</div>
+	</div>
+	<div class="cmuStoriesNew__Preview col--md8">
+			<div class="cmuStoriesNew__Preview--intro row">
+				Story Preview
+			</div>
+			<div ng-include="'stories/detail/stories.body.html'"></div>
+			<!-- <div id="map"></div> -->
 		</div>
 	</div>
 </div>
