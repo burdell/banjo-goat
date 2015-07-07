@@ -79,7 +79,7 @@
 	</div>	
 
 
-	<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>	
+	<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize" handle-image-error></div>	
 
 	<div class="cmuStories__story__images row">
 		<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
