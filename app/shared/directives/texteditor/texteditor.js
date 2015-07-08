@@ -25,6 +25,7 @@
 					preview_styles: false,
 					browser_spellcheck: true,
 					toolbar: scope.texteditor.minimalEditor === 'true' ? false : undefined,
+					plugins: 'placeholder',
 					setup: function(editor) {
 						function updateModel() {
 							editor.save();
@@ -73,7 +74,8 @@
 	        restrict: 'E',
 	        scope: {
 	        	height: '=editorHeight',
-	        	minimalEditor: '@'
+	        	minimalEditor: '@',
+	        	placeholder: '@'
 	        }
 	    };
 
