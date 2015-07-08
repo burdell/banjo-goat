@@ -34,3 +34,16 @@
 		color: $cmu-color-gray;
 		font-size: $cmu-base*0.65;
 	}
+
+
+// custom tinyMCE styles
+	.cmuTextEditor {
+		margin-bottom: $cmu-base/2;
+	}
+	.mce-edit-area {
+		border: 0 !important;
+
+	}
+	.mce-statusbar {
+		display: none !important;
+	}

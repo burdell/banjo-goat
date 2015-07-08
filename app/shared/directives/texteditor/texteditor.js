@@ -19,6 +19,7 @@
 					height: scope.texteditor.height || 150,
 					elements: scope.texteditor.editorId,
 					mode: 'exact',
+					content_css : "{{GULP_BUILD_areaName}}/css/editor.css",
 					menubar: false,
 					preview_styles: false,
 					browser_spellcheck: true,

@@ -1,10 +1,28 @@
 
 // community input fields
 
+// surround <input>s in these for positioning
+.cmuInputContainer {
+	position: relative;
+}
+
 .cmuInput {
 	border: 1px solid $cmu-color-gray;
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-base/2;
 	padding: $cmu-base/2;
+	background-color: $cmu-color-purewhite;
+
+	@extend %ease-fast;
+
+	@include cmu-placeholder {
+		color: $cmu-color-black;
+	}
+
+	&:focus {
+		border: 1px solid $cmu-color-blue;
+		outline: 0;
+		background-color: $cmu-color-white;
+	}
 }	
 
 	.cmuInput--wide {
@@ -13,22 +31,62 @@
 
 
 // 
+%cmuInput--stacked--expanded {
+	padding-top: $cmu-base*1.7;
+	padding-bottom: $cmu-base/2;
+}
+
 .cmuInput--stacked {
 
-	// filled field
+
+	// Stacked
+	// &:invalid is filled field
 	// if filled, keep open, like in focus
-	&:invalid { border: solid red 2px; }
+	&:focus, &:valid { 
+		@extend %ease-fast;
+		@extend %cmuInput--stacked--expanded;
 
+		// hide the placeholder
+		@include cmu-placeholder {
+			color: $cmu-color-purewhite;
+		}
+	}
 
-	// empty field
+	// before field is filled
 	&:valid {
+		// do nothing; placeholder
+	}
 
+	// infield label
+	&+label {
+		position: absolute;
+		top: 8px;
+		left: 9px;
+
+		text-transform: uppercase;
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		cursor: text;
 	}
 }
 
+
+
 // 
-// Input Placeholder text
+// Input Selector
+// e.g. product selector, tag selector
 // 
+
+.cmuInputSelector {
+	background-color: $cmu-color-purewhite !important;
+	@extend %ease-fast;
+
+	ul {
+		background-color: $cmu-color-purewhite !important;
+		background-image: none !important;
+		@extend %ease-fast;
+	}
+}
 
 
 

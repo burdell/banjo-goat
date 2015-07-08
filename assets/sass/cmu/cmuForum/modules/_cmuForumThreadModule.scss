@@ -174,8 +174,9 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		border-left-width: 3px;
 		padding: $cmu-base/2 $cmu-base;
 
+		// these tend to appear in the migrated html
 		hr {
-			// display: none;
+			display: none;
 		}
 
 		// some quotes are tables nested in block quotes

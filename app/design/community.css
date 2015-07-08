@@ -85,6 +85,14 @@
   width: 100% !important;
 }
 
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 /**
  * 1. Support IE10.
  */
@@ -3334,18 +3342,13 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an img tag, or to an element with a background-image.
+ * class either to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
-/**
- * 1. Assume a square image, because we want to the image to retain its
- *    correct proportions if it is squeezed by its container.
- */
 .avatar {
   width: 5em;
-  height: auto;
-  /* [1] */
+  height: 5em;
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3768,6 +3771,72 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
 }
 
 /**
@@ -5368,6 +5437,10 @@ output {
 }
 
 /**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6505,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector ul, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6520,7 +6593,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector ul, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -7102,22 +7175,22 @@ pre {
 .cmuSearchbox {
   text-align: right;
 }
-.cmuSearchbox ::-webkit-input-placeholder {
+.cmuSearchbox::-webkit-input-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox :-moz-placeholder {
+.cmuSearchbox:-moz-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox ::-moz-placeholder {
+.cmuSearchbox::-moz-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox :-ms-input-placeholder {
+.cmuSearchbox:-ms-input-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
@@ -7906,18 +7979,93 @@ button .icon, .button .icon {
   font-style: italic;
 }
 
+.cmuInputContainer {
+  position: relative;
+}
+
 .cmuInput {
   border: 1px solid #969ba3;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem;
+  background-color: white;
+}
+.cmuInput::-webkit-input-placeholder {
+  color: black;
+}
+.cmuInput:-moz-placeholder {
+  color: black;
+}
+.cmuInput::-moz-placeholder {
+  color: black;
+}
+.cmuInput:-ms-input-placeholder {
+  color: black;
+}
+.cmuInput:focus {
+  border: 1px solid #00a0df;
+  outline: 0;
+  background-color: #fafafa;
 }
 
 .cmuInput--wide {
   width: 100%;
 }
 
-.cmuInput--stacked:invalid {
-  border: solid red 2px;
+.cmuInput--stacked:focus, .cmuInput--stacked:valid {
+  padding-top: 1.7rem;
+  padding-bottom: 0.5rem;
+}
+
+.cmuInput--stacked:focus::-webkit-input-placeholder, .cmuInput--stacked:valid::-webkit-input-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus:-moz-placeholder, .cmuInput--stacked:valid:-moz-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus::-moz-placeholder, .cmuInput--stacked:valid::-moz-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus:-ms-input-placeholder, .cmuInput--stacked:valid:-ms-input-placeholder {
+  color: white;
+}
+.cmuInput--stacked + label {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  text-transform: uppercase;
+  color: #969ba3;
+  font-size: 0.625rem;
+  cursor: text;
+}
+
+.cmuInputSelector {
+  background-color: white !important;
+}
+.cmuInputSelector ul {
+  background-color: white !important;
+  background-image: none !important;
+}
+
+.cmuImageMissing {
+  display: block;
+  width: 80px;
+  margin: 24px 0;
+  height: auto;
+}
+
+.cmuTextEditor {
+  cursor: text;
+}
+.cmuTextEditor iframe html {
+  cursor: text !important;
+}
+
+.mce-edit-area {
+  background-color: red;
+}
+
+.mce-content-body {
+  background-color: red;
 }
 
 .cmuDiscussionsHeaderRow {
@@ -8230,6 +8378,9 @@ button .icon, .button .icon {
   border-left-width: 3px;
   padding: 0.5rem 1rem;
 }
+.forumThreadMessage__content blockquote hr {
+  display: none;
+}
 .forumThreadMessage__content blockquote table {
   display: block;
   border: 0;
@@ -8458,6 +8609,18 @@ button .icon, .button .icon {
   text-transform: uppercase;
   color: #969ba3;
   font-size: 0.65rem;
+}
+
+.cmuTextEditor {
+  margin-bottom: 0.5rem;
+}
+
+.mce-edit-area {
+  border: 0 !important;
+}
+
+.mce-statusbar {
+  display: none !important;
 }
 
 /**

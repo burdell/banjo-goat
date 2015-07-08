@@ -34,7 +34,7 @@
 
 
 <div class="forumThreadContainer">
-	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread">
+	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message 
 			message="message"
 			original-message="vm.originalMessage"

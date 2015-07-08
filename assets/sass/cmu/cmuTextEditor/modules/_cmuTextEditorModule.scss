@@ -1,0 +1,25 @@
+
+// community text editor
+// uses tinyMCE
+// used in story body, forum replies, comments
+
+// these are general styles;
+// for styles related to the specific discussion type,
+// go to that discussion type
+
+.cmuTextEditor {
+	cursor: text;
+
+	iframe html{
+		cursor: text !important;
+	}
+}
+
+	.mce-edit-area {
+		background-color: red;
+	// display: none;
+	}
+
+	.mce-content-body {
+		background-color: red;
+	}

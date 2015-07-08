@@ -8,10 +8,10 @@
 // Mixin placeholder text for input fields
 // should this be moved into the placeholder component?
 @mixin cmu-placeholder {
-  ::-webkit-input-placeholder {@content;};
-  :-moz-placeholder           {@content;};
-  ::-moz-placeholder          {@content;};
-  :-ms-input-placeholder      {@content;};
+  &::-webkit-input-placeholder {@content;};
+  &:-moz-placeholder           {@content;};
+  &::-moz-placeholder          {@content;};
+  &:-ms-input-placeholder      {@content;};
 }
 
 @mixin background-opacity($cmu-color, $opacity: 0.3) {
