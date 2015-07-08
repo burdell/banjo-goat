@@ -1,7 +1,7 @@
 (function(_, tinymce, $){
 	'use strict';
 	
-	function communityTextEditor($timeout) {
+	function communityTextEditor($timeout, routingService) {
 		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
 				var textElement = $(element).find('#' + scope.texteditor.editorId);
@@ -15,6 +15,8 @@
 					editorInstance.setContent(ngModel.$viewValue || '');
 				};
 				
+				var currentArea = routingService.getCurrentArea();
+
 				tinymce.init({
 					height: scope.texteditor.height || 150,
 					elements: scope.texteditor.editorId,
@@ -78,7 +80,7 @@
 
 	    return directive;
 	}
-	communityTextEditor.$inject = ['$timeout'];
+	communityTextEditor.$inject = ['$timeout', 'CommunityRoutingService'];
 
 	angular.module('community.directives')
 		.directive('communityTextEditor', communityTextEditor);

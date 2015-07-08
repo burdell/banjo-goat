@@ -5,16 +5,39 @@
 		function link(scope, element, attrs) {
 		}
 
-		function controller(nodeService) {
+		function controller(nodeService, routingService) {
 			var ctrl = this;
-		
+			// 'Forums': '-General',
+			// 	'Q&A': '_QnA',
+			// 	'Stories': '_Stories',
+			// 	'Announcements': 'Blog_',
+			// 	'Feature Requests': '_Features',
+			// 	'Bugs': '_Bugs'
 			var standardNavLinks = {
-				'Forums': '-General',
-				'Q&A': '_QnA',
-				'Stories': '_Stories',
-				'Announcements': 'Blog_',
-				'Feature Requests': '_Features',
-				'Bugs': '_Bugs'
+				'Forums': { 
+					nodeString: '-General',
+					urlString: routingService.areaSlugs.forums
+				},
+				'Q&A': {
+					nodeString: '_QnA',
+					urlString: routingService.areaSlugs.qna
+				},
+				'Stories': {
+					nodeString: '_Stories',
+					urlString: routingService.areaSlugs.stories
+				},
+				'Announcements': {
+					nodeString: 'Blog_',
+					urlString: routingService.areaSlugs.announcements
+				},
+				'Feature Requests': {
+					nodeString: '_Features',
+					urlString: routingService.areaSlugs.features
+				},
+				'Bugs': {
+					nodeString: '_Bugs',
+					urlString: routingService.areaSlugs.bugs
+				}
 			};
 
 			var currentNode = nodeService.CurrentNode;
@@ -24,15 +47,19 @@
 				navLinks: []
 			})
 
-			_.each(standardNavLinks, function(searchValue, displayName){
+			var currentAreaSlug = routingService.getCurrentArea();
+			_.each(standardNavLinks, function(searchObj, displayName){
+				var searchValue = searchObj.nodeString;
+
 				var navNode = _.find(siblingNodeList, function(node){
 					return (node.urlSlug.indexOf(searchValue) >= 0);
 				});
+				
 				if (navNode) {
 					this.navLinks.push({ 
 						display: displayName, 
 						href: navNode.href, 
-						active: navNode === currentNode,
+						active: currentAreaSlug === searchObj.urlString,
 						target: function(){
 							return (!this.active ? '_self' : "");
 						} 
@@ -41,7 +68,7 @@
 			}, ctrl);
 			
 		}
-		controller.$inject = ['CommunityNodeService'];
+		controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
 	    
 	    var directive = {
 	        link: link,
