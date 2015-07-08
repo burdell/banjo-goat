@@ -1,6 +1,6 @@
 (function(_){
 	'use strict';
-	
+
 	var communityApiService = function($http, $q, $timeout, errorService){
 		function getCallOptions(url, data, verb) {
 			if (_.isUndefined(verb)) {
@@ -46,7 +46,7 @@
 			if (_.isObject(callData)) {
 				payload = callData;
 				verb = 'POST';
-			} 
+			}
 			//GET
 			else {
 				id = callData;
@@ -59,8 +59,8 @@
 				payload: payload
 			};
 		}
-		
-		var baseUrl = 'http://comm2-dev.ubnt.com:8080/'; //'http://localhost:8080/'
+
+		var baseUrl = 'http://comm2-stage.ubnt.com:8080/'; //'http://localhost:8080/'
 
 		var urlSegments = {
 			Node: function(id){
@@ -136,14 +136,14 @@
 				story: function(storyData) {
 					var callData = getCallType(storyData);
 					return goToApi(baseUrl + 'forums/' + urlSegments.Message(callData.id), callData.payload, callData.verb).then(function(result){
-						_.extend(result.model, { 
+						_.extend(result.model, {
 							summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." ,
 							location: 'Atlanta, GA',
 							projectRole: 'Engineer',
 							finishDate: "2013-08-21T11:33:28.000-04:00",
 							numberofUsers: 200,
 							budgetAmount: 50000,
-							numberOfWorkers: 4,							
+							numberOfWorkers: 4,
 							dataRequirement: "{data}",
 							bandwidth: "{bandwidth}",
 							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
@@ -195,7 +195,7 @@
 							fileCaption: fileData.fileCaption
 						}
 					}, 700)
-					
+
 			        // $http.post(uploadUrl, fd, {
 			        //     transformRequest: angular.identity,
 			        //     headers: {'Content-Type': undefined}
