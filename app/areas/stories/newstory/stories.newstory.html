@@ -47,7 +47,7 @@
 						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
 					</div>
 
-					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
+					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList">
 						<div ng-repeat="mediaUpload in vm.story.media">
 							<div>
 								<div>

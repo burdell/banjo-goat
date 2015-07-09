@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, communityApi, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -32,8 +32,20 @@
 			},
 			storyAuthor: currentUser,
 			story: {
-				currentUserId: currentUser.id,
-				media: mediaList
+			    "currentUserId": 259,
+			    "categoryDisplayId": "",
+			    "subject": "",
+			    "summary": "",
+			    "body": "",
+			    "location": {
+			        "display": "",
+			        "coordinates": {
+			            "lat": null,
+			            "lng": null
+			        }
+			    },
+			    "productsUsed": [],
+			    "media": mediaList
 			},
 			addPhoto: _.bind(function(result){
 				var fileData = result;
@@ -51,14 +63,19 @@
 			},
 			setCoverPhoto: function(imageObj){
 				if (ctrl.cover) {
-					ctrl.cover.meta.isCover = false;
+					ctrl.cover.meta.isCover.value = false;
 				}
 
 				if (!imageObj.meta) {
 					imageObj.meta = {};
 				}
-				imageObj.meta.isCover = true;
+				if (!imageObj.meta.isCover) {
+					imageObj.meta.isCover = {
+						key: 'isCover'
+					};
+				}
 
+				imageObj.meta.isCover.value = true;
 				ctrl.cover = imageObj;
 			},
 			removeCoverPhoto: function(){
@@ -76,9 +93,10 @@
 			postStory: function(){
 				ctrl.isPublishing = true;
 
+				//ctrl.story.body = "HELLO";
 				communityApi.Stories.story(ctrl.story).then(
 					function(result){
-						
+						$state.go('stories.detail', { storyId: result.model.id });		
 					},
 					function(){
 						ctrl.isPublishing = false;
@@ -91,9 +109,11 @@
 	}
 	NewStoryController.$inject = [
 		'$scope', 
+		'$state',
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 
-		'CommunityMediaService', 
+		'CommunityMediaService',
+		'CommunityNodeService', 
 		'CommunityProductService', 
 		'CurrentUserService', 
 		'StoryDefaults'

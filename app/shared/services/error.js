@@ -6,8 +6,8 @@
 
 		return {
 			errorList: errorList,
-			showErrors: function(errorResult){
-				errorList.push(errorResult.statusText);
+			showErrors: function(errorResult){		
+				errorList.push(errorResult.data.message);
 			},
 			clearErrors: function(){
 				errorList.length = 0;
