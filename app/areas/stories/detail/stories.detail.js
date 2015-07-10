@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, storyThread, storyDefaults){
+	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
 		var ctrl = this;
 		var story = storyThread.originalMessage;
 		var storyAuthor = story.discussion.author;
@@ -9,6 +9,20 @@
 		var cover = _.find(story.media, function(mediaObj) {
 			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
 		}) || { url: storyDefaults.coverPhoto };
+
+		var currentUser = currentUserService.get();
+
+
+		var refreshComments = function(){
+			communityApi.Stories.comments(story.id).then(function(result){
+				ctrl.comments = result.collection;
+
+				ctrl.comment.replyText = null;
+				ctrl.toggleCommentForm();
+			}).finally(function(){
+				ctrl.comment.submittingComment = false;
+			});
+		};
 
 		_.extend(ctrl, {
 			story: story,
@@ -39,6 +53,22 @@
 			notCoverPhoto: function(imageObj) {
 				return !(ctrl.cover && (ctrl.cover === imageObj));
 			},
+			submitReply: function(commentText) {
+				ctrl.comment.submittingComment = true;
+				communityApi.Stories.comments({
+					currentUserId: currentUser.id,
+					body: ctrl.comment.replyText,
+					topicId: story.id,
+					parentId: story.id
+				}).then(
+					function(result){
+						refreshComments();
+					},
+					function(){
+						ctrl.comment.submittingComment = false;
+					}
+				);
+			}
 		});
 
 		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
@@ -53,6 +83,7 @@
 		'CommunityApiService', 
 		'CommunityBreadcrumbService',  
 		'CommunityFilterService', 
+		'CurrentUserService',
 		'StoryThread', 
 		'StoryDefaults'
 	];

@@ -39,18 +39,20 @@
 			);
 		}
 
-		function getCallType(callData) {
+		function getCallType(callData, params) {
 			var id, payload, verb;
-
+			
 			//POST
 			if (_.isObject(callData)) {
-				payload = callData;
 				verb = 'POST';
+				payload = callData;
+				id = callData.id;
 			} 
 			//GET
 			else {
-				id = callData;
+				payload = params;
 				verb = 'GET';
+				id = callData;
 			}
 
 			return {
@@ -144,8 +146,11 @@
 
 					return goToApi(baseUrl + urlSegments.Story(callData.id), callData.payload, callData.verb);
 				},
-				comments: function(storyId) {
-					return goToApi(baseUrl + urlSegments.Story(storyId) + 'comments');
+				comments: function(storyData, params) {
+					var callData = getCallType(storyData, params);
+
+					var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
+					return goToApi(baseUrl + urlSegments.Story(id) + 'comments', callData.payload, callData.verb);
 				},
 				stories: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
