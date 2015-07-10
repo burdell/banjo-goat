@@ -8,7 +8,7 @@
 
 		var cover = _.find(story.media, function(mediaObj) {
 			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
-		});
+		}) || { url: storyDefaults.coverPhoto };
 
 		_.extend(ctrl, {
 			story: story,

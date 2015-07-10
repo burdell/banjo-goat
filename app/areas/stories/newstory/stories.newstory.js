@@ -51,10 +51,15 @@
 		    productData: productService.getProductList(),
 			addPhoto: _.bind(function(result){
 				var fileData = result;
-				updateMediaList({
+				var imageObj = {
 					url: fileData.fileUrl,
 					type: 'image'
-				});
+				};
+
+				if (mediaList.length === 0) {
+					ctrl.setCoverPhoto(imageObj);
+				}
+				updateMediaList(imageObj);
 			}, ctrl),
 			deletePhoto: function(photoIndex) {
 				var removedItem = mediaList.splice(photoIndex, 1);
