@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, routingService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -32,7 +32,7 @@
 			storyAuthor: currentUser,
 			story: {
 			    "currentUserId": 259,
-			    "categoryDisplayId": ,
+			    "categoryDisplayId": nodeService.CurrentNode.urlSlug,
 			    "media": mediaList,
 			    "summary": "",
 			    "location": {
@@ -93,18 +93,18 @@
 				});
 			},
 			postStory: function(){
-				// ctrl.isPublishing = true;
+				ctrl.isPublishing = true;
 
 				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
-				debugger;
-				// communityApi.Stories.story(story).then(
-				// 	function(result){
-				// 		$state.go('stories.detail', { storyId: result.model.id });		
-				// 	},
-				// 	function(){
-				// 		ctrl.isPublishing = false;
-				// 	}
-				// );
+				console.log(story);
+				communityApi.Stories.story(story).then(
+					function(result){
+						$state.go('stories.detail', { storyId: result.model.id });		
+					},
+					function(){
+						ctrl.isPublishing = false;
+					}
+				);
 			},			
 			sortConfig: {
 				handle: '.ubnt-icon--arrows-downup'
@@ -119,7 +119,6 @@
 		'CommunityMediaService',
 		'CommunityNodeService', 
 		'CommunityProductService',
-		'CommunityRoutingService', 
 		'CurrentUserService', 
 		'StoryDefaults'
 	];

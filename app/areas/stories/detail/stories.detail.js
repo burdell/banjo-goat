@@ -10,8 +10,6 @@
 			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
 		});
 
-		debugger;
-
 		_.extend(ctrl, {
 			story: story,
 			discussion: story.discussion,
