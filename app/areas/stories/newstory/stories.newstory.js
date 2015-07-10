@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, routingService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -21,7 +21,6 @@
 			hideStoryControls: true,
 			titleCharacterLimit: 140,
 			subtitleWordLimit: 35,
-			productList: productService.getProductList(),
 			placeholders: {
 				subject: 'Story Title',
 				summary: 'Subtitle',
@@ -33,20 +32,23 @@
 			storyAuthor: currentUser,
 			story: {
 			    "currentUserId": 259,
-			    "categoryDisplayId": "",
-			    "subject": "",
+			    "categoryDisplayId": ,
+			    "media": mediaList,
 			    "summary": "",
-			    "body": "",
 			    "location": {
 			        "display": "",
 			        "coordinates": {
 			            "lat": null,
 			            "lng": null
 			        }
-			    },
-			    "productsUsed": [],
-			    "media": mediaList
+			    }
 			},
+			discussion: {
+			    "subject": "",
+			    "body": ""
+		    },
+		    productList: [],
+		    productData: productService.getProductList(),
 			addPhoto: _.bind(function(result){
 				var fileData = result;
 				updateMediaList({
@@ -91,16 +93,18 @@
 				});
 			},
 			postStory: function(){
-				ctrl.isPublishing = true;
+				// ctrl.isPublishing = true;
 
-				//ctrl.story.body = "HELLO";
-				communityApi.Stories.story(ctrl.story).then(
-					function(result){
-						$state.go('stories.detail', { storyId: result.model.id });		
-					},
-					function(){
-						ctrl.isPublishing = false;
-					});
+				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
+				debugger;
+				// communityApi.Stories.story(story).then(
+				// 	function(result){
+				// 		$state.go('stories.detail', { storyId: result.model.id });		
+				// 	},
+				// 	function(){
+				// 		ctrl.isPublishing = false;
+				// 	}
+				// );
 			},			
 			sortConfig: {
 				handle: '.ubnt-icon--arrows-downup'
@@ -114,7 +118,8 @@
 		'CommunityBreadcrumbService', 
 		'CommunityMediaService',
 		'CommunityNodeService', 
-		'CommunityProductService', 
+		'CommunityProductService',
+		'CommunityRoutingService', 
 		'CurrentUserService', 
 		'StoryDefaults'
 	];

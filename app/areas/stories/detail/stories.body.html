@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="cmuStories__title">{{ vm.story.subject || vm.placeholders.subject }}</div>	
+	<div class="cmuStories__title">{{ vm.discussion.subject || vm.placeholders.subject }}</div>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 </div>
 
@@ -12,13 +12,13 @@
 		<div class="cmuStories__author--info">
 			<span>by</span>
 			<community-username user="vm.storyAuthor"></community-username>
-			<span class="cmuStories__postTime">{{ vm.story.postTime | timeFromNow }}</span>
+			<span class="cmuStories__postTime">{{ vm.discussion.postTime | timeFromNow }}</span>
 		</div>
 	</div>
 
 	<div class="cmuStories__story__controlsTop--right col--md4 alignRight noPadding">
 		<button class="button--vote button--compound-naked">
-			{{ vm.story.stats | extractKey : 'score' }} kudos
+			{{ vm.discussion.stats | extractKey : 'score' }} kudos
 		</button>
 	</div>
 </div>
@@ -34,7 +34,7 @@
 <div class="cmuStories__story__body row">
 
 	<div class="cmuStories__story__info col--md3 noPadding">
-		<div ng-if="vm.story.location" style="margin-bottom: 10px;">
+		<div ng-if="vm.story.location.display" style="margin-bottom: 10px;">
 			<community-map class="cmuStories__story__info--map" map-coordinates="vm.story.location.coordinates"></community-map>
 			<div class="cmuStories__story__info--title">Location</div>
 			<div class="cmuStories__story__info--message">{{ vm.story.location.display }}</div>
@@ -65,10 +65,10 @@
 		</div>
  -->
 
-		<div class="cmuStories__story__products" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
+		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
 			<div class="cmuStories__story__products--title">Products Used</div>
 			<div class="cmuStories__story__products--items">
-				<div class="cmuStories__story__products--item col--md6" ng-repeat="product in vm.story.productsUsed">
+				<div class="cmuStories__story__products--item col--md6" ng-repeat="product in vm.productList">
 					<div class="cmuStories__story__products--name">{{ product }}</div>
 					<div class="cmuStories__story__products--links">
 						<a href="#">Product Details</a> 
@@ -79,7 +79,7 @@
 	</div>	
 
 
-	<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize"></div>	
+	<div ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize"></div>	
 
 	<div class="cmuStories__story__images row">
 		<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
@@ -96,7 +96,4 @@
 			</div>
 		</div>
 	</div>
-
-
-
 </div>

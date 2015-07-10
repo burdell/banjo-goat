@@ -4,13 +4,22 @@
 	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, storyThread, storyDefaults){
 		var ctrl = this;
 		var story = storyThread.originalMessage;
-		var storyAuthor = story.author;
-		
+		var storyAuthor = story.discussion.author;
+
+		var cover = _.find(story.media, function(mediaObj) {
+			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
+		});
+
+		debugger;
+
 		_.extend(ctrl, {
 			story: story,
+			discussion: story.discussion,
 			storyAuthor: storyAuthor,
 			comments: storyThread.comments,
 			commentData: storyThread.nextCommentMetaData,
+			productList: _.pluck(story.productsUsed, 'productKey'),
+			cover: cover,
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Forums.comments, 
 				filterArguments: [ storyThread.originalMessage.id ],
@@ -28,18 +37,13 @@
 			},
 			cancelReply: function(){
 				ctrl.replyInProgress = false;
-			}
+			},
+			notCoverPhoto: function(imageObj) {
+				return !(ctrl.cover && (ctrl.cover === imageObj));
+			},
 		});
 
-		var cover = _.where(this.story.mediaList, { isCover: true });
-		if (!cover || cover.length === 0) {
-			cover = {
-				url: storyDefaults.coverPhoto
-			}
-		}
-		ctrl.cover = cover;
-
-		breadcrumbService.setCurrentBreadcrumb(this.story.subject);
+		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
