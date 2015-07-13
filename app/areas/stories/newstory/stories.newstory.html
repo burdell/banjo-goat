@@ -1,3 +1,4 @@
+
 <div class="cmuStoriesNew row">
 
 	<div class="cmuStoriesNew__Title">
@@ -11,7 +12,7 @@
 		<div class="cmuStoriesNew__Form--subject cmuInputContainer">
 			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
 				id="{{ ::vm.placeholders.subject }}" 
-				ng-model="vm.story.subject" 
+				ng-model="vm.discussion.subject" 
 				maxlength="{{ ::vm.titleCharacterLimit }}" required />
 			<label for="{{ ::vm.placeholders.subject }}">{{ ::vm.placeholders.subject }}</label>
 		</div>
@@ -23,7 +24,7 @@
 		</div>
 		<div class="cmuStoriesNew__Form--text">
 		  <community-text-editor 
-	          ng-model="vm.story.body"
+	          ng-model="vm.discussion.body"
 	          editor-height="200"
 	          minimal-editor="true"
 	          placeholder="Tell us about your story">
@@ -40,10 +41,10 @@
 		</div>
 		<div class="cmuStoriesNew__Form--products cmuInputContainer">
 			<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
-			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.story.productsUsed">
+			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList">
 			    <ui-select-match 
 			    	placeholder="Click to add" >{{ $item.name }}</ui-select-match>
-			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.name as product in vm.productList | filter: { name: $select.search }">
+			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.name as product in vm.productData | filter: { name: $select.search }">
 			      	<li ng-bind-html="product.name | highlight: $select.search"></li>
 			    </ui-select-choices>
 			</ui-select>

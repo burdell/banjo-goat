@@ -1,16 +1,37 @@
 (function(_){
 	'use strict';
 
-	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, storyThread, storyDefaults){
+	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
 		var ctrl = this;
 		var story = storyThread.originalMessage;
-		var storyAuthor = story.author;
-		
+		var storyAuthor = story.discussion.author;
+
+		var cover = _.find(story.media, function(mediaObj) {
+			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
+		}) || { url: storyDefaults.coverPhoto };
+
+		var currentUser = currentUserService.get();
+
+
+		var refreshComments = function(){
+			communityApi.Stories.comments(story.id).then(function(result){
+				ctrl.comments = result.collection;
+
+				ctrl.comment.replyText = null;
+				ctrl.toggleCommentForm();
+			}).finally(function(){
+				ctrl.comment.submittingComment = false;
+			});
+		};
+
 		_.extend(ctrl, {
 			story: story,
+			discussion: story.discussion,
 			storyAuthor: storyAuthor,
 			comments: storyThread.comments,
 			commentData: storyThread.nextCommentMetaData,
+			productList: _.pluck(story.productsUsed, 'productKey'),
+			cover: cover,
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Forums.comments, 
 				filterArguments: [ storyThread.originalMessage.id ],
@@ -19,7 +40,7 @@
 			}),
 			showSidebar: function(){
 
-				if( story.location || story.projectRole ||  
+				if( story.location.display || story.projectRole ||  
 					story.finishDate || story.numberOfUsers ||
 					story.budgetAmount || story.dataRequirement ||
 					story.bandwidth) {
@@ -38,18 +59,29 @@
 			},
 			cancelReply: function(){
 				ctrl.replyInProgress = false;
+			},
+			notCoverPhoto: function(imageObj) {
+				return !(ctrl.cover && (ctrl.cover === imageObj));
+			},
+			submitReply: function(commentText) {
+				ctrl.comment.submittingComment = true;
+				communityApi.Stories.comments({
+					currentUserId: currentUser.id,
+					body: ctrl.comment.replyText,
+					topicId: story.id,
+					parentId: story.id
+				}).then(
+					function(result){
+						refreshComments();
+					},
+					function(){
+						ctrl.comment.submittingComment = false;
+					}
+				);
 			}
 		});
 
-		var cover = _.where(this.story.mediaList, { isCover: true });
-		if (!cover || cover.length === 0) {
-			cover = {
-				url: storyDefaults.coverPhoto
-			}
-		}
-		ctrl.cover = cover;
-
-		breadcrumbService.setCurrentBreadcrumb(this.story.subject);
+		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
@@ -61,6 +93,7 @@
 		'CommunityApiService', 
 		'CommunityBreadcrumbService',  
 		'CommunityFilterService', 
+		'CurrentUserService',
 		'StoryThread', 
 		'StoryDefaults'
 	];
