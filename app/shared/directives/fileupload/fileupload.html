@@ -1,11 +1,16 @@
-<div>
+<div class="cmuInputFile">
 	<div ng-show="!fileupload.uploadInProgress">
 		<form>
-			<input type="file" class="file-input" ng-model="fileupload.chosenFile" />
+			<!-- <input type="file" class="file-input" ng-model="fileupload.chosenFile" /> -->
+			<label class="cmuInputFile--label">
+			    <input type="file" ng-model="fileupload.chosenFile" required/>
+			    <span>Upload Photo</span>
+			</label>
 		</form>
 	</div>
 
-	<div ng-show="fileupload.uploadInProgress">
-		<span>Uploading file...</span>
+	<div class="cmuInputFile--uploading"ng-show="fileupload.uploadInProgress">
+		<span>Uploading...</span>
 	</div>
 </div>
+

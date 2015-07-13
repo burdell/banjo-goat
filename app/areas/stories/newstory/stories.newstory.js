@@ -23,12 +23,12 @@
 			subtitleWordLimit: 35,
 			productList: productService.getProductList(),
 			placeholders: {
-				subject: 'Story Title',
+				subject: 'Story title',
 				summary: 'Subtitle',
 				coverPhotoUrl: storyDefaults.coverPhoto,
 				body: 'Project description will go here. Talk about any challenges and how you overcame the obstacles.',
-				location: 'Project Location',
-				productsUsed: 'List products used in your project'
+				location: 'Project location',
+				productsUsed: 'Products mentioned'
 			},
 			storyAuthor: currentUser,
 			story: {
@@ -85,7 +85,7 @@
 					});
 			},			
 			sortConfig: {
-				handle: '.ubnt-icon--arrows-downup'
+				handle: '.cmuStoriesNew__Form--uploadItem--downup'
 			}
 		});
 	}

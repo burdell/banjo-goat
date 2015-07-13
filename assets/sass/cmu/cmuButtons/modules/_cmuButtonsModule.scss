@@ -154,7 +154,7 @@ $cmu-button-color-base: $cmu-color-blue;
 
 
 
-button, .button {
+button, .button, .cmuButton {
 	font-size: $cmu-size-xsmaller;
 	text-transform: uppercase;
 
@@ -302,9 +302,6 @@ button, .button {
 	&.button-black-on-white {
 		@include cmuButton('compound-naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
 	}
-	// &.button-white-on-black {
-	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
-	// }
 }
 
 
@@ -323,8 +320,8 @@ button, .button {
 }
 
 .button--padded {
-	padding-left: 32px;
-	padding-right: 32px;
+	padding-left: $cmu-base*2;
+	padding-right: $cmu-base*2;
  }
 
 .button--thin {
@@ -363,11 +360,26 @@ button, .button {
 			padding: 8px 5px 8px 6px;
 		}
 	}
+
+
+	&.button-white-on-green {
+		@include cmuButton('outline',$cmu-color-green,$cmu-color-white,$cmu-color-gray);
+		// border-color:
+		&:after {
+			background-color: $cmu-color-green;
+		}
+	}
 }
 
 .button--wide {
-	width: 100%
+	width: 100%;
  }
+
+.button--tall {
+	padding-top: $cmu-base/2;
+	padding-bottom: $cmu-base/2;
+ }
+
 
 // handling icons inside buttons
 .button--icon {

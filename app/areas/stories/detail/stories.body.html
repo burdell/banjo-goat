@@ -17,53 +17,44 @@
 	</div>
 
 	<div class="cmuStories__story__controlsTop--right col--md4 alignRight noPadding">
-		<button class="button--vote button--compound-naked">
+		<button class="button--vote button-white-on-green">
 			{{ vm.story.stats | extractKey : 'score' }} kudos
 		</button>
 	</div>
 </div>
 
-<div class="cmuStories__story__cover row">
-	<div class="cmuStories__story__cover--img">
-		<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
-	</div>
-	<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
-</div>
-
-
 <div class="cmuStories__story__body row">
 
-	<div class="cmuStories__story__info col--md3 noPadding">
+	<div ng-show="vm.showSidebar()" class="cmuStories__story__info col--md3 noPadding">
 		<div ng-if="vm.story.location" style="margin-bottom: 10px;">
 			<community-map class="cmuStories__story__info--map" map-coordinates="vm.story.location.coordinates"></community-map>
 			<div class="cmuStories__story__info--title">Location</div>
 			<div class="cmuStories__story__info--message">{{ vm.story.location.display }}</div>
 		</div>
-		<!-- <div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
+		<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
 		 	<label>Project Role</label>
 			<p>{{ vm.story.projectRole }}</p>
-		</div> -->
-	<!-- 	<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
+		</div>
+		<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
 			<label>Finish Date</label>
 			<p>{{ vm.story.finishDate | date }}</p>
-		</div> -->
+		</div>
 		<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
 			<label>Users in Networks</label>
 			<p>{{ vm.story.numberOfUsers }}</p>
 		</div>
-		<!-- <div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
+		<div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
 			<label>Budget</label>
 			<p>{{ vm.story.budgetAmount | currency }}</p>
 		</div>
 		<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
 			<label>Data Requirement</label>
 			<p>{{ vm.story.dataRequirement }}</p>
-		</div> -->
-		<!-- <div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
+		</div>
+		<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
 			<label>Bandwidth</label>
 			<p>{{ vm.story.bandwidth }}</p>
 		</div>
- -->
 
 		<div class="cmuStories__story__products" ng-show="vm.story.productsUsed && vm.story.productsUsed.length > 0">
 			<div class="cmuStories__story__products--title">Products Used</div>
@@ -78,6 +69,13 @@
 		</div>
 	</div>	
 
+
+	<div class="cmuStories__story__cover row" ng-class="{'col--md12' : !vm.showSidebar() , 'col--md9' : vm.showSidebar()}">
+		<div class="cmuStories__story__cover--img">
+			<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
+		</div>
+		<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
+	</div>
 
 	<div ng-bind-html="vm.story.body || vm.placeholders.body | sanitize" handle-image-error></div>	
 
