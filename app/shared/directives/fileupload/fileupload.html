@@ -1,11 +1,13 @@
 <div>
 	<div ng-show="!fileupload.uploadInProgress">
 		<form>
-			<input type="file" class="file-input" ng-model="fileupload.chosenFile" />
+			<input type="file" class="file-input" ng-model="fileupload.chosenFile" multiple />
 		</form>
 	</div>
 
-	<div ng-show="fileupload.uploadInProgress">
-		<span>Uploading file...</span>
+	<div>
+		<div ng-repeat="upload in fileupload.uploadingItems">
+			<h6>Uploading {{ upload.name }}...</h6>
+		</div>
 	</div>
 </div>

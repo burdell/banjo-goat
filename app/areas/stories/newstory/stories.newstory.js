@@ -35,6 +35,12 @@
 				currentUserId: currentUser.id,
 				media: mediaList
 			},
+			discussion: {
+			    "subject": "",
+			    "body": ""
+		    },
+		    productList: [],
+		    productData: productService.getProductList(),
 			addPhoto: _.bind(function(result){
 				var fileData = result;
 				updateMediaList({
@@ -76,7 +82,8 @@
 			postStory: function(){
 				ctrl.isPublishing = true;
 
-				communityApi.Stories.story(ctrl.story).then(
+				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
+				communityApi.Stories.story(story).then(
 					function(result){
 						
 					},
