@@ -12,6 +12,10 @@
 
 		var mediaList = [];
 		var updateMediaList = function(data){
+			if (data.type === 'image' && mediaList.length === 0) {
+				ctrl.setCoverPhoto(data);
+			}
+			
 			mediaList.push(data);
 		};
 
@@ -56,9 +60,6 @@
 					type: 'image'
 				};
 
-				if (mediaList.length === 0) {
-					ctrl.setCoverPhoto(imageObj);
-				}
 				updateMediaList(imageObj);
 			}, ctrl),
 			deletePhoto: function(photoIndex) {
