@@ -6,14 +6,14 @@
 					<h4>Tell Your Story, {{ vm.story.author.login }}</h4>
 				</div>
 				<div>
-					<input class="appIconInput__input" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
+					<input class="appIconInput__input" ng-model="vm.discussion.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
 				</div>
 				<div>
 					<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
 				</div>
 				<div>
 				  <community-text-editor 
-			          ng-model="vm.story.body"
+			          ng-model="vm.discussion.body"
 			          editor-height="300"
 			          minimal-editor="true">
 			        </community-text-editor>
@@ -26,9 +26,9 @@
 				</div>
 				<div>
 					<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
-					<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.story.productsUsed">
+					<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.productList">
 					    <ui-select-match placeholder="{{ ::vm.placeholders.productsUsed }}">{{ $item.name }}</ui-select-match>
-					    <ui-select-choices repeat="product.name as product in vm.productList | filter: { name: $select.search }">
+					    <ui-select-choices repeat="product.name as product in vm.productData | filter: { name: $select.search }">
 					      	<span ng-bind-html="product.name | highlight: $select.search"></span>
 					    </ui-select-choices>
 					</ui-select>
@@ -47,7 +47,7 @@
 						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
 					</div>
 
-					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
+					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList">
 						<div ng-repeat="mediaUpload in vm.story.media">
 							<div>
 								<div>

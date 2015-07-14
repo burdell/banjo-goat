@@ -1,9 +1,9 @@
 
 <div>
 	<div class="row row--comfy">
-			<community-text-editor ng-model="vm.replyText" minimal-editor="true"></community-text-editor>
+			<community-text-editor ng-model="vm.comment.replyText" minimal-editor="true"></community-text-editor>
 	</div>
-	<div>
+	<div ng-show="!vm.comment.submittingComment">
 		<button 
 			class="button-ghost button-white-blue" 
 			ng-click="vm.cancelReply()">
@@ -14,6 +14,9 @@
 			ng-click="vm.submitReply()">
 				Submit Comment
 		</button>
+	</div>
+	<div ng-show="vm.comment.submittingComment">
+		<button disabled>Submitting Comment...</button>
 	</div>
 </div>
 

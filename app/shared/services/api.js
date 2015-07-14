@@ -45,18 +45,20 @@
 			);
 		}
 
-		function getCallType(callData) {
+		function getCallType(callData, params) {
 			var id, payload, verb;
-
+			
 			//POST
 			if (_.isObject(callData)) {
-				payload = callData;
 				verb = 'POST';
+				payload = callData;
+				id = callData.id;
 			} 
 			//GET
 			else {
-				id = callData;
+				payload = params;
 				verb = 'GET';
+				id = callData;
 			}
 
 			return {
@@ -75,13 +77,19 @@
 			User: function(id) {
 				return 'users/' + id + '/';
 			},
-			Message: function(id) {
+			Story: function(id) {
+				return 'stories/' + this._Message(id);
+			},
+			Forum: function(id) {
+				return 'forums/'  + this._Message(id);
+			},
+			_Message: function(id) {
 				var urlString = 'topics/';
 				if (id) {
 					urlString += id + '/';
 				}
 				return urlString;
-			}
+			},
 		};
 
 		// ****** API DEFINITION ******
@@ -101,18 +109,18 @@
 				}
 			},
 			Forums: {
-				message: function(messageData, mock) {
-					var callData = getCallType(messageData);
-					return goToApi(baseUrl + 'forums/' + urlSegments.Message(callData.id), callData.payload, callData.verb);
-				},
 				messages: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				},
-				messageCount: function(nodeId) {
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics/count', null, "GET");
+				message: function(messageData, mock) {
+					var callData = getCallType(messageData);
+					return goToApi(baseUrl + urlSegments.Forum(callData.id), callData.payload, callData.verb);
 				},
 				comments: function(messageId, data) {
-					return goToApi(baseUrl + 'forums/' + urlSegments.Message(messageId) + 'comments', data);
+					return goToApi(baseUrl + urlSegments.Forum(messageId) + 'comments', data);
+				},
+				messageCount: function(nodeId) {
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics/count', null, "GET");
 				},
 				stats: function(nodeId, data) {
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stats');
@@ -141,43 +149,18 @@
 				},
 				story: function(storyData) {
 					var callData = getCallType(storyData);
-					return goToApi(baseUrl + 'forums/' + urlSegments.Message(callData.id), callData.payload, callData.verb).then(function(result){
-						_.extend(result.model, { 
-							summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." ,
-							location: 'Atlanta, GA',
-							projectRole: 'Engineer',
-							finishDate: "2013-08-21T11:33:28.000-04:00",
-							numberofUsers: 200,
-							budgetAmount: 50000,
-							numberOfWorkers: 4,							
-							dataRequirement: "{data}",
-							bandwidth: "{bandwidth}",
-							coverPhotoUrl: "http://thecatapi.com/api/images/get?format=src",
-							location: {
-								display: 'Atlanta, GA, USA',
-								coordinates: {
-									lat: 65.93364,
-									lng: 61.17582
-								}
-							},
-							productsUsed: ['airMAX', 'UniFi']
-						});
 
-						return result;
-					});
+					return goToApi(baseUrl + urlSegments.Story(callData.id), callData.payload, callData.verb);
+				},
+				comments: function(storyData, params) {
+					var callData = getCallType(storyData, params);
+
+					var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
+					return goToApi(baseUrl + urlSegments.Story(id) + 'comments', callData.payload, callData.verb);
 				},
 				stories: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
-				},
-				comments: function(storyId, data) {
-					return goToApi(baseUrl + 'forums/' + urlSegments.Message(storyId) + 'comments', data).then(function(result) {
-						_.each(result.collection, function(message){
-							_.extend(message, { summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." })
-						});
-
-						return result;
-					})
-				},
+				}
 			},
 			Media: {
 				upload: function(fileData){
