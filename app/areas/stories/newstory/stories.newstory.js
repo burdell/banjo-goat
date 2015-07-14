@@ -20,7 +20,7 @@
 		};
 
 		var currentUser = currentUserService.get();
-
+		
 		_.extend(ctrl, {
 			hideStoryControls: true,
 			titleCharacterLimit: 140,
@@ -100,7 +100,7 @@
 			},
 			postStory: function(){
 				ctrl.isPublishing = true;
-
+				debugger;
 				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
 				communityApi.Stories.story(story).then(
 					function(result){

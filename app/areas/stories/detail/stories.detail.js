@@ -16,6 +16,7 @@
 		var refreshComments = function(){
 			communityApi.Stories.comments(story.id).then(function(result){
 				ctrl.comments = result.collection;
+				ctrl.commentData = result.next;
 
 				ctrl.comment.replyText = null;
 				ctrl.toggleCommentForm();
@@ -23,7 +24,7 @@
 				ctrl.comment.submittingComment = false;
 			});
 		};
-
+		
 		_.extend(ctrl, {
 			story: story,
 			discussion: story.discussion,
