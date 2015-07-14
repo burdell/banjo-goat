@@ -38,16 +38,6 @@
 				persistFilterModel: false,
 				setInitialData: false
 			}),
-			showSidebar: function(){
-
-				if( story.location.display || story.projectRole ||  
-					story.finishDate || story.numberOfUsers ||
-					story.budgetAmount || story.dataRequirement ||
-					story.bandwidth) {
-					return true;
-				}
-				return false;
-			},
 			toggleCommentForm: function(scroll) {
 				ctrl.replyInProgress = !ctrl.replyInProgress;
 

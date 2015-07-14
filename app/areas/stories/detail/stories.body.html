@@ -25,65 +25,31 @@
 
 <div class="cmuStories__story__body row">
 
-	<div ng-show="vm.showSidebar()" class="cmuStories__story__info col--md3 noPadding">
-		<div ng-if="vm.story.location.display">
-			<community-map class="cmuStories__story__info--map" map-coordinates="vm.story.location.coordinates"></community-map>
-			<div class="cmuStories__story__info--title">Location</div>
-			<div class="cmuStories__story__info--message">{{ vm.story.location.display }}</div>
-		</div>
-		<div ng-if="vm.story.projectRole" style="margin-bottom: 10px;">
-		 	<label>Project Role</label>
-			<p>{{ vm.story.projectRole }}</p>
-		</div>
-		<div ng-if="vm.story.finishDate" style="margin-bottom: 10px;">
-			<label>Finish Date</label>
-			<p>{{ vm.story.finishDate | date }}</p>
-		</div>
-		<div ng-if="vm.story.numberOfUsers" style="margin-bottom: 10px;">
-			<label>Users in Networks</label>
-			<p>{{ vm.story.numberOfUsers }}</p>
-		</div>
-		<div ng-if="vm.story.budgetAmount" style="margin-bottom: 10px;">
-			<label>Budget</label>
-			<p>{{ vm.story.budgetAmount | currency }}</p>
-		</div>
-		<div ng-if="vm.story.dataRequirement" style="margin-bottom: 10px;">
-			<label>Data Requirement</label>
-			<p>{{ vm.story.dataRequirement }}</p>
-		</div>
-		<div ng-if="vm.story.bandwidth" style="margin-bottom: 10px;">
-			<label>Bandwidth</label>
-			<p>{{ vm.story.bandwidth }}</p>
+	<div class="cmuStories__story__body__main"
+		ng-class="{'col--md9' : 
+			(vm.story.location.display || vm.story.projectRole ||  
+				vm.story.finishDate || vm.story.numberOfUsers ||
+				vm.story.budgetAmount || vm.story.dataRequirement ||
+				vm.story.bandwidth ||
+				(vm.productList && vm.productList.length > 0)
+			)}">
+
+		<div class="cmuStories__story__cover">
+			<div class="cmuStories__story__cover--img">
+				<!-- <img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}"> -->
+
+				<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
+			</div>
+			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
-		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
-			<div class="cmuStories__story__products--title">Products Used</div>
-			<div class="cmuStories__story__products--items">
-				<div class="cmuStories__story__products--item col--md6" ng-repeat="product in vm.productList">
-					<div class="cmuStories__story__products--name">{{ product }}</div>
-					<div class="cmuStories__story__products--links">
-						<a href="#">Product Details</a> 
-					</div>
+		<div class="cmuStories__story__body"ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
+
+		<div class="cmuStories__story__images">
+			<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
+				<div ng-if="mediaUpload.type === 'image'">
+					<img ng-src="{{ mediaUpload.url }}" >
 				</div>
-			</div>
-		</div>
-	</div>	
-
-
-	<div class="cmuStories__story__cover row" ng-class="{'col--md12' : !vm.showSidebar() , 'col--md9' : vm.showSidebar()}">
-		<div class="cmuStories__story__cover--img">
-			<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
-		</div>
-		<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
-	</div>
-
-	<div ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
-
-	<div class="cmuStories__story__images row">
-		<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
-			<div ng-if="mediaUpload.type === 'image'">
-				<img ng-src="{{ mediaUpload.url }}" >
-			</div>
 
 				<div ng-if="mediaUpload.type === 'video'">
 					<h5 ng-bind="mediaUpload.meta.title"></h5>
@@ -94,4 +60,48 @@
 			</div>
 		</div>
 	</div>
+	<div class="cmuStories__story__info col--md3">
+		<div ng-if="vm.story.location.display">
+			<community-map class="cmuStories__story__info--map" map-coordinates="vm.story.location.coordinates"></community-map>
+			<div class="cmuStories__story__info--title">Location</div>
+			<div class="cmuStories__story__info--map-location">{{ vm.story.location.display }}</div>
+		</div>
+		<div ng-if="vm.story.projectRole">
+		 	<label>Project Role</label>
+			<p>{{ vm.story.projectRole }}</p>
+		</div>
+		<div ng-if="vm.story.finishDate">
+			<label>Finish Date</label>
+			<p>{{ vm.story.finishDate | date }}</p>
+		</div>
+		<div ng-if="vm.story.numberOfUsers">
+			<label>Users in Networks</label>
+			<p>{{ vm.story.numberOfUsers }}</p>
+		</div>
+		<div ng-if="vm.story.budgetAmount">
+			<label>Budget</label>
+			<p>{{ vm.story.budgetAmount | currency }}</p>
+		</div>
+		<div ng-if="vm.story.dataRequirement">
+			<label>Data Requirement</label>
+			<p>{{ vm.story.dataRequirement }}</p>
+		</div>
+		<div ng-if="vm.story.bandwidth">
+			<label>Bandwidth</label>
+			<p>{{ vm.story.bandwidth }}</p>
+		</div>
+
+		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
+			<div class="cmuStories__story__products--title">Products Used</div>
+			<div class="cmuStories__story__products--items">
+				<div class="cmuStories__story__products--item col--md12 noPadding" ng-repeat="product in vm.productList">
+					<div class="cmuStories__story__products--name">{{ product }}</div>
+					<div class="cmuStories__story__products--links">
+						<a href="#">Product Details</a> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
 </div>

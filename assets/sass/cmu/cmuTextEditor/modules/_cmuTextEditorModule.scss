@@ -14,4 +14,15 @@
 	iframe html{
 		// does nothing:  content_css.css affects the interior of the editor
 	}
+
+	@include cmu-placeholder {
+  		color: $cmu-color-black;
+   	}
+
+   	label {
+   		color: $cmu-color-ltgray;
+   		font-size: 13px;
+   		@extend %cmu-lato;
+   		margin-left: 4px;
+   	}
 }

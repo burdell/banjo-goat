@@ -16,6 +16,9 @@
 	padding-top: $cmu-base/2;
  	padding-left: 0;
  	padding-right: 1rem;
+ 	@include respondTo(xlarge-up) {
+ 		max-width: 410px;
+	}
 
 }
 	.cmuStoriesNew__Form--title {
@@ -31,6 +34,10 @@
 	border: 1px solid $cmu-color-ltgray;
 	background-color: $cmu-color-purewhite;
  	padding: 8px 21px;
+
+ 	@include respondTo(xlarge-up) {
+    	width: calc(100% - 410px) !important;
+	}
 }
 
 	.cmuStoriesNew__Preview--intro {
@@ -84,6 +91,7 @@
 	// padding-left: $cmu-base;
 	margin-bottom: $cmu-base;
 	position: relative;
+	width: 100%;
 
 	// being dragged
 	&.sortable-ghost {
@@ -91,10 +99,11 @@
 }
 	// preview image
 	.cmuStoriesNew__Form__uploadItem--preview {
-		width: 249px;
+		// width: 249px;
 		height: 120px;
 		background-position: center;
 		background-size: contain;
+		width: 100%;
 	}
 
 	.cmuStoriesNew__Form--uploadItem--downup {
@@ -102,14 +111,15 @@
 		vertical-align: middle;
 		padding: 0 $cmu-base/2;
 		background-color: $cmu-color-white;
-		// border-left: 1px dashed $cmu-color-gray;
+		width: 100%;
+		text-align: center;
 		cursor: move;
 		@extend %ease-fast;
 		&+span {
 			// usability thing- describe how to drag / reposition
 			&:before {
 				content: ' DRAG TO REPOSITION ';
-				width: calc(100% - 2rem + 2px);
+				width: calc(100% - 29px);
 				height: 100%;
 				text-align: center;
 				top: 0;
@@ -141,6 +151,7 @@
 		display: table-cell;
 		vertical-align: middle;
 		padding-bottom: $cmu-base/2;
+		width: 100%;
 	}
 
 	.cmuStoriesNew__Form--uploadItem--caption {
@@ -191,6 +202,12 @@
 			}
 		}
 	}
+		.cmuStoriesNew__Form__uploadItem--preview {
+			background-position: center;
+			background-repeat: no-repeat;
+			left: 0px;
+			background-size: cover;
+		}
 		.cmuStoriesNew__Form--cover--hide {
 			display: none !important;
 		}

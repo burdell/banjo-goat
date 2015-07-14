@@ -6677,6 +6677,10 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
+.cmuTextEditor label {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
 .cmuUserbadge__status__op:after, .cmuUserbadge__gameInfo {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
@@ -8289,6 +8293,23 @@ button .icon, .button .icon {
 .cmuTextEditor {
   cursor: text;
 }
+.cmuTextEditor::-webkit-input-placeholder {
+  color: black;
+}
+.cmuTextEditor:-moz-placeholder {
+  color: black;
+}
+.cmuTextEditor::-moz-placeholder {
+  color: black;
+}
+.cmuTextEditor:-ms-input-placeholder {
+  color: black;
+}
+.cmuTextEditor label {
+  color: #ebebeb;
+  font-size: 13px;
+  margin-left: 4px;
+}
 
 .cmuDiscussionsHeaderRow {
   border-bottom: 2px solid black;
@@ -8726,7 +8747,7 @@ button .icon, .button .icon {
 }
 
 .cmuStories__story__controlsTop {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 
@@ -8762,27 +8783,42 @@ button .icon, .button .icon {
 
 .cmuStories__story__cover .cmuStories__story__cover--img {
   text-align: center;
-  background-color: #ebebeb;
   margin-bottom: 1rem;
 }
-.cmuStories__story__cover .cmuStories__story__cover--img img {
-  max-height: 400px;
+.cmuStories__story__cover .cmuStories__story__cover--default {
+  background-position: center !important;
 }
 
 .cmuStories__story__info {
-  float: right;
+  padding-left: 1rem;
+}
+.cmuStories__story__info > div {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__info label {
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
 }
 
 .cmuStories__story__info--map {
+  margin-bottom: 0.5rem;
+}
+
+.cmuStories__story__info--map-location {
   margin-bottom: 1rem;
 }
 
 .cmuStories__story__info--title {
-  font-weight: 700;
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
 }
 
 .cmuStories__story__products--title {
-  font-weight: 700;
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
@@ -8805,6 +8841,14 @@ button .icon, .button .icon {
   margin-top: 4px;
 }
 
+.cmuStories__story__body {
+  margin-bottom: 1rem;
+}
+
+.cmuStories__story__images > div {
+  margin-bottom: 1rem;
+}
+
 .cmuStoriesNew__Title, .cmuStoriesNew__Form--title {
   font-size: 16px;
   margin-bottom: 0.5rem;
@@ -8815,6 +8859,11 @@ button .icon, .button .icon {
   padding-left: 0;
   padding-right: 1rem;
 }
+@media only screen and (min-width: 1441px) {
+  .cmuStoriesNew__Form {
+    max-width: 410px;
+  }
+}
 
 .cmuStoriesNew__Form--intro {
   padding-bottom: 0.5rem;
@@ -8824,6 +8873,11 @@ button .icon, .button .icon {
   border: 1px solid #ebebeb;
   background-color: white;
   padding: 8px 21px;
+}
+@media only screen and (min-width: 1441px) {
+  .cmuStoriesNew__Preview {
+    width: calc(100% - 410px) !important;
+  }
 }
 
 .cmuStoriesNew__Preview--intro {
@@ -8863,13 +8917,14 @@ button .icon, .button .icon {
   border: 1px solid #969ba3;
   margin-bottom: 1rem;
   position: relative;
+  width: 100%;
 }
 
 .cmuStoriesNew__Form__uploadItem--preview {
-  width: 249px;
   height: 120px;
   background-position: center;
   background-size: contain;
+  width: 100%;
 }
 
 .cmuStoriesNew__Form--uploadItem--downup {
@@ -8877,11 +8932,13 @@ button .icon, .button .icon {
   vertical-align: middle;
   padding: 0 0.5rem;
   background-color: #fafafa;
+  width: 100%;
+  text-align: center;
   cursor: move;
 }
 .cmuStoriesNew__Form--uploadItem--downup + span:before {
   content: ' DRAG TO REPOSITION ';
-  width: calc(100% - 2rem + 2px);
+  width: calc(100% - 29px);
   height: 100%;
   text-align: center;
   top: 0;
@@ -8906,6 +8963,7 @@ button .icon, .button .icon {
   display: table-cell;
   vertical-align: middle;
   padding-bottom: 0.5rem;
+  width: 100%;
 }
 
 .cmuStoriesNew__Form--uploadItem--caption {
@@ -8947,6 +9005,13 @@ button .icon, .button .icon {
 .cmuStoriesNew__Form--cover .icon:before {
   position: relative;
   top: 3px;
+}
+
+.cmuStoriesNew__Form__uploadItem--preview {
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0px;
+  background-size: cover;
 }
 
 .cmuStoriesNew__Form--cover--hide {
