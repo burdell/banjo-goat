@@ -274,17 +274,18 @@
 .cmuStories__story__imageContainer {
 	margin-bottom: $cmu-base;
 
-	@include respondTo(medium-up) {
-		-webkit-columns: 2 200px;
-		 -moz-columns: 2 200px;
-		      columns: 2 200px;
-		-webkit-column-gap: 4em;
-		 -moz-column-gap: 4em;
-		      column-gap: 4em;
-		-webkit-column-rule: 1px solid $cmu-color-ltgray;
-		 -moz-column-rule: 1px solid $cmu-color-ltgray;
-		      column-rule: 1px solid $cmu-color-ltgray;
-
+	&.break-columns {
+		@include respondTo(medium-up) {
+			-webkit-columns: 2 200px;
+			 -moz-columns: 2 200px;
+			      columns: 2 200px;
+			-webkit-column-gap: 4em;
+			 -moz-column-gap: 4em;
+			      column-gap: 4em;
+			-webkit-column-rule: 1px solid $cmu-color-ltgray;
+			 -moz-column-rule: 1px solid $cmu-color-ltgray;
+			      column-rule: 1px solid $cmu-color-ltgray;
+		}
 	}
           
 	.cmuStories__story__mediaItem {
@@ -295,6 +296,10 @@
 	}
 	.cmuStories__story__mediaItem__caption {
 		margin-bottom: 1rem;
+	}
+
+	.cmuStories__story__mediaItem__vidContainer--title {
+
 	}
 }
 

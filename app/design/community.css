@@ -8797,7 +8797,7 @@ button .icon, .button .icon {
   margin-bottom: 1rem;
 }
 @media only screen and (min-width: 801px) {
-  .cmuStories__story__imageContainer {
+  .cmuStories__story__imageContainer.break-columns {
     -webkit-columns: 2 200px;
     -moz-columns: 2 200px;
     columns: 2 200px;
