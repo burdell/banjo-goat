@@ -21,11 +21,16 @@
 
 					return {
 						meta: {
-							videoId: videoData.id,
-							title: snippet.title,
-							source: 'youtube'
+							videoId: {
+								key: 'videoId',
+								value: videoData.id,
+							},
+							title: {
+								key: 'title',
+								value: snippet.title,
+							}
 						},
-						type: 'video',
+						type: 'video:youtube',
 						url: snippet.thumbnails.medium.url,
 					}
 				});
@@ -54,11 +59,16 @@
 
 					return {
 						meta: {
-							videoId: videoId,
-							title: videoData.name,
-							source: 'vimeo'
+							videoId: {
+								key: 'videoId',
+								value: videoId,
+							},
+							title: {
+								key: 'title',
+								value: videoData.name,
+							}
 						},
-						type: 'video',
+						type: 'video:vimeo',
 						url: videoData.pictures.sizes[2].link
 					};
 				});
@@ -112,6 +122,11 @@
 			MediaTypes: {
 				'image': 1,
 				'video': 2
+			},
+			isVideo: function(mediaObj) {
+				var type = mediaObj.type;
+
+				return type === 'video:youtube' || type === 'video:vimeo';
 			}
 		};
 	};

@@ -49,10 +49,10 @@
 					<img ng-src="{{ mediaUpload.url }}" >
 				</div>
 
-				<div class="cmuStories__story__mediaItem__vidContainer" ng-if="mediaUpload.type === 'video'">
+				<div class="cmuStories__story__mediaItem__vidContainer" ng-if="vm.isVideo(mediaUpload)">
 					<!-- <div class="cmuStories__story__mediaItem__vidContainer--title" ng-bind="mediaUpload.meta.title"></div> -->
 					<div class="cmuStories__story__mediaItem__vidContainer--video">
-						<community-video-embed video-id="mediaUpload.meta.videoId" video-source="mediaUpload.meta.source"></community-video-embed>
+						<community-video-embed video-id="mediaUpload.meta.videoId.value" video-type="mediaUpload.type"></community-video-embed>
 					</div>
 				</div>
 

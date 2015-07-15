@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
+	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, mediaService, currentUserService, storyThread, storyDefaults){
 		var ctrl = this;
 		var story = storyThread.originalMessage;
 		var storyAuthor = story.discussion.author;
@@ -69,7 +69,8 @@
 						ctrl.comment.submittingComment = false;
 					}
 				);
-			}
+			},
+			isVideo: mediaService.isVideo
 		});
 
 		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
@@ -84,6 +85,7 @@
 		'CommunityApiService', 
 		'CommunityBreadcrumbService',  
 		'CommunityFilterService', 
+		'CommunityMediaService',
 		'CurrentUserService',
 		'StoryThread', 
 		'StoryDefaults'

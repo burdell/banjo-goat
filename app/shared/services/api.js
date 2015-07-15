@@ -159,7 +159,9 @@
 					return goToApi(baseUrl + urlSegments.Story(id) + 'comments', callData.payload, callData.verb);
 				},
 				stories: function(nodeId, data){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data).then(function(result){
+						return result;
+					});
 				}
 			},
 			Media: {

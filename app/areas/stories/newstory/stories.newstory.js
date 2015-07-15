@@ -139,7 +139,8 @@
 			},			
 			sortConfig: {
 				handle: '.cmuStoriesNew__Form--uploadItem--downup'
-			}
+			},
+			isVideo: mediaService.isVideo
 		});
 	}
 	NewStoryController.$inject = [

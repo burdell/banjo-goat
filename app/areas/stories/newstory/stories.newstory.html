@@ -79,11 +79,11 @@
 								ng-model="mediaUpload.caption" required />
 							<label for="addACaption">Caption</label>
 						</div>
-						<div class="cmuStoriesNew__Form--uploadItem--title">{{ mediaUpload.meta.title }}</div>
+						<div class="cmuStoriesNew__Form--uploadItem--title">{{ mediaUpload.meta.title.value }}</div>
 						<div class="
 							cmuStoriesNew__Form--uploadItem--url">{{ mediaUpload.url }}</div>
 						<div class="cmuStoriesNew__Form--uploadItem--controls">
-							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</span><span class="cmuStoriesNew__Form--uploadItem--controls--setCoverVideo"ng-show="mediaUpload.type == 'video'">Unavailable As Cover</span>
+							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="!vm.isVideo(mediaUpload) && vm.notCoverPhoto(mediaUpload)">Set As Cover</span><span class="cmuStoriesNew__Form--uploadItem--controls--setCoverVideo" ng-show="vm.isVideo(mediaUpload)">Unavailable As Cover</span>
 							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</span>
 							<span class="cmuStoriesNew__Form--uploadItem--controls--delete" ng-click="vm.deletePhoto($index)"><span class="icon ubnt-icon--x"></span>Delete</span>
 						</div>
