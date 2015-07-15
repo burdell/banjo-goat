@@ -22,7 +22,8 @@
 					return {
 						meta: {
 							videoId: videoData.id,
-							title: snippet.title
+							title: snippet.title,
+							source: 'youtube'
 						},
 						type: 'video',
 						url: snippet.thumbnails.medium.url,
@@ -54,7 +55,8 @@
 					return {
 						meta: {
 							videoId: videoId,
-							title: videoData.name
+							title: videoData.name,
+							source: 'vimeo'
 						},
 						type: 'video',
 						url: videoData.pictures.sizes[2].link
@@ -64,7 +66,6 @@
 			},
 			_getVideoId: function(url) {
 				var regExp = /^.*(?:vimeo.com)\/(?:channels\/|channels\/\w+\/|groups\/[^\/]*\/videos\/|album‌​\/\d+\/video\/|video\/|)(\d+)(?:$|\/|\?)/
-				debugger;
 				var match = url.match(regExp);
 
 				if (match){
