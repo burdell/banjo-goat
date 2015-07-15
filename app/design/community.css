@@ -8185,7 +8185,7 @@ button .icon, .button .icon {
   border-color: #969ba3;
   cursor: wait;
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 !important;
   padding: 0.33333rem 1rem;
 }
 .cmuInputFile--uploading:hover {
@@ -8744,6 +8744,8 @@ button .icon, .button .icon {
   font-size: 1.1rem;
   line-height: 1.6rem;
   color: #969ba3;
+  margin-bottom: 1rem;
+  font-weight: 300;
 }
 
 .cmuStories__story__controlsTop {
@@ -8781,12 +8783,19 @@ button .icon, .button .icon {
   padding: 0 4px;
 }
 
-.cmuStories__story__cover .cmuStories__story__cover--img {
-  text-align: center;
+.cmuStories__story__cover {
   margin-bottom: 1rem;
 }
-.cmuStories__story__cover .cmuStories__story__cover--default {
-  background-position: center !important;
+.cmuStories__story__cover .cmuStories__story__cover--img {
+  text-align: left;
+}
+.cmuStories__story__cover .cmuStories__story__cover--img img {
+  width: 100%;
+}
+.cmuStories__story__cover .cmuStories__story__cover--caption {
+  font-size: 11px;
+  color: #474b52;
+  font-style: italic;
 }
 
 .cmuStories__story__info {
@@ -8844,8 +8853,41 @@ button .icon, .button .icon {
 .cmuStories__story__body {
   margin-bottom: 1rem;
 }
+.cmuStories__story__body p {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__body > ol {
+  margin-top: 1rem;
+}
+.cmuStories__story__body ul, .cmuStories__story__body ol {
+  list-style-position: inside;
+}
+.cmuStories__story__body ul ul, .cmuStories__story__body ol ul {
+  margin-left: 1rem;
+}
 
-.cmuStories__story__images > div {
+.cmuStories__story__imageContainer {
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 801px) {
+  .cmuStories__story__imageContainer {
+    -webkit-columns: 2 200px;
+    -moz-columns: 2 200px;
+    columns: 2 200px;
+    -webkit-column-gap: 4em;
+    -moz-column-gap: 4em;
+    column-gap: 4em;
+    -webkit-column-rule: 1px solid #ebebeb;
+    -moz-column-rule: 1px solid #ebebeb;
+    column-rule: 1px solid #ebebeb;
+  }
+}
+.cmuStories__story__imageContainer .cmuStories__story__mediaItem {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.cmuStories__story__imageContainer .cmuStories__story__mediaItem__caption {
   margin-bottom: 1rem;
 }
 
@@ -8855,6 +8897,7 @@ button .icon, .button .icon {
 }
 
 .cmuStoriesNew__Form {
+  overflow: hidden;
   padding-top: 0.5rem;
   padding-left: 0;
   padding-right: 1rem;

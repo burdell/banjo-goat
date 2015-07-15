@@ -16,6 +16,15 @@
 		};
 
 		var currentUser = currentUserService.get();
+/*
+There’s a reason that photos get 53% more likes on Facebook than any other type of post.  People love to see your adventures.  Go ahead and make them envious by adding your favorite pictures to every travel story you write.
+Not sure which photos to add? Pick the ones that show you in action or include an incredible view
+Don’t be afraid of details.
+Post screenshots and details. We love that stuff
+Narrative reels us in.
+Everyone loves a good story. Try your hand at being a National Geographic reporter and tell us something interesting that happened to you. Use action verbs, lots of adjectives and let your personality shine through your work.
+Often, the best travel stories are how you resolved an issue, language barriers or miscommunications with reservations. Try to stay away from blaming and negativity. Stick to fun, funny stuff that describes your emotions.
+*/
 
 		_.extend(ctrl, {
 			hideStoryControls: true,
@@ -25,7 +34,32 @@
 				subject: 'Story title',
 				summary: 'Subtitle',
 				coverPhotoUrl: storyDefaults.coverPhoto,
-				body: 'Project description will go here. Talk about any challenges and how you overcame the obstacles.',
+				body: '<div>Your story will appear here.</div>\
+				Tips to writing a great story:\
+					<ol>\
+						<li><strong>Great titles grabs attention</strong>\
+							<ul>\
+								<li>Use short, engaging, inspiring, titles</li>\
+								<li><em>Ex: "How mFi saved me another HUGE mess on the farm."</em></li>\
+								<li><em>Ex: "The shed caught on fire... and the airFiber still works."</em></li>\
+							</ul>\
+						</li>\
+						<li><strong>Add photos!</strong>\
+							<ul>\
+								<li>Beautiful, inspiring, or interesting images get more viewers</li>\
+								<li>Photos of equipment, environments and screenshots help illustrate the story</li>\
+								<li>Set your best image as the cover photo</li>\
+							</ul>\
+						</li>\
+						<li><strong>Everyone loves a good story</strong>\
+							<ul>\
+								<li>Give us some details: What did you see? What did you set out to do? What were some challenges? </li>\
+								<li>How did you resolve your issues, or overcome your obstacles? What was your solution?</li>\
+								<li>What did you learn?</li>\
+							</ul>\
+						</li>\
+					</ol>\
+					',
 				location: 'Project location',
 				productsUsed: 'Products mentioned'
 			},
@@ -101,7 +135,7 @@
 				ctrl.isPublishing = true;
 
 				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
-				console.log(story);
+
 				communityApi.Stories.story(story).then(
 					function(result){
 						$state.go('stories.detail', { storyId: result.model.id });		

@@ -27,36 +27,34 @@
 
 	<div class="cmuStories__story__body__main"
 		ng-class="{'col--md9' : 
-			(vm.story.location.display || vm.story.projectRole ||  
-				vm.story.finishDate || vm.story.numberOfUsers ||
-				vm.story.budgetAmount || vm.story.dataRequirement ||
-				vm.story.bandwidth ||
+			(vm.story.location.display || vm.story.meta.projectRole ||  
+				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
+				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
+				vm.story.meta.bandwidth ||
 				(vm.productList && vm.productList.length > 0)
 			)}">
 
 		<div class="cmuStories__story__cover">
 			<div class="cmuStories__story__cover--img">
-				<!-- <img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}"> -->
-
 				<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
+				<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 			</div>
-			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
-		<div class="cmuStories__story__body"ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
+		<div class="cmuStories__story__body" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
 
-		<div class="cmuStories__story__images">
-			<div ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
-				<div ng-if="mediaUpload.type === 'image'">
+		<div class="cmuStories__story__imageContainer">
+			<div class="cmuStories__story__mediaItem" ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
+				<div class="cmuStories__story__mediaItem__imgContainer" ng-if="mediaUpload.type === 'image'">
 					<img ng-src="{{ mediaUpload.url }}" >
 				</div>
 
-				<div ng-if="mediaUpload.type === 'video'">
-					<h5 ng-bind="mediaUpload.meta.title"></h5>
-					<div community-video-embed video-id="mediaUpload.meta.videoId"></div>
+				<div class="cmuStories__story__mediaItem__vidContainer" ng-if="mediaUpload.type === 'video'">
+					<div class="cmuStories__story__mediaItem__vidContainer--title" ng-bind="mediaUpload.meta.title"></div>
+					<div class="cmuStories__story__mediaItem__vidContainer--video" community-video-embed video-id="mediaUpload.meta.videoId"></div>
 				</div>
 
-				<h6 ng-bind="mediaUpload.caption"></h6>
+				<div class="cmuStories__story__mediaItem__caption" ng-show="mediaUpload.caption" ng-bind="mediaUpload.caption"></div>
 			</div>
 		</div>
 	</div>
@@ -66,29 +64,29 @@
 			<div class="cmuStories__story__info--title">Location</div>
 			<div class="cmuStories__story__info--map-location">{{ vm.story.location.display }}</div>
 		</div>
-		<div ng-if="vm.story.projectRole">
+		<div ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>
-			<p>{{ vm.story.projectRole }}</p>
+			<p>{{ vm.story.meta.projectRole }}</p>
 		</div>
-		<div ng-if="vm.story.finishDate">
+		<div ng-if="vm.story.meta.finishDate">
 			<label>Finish Date</label>
-			<p>{{ vm.story.finishDate | date }}</p>
+			<p>{{ vm.story.meta.finishDate | date }}</p>
 		</div>
-		<div ng-if="vm.story.numberOfUsers">
+		<div ng-if="vm.story.meta.numberOfUsers">
 			<label>Users in Networks</label>
-			<p>{{ vm.story.numberOfUsers }}</p>
+			<p>{{ vm.story.meta.numberOfUsers }}</p>
 		</div>
-		<div ng-if="vm.story.budgetAmount">
+		<div ng-if="vm.story.meta.budgetAmount">
 			<label>Budget</label>
-			<p>{{ vm.story.budgetAmount | currency }}</p>
+			<p>{{ vm.story.meta.budgetAmount | currency }}</p>
 		</div>
-		<div ng-if="vm.story.dataRequirement">
+		<div ng-if="vm.story.meta.dataRequirement">
 			<label>Data Requirement</label>
-			<p>{{ vm.story.dataRequirement }}</p>
+			<p>{{ vm.story.meta.dataRequirement }}</p>
 		</div>
-		<div ng-if="vm.story.bandwidth">
+		<div ng-if="vm.story.meta.bandwidth">
 			<label>Bandwidth</label>
-			<p>{{ vm.story.bandwidth }}</p>
+			<p>{{ vm.story.meta.bandwidth }}</p>
 		</div>
 
 		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
@@ -105,3 +103,4 @@
 	</div>	
 
 </div>
+

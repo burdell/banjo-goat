@@ -2,7 +2,7 @@
 	'use strict';
 	
 	var communityApiService = function($http, $q, $timeout, errorService){
-		function getCallOptions(url, data, verb) {
+		function getCallOptions(url, data, verb, isMedia) {
 			if (_.isUndefined(verb)) {
 				verb = 'GET';
 			}
@@ -16,16 +16,22 @@
 				payload = data;
 			}
 
-			return {
+			var callOptions =  {
 				method: verb,
 				url: url,
 				params: params,
 				data: payload
 			};
+
+			if (isMedia) {
+				_.extend(callOptions, { transformRequest: angular.identity, headers: {'Content-Type': undefined} });
+			}
+
+			return callOptions;
 		}
 
-		function goToApi(url, data, verb){
-			var callOptions = getCallOptions(url, data, verb);
+		function goToApi(url, data, verb, isMedia){
+			var callOptions = getCallOptions(url, data, verb, isMedia);
 			return $http(callOptions).then(
 				function(result){
 					//SUCCESS :D
@@ -156,35 +162,12 @@
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
 				}
 			},
-			Files: {
+			Media: {
 				upload: function(fileData){
-					//http://i.imgur.com/ezJLz9L.jpg
-					//http://www.dogster.com/wp-content/uploads/2015/05/doge.jpg
-					//http://i1.kym-cdn.com/entries/icons/facebook/000/011/656/sophiscated_cat.PNG
-					var fd = new FormData();
-			        fd.append('file', fileData.file);
-
-			        var images = [
-			        	'http://i.imgur.com/oaIMnB1.jpg',
-			        	'http://i.imgur.com/sonXcK6.jpg',
-			        	'http://i.imgur.com/8anTa91.jpg',
-			        	'http://i.imgur.com/VR650uJ.jpg'
-			        ];
-			        var bleh = Math.floor(Math.random() * images.length)
-
-					return $timeout(function(){
-						return {
-							fileUrl: images[bleh],
-							fileCaption: fileData.fileCaption
-						}
-					}, 700)
+					var formData = new FormData();
+					formData.append('file', fileData);
 					
-			        // $http.post(uploadUrl, fd, {
-			        //     transformRequest: angular.identity,
-			        //     headers: {'Content-Type': undefined}
-			        // }).then(function(){
-
-			        // });
+					return goToApi(baseUrl + 'media', formData, 'POST', true);
 				}
 			}
 		}

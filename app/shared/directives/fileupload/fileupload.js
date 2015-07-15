@@ -8,7 +8,7 @@
 
 			element.on('change', function(){
 				scope.$apply(function(){
-					scope.fileupload.upload(inputElement[0].files[0]);
+					scope.fileupload.upload(inputElement[0].files);
 				})
 			});
 
@@ -17,32 +17,47 @@
 			};
 		}
 
+		function removeUpload(fileIdentifier, fileList) {
+			var fileIndex = _.findIndex(fileList, function(file) {
+				return file.id === fileIdentifier;
+			});
+
+			if (fileIndex >= 0) {
+				fileList.splice(fileIndex, 1);
+			}
+		}
+
 		function controller(communityApi) {	
 			var ctrl = this;
 
 			_.extend(ctrl, {
-				upload: function(file){
-					ctrl.uploadInProgress = true;
-					communityApi.Files.upload(file).then(function(result){
-						ctrl.uploadInProgress = false;
+				uploadingItems: [],
+				upload: function(fileList){
+					_.each(_.toArray(fileList), function(file, index){
+						var fileIdentifier = file.name + index;
+						ctrl.uploadingItems.push({ id: fileIdentifier, name: file.name });
 
-						if (ctrl.onSuccessFn) {
-							ctrl.onSuccessFn(result);
-						} else {
-							if (!ctrl.fileListModel) {
-								ctrl.fileListModel = [];
+						communityApi.Media.upload(file).then(function(result){
+							if (ctrl.onSuccessFn) {
+								ctrl.onSuccessFn({
+									fileUrl: result.data
+								});
+							} else {
+								if (!ctrl.fileListModel) {
+									ctrl.fileListModel = [];
+								}
+								
+								var fileData = result;
+								ctrl.fileListModel.push({
+									fileUrl: fileData.fileUrl,
+									fileCaption: fileData.fileCaption
+								});
 							}
-							
-							var fileData = result;
-							ctrl.fileListModel.push({
-								fileUrl: fileData.fileUrl,
-								fileCaption: fileData.fileCaption
-							});
 
-						}
-
+							removeUpload(fileIdentifier, ctrl.uploadingItems);
+						});
 						ctrl.resetInput();
-					});
+				 	});
 				}
 			});
 		}
