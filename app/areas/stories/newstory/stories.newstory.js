@@ -12,20 +12,15 @@
 
 		var mediaList = [];
 		var updateMediaList = function(data){
+			if (data.type === 'image' && mediaList.length === 0) {
+				ctrl.setCoverPhoto(data);
+			}
+			
 			mediaList.push(data);
 		};
 
 		var currentUser = currentUserService.get();
-/*
-There’s a reason that photos get 53% more likes on Facebook than any other type of post.  People love to see your adventures.  Go ahead and make them envious by adding your favorite pictures to every travel story you write.
-Not sure which photos to add? Pick the ones that show you in action or include an incredible view
-Don’t be afraid of details.
-Post screenshots and details. We love that stuff
-Narrative reels us in.
-Everyone loves a good story. Try your hand at being a National Geographic reporter and tell us something interesting that happened to you. Use action verbs, lots of adjectives and let your personality shine through your work.
-Often, the best travel stories are how you resolved an issue, language barriers or miscommunications with reservations. Try to stay away from blaming and negativity. Stick to fun, funny stuff that describes your emotions.
-*/
-
+		
 		_.extend(ctrl, {
 			hideStoryControls: true,
 			titleCharacterLimit: 140,
@@ -90,9 +85,6 @@ Often, the best travel stories are how you resolved an issue, language barriers 
 					type: 'image'
 				};
 
-				if (mediaList.length === 0) {
-					ctrl.setCoverPhoto(imageObj);
-				}
 				updateMediaList(imageObj);
 			}, ctrl),
 			deletePhoto: function(photoIndex) {
@@ -133,9 +125,12 @@ Often, the best travel stories are how you resolved an issue, language barriers 
 			},
 			postStory: function(){
 				ctrl.isPublishing = true;
-
+				debugger;
 				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18fc8e55d47dc5dd84c974644962479dbdef2db4
 				communityApi.Stories.story(story).then(
 					function(result){
 						$state.go('stories.detail', { storyId: result.model.id });		
