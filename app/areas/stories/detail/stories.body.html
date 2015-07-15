@@ -43,7 +43,7 @@
 
 		<div class="cmuStories__story__body" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
 
-		<div class="cmuStories__story__imageContainer">
+		<div class="cmuStories__story__imageContainer" ng-class="vm.story.media.length > 2 ? 'break-columns' : '' ">
 			<div class="cmuStories__story__mediaItem" ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
 				<div class="cmuStories__story__mediaItem__imgContainer" ng-if="mediaUpload.type === 'image'">
 					<img ng-src="{{ mediaUpload.url }}" >
