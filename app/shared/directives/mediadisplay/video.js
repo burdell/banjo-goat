@@ -9,8 +9,7 @@
 			var videoSource = scope.videoembed.videoSource;
 			if (videoSource === 'youtube') {
 				var player = new YT.Player(videoElementId, {
-	                videoId: scope.videoembed.videoId,
-	                origin: 'http://localhost:4200/'
+	                videoId: scope.videoembed.videoId
 	            });
 			} else if (videoSource === 'vimeo') {
 				var $element = $(element);
@@ -19,9 +18,9 @@
 			 
 		};
 
-		var controller = function() {
+		var controller = function($location) {
 		};
-		controller.$inject = [];
+		controller.$inject = ['$location'];
 
 	    var directive = {
 	        link: link,
