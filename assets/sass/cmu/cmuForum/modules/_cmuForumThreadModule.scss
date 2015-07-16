@@ -155,10 +155,10 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// br is notoriously weird
 	br {
 		content: " ";
-		display: block;
+		display: block; 
 		margin-bottom: 0.5em;
 	}
-
+  
 
 	// users like to add empty paragraphs that lithium doesn't strip out
 	// we need to deal with it in code, so this is temporary
@@ -167,26 +167,37 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
 	}
 
-	blockquote {
+	blockquote {  
 
 		// border width is unfortunately set into the html?
 		border: 1px solid $cmu-color-gray;
 		border-left-width: 3px;
 		padding: $cmu-base/2 $cmu-base;
 
+		// these tend to appear in the migrated html
 		hr {
 			display: none;
 		}
+
+		// some quotes are tables nested in block quotes
+		// but other times they aren't in tables.
 		table {
-			border-color: transparent;
-  			padding: $cmu-base/2 $cmu-base/4;
-  			border-left: $cmu-line-thick $cmu-color-blue solid; 
+			// border-color: transparent;
+  			// padding: $cmu-base/2 $cmu-base/4;
+  			// border-left: $cmu-line-thick $cmu-color-blue solid;
+  			// background-color: $cmu-color-ltgray; 
   			display: block;
-  			background-color: $cmu-color-ltgray;
+			// border: 1px solid $cmu-color-gray;
+			// border-left-width: 3px;
+			// padding: $cmu-base/2 $cmu-base;
+			border: 0;
+			padding: 0;
+			margin: 0;
 		}
 		td {
 			border: 0;
-			padding: 0 $cmu-base;
+			// padding: 0 $cmu-base;
+			padding: 0;
 		}
 	}
 } 

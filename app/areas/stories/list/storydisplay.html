@@ -1,6 +1,6 @@
 <div class="cmuStoryItem cmuStoryItem--featured" ng-click="storydisplay.goStory()">
 	<div class="cmuStoryItem--image">
-		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })"><img ng-src="{{ storydisplay.story.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
+		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })"><img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
 	</div>
 	<div class="cmuStoryItem--main">
 		<a class="cmuStoryItem--link" ui-sref="stories.detail({ storyId: storydisplay.story.id })">{{ ::storydisplay.story.subject }}</a>	

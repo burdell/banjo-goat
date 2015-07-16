@@ -1,7 +1,7 @@
 (function(_, tinymce, $){
 	'use strict';
 	
-	function communityTextEditor($timeout) {
+	function communityTextEditor($timeout, routingService) {
 		var link = function(scope, element, attrs, ngModel) {
 			$timeout(function(){
 				var textElement = $(element).find('#' + scope.texteditor.editorId);
@@ -15,14 +15,18 @@
 					editorInstance.setContent(ngModel.$viewValue || '');
 				};
 				
+				var currentArea = routingService.getCurrentArea();
+
 				tinymce.init({
 					height: scope.texteditor.height || 150,
 					elements: scope.texteditor.editorId,
 					mode: 'exact',
+					content_css : "{{GULP_BUILD_areaName}}/css/editor.css",
 					menubar: false,
 					preview_styles: false,
 					browser_spellcheck: true,
 					toolbar: scope.texteditor.minimalEditor === 'true' ? false : undefined,
+					plugins: 'placeholder',
 					setup: function(editor) {
 						function updateModel() {
 							editor.save();
@@ -71,13 +75,14 @@
 	        restrict: 'E',
 	        scope: {
 	        	height: '=editorHeight',
-	        	minimalEditor: '@'
+	        	minimalEditor: '@',
+	        	placeholder: '@'
 	        }
 	    };
 
 	    return directive;
 	}
-	communityTextEditor.$inject = ['$timeout'];
+	communityTextEditor.$inject = ['$timeout', 'CommunityRoutingService'];
 
 	angular.module('community.directives')
 		.directive('communityTextEditor', communityTextEditor);

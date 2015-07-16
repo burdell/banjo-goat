@@ -1,0 +1,10 @@
+
+// cmuImagesMissing
+// works with handleimageerror.js to replace missing migrated images with a placeholder
+
+.cmuImageMissing {
+	display: block;
+	width: 80px;
+	margin: 24px 0;
+	height: auto;
+}

@@ -1,0 +1,291 @@
+
+
+
+
+// 
+// Preview Window
+// 
+
+.cmuStoriesNew__Title {
+  font-size: 16px;
+  margin-bottom: $cmu-base/2;
+
+}
+
+.cmuStoriesNew__Form {
+	overflow: hidden;
+	padding-top: $cmu-base/2;
+ 	padding-left: 0;
+ 	padding-right: 1rem;
+ 	@include respondTo(xlarge-up) {
+ 		max-width: 410px;
+	}
+
+}
+	.cmuStoriesNew__Form--title {
+		@extend .cmuStoriesNew__Title;
+	}
+	.cmuStoriesNew__Form--intro {
+	 	padding-bottom: $cmu-base/2;
+	}
+
+
+
+.cmuStoriesNew__Preview {
+	border: 1px solid $cmu-color-ltgray;
+	background-color: $cmu-color-purewhite;
+ 	padding: 8px 21px;
+
+ 	@include respondTo(xlarge-up) {
+    	width: calc(100% - 410px) !important;
+	}
+}
+
+	.cmuStoriesNew__Preview--intro {
+		text-transform: uppercase;
+		color: $cmu-color-gray;
+		font-size: $cmu-base*0.65;
+	}
+
+
+// custom tinyMCE styles
+	.cmuTextEditor {
+		margin-bottom: $cmu-base/2;
+	}
+	.mce-edit-area {
+		border: 0 !important;
+
+	}
+	.mce-statusbar {
+		display: none !important;
+	}
+
+
+// Product selector
+.cmuStoriesNew__Form--products {
+	margin-bottom: $cmu-base*2;
+}
+
+
+// 
+// Media area
+// 
+
+.cmuStoriesNew__Form--media {
+	// border: 1px solid $cmu-color-ltgray;
+	// padding: $cmu-base;
+	margin-bottom: $cmu-base;
+}
+
+// 
+// Media Uploads
+// 
+
+.cmuStoriesNew__Form--uploads {
+	counter-reset: mediaItem;
+ 	position: relative; 
+}
+.cmuStoriesNew__Form--uploadItem {
+	display: table;
+	counter-increment: mediaItem; 
+	border: 1px solid $cmu-color-gray;
+	// padding-left: $cmu-base;
+	margin-bottom: $cmu-base;
+	position: relative;
+	width: 100%;
+
+	// being dragged
+	&.sortable-ghost {
+	}
+}
+	// preview image
+	.cmuStoriesNew__Form__uploadItem--preview {
+		// width: 249px;
+		height: 120px;
+		background-position: center;
+		background-size: contain;
+		width: 100%;
+	}
+
+	.cmuStoriesNew__Form--uploadItem--downup {
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0 $cmu-base/2;
+		background-color: $cmu-color-white;
+		width: 100%;
+		text-align: center;
+		cursor: move;
+		@extend %ease-fast;
+		&+span {
+			// usability thing- describe how to drag / reposition
+			&:before {
+				content: ' DRAG TO REPOSITION ';
+				width: calc(100% - 29px);
+				height: 100%;
+				text-align: center;
+				top: 0;
+				left: 0;
+				padding-top: 85px;
+				background-color: rgba(0, 30, 80, 0.6);
+				color: $cmu-color-purewhite;
+				opacity: 0;
+				position: absolute;
+				z-index: -1;
+				@extend %ease-fast;
+			}
+		}
+
+		&:hover {
+			background-color: $cmu-color-ltgray;
+			@extend %ease-fast;
+			color: $cmu-color-blue;
+
+			&+span {
+				&:before {
+					opacity: 0.9;
+					z-index: 100;
+				}
+			}
+		}
+	}
+	.cmuStoriesNew__Form--uploadItem--info {
+		display: table-cell;
+		vertical-align: middle;
+		padding-bottom: $cmu-base/2;
+		width: 100%;
+	}
+
+	.cmuStoriesNew__Form--uploadItem--caption {
+		// margin: $cmu-base/2;
+		margin-top: -5px;
+
+		.cmuInput {
+			border: 0  !important;
+			// border-right: 1px solid $cmu-color-gray !important;
+			border-bottom: 1px solid $cmu-color-ltgray !important;
+		}
+	}
+
+	.cmuStoriesNew__Form__uploadItem--count {
+		&:before {
+			content: ' # ' counter(mediaItem);
+			display: block;
+			position: absolute;
+			padding: 4px 12px;
+			color: white;
+			background-color: rgba(0,0,0,0.5);
+			font-size: 10px;
+		}
+	}
+
+	// cover image labeling
+	.cmuStoriesNew__Form--cover {
+		color: $cmu-color-blue;
+		text-transform: uppercase;
+		font-size: 10px;
+		position: absolute;
+		background-color: rgba($cmu-color-blue, 0.5);
+		// padding: 0.5rem 1rem;
+		padding: 4px 12px;
+		color: white;
+		cursor: default;
+		top: 0;
+		left: 38px;
+
+		.icon {
+			font-size: 16px;
+			line-height: 0;
+			position: relative;
+			margin-right: 12px;
+			&:before {
+				position: relative;
+				top: 3px;
+			}
+		}
+	}
+		.cmuStoriesNew__Form__uploadItem--preview {
+			background-position: center;
+			background-repeat: no-repeat;
+			left: 0px;
+			background-size: cover;
+		}
+		.cmuStoriesNew__Form--cover--hide {
+			display: none !important;
+		}
+		.cmuStoriesNew__Form--cover--show {
+			display: inline-block !important;
+		}
+
+	.cmuStoriesNew__Form--uploadItem--url,
+	.cmuStoriesNew__Form--uploadItem--title {
+		margin: 0 $cmu-base/2;
+		font-size: 10px;
+		color: $cmu-color-dkgray;
+		cursor: default;
+	}
+
+	.cmuStoriesNew__Form--uploadItem--controls {
+		z-index: 75; // so controls don't get blocked by drag overlay
+		span {
+			cursor: pointer;
+			font-size: 12px;
+			margin: 0 $cmu-base/2;
+		}
+		.cmuStoriesNew__Form--uploadItem--controls--setCover {
+			color: $cmu-color-blue;
+			&:hover{
+				color: $cmu-color-black;
+				@extend %ease-fast;
+			}
+		}
+		.cmuStoriesNew__Form--uploadItem--controls--setCoverVideo {
+			color: $cmu-color-ltgray;
+			cursor: default;
+		}
+		.cmuStoriesNew__Form--uploadItem--controls--delete {
+			float: right;
+			color: $cmu-color-black;
+			&:hover{
+				color: $cmu-color-blue;
+				@extend %ease-fast;
+			}
+			.icon {
+				font-size: 10px;
+				margin-right: $cmu-base/2;
+			}
+		}
+	}
+
+
+.cmuStoriesNew__Form--additional {
+	border: 1px solid $cmu-color-ltgray;
+	padding: $cmu-base; padding-bottom: $cmu-base/2;
+	margin-bottom: $cmu-base;
+	@extend %ease-fast;
+
+	.icon {
+		font-size: 10px;
+		line-height: 28px;
+		content: "\e6ce";
+		/* margin-top: -10px; */
+		position: relative;
+		top: -1.5px;
+		@extend %ease-fast;
+	}
+	.cmuStoriesNew__Form--additional--controller {
+		@extend %ease-fast;
+		&:hover {
+			.cmuStoriesNew__Form--title,
+			.cmuStoriesNew__Form--intro, .icon {
+				color: $cmu-color-blue;
+				@extend %ease-fast;
+			}
+		}
+	}
+	.cmuStoriesNew__Form--title,
+	.cmuStoriesNew__Form--intro {
+		cursor: pointer;
+	}
+
+}
+

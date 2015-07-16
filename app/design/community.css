@@ -85,14 +85,6 @@
   width: 100% !important;
 }
 
-.inlineBlock {
-  display: inline-block !important;
-}
-
-.invisible {
-  visibility: hidden !important;
-}
-
 /**
  * 1. Support IE10.
  */
@@ -3342,13 +3334,18 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an element with a background-image.
+ * class either to an img tag, or to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
+/**
+ * 1. Assume a square image, because we want to the image to retain its
+ *    correct proportions if it is squeezed by its container.
+ */
 .avatar {
   width: 5em;
-  height: 5em;
+  height: auto;
+  /* [1] */
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3771,72 +3768,6 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.flexRow {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -ms-flexbox;
-  /* [1] */
-  display: flex;
-}
-
-.flexRow--alignCenter {
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  -ms-flex-align: center;
-  /* [1] */
-  align-items: center;
-}
-
-.flexCol--1 {
-  width: 8.33333%;
-}
-
-.flexCol--2 {
-  width: 16.66667%;
-}
-
-.flexCol--3 {
-  width: 25%;
-}
-
-.flexCol--4 {
-  width: 33.33333%;
-}
-
-.flexCol--5 {
-  width: 41.66667%;
-}
-
-.flexCol--6 {
-  width: 50%;
-}
-
-.flexCol--7 {
-  width: 58.33333%;
-}
-
-.flexCol--8 {
-  width: 66.66667%;
-}
-
-.flexCol--9 {
-  width: 75%;
-}
-
-.flexCol--10 {
-  width: 83.33333%;
-}
-
-.flexCol--11 {
-  width: 91.66667%;
-}
-
-.flexCol--12 {
-  width: 100%;
 }
 
 /**
@@ -5437,10 +5368,6 @@ output {
 }
 
 /**
- * Apply this to a div to size the element to fit the image, and then display
- * a retina image on retina displays.
- */
-/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6578,7 +6505,8 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6593,7 +6521,8 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6673,6 +6602,10 @@ body {
   font-size: 1rem;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
+}
+
+.cmuTextEditor label {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .cmuUserbadge__status__op:after, .cmuUserbadge__gameInfo {
@@ -7175,22 +7108,22 @@ pre {
 .cmuSearchbox {
   text-align: right;
 }
-.cmuSearchbox ::-webkit-input-placeholder {
+.cmuSearchbox::-webkit-input-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox :-moz-placeholder {
+.cmuSearchbox:-moz-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox ::-moz-placeholder {
+.cmuSearchbox::-moz-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
 }
-.cmuSearchbox :-ms-input-placeholder {
+.cmuSearchbox:-ms-input-placeholder {
   color: #dadada;
   font-weight: 400;
   font-size: 0.8125rem;
@@ -7277,7 +7210,7 @@ select:disabled {
 	- all buttons are defined w/ border for height standardization
 		- solid buttons match border w/ bg color
 */
-button, .button {
+button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button {
   font-size: 0.6875rem;
   text-transform: uppercase;
   line-height: 1.75rem;
@@ -7291,95 +7224,95 @@ button, .button {
   background-color: #fafafa;
   border-color: #00a0df;
 }
-button:hover, .button:hover {
+button:hover, .button:hover, .cmuButton:hover, .cmuInput--waiting:hover, .cmuInputFile--label:hover, .cmuInputFile--uploading:hover, .cmuInputUrl--input + label + .cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #00a0df;
   border-color: #00a0df;
 }
-button .icon, .button .icon {
+button .icon, .button .icon, .cmuButton .icon, .cmuInput--waiting .icon, .cmuInputFile--label .icon, .cmuInputFile--uploading .icon, .cmuInputUrl--input + label + .cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-button + button, .button + .button {
+button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting + .cmuButton, .cmuInputFile--label + .cmuButton, .cmuInputFile--uploading + .cmuButton, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuButton, .cmuButton + .cmuInput--waiting, .cmuInput--waiting + .cmuInput--waiting, .cmuInputFile--label + .cmuInput--waiting, .cmuInputFile--uploading + .cmuInput--waiting, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInput--waiting, .cmuButton + .cmuInputFile--label, .cmuInput--waiting + .cmuInputFile--label, .cmuInputFile--label + .cmuInputFile--label, .cmuInputFile--uploading + .cmuInputFile--label, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInputFile--label, .cmuButton + .cmuInputFile--uploading, .cmuInput--waiting + .cmuInputFile--uploading, .cmuInputFile--label + .cmuInputFile--uploading, .cmuInputFile--uploading + .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInputFile--uploading, .cmuInputUrl--input + label.cmuButton + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInput--waiting + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputFile--label + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputFile--uploading + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputUrl--input + label.cmuInputUrl--button + .cmuInputUrl--button {
   margin-left: 0.5rem;
 }
 
-.button--ghost {
+.button--ghost, .cmuInputUrl--input + label + .cmuInputUrl--button {
   color: #00a0df;
   background-color: default;
   color: #00a0df;
   background-color: #fafafa;
   border-color: #00a0df;
 }
-.button--ghost:hover {
+.button--ghost:hover, .cmuInputUrl--input + label + .cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #00a0df;
   border-color: #00a0df;
 }
-.button--ghost .icon {
+.button--ghost .icon, .cmuInputUrl--input + label + .cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--ghost.button-green-on-white {
+.button--ghost.button-green-on-white, .cmuInputUrl--input + label + .button-green-on-white.cmuInputUrl--button {
   color: #48af65;
   background-color: default;
   color: #48af65;
   background-color: #fafafa;
   border-color: #48af65;
 }
-.button--ghost.button-green-on-white:hover {
+.button--ghost.button-green-on-white:hover, .cmuInputUrl--input + label + .button-green-on-white.cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-.button--ghost.button-green-on-white .icon {
+.button--ghost.button-green-on-white .icon, .cmuInputUrl--input + label + .button-green-on-white.cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--ghost.button-black-on-white {
+.button--ghost.button-black-on-white, .cmuInputUrl--input + label + .button-black-on-white.cmuInputUrl--button {
   color: #242931;
   background-color: default;
   color: #242931;
   background-color: #fafafa;
   border-color: #242931;
 }
-.button--ghost.button-black-on-white:hover {
+.button--ghost.button-black-on-white:hover, .cmuInputUrl--input + label + .button-black-on-white.cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #242931;
   border-color: #242931;
 }
-.button--ghost.button-black-on-white .icon {
+.button--ghost.button-black-on-white .icon, .cmuInputUrl--input + label + .button-black-on-white.cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--ghost.button-gray-on-white {
+.button--ghost.button-gray-on-white, .cmuInputUrl--input + label + .button-gray-on-white.cmuInputUrl--button {
   color: #bbbbbd;
   background-color: default;
   color: #bbbbbd;
   background-color: #fafafa;
   border-color: #bbbbbd;
 }
-.button--ghost.button-gray-on-white:hover {
+.button--ghost.button-gray-on-white:hover, .cmuInputUrl--input + label + .button-gray-on-white.cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #bbbbbd;
   border-color: #bbbbbd;
 }
-.button--ghost.button-gray-on-white .icon {
+.button--ghost.button-gray-on-white .icon, .cmuInputUrl--input + label + .button-gray-on-white.cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
 
-.button--outline {
+.button--outline, .cmuInput--waiting, .cmuInputFile--uploading {
   color: #00a0df;
   background-color: default;
   border-width: 1px;
@@ -7389,18 +7322,18 @@ button + button, .button + .button {
   background-color: #fafafa;
   border-color: #00a0df;
 }
-.button--outline:hover {
+.button--outline:hover, .cmuInput--waiting:hover, .cmuInputFile--uploading:hover {
   color: #fafafa;
   background-color: #00a0df;
   border-color: #00a0df;
 }
-.button--outline .icon {
+.button--outline .icon, .cmuInput--waiting .icon, .cmuInputFile--uploading .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--outline.button-green-on-white {
+.button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button-green-on-white.cmuInputFile--uploading {
   color: #48af65;
   background-color: default;
   border-width: 1px;
@@ -7410,18 +7343,18 @@ button + button, .button + .button {
   background-color: #fafafa;
   border-color: #48af65;
 }
-.button--outline.button-green-on-white:hover {
+.button--outline.button-green-on-white:hover, .button-green-on-white.cmuInput--waiting:hover, .button-green-on-white.cmuInputFile--uploading:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-.button--outline.button-green-on-white .icon {
+.button--outline.button-green-on-white .icon, .button-green-on-white.cmuInput--waiting .icon, .button-green-on-white.cmuInputFile--uploading .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--outline.button-black-on-white {
+.button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button-black-on-white.cmuInputFile--uploading {
   color: #242931;
   background-color: default;
   border-width: 1px;
@@ -7431,18 +7364,18 @@ button + button, .button + .button {
   background-color: #fafafa;
   border-color: #242931;
 }
-.button--outline.button-black-on-white:hover {
+.button--outline.button-black-on-white:hover, .button-black-on-white.cmuInput--waiting:hover, .button-black-on-white.cmuInputFile--uploading:hover {
   color: #fafafa;
   background-color: #242931;
   border-color: #242931;
 }
-.button--outline.button-black-on-white .icon {
+.button--outline.button-black-on-white .icon, .button-black-on-white.cmuInput--waiting .icon, .button-black-on-white.cmuInputFile--uploading .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--outline.button-gray-on-white {
+.button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button-gray-on-white.cmuInputFile--uploading {
   color: #969ba3;
   background-color: default;
   border-width: 1px;
@@ -7452,67 +7385,67 @@ button + button, .button + .button {
   background-color: #fafafa;
   border-color: #969ba3;
 }
-.button--outline.button-gray-on-white:hover {
+.button--outline.button-gray-on-white:hover, .button-gray-on-white.cmuInput--waiting:hover, .button-gray-on-white.cmuInputFile--uploading:hover {
   color: #fafafa;
   background-color: #969ba3;
   border-color: #969ba3;
 }
-.button--outline.button-gray-on-white .icon {
+.button--outline.button-gray-on-white .icon, .button-gray-on-white.cmuInput--waiting .icon, .button-gray-on-white.cmuInputFile--uploading .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
 
-.button--solid {
+.button--solid, .cmuInputFile--label, .cmuInputUrl--input:valid + label + .cmuInputUrl--button {
   color: #fafafa;
   background-color: #00a0df;
   color: #fafafa;
   background-color: #00a0df;
   border-color: #00a0df;
 }
-.button--solid:hover {
+.button--solid:hover, .cmuInputFile--label:hover, .cmuInputUrl--input:valid + label + .cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #007bac;
   border-color: #007bac;
 }
-.button--solid .icon {
+.button--solid .icon, .cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--solid.button-white-on-green {
+.button--solid.button-white-on-green, .button-white-on-green.cmuInputFile--label, .cmuInputUrl--input:valid + label + .button-white-on-green.cmuInputUrl--button {
   color: #fafafa;
   background-color: #48af65;
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-.button--solid.button-white-on-green:hover {
+.button--solid.button-white-on-green:hover, .button-white-on-green.cmuInputFile--label:hover, .cmuInputUrl--input:valid + label + .button-white-on-green.cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #398b50;
   border-color: #398b50;
 }
-.button--solid.button-white-on-green .icon {
+.button--solid.button-white-on-green .icon, .button-white-on-green.cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .button-white-on-green.cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
 }
-.button--solid.button-white-on-black {
+.button--solid.button-white-on-black, .button-white-on-black.cmuInputFile--label, .cmuInputUrl--input:valid + label + .button-white-on-black.cmuInputUrl--button {
   color: #fafafa;
   background-color: #242931;
   color: #fafafa;
   background-color: #242931;
   border-color: #242931;
 }
-.button--solid.button-white-on-black:hover {
+.button--solid.button-white-on-black:hover, .button-white-on-black.cmuInputFile--label:hover, .cmuInputUrl--input:valid + label + .button-white-on-black.cmuInputUrl--button:hover {
   color: #fafafa;
   background-color: #0e1014;
   border-color: #0e1014;
 }
-.button--solid.button-white-on-black .icon {
+.button--solid.button-white-on-black .icon, .button-white-on-black.cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .button-white-on-black.cmuInputUrl--button .icon {
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
@@ -7674,8 +7607,8 @@ button .icon, .button .icon {
 }
 
 .button--padded {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .button--thin {
@@ -7723,9 +7656,38 @@ button .icon, .button .icon {
   content: '+1';
   padding: 8px 5px 8px 6px;
 }
+.button--vote.button-white-on-green {
+  color: #48af65;
+  background-color: #fafafa;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #48af65;
+  background-color: #fafafa;
+  border-color: #48af65;
+}
+.button--vote.button-white-on-green:hover {
+  color: #fafafa;
+  background-color: #48af65;
+  border-color: #48af65;
+}
+.button--vote.button-white-on-green .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+.button--vote.button-white-on-green:after {
+  background-color: #48af65;
+}
 
 .button--wide {
   width: 100%;
+}
+
+.button--tall {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .button--icon {
@@ -7977,6 +7939,303 @@ button .icon, .button .icon {
   border: 1px solid #969ba3;
   padding: 3px 12px;
   font-style: italic;
+}
+
+.cmuInputContainer {
+  position: relative;
+}
+
+.cmuInput {
+  border: 1px solid #969ba3;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+}
+.cmuInput::-webkit-input-placeholder {
+  color: black;
+}
+.cmuInput:-moz-placeholder {
+  color: black;
+}
+.cmuInput::-moz-placeholder {
+  color: black;
+}
+.cmuInput:-ms-input-placeholder {
+  color: black;
+}
+.cmuInput:focus {
+  border: 1px solid #00a0df;
+  outline: 0;
+  background-color: #fafafa;
+}
+
+.cmuInput--wide {
+  width: 100%;
+}
+
+.cmuInput--stacked:focus, .cmuInput--stacked:valid {
+  padding-top: 1.7rem;
+  padding-bottom: 0.5rem;
+}
+
+.cmuInput--stacked:focus::-webkit-input-placeholder, .cmuInput--stacked:valid::-webkit-input-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus:-moz-placeholder, .cmuInput--stacked:valid:-moz-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus::-moz-placeholder, .cmuInput--stacked:valid::-moz-placeholder {
+  color: white;
+}
+.cmuInput--stacked:focus:-ms-input-placeholder, .cmuInput--stacked:valid:-ms-input-placeholder {
+  color: white;
+}
+.cmuInput--stacked + label {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  text-transform: uppercase;
+  color: #969ba3;
+  font-size: 0.625rem;
+  cursor: text;
+}
+
+.cmuInputSelector {
+  background-color: white !important;
+}
+.cmuInputSelector .select2-choices {
+  background-color: white !important;
+  background-image: none !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 0.2rem !important;
+}
+.cmuInputSelector .select2-input {
+  padding-left: 0.5rem !important;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+  font-size: 13px !important;
+  color: black !important;
+  background-color: #ebebeb !important;
+}
+.cmuInputSelector .select2-input::-webkit-input-placeholder {
+  color: black;
+  color: #474b52;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputSelector .select2-input:-moz-placeholder {
+  color: black;
+  color: #474b52;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputSelector .select2-input::-moz-placeholder {
+  color: black;
+  color: #474b52;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputSelector .select2-input:-ms-input-placeholder {
+  color: black;
+  color: #474b52;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputSelector .select2-input:focus::-webkit-input-placeholder {
+  color: #bbbbbd;
+}
+.cmuInputSelector .select2-input:focus:-moz-placeholder {
+  color: #bbbbbd;
+}
+.cmuInputSelector .select2-input:focus::-moz-placeholder {
+  color: #bbbbbd;
+}
+.cmuInputSelector .select2-input:focus:-ms-input-placeholder {
+  color: #bbbbbd;
+}
+.cmuInputSelector .select2-choices {
+  box-shadow: none !important;
+}
+.cmuInputSelector .select2-drop {
+  top: 100% !important;
+  margin-top: 6px;
+  border-radius: 0 !important;
+  border-top: 1px solid #00a0df;
+  box-shadow: none !important;
+}
+.cmuInputSelector .select2-result-single {
+  margin-bottom: 0 !important;
+}
+
+.cmuInput--waiting {
+  color: #969ba3;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+  cursor: wait;
+}
+.cmuInput--waiting:hover {
+  color: #fafafa;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.cmuInput--waiting .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.cmuInputFile--label input[type="file"] {
+  position: fixed;
+  top: -10000px;
+}
+
+.cmuInputFile--label {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.16667rem 1rem;
+}
+
+.cmuInputFile--uploading {
+  color: #969ba3;
+  background-color: default;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #969ba3;
+  background-color: #fafafa;
+  border-color: #969ba3;
+  cursor: wait;
+  display: inline-block;
+  margin: 0.5rem 0 !important;
+  padding: 0.33333rem 1rem;
+}
+.cmuInputFile--uploading:hover {
+  color: #fafafa;
+  background-color: #969ba3;
+  border-color: #969ba3;
+}
+.cmuInputFile--uploading .icon {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  position: relative;
+  top: 1px;
+}
+
+.cmuInputUrl {
+  width: 100%;
+  position: relative;
+}
+
+.cmuInputUrl--input {
+  width: 100%;
+  float: left;
+  margin-bottom: -1px;
+  padding: 0.5rem;
+  padding-top: 1.8rem;
+  padding-bottom: 0.8rem;
+  border: 1px solid #969ba3;
+}
+.cmuInputUrl--input::-webkit-input-placeholder {
+  color: #ebebeb;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputUrl--input:-moz-placeholder {
+  color: #ebebeb;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputUrl--input::-moz-placeholder {
+  color: #ebebeb;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputUrl--input:-ms-input-placeholder {
+  color: #ebebeb;
+  font-size: 0.8125rem;
+  cursor: text;
+}
+.cmuInputUrl--input:focus + label + .cmuInputUrl--button, .cmuInputUrl--input:valid + label + .cmuInputUrl--button {
+  border-color: #00a0df !important;
+}
+.cmuInputUrl--input:focus {
+  outline: 0;
+  border: 1px solid #00a0df;
+}
+.cmuInputUrl--input:focus::-webkit-input-placeholder {
+  color: #ebebeb;
+}
+.cmuInputUrl--input:focus:-moz-placeholder {
+  color: #ebebeb;
+}
+.cmuInputUrl--input:focus::-moz-placeholder {
+  color: #ebebeb;
+}
+.cmuInputUrl--input:focus:-ms-input-placeholder {
+  color: #ebebeb;
+}
+.cmuInputUrl--input + label {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  text-transform: uppercase;
+  color: #969ba3;
+  font-size: 0.625rem;
+  cursor: text;
+}
+.cmuInputUrl--input + label + .cmuInputUrl--button {
+  cursor: default;
+  display: inline-block;
+  margin: 0.5rem 0;
+  margin-top: 0;
+  padding: 0.08333rem 0.5rem;
+  width: 100%;
+  text-align: left;
+  border-color: #969ba3;
+  border-width: 1px;
+  border-top: 0;
+}
+.cmuInputUrl--input + label + .cmuInputUrl--button:hover {
+  background-color: #dadada;
+  color: #00a0df;
+  border-color: #969ba3;
+}
+.cmuInputUrl--input:valid + label + .cmuInputUrl--button {
+  cursor: pointer;
+}
+
+.cmuImageMissing {
+  display: block;
+  width: 80px;
+  margin: 24px 0;
+  height: auto;
+}
+
+.cmuTextEditor {
+  cursor: text;
+}
+.cmuTextEditor::-webkit-input-placeholder {
+  color: black;
+}
+.cmuTextEditor:-moz-placeholder {
+  color: black;
+}
+.cmuTextEditor::-moz-placeholder {
+  color: black;
+}
+.cmuTextEditor:-ms-input-placeholder {
+  color: black;
+}
+.cmuTextEditor label {
+  color: #ebebeb;
+  font-size: 13px;
+  margin-left: 4px;
 }
 
 .cmuDiscussionsHeaderRow {
@@ -8293,15 +8552,14 @@ button .icon, .button .icon {
   display: none;
 }
 .forumThreadMessage__content blockquote table {
-  border-color: transparent;
-  padding: 0.5rem 0.25rem;
-  border-left: 0.33333rem #00a0df solid;
   display: block;
-  background-color: #ebebeb;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 .forumThreadMessage__content blockquote td {
   border: 0;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .forumThreadMessage__signature {
@@ -8413,10 +8671,12 @@ button .icon, .button .icon {
   font-size: 1.1rem;
   line-height: 1.6rem;
   color: #969ba3;
+  margin-bottom: 1rem;
+  font-weight: 300;
 }
 
 .cmuStories__story__controlsTop {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 
@@ -8450,30 +8710,51 @@ button .icon, .button .icon {
   padding: 0 4px;
 }
 
-.cmuStories__story__cover .cmuStories__story__cover--img {
-  text-align: center;
-  background-color: #ebebeb;
+.cmuStories__story__cover {
   margin-bottom: 1rem;
 }
+.cmuStories__story__cover .cmuStories__story__cover--img {
+  text-align: left;
+}
 .cmuStories__story__cover .cmuStories__story__cover--img img {
-  max-height: 400px;
+  width: 100%;
+}
+.cmuStories__story__cover .cmuStories__story__cover--caption {
+  font-size: 11px;
+  color: #474b52;
+  font-style: italic;
 }
 
 .cmuStories__story__info {
-  float: right;
-  margin-left: 12px;
+  padding-left: 1rem;
+}
+.cmuStories__story__info > div {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__info label {
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
 }
 
 .cmuStories__story__info--map {
+  margin-bottom: 0.5rem;
+}
+
+.cmuStories__story__info--map-location {
   margin-bottom: 1rem;
 }
 
 .cmuStories__story__info--title {
-  font-weight: 700;
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
 }
 
 .cmuStories__story__products--title {
-  font-weight: 700;
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
@@ -8494,6 +8775,282 @@ button .icon, .button .icon {
 
 .cmuStories__story__products--name {
   margin-top: 4px;
+}
+
+.cmuStories__story__body {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__body p {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__body > ol {
+  margin-top: 1rem;
+}
+.cmuStories__story__body ul, .cmuStories__story__body ol {
+  list-style-position: inside;
+}
+.cmuStories__story__body ul ul, .cmuStories__story__body ol ul {
+  margin-left: 1rem;
+}
+
+.cmuStories__story__imageContainer {
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 801px) {
+  .cmuStories__story__imageContainer.break-columns {
+    -webkit-columns: 2 200px;
+    -moz-columns: 2 200px;
+    columns: 2 200px;
+    -webkit-column-gap: 4em;
+    -moz-column-gap: 4em;
+    column-gap: 4em;
+    -webkit-column-rule: 1px solid #ebebeb;
+    -moz-column-rule: 1px solid #ebebeb;
+    column-rule: 1px solid #ebebeb;
+  }
+}
+.cmuStories__story__imageContainer .cmuStories__story__mediaItem {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.cmuStories__story__imageContainer .cmuStories__story__mediaItem__caption {
+  margin-bottom: 1rem;
+}
+
+.cmuStoriesNew__Title, .cmuStoriesNew__Form--title {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.cmuStoriesNew__Form {
+  overflow: hidden;
+  padding-top: 0.5rem;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+@media only screen and (min-width: 1441px) {
+  .cmuStoriesNew__Form {
+    max-width: 410px;
+  }
+}
+
+.cmuStoriesNew__Form--intro {
+  padding-bottom: 0.5rem;
+}
+
+.cmuStoriesNew__Preview {
+  border: 1px solid #ebebeb;
+  background-color: white;
+  padding: 8px 21px;
+}
+@media only screen and (min-width: 1441px) {
+  .cmuStoriesNew__Preview {
+    width: calc(100% - 410px) !important;
+  }
+}
+
+.cmuStoriesNew__Preview--intro {
+  text-transform: uppercase;
+  color: #969ba3;
+  font-size: 0.65rem;
+}
+
+.cmuTextEditor {
+  margin-bottom: 0.5rem;
+}
+
+.mce-edit-area {
+  border: 0 !important;
+}
+
+.mce-statusbar {
+  display: none !important;
+}
+
+.cmuStoriesNew__Form--products {
+  margin-bottom: 2rem;
+}
+
+.cmuStoriesNew__Form--media {
+  margin-bottom: 1rem;
+}
+
+.cmuStoriesNew__Form--uploads {
+  counter-reset: mediaItem;
+  position: relative;
+}
+
+.cmuStoriesNew__Form--uploadItem {
+  display: table;
+  counter-increment: mediaItem;
+  border: 1px solid #969ba3;
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.cmuStoriesNew__Form__uploadItem--preview {
+  height: 120px;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+}
+
+.cmuStoriesNew__Form--uploadItem--downup {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 0.5rem;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: center;
+  cursor: move;
+}
+.cmuStoriesNew__Form--uploadItem--downup + span:before {
+  content: ' DRAG TO REPOSITION ';
+  width: calc(100% - 29px);
+  height: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  padding-top: 85px;
+  background-color: rgba(0, 30, 80, 0.6);
+  color: white;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.cmuStoriesNew__Form--uploadItem--downup:hover {
+  background-color: #ebebeb;
+  color: #00a0df;
+}
+.cmuStoriesNew__Form--uploadItem--downup:hover + span:before {
+  opacity: 0.9;
+  z-index: 100;
+}
+
+.cmuStoriesNew__Form--uploadItem--info {
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.cmuStoriesNew__Form--uploadItem--caption {
+  margin-top: -5px;
+}
+.cmuStoriesNew__Form--uploadItem--caption .cmuInput {
+  border: 0  !important;
+  border-bottom: 1px solid #ebebeb !important;
+}
+
+.cmuStoriesNew__Form__uploadItem--count:before {
+  content: " # " counter(mediaItem);
+  display: block;
+  position: absolute;
+  padding: 4px 12px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+}
+
+.cmuStoriesNew__Form--cover {
+  color: #00a0df;
+  text-transform: uppercase;
+  font-size: 10px;
+  position: absolute;
+  background-color: rgba(0, 160, 223, 0.5);
+  padding: 4px 12px;
+  color: white;
+  cursor: default;
+  top: 0;
+  left: 38px;
+}
+.cmuStoriesNew__Form--cover .icon {
+  font-size: 16px;
+  line-height: 0;
+  position: relative;
+  margin-right: 12px;
+}
+.cmuStoriesNew__Form--cover .icon:before {
+  position: relative;
+  top: 3px;
+}
+
+.cmuStoriesNew__Form__uploadItem--preview {
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0px;
+  background-size: cover;
+}
+
+.cmuStoriesNew__Form--cover--hide {
+  display: none !important;
+}
+
+.cmuStoriesNew__Form--cover--show {
+  display: inline-block !important;
+}
+
+.cmuStoriesNew__Form--uploadItem--url,
+.cmuStoriesNew__Form--uploadItem--title {
+  margin: 0 0.5rem;
+  font-size: 10px;
+  color: #474b52;
+  cursor: default;
+}
+
+.cmuStoriesNew__Form--uploadItem--controls {
+  z-index: 75;
+}
+.cmuStoriesNew__Form--uploadItem--controls span {
+  cursor: pointer;
+  font-size: 12px;
+  margin: 0 0.5rem;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover {
+  color: #00a0df;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover {
+  color: black;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCoverVideo {
+  color: #ebebeb;
+  cursor: default;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete {
+  float: right;
+  color: black;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover {
+  color: #00a0df;
+}
+.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete .icon {
+  font-size: 10px;
+  margin-right: 0.5rem;
+}
+
+.cmuStoriesNew__Form--additional {
+  border: 1px solid #ebebeb;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.cmuStoriesNew__Form--additional .icon {
+  font-size: 10px;
+  line-height: 28px;
+  content: "\e6ce";
+  /* margin-top: -10px; */
+  position: relative;
+  top: -1.5px;
+}
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon {
+  color: #00a0df;
+}
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--title,
+.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--intro {
+  cursor: pointer;
 }
 
 /**

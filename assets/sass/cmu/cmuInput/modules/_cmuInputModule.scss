@@ -1,0 +1,291 @@
+
+// community input fields
+
+// surround <input>s in these for positioning
+.cmuInputContainer {
+	position: relative;
+}
+
+.cmuInput {
+	border: 1px solid $cmu-color-gray;
+	margin-bottom: $cmu-base/2;
+	padding: $cmu-base/2;
+	background-color: $cmu-color-purewhite;
+
+	@extend %ease-fast;
+
+	@include cmu-placeholder {
+		color: $cmu-color-black;
+	}
+
+	&:focus {
+		border: 1px solid $cmu-color-blue;
+		outline: 0;
+		background-color: $cmu-color-white;
+	}
+}	
+
+	.cmuInput--wide {
+		width: 100%;
+	}
+
+
+// 
+%cmuInput--stacked--expanded {
+	padding-top: $cmu-base*1.7;
+	padding-bottom: $cmu-base/2;
+}
+
+.cmuInput--stacked {
+
+
+	// Stacked
+	// &:invalid is filled field
+	// if filled, keep open, like in focus
+	&:focus, &:valid { 
+		@extend %ease-fast;
+		@extend %cmuInput--stacked--expanded;
+
+		// hide the placeholder
+		@include cmu-placeholder {
+			color: $cmu-color-purewhite;
+		}
+	}
+
+	// before field is filled
+	&:valid {
+		// do nothing; placeholder
+	}
+
+	// infield label
+	&+label {
+		position: absolute;
+		top: 8px;
+		left: 9px;
+
+		text-transform: uppercase;
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		cursor: text;
+	}
+}
+
+
+
+// 
+// Input Selector
+// e.g. product selector, tag selector
+// overwrites a lot of imported css from "select2.css"
+// 
+
+.cmuInputSelector {
+	background-color: $cmu-color-purewhite !important;
+	@extend %ease-fast;
+
+	.select2-choices {
+		background-color: $cmu-color-purewhite !important;
+		background-image: none !important;
+		@extend %ease-fast;
+
+		padding-top: $cmu-base*1.5  !important;
+		padding-bottom: 0.2rem !important;
+	}
+
+		.select2-search-field {
+			// width: 100% !important;
+		}
+
+	.select2-input {
+		// width: 500px !important;
+		padding-left: $cmu-base/2 !important;
+		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+		font-size: 13px !important;
+		color: $cmu-color-black !important;
+		background-color: $cmu-color-ltgray !important;
+
+		@include cmu-placeholder {
+			color: $cmu-color-black;
+
+			// text-transform: uppercase;
+			color: $cmu-color-dkgray;
+			font-size: remCalc(13px);
+			cursor: text;
+			// line-height: remCalc(41px);
+		}
+
+		&:focus {
+			@include cmu-placeholder {
+				color: $cmu-color-mdgray;
+			}
+		}
+	}
+
+	.select2-choices {
+  		box-shadow: none !important;
+  	}
+	.select2-drop {
+  		top: 100% !important;
+  		margin-top: 6px;
+  		border-radius: 0 !important;
+  		border-top: 1px solid  $cmu-color-blue;
+  		box-shadow: none !important;
+	}
+	.select2-result-single {
+		margin-bottom: 0 !important;
+	}
+}
+
+
+// 
+// Waiting button -- generic loading state
+// 
+
+.cmuInput--waiting {
+	@extend .cmuButton;
+	@extend .button--outline;
+		@include cmuButton('outline',$cmu-color-gray);
+
+	cursor: wait;
+}
+
+
+
+// 
+// File Input / Upload
+// 
+
+// hide the standard interface
+.cmuInputFile--label input[type="file"] {
+    position: fixed;
+    top: -10000px;
+}
+
+// define our own similar to solid buttons
+.cmuInputFile--label {
+	@extend .cmuButton;
+	@extend .button--solid;
+	cursor: pointer; 
+    display: inline-block;
+    margin: $cmu-base/2 0;
+    padding: $cmu-base/6 $cmu-base;
+    @extend %ease-fast;
+
+    // might do these later
+    &:hover {}
+    &:active {}
+    &:invalid + span {}
+    &:valid + span {}
+}
+
+	.cmuInputFile--uploading {
+		@extend .cmuButton;
+		@extend .button--outline;
+			@include cmuButton('outline',$cmu-color-gray);
+	
+		cursor: wait;
+    	display: inline-block;
+	    margin: $cmu-base/2 0 !important;
+	    padding: $cmu-base/3 $cmu-base;
+	}
+
+
+
+// 
+// URL File Upload Input
+// 
+.cmuInputUrl {
+	width: 100%;
+	position: relative;
+}
+
+	.cmuInputUrl--input {
+		width: 100%;
+		float: left;
+		@extend %ease-fast;
+
+	    // margin: $cmu-base/2 0;
+	    // margin-top: 0;
+	    margin-bottom: -1px;
+		padding: $cmu-base/2;
+		// @extend %cmuInput--stacked--expanded;
+
+		// slightly higher padding to give more air
+		padding-top: 1.8rem;
+		padding-bottom: 0.8rem;
+
+		border: 1px solid $cmu-color-gray;
+
+		// hide the placeholder when not active
+		@include cmu-placeholder {
+			color: $cmu-color-ltgray;
+			font-size: remCalc(13px);
+			cursor: text;
+		}
+
+		// show placeholder and expand when active and filled in
+		// edit: maybe don't show/hide for this one for prominence
+		&:focus, &:valid { 
+			@extend %ease-fast;
+			// @extend %cmuInput--stacked--expanded;
+
+			&+label+.cmuInputUrl--button {
+				border-color: $cmu-color-blue !important;
+			}
+		}
+
+		&:focus {
+			outline: 0;
+			border: 1px solid $cmu-color-blue;
+
+			@include cmu-placeholder {
+				color: $cmu-color-ltgray;
+			}
+		}
+
+		// infield label
+		&+label {
+			position: absolute;
+			top: 8px;
+			left: 9px;
+
+			text-transform: uppercase;
+			color: $cmu-color-gray;
+			font-size: remCalc(10px);
+			cursor: text;
+		}
+
+		// upload button non-active state
+		&+label+.cmuInputUrl--button {
+			@extend .cmuButton;
+			@extend .button--ghost;
+			cursor: default; 
+		    display: inline-block;
+		    margin: $cmu-base/2 0;
+		    margin-top: 0;
+		    padding: $cmu-base/12 $cmu-base/2;
+		    width: 100%;
+			text-align: left;
+			// background-color: $cmu-color-xmdgray;
+			// color: $cmu-color-purewhite;
+			border-color: $cmu-color-gray;
+			border-width: 1px;
+			border-top: 0;
+
+			&:hover {
+				background-color: $cmu-color-xmdgray;
+				color: $cmu-color-blue;
+				border-color: $cmu-color-gray;
+			}
+		}
+
+		// upload button active state 
+		&:valid { 
+			&+label+.cmuInputUrl--button {
+				@extend .button--solid;
+				cursor: pointer;
+			}
+		}
+
+	}
+
+

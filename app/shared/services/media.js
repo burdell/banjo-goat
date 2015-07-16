@@ -21,8 +21,18 @@
 
 					return {
 						meta: {
-							videoId: videoData.id,
-							title: snippet.title
+							videoId: {
+								key: 'videoId',
+								value: videoData.id,
+							},
+							title: {
+								key: 'title',
+								value: snippet.title,
+							},
+							origin: {
+								key: 'origin',
+								value: 'youtube'
+							}
 						},
 						type: 'video',
 						url: snippet.thumbnails.medium.url,
@@ -45,21 +55,35 @@
 				var videoId = this._getVideoId(videoUrl);
 
 				return $http({ 
+					headers: { 'Authorization': 'bearer 5495aeb8a409e263ac51d9d7312c5ae8' },
 					method: 'get',
 					url: 'https://api.vimeo.com/videos/' + videoId
 				}).then(function(result) {
+					var videoData = result.data;
+
 					return {
 						meta: {
-							type: 'video'
-						}
+							videoId: {
+								key: 'videoId',
+								value: videoId,
+							},
+							title: {
+								key: 'title',
+								value: videoData.name,
+							},
+							origin: {
+								key: 'origin',
+								value: 'vimeo'
+							}
+						},
+						type: 'video',
+						url: videoData.pictures.sizes[2].link
 					};
 				});
 
 			},
-			_getVideoId: function(videoUrl) {
-				var url = "http://www.vimeo.com/7058755";
-				var regExp = /^.*(vimeo\.com\/)?([0-9]+)/
-
+			_getVideoId: function(url) {
+				var regExp = /^.*(?:vimeo.com)\/(?:channels\/|channels\/\w+\/|groups\/[^\/]*\/videos\/|album‌​\/\d+\/video\/|video\/|)(\d+)(?:$|\/|\?)/
 				var match = url.match(regExp);
 
 				if (match){
@@ -78,7 +102,7 @@
 					type: 'image'
 				});
 			}
-		}
+		};
 
 		var parseMediaUrl = function(mediaUrl){
 			//YouTube
@@ -86,11 +110,11 @@
 				return youTube;
 			} 
 			//Vimeo
-			// else if (mediaUrl.indexOf('vimeo.com') >= 0) {
-			// 	return vimeo;
-			// } 
+			else if (mediaUrl.indexOf('vimeo.com') >= 0) {
+				return vimeo;
+			} 
 			//Pictures
-			else if (mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+			else if (mediaUrl.match(/\.(jpeg|jpg|gif|png)$/i) != null) {
 				return images;
 			}
 			else {
@@ -106,6 +130,11 @@
 			MediaTypes: {
 				'image': 1,
 				'video': 2
+			},
+			isVideo: function(mediaObj) {
+				var type = mediaObj.type;
+
+				return type === 'video:youtube' || type === 'video:vimeo';
 			}
 		};
 	};

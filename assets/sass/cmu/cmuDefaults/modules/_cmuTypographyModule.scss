@@ -1,3 +1,5 @@
+
+
 body {
   font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -12,6 +14,10 @@ body {
 
 // specialized for numbers
 
+%cmu-lato {
+	font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
 // deprecate this
 %oswald {
 	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
@@ -19,7 +25,6 @@ body {
 %font-oswald {
 	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
-
 
 %font-lato {
   font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;

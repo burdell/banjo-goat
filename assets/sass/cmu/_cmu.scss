@@ -3,11 +3,14 @@
 // 
 // MODULES / COMPONENTS
 // 
+
+// Dependencies
 @import "cmuDefaults/index";
 @import "cmuNormalize/index";
 @import "cmuIcons/index";
 // @import "cmuTypography/index"; 		// moved to defaults
 
+// Not Really Dependencies
 @import "cmuPagination/index";
 @import "cmuNav/index"; 
 @import "cmuBanner/index"; 			// announcement banner
@@ -21,6 +24,11 @@
 @import "cmuUserbadge/index";		// User area displayed in a thread	
 @import "cmuComments/index";		// Comments area 
 @import "cmuViewingCounter/index";	// "5 others are viewing" 
+@import "cmuInput/index";			// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
+@import "cmuImageMissing/index";	// works with 'handleimageerror.js' to replace missing images
+@import "cmuTextEditor/index";		// long form text editor, story body and comments editor (tinyMCE)
+
+
 
 
 

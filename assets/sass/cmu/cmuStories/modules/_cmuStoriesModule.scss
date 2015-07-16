@@ -106,11 +106,10 @@
 // 
 
 .cmuStories__title {
-
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 48px;
-  color: $cmu-color-dkgray;
+	font-weight: 300;
+	font-size: 32px;
+	line-height: 48px;
+	color: $cmu-color-dkgray;
 }
 
 .cmuStories__summary {
@@ -118,11 +117,12 @@
 	font-size: $cmu-base * 1.1;
 	line-height: $cmu-base * 1.6;
   	color: $cmu-color-gray;
-
+	margin-bottom: $cmu-base;
+	font-weight: 300;
 }
 
 .cmuStories__story__controlsTop {
-	margin-top: $cmu-base;
+	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-base;
 }
 
@@ -159,32 +159,59 @@
 		}
 
 .cmuStories__story__cover {
+	margin-bottom: $cmu-base;
 	.cmuStories__story__cover--img {
-		text-align: center;
-		background-color: $cmu-color-ltgray;
-		margin-bottom: $cmu-base;
+		text-align: left;
 
 		img {
-			// width: 100%; 
-			max-height: 400px;
+			width: 100%; 
+			// max-height: 400px;
 		}
-	}
-}
 
-.cmuStories__story__info {
-	float: right;
-	margin-left: 12px;
+		// div {
+		// 	width: 100%;
+		// 	height: 300px;
+		// 	background-size: cover;
+		// 	background-repeat: no-repeat;
+		// 	background-image: url($cmu-imageUrl-noImage);
+		// }
+	}
+	.cmuStories__story__cover--caption {
+		font-size: 11px;
+		color: $cmu-color-dkgray;
+		font-style: italic;
+	}
 }
 
 // 
 // Right Rail Info Box
 // 
-.cmuStories__story__info--map {
-	margin-bottom: $cmu-base;
+
+.cmuStories__story__info {
+	padding-left: $cmu-base;
+
+	& > div {
+		margin-bottom: $cmu-base;
+	}
+	label {
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		text-transform: uppercase;
+	}
 }
 
+.cmuStories__story__info--map {
+	margin-bottom: $cmu-base/2;
+}
+	.cmuStories__story__info--map-location {
+		margin-bottom: $cmu-base;
+	}
+
 .cmuStories__story__info--title {
-	font-weight: 700;
+	// font-weight: 700;
+	color: $cmu-color-gray;
+	font-size: remCalc(10px);
+	text-transform: uppercase;
 }
 
 // 
@@ -192,7 +219,10 @@
 // 
 
 .cmuStories__story__products--title {
-	font-weight: 700;
+	// font-weight: 700;
+	color: $cmu-color-gray;
+	font-size: remCalc(10px);
+	text-transform: uppercase;
 	margin-bottom: 4px;
 }
 
@@ -217,19 +247,61 @@
 		margin-top: 4px;
 	}
 
+// main body text
+.cmuStories__story__body {
+	margin-bottom: $cmu-base;
+
+	p {
+		margin-bottom: $cmu-base;
+	}
+
+	// posts won't have html formatting; more for the default text
+	& > ol {
+		margin-top: $cmu-base;
+	}
+	ul, ol {
+		list-style-position: inside;
+
+		ul {
+			margin-left: $cmu-base;
+			// margin-bottom: $cmu-base/3;
+		}
+	}
+}
 
 
+// images
+.cmuStories__story__imageContainer {
+	margin-bottom: $cmu-base;
 
+	&.break-columns {
+		@include respondTo(medium-up) {
+			-webkit-columns: 2 200px;
+			 -moz-columns: 2 200px;
+			      columns: 2 200px;
+			-webkit-column-gap: 4em;
+			 -moz-column-gap: 4em;
+			      column-gap: 4em;
+			-webkit-column-rule: 1px solid $cmu-color-ltgray;
+			 -moz-column-rule: 1px solid $cmu-color-ltgray;
+			      column-rule: 1px solid $cmu-color-ltgray;
+		}
+	}
+          
+	.cmuStories__story__mediaItem {
+		// margin-bottom: $cmu-base;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+	.cmuStories__story__mediaItem__caption {
+		margin-bottom: 1rem;
+	}
 
+	.cmuStories__story__mediaItem__vidContainer--title {
 
-
-
-
-
-
-
-
-
+	}
+}
 
 
 

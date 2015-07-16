@@ -1,111 +1,205 @@
-<div class="row">
-	<div class="row">
-		<div class="col--md4">
-			<div class="row row--comfy">
-				<div>
-					<h4>Tell Your Story, {{ vm.story.author.login }}</h4>
-				</div>
-				<div>
-					<input class="appIconInput__input" ng-model="vm.story.subject" placeholder="{{ ::vm.placeholders.subject }}" maxlength="{{ ::vm.titleCharacterLimit }}" />
-				</div>
-				<div>
-					<input class="appIconInput__input" ng-model="vm.story.summary" placeholder="{{ ::vm.placeholders.summary }}" />
-				</div>
-				<div>
-				  <community-text-editor 
-			          ng-model="vm.story.body"
-			          editor-height="300"
-			          minimal-editor="true">
-			        </community-text-editor>
-				</div>
-				<div>
-					<input class="appIconInput__input"
-						community-location-search 
-						location-model="vm.story.location" 
-						placeholder="{{ ::vm.placeholders.location }}" />
-				</div>
-				<div>
-					<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
-					<ui-select multiple theme="select2"  style="min-width: 100%;" ng-model="vm.story.productsUsed">
-					    <ui-select-match placeholder="{{ ::vm.placeholders.productsUsed }}">{{ $item.name }}</ui-select-match>
-					    <ui-select-choices repeat="product.name as product in vm.productList | filter: { name: $select.search }">
-					      	<span ng-bind-html="product.name | highlight: $select.search"></span>
-					    </ui-select-choices>
-					</ui-select>
-				</div> 
-				<div>
-					<h4>Add Media</h4>
-					<h6>Upload your images from your device or add links to your images or videos. You may add content from YouTube and Vimeo.</h6>
-					<div>
-						<community-file-upload
-							on-success-fn="vm.addPhoto">
-						</community-file-upload>
-					</div>
 
-					<div>
-						<input ng-model="vm.newMediaUrl" placeholder="Link to image / YouTube or Vimeo Video" />
-						<button ng-click="vm.addNewMedia(vm.newMediaUrl)">Add Media</button>
-					</div>
+<div class="cmuStoriesNew row">
 
-					<div ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
-						<div ng-repeat="mediaUpload in vm.story.media">
-							<div>
-								<div>
-									<button ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</button>
-									<button ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</button>
-									<button ng-click="vm.deletePhoto($index)">Delete</button>
-								</div>
-								<h5>{{ mediaUpload.meta.title }}</h5>
-								<img ng-src="{{ mediaUpload.url }}" style="max-height: 150px;">
-								<span class="ubnt-icon--arrows-downup"></span>
-							</div>
-							<input ng-model="mediaUpload.caption" placeholder="Add a Caption" />
+	<div class="cmuStoriesNew__Title">
+		Tell Us Your Story
+	</div>
+	<div class="cmuStoriesNew__Form col--md4">
+		<div class="cmuStoriesNew__Form--intro">
+			Give us some details about your project.
+			<!-- <h4>Tell Your Story, {{ vm.story.author.login }}</h4> -->
+		</div>
+		<div class="cmuStoriesNew__Form--subject cmuInputContainer">
+			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+				id="{{ ::vm.placeholders.subject }}" 
+				ng-model="vm.discussion.subject" 
+				maxlength="{{ ::vm.titleCharacterLimit }}" required />
+			<label for="{{ ::vm.placeholders.subject }}">{{ ::vm.placeholders.subject }}</label>
+		</div>
+		<div class="cmuStoriesNew__Form--summary cmuInputContainer">
+			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+				id="{{ ::vm.placeholders.summary }}" 
+				ng-model="vm.story.summary" required />
+			<label for="{{ ::vm.placeholders.summary }}">{{ ::vm.placeholders.summary }}</label>
+		</div>
+		<div class="cmuStoriesNew__Form--text">
+		  <community-text-editor 
+	          ng-model="vm.discussion.body"
+	          editor-height="200"
+	          minimal-editor="true"
+	          placeholder="Tell us about your story">
+	        </community-text-editor>
+		</div>
+		<div class="cmuStoriesNew__Form--location cmuInputContainer">
+			<input class="cmuInput cmuInput--stacked cmuInput--wide"
+				community-location-search 
+				location-model="vm.story.location" 
+				id="{{ ::vm.placeholders.location }}" 
+				placeholder="" 
+				required />
+			<label for="{{ ::vm.placeholders.location }}">{{ ::vm.placeholders.location }}</label>
+		</div>
+		<div class="cmuStoriesNew__Form--products cmuInputContainer">
+			<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
+			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList">
+			    <ui-select-match 
+			    	placeholder="Click to add" >{{ $item.name }}</ui-select-match>
+			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.name as product in vm.productData | filter: { name: $select.search }">
+			      	<li ng-bind-html="product.name | highlight: $select.search"></li>
+			    </ui-select-choices>
+			</ui-select>
+			<label for="{{ ::vm.placeholders.productsUsed }}">{{ ::vm.placeholders.productsUsed }}</label>
+		</div> 
+
+		<div class="cmuStoriesNew__Form--media">
+			<div class="cmuStoriesNew__Form--title">
+				Photos and Videos
+			</div>
+			<div class="cmuStoriesNew__Form--intro">
+				A picture is worth a thousand kudos. Add photos and videos from the web, Youtube, or Vimeo. Or upload photos directly from your device.
+			</div>
+
+			<div class="cmuStoriesNew__Form--uploads" ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
+				<div class="cmuStoriesNew__Form--uploadItem" ng-repeat="mediaUpload in vm.story.media">
+					<div class="cmuStoriesNew__Form--uploadItem--info">
+						<div class="cmuStoriesNew__Form__uploadItem--count">
+
 						</div>
+						<div class="
+							cmuStoriesNew__Form--cover 
+							cmuStoriesNew__Form--cover--hide" ng-class="{ 'cmuStoriesNew__Form--cover--show': vm.notCoverPhoto(mediaUpload) == false }"><span class="icon ubnt-icon--camera"></span>Cover Image
+						</div>
+						<!-- <img class="cmuStoriesNew__Form__uploadItem--preview" ng-src="{{ mediaUpload.url }}"> -->
+
+						<div class="cmuStoriesNew__Form__uploadItem--preview" ng-style="{'background-image':'url({{ mediaUpload.url }})'}"></div>
+
+						<div class="cmuStoriesNew__Form--uploadItem--caption cmuInputContainer">
+							<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+								id="addACaption" 
+								ng-model="mediaUpload.caption" required />
+							<label for="addACaption">Caption</label>
+						</div>
+						<div class="cmuStoriesNew__Form--uploadItem--title">{{ mediaUpload.meta.title.value }}</div>
+						<div class="
+							cmuStoriesNew__Form--uploadItem--url">{{ mediaUpload.url }}</div>
+						<div class="cmuStoriesNew__Form--uploadItem--controls">
+							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</span><span class="cmuStoriesNew__Form--uploadItem--controls--setCoverVideo" ng-show="mediaUpload.type === 'video'">Unavailable As Cover</span>
+							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</span>
+							<span class="cmuStoriesNew__Form--uploadItem--controls--delete" ng-click="vm.deletePhoto($index)"><span class="icon ubnt-icon--x"></span>Delete</span>
+						</div>
+						
 					</div>
+					<div class="cmuStoriesNew__Form--uploadItem--downup ubnt-icon--arrows-sort"></div><span></span>
 				</div>
 			</div>
 
-			<div class="row row--comfy">
-				<div ng-click="vm.showAdditionalInfoFields = !vm.showAdditionalInfoFields">
-					<h4><span class="icon" ng-class="{ 'ubnt-icon--minus-circle': vm.showAdditionalInfoFields, 'ubnt-icon--plus-circle': !vm.showAdditionalInfoFields }"></span> Additional Info</h4>
-				</div>
-				<div ng-show="vm.showAdditionalInfoFields">
-					<div>
-						<input ng-model="vm.story.projectRole" placeholder="Project Role" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.finishDate" placeholder="Finish Date" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.numberOfUsers" placeholder="Number of Users" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.budgetAmount" placeholder="Budget Amount" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.dataRequirement" placeholder="Data Requirement" />						
-					</div>
-					<div>
-						<input ng-model="vm.story.bandwidth" placeholder="Bandwidth" />						
-					</div>
+			<div class="cmuStoriesNew__Form--url cmuInputContainer">
+				<div class="cmuInputUrl cmuInput--stacked">
+					<input class="cmuInputUrl--input"
+						ng-model="vm.newMediaUrl" 
+						placeholder="Paste link here"
+						id="cmuInputUrl--input"
+						required />
+					<label for="cmuInputUrl--input">Image, YouTube or Vimeo URL</label>
+					<button class="cmuInputUrl--button" ng-click="vm.addNewMedia(vm.newMediaUrl)">Upload From URL</button>
 				</div>
 			</div>
 
-			<div class="row row--comfy">
-				<div ng-hide="vm.isPublishing">
-					<button ng-click="vm.postStory()">Publish</button>
-					<button>Cancel</button>
+			<div class="cmuStoriesNew__Form--fileUpload">
+				<community-file-upload
+					on-success-fn="vm.addPhoto">
+				</community-file-upload>
+			</div>
+
+		</div>
+
+		<div class="cmuStoriesNew__Form--additional">
+			<div class="cmuStoriesNew__Form--additional--controller" ng-click="vm.showAdditionalInfoFields = !vm.showAdditionalInfoFields">
+				<span class="icon" ng-class="{ 'ubnt-icon--pointer-down': vm.showAdditionalInfoFields, 'ubnt-icon--pointer-right': !vm.showAdditionalInfoFields }"></span> 
+
+				<span class="cmuStoriesNew__Form--title">
+					Add More Details
+				</span>
+
+				<div class="cmuStoriesNew__Form--intro">
+					Let us know about your team size, budget, bandwidth requirements, and other details.
 				</div>
-				<div ng-show="vm.isPublishing">
-					<button disabled>Publishing Your Story...</button>
+			</div>
+			<div ng-show="vm.showAdditionalInfoFields">
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.projectRole"
+						ng-change="vm.setMetaField('projectRole')"
+						id="projectRole" 
+						placeholder="" 
+						required />
+					<label for="projectRole">Project Role</label>
 				</div>
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.finishDate"
+						ng-change="vm.setMetaField('finishDate')"
+						id="finishDate" 
+						placeholder="" 
+						required />
+					<label for="finishDate">Finish Date</label>
+				</div>
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.numberOfUsers"
+						ng-change="vm.setMetaField('numberOfUsers')"
+						id="numberOfUsers" 
+						placeholder="" 
+						required />
+					<label for="numberOfUsers">Number of Users on Network</label>
+				</div>
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.budgetAmount"
+						ng-change="vm.setMetaField('budgetAmount')"
+						id="budgetAmount" 
+						placeholder="" 
+						required />
+					<label for="budgetAmount">Budget Size</label>
+				</div>
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.dataRequirement"
+						ng-change="vm.setMetaField('dataRequirement')"
+						id="dataRequirement" 
+						placeholder="" 
+						required />
+					<label for="dataRequirement">Data Requirements</label>
+				</div>
+				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
+					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+						ng-model="vm.metaValues.bandwidth"
+						ng-change="vm.setMetaField('bandwidth')"
+						id="bandwidth" 
+						placeholder="" 
+						required />
+					<label for="bandwidth">Bandwidth</label>
+				</div>
+
 			</div>
 		</div>
-		<div class="col--md8">
-			<div class="row">
-				<div ng-include="'stories/detail/stories.body.html'"></div>
-				<div id="map"></div>
+
+		<div class="cmuStoriesNew__Form--publish">
+			<div ng-hide="vm.isPublishing">
+				<button class="button--solid button--tall button--wide button--padded" ng-click="vm.postStory()">Publish</button>
+				<!-- <button>Cancel</button> -->
 			</div>
+			<div ng-show="vm.isPublishing">
+				<button class="cmuInput--waiting button--tall button--wide button--padded" disabled>Publishing Your Story...</button>
+			</div>
+		</div>
+	</div>
+	<div class="cmuStoriesNew__Preview col--md8">
+			<div class="cmuStoriesNew__Preview--intro row">
+				Story Preview
+			</div>
+			<div ng-include="'stories/detail/stories.body.html'"></div>
+			<!-- <div id="map"></div> -->
 		</div>
 	</div>
 </div>
