@@ -114,7 +114,7 @@
 				return vimeo;
 			} 
 			//Pictures
-			else if (mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+			else if (mediaUrl.match(/\.(jpeg|jpg|gif|png)$/i) != null) {
 				return images;
 			}
 			else {

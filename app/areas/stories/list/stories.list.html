@@ -12,32 +12,16 @@
 </div>
 
 <div class="row">
-	<div class="cmuStories--left col--md4 noPaddingLeft">
+<div class="cmuStories--right noPaddingRight">
 		<div ng-repeat="story in vm.storyList">
-			<div ng-show="$index % 3 == 0">
+			<div class="col--md4">
 				<story-display 
-				story="story"
+				story="story.discussion"
+				story-media="story.media"
 				default-photo-url="vm.defaultPhoto"></story-display>
 			</div>
 		</div>
-	</div>
-	<div class="col--md4 cmuStories--mid">
-		<div ng-repeat="story in vm.storyList">
-			<div ng-show="$index % 3 == 1">
-				<story-display 
-				story="story"
-				default-photo-url="vm.defaultPhoto"></story-display>
-			</div>
-		</div>
-	</div>
-	<div class="cmuStories--right noPaddingRight col--md4 ">
-		<divcm ng-repeat="story in vm.storyList">
-			<div ng-show="$index % 3 == 2">
-				<story-display 
-				story="story"
-				default-photo-url="vm.defaultPhoto"></story-display>
-			</div>
-		</div>
+	</div>	
 	</div>
 </div>
 

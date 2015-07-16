@@ -5,7 +5,7 @@
 		var ctrl = this;
 
 		var intitialList = storyFilter.initialData();
-
+		
 		_.extend(ctrl, {
 			storyFilter: storyFilter,
 			storyList: intitialList.collection,
