@@ -83,7 +83,7 @@
 						<div class="
 							cmuStoriesNew__Form--uploadItem--url">{{ mediaUpload.url }}</div>
 						<div class="cmuStoriesNew__Form--uploadItem--controls">
-							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="!vm.isVideo(mediaUpload) && vm.notCoverPhoto(mediaUpload)">Set As Cover</span><span class="cmuStoriesNew__Form--uploadItem--controls--setCoverVideo" ng-show="vm.isVideo(mediaUpload)">Unavailable As Cover</span>
+							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.setCoverPhoto(mediaUpload)" ng-show="mediaUpload.type !== 'video' && vm.notCoverPhoto(mediaUpload)">Set As Cover</span><span class="cmuStoriesNew__Form--uploadItem--controls--setCoverVideo" ng-show="mediaUpload.type === 'video'">Unavailable As Cover</span>
 							<span class="cmuStoriesNew__Form--uploadItem--controls--setCover" ng-click="vm.removeCoverPhoto()" ng-hide="vm.notCoverPhoto(mediaUpload)">Remove As Cover</span>
 							<span class="cmuStoriesNew__Form--uploadItem--controls--delete" ng-click="vm.deletePhoto($index)"><span class="icon ubnt-icon--x"></span>Delete</span>
 						</div>
@@ -128,7 +128,8 @@
 			<div ng-show="vm.showAdditionalInfoFields">
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.projectRole"
+						ng-model="vm.metaValues.projectRole"
+						ng-change="vm.setMetaField('projectRole')"
 						id="projectRole" 
 						placeholder="" 
 						required />
@@ -136,7 +137,8 @@
 				</div>
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.finishDate"
+						ng-model="vm.metaValues.finishDate"
+						ng-change="vm.setMetaField('finishDate')"
 						id="finishDate" 
 						placeholder="" 
 						required />
@@ -144,7 +146,8 @@
 				</div>
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.numberOfUsers"
+						ng-model="vm.metaValues.numberOfUsers"
+						ng-change="vm.setMetaField('numberOfUsers')"
 						id="numberOfUsers" 
 						placeholder="" 
 						required />
@@ -152,7 +155,8 @@
 				</div>
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.budgetAmount"
+						ng-model="vm.metaValues.budgetAmount"
+						ng-change="vm.setMetaField('budgetAmount')"
 						id="budgetAmount" 
 						placeholder="" 
 						required />
@@ -160,7 +164,8 @@
 				</div>
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.dataRequirement"
+						ng-model="vm.metaValues.dataRequirement"
+						ng-change="vm.setMetaField('dataRequirement')"
 						id="dataRequirement" 
 						placeholder="" 
 						required />
@@ -168,7 +173,8 @@
 				</div>
 				<div class="cmuStoriesNew__Form--additional-input cmuInputContainer">
 					<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-						ng-model="vm.story.meta.bandwidth"
+						ng-model="vm.metaValues.bandwidth"
+						ng-change="vm.setMetaField('bandwidth')"
 						id="bandwidth" 
 						placeholder="" 
 						required />

@@ -28,9 +28,13 @@
 							title: {
 								key: 'title',
 								value: snippet.title,
+							},
+							origin: {
+								key: 'origin',
+								value: 'youtube'
 							}
 						},
-						type: 'video:youtube',
+						type: 'video',
 						url: snippet.thumbnails.medium.url,
 					}
 				});
@@ -66,9 +70,13 @@
 							title: {
 								key: 'title',
 								value: videoData.name,
+							},
+							origin: {
+								key: 'origin',
+								value: 'vimeo'
 							}
 						},
-						type: 'video:vimeo',
+						type: 'video',
 						url: videoData.pictures.sizes[2].link
 					};
 				});
@@ -94,7 +102,7 @@
 					type: 'image'
 				});
 			}
-		}
+		};
 
 		var parseMediaUrl = function(mediaUrl){
 			//YouTube

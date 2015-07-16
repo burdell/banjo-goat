@@ -7,11 +7,11 @@
 			element.attr('id', videoElementId);
 			
 			var videoType = scope.videoembed.videoType;
-			if (videoType === 'video:youtube') {
+			if (videoType === 'youtube') {
 				var player = new YT.Player(videoElementId, {
 	                videoId: scope.videoembed.videoId
 	            });
-			} else if (videoType === 'video:vimeo') {
+			} else if (videoType === 'vimeo') {
 				var $element = $(element);
 				$element.append('<iframe src="//player.vimeo.com/video/' + scope.videoembed.videoId +'" frameborder="0" width="615.5" height="365" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
 			}
