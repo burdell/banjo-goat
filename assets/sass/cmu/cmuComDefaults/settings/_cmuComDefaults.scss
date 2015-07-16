@@ -2,12 +2,25 @@
 $com-base-font-size:        $base-font-size;
 $com-base-line-height:      24px !default;
 
- 
+
+// community global header overrides 
+.comGlobalHeader {
+  position: relative !important;
+  background-color: $cmu-color-soot;
+    border-bottom: 1px solid $cmu-color-dkgray;
+}
+
+  .comGlobalHeader__content {
+    @extend %cmu-maxwidth;
+  }
+
 
 
 // footer size overrides community style
 .comGlobalFooter {
-  padding: 0 89px; 
+  // padding: 0 89px; 
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .comGlobalFooter h4 {

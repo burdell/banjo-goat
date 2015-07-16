@@ -23,7 +23,9 @@
 		}
 	}
 }
-
+	.cmuBanner__container {
+		@extend %cmu-maxwidth;
+	}
 	.cmuBanner__main {
 		text-align: left;
 		padding: $cmu-base 0;
@@ -52,3 +54,6 @@
 			color: $cmu-banner-hover-icon-color;
 		}
 	}
+
+
+

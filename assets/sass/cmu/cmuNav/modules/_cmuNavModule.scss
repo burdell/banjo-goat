@@ -28,6 +28,10 @@
 	}
 }
 
+.cmuNav__container {
+	@extend %cmu-maxwidth;
+}
+
 .cmuNav__navItem {
 	padding: $cmu-base $cmu-base/2;
 	position: relative;

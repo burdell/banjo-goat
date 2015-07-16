@@ -37,8 +37,10 @@
 		<div class="cmuStories__story__cover">
 			<div class="cmuStories__story__cover--img">
 				<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
-				<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
+				
+				<div ng-style="{'background-image':'url('+vm.cover.url+')'}"></div>
 			</div>
+			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
 		<div class="cmuStories__story__body" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
