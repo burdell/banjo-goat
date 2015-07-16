@@ -140,7 +140,6 @@
 				thread: function(storyId, data){
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {
-							debugger;
 							return {
 								originalMessage: result[0].model,
 								comments: result[1].collection,
