@@ -134,6 +134,12 @@
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-base;
 }
+	.cmuStories__story__controlsTop--left {
+		button {
+			float: right;
+			margin-top: 4px;
+		}
+	}
 
 	.cmuStories__author--avatar {
 		float: left;
@@ -176,6 +182,11 @@
 		// overflow: hidden;
 		text-align: left;
 		margin-bottom: $cmu-base/2;
+
+		// 'picture frame'
+		padding: 12px;
+		background: white;
+		border: 1px solid #ccc;
 
 		img {
 			max-width: 100%;

@@ -5,7 +5,7 @@
 </div>
 
 <div class="cmuStories__story__controlsTop row" ng-hide="vm.hideStoryControls">
-	<div class="cmuStories__story__controlsTop--left col--md8 noPadding">
+	<div class="cmuStories__story__controlsTop--left col--md9 noPadding">
 		<div class="cmuStories__author--avatar">
 			<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
 		</div>
@@ -14,10 +14,26 @@
 			<community-username user="vm.storyAuthor"></community-username>
 			<span class="cmuStories__postTime">{{ vm.discussion.postTime | timeFromNow }}</span>
 		</div>
+
+		<button ng-show="
+			vm.story.location.display || vm.story.meta.projectRole ||  
+				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
+				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
+				vm.story.meta.bandwidth ||
+				(vm.productList && vm.productList.length > 0)
+			" class="button--vote button-white-on-green">
+			{{ vm.discussion.stats | extractKey : 'score' }} kudos
+		</button>
 	</div>
 
-	<div class="cmuStories__story__controlsTop--right col--md4 alignRight noPadding">
-		<button class="button--vote button-white-on-green">
+	<div class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding">
+		<button ng-hide="
+			vm.story.location.display || vm.story.meta.projectRole ||  
+				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
+				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
+				vm.story.meta.bandwidth ||
+				(vm.productList && vm.productList.length > 0)
+			" class="button--vote button-white-on-green">
 			{{ vm.discussion.stats | extractKey : 'score' }} kudos
 		</button>
 	</div>
@@ -26,7 +42,7 @@
 <div class="cmuStories__story__body row">
 
 	<div class="cmuStories__story__body__main"
-		ng-class="{'col--md9' : 
+		ng-class="{'col--md9 noPadding' : 
 			(vm.story.location.display || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
 				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||

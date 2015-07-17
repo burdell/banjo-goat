@@ -1,4 +1,41 @@
 
+
+// New Primary+Secondary Nav
+
+.cmuGlobalHeader {
+	height: $cmu-base*2;
+	background-color: $cmu-color-soot;
+	border-bottom: 1px solid $cmu-color-dkgray;
+
+	* {
+		display: inline-block;
+	}
+}
+
+	.cmuGlobalHeader__left {
+
+	}
+		.cmuGlobalHeader__logo {
+			.icon {
+				color: $cmu-color-white;
+				font-size: remCalc(24px);
+				padding: $cmu-base/4 $cmu-base;
+			}
+		}
+
+	.cmuGlobalHeader__right {
+
+	}
+
+
+
+
+
+
+
+
+
+
 // Temporary for the secondary nav
 .cmuNav {
 	background-color: $cmu-secondmenu-background-color;

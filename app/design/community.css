@@ -85,6 +85,14 @@
   width: 100% !important;
 }
 
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 /**
  * 1. Support IE10.
  */
@@ -3334,18 +3342,13 @@ THE SOFTWARE.
 
 /**
  * The avatar component styles images as if they are avatar images. Apply this
- * class either to an img tag, or to an element with a background-image.
+ * class either to an element with a background-image.
  *
  * Override the width and height to change its size.
  */
-/**
- * 1. Assume a square image, because we want to the image to retain its
- *    correct proportions if it is squeezed by its container.
- */
 .avatar {
   width: 5em;
-  height: auto;
-  /* [1] */
+  height: 5em;
   background-position: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3768,6 +3771,72 @@ button:hover, button:focus,
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  /* [1] */
+  display: flex;
+}
+
+.flexRow--alignCenter {
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  /* [1] */
+  align-items: center;
+}
+
+.flexCol--1 {
+  width: 8.33333%;
+}
+
+.flexCol--2 {
+  width: 16.66667%;
+}
+
+.flexCol--3 {
+  width: 25%;
+}
+
+.flexCol--4 {
+  width: 33.33333%;
+}
+
+.flexCol--5 {
+  width: 41.66667%;
+}
+
+.flexCol--6 {
+  width: 50%;
+}
+
+.flexCol--7 {
+  width: 58.33333%;
+}
+
+.flexCol--8 {
+  width: 66.66667%;
+}
+
+.flexCol--9 {
+  width: 75%;
+}
+
+.flexCol--10 {
+  width: 83.33333%;
+}
+
+.flexCol--11 {
+  width: 91.66667%;
+}
+
+.flexCol--12 {
+  width: 100%;
 }
 
 /**
@@ -5368,6 +5437,10 @@ output {
 }
 
 /**
+ * Apply this to a div to size the element to fit the image, and then display
+ * a retina image on retina displays.
+ */
+/**
  * Remove the bullet-points and any indents from lists.
  *
  * @extend this class when creating a list-based component if you want to
@@ -6954,6 +7027,21 @@ pre {
 }
 .cmuPagination__isSimple.cmuPagination__main {
   flex-grow: 0;
+}
+
+.cmuGlobalHeader {
+  height: 2rem;
+  background-color: #11181c;
+  border-bottom: 1px solid #474b52;
+}
+.cmuGlobalHeader * {
+  display: inline-block;
+}
+
+.cmuGlobalHeader__logo .icon {
+  color: #fafafa;
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
 }
 
 .cmuNav {
@@ -8689,6 +8777,11 @@ button .icon, .button .icon {
   margin-bottom: 1rem;
 }
 
+.cmuStories__story__controlsTop--left button {
+  float: right;
+  margin-top: 4px;
+}
+
 .cmuStories__author--avatar {
   float: left;
   padding-left: 0.5rem;
@@ -8726,6 +8819,9 @@ button .icon, .button .icon {
 .cmuStories__story__cover .cmuStories__story__cover--img {
   text-align: left;
   margin-bottom: 0.5rem;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ccc;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img img {
   max-width: 100%;
@@ -9020,6 +9116,7 @@ button .icon, .button .icon {
   font-size: 10px;
   color: #474b52;
   cursor: default;
+  word-break: break-all;
 }
 
 .cmuStoriesNew__Form--uploadItem--controls {
