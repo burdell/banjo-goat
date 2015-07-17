@@ -1,39 +1,43 @@
 
-<div class="cmuGlobalHeader row">
-  <div class="cmuGlobalHeader__container">
-    <div class="cmuGlobalHeader__left">
-      <div class="cmuGlobalHeader__logo">
-        <span class="icon ubnt-icon--u"></span>
-      </div>
-      <div class="cmuGlobalHeader__cmuHome">
-        Community
-      </div>
-    </div>
+<div class="cmuGlobalHeader">
+  <div class="cmuGlobalHeader__container container">
+      <div class="row">
+        <div class="col--md12 noPadding">
+          <div class="cmuGlobalHeader__left">
+            <div class="cmuGlobalHeader__logo">
+              <span class="icon ubnt-icon--u"></span>
+            </div>
+            <div class="cmuGlobalHeader__cmuHome">
+              Community
+            </div>
+          </div>
 
-    <div class="cmuGlobalHeader__right">
-      <ul class="cmuGlobalHeader__cmuLinks">
-        <li 
-          ng-repeat="navItem in mainnavbar.navList"
-          class="cmuGlobalHeader__cmuLink" 
-          ng-class="{ 'cmuGlobalHeader__dropItem': navItem.dropItem }">
-            <a href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">{{ navItem.display }}</a>
-        </li>
-      </ul>
-      <div class="cmuGlobalHeader__cmuSearch">
-        <span class="icon ubnt-icon--search-2"></span>
+          <div class="cmuGlobalHeader__right">
+            <ul class="cmuGlobalHeader__cmuLinks">
+              <li 
+                ng-repeat="navItem in mainnavbar.navList"
+                class="cmuGlobalHeader__cmuLink" 
+                ng-class="{ 'cmuGlobalHeader__dropItem': navItem.dropItem }">
+                  <a href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">{{ navItem.display }}</a>
+              </li>
+            </ul>
+            <div class="cmuGlobalHeader__cmuSearch">
+              <span class="icon ubnt-icon--search-2"></span>
+            </div>
+            <div class="cmuGlobalHeader__cmuAccount">
+              <ul class="">
+                <li class="cmuGlobalHeader__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
+                </li>
+                <li class="cmuGlobalHeader__inbox"><a href="#">
+                  <span class="icon ubnt-icon--inbox"></span></a>
+                </li>
+                <li class="cmuGlobalHeader__avatar">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="cmuGlobalHeader__cmuAccount">
-        <ul class="">
-          <li class="cmuGlobalHeader__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
-          </li>
-          <li class="cmuGlobalHeader__inbox"><a href="#">
-            <span class="icon ubnt-icon--inbox"></span></a>
-          </li>
-          <li class="cmuGlobalHeader__avatar">
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
 
 

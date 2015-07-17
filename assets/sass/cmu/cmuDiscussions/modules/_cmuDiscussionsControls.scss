@@ -2,8 +2,8 @@
 
 
 .cmuDiscussionsControls {
-	margin-top: remCalc(12px);
-	margin-bottom: remCalc(12px);
+	margin-top: $cmu-base/2;
+	margin-bottom: $cmu-base;
 	display: block;
 
     border-bottom: 1px solid #ccc;
@@ -21,7 +21,7 @@
 	display: inline-block;
 	h4 { 
 		font-weight: bold;
-		font-size: remCalc(14px);
+		font-size: remCalc(15px);
 
 		padding-right: 16px;
 		border-right: 1px solid $cmu-color-gray;
@@ -50,7 +50,9 @@
 
 	a {
 		@extend .type-link;
-		font-size: remCalc(12px);
+		font-size: remCalc(15px);
+		font-weight: 300;
+		text-transform: capitalize;
 	}
 
 	ul {	

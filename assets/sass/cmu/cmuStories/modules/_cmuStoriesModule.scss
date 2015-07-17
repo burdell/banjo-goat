@@ -12,6 +12,23 @@
 
 .cmuStoryItem {
 	@extend %ease-fast;
+	max-width: 245px;
+
+	// Note on how this works:
+	// this value depends on the maxwidth of the page
+	// content-width: 1022px
+	// gutter width: 14px (in fluidlayout)
+	// max columns: 4
+	// (1022 - 14*3) / = 245
+
+	// regular width, 4 columns / 3 gutters
+	max-width: calc((100% - 14px * 3) / 4);
+
+	@include respondTo(xsmall-only) {
+		// regular width, 1 columns / 0 gutters
+		max-width: calc((100% - 14px * 0) / 1); // technically just 100%
+	}
+
 	&:hover {
 		@extend %ease-fast;
 		img {

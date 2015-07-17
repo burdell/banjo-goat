@@ -19,7 +19,7 @@
 			}
 			init(false, {
 				itemSelector: '.cmuStoryItem',
-				gutter: 15,
+				gutter: 14,
 				animationDuration: 0
 			});
 

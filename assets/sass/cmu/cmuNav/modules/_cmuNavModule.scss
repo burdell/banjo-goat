@@ -36,6 +36,12 @@ $nav-height: remCalc(40px);
 		display: inline-block;
 		vertical-align: top;
 	}
+	ul {
+		margin-bottom: 0;
+	}
+	.row {
+		display: block;
+	}
 }
 
 	.cmuGlobalHeader__container {
@@ -51,7 +57,7 @@ $nav-height: remCalc(40px);
 				color: $cmu-color-white;
 				font-size: remCalc(24px);
 				padding: $cmu-base/2 $cmu-base;
-				padding-left: 4px;
+				padding-left: 0;
 			}
 		}
 		.cmuGlobalHeader__cmuHome {
@@ -68,7 +74,7 @@ $nav-height: remCalc(40px);
 			border-right: 1px solid $cmu-color-dkgray;
 		}
 			// fake active button
-			.cmuGlobalHeader__cmuLinks li:nth-child(3) {
+			.cmuGlobalHeader__cmuLinks li:nth-child(5) {
 				background-color: $cmu-color-dkgray;
 				a { 
 					color: $cmu-color-blue; 
@@ -128,7 +134,7 @@ $nav-height: remCalc(40px);
 				background: #969ba3;
 				border-radius: 50%;
 				margin-top: 5px;
-				margin-right: 8px;
+				margin-right: 0;
 				margin-left: 4px;
 				@extend %ease-fast;
 				height: remCalc(28px);

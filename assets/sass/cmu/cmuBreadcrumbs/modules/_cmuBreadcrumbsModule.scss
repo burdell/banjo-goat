@@ -5,14 +5,14 @@
 // 
 
 .cmuBreadcrumbs {
+ 	margin-top: 1rem;
 	margin-bottom: $cmu-base/2;
 	font-weight: 300; 
 	font-size: $cmu-size-breadcrumbs;
 	line-height: $cmu-base/2;
 
 	&:hover a { 
-		color: $cmu-color-black; 
-		font-weight: 400; 
+		color: $cmu-color-black;
 	}
 	
 	* { cursor: default; }

@@ -7057,6 +7057,12 @@ pre {
   display: inline-block;
   vertical-align: top;
 }
+.cmuGlobalHeader ul {
+  margin-bottom: 0;
+}
+.cmuGlobalHeader .row {
+  display: block;
+}
 
 .cmuGlobalHeader__container {
   display: block;
@@ -7066,7 +7072,7 @@ pre {
   color: #fafafa;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
-  padding-left: 4px;
+  padding-left: 0;
 }
 
 .cmuGlobalHeader__cmuHome {
@@ -7081,13 +7087,13 @@ pre {
   border-right: 1px solid #474b52;
 }
 
-.cmuGlobalHeader__cmuLinks li:nth-child(3) {
+.cmuGlobalHeader__cmuLinks li:nth-child(5) {
   background-color: #474b52;
 }
-.cmuGlobalHeader__cmuLinks li:nth-child(3) a {
+.cmuGlobalHeader__cmuLinks li:nth-child(5) a {
   color: #00a0df;
 }
-.cmuGlobalHeader__cmuLinks li:nth-child(3) a:hover {
+.cmuGlobalHeader__cmuLinks li:nth-child(5) a:hover {
   color: #fafafa;
 }
 
@@ -7129,7 +7135,7 @@ pre {
   background: #969ba3;
   border-radius: 50%;
   margin-top: 5px;
-  margin-right: 8px;
+  margin-right: 0;
   margin-left: 4px;
   height: 1.75rem;
   width: 1.75rem;
@@ -7263,6 +7269,7 @@ pre {
 }
 
 .cmuBreadcrumbs {
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-weight: 300;
   font-size: 0.74rem;
@@ -7270,7 +7277,6 @@ pre {
 }
 .cmuBreadcrumbs:hover a {
   color: black;
-  font-weight: 400;
 }
 .cmuBreadcrumbs * {
   cursor: default;
@@ -8433,8 +8439,8 @@ button .icon, .button .icon {
 }
 
 .cmuDiscussionsControls {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   display: block;
   border-bottom: 1px solid #ccc;
   padding-bottom: 6px;
@@ -8446,7 +8452,7 @@ button .icon, .button .icon {
 }
 .cmuDiscussionsHeader h4 {
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   padding-right: 16px;
   border-right: 1px solid #969ba3;
   line-height: 14px;
@@ -8460,7 +8466,9 @@ button .icon, .button .icon {
   margin-left: 1rem;
 }
 .cmuDiscussionsNavbar a {
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  text-transform: capitalize;
 }
 .cmuDiscussionsNavbar ul {
   margin: 0;
@@ -8800,6 +8808,15 @@ button .icon, .button .icon {
   margin-bottom: 1rem;
 }
 
+.cmuStoryItem {
+  max-width: 245px;
+  max-width: calc((100% - 14px * 3) / 4);
+}
+@media only screen and (max-width: 480px) {
+  .cmuStoryItem {
+    max-width: calc((100% - 14px * 0) / 1);
+  }
+}
 .cmuStoryItem:hover img {
   opacity: 0.4;
 }
