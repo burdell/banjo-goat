@@ -12,16 +12,23 @@
 </div>
 
 <div class="row">
-<div class="cmuStories--right noPaddingRight">
-		<div ng-repeat="story in vm.storyList">
-			<div class="col--md4">
-				<story-display 
+	<!-- <div ng-repeat="story in vm.storyList">
+		<div class="col--md4">
+			<story-display 
+			story="story.discussion"
+			story-media="story.media"
+			default-photo-url="vm.defaultPhoto"></story-display>
+		</div>
+	</div> -->
+
+	<div class="row" ng-repeat="storyRow in vm.groupedStoryList">
+		<div class="col--md3" ng-repeat="story in storyRow">
+			<story-display 
 				story="story.discussion"
 				story-media="story.media"
-				default-photo-url="vm.defaultPhoto"></story-display>
-			</div>
+				default-photo-url="vm.defaultPhoto">
+			</story-display>
 		</div>
-	</div>	
 	</div>
 </div>
 
@@ -29,5 +36,6 @@
 	list-model="vm.storyList"
 	load-filter="vm.storyFilter"
 	list-metadata="vm.storyMetadata"
-	infinite-scroll="true">
+	infinite-scroll="true"
+	on-load-fn="vm.groupStoryData">
 </community-load-more>
