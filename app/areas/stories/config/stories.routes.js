@@ -35,7 +35,7 @@
 							filterFn: communityApi.Stories.stories, 
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
-								limit: 24
+								limit: 30
 							},
 							persistFilterModel: false 
 						});
