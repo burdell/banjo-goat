@@ -8,6 +8,14 @@
 		var controller = function() {
 			var ctrl = this;
 			
+			var media = _.find(ctrl.storyMedia, function(mediaObject){ 
+				return mediaObject.meta && mediaObject.meta.isCover && mediaObject.meta.isCover.value === 'true' 
+			});
+		
+			if (media) {
+				ctrl.coverphoto = media.url;
+			}
+
 			_.extend(ctrl, {
 			})
 		};
@@ -23,6 +31,7 @@
 	        restrict: 'E',
 	        scope: {
 	        	story: '=',
+	        	storyMedia: '=',
 	        	defaultPhotoUrl: '='
 	        }
 	    };

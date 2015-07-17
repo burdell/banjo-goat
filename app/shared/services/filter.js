@@ -50,7 +50,6 @@
 			return {
 				set: function(newOptions){
 					var filter = this;	
-						
 					_.extend(options, newOptions);
 					if (newOptions.onFilter) {
 						options.onFilterFns.push(newOptions.onFilter);
