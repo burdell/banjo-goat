@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
@@ -6594,7 +6594,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
@@ -6639,7 +6639,7 @@ body {
   line-height: inherit;
 }
 
-.community__content, .cmuNav__container, .cmuBanner__container, .comGlobalHeader__content {
+.community__content, .cmuGlobalHeader__container, .cmuNav__container, .cmuBanner__container, .comGlobalHeader__content {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -7029,19 +7029,110 @@ pre {
   flex-grow: 0;
 }
 
+.cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active {
+  text-transform: uppercase;
+  color: #aeb4b7;
+  letter-spacing: 0.4px;
+  font-size: 0.6875rem;
+  vertical-align: top;
+  padding: 0.7rem 1rem;
+  height: 2.5rem;
+  cursor: pointer;
+  line-height: 1rem;
+}
+.cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuAccount .icon:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.active:hover {
+  color: #fafafa;
+}
+
+.cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon {
+  font-size: 1rem;
+}
+
 .cmuGlobalHeader {
-  height: 2rem;
+  height: 2.5rem;
   background-color: #11181c;
   border-bottom: 1px solid #474b52;
 }
 .cmuGlobalHeader * {
   display: inline-block;
+  vertical-align: top;
+}
+
+.cmuGlobalHeader__container {
+  display: block;
 }
 
 .cmuGlobalHeader__logo .icon {
   color: #fafafa;
   font-size: 1.5rem;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
+  padding-left: 4px;
+}
+
+.cmuGlobalHeader__cmuHome {
+  padding-left: 0;
+}
+
+.cmuGlobalHeader__right {
+  float: right;
+}
+
+.cmuGlobalHeader__cmuLinks {
+  border-right: 1px solid #474b52;
+}
+
+.cmuGlobalHeader__cmuLinks li:nth-child(3) {
+  background-color: #474b52;
+}
+.cmuGlobalHeader__cmuLinks li:nth-child(3) a {
+  color: #00a0df;
+}
+.cmuGlobalHeader__cmuLinks li:nth-child(3) a:hover {
+  color: #fafafa;
+}
+
+.cmuGlobalHeader__cmuLink:hover.cmuGlobalHeader__dropItem:after {
+  color: #fafafa;
+}
+
+.cmuGlobalHeader__dropItem:after {
+  font-family: 'ubnt';
+  content: "\e6d0";
+  position: relative;
+  top: 8px;
+  right: 12px;
+  font-size: 0.5rem;
+  color: #969ba3;
+}
+
+.cmuGlobalHeader__cmuLink.active {
+  background-color: #474b52;
+}
+
+.cmuGlobalHeader__cmuSearch {
+  border-right: 1px solid #474b52;
+}
+
+.cmuGlobalHeader__cmuAccount .icon {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.cmuGlobalHeader__cmuAccount .ubnt-icon--inbox {
+  font-size: 19px;
+  position: relative;
+  top: -1px;
+}
+
+.cmuGlobalHeader__avatar:before {
+  content: ' ';
+  display: block;
+  background: #969ba3;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-left: 4px;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 .cmuNav {
@@ -7105,6 +7196,7 @@ pre {
 }
 
 .cmuBanner {
+  display: none !important;
   cursor: pointer;
   background-color: #ffb31a;
   font-weight: 300;
@@ -7171,31 +7263,40 @@ pre {
 }
 
 .cmuBreadcrumbs {
-  margin: 1rem 0;
-  font-weight: 400;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
   font-size: 0.74rem;
+  line-height: 0.5rem;
+}
+.cmuBreadcrumbs:hover a {
+  color: black;
+  font-weight: 400;
 }
 .cmuBreadcrumbs * {
   cursor: default;
 }
-.cmuBreadcrumbs > div > span span {
+.cmuBreadcrumbs ul {
+  margin: 0;
+}
+.cmuBreadcrumbs li {
+  display: inline-block;
+  list-style-type: none;
+}
+.cmuBreadcrumbs li span {
   cursor: pointer;
 }
-.cmuBreadcrumbs > div > span:after {
+.cmuBreadcrumbs li:after {
   content: '/';
   padding: 0 0.33333rem;
 }
-.cmuBreadcrumbs > div > span a {
-  color: black;
+.cmuBreadcrumbs li a {
+  color: #969ba3;
 }
-.cmuBreadcrumbs > div > span a:hover {
+.cmuBreadcrumbs li a:hover {
   color: #00a0df;
 }
-.cmuBreadcrumbs > div > span:last-of-type {
-  color: #bbbbbd;
-}
-.cmuBreadcrumbs > div > span:last-of-type:after {
-  content: '';
+.cmuBreadcrumbs .cmuBreadcrumbs__last {
+  color: #969ba3;
 }
 
 .cmuSearchbox {
@@ -8331,31 +8432,40 @@ button .icon, .button .icon {
   margin-left: 4px;
 }
 
-.cmuDiscussionsHeaderRow {
-  border-bottom: 2px solid black;
-  padding: 0;
+.cmuDiscussionsControls {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
 }
 
-.cmuDiscussionsHeader h2 {
+.cmuDiscussionsHeader {
+  float: left;
   display: inline-block;
 }
-
 .cmuDiscussionsHeader h4 {
-  display: inline-block;
-  padding-left: 0.5rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  padding-right: 16px;
+  border-right: 1px solid #969ba3;
+  line-height: 14px;
+  vertical-align: bottom;
+  margin-top: 4px;
 }
 
 .cmuDiscussionsNavbar {
   cursor: default;
-  margin-bottom: 1rem;
+  display: inline-block;
+  margin-left: 1rem;
+}
+.cmuDiscussionsNavbar a {
+  font-size: 0.75rem;
 }
 .cmuDiscussionsNavbar ul {
-  float: left;
   margin: 0;
   display: block;
   width: 100%;
-  border-bottom: 1px solid black;
-  padding: 0.5rem 0;
 }
 .cmuDiscussionsNavbar li {
   display: inline;
@@ -8735,6 +8845,8 @@ button .icon, .button .icon {
 
 .cmuStoryItem--link {
   color: #474b52;
+  margin-bottom: 0.5rem;
+  display: inline-block;
 }
 .cmuStoryItem--link:hover {
   color: #00a0df;
@@ -8759,14 +8871,14 @@ button .icon, .button .icon {
 .cmuStories__title {
   font-weight: 300;
   font-size: 32px;
-  line-height: 48px;
+  line-height: initial;
   color: #474b52;
 }
 
 .cmuStories__summary {
   font-style: italic;
   font-size: 1.1rem;
-  line-height: 1.6rem;
+  line-height: initial;
   color: #969ba3;
   margin-bottom: 1rem;
   font-weight: 300;
@@ -8775,6 +8887,9 @@ button .icon, .button .icon {
 .cmuStories__story__controlsTop {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+}
+.cmuStories__story__controlsTop .cmuUsername {
+  margin-left: 0.25rem;
 }
 
 .cmuStories__story__controlsTop--left button {

@@ -77,6 +77,8 @@
 .cmuStoryItem--link {
 	color: $cmu-color-dkgray;
 	// font-size: $cmu-base-font;
+	margin-bottom: $cmu-base/2;
+	display: inline-block;
 
 	&:hover {
 		color: $cmu-color-blue;
@@ -117,14 +119,14 @@
 .cmuStories__title {
 	font-weight: 300;
 	font-size: 32px;
-	line-height: 48px;
+	line-height: initial;
 	color: $cmu-color-dkgray;
 }
 
 .cmuStories__summary {
 	font-style: italic;
 	font-size: $cmu-base * 1.1;
-	line-height: $cmu-base * 1.6;
+	line-height: initial;
   	color: $cmu-color-gray;
 	margin-bottom: $cmu-base;
 	font-weight: 300;
@@ -133,6 +135,12 @@
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-base;
+
+	
+	// adjust usernames 
+	.cmuUsername {
+		margin-left: $cmu-base/4;
+	}
 }
 	.cmuStories__story__controlsTop--left {
 		button {
@@ -336,8 +344,6 @@
 
 	}
 }
-
-
 
 
 

@@ -1,0 +1,74 @@
+
+
+
+.cmuDiscussionsControls {
+	margin-top: remCalc(12px);
+	margin-bottom: remCalc(12px);
+	display: block;
+
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
+
+}
+
+
+// 
+// DISCUSSIONS HEADER
+// 
+
+.cmuDiscussionsHeader {
+	float: left;
+	display: inline-block;
+	h4 { 
+		font-weight: bold;
+		font-size: remCalc(14px);
+
+		padding-right: 16px;
+		border-right: 1px solid $cmu-color-gray;
+		line-height: 14px;
+		vertical-align: bottom;
+		margin-top: 4px;
+	}
+}
+
+
+
+// 
+// NAVBAR MODULE
+// 
+
+
+.cmuDiscussionsNavbar {
+	cursor: default;
+	// margin-bottom: $cmu-vertical-rhythm;
+	display: inline-block;
+	margin-left: $cmu-base;
+
+	* {
+		@extend .type-titleThin;
+	}
+
+	a {
+		@extend .type-link;
+		font-size: remCalc(12px);
+	}
+
+	ul {	
+		// float: left;
+		margin: 0; //override global style
+
+		display: block;
+		width: 100%;
+		// border-bottom: $cmu-style-border-thin;
+		// padding: $cmu-base/2 0;
+	}
+
+	li {
+		display: inline; 
+		padding-left: 1em;
+	}
+
+	li:first-of-type {
+		padding-left: 0;
+	}
+}
