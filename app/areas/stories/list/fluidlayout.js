@@ -1,19 +1,37 @@
 (function(_){
 	'use strict';
 
-	function communityFluidLayout($timeout) {
+	function gridList($timeout) {
 		function link(scope, element, attrs) {
-			$timeout(function(){
-				var msnry = new Masonry(element[0], {
-					itemSelector: '.community-story',
-					columnWidth: 100
+			var $element = $(element);
+
+			function init(reload, options) {
+				$timeout(function(){
+					if (reload) {
+						$element.masonry('reloadItems');
+					}
+					
+					var grid = $element.masonry(options);
+					grid.imagesLoaded().progress(function(){
+						grid.masonry('layout');
+					});
 				});
-			}, 0);
+			}
+			init(false, {
+				itemSelector: '.cmuStoryItem',
+				gutter: 15,
+				animationDuration: 0
+			});
+
+			scope.$on('communityGridList:redraw', function(){
+				init(true);
+			});
 		}
 
 		function controller() {	
+			
 		}
-		controller.$inject = [];
+		controller.$inject = ['$compile', '$scope'];
 	    
 	    var directive = {
 	        link: link,
@@ -21,13 +39,16 @@
 	        restrict: 'A',
 	        controllerAs: 'fluidlayout',
 	        bindToController: true,
-	        scope: true	        
+	        scope: {
+	        	tileTemplate: '=',
+	        	tileList: '='
+	        }	        
 	    };
 
 	    return directive;
 	}
-	communityFluidLayout.$inject = ['$timeout'];
+	gridList.$inject = ['$timeout'];
 
 	angular.module('community.stories')
-		.directive('communityFluidLayout', communityFluidLayout);
+		.directive('communityGridList', gridList);
 }(window._));

@@ -40,7 +40,10 @@
       "devDependencies": {}
     },
     "Sortable": {
-      "main": ["Sortable.js", "ng-sortable.js"]
+      "main": [
+        "Sortable.js",
+        "ng-sortable.js"
+      ]
     }
   },
   "resolutions": {

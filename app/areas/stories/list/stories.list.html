@@ -21,13 +21,15 @@
 		</div>
 	</div> -->
 
-	<div class="row" ng-repeat="storyRow in vm.groupedStoryList">
-		<div class="col--md3" ng-repeat="story in storyRow">
-			<story-display 
-				story="story.discussion"
-				story-media="story.media"
-				default-photo-url="vm.defaultPhoto">
-			</story-display>
+	<div class="row" community-grid-list>
+		<div ng-repeat="story in vm.storyList">
+			<div>
+				<story-display 
+					story="story.discussion"
+					story-media="story.media"
+					default-photo-url="vm.defaultPhoto">
+				</story-display>
+			</div>
 		</div>
 	</div>
 </div>

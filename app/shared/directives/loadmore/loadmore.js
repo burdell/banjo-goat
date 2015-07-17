@@ -28,14 +28,13 @@
 						limit: this.listMetadata.limit,
 						offset: this.listMetadata.offset
 					}).then(function(result) {
-						ctrl.isLoading = false;
-						debugger;
-						ctrl.listModel = ctrl.listModel.concat(result.collection);
-						ctrl.listMetadata.hasMore = result.next.hasMore;
-
 						if (ctrl.onLoadFn) {
-							ctrl.onLoadFn(ctrl.listModel);
+							ctrl.onLoadFn(result.collection);
+						} else {
+							ctrl.listModel = ctrl.listModel.concat(result.collection);
 						}
+						ctrl.isLoading = false;
+						ctrl.listMetadata.hasMore = result.next.hasMore;
 					});
 				}
 			});
