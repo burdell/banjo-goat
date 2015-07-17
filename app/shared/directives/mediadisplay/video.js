@@ -6,12 +6,12 @@
 			var videoElementId = 'community-video-' + scope.$id;
 			element.attr('id', videoElementId);
 			
-			var videoSource = scope.videoembed.videoSource;
-			if (videoSource === 'youtube') {
+			var videoType = scope.videoembed.videoType;
+			if (videoType === 'youtube') {
 				var player = new YT.Player(videoElementId, {
 	                videoId: scope.videoembed.videoId
 	            });
-			} else if (videoSource === 'vimeo') {
+			} else if (videoType === 'vimeo') {
 				var $element = $(element);
 				$element.append('<iframe src="//player.vimeo.com/video/' + scope.videoembed.videoId +'" frameborder="0" width="615.5" height="365" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
 			}
@@ -32,7 +32,7 @@
 	        restrict: 'E',
 	        scope: {
 	        	videoId: '=',
-	        	videoSource: '='
+	        	videoType: '='
 	        }
 	    };
 

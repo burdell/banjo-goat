@@ -20,7 +20,7 @@
 		};
 
 		var currentUser = currentUserService.get();
-
+		
 		_.extend(ctrl, {
 			hideStoryControls: true,
 			titleCharacterLimit: 140,
@@ -60,7 +60,7 @@
 			},
 			storyAuthor: currentUser,
 			story: {
-			    "currentUserId": 259,
+			    "currentUserId": currentUser.id,
 			    "categoryDisplayId": nodeService.CurrentNode.urlSlug,
 			    "media": mediaList,
 			    "summary": "",
@@ -70,13 +70,27 @@
 			            "lat": null,
 			            "lng": null
 			        }
-			    }
+			    },
+			    meta: {}
+			},
+			setMetaField: function(fieldName){
+				var metaStoryFields = ctrl.story.meta;
+				if (!metaStoryFields[fieldName]) {
+					metaStoryFields[fieldName] = {
+						key: fieldName,
+						value: null
+					};
+				}
+
+				metaStoryFields[fieldName].value = ctrl.metaValues[fieldName];
+			},
+			metaValues: {
+
 			},
 			discussion: {
 			    "subject": "",
 			    "body": ""
 		    },
-		    productList: [],
 		    productData: productService.getProductList(),
 			addPhoto: _.bind(function(result){
 				var fileData = result;
@@ -125,7 +139,6 @@
 			},
 			postStory: function(){
 				ctrl.isPublishing = true;
-				debugger;
 				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
 
 				communityApi.Stories.story(story).then(
@@ -136,7 +149,7 @@
 						ctrl.isPublishing = false;
 					}
 				);
-			},			
+			},		
 			sortConfig: {
 				handle: '.cmuStoriesNew__Form--uploadItem--downup'
 			}

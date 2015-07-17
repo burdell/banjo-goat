@@ -70,7 +70,7 @@
 				<div class="cmuStories__story__mediaItem__vidContainer" ng-if="mediaUpload.type === 'video'">
 					<!-- <div class="cmuStories__story__mediaItem__vidContainer--title" ng-bind="mediaUpload.meta.title"></div> -->
 					<div class="cmuStories__story__mediaItem__vidContainer--video">
-						<community-video-embed video-id="mediaUpload.meta.videoId" video-source="mediaUpload.meta.source"></community-video-embed>
+						<community-video-embed video-id="mediaUpload.meta.videoId.value" video-type="mediaUpload.meta.origin.value"></community-video-embed>
 					</div>
 				</div>
 
@@ -86,27 +86,27 @@
 		</div>
 		<div ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>
-			<p>{{ vm.story.meta.projectRole }}</p>
+			<p>{{ vm.story.meta.projectRole.value }}</p>
 		</div>
 		<div ng-if="vm.story.meta.finishDate">
 			<label>Finish Date</label>
-			<p>{{ vm.story.meta.finishDate | date }}</p>
+			<p>{{ vm.story.meta.finishDate.value | date }}</p>
 		</div>
 		<div ng-if="vm.story.meta.numberOfUsers">
 			<label>Users in Networks</label>
-			<p>{{ vm.story.meta.numberOfUsers }}</p>
+			<p>{{ vm.story.meta.numberOfUsers.value | number }}</p>
 		</div>
 		<div ng-if="vm.story.meta.budgetAmount">
 			<label>Budget</label>
-			<p>{{ vm.story.meta.budgetAmount | currency }}</p>
+			<p>{{ vm.story.meta.budgetAmount.value | currency }}</p>
 		</div>
 		<div ng-if="vm.story.meta.dataRequirement">
 			<label>Data Requirement</label>
-			<p>{{ vm.story.meta.dataRequirement }}</p>
+			<p>{{ vm.story.meta.dataRequirement.value }}</p>
 		</div>
 		<div ng-if="vm.story.meta.bandwidth">
 			<label>Bandwidth</label>
-			<p>{{ vm.story.meta.bandwidth }}</p>
+			<p>{{ vm.story.meta.bandwidth.value }}</p>
 		</div>
 
 		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
