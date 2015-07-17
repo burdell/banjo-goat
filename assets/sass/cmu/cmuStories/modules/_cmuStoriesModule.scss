@@ -201,6 +201,11 @@
 
 .cmuStories__story__cover {
 	margin-bottom: $cmu-base;
+	
+	// 'picture frame'
+	padding: 12px;
+	background: white;
+	border: 1px solid #ccc;
 
 	.cmuStories__story__cover--img {
 		// max-height: 300px;
@@ -208,10 +213,6 @@
 		text-align: left;
 		margin-bottom: $cmu-base/2;
 
-		// 'picture frame'
-		padding: 12px;
-		background: white;
-		border: 1px solid #ccc;
 
 		img {
 			max-width: 100%;

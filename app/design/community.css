@@ -8947,13 +8947,13 @@ button .icon, .button .icon {
 
 .cmuStories__story__cover {
   margin-bottom: 1rem;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ccc;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img {
   text-align: left;
   margin-bottom: 0.5rem;
-  padding: 12px;
-  background: white;
-  border: 1px solid #ccc;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img img {
   max-width: 100%;
