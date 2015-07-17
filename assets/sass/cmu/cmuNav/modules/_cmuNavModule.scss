@@ -1,4 +1,152 @@
 
+
+// New Primary+Secondary Nav
+$nav-height: remCalc(40px);
+
+%nav-style {
+	text-transform: uppercase;
+	color: $cmu-color-textgray;
+	letter-spacing: 0.4px;
+	font-size: remCalc(11px);
+	vertical-align: top;
+	padding: $cmu-base*0.7 $cmu-base;
+	height: $nav-height;
+	cursor: pointer;
+	line-height: $cmu-base;
+
+	@extend %ease-fast;
+	&:hover {
+		color: $cmu-color-white;
+		@extend %ease-fast;
+	}
+}
+
+%nav-icon-style {
+	@extend %nav-style;
+	font-size: $cmu-base;
+}
+
+
+.cmuGlobalHeader {
+	height: $nav-height;
+	background-color: $cmu-color-soot;
+	border-bottom: 1px solid $cmu-color-dkgray;
+
+	* {
+		display: inline-block;
+		vertical-align: top;
+	}
+	ul {
+		margin-bottom: 0;
+	}
+	.row {
+		display: block;
+	}
+}
+
+	.cmuGlobalHeader__container {
+		@extend %cmu-maxwidth;
+		display: block;
+	}
+
+	.cmuGlobalHeader__left {
+
+	}
+		.cmuGlobalHeader__logo {
+			.icon {
+				color: $cmu-color-white;
+				font-size: remCalc(24px);
+				padding: $cmu-base/2 $cmu-base;
+				padding-left: 0;
+			}
+		}
+		.cmuGlobalHeader__cmuHome {
+			@extend %nav-style;
+			// border-left: 1px solid $cmu-color-dkgray;
+			padding-left: 0;
+		}
+
+	.cmuGlobalHeader__right {
+		float: right;
+	}
+
+		.cmuGlobalHeader__cmuLinks {
+			border-right: 1px solid $cmu-color-dkgray;
+		}
+			// fake active button
+			.cmuGlobalHeader__cmuLinks li:nth-child(5) {
+				background-color: $cmu-color-dkgray;
+				a { 
+					color: $cmu-color-blue; 
+					&:hover { color: $cmu-color-white; }
+				}
+			}
+			.cmuGlobalHeader__cmuLink {
+				a { @extend %nav-style; }
+
+				&:hover {
+					&.cmuGlobalHeader__dropItem:after {
+						color: $cmu-color-white;
+						@extend %ease-fast;
+					}
+				}
+			}
+			.cmuGlobalHeader__dropItem {
+				&:after {
+					@extend %ease-fast;
+					font-family: 'ubnt';
+					content: "\e6d0";
+					position: relative;
+					top: 8px;
+					right: 12px;
+					font-size: $cmu-base/2;
+					color: $cmu-color-gray;
+				}
+			}
+			.cmuGlobalHeader__cmuLink.active {
+				@extend %nav-style;
+				background-color: $cmu-color-dkgray;
+			}
+
+		.cmuGlobalHeader__cmuSearch {
+			@extend %nav-icon-style;
+			border-right: 1px solid $cmu-color-dkgray;
+		}
+
+
+		.cmuGlobalHeader__cmuAccount {
+			.icon {
+				@extend %nav-icon-style;
+				padding-left: $cmu-base/2;
+				padding-right: $cmu-base/2;
+			}
+			.ubnt-icon--inbox {
+				font-size: 19px;
+				position: relative;
+				top: -1px;
+			}
+		}
+
+		.cmuGlobalHeader__avatar {
+			&:before {
+				content: ' ';
+				display: block;
+				background: #969ba3;
+				border-radius: 50%;
+				margin-top: 5px;
+				margin-right: 0;
+				margin-left: 4px;
+				@extend %ease-fast;
+				height: remCalc(28px);
+				width: remCalc(28px);
+			}
+		}
+
+
+
+
+
+
 // Temporary for the secondary nav
 .cmuNav {
 	background-color: $cmu-secondmenu-background-color;
@@ -26,6 +174,10 @@
 			margin-right: 0;
 		}
 	}
+}
+
+.cmuNav__container {
+	@extend %cmu-maxwidth;
 }
 
 .cmuNav__navItem {

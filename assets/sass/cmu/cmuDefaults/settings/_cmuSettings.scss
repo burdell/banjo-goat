@@ -10,6 +10,8 @@ $cmu-base-line-height:      $cmu-base*1.2 !default;
 $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
+$cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
+
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -38,6 +40,12 @@ body {
 }
 
 
+%cmu-maxwidth {
+	max-width: $cmu-maxwidth;
+	margin: 0 auto;
+}
+
+
 
 %radius { border-radius: 8px; }
 
@@ -51,7 +59,10 @@ body {
 // 	max-width: 100%;
 // }
 
-
+// governs all community partials
+.community__content {
+	@extend %cmu-maxwidth;
+}
 
 // Various things
 

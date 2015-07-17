@@ -28,8 +28,12 @@
 						limit: this.listMetadata.limit,
 						offset: this.listMetadata.offset
 					}).then(function(result) {
+						if (ctrl.onLoadFn) {
+							ctrl.onLoadFn(result.collection);
+						} else {
+							ctrl.listModel = ctrl.listModel.concat(result.collection);
+						}
 						ctrl.isLoading = false;
-						ctrl.listModel = ctrl.listModel.concat(result.collection);
 						ctrl.listMetadata.hasMore = result.next.hasMore;
 					});
 				}
@@ -50,7 +54,8 @@
 	        	listMetadata: '=',
 	        	loadText: '@',
 	        	loadFilter: '=',
-	        	infiniteScroll: '='
+	        	infiniteScroll: '=',
+	        	onLoadFn: '='
 	        }
 	    };
 

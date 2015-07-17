@@ -5,14 +5,26 @@
 // 
 
 .cmuBreadcrumbs {
-	margin: $cmu-base 0;
-	font-weight: 400; 
+ 	margin-top: 1rem;
+	margin-bottom: $cmu-base/2;
+	font-weight: 300; 
 	font-size: $cmu-size-breadcrumbs;
+	line-height: $cmu-base/2;
 
+	&:hover a { 
+		color: $cmu-color-black;
+	}
+	
 	* { cursor: default; }
 
 	// previous crumbs
-	& > div > span {
+	ul {
+		margin: 0;
+	}
+	li {
+		display: inline-block;
+		list-style-type: none;
+
 		span { cursor: pointer; }
 		&:after {
 			content: '/';
@@ -20,15 +32,15 @@
 		}
 
 		a {
-			color: $cmu-breadcrumbs-link-color;
-			&:hover { color: $cmu-breadcrumbs-hover-link-color; }
+			color: $cmu-color-gray;
+			&:hover { color: $cmu-color-blue; }
 		}
 	}
 
 	// current crumb isn't clickable, so is grayed out
-	& > div > span:last-of-type {
-		color: $cmu-breadcrumbs-inactive-link-color; 
-		&:after { content: ''; }
+	.cmuBreadcrumbs__last {
+		color: $cmu-color-gray; 
+		// &:after { content: ''; }
 	}
 
 }

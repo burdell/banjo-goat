@@ -1,11 +1,12 @@
 (function(_){
 	'use strict';
 
-	function StoriesListController (storyFilter, dataService, storyDefaults, $state){
+	function StoriesListController ($scope, storyFilter, dataService, storyDefaults, $state){
 		var ctrl = this;
 
 		var intitialList = storyFilter.initialData();
-		
+		var storiesPerRow = 4;
+
 		_.extend(ctrl, {
 			storyFilter: storyFilter,
 			storyList: intitialList.collection,
@@ -14,10 +15,17 @@
 			createStory: function(){
 				$state.go('stories.new');
 			},
-			defaultPhoto: storyDefaults.coverPhoto
+			defaultPhoto: storyDefaults.coverPhoto,
+			groupStoryData: function(newData){
+				_.each(newData, function(story) {
+					ctrl.storyList.push(story);
+				});
+
+				$scope.$broadcast('communityGridList:redraw');
+			}
 		});
 	}
-	StoriesListController.$inject = ['StoryListFilter', 'CommunityDataService', 'StoryDefaults', '$state'];
+	StoriesListController.$inject = ['$scope', 'StoryListFilter', 'CommunityDataService', 'StoryDefaults', '$state'];
 
 	angular.module('community.stories')
 		.controller('StoriesList', StoriesListController);

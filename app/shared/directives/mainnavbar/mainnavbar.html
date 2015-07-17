@@ -1,5 +1,49 @@
-<div class="cmuNav container">
+
+<div class="cmuGlobalHeader">
+  <div class="cmuGlobalHeader__container container">
       <div class="row">
+        <div class="col--md12 noPadding">
+          <div class="cmuGlobalHeader__left">
+            <div class="cmuGlobalHeader__logo">
+              <span class="icon ubnt-icon--u"></span>
+            </div>
+            <div class="cmuGlobalHeader__cmuHome">
+              Community
+            </div>
+          </div>
+
+          <div class="cmuGlobalHeader__right">
+            <ul class="cmuGlobalHeader__cmuLinks">
+              <li 
+                ng-repeat="navItem in mainnavbar.navList"
+                class="cmuGlobalHeader__cmuLink" 
+                ng-class="{ 'cmuGlobalHeader__dropItem': navItem.dropItem }">
+                  <a href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">{{ navItem.display }}</a>
+              </li>
+            </ul>
+            <div class="cmuGlobalHeader__cmuSearch">
+              <span class="icon ubnt-icon--search-2"></span>
+            </div>
+            <div class="cmuGlobalHeader__cmuAccount">
+              <ul class="">
+                <li class="cmuGlobalHeader__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
+                </li>
+                <li class="cmuGlobalHeader__inbox"><a href="#">
+                  <span class="icon ubnt-icon--inbox"></span></a>
+                </li>
+                <li class="cmuGlobalHeader__avatar">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<!-- 
+<div class="cmuNav container">
+      <div class="cmuNav__container row">
         <ul class="cmuNav__left col--md9 noMargin">
           <li 
             ng-repeat="navItem in mainnavbar.navList"
@@ -17,15 +61,19 @@
           <!-- <li><a href="/discussions" class="">Discussions</a></li> -->
           <!-- <li><a href="/activity" class="">Activity</a></li> -->
           <!-- <li><a href="categories/general">Stories</a></li> -->
-        </ul>
-                        <!-- <ul class="nav main-nav-nav main-nav-right hidden-xs"><div class="MeBox"><a title="UBNT-Admin" href="/profile/1/UBNT-Admin" class="PhotoWrap"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6a27c40fcb1abe1eb5aa8bc37ec2ad27&amp;size=50&default=http%3A%2F%2Fvanillicon.com%2F6a27c40fcb1abe1eb5aa8bc37ec2ad27.png" alt="UBNT-Admin" class="ProfilePhoto ProfilePhotoMedium" /></a><div class="WhoIs"><a href="/profile/1/UBNT-Admin" class="Username">UBNT-Admin</a><div class="MeMenu"><span class="ToggleFlyout" rel="/profile/notificationspopin"><a href="/profile/1/UBNT-Admin" class="MeButton FlyoutButton" title="Notifications"><span class="Sprite Sprite16 SpNotifications"></span><em>Notifications</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout" rel="/messages/popin"><a href="/messages/all" class="MeButton FlyoutButton" title="Inbox"><span class="Sprite Sprite16 SpInbox"></span><em>Inbox</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout" rel="/discussions/bookmarkedpopin"><a href="/discussions/bookmarked" class="MeButton FlyoutButton" title="Bookmarks"><span class="Sprite Sprite16 SpBookmarks"></span><em>Bookmarks</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout"><a href="/profile/edit" class="MeButton FlyoutButton" title="Account Options"><span class="Sprite Sprite16 SpOptions"></span><em>Account Options</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout MenuItems"><ul><li><a href="/profile/edit"><span class="Sprite SpEditProfile"></span> Edit Profile</a></li><li><hr /></li><li><a href="/dashboard/user/applicants"><span class="Sprite SpApplicants"></span> Applicants</a></li><li><a href="/dashboard/log/spam"><span class="Sprite SpSpam"></span> Spam Queue</a></li><li><a href="/dashboard/log/moderation"><span class="Sprite SpMod"></span> Moderation Queue</a></li><li><a href="/dashboard/settings"><span class="Sprite SpDashboard"></span> Dashboard</a></li><li class="MarkAllViewed"><a href="/discussions/markallviewed">Mark All Viewed</a></li><li class="SignInOutWrap SignOutWrap"><hr /><a href="/entry/signout?TransientKey=4MYQWWLXS2D7"><span class="Sprite SpSignOut"></span> Sign Out</a></li></div></span></div></div></div></ul> -->
+        </ul><!-- 
+                        <ul class="nav main-nav-nav main-nav-right hidden-xs"><div class="MeBox"><a title="UBNT-Admin" href="/profile/1/UBNT-Admin" class="PhotoWrap"><img src="http://www.gravatar.com/avatar.php?gravatar_id=6a27c40fcb1abe1eb5aa8bc37ec2ad27&amp;size=50&default=http%3A%2F%2Fvanillicon.com%2F6a27c40fcb1abe1eb5aa8bc37ec2ad27.png" alt="UBNT-Admin" class="ProfilePhoto ProfilePhotoMedium" /></a><div class="WhoIs"><a href="/profile/1/UBNT-Admin" class="Username">UBNT-Admin</a><div class="MeMenu"><span class="ToggleFlyout" rel="/profile/notificationspopin"><a href="/profile/1/UBNT-Admin" class="MeButton FlyoutButton" title="Notifications"><span class="Sprite Sprite16 SpNotifications"></span><em>Notifications</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout" rel="/messages/popin"><a href="/messages/all" class="MeButton FlyoutButton" title="Inbox"><span class="Sprite Sprite16 SpInbox"></span><em>Inbox</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout" rel="/discussions/bookmarkedpopin"><a href="/discussions/bookmarked" class="MeButton FlyoutButton" title="Bookmarks"><span class="Sprite Sprite16 SpBookmarks"></span><em>Bookmarks</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu"></div></span><span class="ToggleFlyout"><a href="/profile/edit" class="MeButton FlyoutButton" title="Account Options"><span class="Sprite Sprite16 SpOptions"></span><em>Account Options</em></a><span class="Arrow SpFlyoutHandle"></span><div class="Flyout MenuItems"><ul><li><a href="/profile/edit"><span class="Sprite SpEditProfile"></span> Edit Profile</a></li><li><hr /></li><li><a href="/dashboard/user/applicants"><span class="Sprite SpApplicants"></span> Applicants</a></li><li><a href="/dashboard/log/spam"><span class="Sprite SpSpam"></span> Spam Queue</a></li><li><a href="/dashboard/log/moderation"><span class="Sprite SpMod"></span> Moderation Queue</a></li><li><a href="/dashboard/settings"><span class="Sprite SpDashboard"></span> Dashboard</a></li><li class="MarkAllViewed"><a href="/discussions/markallviewed">Mark All Viewed</a></li><li class="SignInOutWrap SignOutWrap"><hr /><a href="/entry/signout?TransientKey=4MYQWWLXS2D7"><span class="Sprite SpSignOut"></span> Sign Out</a></li></div></span></div></div></div></ul>
         <div class="cmuNav__search cmuNav__right col--md3 noMargin">
           <span class="icon ubnt-icon--search-2"><span class="offstage">Search</span></span>Search Community
-          <!-- <li><a href="/profile" class="">UBNT-Admin</a></li>
+          <li><a href="/profile" class="">UBNT-Admin</a></li>
           <li><a href="/messages/inbox" class="">Inbox</a></li>
           <li><a href="/discussions/bookmarked" class="">My Bookmarks</a></li>
           <li><a href="/dashboard/settings" class="">Dashboard</a></li>
-          <li><a href="/entry/signout?TransientKey=4MYQWWLXS2D7" rel="nofollow" class="SignOut">Sign Out</a></li> -->
+          <li><a href="/entry/signout?TransientKey=4MYQWWLXS2D7" rel="nofollow" class="SignOut">Sign Out</a></li>
         </div>
   </div>
+</div>
+</div> -->
+
+
 </div>

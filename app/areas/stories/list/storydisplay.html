@@ -2,7 +2,7 @@
 	<div class="cmuStoryItem--image">
 		<a ui-sref="stories.detail({ storyId: storydisplay.story.id })"><img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
 	</div>
-	<div class="cmuStoryItem--main">
+	<div class="cmuStoryItem--main" class="col--md3">
 		<a class="cmuStoryItem--link" ui-sref="stories.detail({ storyId: storydisplay.story.id })">{{ ::storydisplay.story.subject }}</a>	
 		<h6> by&nbsp; <community-username user="storydisplay.story.author"></community-username> {{ ::storydisplay.story.postTime | timeFromNow }}</h6>
 	</div>

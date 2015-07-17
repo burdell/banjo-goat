@@ -12,6 +12,23 @@
 
 .cmuStoryItem {
 	@extend %ease-fast;
+	max-width: 245px;
+
+	// Note on how this works:
+	// this value depends on the maxwidth of the page
+	// content-width: 1022px
+	// gutter width: 14px (in fluidlayout)
+	// max columns: 4
+	// (1022 - 14*3) / = 245
+
+	// regular width, 4 columns / 3 gutters
+	max-width: calc((100% - 14px * 3) / 4);
+
+	@include respondTo(xsmall-only) {
+		// regular width, 1 columns / 0 gutters
+		max-width: calc((100% - 14px * 0) / 1); // technically just 100%
+	}
+
 	&:hover {
 		@extend %ease-fast;
 		img {
@@ -77,6 +94,8 @@
 .cmuStoryItem--link {
 	color: $cmu-color-dkgray;
 	// font-size: $cmu-base-font;
+	margin-bottom: $cmu-base/2;
+	display: inline-block;
 
 	&:hover {
 		color: $cmu-color-blue;
@@ -105,17 +124,26 @@
 // Story Page
 // 
 
+// only shows up on story page, not in preview
+.cmuStories__storyDetail {
+}
+
+// only shows up on preview page, not on story
+.cmuStoriesNew__Preview {
+	max-width: 800px;
+}
+
 .cmuStories__title {
 	font-weight: 300;
 	font-size: 32px;
-	line-height: 48px;
+	line-height: initial;
 	color: $cmu-color-dkgray;
 }
 
 .cmuStories__summary {
 	font-style: italic;
 	font-size: $cmu-base * 1.1;
-	line-height: $cmu-base * 1.6;
+	line-height: initial;
   	color: $cmu-color-gray;
 	margin-bottom: $cmu-base;
 	font-weight: 300;
@@ -124,10 +152,23 @@
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-base;
+
+	
+	// adjust usernames 
+	.cmuUsername {
+		margin-left: $cmu-base/4;
+	}
 }
+	.cmuStories__story__controlsTop--left {
+		button {
+			float: right;
+			margin-top: 4px;
+		}
+	}
 
 	.cmuStories__author--avatar {
 		float: left;
+		padding-left: $cmu-base/2;
 		
 		.cmuUserbadge__avatar {
 			margin-left: -3px;
@@ -160,21 +201,34 @@
 
 .cmuStories__story__cover {
 	margin-bottom: $cmu-base;
+
 	.cmuStories__story__cover--img {
+		// max-height: 300px;
+		// overflow: hidden;
 		text-align: left;
+		margin-bottom: $cmu-base/2;
+
+		// 'picture frame'
+		padding: 12px;
+		background: white;
+		border: 1px solid #ccc;
 
 		img {
-			width: 100%; 
-			// max-height: 400px;
+			max-width: 100%;
+			/* max-width: 400px; */
+			height: auto;
+			max-height: 500px;
 		}
 
-		// div {
-		// 	width: 100%;
-		// 	height: 300px;
-		// 	background-size: cover;
-		// 	background-repeat: no-repeat;
-		// 	background-image: url($cmu-imageUrl-noImage);
-		// }
+		div {
+			width: 100%;
+			// max-width: 800px;
+			height: 250px;
+			background-size: cover;
+			background-color: $cmu-color-ltgray;
+			background-repeat: no-repeat;
+			background-image: url(http://i.imgur.com/TT7XC8m.jpg);
+		}
 	}
 	.cmuStories__story__cover--caption {
 		font-size: 11px;
@@ -293,6 +347,11 @@
 		-webkit-column-break-inside: avoid;
 		page-break-inside: avoid;
 		break-inside: avoid;
+
+		// for videos: 
+		// http://i.imgur.com/TT7XC8m.jpg
+		// -webkit-column-span: all;
+		// column-span: all;
 	}
 	.cmuStories__story__mediaItem__caption {
 		margin-bottom: 1rem;
@@ -302,8 +361,6 @@
 
 	}
 }
-
-
 
 
 
