@@ -7,13 +7,22 @@
 
 			function init(reload, options) {
 				$timeout(function(){
-					if (reload) {
-						$element.masonry('reloadItems');
+					//var grid = $element.masonry(options);
+					if (!reload) {
+						$element.hide();
 					}
-					
-					var grid = $element.masonry(options);
-					grid.imagesLoaded().progress(function(){
-						grid.masonry('layout');
+
+					$element.imagesLoaded().progress(function(){
+						$element.show();
+
+						if (reload) {
+							$element.masonry('reloadItems');
+						} else {
+							$element.show();
+						}
+
+						$element.masonry(options);
+						$element.masonry('layout');
 					});
 				});
 			}
