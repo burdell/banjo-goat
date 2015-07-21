@@ -68,8 +68,9 @@
 			};
 		}
 
-		var baseUrl = '//comm2-dev.ubnt.com/api/'; //'http://localhost:8080/'
 
+		var baseUrl = '//comm2-dev.ubnt.com/api/'; //'http://localhost:8080/'
+		
 		var urlSegments = {
 			Node: function(id){
 				return 'nodes/id/' + id + '/';

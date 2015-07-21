@@ -8,11 +8,21 @@
 			.state('announcementsLanding', {
 				url: '/announcements/',
 				templateUrl: 'announcements/landing/announcements.landing.html',
+				controller: 'AnnouncementsLanding as vm',
 				resolve: {
 					CommunityNodeStructure: ['CommunityBreadcrumbService', 'CommunityNodeService', function(breadcrumbService, nodeService){
 						var nodeStructure = nodeService.setNodeStructure('announcements');
 						breadcrumbService.syncToNodeStructure();
 						return nodeStructure;
+					}],
+					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
+						return communityApi.Forums.messageCount('airMax-General')
+							.then(function(result){
+								return communityApi.Forums.messages('airMax-General', { limit: result.count, sort: 'postdate' });
+							})
+							.then(function(result) {
+								return result.collection;
+							});
 					}]
 				}
 			})

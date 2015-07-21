@@ -5,7 +5,8 @@
 		var ctrl = this;
 
 		_.extend(ctrl, {
-			announcementList: announcements
+			announcementList: announcements,
+			itemTemplate: '<a ui-sref="announcements.detail({ announcementId: timelineItem.ngModel.id })">{{ timelineItem.ngModel.subject }}</a>'
 		});
 
 		//redirect to newest announcement if no specific announcement

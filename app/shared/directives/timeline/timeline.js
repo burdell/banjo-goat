@@ -12,9 +12,10 @@
 				month: null,
 				year: null
 			};
-
+			
+			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);	
 			_.extend(ctrl, {
-				timelineData: timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute),
+				timelineData: timelineData,
 				yearClicked: function(year) {
 					shown.year = shown.year == year ? null : year;
 				},
@@ -41,8 +42,9 @@
 	        restrict: 'E',
 	        scope: {
 	        	timelineModel: '=',
+	        	timelineItemTemplate: '=',
+	        	sortedModel: '=',
 	        	dateAttribute: '@'
-
 	        }
 	    };
 
