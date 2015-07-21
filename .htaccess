@@ -2,6 +2,12 @@
     RewriteEngine On
 
     RewriteBase /
+
+    #Redirect http > https
+    RewriteCond %{HTTP:X-Forwarded-Proto} !^$
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
