@@ -1,6 +1,6 @@
 (function(_){
 	'use strict';
-	
+
 	var communityApiService = function($http, $q, $timeout, errorService){
 		function getCallOptions(url, data, verb, isMedia) {
 			if (_.isUndefined(verb)) {
@@ -47,13 +47,13 @@
 
 		function getCallType(callData, params) {
 			var id, payload, verb;
-			
+
 			//POST
 			if (_.isObject(callData)) {
 				verb = 'POST';
 				payload = callData;
 				id = callData.id;
-			} 
+			}
 			//GET
 			else {
 				payload = params;
@@ -67,8 +67,8 @@
 				payload: payload
 			};
 		}
-		
-		var baseUrl = 'http://comm2-dev.ubnt.com:8080/'; //'http://localhost:8080/'
+
+		var baseUrl = 'http://comm2-dev.ubnt.com/api/'; //'http://localhost:8080/'
 
 		var urlSegments = {
 			Node: function(id){
@@ -166,7 +166,7 @@
 				upload: function(fileData){
 					var formData = new FormData();
 					formData.append('file', fileData);
-					
+
 					return goToApi(baseUrl + 'media', formData, 'POST', true);
 				}
 			}
