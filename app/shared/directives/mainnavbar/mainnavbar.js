@@ -10,7 +10,8 @@
 			var ctrl = this;
 
 			var hrefs = {
-				announcements: "/announcements/"
+				announcements: '/announcements/',
+				stories: '/stories/'
 			}
 
 			var navMetaData = [
@@ -18,7 +19,7 @@
 				{ display: "Discussions", href: "#", dropItem: true },
 				{ display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
-				{ display: "Stories", href: "#"},
+				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 
 
@@ -31,11 +32,17 @@
 				},
 				isActive: function(navHref) {
 					var active = false;
+					var currentState = $state.current.name;
+
 					switch(navHref) {
 						case hrefs.announcements: 
-							active = $state.current.name === 'announcementsLanding'
+							active = currentState === 'announcementsLanding'
+							break;
+						case hrefs.stories:
+							active = currentState === 'storiesLanding'
 							break;
 					}
+					
 					return active;
 				}
 			})			
