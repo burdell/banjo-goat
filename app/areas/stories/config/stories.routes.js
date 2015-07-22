@@ -16,7 +16,7 @@
 					}],
 					StoryDefaults: function(){
 						return {
-							coverPhoto: "http://i.imgur.com/TT7XC8m.jpg" //"https://files.slack.com/files-pri/T027XH0QK-F074TNVEK/nophoto.jpg" //"http://thecatapi.com/api/images/get?format=src"
+							coverPhoto: "http://i.imgur.com/TT7XC8m.jpg"
 						}
 					}
 				},

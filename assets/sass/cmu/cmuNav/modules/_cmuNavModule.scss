@@ -74,11 +74,13 @@ $nav-height: remCalc(40px);
 			border-right: 1px solid $cmu-color-dkgray;
 		}
 			// fake active button
-			.cmuGlobalHeader__cmuLinks li:nth-child(5) {
-				background-color: $cmu-color-dkgray;
-				a { 
-					color: $cmu-color-blue; 
-					&:hover { color: $cmu-color-white; }
+			.cmuGlobalHeader__cmuLinks {
+				.testActive {
+					background-color: $cmu-color-dkgray;
+					a { 
+						color: $cmu-color-blue; 
+						&:hover { color: $cmu-color-white; }
+					}
 				}
 			}
 			.cmuGlobalHeader__cmuLink {

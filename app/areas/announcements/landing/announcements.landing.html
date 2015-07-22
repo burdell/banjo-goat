@@ -2,24 +2,36 @@
 <discussions-header></discussions-header>
 
 <div class="row">
-	<div class="col--md9">
+	<div class="col--md12">
 		<community-product-navigator></community-product-navigator>
-
-	<!-- 	<div>
+		<div>
 			<div ng-repeat="yearData in vm.announcementList">
-				<h3>{{ yearData.year }} ({{ yearData.count }})</h3>
-				<hr />
-				<div ng-repeat="monthData in yearData.yearData">
+				<div ng-click="vm.yearShown = yearData.year">
+					<h3>{{ yearData.year }} ({{ yearData.count }})</h3>
 				</div>
-				<h4>{{ monthData.month | monthDisplay }}</h4>
-			</div>
-		</div> -->
-	</div>
+				
+				<div ng-show="vm.yearShown === yearData.year">
+					<div ng-repeat="monthData in yearData.yearData">
+						 <table>
+					        <thead style="text-align: left;">
+					          <th><h4>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h4></th>
+					          <th>Kudos</th>
+					          <th>Views</th>
+					          <th>Posted</th>
+					        </thead>
 
-	<div class="col--md3">
-		<h4>Announcement History</h4>
-		<community-timeline 
-			sorted-model="vm.announcementList">
-		</community-timeline>
+					        <tbody>
+						        <tr ng-repeat="data in monthData.monthData">
+						        	<td><a ui-sref="announcements.detail({ announcementId: data.id, nodeId: 'Blog_airMAX' })">{{ data.subject }}</a></td>
+						        	<td>{{ data.stats | extractKey : 'score' | number }}</td>
+						        	<td>{{ data.stats | extractKey : 'views' | number }}</td>
+						        	<td>{{ data.latestComment.postTime | timeFromNow }}</td>
+						        </tr>
+					        </tbody>
+					     </table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -7014,13 +7014,13 @@ pre {
   border-right: 1px solid #474b52;
 }
 
-.cmuGlobalHeader__cmuLinks li:nth-child(5) {
+.cmuGlobalHeader__cmuLinks .testActive {
   background-color: #474b52;
 }
-.cmuGlobalHeader__cmuLinks li:nth-child(5) a {
+.cmuGlobalHeader__cmuLinks .testActive a {
   color: #00a0df;
 }
-.cmuGlobalHeader__cmuLinks li:nth-child(5) a:hover {
+.cmuGlobalHeader__cmuLinks .testActive a:hover {
   color: #fafafa;
 }
 
