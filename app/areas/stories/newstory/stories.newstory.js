@@ -60,7 +60,6 @@
 			},
 			storyAuthor: currentUser,
 			story: {
-			    "currentUserId": currentUser.id,
 			    "categoryDisplayId": nodeService.CurrentNode.urlSlug,
 			    "media": mediaList,
 			    "summary": "",

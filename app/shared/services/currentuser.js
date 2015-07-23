@@ -1,22 +1,28 @@
 (function(_) {
 	'use strict';
 
-	var currentUser = function(){
-		var user = null;
+	var currentUser = function($q, apiService, intializeService){
+		var currentUser = {
+			user: null,
+			isAuthenticated: function(){
+				return !!currentUser.user && currentUser.user.id >= 0; 
+			}
+		};
 
 		return {
-			set: function(userObject){
-				user = userObject;
-			},
 			get: function(attr){
-				if (_.isUndefined(attr)) {
-					return user;
-				}
+				if (!currentUser.user) {
+					return intializeService.initialize().then(function(result){
+						currentUser.user = result.auth.model;
+						return currentUser;
+					});
+				} 
 
-				return user[attr];
+				return $q.when(currentUser);
 			}
 		};
 	};
+	currentUser.$inject = ['$q', 'CommunityApiService', 'CommunityInitializeService'];
 
 	angular.module('community.services')
 		.service('CurrentUserService', currentUser);

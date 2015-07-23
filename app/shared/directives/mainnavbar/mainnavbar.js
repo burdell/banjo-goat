@@ -6,7 +6,7 @@
 		    
 		}
 
-		function controller($location) {
+		function controller($location, userService) {
 			var ctrl = this;
 
 			var navMetaData = [
@@ -18,16 +18,21 @@
 				{ display: "Announcements", href: "/announcements/"}
 			]; 
 
+			userService.get().then(function(user){
+				ctrl.isAuthenticated = user.isAuthenticated();
+			});
+
 			_.extend(ctrl, {
 				navList: navMetaData,
 				target: function(itemHref){
 					//kind of hacky, but dont have access to currentNode at this point :(
 					var currentPath = $location.path();
 					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
-				}
+				},
+				isAuthenticated: false
 			})			
 		}
-		controller.$inject = ['$location'];
+		controller.$inject = ['$location', 'CurrentUserService' ];
 	    
 	    var directive = {
 	        link: link,

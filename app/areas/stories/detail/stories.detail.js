@@ -56,7 +56,6 @@
 			submitReply: function(commentText) {
 				ctrl.comment.submittingComment = true;
 				communityApi.Stories.comments({
-					currentUserId: currentUser.id,
 					body: ctrl.comment.replyText,
 					topicId: story.id,
 					parentId: story.id

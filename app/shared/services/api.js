@@ -20,7 +20,8 @@
 				method: verb,
 				url: url,
 				params: params,
-				data: payload
+				data: payload,
+				withCredentials: true
 			};
 
 			if (isMedia) {
@@ -68,7 +69,7 @@
 			};
 		}
 
-		var baseUrl = '//comm2-dev.ubnt.com/api/'; //'http://localhost:8080/'
+		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
 
 		var urlSegments = {
 			Node: function(id){
@@ -106,6 +107,9 @@
 				},
 				userSummary: function(userId){
 					return goToApi(baseUrl + urlSegments.User(userId));
+				},
+				nodeStructure: function(){
+					
 				}
 			},
 			Forums: {
@@ -136,6 +140,14 @@
 						});
 				}
 			},
+			Media: {
+				upload: function(fileData){
+					var formData = new FormData();
+					formData.append('file', fileData);
+
+					return goToApi(baseUrl + 'media', formData, 'POST', true);
+				}
+			},
 			Stories: {
 				thread: function(storyId, data){
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
@@ -162,12 +174,9 @@
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stories', data);
 				}
 			},
-			Media: {
-				upload: function(fileData){
-					var formData = new FormData();
-					formData.append('file', fileData);
-
-					return goToApi(baseUrl + 'media', formData, 'POST', true);
+			Users: {
+				authentication: function(){
+					return goToApi(baseUrl + urlSegments.User('self'));
 				}
 			}
 		}

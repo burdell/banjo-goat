@@ -19,20 +19,6 @@
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);
         });
-
-        //MOCKED
-        currentUser.set({
-            id: 259,
-            avatar: {
-                height: 0,
-                url: null,
-                width: 0
-            },
-            href: '/users/259',
-            login: 'UBNT-Matt',
-            rank: 'authorRank',
-            stats: []
-        });
     }]);
 
 	angular.element(document).ready(function(){
