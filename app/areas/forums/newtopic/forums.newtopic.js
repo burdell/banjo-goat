@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	var forumNewTopicController = function($scope, $state, communityApi, breadcrumbService, nodeStructure, currentUserService){
+	var forumNewTopicController = function($scope, $state, communityApi, breadcrumbService, nodeStructure){
 		breadcrumbService.setCurrentBreadcrumb('New Topic');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -11,9 +11,7 @@
 		var categoryDisplayId = nodeStructure.CurrentNode.urlSlug;
 
 		var ctrl = this;
-		var currentUser = currentUserService.get();
 		_.extend(ctrl, {
-			currentUser: currentUser,
 			cancelTopic: function() {
 				$state.go('forums.list');
 			},
@@ -24,7 +22,6 @@
 				});
 			},
 			newTopic: {
-			    'currentUserId': currentUser.id,
 			    'body': '',
 			    'categoryDisplayId': categoryDisplayId,
 			    'subject': ''
@@ -37,8 +34,7 @@
 		'$state', 
 		'CommunityApiService', 
 		'CommunityBreadcrumbService', 
-		'CommunityNodeService',
-		'CurrentUserService'
+		'CommunityNodeService'
 	];
 
 	angular.module('community.forums')

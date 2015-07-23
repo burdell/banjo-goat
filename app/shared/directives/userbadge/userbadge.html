@@ -1,17 +1,17 @@
 <div class="cmuUserbadge" ng-class="{ '{{ ::userbadge.userType }}' : userbadge.userType }">
 	<div class="cmuUserbadge__account clearfix">
 		<div class="cmuUserbadge__left col--md4">
-			<community-user-avatar user="userbadge.user"></community-user-avatar>
+			<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
 		</div>
 		<div class="cmuUserbadge__right col--md8">
 			<div class="cmuUserbadge__username">
-				<community-username user="userbadge.user"></community-username>
+				<community-username user="userbadge.displayUser"></community-username>
 			</div>
 			<div class="cmuUserbadge__status">
-				<span ng-show="userbadge.opId === userbadge.user.id" class="cmuUserbadge__status__op"></span>
+				<span ng-show="userbadge.opId === userbadge.displayUser.id" class="cmuUserbadge__status__op"></span>
 			</div>
 			<div class="cmuUserbadge__rank">
-				{{ userbadge.user.rank.name }} 
+				{{ userbadge.displayUser.rank.name }} 
 			</div>
 		</div>
 		<!-- <div class="cmuUserbadge__status">

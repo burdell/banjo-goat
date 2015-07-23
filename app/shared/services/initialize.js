@@ -6,12 +6,12 @@
 
 		function initialization(options) {
 			var deferred = $q.defer();
-			_initFn = deferred.promise;
+			//_initFn = deferred.promise;
 
 			var authCheck = communityApi.Users.authentication();
 			var nodeStructure = communityApi.Core.nodeStructure();
 
-			return $q.all([ authCheck, nodeStructure ]).then(function(result){
+			_initFn = $q.all([ authCheck, nodeStructure ]).then(function(result){
 				deferred.resolve();
 				_initFn = null;
 				
@@ -20,6 +20,8 @@
 					node: result[1]
 				}
 			});
+
+			return _initFn;
 		}
 
 		return {

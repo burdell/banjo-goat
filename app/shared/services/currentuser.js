@@ -17,7 +17,6 @@
 						return currentUser;
 					});
 				} 
-
 				return $q.when(currentUser);
 			}
 		};

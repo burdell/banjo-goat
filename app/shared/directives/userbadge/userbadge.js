@@ -5,11 +5,20 @@
 		var link = function(scope, element, attrs) {			
 		};
 
-		var controller = function() {
-			var user = this.user;
+		var controller = function($scope, userService) {
+			var ctrl = this;
+
+			if (this.currentUser) {
+				userService.get().then(function(user){
+					ctrl.displayUser = user;
+				});
+			} else {
+				ctrl.displayUser = ctrl.user
+			}
+
 			var ubntEmployee = {
 				userMatched: function(){
-					return user.login.indexOf("UBNT-") >= 0;
+					return ctrl.displayUser && ctrl.displayUser.login.indexOf("UBNT-") >= 0;
 				},
 				userType: 'cmuUserbadge--ubnt'
 			}
@@ -23,7 +32,7 @@
 			var ctrl = this;			
 			_.extend(ctrl, specialUser);
 		};
-		controller.$inject = [];
+		controller.$inject = ['$scope', 'CurrentUserService'];
 
 	    var directive = {
 	        link: link,
@@ -35,7 +44,8 @@
 	        restrict: 'E',
 	        scope: {
 	        	user: '=',
-	        	opId: '='
+	        	opId: '=',
+	        	currentUser: '='
 	        }
 	    };
 
