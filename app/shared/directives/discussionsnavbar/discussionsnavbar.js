@@ -40,32 +40,36 @@
 				}
 			};
 
-			var currentNode = nodeService.CurrentNode;
-			var siblingNodeList = currentNode.parent.children;
+			nodeService.get().then(function(){
+				//debugger;
+			});
 
-			_.extend(ctrl, {
-				navLinks: []
-			})
+			// var currentNode = nodeService.CurrentNode;
+			// var siblingNodeList = currentNode.parent.children;
 
-			var currentAreaSlug = routingService.getCurrentArea();
-			_.each(standardNavLinks, function(searchObj, displayName){
-				var searchValue = searchObj.nodeString;
+			// _.extend(ctrl, {
+			// 	navLinks: []
+			// })
 
-				var navNode = _.find(siblingNodeList, function(node){
-					return (node.urlSlug.indexOf(searchValue) >= 0);
-				});
+			// var currentAreaSlug = routingService.getCurrentArea();
+			// _.each(standardNavLinks, function(searchObj, displayName){
+			// 	var searchValue = searchObj.nodeString;
+
+			// 	var navNode = _.find(siblingNodeList, function(node){
+			// 		return (node.urlSlug.indexOf(searchValue) >= 0);
+			// 	});
 				
-				if (navNode) {
-					this.navLinks.push({ 
-						display: displayName, 
-						href: navNode.href, 
-						active: currentAreaSlug === searchObj.urlString,
-						target: function(){
-							return (!this.active ? '_self' : "");
-						} 
-					});
-				}
-			}, ctrl);
+			// 	if (navNode) {
+			// 		this.navLinks.push({ 
+			// 			display: displayName, 
+			// 			href: navNode.href, 
+			// 			active: currentAreaSlug === searchObj.urlString,
+			// 			target: function(){
+			// 				return (!this.active ? '_self' : "");
+			// 			} 
+			// 		});
+			// 	}
+			// }, ctrl);
 			
 		}
 		controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];

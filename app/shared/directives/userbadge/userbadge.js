@@ -8,29 +8,14 @@
 		var controller = function($scope, userService) {
 			var ctrl = this;
 
+			var displayUser = null;
 			if (this.currentUser) {
 				userService.get().then(function(user){
-					ctrl.displayUser = user;
+					ctrl.displayUser = user.user;
 				});
 			} else {
 				ctrl.displayUser = ctrl.user
 			}
-
-			var ubntEmployee = {
-				userMatched: function(){
-					return ctrl.displayUser && ctrl.displayUser.login.indexOf("UBNT-") >= 0;
-				},
-				userType: 'cmuUserbadge--ubnt'
-			}
-
-			var specialUsernames = [ ubntEmployee ];
-
-			var specialUser = _.find(specialUsernames, function(usernameData) {
-				return usernameData.userMatched();
-			}, this) || {};
-			
-			var ctrl = this;			
-			_.extend(ctrl, specialUser);
 		};
 		controller.$inject = ['$scope', 'CurrentUserService'];
 

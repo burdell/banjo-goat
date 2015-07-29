@@ -18,8 +18,10 @@
 				{ display: "Announcements", href: "/announcements/"}
 			]; 
 
-			userService.get().then(function(user){
-				ctrl.isAuthenticated = user.isAuthenticated();
+			var currentUser = null;
+			userService.get().then(function(userObj){
+				ctrl.isAuthenticated = userObj.isAuthenticated();
+				currentUser = userObj.user;
 			});
 
 			_.extend(ctrl, {

@@ -19,7 +19,9 @@
 			mediaList.push(data);
 		};
 
-		var currentUser = currentUserService.get();
+		var currentUser = currentUserService.get().then(function(userData){
+			ctrl.currentUserLogin = userData.user.login;
+		});
 		
 		_.extend(ctrl, {
 			hideStoryControls: true,

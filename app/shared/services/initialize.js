@@ -6,8 +6,7 @@
 
 		function initialization(options) {
 			var deferred = $q.defer();
-			//_initFn = deferred.promise;
-
+			
 			var authCheck = communityApi.Users.authentication();
 			var nodeStructure = communityApi.Core.nodeStructure();
 

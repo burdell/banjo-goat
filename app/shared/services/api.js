@@ -109,7 +109,9 @@
 					return goToApi(baseUrl + urlSegments.User(userId));
 				},
 				nodeStructure: function(){
-					
+					return goToApi(baseUrl + 'nodes').then(function(result) {
+						return window.nodeStructure[0];
+					});
 				}
 			},
 			Forums: {

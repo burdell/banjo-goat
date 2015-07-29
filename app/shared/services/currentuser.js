@@ -14,6 +14,7 @@
 				if (!currentUser.user) {
 					return intializeService.initialize().then(function(result){
 						currentUser.user = result.auth.model;
+						
 						return currentUser;
 					});
 				} 

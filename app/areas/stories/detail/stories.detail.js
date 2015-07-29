@@ -10,9 +10,6 @@
 			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
 		}) || { url: storyDefaults.coverPhoto };
 
-		var currentUser = currentUserService.get();
-
-
 		var refreshComments = function(){
 			communityApi.Stories.comments(story.id).then(function(result){
 				ctrl.comments = result.collection;

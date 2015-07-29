@@ -6,18 +6,24 @@
 		};
 
 		var controller = function(breadcrumbService) {
-			function currentBreadcrumb() {
-				return breadcrumbService.getCurrentBreadcrumb().name;
-			}
+			var currentBreadcrumb = null;
+			var breadcrumbList = null;
 
-			function breadcrumbListFn(){
-				return breadcrumbService.getBreadcrumbList();
-			}
+			breadcrumbService.getBreadcrumbData().then(function(breadcrumbData) {
+				currentBreadcrumb = breadcrumbData.currentBreadcrumb;
+				breadcrumbList = breadcrumbData.breadcrumbList;
+			});
 
 			var ctrl = this;
 			_.extend(ctrl, {
-				currentBreadcrumb: currentBreadcrumb,
-				breadcrumbListFn: breadcrumbListFn
+				currentBreadcrumb: function(){
+					if (currentBreadcrumb) {
+						return currentBreadcrumb.name;
+					}
+				},
+				breadcrumbList: function(){
+					return breadcrumbList;
+				}
 			});
 		};
 		controller.$inject = ['CommunityBreadcrumbService'];
