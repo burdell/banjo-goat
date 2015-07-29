@@ -8,6 +8,7 @@
 			getBreadcrumbData: function(){
 				var breadCrumbList = [];
 
+				var service = this;
 				return this.getCurrentBreadcrumb().then(function(currentBreadcrumb){
 					var parentNode = currentBreadcrumb.parent;
 					while(parentNode) {
@@ -16,11 +17,12 @@
 						}
 						parentNode = parentNode.parent;
 					}
+					service.breadcrumbList = breadCrumbList;
 
-					return { 
-						currentBreadcrumb: currentBreadcrumb,
-						breadcrumbList: breadCrumbList
-					};
+					if (service.onDataSet) {
+						service.onDataSet();
+					}
+
 				});
 			},
 			getCurrentBreadcrumb: function(){
@@ -34,14 +36,29 @@
 				});
 			},
 			setCurrentBreadcrumb: function(subnodeName){
-				var newNode = {
-					name: subnodeName,
-					parent: this.getCurrentBreadcrumb()
-				};
+				var service = this;
+				function setCrumb() {
+					var currentBreadcrumb = service.CurrentBreadcrumb;
+					if (currentBreadcrumb) {
+						service.breadcrumbList.push(currentBreadcrumb);
+					}
+					service.CurrentBreadcrumb = {
+						name: subnodeName,
+						parent: currentBreadcrumb
+					};
+				}
 
-				this.CurrentBreadcrumb = newNode;
+				//ugh async data
+				if (this.breadcrumbList.length > 0) {
+					setCrumb();
+				} else {
+					service.onDataSet = function(){
+						setCrumb();
+					}
+				}
 			},
 			clearCurrentBreadcrumb: function(){
+				this.breadcrumbList.pop();
 				this.CurrentBreadcrumb = this.CurrentBreadcrumb.parent;
 			},
 			syncToNodeStructure: function(){

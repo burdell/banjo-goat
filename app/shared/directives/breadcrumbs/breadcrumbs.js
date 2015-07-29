@@ -6,23 +6,17 @@
 		};
 
 		var controller = function(breadcrumbService) {
-			var currentBreadcrumb = null;
-			var breadcrumbList = null;
-
-			breadcrumbService.getBreadcrumbData().then(function(breadcrumbData) {
-				currentBreadcrumb = breadcrumbData.currentBreadcrumb;
-				breadcrumbList = breadcrumbData.breadcrumbList;
-			});
+			breadcrumbService.getBreadcrumbData();
 
 			var ctrl = this;
 			_.extend(ctrl, {
 				currentBreadcrumb: function(){
-					if (currentBreadcrumb) {
-						return currentBreadcrumb.name;
-					}
+					var currentBreadcrumb = breadcrumbService.CurrentBreadcrumb;
+					return currentBreadcrumb && currentBreadcrumb.name;
 				},
 				breadcrumbList: function(){
-					return breadcrumbList;
+					if (breadcrumbService.breadcrumbList.length > 0) debugger;
+					return breadcrumbService.breadcrumbList;
 				}
 			});
 		};
