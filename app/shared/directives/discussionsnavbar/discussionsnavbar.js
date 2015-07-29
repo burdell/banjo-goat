@@ -6,7 +6,6 @@
 		}
 
 		function controller(nodeService, routingService) {
-			var ctrl = this;
 			// 'Forums': '-General',
 			// 	'Q&A': '_QnA',
 			// 	'Stories': '_Stories',
@@ -40,37 +39,35 @@
 				}
 			};
 
-			nodeService.get().then(function(){
-				//debugger;
+			var ctrl = this;
+			nodeService.get().then(function(nodeData){
+				var currentNode = nodeData.CurrentNode;
+				var siblingNodeList = currentNode.parent.children;
+
+				_.extend(ctrl, {
+					navLinks: []
+				})
+
+				var currentAreaSlug = routingService.getCurrentArea();
+				_.each(standardNavLinks, function(searchObj, displayName){
+					var searchValue = searchObj.nodeString;
+
+					var navNode = _.find(siblingNodeList, function(node){
+						return (node.urlSlug.indexOf(searchValue) >= 0);
+					});
+					
+					if (navNode) {
+						ctrl.navLinks.push({ 
+							display: displayName, 
+							href: navNode.href, 
+							active: currentAreaSlug === searchObj.urlString,
+							target: function(){
+								return (!this.active ? '_self' : "");
+							} 
+						});
+					}
+				}, ctrl);
 			});
-
-			// var currentNode = nodeService.CurrentNode;
-			// var siblingNodeList = currentNode.parent.children;
-
-			// _.extend(ctrl, {
-			// 	navLinks: []
-			// })
-
-			// var currentAreaSlug = routingService.getCurrentArea();
-			// _.each(standardNavLinks, function(searchObj, displayName){
-			// 	var searchValue = searchObj.nodeString;
-
-			// 	var navNode = _.find(siblingNodeList, function(node){
-			// 		return (node.urlSlug.indexOf(searchValue) >= 0);
-			// 	});
-				
-			// 	if (navNode) {
-			// 		this.navLinks.push({ 
-			// 			display: displayName, 
-			// 			href: navNode.href, 
-			// 			active: currentAreaSlug === searchObj.urlString,
-			// 			target: function(){
-			// 				return (!this.active ? '_self' : "");
-			// 			} 
-			// 		});
-			// 	}
-			// }, ctrl);
-			
 		}
 		controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
 	    

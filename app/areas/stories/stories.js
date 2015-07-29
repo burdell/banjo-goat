@@ -3,9 +3,10 @@
 
 	var storiesController = function($stateParams, $state, nodeService){
 		var ctrl = this;
-		
-		_.extend(ctrl, {
-			currentNode: nodeService.CurrentNode
+		nodeService.get().then(function(nodeData){
+			_.extend(ctrl, {
+				currentNode: nodeData.CurrentNode
+			});
 		});
 	};
 	storiesController.$inject = ['$stateParams', '$state', 'CommunityNodeService'];

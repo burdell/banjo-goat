@@ -15,7 +15,6 @@
 					return currentBreadcrumb && currentBreadcrumb.name;
 				},
 				breadcrumbList: function(){
-					if (breadcrumbService.breadcrumbList.length > 0) debugger;
 					return breadcrumbService.breadcrumbList;
 				}
 			});

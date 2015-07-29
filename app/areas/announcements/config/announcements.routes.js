@@ -7,25 +7,13 @@
 		$stateProvider
 			.state('announcementsLanding', {
 				url: '/announcements/',
-				templateUrl: 'announcements/landing/announcements.landing.html',
-				resolve: {
-					CommunityNodeStructure: ['CommunityBreadcrumbService', 'CommunityNodeService', function(breadcrumbService, nodeService){
-						var nodeStructure = nodeService.setNodeStructure('announcements');
-						breadcrumbService.syncToNodeStructure();
-						return nodeStructure;
-					}]
-				}
+				templateUrl: 'announcements/landing/announcements.landing.html'
 			})
 			.state('announcements', {
 				url: '/announcements/:nodeId/',
 				templateUrl: 'announcements/list/announcements.list.html',
 				controller: 'CommunityAnnouncements as vm',
 				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityBreadcrumbService', 'CommunityNodeService', function($stateParams, breadcrumbService, nodeService){
-						var nodeStructure = nodeService.setNodeStructure($stateParams.nodeId);
-						breadcrumbService.syncToNodeStructure();
-						return nodeStructure;
-					}],
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
 						var nodeId = $stateParams.nodeId;
 						return communityApi.Forums.messageCount(nodeId)

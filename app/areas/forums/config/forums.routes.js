@@ -8,12 +8,7 @@
 				abstract: true,
 				url: '/forums/:nodeId',
 				templateUrl: 'forums/forums.html',
-				controller: 'Forum as vm',
-				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
-						return nodeService.setNodeStructure($stateParams.nodeId);
-					}]
-				},
+				controller: 'Forum as vm'
 			})
 			.state('forums.list', {
 				url: '/list?offset&sort', 
