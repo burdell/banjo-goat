@@ -8,7 +8,7 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
-		var categoryDisplayId = nodeStructure.CurrentNode.urlSlug;
+		var categoryDisplayId = $state.params.nodeId;
 
 		var ctrl = this;
 		_.extend(ctrl, {
