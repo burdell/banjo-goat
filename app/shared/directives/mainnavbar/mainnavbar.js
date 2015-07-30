@@ -6,16 +6,21 @@
 		    
 		}
 
-		function controller($location, userService) {
+		function controller($location, userService, $state) {
 			var ctrl = this;
+
+			var hrefs = {
+				announcements: '/announcements/',
+				stories: '/stories/'
+			}
 
 			var navMetaData = [
 				{ display: "Activity", href: "#"},
 				{ display: "Discussions", href: "#", dropItem: true },
 				{ display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
-				{ display: "Stories", href: "#"},
-				{ display: "Announcements", href: "/announcements/"}
+				{ display: "Stories", href: "#", href: hrefs.stories },
+				{ display: "Announcements", href: hrefs.announcements }
 			]; 
 
 			var currentUser = null;
@@ -31,10 +36,26 @@
 					var currentPath = $location.path();
 					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
 				},
-				isAuthenticated: false
+				isAuthenticated: false,
+				isActive: function(navHref) {
+					var active = false;
+					var currentState = $state.current.name;
+
+					switch(navHref) {
+						case hrefs.announcements: 
+							active = currentState === 'announcementsLanding'
+							break;
+						case hrefs.stories:
+							active = currentState === 'storiesLanding'
+							break;
+					}
+					
+					return active;
+				}
+
 			})			
 		}
-		controller.$inject = ['$location', 'CurrentUserService' ];
+		controller.$inject = ['$location', 'CurrentUserService', $state ];
 	    
 	    var directive = {
 	        link: link,

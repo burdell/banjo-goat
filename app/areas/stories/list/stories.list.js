@@ -3,10 +3,8 @@
 
 	function StoriesListController ($scope, storyFilter, dataService, storyDefaults, $state){
 		var ctrl = this;
-
 		var intitialList = storyFilter.initialData();
-		var storiesPerRow = 4;
-
+		
 		_.extend(ctrl, {
 			storyFilter: storyFilter,
 			storyList: intitialList.collection,

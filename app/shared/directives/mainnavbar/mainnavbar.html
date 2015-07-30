@@ -16,6 +16,7 @@
             <ul class="cmuGlobalHeader__cmuLinks">
               <li 
                 ng-repeat="navItem in mainnavbar.navList"
+                ng-class="{ 'testActive' : mainnavbar.isActive(navItem.href) }"
                 class="cmuGlobalHeader__cmuLink" 
                 ng-class="{ 'cmuGlobalHeader__dropItem': navItem.dropItem }">
                   <a href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">{{ navItem.display }}</a>

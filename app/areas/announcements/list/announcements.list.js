@@ -6,7 +6,7 @@
 
 		_.extend(ctrl, {
 			announcementList: announcements,
-			currentNode: nodeService.CurrentNode
+
 		});
 
 		//redirect to newest announcement if no specific announcement
@@ -16,7 +16,7 @@
 		}
 
 	};
-	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityNodeService'];
+	announcementsController.$inject = ['$state', 'AnnouncementList'];
 
 	angular.module('community.announcements')
 		.controller('CommunityAnnouncements', announcementsController);
