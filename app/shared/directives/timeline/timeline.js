@@ -13,7 +13,12 @@
 				year: null
 			};
 			
-			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);	
+			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);
+
+			if (timelineData && timelineData.length > 0) {
+				shown.year = timelineData[0].year;
+			}
+
 			_.extend(ctrl, {
 				timelineData: timelineData,
 				yearClicked: function(year) {
@@ -28,7 +33,6 @@
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
 				}
-
 			});
 		};
 		controller.$inject = ['CommunityTimelineService'];

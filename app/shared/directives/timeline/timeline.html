@@ -1,5 +1,5 @@
 <div>
-	<div ng-repeat="yearData in timeline.timelineData">
+	<!-- <div ng-repeat="yearData in timeline.timelineData">
 		<div ng-click="timeline.yearClicked(yearData.year)"
 			<h4>{{ yearData.year }} ({{ yearData.count }})</h4>
 		</div>
@@ -14,6 +14,33 @@
 						<a ui-sref="announcements.detail({ announcementId: data.id })">{{ data.subject }}</a>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div> -->
+	<div ng-repeat="yearData in timeline.timelineData">
+		<div ng-click="timeline.yearClicked(yearData.year)">
+			<h3>{{ yearData.year }} ({{ yearData.count }})</h3>
+		</div>
+		
+		<div ng-show="timeline.showYear(yearData.year)">
+			<div ng-repeat="monthData in yearData.yearData">
+				 <table>
+			        <thead style="text-align: left;">
+			          <th><h4>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h4></th>
+			          <th>Kudos</th>
+			          <th>Views</th>
+			          <th>Posted</th>
+			        </thead>
+
+			        <tbody>
+				        <tr ng-repeat="data in monthData.monthData">
+				        	<td><a ui-sref="announcements.detail({ announcementId: data.id, nodeId: 'Blog_airMAX' })">{{ data.subject }}</a></td>
+				        	<td>{{ data.stats | extractKey : 'score' | number }}</td>
+				        	<td>{{ data.stats | extractKey : 'views' | number }}</td>
+				        	<td>{{ data.latestComment.postTime | timeFromNow }}</td>
+				        </tr>
+			        </tbody>
+			     </table>
 			</div>
 		</div>
 	</div>

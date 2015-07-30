@@ -4,16 +4,8 @@
 	var landingController = function(announcements, timelineService){
 		var ctrl = this;
 
-		var announcementData = timelineService.getTimelineData(announcements, 'postTime');
-		var yearShown = null;
-		if (announcementData.length > 0) {
-			//show the most recent year
-			yearShown = announcementData[0].year;
-		}
-
 		_.extend(ctrl, {
-			announcementList: announcementData,
-			yearShown: yearShown
+			announcementList: announcements
 		});
 	};
 	landingController.$inject = ['AllAnnouncementsList', 'CommunityTimelineService'];
