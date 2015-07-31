@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function AnnouncementListController ($state, announcementDetail, communityApi, filterService){
+	function AnnouncementListController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
 		var ctrl = this;
 		
 		_.extend(ctrl, {
@@ -22,8 +22,13 @@
 				setInitialData: false
 			})
 		});
+
+		breadcrumbService.setCurrentBreadcrumb(ctrl.currentAnnouncement.subject);
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
 	}
-	AnnouncementListController.$inject = ['$state', 'AnnouncementDetail', 'CommunityApiService', 'CommunityFilterService'];
+	AnnouncementListController.$inject = ['$scope', '$state', 'AnnouncementDetail', 'CommunityApiService', 'CommunityBreadcrumbService', 'CommunityFilterService'];
 
 	angular.module('community.announcements')
 		.controller('AnnouncementDetail', AnnouncementListController);

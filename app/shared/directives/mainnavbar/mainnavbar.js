@@ -55,7 +55,7 @@
 
 			})			
 		}
-		controller.$inject = ['$location', 'CurrentUserService', $state ];
+		controller.$inject = ['$location', 'CurrentUserService', '$state' ];
 	    
 	    var directive = {
 	        link: link,

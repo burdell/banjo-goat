@@ -6,7 +6,7 @@
 		};
 
 		var controller = function(breadcrumbService) {
-			breadcrumbService.getBreadcrumbData();
+			breadcrumbService.getBreadcrumbData(this.nodeId, true);
 
 			var ctrl = this;
 			_.extend(ctrl, {
@@ -29,7 +29,9 @@
 	        bindToController: true,
 	        replace: true,
 	        restrict: 'E',
-	        scope: {}
+	        scope: {
+	        	nodeId: '@'
+	        }
 	    };
 
 	    return directive;

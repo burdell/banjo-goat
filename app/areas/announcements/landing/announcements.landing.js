@@ -3,7 +3,6 @@
 
 	var landingController = function(announcements, timelineService){
 		var ctrl = this;
-
 		_.extend(ctrl, {
 			announcementList: announcements
 		});

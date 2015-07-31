@@ -1,20 +1,7 @@
 
-<community-breadcrumbs></community-breadcrumbs>
 <div class="row">
-	<div class="cmuDiscussionsControls">
-		<discussions-header></discussions-header>
-		<discussions-nav-bar></discussions-nav-bar>
-	</div>
-</div>
-
-<div class="row">
-	<div ui-view="mainContent" autoscroll="false" class="col--md9">
-	</div>
-	<div class="col--md3">
-		<h4>Announcement Timeline</h4>
-		<community-timeline 
-			timeline-model="vm.announcementList" 
-			date-attribute="postTime">
-		</community-timeline>
-	</div>
+	<community-timeline 
+		timeline-model="vm.announcementList" 
+		date-attribute="postTime">
+	</community-timeline>
 </div>

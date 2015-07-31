@@ -7,12 +7,34 @@
 		$stateProvider
 			.state('announcementsLanding', {
 				url: '/announcements/',
-				templateUrl: 'announcements/landing/announcements.landing.html'
+				controller: 'AnnouncementsLanding as vm',
+				templateUrl: 'announcements/landing/announcements.landing.html',
+				resolve: {
+					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
+						return communityApi.Forums.messageCount('airMax-General')
+							.then(function(result){
+								return communityApi.Forums.messages('airMax-General', { limit: result.count, sort: 'postdate' });
+							})
+							.then(function(result) {
+								return result.collection;
+							});
+					}]
+				}
 			})
 			.state('announcements', {
 				url: '/announcements/:nodeId/',
+				abstract: true,
+				templateUrl: 'announcements/announcements.html',
+			})
+			.state('announcements.list', {
+				url: 'list',
 				templateUrl: 'announcements/list/announcements.list.html',
-				controller: 'CommunityAnnouncements as vm',
+				views: {
+					'mainContent': {
+						templateUrl: 'announcements/list/announcements.list.html',
+						controller: 'CommunityAnnouncements as vm',
+					}
+				},
 				resolve: {
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
 						var nodeId = $stateParams.nodeId;

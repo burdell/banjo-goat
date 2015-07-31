@@ -1,12 +1,11 @@
 (function(_) {
 	'use strict';
 	
-	var nodeStructure = function($q, $stateParams, initService){
+	var nodeStructure = function($q, $rootScope, $stateParams, initService, routingService){
 		var nodeStructureService;
 
 		function setNodeStructure(currentNodeName, nodeData){
-			var service = nodeStructureService;
-
+			var service = nodeStructureService;			
 			var setParent = function(o) {
 				if (!o.children) {
 					return;	
@@ -23,6 +22,10 @@
 			     	});
 			     } 
 			};
+
+			if (!nodeData) {
+				nodeData = service.NodeStructure;
+			}
 
 			setParent(nodeData);
 			return nodeData;
@@ -45,22 +48,28 @@
 			}
 		};
 
+		$rootScope.$on('$stateChangeSuccess', function(event, currentState, currentParams){
+			//if there is no nodeid, assume it's a landing page and use current area name
+			var nodeId = currentParams.nodeId ? currentParams.nodeId : routingService.getCurrentArea();
+			setNodeStructure(nodeId);	
+		});
+
 		return {
-			get: function(){
+			get: function(nodeId){
 				if (!nodeStructureService.NodeStructure) {
 					return initService.initialize().then(function(result){
-						//TODO $stateParama
-						nodeStructureService.NodeStructure = setNodeStructure($stateParams.nodeId, result.node);
-
+						if (!nodeId) {
+							nodeId = $stateParams.nodeId
+						}
+						nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
 						return nodeStructureService;
 					});
 				}
-
 				return $q.when(nodeStructureService);
 			}
 		}
 	};
-	nodeStructure.$inject = ['$q', '$stateParams', 'CommunityInitializeService'];
+	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityInitializeService', 'CommunityRoutingService'];
 
 	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);
