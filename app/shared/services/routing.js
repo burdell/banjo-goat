@@ -23,10 +23,11 @@
 				if (routeList.length > 0) {
 					var areaName = routeList[0];
 					var areaRoutes = communityRoutes[areaName];
-					
-					_.each(routeList, function(route){
-						url += areaRoutes[route];
-					});	
+					if (areaRoutes) {
+						_.each(routeList, function(route){
+							url += areaRoutes[route];
+						});	
+					}
 				}
 				
 				_.each(data, function(value, key){

@@ -1,8 +1,16 @@
 (function(_) {
 	'use strict';
 	
-	var breadcrumbService = function(nodeServiceWrapper){
+	var breadcrumbService = function(nodeServiceWrapper, routingService){
 		var nodeServiceHolder = null;
+
+		function setNodeUrl(node) {
+			if (node.href) {
+				return;
+			}
+
+			node.href = routingService.generateUrl(node.discussionType + '.list', { nodeId: node.urlCode });
+		}
 
 		return {
 			breadcrumbList: [],
@@ -15,6 +23,7 @@
 					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
 					while(parentNode) {
 						if (!parentNode.invisible) {
+							setNodeUrl(parentNode);
 							breadCrumbList.unshift(parentNode);
 						}
 						parentNode = nodeServiceHolder.parent(parentNode.id);
@@ -37,6 +46,7 @@
 				return nodeServiceWrapper.get(nodeId).then(function(nodeService){
 					if (!service.CurrentBreadcrumb || syncToNodeStructure) {
 						service.CurrentBreadcrumb = nodeService.CurrentNode;
+						setNodeUrl(service.CurrentBreadcrumb);
 					}
 					nodeServiceHolder = nodeService;
 					return service.CurrentBreadcrumb;
@@ -50,6 +60,7 @@
 					if (currentBreadcrumb) {
 						service.breadcrumbList.push(currentBreadcrumb);
 					}
+
 					service.CurrentBreadcrumb = {
 						name: subnodeName,
 						parent: currentBreadcrumb
@@ -67,7 +78,7 @@
 			}
 		};
 	};
-	breadcrumbService.$inject = ['CommunityNodeService'];
+	breadcrumbService.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
 
 	angular.module('community.services')
 		.service('CommunityBreadcrumbService', breadcrumbService);
