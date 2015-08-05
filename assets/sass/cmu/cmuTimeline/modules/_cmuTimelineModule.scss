@@ -1,0 +1,134 @@
+
+// 
+// TIMELINE MODULE
+// used by announcements
+// 
+
+.cmuTimeline {
+
+}
+
+.timeline__year {
+	border: 1px solid $cmu-color-ltgray;
+	border-bottom: 0;
+
+	&:last-child {
+		border-bottom: 1px solid $cmu-color-ltgray;
+	}
+}
+
+.timeline__year__title {
+	position: relative;
+	cursor: pointer;
+    background-color: $cmu-color-purewhite;
+    $padding: $cmu-base/4;
+    @extend %ease-fast;
+
+	.timeline__year__title--text {
+		@extend h4;
+		padding: $padding $cmu-base/2;
+	}
+	span {
+		font-weight: 300;
+		&:before { content: '(' }
+		&:after { content: ')' }
+	}
+
+	&:hover {
+		@extend %ease-fast;
+		background: $cmu-color-ltgray;
+		@extend %ease-fast;
+	}
+	// Open / Closed indicator
+	// default is closed
+	&:after {
+		@extend %ease-fast;
+		@extend h4;
+		display: inline-block;
+		content: '+';
+		color: $cmu-color-blue;
+
+		position: absolute;
+		right: 0;
+		float: right;
+		height: $cmu-base*2 + $padding*2; //
+		width: $cmu-base*2 + $padding*2; // 31px;
+		top: 0;
+		line-height: $cmu-base*2 + $padding*2; //31px;;
+		text-align: center;
+		// background-color: white;
+
+	}
+	&.open {
+		// background: $cmu-color-ltgray;
+		border-bottom: 3px solid $cmu-color-black;
+
+		&:after {
+			display: inline-block;
+			content: '\2013';
+    		box-shadow: 0px 0px 5px 1px $cmu-color-ltgray inset;
+			// color: $cmu-color-dkgray;
+		}
+	}
+}
+
+
+// 
+// Timeline table details
+// 
+
+.timeline__year__month {
+	padding: $cmu-base/4 $cmu-base/2;
+    background-color: $cmu-color-purewhite;
+}
+
+	.timeline__year__month table {
+		margin: 0;
+	}
+
+.timeline__year__month thead {
+	text-align: left;
+	border-bottom: 1px solid $cmu-color-ltgray;
+}
+	.timeline__year__month th {
+		padding: $cmu-base/4 0;
+		cursor: default; 
+	}
+
+	.timeline__year__month--title {
+		span {
+			font-weight: 300;
+			&:before { content: '(' }
+			&:after { content: ')' }
+		}
+	}
+
+.timeline__year__month--title {
+	width: 60%;
+}
+
+.timeline__year__month--header {
+	width: 10%;
+}
+
+.timeline__year__month--row td {
+	padding: $cmu-base/4 0;
+
+    a {
+    	color: $cmu-color-dkgray;
+    	&:hover {
+    		color: $cmu-color-blue;
+    	}
+    }
+}
+	.timeline__year__month--count {
+		// font-weight: 300;
+	}
+
+	.timeline__year__month--header {
+		color: $cmu-color-xmdgray;
+		text-transform: uppercase;
+		font-size: $cmu-size-xsmaller;
+		font-weight: 400;
+	}
+

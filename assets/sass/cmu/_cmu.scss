@@ -27,6 +27,9 @@
 @import "cmuInput/index";			// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
 @import "cmuImageMissing/index";	// works with 'handleimageerror.js' to replace missing images
 @import "cmuTextEditor/index";		// long form text editor, story body and comments editor (tinyMCE)
+@import "cmuTimeline/index";		// generic styles for a timeline (used by announcements)
+@import "cmuAnnouncements/index";	// general styles for announcements; ann. also uses timeline
+
 
 
 
