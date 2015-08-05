@@ -1,12 +1,13 @@
 (function(){
 	'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider) {
+	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
 
+		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
-				url: '/announcements/',
+				url: announcementsRoutes.announcementsLanding,
 				controller: 'AnnouncementsLanding as vm',
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {
@@ -22,7 +23,7 @@
 				}
 			})
 			.state('announcements', {
-				url: '/announcements/:nodeId/',
+				url: announcementsRoutes.announcements,
 				abstract: true,
 				templateUrl: 'announcements/announcements.html',
 			})
@@ -49,7 +50,7 @@
 				}
 			})
 			.state('announcements.detail', {
-				url: ':announcementId', 
+				url: announcementsRoutes.detail, 
 				views: {
 					'mainContent': {
 						templateUrl: 'announcements/detail/announcements.detail.html',
@@ -63,7 +64,7 @@
 				}
 			});
 		};
-		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 
 
 

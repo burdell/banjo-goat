@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var routing = function($location){
+	var routingService = function($location, communityRoutes){
 		return {
 			getCurrentArea: function(){
 				return $location.path().split('/')[1];
@@ -13,12 +13,33 @@
 				forums: 'forums',
 				qna: 'qna',
 				stories: 'stories'
+			},
+			generateUrl: function(route, data){
+				if (!route) return null;
+
+				var routeList = route.split('.');
+				
+				var url = "";
+				if (routeList.length > 0) {
+					var areaName = routeList[0];
+					var areaRoutes = communityRoutes[areaName];
+					
+					_.each(routeList, function(route){
+						url += areaRoutes[route];
+					});	
+				}
+				
+				_.each(data, function(value, key){
+					url = url.replace(':' + key, value);
+				});
+				
+				return url;
 			}
 		};
 	};
-	routing.$inject = ['$location'];
+	routingService.$inject = ['$location', 'communityRoutes'];
 
 	angular.module('community.services')
-		.service('CommunityRoutingService', routing);
+		.service('CommunityRoutingService', routingService);
 
 }(window._));

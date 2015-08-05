@@ -21,7 +21,7 @@
 				setInitialData: false
 			})
 		});
-
+		
 		breadcrumbService.setCurrentBreadcrumb(ctrl.currentAnnouncement.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();

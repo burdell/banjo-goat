@@ -3,32 +3,30 @@
 	
 	var nodeStructure = function($q, $rootScope, $stateParams, initService, routingService){
 		var nodeStructureService;
+		var nodesById = {};
 
 		function setNodeStructure(currentNodeName, nodeData){
-			var service = nodeStructureService;			
-			var setParent = function(o) {
-				if (!o.children) {
-					return;	
-				} 
+			var nodeCollection = nodeData;
 
-				if (o.urlSlug === currentNodeName) {
-					service.CurrentNode = o;
+			nodesById = _.groupBy(nodeCollection, function(node){
+				return node.id
+			});
+			_.each(nodeCollection, function(node) {
+				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
+					nodeStructureService.CurrentNode = node;
 				}
 
-			    if(o.children.length > 1){
-			     	_.each(o.children, function(child){
-			     		child.parent = o;
-			     		setParent(child);
-			     	});
-			     } 
-			};
-
-			if (!nodeData) {
-				nodeData = service.NodeStructure;
-			}
-
-			setParent(nodeData);
-			return nodeData;
+				if (!nodeStructureService.NodeStructure && node.parentCategoryId) {
+					var parentNode = nodeStructureService.getNode(node.parentCategoryId);
+					if (parentNode) {
+						if (!parentNode.children) {
+							parentNode.children = [];
+						}
+						parentNode.children.push(node);
+					}
+				}
+			});
+			return nodeStructureService.getNode(-1);
 		}
 
 		nodeStructureService = {
@@ -45,6 +43,14 @@
 			},
 			clearCurrentSubnode: function(){
 				this.CurrentNode = this.CurrentNode.parent;
+			},
+			getNode: function(nodeId) {
+				var node = nodesById[nodeId];
+				return node && node[0];
+			},
+			parent: function(childNodeId) {
+				var childNode = this.getNode(childNodeId);
+				return childNode ? this.getNode(childNode.parentCategoryId) : null;
 			}
 		};
 
@@ -59,7 +65,7 @@
 				if (!nodeStructureService.NodeStructure) {
 					return initService.initialize().then(function(result){
 						if (!nodeId) {
-							nodeId = $stateParams.nodeId
+							nodeId = $stateParams.nodeId;
 						}
 						nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
 						return nodeStructureService;

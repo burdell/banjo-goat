@@ -1,13 +1,13 @@
 (function(_){
 	'use strict';
 
-	var landingController = function(announcements, timelineService){
+	var landingController = function(announcements){
 		var ctrl = this;
 		_.extend(ctrl, {
 			announcementList: announcements
 		});
 	};
-	landingController.$inject = ['AllAnnouncementsList', 'CommunityTimelineService'];
+	landingController.$inject = ['AllAnnouncementsList'];
 
 	angular.module('community.announcements')
 		.controller('AnnouncementsLanding', landingController);

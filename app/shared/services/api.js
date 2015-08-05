@@ -109,8 +109,10 @@
 					return goToApi(baseUrl + urlSegments.User(userId));
 				},
 				nodeStructure: function(){
-					return goToApi(baseUrl + 'nodes').then(function(result) {
-						return window.nodeStructure[0];
+					return goToApi(baseUrl + 'nodes', { limit: 150 }).then(function(result) {
+						//var nodeCollection = result.collection
+
+						return result.collection; //window.nodeStructure[0];
 					});
 				}
 			},

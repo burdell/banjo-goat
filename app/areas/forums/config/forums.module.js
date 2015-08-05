@@ -1,4 +1,5 @@
 (function(){
 	'use strict';	
-		angular.module('community.forums', []);
+	
+	angular.module('community.forums', []);
 }());

@@ -2,6 +2,8 @@
 	'use strict';
 	
 	var breadcrumbService = function(nodeServiceWrapper){
+		var nodeServiceHolder = null;
+
 		return {
 			breadcrumbList: [],
 			CurrentBreadcrumb: null,
@@ -10,12 +12,12 @@
 				var service = this;
 
 				return this.getCurrentBreadcrumb(nodeId, syncToNodeStructure).then(function(currentBreadcrumb){
-					var parentNode = currentBreadcrumb.parent;
+					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
 					while(parentNode) {
 						if (!parentNode.invisible) {
 							breadCrumbList.unshift(parentNode);
 						}
-						parentNode = parentNode.parent;
+						parentNode = nodeServiceHolder.parent(parentNode.id);
 					}
 					service.breadcrumbList = breadCrumbList;
 
@@ -36,7 +38,7 @@
 					if (!service.CurrentBreadcrumb || syncToNodeStructure) {
 						service.CurrentBreadcrumb = nodeService.CurrentNode;
 					}
-
+					nodeServiceHolder = nodeService;
 					return service.CurrentBreadcrumb;
 				});
 			},

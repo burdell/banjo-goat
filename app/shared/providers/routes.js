@@ -1,0 +1,36 @@
+(function(_) {
+	'use strict';
+
+	var routesProvider = function(){
+		var routeData = {
+			announcements: {
+			    announcements: '/announcements/:nodeId/',
+			    list: 'list',
+			    detail: ':announcementId',
+			    announcementsLanding: '/announcements/'
+			},
+			forums: {
+			    forums: '/forums/:nodeId/',
+			    list: 'list',
+			    message: 'message/:messageId',
+			    newtopic: 'newtopic' 
+			},
+			stories: {
+				storiesLanding: '/stories/',
+				stories: '/stories/:nodeId/',
+				list: 'list',
+				detail: '{storyId:int}',
+				newstory: 'new'
+			}
+		};
+
+		this.routes = routeData;
+		this.$get = function(){
+			return this.routes;
+		}
+	};
+
+	angular.module('community.providers')
+		.provider('communityRoutes', routesProvider);
+
+}(window._));

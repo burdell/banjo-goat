@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider) {
+	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
 
 		var storyDefaults = function(){
@@ -10,17 +10,13 @@
 			}
 		};
 
+		var storiesRoutes = routesProvider.routes.stories;
 		$stateProvider
 			.state('storiesLanding', {
-				url: '/stories/',
+				url: storiesRoutes.storiesLanding,
 				templateUrl: 'stories/landing/stories.landing.html',
 				controller: 'StoriesList as vm',
 				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityBreadcrumbService', 'CommunityNodeService', function($stateParams, breadcrumbService, nodeService){
-						var nodeStructure = nodeService.setNodeStructure('root');
-						breadcrumbService.setCurrentBreadcrumb('Stories');
-						return nodeStructure;
-					}],
 					StoryDefaults: storyDefaults,
 					StoryListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
@@ -37,19 +33,19 @@
 			})
 			.state('stories', {		
 				abstract: true,
-				url: '/stories/:nodeId',
+				url: storiesRoutes.stories,
 				templateUrl: 'stories/stories.html',
 				controller: 'Stories as vm',
 				resolve: {
 					StoryDefaults: function(){
 						return {
-							coverPhoto: "http://i.imgur.com/TT7XC8m.jpg" //"https://files.slack.com/files-pri/T027XH0QK-F074TNVEK/nophoto.jpg" //"http://thecatapi.com/api/images/get?format=src"
+							coverPhoto: "http://i.imgur.com/TT7XC8m.jpg"
 						}
 					}
 				},
 			})
 			.state('stories.list', {
-				url: '/list?offset&sort', 
+				url: storiesRoutes.list +'?offset&sort', 
 				views: {
 					'mainContent': {
 						templateUrl: 'stories/list/stories.list.html',
@@ -71,7 +67,7 @@
 				reloadOnSearch: false
 			})
 			.state('stories.detail', {
-				url: '/{storyId:int}', 
+				url: storiesRoutes.detail, 
 				views: {
 					'mainContent': {
 						templateUrl: 'stories/detail/stories.detail.html',
@@ -90,7 +86,7 @@
 				}
 			})
 			.state('stories.new', {
-				url: '/new',
+				url: storiesRoutes.newstory,
 				views: {
 					'mainContent': {
 						templateUrl: 'stories/newstory/stories.newstory.html',
@@ -99,7 +95,7 @@
 				}
 			})
 		};
-		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 
 
 
