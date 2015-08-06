@@ -7,7 +7,7 @@
 			    announcements: '/announcements/:nodeId/',
 			    list: 'list',
 			    detail: ':announcementId',
-			    announcementsLanding: '/announcements/'
+			    landing: 'announcements'
 			},
 			forums: {
 			    forums: '/forums/:nodeId/',
@@ -16,11 +16,14 @@
 			    newtopic: 'newtopic' 
 			},
 			stories: {
-				storiesLanding: '/stories/',
+				landing: '/stories/',
 				stories: '/stories/:nodeId/',
 				list: 'list',
 				detail: '{storyId:int}',
 				newstory: 'new'
+			},
+			directory: {
+				directory: '/community/'
 			}
 		};
 

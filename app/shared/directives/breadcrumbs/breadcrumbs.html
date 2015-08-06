@@ -2,7 +2,7 @@
 	<div class="row">
 		<ul class="cmuBreadcrumbs__list col--md12 noPadding">
 			<li ng-repeat="breadcrumb in breadcrumbs.breadcrumbList()" itemtype="http://data-vocabulary.org/Breadcrumb">
-			 	<span><a href="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
+			 	<span><a href="{{ breadcrumb.href }}" itemprop="url" target="{{ breadcrumbs.target(breadcrumb.href) }}"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
 			</li>
 			<span class="cmuBreadcrumbs__last" itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
 		</ul>

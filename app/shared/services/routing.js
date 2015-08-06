@@ -4,7 +4,10 @@
 	var routingService = function($location, communityRoutes){
 		return {
 			getCurrentArea: function(){
-				return $location.path().split('/')[1];
+				return this.getArea($location.path());
+			},
+			getArea: function(url) {
+				return url.split('/')[1]
 			},
 			areaSlugs: {
 				announcements: 'announcements',
@@ -35,6 +38,12 @@
 				});
 				
 				return url;
+			},
+			landingPages: function(){
+				return [
+					{ area: 'Announcements', href: communityRoutes.announcements.landing },
+					{ area: 'Stories', href: communityRoutes.stories.landing  }
+				]
 			}
 		};
 	};

@@ -7,7 +7,7 @@
 		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
-				url: announcementsRoutes.announcementsLanding,
+				url: announcementsRoutes.landing,
 				controller: 'AnnouncementsLanding as vm',
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {

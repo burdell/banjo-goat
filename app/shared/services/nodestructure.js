@@ -11,9 +11,28 @@
 			nodesById = _.groupBy(nodeCollection, function(node){
 				return node.id
 			});
+
+			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {
 				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
 					nodeStructureService.CurrentNode = node;
+				}
+
+
+				if (node.discussionType === 'category' && node.id > 0) {
+					var discussionCategory = node.meta.org;
+					var discussionCategoryList = discussionTypes[discussionCategory];
+
+					//these work directly from the node structure, so just throw them in the right bucket ╰( ⁰ ਊ ⁰ )━☆ﾟ.*･｡ﾟ
+					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise') {
+						if (!discussionCategoryList) {
+							discussionTypes[discussionCategory] = []
+						}
+						discussionTypes[discussionCategory].push(node);
+					} else {
+						//now the others (ﾉಠдಠ)ﾉ︵┻━┻
+
+					}
 				}
 
 				if (!nodeStructureService.NodeStructure && node.parentCategoryId) {
@@ -26,13 +45,21 @@
 					}
 				}
 			});
-			return nodeStructureService.getNode(-1);
+			
+			var rootNode = nodeStructureService.getNode(-1);
+			if (rootNode && !rootNode.href) {
+				rootNode.href = routingService.generateUrl('directory');
+			}
+			
+			return rootNode
 		}
 
 		nodeStructureService = {
 			NodeStructure: null,
 			CurrentNode: null,
 			ProductList: null,
+			DiscussionTypes: {
+			},
 			setCurrentSubnode: function(subnodeName){
 				var newNode = {
 					name: subnodeName,

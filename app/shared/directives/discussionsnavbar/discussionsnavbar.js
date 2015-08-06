@@ -36,7 +36,14 @@
 			var ctrl = this;
 			nodeService.get().then(function(nodeData){
 				var currentNode = nodeData.CurrentNode;
-				var siblingNodeList = nodeData.parent(currentNode.id).children;
+				var parentNode = nodeData.parent(currentNode.id);
+
+				if (!parentNode || !parentNode.children) {
+					return;
+				}
+
+				var siblingNodeList = parentNode.children;
+
 
 				_.extend(ctrl, {
 					navLinks: []

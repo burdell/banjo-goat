@@ -13,7 +13,7 @@
 		var storiesRoutes = routesProvider.routes.stories;
 		$stateProvider
 			.state('storiesLanding', {
-				url: storiesRoutes.storiesLanding,
+				url: storiesRoutes.landing,
 				templateUrl: 'stories/landing/stories.landing.html',
 				controller: 'StoriesList as vm',
 				resolve: {
