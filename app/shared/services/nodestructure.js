@@ -4,6 +4,7 @@
 	var nodeStructure = function($q, $rootScope, $stateParams, initService, routingService){
 		var nodeStructureService;
 		var nodesById = {};
+		var nodesByUrl = {};
 
 		function setNodeStructure(currentNodeName, nodeData){
 			var nodeCollection = nodeData;
@@ -11,28 +12,31 @@
 			nodesById = _.groupBy(nodeCollection, function(node){
 				return node.id
 			});
+			
+			_.each(nodeCollection, function(node) {
+				nodesById[node.id] = node;
+				nodesByUrl[node.urlCode.toLowerCase()] = node;
+			});
 
+			//hard coded includes/excludes :/ 
+			var exclude = [-1, 75, 141];
+			var include = [30, 20, 42];
 			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {
 				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
 					nodeStructureService.CurrentNode = node;
 				}
 
-
-				if (node.discussionType === 'category' && node.id > 0) {
+				if (_.indexOf(include, node.id) >= 0 || (node.discussionType === 'category' && _.indexOf(exclude, node.id)) < 0) {
 					var discussionCategory = node.meta.org;
 					var discussionCategoryList = discussionTypes[discussionCategory];
 
-					//these work directly from the node structure, so just throw them in the right bucket ╰( ⁰ ਊ ⁰ )━☆ﾟ.*･｡ﾟ
-					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise') {
+					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise' || (discussionCategory === 'general')) {
 						if (!discussionCategoryList) {
 							discussionTypes[discussionCategory] = []
 						}
 						discussionTypes[discussionCategory].push(node);
-					} else {
-						//now the others (ﾉಠдಠ)ﾉ︵┻━┻
-
-					}
+					} 
 				}
 
 				if (!nodeStructureService.NodeStructure && node.parentCategoryId) {
@@ -54,6 +58,15 @@
 			return rootNode
 		}
 
+		function setCurrentNode(nodeUrl) {
+			if (!nodeUrl) {
+				return;
+			}
+
+
+			nodeStructureService.CurrentNode = nodesByUrl[nodeUrl.toLowerCase()];
+		}
+
 		nodeStructureService = {
 			NodeStructure: null,
 			CurrentNode: null,
@@ -72,8 +85,7 @@
 				this.CurrentNode = this.CurrentNode.parent;
 			},
 			getNode: function(nodeId) {
-				var node = nodesById[nodeId];
-				return node && node[0];
+				return nodesById[nodeId];
 			},
 			parent: function(childNodeId) {
 				var childNode = this.getNode(childNodeId);
@@ -84,7 +96,7 @@
 		$rootScope.$on('$stateChangeSuccess', function(event, currentState, currentParams){
 			//if there is no nodeid, assume it's a landing page and use current area name
 			var nodeId = currentParams.nodeId ? currentParams.nodeId : routingService.getCurrentArea();
-			setNodeStructure(nodeId);	
+			setCurrentNode(nodeId);	
 		});
 
 		return {
@@ -94,7 +106,10 @@
 						if (!nodeId) {
 							nodeId = $stateParams.nodeId;
 						}
-						nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
+
+						if (!nodeStructureService.NodeStructure) {
+							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
+						}
 						return nodeStructureService;
 					});
 				}

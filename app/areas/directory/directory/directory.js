@@ -6,6 +6,7 @@
 		
 		var discussionTypes = nodeService.DiscussionTypes;		
 		var directoryList = [
+			{ header: 'Community', list: discussionTypes.general },
 			{ header: 'Broadband', list: discussionTypes.broadband },
 			{ header: 'Enterprise', list: discussionTypes.enterprise }
 		];

@@ -19,12 +19,11 @@
 				landing: '/stories/',
 				stories: '/stories/:nodeId/',
 				list: 'list',
-				detail: '{storyId:int}',
+				detail: ':storyId',
 				newstory: 'new'
 			},
-			directory: {
-				directory: '/community/'
-			}
+			directory: '/community/',
+			hub: '/community/:nodeId/'
 		};
 
 		this.routes = routeData;

@@ -25,7 +25,8 @@
 				var url = "";
 				if (routeList.length > 0) {
 					var areaName = routeList[0];
-					var areaRoutes = communityRoutes[areaName];
+					var areaRoutes = routeList.length === 1 ? communityRoutes : communityRoutes[areaName];
+					
 					if (areaRoutes) {
 						_.each(routeList, function(route){
 							url += areaRoutes[route];
@@ -44,6 +45,19 @@
 					{ area: 'Announcements', href: communityRoutes.announcements.landing },
 					{ area: 'Stories', href: communityRoutes.stories.landing  }
 				]
+			},
+			generateDiscussionUrl: function(nodeName, discussionType) {
+				var discussionCodes = {
+					stories: '_stories',
+					general: '_general',
+					alpha: '_aforum',
+					beta: '_bforum',
+					announcements: '_announcements',
+					features: '_features',
+					bugs: '_bugs'
+				};
+
+				return nodeName + discussionCodes[discussionType];
 			}
 		};
 	};

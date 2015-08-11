@@ -12,6 +12,9 @@
 			node.href = routingService.generateUrl(node.discussionType + '.list', { nodeId: node.urlCode });
 		}
 
+		var PRODUCT_NODE = 75;
+		var UBNT_NODE = 569;
+
 		return {
 			breadcrumbList: [],
 			CurrentBreadcrumb: null,
@@ -22,10 +25,17 @@
 				return this.getCurrentBreadcrumb(nodeId, syncToNodeStructure).then(function(currentBreadcrumb){
 					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
 					while(parentNode) {
-						if (!parentNode.invisible) {
+						//hide the 'products' abnd 'ubnt' node
+						if (parentNode.id !== PRODUCT_NODE && parentNode.id !== UBNT_NODE) {
 							setNodeUrl(parentNode);
 							breadCrumbList.unshift(parentNode);
 						}
+
+						//if node is a product, set url to landing page
+						if (parentNode.parentCategoryId === PRODUCT_NODE) {
+							parentNode.href = routingService.generateUrl('hub', { nodeId: parentNode.urlCode });
+						}
+
 						parentNode = nodeServiceHolder.parent(parentNode.id);
 					}
 					service.breadcrumbList = breadCrumbList;

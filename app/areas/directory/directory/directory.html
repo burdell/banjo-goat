@@ -33,7 +33,12 @@
 			<div ng-repeat="section in ::vm.directoryList">
 				<h5>{{ section.header }}</h5>
 				<div ng-repeat="discussion in ::section.list">
-					<a href="#">{{ discussion.name }}</a>
+					<div ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
+						<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }}</a>
+					</div>
+					<div ng-if="section.header === 'Community'">
+						<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }}</a>
+					</div>
 				</div>
 			</div>
 
@@ -48,9 +53,15 @@
 		<!-- main body -->
 		<div class="col--md9">
 			<div ng-repeat="section in ::vm.directoryList">
-				<h4>{{ section.header }} Discussions</h4>
+				<h1>{{ section.header }} Discussions</h1>
 				<div ng-repeat="discussion in ::section.list">
 					<h3>{{ discussion.name }}</h3>
+					<div ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
+						<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }} Hub</a>
+					</div>
+					<div ng-if="section.header === 'Community'">
+						<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }} Forum</a>
+					</div>
 					<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
 						<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
 						<span ng-if="!$last">&nbsp;/&nbsp;</span>
