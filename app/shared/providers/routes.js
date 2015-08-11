@@ -7,7 +7,7 @@
 			    announcements: '/announcements/:nodeId/',
 			    list: 'list',
 			    detail: ':announcementId',
-			    landing: 'announcements'
+			    landing: '/announcements/'
 			},
 			forums: {
 			    forums: '/forums/:nodeId/',

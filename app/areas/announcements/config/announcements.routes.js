@@ -12,9 +12,9 @@
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {
 					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
-						return communityApi.Forums.messageCount('airMax-General')
+						return communityApi.Announcements.count()
 							.then(function(result){
-								return communityApi.Forums.messages('airMax-General', { limit: result.count, sort: 'postdate' });
+								return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
 							})
 							.then(function(result) {
 								return result.collection;
@@ -39,9 +39,9 @@
 				resolve: {
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
 						var nodeId = $stateParams.nodeId;
-						return communityApi.Forums.messageCount(nodeId)
+						return communityApi.Announcements.count(nodeId)
 							.then(function(result){
-								return communityApi.Forums.messages($stateParams.nodeId, { limit: result.count, sort: 'postdate' });
+								return communityApi.Announcements.announcements($stateParams.nodeId, { limit: result.count, sort: 'postdate' });
 							})
 							.then(function(result) {
 								return result.collection;

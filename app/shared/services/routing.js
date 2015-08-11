@@ -57,7 +57,7 @@
 					bugs: '_bugs'
 				};
 
-				return nodeName + discussionCodes[discussionType];
+				return nodeName + discussionCodes[discussionType.toLowerCase()];
 			}
 		};
 	};

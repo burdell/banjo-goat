@@ -16,10 +16,10 @@
 
 			        <tbody>
 				        <tr ng-repeat="data in monthData.monthData">
-				        	<td><a ui-sref="announcements.detail({ announcementId: data.id, nodeId: 'Blog_airMAX' })">{{ data.subject }}</a></td>
-				        	<td>{{ data.stats | extractKey : 'score' | number }}</td>
-				        	<td>{{ data.stats | extractKey : 'views' | number }}</td>
-				        	<td>{{ data.latestComment.postTime | timeFromNow }}</td>
+				        	<td><a ng-href="{{ timeline.getTimelineHref(data) }}">{{ data.discussion.subject }}</a></td>
+				        	<td>{{ data.discussion.stats | extractKey : 'score' | number }}</td>
+				        	<td>{{ data.discussion.stats | extractKey : 'views' | number }}</td>
+				        	<td>{{ data.discussion.latestComment.postTime | timeFromNow }}</td>
 				        </tr>
 			        </tbody>
 			     </table>

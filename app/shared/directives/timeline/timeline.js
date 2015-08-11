@@ -12,7 +12,7 @@
 				month: null,
 				year: null
 			};
-			
+		
 			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);
 			if (timelineData && timelineData.length > 0) {
 				shown.year = timelineData[0].year;
@@ -31,6 +31,9 @@
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
+				},
+				getTimelineHref: function(data) {
+					return this.hrefFn(data);
 				}
 			});
 		};
@@ -47,7 +50,8 @@
 	        	timelineModel: '=',
 	        	timelineItemTemplate: '=',
 	        	sortedModel: '=',
-	        	dateAttribute: '@'
+	        	dateAttribute: '@',
+	        	hrefFn: '='
 	        }
 	    };
 
