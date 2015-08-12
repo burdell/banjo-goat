@@ -1,20 +1,26 @@
-<community-breadcrumbs></community-breadcrumbs>
-<discussions-header></discussions-header>
+<community-breadcrumbs node-id="Community"></community-breadcrumbs>
 
 <div class="row">
-	<div class="col--md9">
-		<!-- <h3>
-			<a ui-sref="announcements({ nodeId: 'Blog_airMAX' })">
-			airMax	
-			</a>
-		</h3> -->
-		<community-product-navigator></community-product-navigator>
+	<div class="cmuDiscussionsControls">
+		<discussions-header header-text="All Announcements"></discussions-header>
+		<discussions-nav-bar></discussions-nav-bar>
 	</div>
-	<div class="col--md3">
-		<h4>Announcement History</h4>
-		<!-- <community-timeline 
-			timeline-model="vm.announcementList" 
-			date-attribute="postTime">
-		</community-timeline> -->
+</div>
+
+<div class="row row--comfy">
+	<button community-permissions="" class="button-ghost button--thin button-white-blue">Select Platform</button>
+	<button community-permissions="" class="button-ghost button--thin button-white-blue">Manage Subscriptions</button>
+</div>
+
+<div class="row">
+	<div class="col--md12">
+		<div>
+			 <community-timeline 
+			 	href-fn="vm.generateAnnouncementUrl"
+				timeline-model="vm.announcementList" 
+				date-attribute="postTime"
+				show-product-info="true">
+			</community-timeline>
+		</div>
 	</div>
 </div>

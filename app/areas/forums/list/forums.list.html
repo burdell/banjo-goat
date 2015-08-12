@@ -1,33 +1,9 @@
 <div class="cmuForumContainer">
-<!-- 
-  <div class="cmuForumTitle">
-    <div class="row">
-      <h3>{{ ::vm.currentNode.name }}</h3>
-    </div>
-  </div>
-
-  <div class="cmuForumIntro">
-    <div class="row">
-      <div class="cmuForumDescriptor col--md9">Discussion forum for all things airMAX.  
-      </div>
-      <div class="col--md3 noPaddingRight">
-        <div ng-hide="vm.hideSearch()">
-            <community-search 
-              search-filter="vm.forumListFilter" 
-              placeholder="Filter Topics"
-              exclude="limit, offset">
-           </community-search>
-        </div>
-      </div>
-    </div>
-  </div>
- -->
-
   <div class="forumThreadControl">
     <div class="row">
 
       <div class="forumThreadControl__row">
-        <div class="col--md8 noPaddingLeft">
+        <div class="col--md8 noPaddingLeft" community-permissions>
           <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
         </div>
 
@@ -260,12 +236,13 @@
   <div class="forumPagination">
     <div class="row">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions>Create a Topic</button>
         </div>
         <div class="col--md4 noPaddingLeft">
           <community-pager 
             total-results="vm.messageCount" 
-            pager-fn="vm.forumListFilter">
+            pager-fn="vm.forumListFilter"
+            front-biased="true">
           </community-pager>
         </div>
     </div>

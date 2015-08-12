@@ -1,36 +1,79 @@
 (function(_) {
 	'use strict';
 	
-	var nodeStructure = function(){
-		return {
+	var nodeStructure = function($q, $rootScope, $stateParams, initService, routingService){
+		var nodeStructureService;
+		var nodesById = {};
+		var nodesByUrl = {};
+
+		function setNodeStructure(currentNodeName, nodeData){
+			var nodeCollection = nodeData;
+
+			nodesById = _.groupBy(nodeCollection, function(node){
+				return node.id
+			});
+			
+			_.each(nodeCollection, function(node) {
+				nodesById[node.id] = node;
+				nodesByUrl[node.urlCode.toLowerCase()] = node;
+			});
+
+			//hard coded includes/excludes :/ 
+			var exclude = [-1, 75, 141];
+			var include = [30, 20, 42, 43, 83];
+
+			var discussionTypes = nodeStructureService.DiscussionTypes;
+			_.each(nodeCollection, function(node) {
+				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
+					nodeStructureService.CurrentNode = node;
+				}
+
+				if (_.indexOf(include, node.id) >= 0 || (node.discussionType === 'category' && _.indexOf(exclude, node.id)) < 0) {
+					var discussionCategory = node.meta.org;
+					var discussionCategoryList = discussionTypes[discussionCategory];
+
+					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise' || (discussionCategory === 'general')) {
+						if (!discussionCategoryList) {
+							discussionTypes[discussionCategory] = []
+						}
+						discussionTypes[discussionCategory].push(node);
+					} 
+				}
+
+				if (!nodeStructureService.NodeStructure && node.parentCategoryId) {
+					var parentNode = nodeStructureService.getNode(node.parentCategoryId);
+					if (parentNode) {
+						if (!parentNode.children) {
+							parentNode.children = [];
+						}
+						parentNode.children.push(node);
+					}
+				}
+			});
+			
+			var rootNode = nodeStructureService.getNode(-1);
+			if (rootNode && !rootNode.href) {
+				rootNode.href = routingService.generateUrl('directory');
+			}
+			
+			return rootNode
+		}
+
+		function setCurrentNode(nodeUrl) {
+			if (!nodeUrl) {
+				return;
+			}
+
+			//set node to base if the node url isn't valid (used for dealing with pages that arent nodes...like announcements landing page)
+			var currentNode = nodesByUrl[nodeUrl.toLowerCase()] || nodesByUrl['community'];
+			nodeStructureService.CurrentNode = currentNode;
+		}
+
+		nodeStructureService = {
 			NodeStructure: null,
 			CurrentNode: null,
 			ProductList: null,
-			setNodeStructure: function(currentNodeName){
-				var nodeData = window.nodeStructure[0];
-				var service = this;
-
-				var setParent = function(o) {
-					if (!o.children) {
-						return;	
-					} 
-
-					if (o.urlSlug === currentNodeName) {
-						service.CurrentNode = o;
-					}
-
-				    if(o.children.length > 1){
-				     	_.each(o.children, function(child){
-				     		child.parent = o;
-				     		setParent(child);
-				     	});
-				     } 
-				};
-
-				setParent(nodeData);
-				this.NodeStructure = nodeData;
-			
-				return nodeData;
+			DiscussionTypes: {
 			},
 			setCurrentSubnode: function(subnodeName){
 				var newNode = {
@@ -42,10 +85,41 @@
 			},
 			clearCurrentSubnode: function(){
 				this.CurrentNode = this.CurrentNode.parent;
+			},
+			getNode: function(nodeId) {
+				return nodesById[nodeId];
+			},
+			parent: function(childNodeId) {
+				var childNode = this.getNode(childNodeId);
+				return childNode ? this.getNode(childNode.parentCategoryId) : null;
 			}
 		};
+
+		$rootScope.$on('$stateChangeSuccess', function(event, currentState, currentParams){
+			//if there is no nodeid, assume it's a landing page and use current area name
+			var nodeId = currentParams.nodeId ? currentParams.nodeId : routingService.getCurrentArea();
+			setCurrentNode(nodeId);	
+		});
+
+		return {
+			get: function(nodeId){
+				if (!nodeStructureService.NodeStructure) {
+					return initService.initialize().then(function(result){
+						if (!nodeId) {
+							nodeId = $stateParams.nodeId;
+						}
+
+						if (!nodeStructureService.NodeStructure) {
+							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
+						}
+						return nodeStructureService;
+					});
+				}
+				return $q.when(nodeStructureService);
+			}
+		}
 	};
-	nodeStructure.$inject = [];
+	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityInitializeService', 'CommunityRoutingService'];
 
 	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);

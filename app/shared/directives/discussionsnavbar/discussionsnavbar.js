@@ -6,67 +6,69 @@
 		}
 
 		function controller(nodeService, routingService) {
-			var ctrl = this;
-			// 'Forums': '-General',
-			// 	'Q&A': '_QnA',
-			// 	'Stories': '_Stories',
-			// 	'Announcements': 'Blog_',
-			// 	'Feature Requests': '_Features',
-			// 	'Bugs': '_Bugs'
 			var standardNavLinks = {
 				'Forums': { 
-					nodeString: '-General',
-					urlString: routingService.areaSlugs.forums
+					discussionType: 'forums',
+					route: 'forums.list'
 				},
 				'Q&A': {
-					nodeString: '_QnA',
-					urlString: routingService.areaSlugs.qna
+					discussionType: 'qa',
+					route: ''
 				},
 				'Stories': {
-					nodeString: '_Stories',
-					urlString: routingService.areaSlugs.stories
+					discussionType: 'stories',
+					route: 'stories.list'
 				},
 				'Announcements': {
-					nodeString: 'Blog_',
-					urlString: routingService.areaSlugs.announcements
+					discussionType: 'announcements',
+					route: 'announcements.list'
 				},
 				'Feature Requests': {
-					nodeString: '_Features',
-					urlString: routingService.areaSlugs.features
+					discussionType: 'features',
+					route: ''
 				},
 				'Bugs': {
-					nodeString: '_Bugs',
-					urlString: routingService.areaSlugs.bugs
+					discussionType: 'bugs',
+					route: ''
 				}
 			};
 
-			var currentNode = nodeService.CurrentNode;
-			var siblingNodeList = currentNode.parent.children;
+			var ctrl = this;
+			nodeService.get().then(function(nodeData){
+				var currentNode = nodeData.CurrentNode;
+				var parentNode = nodeData.parent(currentNode.id);
 
-			_.extend(ctrl, {
-				navLinks: []
-			})
-
-			var currentAreaSlug = routingService.getCurrentArea();
-			_.each(standardNavLinks, function(searchObj, displayName){
-				var searchValue = searchObj.nodeString;
-
-				var navNode = _.find(siblingNodeList, function(node){
-					return (node.urlSlug.indexOf(searchValue) >= 0);
-				});
-				
-				if (navNode) {
-					this.navLinks.push({ 
-						display: displayName, 
-						href: navNode.href, 
-						active: currentAreaSlug === searchObj.urlString,
-						target: function(){
-							return (!this.active ? '_self' : "");
-						} 
-					});
+				if (!parentNode || !parentNode.children) {
+					return;
 				}
-			}, ctrl);
-			
+
+				var siblingNodeList = parentNode.children;
+
+
+				_.extend(ctrl, {
+					navLinks: []
+				})
+
+				var currentAreaSlug = routingService.getCurrentArea();
+				_.each(standardNavLinks, function(searchObj, displayName){
+					var navNode = _.find(siblingNodeList, function(node){
+						return node.discussionType === searchObj.discussionType;
+					});
+					
+					if (navNode) {
+						var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
+
+						ctrl.navLinks.push({ 
+							display: displayName, 
+							href: discussionHref, 
+							active: currentAreaSlug === searchObj.discussionType,
+							target: function(){
+								return (!this.active ? '_self' : "");
+							} 
+						});
+					}
+				}, ctrl);
+			});
 		}
 		controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
 	    

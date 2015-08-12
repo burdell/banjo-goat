@@ -1,21 +1,19 @@
 (function(_){
 	'use strict';
 
-	var announcementsController = function($state, announcements){
+	var announcementsController = function($state, announcements, routingService){
 		var ctrl = this;
 
+		var announcementNodeId = $state.params.nodeId;
+
 		_.extend(ctrl, {
-			announcementList: announcements
+			announcementList: announcements,
+			getAnnouncementUrl: function(announcementData) {
+				return routingService.generateUrl('announcements.detail', { nodeId: announcementNodeId, announcementId: announcementData.id });
+			}
 		});
-
-		//redirect to newest announcement if no specific announcement
-		if (!$state.params.announcementId) {
-			var latestAnnouncement = _.last(ctrl.announcementList);
-			$state.go('announcements.detail', { announcementId: latestAnnouncement.id }, { location: 'replace' });
-		}
-
 	};
-	announcementsController.$inject = ['$state', 'AnnouncementList'];
+	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityRoutingService'];
 
 	angular.module('community.announcements')
 		.controller('CommunityAnnouncements', announcementsController);

@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -19,8 +19,14 @@
 			mediaList.push(data);
 		};
 
-		var currentUser = currentUserService.get();
-		
+		var currentUser = currentUserService.get().then(function(userData){
+			ctrl.currentUserLogin = userData.user.login;
+		});
+
+		productService.getProductList().then(function(productList){
+			ctrl.productData = productList;
+		});
+
 		_.extend(ctrl, {
 			hideStoryControls: true,
 			titleCharacterLimit: 140,
@@ -60,8 +66,7 @@
 			},
 			storyAuthor: currentUser,
 			story: {
-			    "currentUserId": currentUser.id,
-			    "categoryDisplayId": nodeService.CurrentNode.urlSlug,
+			    "categoryDisplayId": $state.params.nodeId,
 			    "media": mediaList,
 			    "summary": "",
 			    "location": {
@@ -91,7 +96,7 @@
 			    "subject": "",
 			    "body": ""
 		    },
-		    productData: productService.getProductList(),
+		    productData: [],
 			addPhoto: _.bind(function(result){
 				var fileData = result;
 				var imageObj = {
@@ -161,7 +166,6 @@
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 
 		'CommunityMediaService',
-		'CommunityNodeService', 
 		'CommunityProductService',
 		'CurrentUserService', 
 		'StoryDefaults'

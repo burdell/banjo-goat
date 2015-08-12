@@ -1,22 +1,19 @@
 (function(){
 	'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider) {
+	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
+
+		var forumRoutes = routesProvider.routes.forums;
 		$stateProvider
 			.state('forums', {
 				abstract: true,
-				url: '/forums/:nodeId',
+				url: forumRoutes.forums,
 				templateUrl: 'forums/forums.html',
-				controller: 'Forum as vm',
-				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityNodeService', function($stateParams, nodeService){
-						return nodeService.setNodeStructure($stateParams.nodeId);
-					}]
-				},
+				controller: 'Forum as vm'
 			})
 			.state('forums.list', {
-				url: '/list?offset&sort', 
+				url: forumRoutes.list + '?offset&sort', 
 				views: {
 					'mainContent': {
 						templateUrl: 'forums/list/forums.list.html',
@@ -37,7 +34,7 @@
 				reloadOnSearch: false
 			})
 			.state('forums.message', {
-				url: '/message/:messageId',
+				url: forumRoutes.message,
 				views: {
 					'mainContent': {
 						templateUrl: 'forums/message/forums.message.html',
@@ -58,8 +55,8 @@
 				},
 				reloadOnSearch: false
 			})
-			.state('forums.newtopic', {
-				url: '/newtopic',
+			.state(forumRoutes.newtopic, {
+				url: forumRoutes.newtopic,
 				views: {
 					'mainContent': {
 						templateUrl: 'forums/newtopic/forums.newtopic.html',
@@ -68,11 +65,8 @@
 				}
 			});
 		};
-		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-
-
-
-
+		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
+		
 		angular.module('community.forums')
 			.config(config);
 }());

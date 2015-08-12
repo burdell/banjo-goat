@@ -1,48 +1,95 @@
 (function(_) {
 	'use strict';
 	
-	var breadcrumbService = function(nodeService){
+	var breadcrumbService = function(nodeServiceWrapper, routingService){
+		var nodeServiceHolder = null;
+
+		function setNodeUrl(node) {
+			if (node.href) {
+				return;
+			}
+
+			node.href = routingService.generateUrl(node.discussionType + '.list', { nodeId: node.urlCode });
+		}
+
+		var PRODUCT_NODE = 75;
+		var UBNT_NODE = 569;
+		var OTHER_PRODUCTS_NODE = 121;
+
 		return {
 			breadcrumbList: [],
 			CurrentBreadcrumb: null,
-			getBreadcrumbList: function(){
+			getBreadcrumbData: function(nodeId, syncToNodeStructure){
 				var breadCrumbList = [];
+				var service = this;
 
-				var currentBreadcrumb = this.getCurrentBreadcrumb();
-				var parentNode = currentBreadcrumb.parent;
-				while(parentNode) {
-					if (!parentNode.invisible) {
-						breadCrumbList.unshift(parentNode);
+				return this.getCurrentBreadcrumb(nodeId, syncToNodeStructure).then(function(currentBreadcrumb){
+					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
+					while(parentNode) {
+						//hide the 'products' abnd 'ubnt' node
+						if (parentNode.id !== PRODUCT_NODE && parentNode.id !== UBNT_NODE && parentNode.id !== OTHER_PRODUCTS_NODE) {
+							setNodeUrl(parentNode);
+							breadCrumbList.unshift(parentNode);
+						}
+
+						//if node is a product, set url to landing page
+						if (parentNode.parentCategoryId === PRODUCT_NODE) {
+							parentNode.href = routingService.generateUrl('hub', { nodeId: parentNode.urlCode });
+						}
+
+						parentNode = nodeServiceHolder.parent(parentNode.id);
 					}
-					parentNode = parentNode.parent;
-				}
+					service.breadcrumbList = breadCrumbList;
 
-				return breadCrumbList;
+					if (service.onDataSet) {
+						service.onDataSet();
+						service.onDataSet = null;
+					}
+
+					return {
+						currentBreadcrumb: service.CurrentBreadcrumb,
+						breadcrumbList: service.breadcrumbList
+					}
+				});
 			},
-			getCurrentBreadcrumb: function(){
-				if (!this.CurrentBreadcrumb) {
-					this.CurrentBreadcrumb = nodeService.CurrentNode;
-				}
-
-				return this.CurrentBreadcrumb;
+			getCurrentBreadcrumb: function(nodeId, syncToNodeStructure){
+				var service = this;
+				return nodeServiceWrapper.get(nodeId).then(function(nodeService){
+					if (!service.CurrentBreadcrumb || syncToNodeStructure) {
+						service.CurrentBreadcrumb = nodeService.CurrentNode;
+						setNodeUrl(service.CurrentBreadcrumb);
+					}
+					nodeServiceHolder = nodeService;
+					return service.CurrentBreadcrumb;
+				});
 			},
 			setCurrentBreadcrumb: function(subnodeName){
-				var newNode = {
-					name: subnodeName,
-					parent: this.getCurrentBreadcrumb()
-				};
+				var service = this;
 
-				this.CurrentBreadcrumb = newNode;
+				function setCrumb() {
+					var currentBreadcrumb = service.CurrentBreadcrumb;
+					if (currentBreadcrumb) {
+						service.breadcrumbList.push(currentBreadcrumb);
+					}
+
+					service.CurrentBreadcrumb = {
+						name: subnodeName,
+						parent: currentBreadcrumb
+					};
+				}
+				
+				setCrumb();
+				service.onDataSet = setCrumb;
+				
 			},
 			clearCurrentBreadcrumb: function(){
+				this.onDataSet = null;
+				this.breadcrumbList.pop();
 				this.CurrentBreadcrumb = this.CurrentBreadcrumb.parent;
-			},
-			syncToNodeStructure: function(){
-				this.CurrentBreadcrumb = nodeService.CurrentNode;
 			}
 		};
 	};
-	breadcrumbService.$inject = ['CommunityNodeService'];
+	breadcrumbService.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
 
 	angular.module('community.services')
 		.service('CommunityBreadcrumbService', breadcrumbService);

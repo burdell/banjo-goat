@@ -1,16 +1,8 @@
 
-<community-breadcrumbs></community-breadcrumbs>
-<discussions-header></discussions-header>
-<discussions-nav-bar></discussions-nav-bar>
-
 <div class="row">
-	<div ui-view="mainContent" autoscroll="false" class="col--md9">
-	</div>
-	<div class="col--md3">
-		<h4>Announcement Timeline</h4>
-		<community-timeline 
-			timeline-model="vm.announcementList" 
-			date-attribute="postTime">
-		</community-timeline>
-	</div>
+	<community-timeline 
+		href-fn="vm.getAnnouncementUrl"
+		timeline-model="vm.announcementList" 
+		date-attribute="postTime">
+	</community-timeline>
 </div>

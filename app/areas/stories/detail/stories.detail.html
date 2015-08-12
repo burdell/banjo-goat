@@ -1,9 +1,9 @@
 <div class="cmuStories__storyDetail">
 	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
 	<div class="row row--comfy">
-		<button class="button-ghost button--thin button-white-blue" ng-click="vm.toggleCommentForm()">Add Comment</button>
+		<button community-permissions class="button-ghost button--thin button-white-blue" ng-click="vm.toggleCommentForm()">Add Comment</button>
 		
-		<button class="button--vote button-white-on-green">
+		<button community-permissions denied-behavior="disable" class="button--vote button-white-on-green">
 			{{ vm.story.stats | extractKey : 'score' }} kudos
 		</button>
 	</div>

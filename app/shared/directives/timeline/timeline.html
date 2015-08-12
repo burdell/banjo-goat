@@ -1,19 +1,31 @@
 <div>
 	<div ng-repeat="yearData in timeline.timelineData">
-		<div ng-click="timeline.yearClicked(yearData.year)"
-			<h4>{{ yearData.year }} ({{ yearData.count }})</h4>
+		<div ng-click="timeline.yearClicked(yearData.year)">
+			<h3>{{ yearData.year }} ({{ yearData.count }})</h3>
 		</div>
-
+		
 		<div ng-show="timeline.showYear(yearData.year)">
-			<div ng-repeat="monthData in yearData.yearData" style="padding-left: 10px;">
-				<div ng-click="timeline.monthClicked(monthData.month)">
-					<h5>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h5>
-				</div>
-				<div ng-show="timeline.showMonth(monthData.month, yearData.year)">
-					<div ng-repeat="data in monthData.monthData" style="padding-left: 10px;">
-						<a ui-sref="announcements.detail({ announcementId: data.id })">{{ data.subject }}</a>
-					</div>
-				</div>
+			<div ng-repeat="monthData in yearData.yearData">
+				 <table>
+			        <thead style="text-align: left;">
+			          <th><h4>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h4></th>
+			          <th>Kudos</th>
+			          <th>Views</th>
+			          <th>Posted</th>
+			        </thead>
+
+			        <tbody>
+				        <tr ng-repeat="data in monthData.monthData">
+				        	<td>
+				        		<span ng-if="timeline.showProductInfo">{{ data.product }}&nbsp;&nbsp;</span>
+				        		<a ng-href="{{ timeline.getTimelineHref(data) }}">{{ data.discussion.subject }}</a>
+				        	</td>
+				        	<td>{{ data.discussion.stats | extractKey : 'score' | number }}</td>
+				        	<td>{{ data.discussion.stats | extractKey : 'views' | number }}</td>
+				        	<td>{{ data.discussion.latestComment.postTime | timeFromNow }}</td>
+				        </tr>
+			        </tbody>
+			     </table>
 			</div>
 		</div>
 	</div>

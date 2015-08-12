@@ -2,16 +2,25 @@
 	'use strict';
 
 	function discussionsHeader() {
-		function link(scope, element, attrs) {
+		function controller(nodeService) {
+		    var ctrl = this;
 		    
+		    nodeService.get().then(function(nodeData) {
+		    	ctrl.currentNode = nodeData.CurrentNode;
+		    });
 		}
+		controller.$inject = ['CommunityNodeService'];
 
 	    var directive = {
-	        link: link,
+	        controller: controller,
+	        controllerAs: 'discussionsheader',
+	        bindToController: true,
 	        templateUrl: 'directives/discussionsheader/discussionsheader.html',
 	        restrict: 'E',
 	        replace: true,
-	        scope: true
+	        scope: {
+	        	headerText: '@'
+	        }
 	    };
 
 	    return directive;

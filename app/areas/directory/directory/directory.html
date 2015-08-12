@@ -1,0 +1,73 @@
+
+<div>
+	<community-breadcrumbs></community-breadcrumbs>
+	<div class="row">
+		<div class="cmuDiscussionsControls">
+			<discussions-header header-text="Community Directory"></discussions-header>
+			<discussions-nav-bar></discussions-nav-bar>
+		</div>
+	</div>
+
+	<!-- pulse row -->
+	<!-- <div class="row">
+		<div class="col--md2">
+			<h4>LIVE ACTIVITY</h4>
+		</div>
+		<div class="col--md2">
+			<h5>TOTAL POSTS: 12,153</h5>
+		</div>
+		<div class="col--md2">
+			<h5>TOTAL MEMBERS: 9,173</h5>
+		</div>
+		<div class="col--md2">
+			<h5>USERS ONLINE: 6,878</h5>
+		</div>
+		<div class="col--md2">
+			<h5>RECENT POSTS: 55</h5>
+		</div>
+	</div>
+ -->
+	<div class="row">
+		<!-- sidebar -->
+		<div class="col--md3">
+			<div ng-repeat="section in ::vm.directoryList">
+				<h5>{{ section.header }}</h5>
+				<div ng-repeat="discussion in ::section.list | orderBy: 'name'">
+					<div ng-if="discussion.children">
+						<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }}</a>
+					</div>
+					<div ng-if="!discussion.children">
+						<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }}</a>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h5>Other Sections</h5>
+				<div ng-repeat="landingPage in ::vm.landingPages">
+					<a href="{{ landingPage.href }}" target="_self">{{ landingPage.area }}</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- main body -->
+		<div class="col--md9">
+			<div ng-repeat="section in ::vm.directoryList">
+				<h2>{{ section.header }} Discussions</h2>
+				<div ng-repeat="discussion in ::section.list | filter:vm.manualExclude | orderBy: 'name'">
+					<h3>{{ discussion.name }}</h3>
+					<div ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
+						<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }} Hub</a>
+					</div>
+					<div ng-if="section.header === 'Community'">
+						<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }} Forum</a>
+					</div>
+					<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
+						<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
+						<span ng-if="!$last">&nbsp;/&nbsp;</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

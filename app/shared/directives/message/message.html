@@ -20,13 +20,16 @@
 					<div class="col--md6 alignRight">
 						<div class="forumThreadMessage__controls"> 
 							<div class="forumThreadMessage__controls--reply noPadding">
-								<button class="button--vote button--compound-naked">
-									123 kudos
-								</button>
-								<button class="button--vote button--compound-naked ">
-									<span class="icon ubnt-icon--tools"></span> Helpful
-								</button>
+								<span community-permissions denied-behavior="disable">
+									<button class="button--vote button--compound-naked">
+										123 kudos
+									</button>
+									<button class="button--vote button--compound-naked ">
+										<span class="icon ubnt-icon--tools"></span> Helpful
+									</button>
+								</span>
 								<button 
+									community-permissions
 									class="button--solid button--thin button-white-on-blue" 
 									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
 										Reply
@@ -45,8 +48,6 @@
 					WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
 				</div>
 			</div> -->
-
-			
 		</div>
 	</div>
 </div>

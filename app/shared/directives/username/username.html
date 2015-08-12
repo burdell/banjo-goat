@@ -1,4 +1,4 @@
-<span class="cmuUsername" ng-class="{ '{{ ::username.userType }}' : username.userType }">
-	<a href="{{ ::username.user.href }}"><span class="cmuUsername__icon" ng-class="{ '{{ ::username.iconClass }}' : username.iconClass }"></span><span class="cmuUsername__login">{{ ::username.user.login }}</span>
+<span class="cmuUsername {{ username.specialUser().userType }}" >
+	<a href="{{ ::username.user.href }}"><span class="cmuUsername__icon {{ username.specialUser().iconClass }}"></span><span class="cmuUsername__login">{{ ::username.user.login }}</span>
 	</a>
 </span>

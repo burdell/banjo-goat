@@ -14,8 +14,8 @@
 			<community-username user="vm.storyAuthor"></community-username>
 			<span class="cmuStories__postTime">{{ vm.discussion.postTime | timeFromNow }}</span>
 		</div>
-
-		<button ng-show="
+		
+		<button community-permissions denied-behavior="disable" community-permissions ng-show="
 			vm.story.location.display || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
 				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
@@ -26,7 +26,7 @@
 		</button>
 	</div>
 
-	<div class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding">
+	<div community-permissions denied-behavior="disable" class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding">
 		<button ng-hide="
 			vm.story.location.display || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||

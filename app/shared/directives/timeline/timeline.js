@@ -12,9 +12,14 @@
 				month: null,
 				year: null
 			};
+		
+			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);
+			if (timelineData && timelineData.length > 0) {
+				shown.year = timelineData[0].year;
+			}
 
 			_.extend(ctrl, {
-				timelineData: timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute),
+				timelineData: timelineData,
 				yearClicked: function(year) {
 					shown.year = shown.year == year ? null : year;
 				},
@@ -26,8 +31,10 @@
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
+				},
+				getTimelineHref: function(data) {
+					return this.hrefFn(data);
 				}
-
 			});
 		};
 		controller.$inject = ['CommunityTimelineService'];
@@ -41,8 +48,11 @@
 	        restrict: 'E',
 	        scope: {
 	        	timelineModel: '=',
-	        	dateAttribute: '@'
-
+	        	timelineItemTemplate: '=',
+	        	sortedModel: '=',
+	        	dateAttribute: '@',
+	        	hrefFn: '=',
+	        	showProductInfo: '='
 	        }
 	    };
 

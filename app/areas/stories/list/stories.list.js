@@ -1,12 +1,10 @@
 (function(_){
 	'use strict';
 
-	function StoriesListController ($scope, storyFilter, dataService, storyDefaults, $state){
+	function StoriesListController ($scope, storyFilter, breadcrumbService, dataService, storyDefaults, $state){
 		var ctrl = this;
-
 		var intitialList = storyFilter.initialData();
-		var storiesPerRow = 4;
-
+		
 		_.extend(ctrl, {
 			storyFilter: storyFilter,
 			storyList: intitialList.collection,
@@ -24,8 +22,12 @@
 				$scope.$broadcast('communityGridList:redraw');
 			}
 		});
+
+		if ($state.current.name === 'storiesLanding') {
+			breadcrumbService.setCurrentBreadcrumb('Stories');
+		}
 	}
-	StoriesListController.$inject = ['$scope', 'StoryListFilter', 'CommunityDataService', 'StoryDefaults', '$state'];
+	StoriesListController.$inject = ['$scope', 'StoryListFilter', 'CommunityBreadcrumbService', 'CommunityDataService', 'StoryDefaults', '$state'];
 
 	angular.module('community.stories')
 		.controller('StoriesList', StoriesListController);

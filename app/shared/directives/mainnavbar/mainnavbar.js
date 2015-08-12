@@ -6,17 +6,28 @@
 		    
 		}
 
-		function controller($location) {
+		function controller($location, userService, $state) {
 			var ctrl = this;
+
+			var hrefs = {
+				announcements: '/announcements/',
+				stories: '/stories/'
+			}
 
 			var navMetaData = [
 				{ display: "Activity", href: "#"},
 				{ display: "Discussions", href: "#", dropItem: true },
 				{ display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
-				{ display: "Stories", href: "#"},
-				{ display: "Announcements", href: "/announcements/"}
+				{ display: "Stories", href: "#", href: hrefs.stories },
+				{ display: "Announcements", href: hrefs.announcements }
 			]; 
+
+			var currentUser = null;
+			userService.get().then(function(userObj){
+				ctrl.isAuthenticated = userObj.isAuthenticated();
+				currentUser = userObj.user;
+			});
 
 			_.extend(ctrl, {
 				navList: navMetaData,
@@ -24,10 +35,27 @@
 					//kind of hacky, but dont have access to currentNode at this point :(
 					var currentPath = $location.path();
 					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
+				},
+				isAuthenticated: false,
+				isActive: function(navHref) {
+					var active = false;
+					var currentState = $state.current.name;
+
+					switch(navHref) {
+						case hrefs.announcements: 
+							active = currentState === 'announcementsLanding'
+							break;
+						case hrefs.stories:
+							active = currentState === 'storiesLanding'
+							break;
+					}
+					
+					return active;
 				}
+
 			})			
 		}
-		controller.$inject = ['$location'];
+		controller.$inject = ['$location', 'CurrentUserService', '$state' ];
 	    
 	    var directive = {
 	        link: link,

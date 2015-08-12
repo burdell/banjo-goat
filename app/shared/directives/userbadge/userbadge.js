@@ -5,25 +5,19 @@
 		var link = function(scope, element, attrs) {			
 		};
 
-		var controller = function() {
-			var user = this.user;
-			var ubntEmployee = {
-				userMatched: function(){
-					return user.login.indexOf("UBNT-") >= 0;
-				},
-				userType: 'cmuUserbadge--ubnt'
+		var controller = function($scope, userService) {
+			var ctrl = this;
+
+			var displayUser = null;
+			if (this.currentUser) {
+				userService.get().then(function(user){
+					ctrl.displayUser = user.user;
+				});
+			} else {
+				ctrl.displayUser = ctrl.user
 			}
-
-			var specialUsernames = [ ubntEmployee ];
-
-			var specialUser = _.find(specialUsernames, function(usernameData) {
-				return usernameData.userMatched();
-			}, this) || {};
-			
-			var ctrl = this;			
-			_.extend(ctrl, specialUser);
 		};
-		controller.$inject = [];
+		controller.$inject = ['$scope', 'CurrentUserService'];
 
 	    var directive = {
 	        link: link,
@@ -35,7 +29,8 @@
 	        restrict: 'E',
 	        scope: {
 	        	user: '=',
-	        	opId: '='
+	        	opId: '=',
+	        	currentUser: '='
 	        }
 	    };
 

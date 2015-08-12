@@ -20,7 +20,8 @@
 				method: verb,
 				url: url,
 				params: params,
-				data: payload
+				data: payload,
+				withCredentials: true
 			};
 
 			if (isMedia) {
@@ -68,9 +69,12 @@
 			};
 		}
 
-		var baseUrl = '//comm2-dev.ubnt.com/api/'; //'http://localhost:8080/'
+		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
 
 		var urlSegments = {
+			Announcement: function(id){
+				return 'announcements/' + this._Message(id);
+			},
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
 			},
@@ -94,6 +98,17 @@
 
 		// ****** API DEFINITION ******
 		var service = {
+			Announcements: {
+				all: function(options){
+					return goToApi(baseUrl + urlSegments.Announcement(), options);
+				},
+				count: function(nodeId){
+					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
+				},
+				announcements: function(nodeId, options) {
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'announcements', options);
+				}
+			},
 			Core: {
 				advert: function(){
 					return goToApi(baseUrl + 'advert');
@@ -106,6 +121,13 @@
 				},
 				userSummary: function(userId){
 					return goToApi(baseUrl + urlSegments.User(userId));
+				},
+				nodeStructure: function(){
+					return goToApi(baseUrl + 'nodes', { limit: 150 }).then(function(result) {
+						//var nodeCollection = result.collection
+
+						return result.collection; //window.nodeStructure[0];
+					});
 				}
 			},
 			Forums: {
@@ -136,7 +158,18 @@
 						});
 				}
 			},
+			Media: {
+				upload: function(fileData){
+					var formData = new FormData();
+					formData.append('file', fileData);
+
+					return goToApi(baseUrl + 'media', formData, 'POST', true);
+				}
+			},
 			Stories: {
+				all: function(options) {
+					return goToApi(baseUrl + urlSegments.Story(), options);
+				},
 				thread: function(storyId, data){
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {
@@ -162,12 +195,9 @@
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stories', data);
 				}
 			},
-			Media: {
-				upload: function(fileData){
-					var formData = new FormData();
-					formData.append('file', fileData);
-
-					return goToApi(baseUrl + 'media', formData, 'POST', true);
+			Users: {
+				authentication: function(){
+					return goToApi(baseUrl + urlSegments.User('self'));
 				}
 			}
 		}
