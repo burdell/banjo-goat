@@ -9,6 +9,11 @@
 			    detail: ':announcementId',
 			    landing: '/announcements/'
 			},
+			features: {
+				features: '/features/:nodeId/',
+				list: 'list',
+				detail: ':featureRequestId'
+			},
 			forums: {
 			    forums: '/forums/:nodeId/',
 			    list: 'list',

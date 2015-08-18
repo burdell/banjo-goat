@@ -57,7 +57,7 @@
 			}
 			//GET
 			else {
-				payload = params;
+				payload = params;3
 				verb = 'GET';
 				id = callData;
 			}
@@ -156,6 +156,50 @@
 								nextCommentMetaData: result[1].next
 							};
 						});
+				}
+			},
+			Features: {
+				features: function(nodeId, options){
+					return goToApi(baseUrl + urlSegments.Announcement(), options).then(function(result){
+						_.each(result.collection, function(feature) {
+							feature.discussion.statusType =  Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+						});
+						return result;
+					});
+				},
+				thread: function(messageId, data){
+					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
+						.then(function(result) {
+							return {
+								originalMessage: result[0].model,
+								comments: result[1].collection,
+								nextCommentMetaData: result[1].next
+							};
+						});
+				},
+				message: function(messageData, mock) {
+					var callData = getCallType(messageData);
+					return goToApi(baseUrl + urlSegments.Forum(callData.id), callData.payload, callData.verb).then(function(result){
+						_.extend(result.model, {
+							statusType: Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+							productId: 111,
+							meta: {
+								versionNumber: {
+									key: 'version',
+									value: '1.1.1.1'
+								},
+								issueId: {
+									key: 'issueId',
+									value: 'LOL1234'
+								}
+							}
+						});
+
+						return result;
+					});
+				},
+				comments: function(messageId, data) {
+					return goToApi(baseUrl + urlSegments.Forum(messageId) + 'comments', data);
 				}
 			},
 			Media: {

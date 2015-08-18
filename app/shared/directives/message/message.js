@@ -28,7 +28,8 @@
 	        	message: '=',
 	        	replyClickFn: '=',
 	        	originalMessage: '=',
-	        	showOp: '='
+	        	showOp: '=',
+	        	upvoteOnly: '='
 	        }
 	    };
 
