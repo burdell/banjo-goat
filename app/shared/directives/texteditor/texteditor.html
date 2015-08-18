@@ -1,6 +1,9 @@
 <div class="cmuTextEditor">
 	<textarea 
 		id="{{ ::texteditor.editorId }}"
-		placeholder="{{ ::texteditor.placeholder }}">
+		placeholder="{{ ::texteditor.placeholder }}"
+		style="width: 100%"
+		ng-model="texteditor.typedText"
+		ng-keyup="texteditor.saveText(texteditor.typedText)">
 	</textarea>
 </div>
