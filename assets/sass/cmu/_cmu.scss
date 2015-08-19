@@ -17,6 +17,7 @@
 @import "cmuFlex/index"; 			// container row w/ flex properties
 @import "cmuBreadcrumbs/index";
 @import "cmuThreadlist/index";		// generalized thread list - applies to ALL discussion styles
+@import "cmuThread/index";			// generalized thread - used by forum etc., announcement thread, etc.
 // @import "cmuForm/index";			// FOR NOW DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS
 @import "cmuSearchbox/index";		// Search filter for threads (not cmu search)
 @import "cmuThreadSort/index";		// Select input topic filter
