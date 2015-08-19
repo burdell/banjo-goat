@@ -13,6 +13,8 @@
 
 		var discussionNodeOrder = ['Alpha', 'Beta', 'General', 'stories', 'qa', 'announcements', 'features', 'bugs'];
 
+		var mainSectionExclude  = [43, 83];
+
 		_.extend(ctrl, {
 			directoryList: directoryList,
 			landingPages: routingService.landingPages(),
@@ -22,6 +24,10 @@
 			discussionNodeOrder: function(discussion){
 				var discussionType = discussion.discussionType === 'forums' ? discussion.name : discussion.discussionType;
 				return _.indexOf(discussionNodeOrder, discussionType);
+
+			},
+			manualExclude: function(node) {
+				return _.indexOf(mainSectionExclude, node.id) < 0;
 			}
 		});
 	};

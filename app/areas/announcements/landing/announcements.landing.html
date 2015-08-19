@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="cmuDiscussionsControls">
-		<discussions-header></discussions-header>
+		<discussions-header header-text="All Announcements"></discussions-header>
 		<discussions-nav-bar></discussions-nav-bar>
 	</div>
 </div>
@@ -18,7 +18,8 @@
 			 <community-timeline 
 			 	href-fn="vm.generateAnnouncementUrl"
 				timeline-model="vm.announcementList" 
-				date-attribute="postTime">
+				date-attribute="postTime"
+				show-product-info="true">
 			</community-timeline>
 		</div>
 	</div>

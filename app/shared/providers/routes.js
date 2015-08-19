@@ -22,8 +22,13 @@
 				detail: ':storyId',
 				newstory: 'new'
 			},
-			directory: '/community/',
-			hub: '/community/:nodeId/'
+			directory: '/directory/',
+			hub: '/directory/:nodeId/',
+			utils: {
+				intRoute: function(route) {
+					return '{' + route.replace(':', '') + ':int}'
+				}
+			}
 		};
 
 		this.routes = routeData;

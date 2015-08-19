@@ -1,7 +1,13 @@
 (function(_){
 	'use strict';
 
-	var landingController = function(announcements, routingService){
+	var landingController = function($scope, announcements, breadcrumbService, routingService){
+		breadcrumbService.setCurrentBreadcrumb('All Announcements');
+
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
+
 		var ctrl = this;
 		_.extend(ctrl, {
 			announcementList: announcements,
@@ -11,7 +17,7 @@
 			}
 		});
 	};
-	landingController.$inject = ['AllAnnouncementsList', 'CommunityRoutingService'];
+	landingController.$inject = ['$scope', 'AllAnnouncementsList', 'CommunityBreadcrumbService', 'CommunityRoutingService'];
 
 	angular.module('community.announcements')
 		.controller('AnnouncementsLanding', landingController);

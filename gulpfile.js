@@ -275,7 +275,7 @@ gulp.task('express', function() {
         console.log('served stories index.html');
     });
 
-     app.get('/community/*', function (req,res) {
+    app.get('/directory/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });

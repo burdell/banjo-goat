@@ -1,7 +1,8 @@
 (function(_){
 	'use strict';
 
-	var hubController = function($q, communityApi, nodeServiceWrapper, routingService, hubData){
+	var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routingService, hubData){
+
 		var ctrl = this;
 
 		var nodeUrl = null;
@@ -29,14 +30,18 @@
 			getForumData(forumList);
 		});
 
+		var NUMBER_OF_FORUM_MESSAGES = 4;
 		function getForumData(availableForums) {
 			var callList = [];
 			_.each(availableForums, function(forum) {
-				ctrl.forumMetaData.push({ 
+				ctrl.forumMetaData.push({
+					name: forum.name,
 					description: forum.description,
-					urlCode: forum.urlCode 
+					urlCode: forum.urlCode,
+					offset: NUMBER_OF_FORUM_MESSAGES,
+					loadingMessages: false 
 				});
-				callList.push(communityApi.Forums.messages(forum.urlCode, { limit: 4 }));
+				callList.push(communityApi.Forums.messages(forum.urlCode, { limit: NUMBER_OF_FORUM_MESSAGES }));
 			});
 
 			$q.all(callList).then(function(result) {
@@ -44,6 +49,7 @@
 			});
 		};
 
+		var forumOrder = ['Alpha', 'Beta', 'General'];
 		_.extend(ctrl, {
 			featuredStory: hubData.stories.shift(),
 			moreStories: hubData.stories,
@@ -59,10 +65,27 @@
 			getForumMessageUrl: function(forumUrlCode, messageId){
 				return routingService.generateUrl('forums.message', { nodeId: forumUrlCode, messageId: messageId });
 			},
-			forumMetaData: []
+			forumMetaData: [],
+			forumOrder: function(forumNode){
+				return _.indexOf(forumOrder, forumNode.name);
+			},
+			loadMoreForumData: function(index) {
+				var forum = ctrl.forumMetaData[index];
+				forum.offset += NUMBER_OF_FORUM_MESSAGES;
+				forum.loadingMessages = true;
+
+				var forumMessages = ctrl.forumMessages[index];
+				communityApi.Forums.messages(forum.urlCode, { limit: NUMBER_OF_FORUM_MESSAGES, offset: forum.offset })
+					.then(function(result){
+						forumMessages.collection = forumMessages.collection.concat(result.collection);
+					})
+					.finally(function(){
+						forum.loadingMessages = false;
+					});
+			}
 		});
 	};
-	hubController.$inject = ['$q', 'CommunityApiService', 'CommunityNodeService', 'CommunityRoutingService', 'HubData'];
+	hubController.$inject = ['$q', '$scope', 'CommunityApiService', 'CommunityNodeService', 'CommunityRoutingService', 'HubData'];
 
 	angular.module('community.directory')
 		.controller('Hub', hubController);

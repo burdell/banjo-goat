@@ -14,6 +14,7 @@
 
 		var PRODUCT_NODE = 75;
 		var UBNT_NODE = 569;
+		var OTHER_PRODUCTS_NODE = 121;
 
 		return {
 			breadcrumbList: [],
@@ -26,7 +27,8 @@
 					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
 					while(parentNode) {
 						//hide the 'products' abnd 'ubnt' node
-						if (parentNode.id !== PRODUCT_NODE && parentNode.id !== UBNT_NODE) {
+
+						if (parentNode.id !== PRODUCT_NODE && parentNode.id !== UBNT_NODE && parentNode.id !== OTHER_PRODUCTS_NODE) {
 							setNodeUrl(parentNode);
 							breadCrumbList.unshift(parentNode);
 						}

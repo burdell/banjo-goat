@@ -9,7 +9,7 @@
 
 				if (!this._productList) {
 					return nodeService.get().then(function(nodeData) {
-						var products = _.where(nodeData.NodeStructure.children, { name: 'Products' })[0].children;
+						var products = nodeData.getNode(75).children;
 						service._productList = _.map(products, function(product){
 							return { 
 								href: product.href, 

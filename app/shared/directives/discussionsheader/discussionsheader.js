@@ -14,10 +14,13 @@
 	    var directive = {
 	        controller: controller,
 	        controllerAs: 'discussionsheader',
+	        bindToController: true,
 	        templateUrl: 'directives/discussionsheader/discussionsheader.html',
 	        restrict: 'E',
 	        replace: true,
-	        scope: true
+	        scope: {
+	        	headerText: '@'
+	        }
 	    };
 
 	    return directive;

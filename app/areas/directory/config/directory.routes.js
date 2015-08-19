@@ -22,13 +22,20 @@
 				controller: 'Hub as vm',
 				resolve: {
 					HubData: ['$stateParams', '$q', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, $q, communityApi, routingService){
-						var storiesData = communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { limit: 4 });
-						var announcementsData = communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { limit: 4 });
 
-						return $q.all([ storiesData, announcementsData ]).then(function(result){
+						var nodeHasStories = function() {
+							return $stateParams.nodeId.indexOf('airCRM') < 0;
+						};
+
+						var callList = [communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { limit: 4 })];
+						if (nodeHasStories()) {
+							callList.push(communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { limit: 4 }))
+						}
+						
+						return $q.all(callList).then(function(result){
 							return {
-								stories: result[0].collection,
-								announcements: result[1].collection
+								stories: result[1] ? result[1].collection : [],
+								announcements: result[0].collection
 							}
 						});
 					}]

@@ -44,7 +44,7 @@
 	var timelineService = function(){
 		return {
 			getTimelineData: function(dataList, sortBy) {
-				return groupData(dataList, sortBy);;
+				return groupData(dataList, sortBy);
 			}
 		};
 	};

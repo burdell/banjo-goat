@@ -167,6 +167,9 @@
 				}
 			},
 			Stories: {
+				all: function(options) {
+					return goToApi(baseUrl + urlSegments.Story(), options);
+				},
 				thread: function(storyId, data){
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {

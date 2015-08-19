@@ -20,7 +20,9 @@
 
 			//hard coded includes/excludes :/ 
 			var exclude = [-1, 75, 141];
-			var include = [30, 20, 42];
+
+			var include = [30, 20, 42, 43, 83];
+
 			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {
 				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
@@ -63,8 +65,9 @@
 				return;
 			}
 
-
-			nodeStructureService.CurrentNode = nodesByUrl[nodeUrl.toLowerCase()];
+			//set node to base if the node url isn't valid (used for dealing with pages that arent nodes...like announcements landing page)
+			var currentNode = nodesByUrl[nodeUrl.toLowerCase()] || nodesByUrl['community'];
+			nodeStructureService.CurrentNode = currentNode;
 		}
 
 		nodeStructureService = {

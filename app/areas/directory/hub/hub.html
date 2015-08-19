@@ -36,13 +36,16 @@
 					<h6>{{ announcement.subject }}</h6>
 					<a ng-href="{{ vm.getAnnouncementUrl(announcement.id) }}" target="_self">Go to Announcement</a>
 				</div>
+				<div ng-if="!vm.recentAnnouncements.length">
+					<h6>No recent announcements</h6>
+				</div>
 			</div>
 		</div>
 
 		<div class="col--md9">
-			<h5>Featured {{ ::vm.nodeDisplay }} Story</h5>
-			<hr />
-			<div class="row">
+			<div class="row" ng-if="vm.featuredStory">
+				<h5>Featured {{ ::vm.nodeDisplay }} Story</h5>
+				<hr />
 				<div class="cmuStories__story__cover">
 					<div class="cmuStories__story__cover--img">
 						<img ng-src="{{ vm.getStoryPhoto(vm.featuredStory) }}">
@@ -54,66 +57,84 @@
 				<a ng-href="{{ vm.getStoryUrl(vm.featuredStory.id) }}" target="_self">Read Story</a>
 			</div>
 
-			<div class="row row--comfy">
-				<h5>Popular {{ ::vm.nodeDisplay }} Stories</h5>
-				<hr />
-				<div class="row">
-					<div ng-repeat="story in vm.moreStories" class="col--md4">
-						<div class="cmuStories__story__cover">
-							<div class="cmuStories__story__cover--img">
-								<img ng-src="{{ vm.getStoryPhoto(story) }}">
+			<div ng-if="vm.moreStories.length > 0">
+				<div class="row row--comfy">
+					<h5>Popular {{ ::vm.nodeDisplay }} Stories</h5>
+					<hr />
+					<div class="row">
+						<div ng-repeat="story in vm.moreStories" class="col--md4">
+							<div class="cmuStories__story__cover">
+								<div class="cmuStories__story__cover--img">
+									<img ng-src="{{ vm.getStoryPhoto(story) }}">
+								</div>
 							</div>
-						</div>
 
-						<div class="cmuStories__title">{{ story.discussion.subject }}</div>	
-						<a ng-href="{{ vm.getStoryUrl(story.id) }}" target="_self">Read Story</a>
+							<div class="cmuStories__title">{{ story.discussion.subject }}</div>	
+							<a ng-href="{{ vm.getStoryUrl(story.id) }}" target="_self">Read Story</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row row--comfy">
-				<a ng-href="{{ vm.discussionUrls.stories }}" target="_self" class="button--solid button--padded button-blue-white">Read All Stories</a>
+
+				<div class="row row--comfy">
+					<a ng-href="{{ vm.discussionUrls.stories }}" target="_self" class="button--solid button--padded button-blue-white">Read All Stories</a>
+				</div>
 			</div>
 
 			<div class="row">
 				<div ng-repeat="forum in vm.forumMetaData">
 					<h5>{{ forum.description }} Discussions</h5>
-					 <table>
-				        <thead>
-				          <th class="forumThreadList__head--topic"></th>
-				          <th class="forumThreadList__head--author">Author</th>
-				          <th class="forumThreadList__head--counter forumThreadList__head--counter--views">Views</th>
-				          <th class="forumThreadList__head--counter">Replies</th>
-				          <th class="forumThreadList__head--counter">Kudos</th>
-				          <th class="forumThreadList__head--latestDate">Latest Date</th>
-				        </thead>
-				        <tbody>
-				          <tr class="forumThreadList__message" ng-repeat="message in vm.forumMessages[$index].collection">
-				            <td class="forumThreadList__message__topic">
-				              <a ng-href="{{ vm.getForumMessageUrl(forum.urlCode, message.id) }}" target="_self">
-				                  {{ ::message.subject | htmlUnescape }}
-				              </a>
-				            </td>
-				            <td class="forumThreadList__message__author">
-				            	<community-username user="message.author"></community-username>
-				            </td>
-				            <td class="forumThreadList__message__counter forumThreadList__message__counter--views" title="views">
-				              {{  message.stats | extractKey : 'views' | number}}
-				            </td>
-				            <td class="forumThreadList__message__counter" title="comments">
-				              {{  ( message.stats | extractKey : 'comments') - 1  | number}}
-				            </td>
-				            <td class="forumThreadList__message__counter" title="kudos">
-				              {{  message.stats | extractKey : 'score'  | number}}
-				            </td>
-				            <td class="forumThreadList__message__latestDate">{{ message.latestComment.postTime | timeFromNow }}
-				            </td>
-				          </tr>
-				        </tbody>
-				    </table>
-					<a ng-href="{{ ::vm.getForumUrl(forum.urlCode) }}" target="_self" class="button--solid button--padded button-blue-white">View {{ ::forum.description }}</a>
+
+					<div ng-if="vm.forumMessages[$index].collection.length > 0">
+						 <table>
+					        <thead>
+					          <th class="forumThreadList__head--topic"></th>
+					          <th class="forumThreadList__head--author">Author</th>
+					          <th class="forumThreadList__head--counter forumThreadList__head--counter--views">Views</th>
+					          <th class="forumThreadList__head--counter">Replies</th>
+					          <th class="forumThreadList__head--counter">Kudos</th>
+					          <th class="forumThreadList__head--latestDate">Latest Date</th>
+					        </thead>
+					        <tbody>
+					          <tr class="forumThreadList__message" ng-repeat="message in vm.forumMessages[$index].collection">
+					            <td class="forumThreadList__message__topic">
+					              <a ng-href="{{ vm.getForumMessageUrl(forum.urlCode, message.id) }}" target="_self">
+					                  {{ ::message.subject | htmlUnescape }}
+					              </a>
+					            </td>
+					            <td class="forumThreadList__message__author">
+					            	<community-username user="message.author"></community-username>
+					            </td>
+					            <td class="forumThreadList__message__counter forumThreadList__message__counter--views" title="views">
+					              {{  message.stats | extractKey : 'views' | number}}
+					            </td>
+					            <td class="forumThreadList__message__counter" title="comments">
+					              {{  ( message.stats | extractKey : 'comments') - 1  | number}}
+					            </td>
+					            <td class="forumThreadList__message__counter" title="kudos">
+					              {{  message.stats | extractKey : 'score'  | number}}
+					            </td>
+					            <td class="forumThreadList__message__latestDate">{{ message.latestComment.postTime | timeFromNow }}
+					            </td>
+					          </tr>
+					        </tbody>
+					    </table>
+
+						<a ng-href="{{ ::vm.getForumUrl(forum.urlCode) }}" target="_self" class="button--solid button--padded button-blue-white">View {{ ::forum.description }}</a>
+					    <span ng-hide="forum.loadingMessages">
+					    	<button class="button-ghost button--thin button-white-blue" ng-click="vm.loadMoreForumData($index)">Load More</button>
+					    </span>
+					    <span ng-show="forum.loadingMessages">
+					    	<button class="button-ghost button--thin button-white-blue" disabled>Loading...</button>
+					    </span>
+				    </div>
+
+				    <div ng-if="!vm.forumMessages[$index].collection.length">
+				    	<h6>No messages posted yet in {{ forum.description }}</h6>
+						<a ng-href="{{ ::vm.getForumUrl(forum.urlCode) }}" target="_self" class="button--solid button--padded button-blue-white">View {{ ::forum.description }}</a>
+				    </div>
+				</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

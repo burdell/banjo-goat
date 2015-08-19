@@ -20,8 +20,8 @@
 					StoryDefaults: storyDefaults,
 					StoryListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Stories.stories, 
-							filterArguments: [ 'airMAX_Stories' ], 
+
+							filterFn: communityApi.Stories.all,
 							constants: {
 								limit: 30
 							},
@@ -67,7 +67,8 @@
 				reloadOnSearch: false
 			})
 			.state('stories.detail', {
-				url: storiesRoutes.detail, 
+
+				url:  routesProvider.routes.utils.intRoute(storiesRoutes.detail), // '/{storyId:int}'
 				views: {
 					'mainContent': {
 						templateUrl: 'stories/detail/stories.detail.html',
