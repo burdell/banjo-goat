@@ -6578,7 +6578,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
@@ -6594,7 +6594,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .forumThreadList thead th, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGlobalHeader__cmuSearch, .cmuGlobalHeader__cmuAccount .icon, .cmuGlobalHeader__cmuHome, .cmuGlobalHeader__cmuLink a, .cmuGlobalHeader__cmuLink.active, .cmuGlobalHeader__cmuSearch:hover, .cmuGlobalHeader__cmuHome:hover, .cmuGlobalHeader__cmuLink a:hover, .cmuGlobalHeader__cmuLink.cmuGlobalHeader__dropItem:hover:after, .cmuGlobalHeader__dropItem:after, .cmuGlobalHeader__avatar:before, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .forumThreadMessage__row, .forumThreadMessage__row .forumThreadMessage__controls, .forumThreadMessage__row:hover .forumThreadMessage__controls, .forumThreadMessage__row .cmuUserbadge, .forumThreadMessage__row:hover .cmuUserbadge, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
@@ -6694,12 +6694,12 @@ body {
   font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuForumDescriptor, .forumThreadList__message, .cmuTooltipster .tooltipster-content {
+.type-titleThin, .cmuDiscussionsNavbar *, .cmuThreadList__row, .cmuForumDescriptor, .cmuTooltipster .tooltipster-content {
   font-size: 0.8125rem;
   line-height: 1.3rem;
 }
 
-.forumThreadList thead th {
+.cmuThreadlist__list thead th {
   font-size: 0.6875rem;
   line-height: 1.1875rem;
 }
@@ -6818,7 +6818,7 @@ pre {
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMyIiB2aWV3Qm94PSIwIDAgMTMyIDEzMiI+PHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTY2IDExNS41di05OWw2NiA0OS41LTY2IDQ5LjV6bS02NiAwdi05OWw2NiA0OS41LTY2IDQ5LjV6Ii8+PC9zdmc+);
 }
 
-.cmuIcons--pin, .forumThreadList__message--pinned .forumThreadList__message__topic:after {
+.cmuIcons--pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after {
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTI5MiAzODQgMjYgMjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTI5MiAzODQgMjYgMjYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBpZD0iUGFnZS0xIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj48ZyBpZD0iT3ZhbC0yNy1feDJCXy1TaGFwZS1Db3B5IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj48Y2lyY2xlIGlkPSJPdmFsLTI3IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBmaWxsPSIjNDc0QjUyIiBjeD0iLTI3OSIgY3k9IjM5NyIgcj0iMTMiPjwvY2lyY2xlPjxwYXRoIGlkPSJTaGFwZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgZmlsbD0iI0ZGRkZGRiIgZD0iTS0yNzcuNCw0MDIuNWwwLjMtMi40bDAsMGw1LTYuNmwtMy41LTMuNWwtNi42LDVsMCwwbC0yLjQsMC4zbDMsM2wtNC40LDVsMC42LDAuNmw1LTQuNEwtMjc3LjQsNDAyLjV6Ii8+PC9nPjwvZz48L3N2Zz4=);
 }
 
@@ -7303,6 +7303,191 @@ pre {
 }
 .cmuBreadcrumbs .cmuBreadcrumbs__last {
   color: #969ba3;
+}
+
+.cmuThreadlist__filters {
+  margin-bottom: 1rem;
+}
+
+.cmuThreadlist__listInfo {
+  margin-bottom: 1rem;
+}
+
+.cmuThreadlist__listInfo__count {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 2rem;
+  padding-left: 0.5rem;
+}
+
+.cmuThreadlist__thead--topic {
+  width: auto;
+}
+
+.cmuThreadlist__thead--author, .cmuThreadList__row__author, .cmuThreadlist__thead--authorLast, .cmuThreadList__row__authorLast {
+  width: 12%;
+  padding-right: 0.5rem;
+  max-width: 100px;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+.cmuThreadlist__thead--author a, .cmuThreadList__row__author a, .cmuThreadlist__thead--authorLast a, .cmuThreadList__row__authorLast a, .cmuThreadlist__thead--author a:hover, .cmuThreadList__row__author a:hover, .cmuThreadlist__thead--authorLast a:hover, .cmuThreadList__row__authorLast a:hover {
+  color: #474b52;
+}
+
+@media only screen and (max-width: 1040px) {
+  .cmuThreadlist__thead--author, .cmuThreadList__row__author {
+    display: none;
+  }
+}
+
+.cmuThreadlist__thead--counter, .cmuThreadlist__thead--counter--views, .cmuThreadList__row__counter {
+  width: 5%;
+  text-align: left;
+}
+
+.cmuThreadlist__thead--createdDate, .cmuThreadList__row__createdDate, .cmuThreadlist__thead--latestDate, .cmuThreadList__row__latestDate {
+  width: 85px;
+  min-width: 80px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1040px) {
+  .cmuThreadlist__thead--createdDate, .cmuThreadList__row__createdDate {
+    display: none;
+  }
+}
+
+.cmuThreadlist__list thead {
+  border-bottom: 1px solid #ebebeb;
+}
+.cmuThreadlist__list thead th {
+  font-weight: 300;
+  color: #bbbbbd;
+}
+
+.cmuThreadlist__thead--topic {
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.cmuThreadlist__thead--author {
+  text-align: left;
+}
+
+.cmuThreadlist__thead--authorLast {
+  text-align: left;
+}
+
+.cmuThreadlist__thead--counter--views {
+  width: 6%;
+}
+
+.cmuThreadList__row {
+  position: relative;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 2rem;
+}
+.cmuThreadList__row:hover {
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+.cmuThreadList__row:hover .cmuThreadList__row__topic {
+  color: #00a0df;
+}
+.cmuThreadList__row td {
+  overflow: hidden;
+}
+.cmuThreadList__row .cmuThreadList__tooltip {
+  opacity: 0;
+}
+.cmuThreadList__row:hover .cmuThreadList__tooltip {
+  opacity: 1;
+}
+
+.cmuThreadList__row__topic {
+  height: 100%;
+  padding-right: 4rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+}
+
+.cmuThreadList__row__author {
+  line-height: 1rem;
+}
+
+.cmuThreadList__row__authorLast {
+  line-height: 1rem;
+}
+
+.cmuThreadList__row__counter {
+  padding-right: 0.5rem;
+  font-size: 0.6875rem;
+}
+
+.cmuThreadList__row__latestDate, .cmuThreadList__row__createdDate {
+  padding-right: 0.5rem;
+  line-height: 1rem;
+  color: #474b52;
+  font-size: 0.6875rem;
+}
+
+.cmuThreadList__tooltip {
+  display: inline-block;
+  float: right;
+  right: 8px;
+  height: 100%;
+}
+.cmuThreadList__tooltip .icon:before {
+  color: #bbbbbd;
+}
+.cmuThreadList__tooltip:hover .icon:before {
+  color: #00a0df;
+}
+
+.cmuThreadlist__pinnedList {
+  border-bottom: 2px solid black;
+  border-color: #474b52;
+}
+
+.cmuThreadList__row--pinned .cmuThreadList__row__topic:after {
+  content: ' ';
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+}
+
+.cmuThreadList__row--active .cmuThreadList__row__topic > a:before {
+  content: 'ACTIVE';
+  display: inline-block;
+  background-color: #ff3516;
+  padding: 0.16667rem 0.5rem;
+  margin-right: 0.5rem;
+  color: #fafafa;
+  font-size: 0.5625rem;
+  line-height: 1rem;
+}
+
+.cmuThreadList__row--locked .cmuThreadList__row__topic > a:after {
+  font-family: 'ubnt';
+  content: '\e787';
+  display: inline-block;
+  padding: 0.16667rem 0.25rem;
+}
+
+.cmuThreadList__row--read {
+  background-color: #ebebeb;
+  border-color: #dedede;
+}
+.cmuThreadList__row--read a, .cmuThreadList__row--read .cmuThreadList__row__counter {
+  font-weight: 300;
 }
 
 .cmuSearchbox {
@@ -8473,7 +8658,7 @@ button .icon, .button .icon {
   position: absolute;
   right: 0;
   float: right;
-  height: 2.5rem;
+  height: 2.45rem;
   width: 2.5rem;
   top: 0;
   line-height: 2.5rem;
@@ -8488,58 +8673,13 @@ button .icon, .button .icon {
   box-shadow: 0px 0px 5px 1px #ebebeb inset;
 }
 
-.timeline__year__month {
-  padding: 0.25rem 0.5rem;
-  background-color: white;
+.cmuTimeline__month table {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
 }
 
-.timeline__year__month table {
-  margin: 0;
-}
-
-.timeline__year__month thead {
-  text-align: left;
-  border-bottom: 1px solid #ebebeb;
-}
-
-.timeline__year__month th {
-  padding: 0.25rem 0;
-  cursor: default;
-}
-
-.timeline__year__month--title span {
-  font-weight: 300;
-}
-.timeline__year__month--title span:before {
-  content: "(";
-}
-.timeline__year__month--title span:after {
-  content: ")";
-}
-
-.timeline__year__month--title {
-  width: 60%;
-}
-
-.timeline__year__month--header {
-  width: 10%;
-}
-
-.timeline__year__month--row td {
-  padding: 0.25rem 0;
-}
-.timeline__year__month--row td a {
-  color: #474b52;
-}
-.timeline__year__month--row td a:hover {
-  color: #00a0df;
-}
-
-.timeline__year__month--header {
-  color: #dadada;
-  text-transform: uppercase;
-  font-size: 0.6875rem;
-  font-weight: 400;
+.cmuTimeline__row:last-child {
+  border-bottom: 0;
 }
 
 .cmuDiscussionsControls {
@@ -8587,169 +8727,15 @@ button .icon, .button .icon {
   padding-left: 0;
 }
 
-.forumThreadList__message__topic a {
+.cmuThreadList__row__topic a {
   color: black;
 }
-.forumThreadList__message__topic a:hover {
+.cmuThreadList__row__topic a:hover {
   color: #00a0df;
 }
 
 .cmuForumDescriptor {
   padding-bottom: 1rem;
-}
-
-.forumThreadCount {
-  margin-bottom: 1rem;
-}
-
-.forumThreadCount__message {
-  font-size: 0.8125rem;
-  font-weight: 400;
-  line-height: 2rem;
-}
-
-.forumThreadList__head--topic {
-  width: auto;
-}
-
-.forumThreadList__head--author, .forumThreadList__message__author, .forumThreadList__head--authorLast, .forumThreadList__message__authorLast {
-  width: 15%;
-  padding-right: 0.5rem;
-  max-width: 100px;
-  font-size: 0.8125rem;
-  white-space: nowrap;
-}
-
-@media only screen and (max-width: 1040px) {
-  .forumThreadList__head--author, .forumThreadList__message__author {
-    display: none;
-  }
-}
-
-.forumThreadList__head--counter, .forumThreadList__head--counter--views, .forumThreadList__message__counter {
-  width: 5%;
-  text-align: left;
-}
-
-.forumThreadList__head--createdDate, .forumThreadList__message__createdDate, .forumThreadList__head--latestDate, .forumThreadList__message__latestDate {
-  padding-left: 0.5rem;
-  width: 85px;
-  min-width: 80px;
-  text-align: left;
-}
-
-@media only screen and (max-width: 1040px) {
-  .forumThreadList__head--createdDate, .forumThreadList__message__createdDate {
-    display: none;
-  }
-}
-
-.forumThreadList thead {
-  border-bottom: 1px solid #ebebeb;
-}
-.forumThreadList thead th {
-  font-weight: 400;
-  color: #969ba3;
-}
-
-.forumThreadList__head--topic {
-  text-align: left;
-  padding-left: 0.5rem;
-}
-
-.forumThreadList__head--author {
-  text-align: left;
-}
-
-.forumThreadList__head--authorLast {
-  text-align: left;
-}
-
-.forumThreadList__head--counter--views {
-  width: 6%;
-}
-
-.forumThreadList__message {
-  position: relative;
-  border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  line-height: 2rem;
-}
-.forumThreadList__message td {
-  overflow: hidden;
-}
-
-.forumThreadList__message__topic {
-  line-height: 1rem;
-  padding: 0.25rem 0.5rem;
-  position: relative;
-}
-
-.forumThreadList__message__author {
-  line-height: 1rem;
-}
-
-.forumThreadList__message__authorLast {
-  line-height: 1rem;
-}
-
-.forumThreadList__message__counter {
-  padding-right: 0.5rem;
-  font-size: 0.6875rem;
-}
-
-.forumThreadList__message__counter--views {
-  width: 6%;
-}
-
-.forumThreadList__message__latestDate, .forumThreadList__message__createdDate {
-  padding-right: 0.5rem;
-  line-height: 1rem;
-  color: #474b52;
-  font-size: 0.6875rem;
-}
-
-.forumThreadList--pinList {
-  border-bottom: 2px solid black;
-  border-color: #474b52;
-}
-
-.forumThreadList__message--pinned .forumThreadList__message__topic:after {
-  content: ' ';
-  display: inline-block;
-  position: relative;
-  top: 4px;
-  width: 1.2rem;
-  height: 1.2rem;
-  background-repeat: no-repeat;
-}
-
-.forumThreadList__message--active .forumThreadList__message__topic > a:before {
-  content: 'ACTIVE';
-  display: inline-block;
-  background-color: #ff3516;
-  padding: 0.16667rem 0.5rem;
-  margin-right: 0.5rem;
-  color: #fafafa;
-  font-size: 0.5625rem;
-  line-height: 1rem;
-}
-
-.forumThreadList__message--locked .forumThreadList__message__topic > a:after {
-  font-family: 'ubnt';
-  content: '\e787';
-  display: inline-block;
-  padding: 0.16667rem 0.25rem;
-}
-
-.forumThreadList__message--read {
-  background-color: #ebebeb;
-  border-color: #dedede;
-}
-.forumThreadList__message--read a, .forumThreadList__message--read .forumThreadList__message__counter {
-  font-weight: 300;
 }
 
 .forumThread__subject h3 {
@@ -10300,7 +10286,7 @@ a:hover, a:focus,
   background: #fafafa;
   min-height: 2rem;
   max-height: 12rem;
-  max-width: 35rem !important;
+  width: 20rem !important;
   overflow: hidden;
 }
 
@@ -10312,7 +10298,6 @@ a:hover, a:focus,
 
 .tooltip__message__text {
   max-height: 6.3rem;
-  margin-bottom: 0.75rem;
   overflow: hidden;
 }
 

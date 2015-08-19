@@ -6,11 +6,11 @@
 			$(element).tooltipster({
 				contentAsHtml: true,
 				content: 'Loading...',
-				position: 'top-left',
+				position: 'top-right',
 				interactiveTolerance: '550',
 				onlyOne: 'true',
 				theme: 'cmuTooltipster',
-				interactive: true,
+				interactive: false,
 				updateAnimation: false,
 				functionBefore: function(origin, continueTooltip) {
 					continueTooltip();

@@ -1,0 +1,307 @@
+
+
+$cmu-forum-size-thread: $cmu-size-normal;
+$cmu-forum-size-numerical: $cmu-size-xsmaller;
+
+$cmu-forum-size-counterWidth: 5%;
+$cmu-forum-size-maxWidth: 100px;
+$cmu-forum-size-maxWidth--author: 100px;
+
+
+
+// 
+// HEAD
+// 
+
+// 
+// Filters and Dropdowns for threadlist
+// 
+
+.cmuThreadlist__filters {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+
+// 
+// Info: message count, pagination
+// 
+
+.cmuThreadlist__listInfo {
+	margin-bottom: $cmu-base;
+}
+
+	.cmuThreadlist__listInfo__count {
+		font-size: $cmu-forum-size-thread;
+		font-weight: 400;
+		line-height: $cmu-base*2;
+
+		// desktop
+		padding-left: $cmu-base/2;
+	}
+
+
+// 
+// Threadlist 
+// 
+
+// 
+// Define column widths
+// 
+%cmuThreadList__column--topic {
+	width: auto;
+}
+
+%cmuThreadList__column--authorLast {
+	width: 12%;
+	padding-right: $cmu-base/2;
+	max-width: $cmu-forum-size-maxWidth--author;
+	font-size: $cmu-size-xsmaller;
+	white-space: nowrap;
+
+	// author links disabled so entire row can link to message
+	a, a:hover {
+		color: $cmu-color-dkgray;
+	}
+}
+%cmuThreadList__column--author {
+	@extend %cmuThreadList__column--authorLast;
+	@include respondTo(medium-down) {
+		display: none;
+	}
+}
+%cmuThreadList__column--counter {
+	width: $cmu-forum-size-counterWidth;
+	text-align: left;
+}
+%cmuThreadList__column--latestDate {
+	// padding-left: $cmu-base/2;
+	width: 85px;
+  	min-width: 80px;
+	text-align: left;
+}
+%cmuThreadList__column--createdDate {
+	@extend %cmuThreadList__column--latestDate;
+	@include respondTo(medium-down) {
+		display: none;
+	}
+}
+
+
+
+
+// 
+// THREAD DESCRIPTORS
+// 
+
+.cmuThreadlist__list thead {
+	border-bottom: $cmu-style-border-thin-light;
+
+	th {
+		// @extend .type-titleThin;
+		font-weight: 300; 
+		@extend %size-xsmaller;
+		color: $cmu-color-mdgray;
+		// text-transform: uppercase;
+		@extend %ease-fast;
+	}
+}
+	.cmuThreadlist__thead--topic {
+		@extend %cmuThreadList__column--topic;
+		text-align: left;
+		padding-left: $cmu-base/2;
+	}
+	.cmuThreadlist__thead--author {
+		@extend %cmuThreadList__column--author;
+		text-align: left;
+	}
+	.cmuThreadlist__thead--createdDate {
+		@extend %cmuThreadList__column--createdDate;
+	}
+	.cmuThreadlist__thead--authorLast {
+		@extend %cmuThreadList__column--authorLast;
+		text-align: left;
+	}
+	.cmuThreadlist__thead--counter {
+		@extend %cmuThreadList__column--counter;
+	}
+		.cmuThreadlist__thead--counter--views {
+			@extend %cmuThreadList__column--counter;
+			width: $cmu-forum-size-counterWidth + 1%;
+		}
+	.cmuThreadlist__thead--latestDate {
+		@extend %cmuThreadList__column--latestDate;
+	}
+
+
+
+
+
+// 
+// EACH ROW
+// 
+.cmuThreadList__row {
+	position: relative; // important for icon placement
+	@extend %size-community-base;
+	border-top: $cmu-style-border-thin-light;
+	border-bottom: $cmu-style-border-thin-light;
+	padding-top: $cmu-vertical-rhythm/2;
+	padding-bottom: $cmu-vertical-rhythm/2;
+	line-height: 2rem;
+
+	&:hover {
+		background-color: $cmu-color-mltgray;
+		cursor: pointer;
+		// @extend %ease-fast;
+
+		.cmuThreadList__row__topic {
+			color: $cmu-color-blue;
+		}
+	}
+
+
+	td {
+		overflow: hidden; 
+	}
+
+	.cmuThreadList__tooltip {
+		opacity: 0;
+		@extend %ease-fast;
+	}
+	&:hover .cmuThreadList__tooltip {
+		opacity: 1;
+		@extend %ease-fast;
+	}
+}
+
+	.cmuThreadList__row__topic {
+		// * { font-weight: 400; }
+		height: 100%; //required for eyecon
+		padding-right: $cmu-base*4;
+		@extend %style-community-mainlink;
+		line-height: $cmu-base;
+		padding: $cmu-base/4 $cmu-base/2;
+		position: relative; //important for icon placement
+	}
+
+	.cmuThreadList__row__author {
+		@extend %cmuThreadList__column--author;
+		line-height: $cmu-base;
+	}
+
+	.cmuThreadList__row__authorLast {
+		@extend %cmuThreadList__column--authorLast;
+		line-height: $cmu-base;
+	}
+
+	.cmuThreadList__row__counter {
+		@extend %cmuThreadList__column--counter;
+		padding-right: $cmu-base/2;
+		font-size: $cmu-forum-size-numerical;
+	}
+
+		// .cmuThreadList__row__counter--views {
+		// 	width: $cmu-forum-size-counterWidth;
+		// }
+
+	.cmuThreadList__row__latestDate {
+		@extend %cmuThreadList__column--latestDate;
+		padding-right: $cmu-base/2;
+		line-height: 1rem;
+		color: $cmu-color-dkgray;
+		font-size:  $cmu-forum-size-numerical;
+	}
+	.cmuThreadList__row__createdDate {
+		@extend .cmuThreadList__row__latestDate;
+		@extend %cmuThreadList__column--createdDate;
+	}
+
+
+
+.cmuThreadList__tooltip {
+	// display: inline-block;
+	// float: right;
+	// padding-right: $cmu-base;
+
+	display: inline-block;
+    float: right;
+    // /* position: absolute; */
+    right: 8px;
+    height: 100%;
+	.icon:before {
+		color: $cmu-color-mdgray;
+		@extend %ease-fast;
+	}
+	&:hover {
+		@extend %ease-fast;
+		.icon:before {
+		@extend %ease-fast;
+			color: $cmu-color-blue;
+		}
+	}
+}
+
+
+
+// 
+// separate list of pinned threads
+// 
+.cmuThreadlist__pinnedList {
+	border-bottom: $cmu-style-border-medium;
+	border-color: $cmu-color-dkgray;
+}
+
+
+// 
+// Thread Status
+// 
+
+	// Pinned Thread
+	.cmuThreadList__row--pinned {
+		.cmuThreadList__row__topic:after {
+			content: ' ';
+			display: inline-block;
+			position: relative;
+				top: 4px;
+			width: $cmu-base*1.2;
+			height: $cmu-base*1.2;
+
+			@extend .cmuIcons--pin;
+	  		background-repeat: no-repeat;
+		}
+	}
+
+	// Active Thread
+	.cmuThreadList__row--active {
+		.cmuThreadList__row__topic > a:before {
+			content: 'ACTIVE';
+			display: inline-block;
+			background-color: $cmu-color-red;
+			padding: $cmu-base/6 $cmu-base/2;
+			margin-right: $cmu-base/2;
+			color: $cmu-color-white;
+			font-size: $cmu-size-xxsmaller;
+			line-height: $cmu-base;
+		}
+	}
+
+	// Locked Thread
+	.cmuThreadList__row--locked {
+		.cmuThreadList__row__topic > a:after {
+			font-family: 'ubnt';
+			content: '\e787';
+			display: inline-block;
+			padding: $cmu-base/6 $cmu-base/4;
+			// font-size: $cmu-size-xxsmaller;
+		}
+	}
+
+	// Read Thread
+	.cmuThreadList__row--read {
+		a, .cmuThreadList__row__counter { font-weight: 300; }
+		background-color: $cmu-color-ltgray;
+		border-color: darken($cmu-color-ltgray,5);
+	}
+
+
+
+

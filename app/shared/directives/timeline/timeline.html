@@ -1,32 +1,143 @@
 <div class="cmuTimeline" >
+
+	<div class="cmuThreadlist__ctrl">
+
+		<div class="cmuThreadlist__listInfo row">
+
+		  <div class="col--md8">
+		  	<div class="button button--ghost">Manage Subscriptions</div>
+		  </div>
+
+		  <div class="col--md4">
+		    <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset" class="community__sort"></community-sort>
+		  </div>
+		</div>
+
+	</div>
+
+
 	<div class="timeline__year" ng-repeat="yearData in timeline.timelineData">
 		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
 		</div>
 		
-		<div class="timeline__year__list" ng-show="timeline.showYear(yearData.year)">
-			<div class="timeline__year__month" ng-repeat="monthData in yearData.yearData">
-				 <table>
-			        <thead>
-			          <th class="timeline__year__month--title">{{ monthData.month | monthDisplay }} 
-			          <!-- <span class="timeline__year__month--count">{{ monthData.monthData.length }}</span> -->
-			          </th>
-			          <th class="timeline__year__month--header">Posted</th>
-			          <th class="timeline__year__month--header">Views</th>
-			          <!-- <th class="timeline__year__month--header">Replies</th> -->
-			          <th class="timeline__year__month--header">Kudos</th>
-			        </thead>
+		<div class="cmuTimeline__list 
+								cmuThreadlist__list" 
+					ng-show="timeline.showYear(yearData.year)">
+			<div class="cmuTimeline__month" ng-repeat="monthData in yearData.yearData">
+				<table>
 
-				        <tr class="timeline__year__month--row" ng-repeat="data in monthData.monthData">
-				        	<td class="timeline__year__month--main"><a ui-sref="announcements.detail({ announcementId: data.id, nodeId: 'Blog_airMAX' })">{{ data.subject }}</a></td>
+	        <thead>
+	          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }}</th>
+	          <th class="cmuThreadlist__thead--author">Author</th>
+	          <th class="cmuThreadlist__thead--createdDate">Created</th>
+	          <th class="cmuThreadlist__thead--counter
+	                     cmuThreadlist__thead--views">Views</th>
+	          <th class="cmuThreadlist__thead--counter">Replies</th>
+	          <th class="cmuThreadlist__thead--counter">Kudos</th>
+	          <!-- 
+	          <th class="cmuThreadlist__thead--authorLast">Latest Reply</th>
+	          <th class="cmuThreadlist__thead--latestDate">Latest Date</th>
+	           -->
+	        </thead>
 
-				        	<td class="timeline__year__month--count">{{ data.postTime | timeFromNow }}</td>
-				        	<td class="timeline__year__month--count">{{ data.stats | extractKey : 'views' | number }}</td>
-				        	<!-- <td class="timeline__year__month--count">{{ ( data.stats | extractKey : 'comments' ) - 1| number }}</td> -->
-				        	<td class="timeline__year__month--count">{{ data.stats | extractKey : 'score' | number }}</td>
-				        </tr>
-			        </tbody>
-			     </table>
+					<tbody>
+
+	          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
+	          	<td class="cmuThreadList__row__topic">
+	          		<!-- {{ data.subject }} -->
+	          		<a ui-sref="announcements.detail({ announcementId: data.id, nodeId: 'Blog_airMAX' })">{{ data.subject }}</a>
+	          	</td>
+	            <td class="cmuThreadList__row__author">
+	              <community-username user="data.author"></community-username>
+	            </td>
+	            <td class="cmuThreadList__row__createdDate">{{ data.postTime | timeFromNow }}
+	            </td>
+	            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
+	              {{  data.stats | extractKey : 'views' | number}}
+	            </td>
+	            <td class="cmuThreadList__row__counter" title="comments">
+	              {{  ( data.stats | extractKey : 'comments') - 1  | number}}
+	            </td>
+	            <td class="cmuThreadList__row__counter" title="kudos">
+	              {{  data.stats | extractKey : 'score'  | number}}
+	            </td>
+							<!-- 
+	            <td class="cmuThreadList__row__authorLast">
+	              <community-username user="data.latestComment.author"></community-username>
+	            </td>
+	            <td class="cmuThreadList__row__latestDate">{{ data.postTime | timeFromNow }}
+	            </td>
+	            -->
+	          </tr>
+
+			    </tbody>
+			  </table>
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+	<div class="timeline__year" ng-repeat="yearData in timeline.timelineData">
+		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
+		</div>
+		
+		<div class="timeline__year__list 
+								cmuThreadlist__list" 
+					ng-show="timeline.showYear(yearData.year)">
+
+
+			<table>
+
+        <thead>
+          <th class="cmuThreadlist__thead--topic">Subject</th>
+          <th class="cmuThreadlist__thead--author">Author</th>
+          <th class="cmuThreadlist__thead--createdDate">Created</th>
+          <th class="cmuThreadlist__thead--counter
+                     cmuThreadlist__thead--views">Views</th>
+          <th class="cmuThreadlist__thead--counter">Replies</th>
+          <th class="cmuThreadlist__thead--counter">Kudos</th>
+        </thead>
+
+					<tbody ng-repeat="monthData in yearData.yearData">
+
+	          <tr class="cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="vm.go(message)">
+	          	<td class="cmuThreadList__row__topic">
+	          		{{ data.subject }}
+	          	</td>
+	            <td class="cmuThreadList__row__author">
+	              <community-username user="data.author"></community-username>
+	            </td>
+	            <td class="cmuThreadList__row__createdDate">{{ data.postTime | timeFromNow }}
+	            </td>
+	            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
+	              {{  data.stats | extractKey : 'views' | number}}
+	            </td>
+	            <td class="cmuThreadList__row__counter" title="comments">
+	              {{  ( data.stats | extractKey : 'comments') - 1  | number}}
+	            </td>
+	            <td class="cmuThreadList__row__counter" title="kudos">
+	              {{  data.stats | extractKey : 'score'  | number}}
+	            </td>
+	          </tr>
+
+			    </tbody>
+			 </table>
+		</div>
+	</div>
+ -->
+
 </div>

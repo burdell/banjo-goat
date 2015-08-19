@@ -31,6 +31,11 @@
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
+				},
+				go: function(data){
+					// Jan: sorry I added this hack :)
+					// window.location.href = $state.href('forums.message', { messageId: message.id });
+					// $state.go('forums.message', { messageId: message.id });
 				}
 			});
 		};

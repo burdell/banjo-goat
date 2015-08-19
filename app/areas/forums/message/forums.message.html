@@ -38,6 +38,7 @@
 <div class="forumThreadContainer">
 	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message 
+			class="cmuMessage-full"
 			message="message"
 			original-message="vm.originalMessage"
 			reply-click-fn="vm.showReply"

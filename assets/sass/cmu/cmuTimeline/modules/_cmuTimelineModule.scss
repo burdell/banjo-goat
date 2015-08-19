@@ -35,7 +35,6 @@
 	}
 
 	&:hover {
-		@extend %ease-fast;
 		background: $cmu-color-ltgray;
 		@extend %ease-fast;
 	}
@@ -51,7 +50,7 @@
 		position: absolute;
 		right: 0;
 		float: right;
-		height: $cmu-base*2 + $padding*2; //
+		height: $cmu-base*2 + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
 		width: $cmu-base*2 + $padding*2; // 31px;
 		top: 0;
 		line-height: $cmu-base*2 + $padding*2; //31px;;
@@ -72,63 +71,96 @@
 	}
 }
 
-
-// 
-// Timeline table details
-// 
-
-.timeline__year__month {
-	padding: $cmu-base/4 $cmu-base/2;
-    background-color: $cmu-color-purewhite;
-}
-
-	.timeline__year__month table {
-		margin: 0;
+.cmuTimeline__month {
+	table {
+		margin-bottom: 0;
+		margin-top: $cmu-base/2;
 	}
 
-.timeline__year__month thead {
-	text-align: left;
-	border-bottom: 1px solid $cmu-color-ltgray;
-}
-	.timeline__year__month th {
-		padding: $cmu-base/4 0;
-		cursor: default; 
-	}
-
-	.timeline__year__month--title {
-		span {
-			font-weight: 300;
-			&:before { content: '(' }
-			&:after { content: ')' }
-		}
-	}
-
-.timeline__year__month--title {
-	width: 60%;
+	// only add margin to the first table element
+	// &:first-of-type table {
+	// 	margin-top: $cmu-base/2;
+	// }
 }
 
-.timeline__year__month--header {
-	width: 10%;
-}
-
-.timeline__year__month--row td {
-	padding: $cmu-base/4 0;
-
-    a {
-    	color: $cmu-color-dkgray;
-    	&:hover {
-    		color: $cmu-color-blue;
-    	}
-    }
-}
-	.timeline__year__month--count {
-		// font-weight: 300;
+	.cmuTimeline__row:last-child {
+		border-bottom: 0;
 	}
 
-	.timeline__year__month--header {
-		color: $cmu-color-xmdgray;
-		text-transform: uppercase;
-		font-size: $cmu-size-xsmaller;
-		font-weight: 400;
-	}
+
+
+// // 
+// // Timeline table details
+// // inherits styles from threadlist
+// // 
+
+// .timeline__year__month {
+// 	padding: $cmu-base/4 $cmu-base/2;
+//     background-color: $cmu-color-purewhite;
+// }
+
+// 	.timeline__year__month table {
+// 		margin: 0;
+// 	}
+
+// // .timeline__year__month thead {
+// // 	text-align: left;
+// // 	border-bottom: 1px solid $cmu-color-ltgray;
+// // }
+// // 	.timeline__year__month th {
+// // 		padding: $cmu-base/4 0;
+// // 		cursor: default; 
+// // 		font-weight: 300;
+// // 	}
+
+// // 	.timeline__year__month--title {
+// // 		span {
+// // 			font-weight: 300;
+// // 			&:before { content: '(' }
+// // 			&:after { content: ')' }
+// // 		}
+// // 	}
+
+// // .timeline__year__month--title {
+// // 	width: 60%;
+// // }
+
+// // .timeline__year__month--header {
+// // 	width: 10%;
+// // }
+
+
+// .timeline__year__month--row {
+// 	@extend %ease-fast;
+// 	border-bottom: 1px solid transparent;
+
+// 	&:hover {
+// 		@extend %ease-fast;
+// 		border-bottom: 1px solid $cmu-color-blue;
+// 	}
+// }
+// .timeline__year__month--row td {
+// 	padding: $cmu-base/4 0;
+
+//     a {
+//     	color: $cmu-color-dkgray;
+//     	&:hover {
+//     		color: $cmu-color-blue;
+//     	}
+//     }
+// }
+// 	.timeline__year__month--count {
+// 		font-weight: 300;
+// 		font-size: $cmu-size-xsmaller;
+// 	}
+
+// 	.timeline__year__month--title {
+// 		font-size: $cmu-size-xsmaller;
+// 		color: $cmu-color-mdgray;
+// 	}
+// 	.timeline__year__month--header {
+// 		font-size: $cmu-size-xsmaller;
+// 		color: $cmu-color-mdgray;
+// 		font-weight: 400;
+// 	}
 
