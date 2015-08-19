@@ -7340,8 +7340,11 @@ pre {
     display: none;
   }
 }
+.cmuThreadlist__thead--author + td, .cmuThreadList__row__author + td, .cmuThreadlist__thead--author + th, .cmuThreadList__row__author + th {
+  padding-left: 0.5rem;
+}
 
-.cmuThreadlist__thead--counter, .cmuThreadlist__thead--counter--views, .cmuThreadList__row__counter {
+.cmuThreadlist__thead--counter, .cmuThreadlist__thead--views, .cmuThreadList__row__counter {
   width: 5%;
   text-align: left;
 }
@@ -7352,7 +7355,7 @@ pre {
   text-align: left;
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 800px) {
   .cmuThreadlist__thead--createdDate, .cmuThreadList__row__createdDate {
     display: none;
   }
@@ -7379,8 +7382,34 @@ pre {
   text-align: left;
 }
 
-.cmuThreadlist__thead--counter--views {
+.cmuThreadlist__thead--views {
   width: 6%;
+}
+.cmuThreadlist__thead--views:after {
+  content: 'Views';
+}
+@media only screen and (max-width: 800px) {
+  .cmuThreadlist__thead--views:after {
+    content: 'V';
+  }
+}
+
+.cmuThreadlist__thead--replies:after {
+  content: 'Replies';
+}
+@media only screen and (max-width: 800px) {
+  .cmuThreadlist__thead--replies:after {
+    content: 'R';
+  }
+}
+
+.cmuThreadlist__thead--kudos:after {
+  content: 'Kudos';
+}
+@media only screen and (max-width: 800px) {
+  .cmuThreadlist__thead--kudos:after {
+    content: 'K';
+  }
 }
 
 .cmuThreadList__row {
@@ -8166,7 +8195,7 @@ button .icon, .button .icon {
   word-break: break-all;
 }
 
-.cmuUsername__icon {
+.cmuUserbadge .cmuUsername__icon {
   line-height: 1.2rem !important;
 }
 

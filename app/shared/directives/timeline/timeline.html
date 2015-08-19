@@ -31,9 +31,11 @@
 	          <th class="cmuThreadlist__thead--author">Author</th>
 	          <th class="cmuThreadlist__thead--createdDate">Created</th>
 	          <th class="cmuThreadlist__thead--counter
-	                     cmuThreadlist__thead--views">Views</th>
-	          <th class="cmuThreadlist__thead--counter">Replies</th>
-	          <th class="cmuThreadlist__thead--counter">Kudos</th>
+	                     cmuThreadlist__thead--views"></th>
+	          <th class="cmuThreadlist__thead--counter
+	          					 cmuThreadlist__thead--replies"></th>
+	          <th class="cmuThreadlist__thead--counter
+	          					 cmuThreadlist__thead--kudos"></th>
 	          <!-- 
 	          <th class="cmuThreadlist__thead--authorLast">Latest Reply</th>
 	          <th class="cmuThreadlist__thead--latestDate">Latest Date</th>
@@ -44,22 +46,21 @@
 
 	          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
 	          	<td class="cmuThreadList__row__topic">
-	          		{{ data.subject }}
-	          		<a ng-href="{{ timeline.getTimelineHref(data) }}">{{ data.subject }}</a>
+	          		{{ data.discussion.subject }}
 	          	</td>
 	            <td class="cmuThreadList__row__author">
-	              <community-username user="data.author"></community-username>
+	              <community-username user="data.discussion.author"></community-username>
 	            </td>
-	            <td class="cmuThreadList__row__createdDate">{{ data.postTime | timeFromNow }}
+	            <td class="cmuThreadList__row__createdDate">{{ data.discussion.latestComment.postTime | timeFromNow }}
 	            </td>
 	            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
-	              {{  data.stats | extractKey : 'views' | number}}
+	              {{  data.discussion.stats | extractKey : 'views' | number}}
 	            </td>
 	            <td class="cmuThreadList__row__counter" title="comments">
-	              {{  ( data.stats | extractKey : 'comments') - 1  | number}}
+	              {{  ( data.discussion.stats | extractKey : 'comments') - 1  | number}}
 	            </td>
 	            <td class="cmuThreadList__row__counter" title="kudos">
-	              {{  data.stats | extractKey : 'score'  | number}}
+	              {{  data.discussion.stats | extractKey : 'score'  | number}}
 	            </td>
 							<!-- 
 	            <td class="cmuThreadList__row__authorLast">

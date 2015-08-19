@@ -97,12 +97,14 @@
 	padding-top: 4px;
 	word-break: break-all;
 }
+.cmuUserbadge {
 	.cmuUsername__icon {
 		line-height: 1.2rem !important;
 	}
 	.cmuUsername__login {
 		// line-height: 1.2rem;
 	}
+}
 
 .cmuUserbadge__rank {
 	font-size: $cmu-size-xsmaller;

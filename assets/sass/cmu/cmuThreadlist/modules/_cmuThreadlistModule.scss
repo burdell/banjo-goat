@@ -68,10 +68,18 @@ $cmu-forum-size-maxWidth--author: 100px;
 	@include respondTo(medium-down) {
 		display: none;
 	}
+	// the column to the right of author must have padding or long names run into each other
+	& + td, & + th {
+		padding-left: $cmu-base/2;
+	}
 }
 %cmuThreadList__column--counter {
 	width: $cmu-forum-size-counterWidth;
 	text-align: left;
+
+	// @include respondTo(medium-down) {
+		// padding-right: $cmu-base/2;
+	// }
 }
 %cmuThreadList__column--latestDate {
 	// padding-left: $cmu-base/2;
@@ -81,7 +89,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 }
 %cmuThreadList__column--createdDate {
 	@extend %cmuThreadList__column--latestDate;
-	@include respondTo(medium-down) {
+	@include respondTo(small-down) {
 		display: none;
 	}
 }
@@ -124,10 +132,26 @@ $cmu-forum-size-maxWidth--author: 100px;
 	.cmuThreadlist__thead--counter {
 		@extend %cmuThreadList__column--counter;
 	}
-		.cmuThreadlist__thead--counter--views {
+		.cmuThreadlist__thead--views {
 			@extend %cmuThreadList__column--counter;
 			width: $cmu-forum-size-counterWidth + 1%;
+			&:after {content: 'Views';}
+			@include respondTo(small-down) {
+				&:after {content: 'V';}
+			}
 		}
+		.cmuThreadlist__thead--replies {
+			&:after {content: 'Replies';}
+			@include respondTo(small-down) {
+				&:after {content: 'R';}
+			}
+		}
+		.cmuThreadlist__thead--kudos {
+			&:after {content: 'Kudos';}
+			@include respondTo(small-down) {
+				&:after {content: 'K';}
+			}
+		}	
 	.cmuThreadlist__thead--latestDate {
 		@extend %cmuThreadList__column--latestDate;
 	}
@@ -186,6 +210,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	.cmuThreadList__row__author {
 		@extend %cmuThreadList__column--author;
 		line-height: $cmu-base;
+
 	}
 
 	.cmuThreadList__row__authorLast {

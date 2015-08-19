@@ -31,14 +31,15 @@
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
-				}
+				},
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);
 				},
-				go: function(data){
+				go: function(data) {
 					// Jan: sorry I added this hack :)
 					window.location.href = this.hrefFn(data);
 					// $state.go('forums.message', { messageId: message.id });
+				}
 			});
 		};
 		controller.$inject = ['CommunityTimelineService'];
