@@ -55,7 +55,7 @@
 				},
 				reloadOnSearch: false
 			})
-			.state(forumRoutes.newtopic, {
+			.state('forums.newtopic', {
 				url: forumRoutes.newtopic,
 				views: {
 					'mainContent': {

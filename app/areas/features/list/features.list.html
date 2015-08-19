@@ -12,7 +12,17 @@
 
 	<div class="row row--comfy">
 		<div class="col--md3">
+			<div class="row row--comfy" ng-repeat="filterType in vm.filterTypes">
+				<div ng-repeat="filter in filterType.filterList">
+					<label>
+						{{ filter.display }}
+						<input type="checkbox" value="{{ filter.value }}" />
+					</label>
+									
+				</div>
+			</div>
 		</div>
+
 		<div class="col--md9">
 			<div class="row row--comfy">
 

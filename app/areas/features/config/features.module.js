@@ -10,6 +10,11 @@
 						4: { code: 'invalid', display: 'Invalid' },
 						5: { code: 'unspecified', display: 'Unspecified' },
 						6: { code: 'wontfix', display: 'Wont\'t Fix' }
+					},
+					SeverityLevels: {
+						1: { code: 'high', display: 'High' },
+						2: { code: 'medium', display: 'Medium' },
+						3: { code: 'low', display: 'Low' }
 					}
 				}
 			});
