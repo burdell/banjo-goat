@@ -12,7 +12,7 @@
 				month: null,
 				year: null
 			};
-			
+		
 			var timelineData = this.sortedModel ? this.sortedModel : timelineService.getTimelineData(ctrl.timelineModel, ctrl.dateAttribute);
 			if (timelineData && timelineData.length > 0) {
 				shown.year = timelineData[0].year;
@@ -31,12 +31,14 @@
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
+				}
+				getTimelineHref: function(data) {
+					return this.hrefFn(data);
 				},
 				go: function(data){
 					// Jan: sorry I added this hack :)
-					// window.location.href = $state.href('forums.message', { messageId: message.id });
+					window.location.href = this.hrefFn(data);
 					// $state.go('forums.message', { messageId: message.id });
-				}
 			});
 		};
 		controller.$inject = ['CommunityTimelineService'];
@@ -52,7 +54,8 @@
 	        	timelineModel: '=',
 	        	timelineItemTemplate: '=',
 	        	sortedModel: '=',
-	        	dateAttribute: '@'
+	        	dateAttribute: '@',
+	        	hrefFn: '='
 	        }
 	    };
 

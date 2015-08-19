@@ -2,7 +2,9 @@
 	'use strict';
 
 	function groupData(dataList, dateProperty){
-		 _.each(dataList, function(data){
+		 _.each(dataList, function(discussion){
+		 	var data = discussion.discussion;
+
 			var momentDate = moment(data[dateProperty]);
 
 			_.extend(data, {
@@ -12,9 +14,9 @@
  		});
 	
 		var dataByYear = _.groupBy(dataList, function(data){
-			return  data.year;
+			return  data.discussion.year;
 		});
-
+		
 		var groupedData = [];
 		_.each(dataByYear, function(yearData, year){
 			var yearObj = {
@@ -24,7 +26,7 @@
 			};
 
 			var dataByMonth = _.groupBy(yearData, function(data){
-				return data.month;
+				return data.discussion.month;
 			});
 			_.each(dataByMonth, function(data, month){
 				yearObj.count += data.length

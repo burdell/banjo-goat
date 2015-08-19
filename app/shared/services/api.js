@@ -72,6 +72,9 @@
 		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
 
 		var urlSegments = {
+			Announcement: function(id){
+				return 'announcements/' + this._Message(id);
+			},
 			Node: function(id){
 				return 'nodes/id/' + id + '/';
 			},
@@ -95,6 +98,17 @@
 
 		// ****** API DEFINITION ******
 		var service = {
+			Announcements: {
+				all: function(options){
+					return goToApi(baseUrl + urlSegments.Announcement(), options);
+				},
+				count: function(nodeId){
+					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
+				},
+				announcements: function(nodeId, options) {
+					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'announcements', options);
+				}
+			},
 			Core: {
 				advert: function(){
 					return goToApi(baseUrl + 'advert');
@@ -109,8 +123,10 @@
 					return goToApi(baseUrl + urlSegments.User(userId));
 				},
 				nodeStructure: function(){
-					return goToApi(baseUrl + 'nodes').then(function(result) {
-						return window.nodeStructure[0];
+					return goToApi(baseUrl + 'nodes', { limit: 150 }).then(function(result) {
+						//var nodeCollection = result.collection
+
+						return result.collection; //window.nodeStructure[0];
 					});
 				}
 			},

@@ -3,7 +3,6 @@
 
 	function AnnouncementListController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
 		var ctrl = this;
-		
 		_.extend(ctrl, {
 			currentAnnouncement: announcementDetail.originalMessage,
 			currentComments: announcementDetail.comments,
@@ -22,7 +21,7 @@
 				setInitialData: false
 			})
 		});
-
+		
 		breadcrumbService.setCurrentBreadcrumb(ctrl.currentAnnouncement.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();

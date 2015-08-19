@@ -5,7 +5,7 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function(breadcrumbService) {
+		var controller = function(breadcrumbService, routingService) {
 			breadcrumbService.getBreadcrumbData(this.nodeId, true);
 
 			var ctrl = this;
@@ -16,10 +16,13 @@
 				},
 				breadcrumbList: function(){
 					return breadcrumbService.breadcrumbList;
+				},
+				target: function(targetedHref) {
+					return (routingService.getArea(targetedHref) !== routingService.getCurrentArea()) ? '_self' : '';
 				}
 			});
 		};
-		controller.$inject = ['CommunityBreadcrumbService'];
+		controller.$inject = ['CommunityBreadcrumbService', 'CommunityRoutingService'];
 
 	    var directive = {
 	        link: link,

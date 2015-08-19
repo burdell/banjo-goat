@@ -80,7 +80,7 @@ gulp.task('clean', function(){
 //
 
 function areaBuilder(taskFn){
-    var areas = ['forums', 'announcements', 'stories'];
+    var areas = ['forums', 'announcements', 'stories', 'directory'];
 
     _.each(areas, function(areaName){
         taskFn(areaName);
@@ -192,8 +192,10 @@ gulp.task('whole-plugin-folders', function(){
 });
 
 gulp.task('bower', ['whole-plugin-folders'], function(){ 
+    var srcBlob = gulp.src(bowerFiles);
+
     areaBuilder(function(areaName){
-        gulp.src(bowerFiles)
+        srcBlob
             .pipe(jsFilter)
             .pipe(gulp.dest(areaPath(areaName) + '/js/vendor'))
             .pipe(jsFilter.restore())
@@ -271,6 +273,11 @@ gulp.task('express', function() {
     app.get('/stories/*', function (req,res) {
         res.render('stories/index.html');
         console.log('served stories index.html');
+    });
+
+     app.get('/community/*', function (req,res) {
+        res.render('directory/index.html');
+        console.log('served directory index.html');
     });
    
     app.listen(4200);
