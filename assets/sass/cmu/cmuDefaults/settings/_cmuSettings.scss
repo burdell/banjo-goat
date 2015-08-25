@@ -69,6 +69,12 @@ body {
 $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b90fead886/no_pic_720.png';
 
 
+// 
+//	Z-Index Settings
+// 
 
+$z-top: 1000;	// gives us 10 levels to play with
 
+$z-gloNav: 900;	// global community menu
+$z-mega: 800;	// mega popover
 

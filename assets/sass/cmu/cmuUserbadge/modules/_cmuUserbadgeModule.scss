@@ -3,6 +3,7 @@
 // Badge / Avatar area
 // 
 
+// note that thin userbadges override these settings
 .cmuUserbadge {
 	text-align: center;
 
@@ -226,3 +227,26 @@
 			}
 		}
 	}
+
+
+// 
+// 	THIN USERBADGE OVERRIDES
+// 
+
+.cmuUserbadge--thin {
+	display: block;
+    width: $cmu-base*25;
+    float: left;
+    height: auto; 
+    border: 1px solid $cmu-color-dkgray;
+
+    .cmuUserbadge__account {
+    	float: left;
+    	padding: 0;
+    	margin: 8px;
+    	border-right: 1px solid $cmu-color-dkgray;
+    }
+    .cmuUserbadge__info {
+    	// float: left;
+    }
+}

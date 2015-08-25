@@ -7,38 +7,8 @@
 $cmu-thread-message-height:	$cmu-base * 3;
 
 
-// SUBJECT
-.forumThread__subject h3 {
-	margin-bottom: $cmu-vertical-rhythm;
-}
-	// Active Thread
-	.forumThread__subject--active {
-		h3:before {
-			content: 'ACTIVE';
-			display: inline-block;
-			background-color: $cmu-color-red;
-			color: $cmu-color-white;
-			padding: $cmu-base/6 $cmu-base/2;
-			margin-right: $cmu-base/2;
-			font-size: $cmu-size-xxsmaller;
-			line-height: $cmu-base;
-			position: relative;
-			top: -5px;
-		}
-	}
 
-	// Locked Thread
-	.forumThread__subject--active {
-		h3:after {
-			font-size: $cmu-size-large;
-			font-family: 'ubnt';
-			content: '\e787';
-			display: inline-block;
-			padding: $cmu-base/6 $cmu-base/2;
-			color: $cmu-color-gray;
-			// font-size: $cmu-size-xxsmaller;
-		}
-	}
+// CONFIGURATIONS ARE AT THE BOTTOM
 
 
 // 
@@ -46,11 +16,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // badge is handled in cmuUserbadge
 // 
 
-.forumThreadContainer {
+// contained outside of message.html; in the invoking html
+// FOR PROTOTYPING ONLY
+.cmuThread__container {
 	counter-reset: messageCtr;
 }
 
-.forumThreadMessage__row {
+.cmuMessage__container {
 	border: $cmu-style-border-thin-dark; 
 	margin-bottom: $cmu-vertical-rhythm/2;
 	display: table;
@@ -61,36 +33,38 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 	border-top: $cmu-style-border-thin-light;
 	// }
 
-
 	// bottom row of buttons in a message
 	@extend %ease-fast;
-	.forumThreadMessage__controls {
-		opacity: 0.3; 
-		@extend %ease-fast;
-	}
 	&:hover {
-		.forumThreadMessage__controls {
-			opacity: 1; 
-			@extend %ease-fast;
-		}
-	}
 
-	// fade in / out the user badge
-	.cmuUserbadge {
-		@extend %ease-fast;
-		opacity: 0.46;
-		
-	}
-	&:hover {
+		// fade in / out the user badge on hover
 		.cmuUserbadge {
 			@extend %ease-fast;
 			opacity: 1;
 		}
 	}
 
+	&:hover {
+		.forumThreadMessage__controls {
+			opacity: 1; 
+			@extend %ease-fast;
+		}
+	}
 }
 
-.forumThreadMessage__body {
+
+	.forumThreadMessage__controls {
+		opacity: 0.3; 
+		@extend %ease-fast;
+	}
+
+	.cmuUserbadge {
+		@extend %ease-fast;
+		opacity: 0.46;
+		
+	}
+
+.cmuMessage__body {
 	display: table-cell;
 	vertical-align: top;
 	width: 80%;
@@ -100,7 +74,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	padding-top: $cmu-base/2;
 }
 
-.forumThreadMessage__header {
+.cmuMessage__header {
 	font-size: $cmu-size-xsmaller;
 	color: $cmu-color-mdgray;
 }
@@ -113,17 +87,17 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// }
 
 
-	.forumThreadMessage {
-		.forumThreadMessage__messageTopic {
-			display: none;
-		}
-	}
-	.forumThreadMessage:nth-child(2) {
-		.forumThreadMessage__messageTopic {
-			display: inline-block;
-		}
-	}
-	.forumThreadMessage__messageTopic {
+	// .forumThreadMessage {
+	// 	.forumThreadMessage__messageTopic {
+	// 		display: none;
+	// 	}
+	// }
+	// .forumThreadMessage:nth-child(2) {
+	// 	.forumThreadMessage__messageTopic {
+	// 		display: inline-block;
+	// 	}
+	// }
+	.cmuMessage__replyTo {
 		display: inline-block;
 		color: $cmu-color-blue;
 		&:before {
@@ -137,13 +111,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
 
-	.forumThreadMessage__date {
+	.cmuMessage__date {
 		text-align: right;
 		display: inline-block;
 	}
 
 
-.forumThreadMessage__content {
+.cmuMessage__content {
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-vertical-rhythm;
 	min-height: $cmu-thread-message-height;
@@ -203,9 +177,9 @@ $cmu-thread-message-height:	$cmu-base * 3;
 } 
 
 
-.forumThreadMessage__signature {
-	border-top: $cmu-line-thin solid $cmu-color-ltgray;
-	// padding: $cmu-base;
+.cmuMessage__signature {
+	border: $cmu-line-thin solid $cmu-color-ltgray;
+	padding: $cmu-base*2;
 	padding-top: $cmu-base/4;
 	font-size: $cmu-size-xsmaller;
 	line-height: $cmu-size-xsmaller-line-height;
@@ -215,7 +189,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	overflow: hidden;
 }
 
-	.forumThreadMessage__messageCounter {
+	.cmuMessage__counter {
 		display: inline-block;
 		text-align: right;
   		
@@ -230,7 +204,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
 
-.forumThreadMessage__controls--reply {
+.cmuMessage__controls--reply {
 	text-align: right;
 }
 
@@ -238,6 +212,62 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .forumThreadMessage__main__bottomControls {
 	margin-bottom: $cmu-vertical-rhythm;
+}
+
+
+
+
+// 
+// SIDE BY SIDE CONFIGURATION
+// use nesting to include these configurations
+// Used in:
+// - forum
+// - feature bugs
+// 
+
+
+// 
+// SIMPLE CONFIGURATION
+// use nesting to include these configurations
+// Used in:
+// - announcement post
+// 
+
+.cmuMessage--simple {
+
+	.cmuUserbadge {
+		display: none;
+		& + div {
+			border-left: 0;
+		}
+	}
+
+	.cmuMessage__header {
+		display: none;
+	}
+
+}
+
+// 
+// ANNOUNCEMENTS
+// Specific content styles for announcement posts
+// Used to mark special posts
+// NOTE: for simplicity in content generation, these classes do not have prefixes
+// 
+
+.cmuMessage--announcements {
+
+	.highlight {
+		background: $cmu-color-ltgray;
+	    padding: $cmu-base;
+	    margin-left: -$cmu-base;
+	    margin-right: -$cmu-base;
+	    margin-top: $cmu-base/2;
+	    margin-bottom: $cmu-base/2;
+
+	    border-left: 4px solid $cmu-color-blue;
+	}
+
 }
 
 

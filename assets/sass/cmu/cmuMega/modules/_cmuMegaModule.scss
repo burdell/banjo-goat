@@ -1,0 +1,366 @@
+
+
+// 
+// Mega Popover Page Replacer
+// 
+
+// NOTE
+// to prevent scrolling past the menu content, attach
+// a window height to the wrapper class with JS (can't do that here)
+// this needs to be removed when the overlay is hidden
+.wrapper {
+		height: 300px;
+		overflow: hidden;
+}
+
+%megaTopOffset {
+	position: relative;
+	top: $cmu-base*5;
+}
+%megaContentTopOffset {
+	position: relative;
+	top: $cmu-base*6;
+}
+
+// general settings; acts as a "blackout"
+.cmuMega {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 800;
+}
+
+	// background covering
+	// needs to reach the entire height of window
+	// needs to scroll with page
+	.cmuMega__shroud {
+		background-color: rgba($cmu-color-ltblack, 0.968);
+		top: 0;
+		left: 0;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.cmuMega__close {
+		color: $cmu-color-mdgray;
+		font-size: $cmu-base*1.5;
+		text-align: right;
+		padding-right: $cmu-base/2;
+		cursor: pointer;
+
+		@extend %megaTopOffset;
+		@extend %ease-fast;
+
+		&:before {
+    		display: inline-block;
+			font-size: $cmu-base;
+			content: 'close';
+			font-weight: 300;
+    		vertical-align: top;
+    		padding-right: $cmu-base/2;
+			letter-spacing: $cmu-size-letterspacing-header;
+    		line-height: 1.5rem;
+			text-transform: uppercase;
+			font-size: $cmu-size-smaller;
+		}
+		&:hover {
+			color: $cmu-color-white;
+			@extend %ease-fast;
+		}
+
+	}
+
+	.cmuMega__content {
+		@extend %megaContentTopOffset;
+		color: $cmu-color-mdgray;
+		border-bottom: 1px solid $cmu-color-dkgray;
+		// background-color: rgba($cmu-color-ltblack, 0.88);
+	}
+
+	.cmuMega__section {
+		border-top: 1px solid $cmu-color-dkgray;
+		padding: $cmu-base 0;
+	}
+
+		.cmuMega__section__head {
+			text-transform: uppercase;
+			letter-spacing: $cmu-size-letterspacing-header; 
+			font-size: $cmu-size-smaller;
+			// padding-top: $cmu-base / 2;
+			padding-bottom: $cmu-base / 2;
+		}
+
+		.cmuMega__section__col {
+			a { 
+				letter-spacing: $cmu-size-letterspacing-text;
+				display: block;
+				color: $cmu-color-white;
+				padding-bottom: $cmu-base/2;
+
+				&:hover {
+					color: $cmu-color-blue;
+				}
+			}
+		}
+
+		.cmuMega__icon {
+			border: 1px solid $cmu-color-dkgray;
+			padding: 0 $cmu-base;
+			margin-right: $cmu-base;
+			display: inline-block; 
+			cursor: pointer;
+			@extend %ease-fast;
+
+			height: $cmu-base*2.5;
+			overflow: hidden; // creates phantom padding/margin at the bottom...?
+			margin-bottom: $cmu-base/2;
+
+			&:hover {
+				background-color: $cmu-color-dkgray;
+				@extend %ease-fast;
+			}
+		}
+		
+
+
+
+
+
+// // New Primary+Secondary Nav
+// $nav-height: remCalc(40px);
+
+// %nav-style {
+// 	text-transform: uppercase;
+// 	color: $cmu-color-textgray;
+// 	letter-spacing: 0.4px;
+// 	font-size: remCalc(11px);
+// 	vertical-align: top;
+// 	padding: $cmu-base*0.7 $cmu-base;
+// 	height: $nav-height;
+// 	cursor: pointer;
+// 	line-height: $cmu-base;
+
+// 	@extend %ease-fast;
+// 	&:hover {
+// 		color: $cmu-color-white;
+// 		@extend %ease-fast;
+// 	}
+// }
+
+// %nav-icon-style {
+// 	@extend %nav-style;
+// 	font-size: $cmu-base;
+// }
+
+
+// .cmuGloNav {
+// 	height: $nav-height;
+// 	background-color: $cmu-color-soot;
+// 	border-bottom: 1px solid $cmu-color-dkgray;
+
+// 	* {
+// 		display: inline-block;
+// 		vertical-align: top;
+// 	}
+// 	ul {
+// 		margin-bottom: 0;
+// 	}
+// 	.row {
+// 		display: block;
+// 	}
+// }
+
+// 	.cmuGloNav__container {
+// 		@extend %cmu-maxwidth;
+// 		display: block;
+// 	}
+
+// 	.cmuGloNav__left {
+
+// 	}
+// 		.cmuGloNav__logo {
+// 			.icon {
+// 				color: $cmu-color-white;
+// 				font-size: remCalc(24px);
+// 				padding: $cmu-base/2 $cmu-base;
+// 				padding-left: 0;
+// 			}
+// 		}
+// 		.cmuGloNav__cmuHome {
+// 			@extend %nav-style;
+// 			// border-left: 1px solid $cmu-color-dkgray;
+// 			padding-left: 0;
+// 		}
+
+// 	.cmuGloNav__right {
+// 		float: right;
+// 	}
+
+// 		.cmuGloNav__links {
+// 			border-right: 1px solid $cmu-color-dkgray;
+// 		}
+// 			// fake active button
+// 			.cmuGloNav__links {
+// 				.testActive {
+// 					background-color: $cmu-color-dkgray;
+// 					a { 
+// 						color: $cmu-color-blue; 
+// 						&:hover { color: $cmu-color-white; }
+// 					}
+// 				}
+// 			}
+// 			.cmuGloNav__link {
+// 				a { @extend %nav-style; }
+
+// 				&:hover {
+// 					.cmuGloNav__dropItem:after {
+// 						color: $cmu-color-white;
+// 						@extend %ease-fast;
+// 					}
+// 				}
+// 			}
+// 			.cmuGloNav__dropItem {
+// 				padding-right: $cmu-base*1.5;
+
+// 				&:after {
+// 					@extend %ease-fast;
+// 					font-family: 'ubnt';
+// 					content: "\e6d0";
+// 					position: relative;
+// 					left: $cmu-base/2;
+// 					font-size: $cmu-base/2;
+// 					color: $cmu-color-gray;
+// 				}
+// 			}
+// 			.cmuGloNav__link.active {
+// 				@extend %nav-style;
+// 				background-color: $cmu-color-dkgray;
+// 			}
+
+// 		.cmuGloNav__cmuSearch {
+// 			@extend %nav-icon-style;
+// 			border-right: 1px solid $cmu-color-dkgray;
+// 		}
+
+
+// 		.cmuGloNav__cmuAccount {
+// 			.icon {
+// 				@extend %nav-icon-style;
+// 				padding-left: $cmu-base/2;
+// 				padding-right: $cmu-base/2;
+// 			}
+// 			.ubnt-icon--inbox {
+// 				font-size: 19px;
+// 				position: relative;
+// 				top: -1px;
+// 			}
+// 		}
+
+// 		.cmuGloNav__avatar {
+// 			&:before {
+// 				content: ' ';
+// 				display: block;
+// 				background: #969ba3;
+// 				border-radius: 50%;
+// 				margin-top: 5px;
+// 				margin-right: 0;
+// 				margin-left: 4px;
+// 				@extend %ease-fast;
+// 				height: remCalc(28px);
+// 				width: remCalc(28px);
+// 			}
+// 		}
+
+
+
+
+
+
+// // Temporary for the secondary nav
+
+// // .cmuNav {
+// // 	background-color: $cmu-secondmenu-background-color;
+
+// // 	* , a {
+// // 		font-size: $cmu-size-navbar-fontsize;
+// // 		color: $cmu-secondmenu-font-color;
+// // 		text-transform: uppercase;
+// // 	  	letter-spacing: $cmu-size-navbar-letterspacing;
+// // 	}
+
+// // 	a { padding: $cmu-base 0; }
+
+// // 	cursor: default; // used to prevent cursor from switching to text mode
+
+// // 	ul {
+// // 		padding: $cmu-base 0;
+// // 		li {
+// // 			list-style-type: none;
+// // 			display: inline;
+// // 			margin-right: $cmu-base/2;
+// // 			cursor: pointer;
+// // 		}
+// // 		li:last-of-type {
+// // 			margin-right: 0;
+// // 		}
+// // 	}
+// // }
+
+// // .cmuNav__container {
+// // 	@extend %cmu-maxwidth;
+// // }
+
+// // .cmuNav__navItem {
+// // 	padding: $cmu-base $cmu-base/2;
+// // 	position: relative;
+
+// // 	&:hover { 
+// // 		a, &.cmuNav__dropItem:after  {
+// // 			color: $cmu-secondmenu-font-active-color;
+// // 			@extend %ease;
+// // 		}
+// // 	}
+
+// // }
+
+// // .cmuNav__active {
+// // 	&, a {
+// // 		color: $cmu-font-highlight;
+// // 	}
+// // }
+
+// // .cmuNav__dropItem {
+// // 	&:after {
+// // 		font-family: 'ubnt';
+// // 		content: "\e6d0";
+// // 		position: absolute;
+// // 		// top: 10px;
+// // 		top: 26px;
+// // 		left: 45%;
+// // 		@extend %ease;
+// // 	}
+// // }
+
+// // .cmuNav__search {
+// // 	background-color: $cmu-secondmenu-search-background-color;
+// // 	position: absolute;
+// // 	right: 0;
+// // 	padding: $cmu-base;
+
+// // 	// icon
+// // 	.icon {
+// // 		font-size: $cmu-base;
+// // 		line-height: 0;
+// // 		margin-right: $cmu-base;
+// // 		position: relative;
+// // 		top: 3px;
+// // 	}
+// // }
+
+// // temporary alignment with global nav
+// // .cmuNav__left { padding-left: 74px; }
+// // .cmuNav__right { text-align: right; }

@@ -15,9 +15,9 @@
 			}
 
 			var navMetaData = [
-				{ display: "Activity", href: "#"},
+				// { display: "Activity", href: "#"},
 				{ display: "Discussions", href: "#", dropItem: true },
-				{ display: "Resources", href: "#", dropItem: true },
+				// { display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }

@@ -56,12 +56,8 @@
 	        	timelineItemTemplate: '=',
 	        	sortedModel: '=',
 	        	dateAttribute: '@',
-<<<<<<< HEAD
-	        	hrefFn: '='
-=======
 	        	hrefFn: '=',
 	        	showProductInfo: '='
->>>>>>> 8cf33489d9c38caa498d0a835ae1ef1852f81f25
 	        }
 	    };
 

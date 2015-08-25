@@ -24,7 +24,9 @@
 			});
 
 			function hideElement() {
-				element[0].style.display = 'none';
+				// jan: experimenting with adding a "disabled" container class
+				// element[0].style.display = 'none';
+				element[0].setAttribute("class", "cmuDisabled");
 			}
 
 			function disableElement() {

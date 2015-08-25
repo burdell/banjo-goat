@@ -37,12 +37,12 @@ $cmu-forum-size-maxWidth--author: 100px;
 
 		// desktop
 		padding-left: $cmu-base/2;
-	}
+	} 
+ 
 
-
-// 
+//  
 // Threadlist 
-// 
+//    
 
 // 
 // Define column widths
@@ -290,7 +290,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 			width: $cmu-base*1.2;
 			height: $cmu-base*1.2;
 
-			@extend .cmuIcons--pin;
+			@extend .cmuIcons-pin;
 	  		background-repeat: no-repeat;
 		}
 	}

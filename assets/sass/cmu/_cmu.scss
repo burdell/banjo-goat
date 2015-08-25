@@ -12,18 +12,20 @@
 
 // Not Really Dependencies
 @import "cmuPagination/index";
-@import "cmuNav/index"; 
+@import "cmuNav/index"; 			// global nav
+@import "cmuMega/index";			// mega screen-takeover popover menu (discussions, settings, new post, etc.) 
 @import "cmuBanner/index"; 			// announcement banner
 @import "cmuFlex/index"; 			// container row w/ flex properties
 @import "cmuBreadcrumbs/index";
 @import "cmuThreadlist/index";		// generalized thread list - applies to ALL discussion styles
 @import "cmuThread/index";			// generalized thread - used by forum etc., announcement thread, etc.
+@import "cmuMessage/index";			// generalized message; contains styles for ALL discussion types (sidebyside [forums] and inline [announcements])
 // @import "cmuForm/index";			// FOR NOW DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS
 @import "cmuSearchbox/index";		// Search filter for threads (not cmu search)
 @import "cmuThreadSort/index";		// Select input topic filter
 @import "cmuButtons/index";			// Community buttons, CTAs, etc.
 @import "cmuUsername/index";		// User's name displayed consistently across the site
-@import "cmuUserbadge/index";		// User area displayed in a thread	
+@import "cmuUserbadge/index";		// User area displayed in a thread; contains both full and compact badges
 @import "cmuComments/index";		// Comments area 
 @import "cmuViewingCounter/index";	// "5 others are viewing" 
 @import "cmuInput/index";			// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
