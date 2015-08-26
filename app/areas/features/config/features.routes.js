@@ -12,7 +12,7 @@
 				templateUrl: 'features/features.html'
 			})
 			.state('features.list', {
-				url: featureRoutes.list + '?offset&sort', 
+				url: featureRoutes.list + '?offset&sort&request&status&severity&attachments', 
 				views: {
 					'mainContent': {
 						templateUrl: 'features/list/features.list.html',
@@ -58,6 +58,16 @@
 						});
 					}]
 				}
+			})
+			.state('features.newfeature', {
+				url: featureRoutes.newfeature,
+				views: {
+					'mainContent': {
+						templateUrl: 'features/newfeature/features.newfeature.html',
+						contrller: 'NewFeature as vm'
+					}
+				}
+
 			})
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

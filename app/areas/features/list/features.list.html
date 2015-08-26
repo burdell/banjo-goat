@@ -1,22 +1,60 @@
 <div>
-	<div class="row">
+	<!-- search and submit new button -->
+	<div class="row row--comfy">
 		<div class="col--md2">
 			<input placeholder="Search requests" />
 		</div>
 
-		<div class="col--md10">
-			<button>Submit an Idea</button>
+		<div class="col--md8">
+			<button ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Submit an Idea</button>
 		</div>
-		<hr />
+		<div class="col--md2">
+          	<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.featuresListFilter" sort-exclude="limit, offset" class="community__sort"></community-sort>
+		</div>
 	</div>
 
+	<!-- new form -->
+	<div class="row row--comfy" ng-show="vm.showNewPost">
+		<div>
+			<div class="row">
+				<div class="col--md9">
+					<input placeholder="Feauture Title" ng-model="vm.newFeature.subject" style="width: 100%;" />
+					<community-text-editor height="500" ng-model="vm.newFeature.body"></community-text-editor>
+				</div>
+
+				<div class="col--md3">
+					<span class="cmuBanner__close icon ubnt-icon--x col--md1" ng-click="vm.cancelSubmit()"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<button class="button-square button-white-blue" ng-click="vm.cancelSubmit()">Cancel</button>
+				<button class="button--solid button--padded" ng-click="vm.submitFeature()">Submit</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- main list -->
 	<div class="row row--comfy">
 		<div class="col--md3">
 			<div class="row row--comfy" ng-repeat="filterType in vm.filterTypes">
+				<!-- filters -->
+				<div>
+					<label>
+						<input 
+							type="checkbox" 
+							name="vm.selectedFilters[]" 
+							value="{{ filterType.defaultOption.value }}" 
+							ng-model="filterType.defaultOption.selected" 
+							ng-change="vm.defaultChanged(filterType)" 
+							ng-disabled="filterType.defaultOption.selected" />&nbsp;
+						{{ filterType.defaultOption.display }}
+					</label>
+				</div>
 				<div ng-repeat="filter in filterType.filterList">
 					<label>
+						<input type="checkbox" name="vm.selectedFilters[]" value="{{ filter.value }}" ng-model="filter.selected" ng-change="vm.filterChanged(filterType)" />&nbsp;
 						{{ filter.display }}
-						<input type="checkbox" value="{{ filter.value }}" />
 					</label>
 									
 				</div>
@@ -25,10 +63,13 @@
 
 		<div class="col--md9">
 			<div class="row row--comfy">
-
+				<div class="col--md3">
+					 <div class="forumThreadCount__message">Showing <strong>{{ vm.featuresList.length | number }}</strong> of <strong>{{ vm.featuresCount | number}}</strong></div>
+				</div>
 			</div>
 
 			<div>
+				<!-- feature requests list -->
 				<div class="row" ng-repeat="feature in vm.featuresList">
 					<div class="row">
 						<div class="col--md2">

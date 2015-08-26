@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function featuresListController (featuresData, featuresListFilter){
+	function featuresListController ($stateParams, dataService, featuresData, featuresListFilter){
 		var ctrl = this;
 
 		function setMessageData (result){
@@ -11,50 +11,127 @@
 		featuresListFilter.set({ onFilter: setMessageData });
 
 		function makeFilterList(dataList, defaultValString) {
-			var newList = [{ display: defaultValString, value: null, isDefault: true }];
+			var newList = []; //{ display: defaultValString, value: null, selected: true }
 			_.each(dataList, function(dataType, id) {
-				newList.push({ value: id, display: dataType.display });
+				newList.push({ value: dataType.code, display: dataType.display, selected: false });
 			});
 			return newList;
 		}
 
+		function filterRequests() {
+				var filterModel = {
+					request: null,
+					status: null,
+					severity: null,
+					attachment: null
+				};
+				
+				_.each(ctrl.filterTypes, function(filterType){
+					var selected = _.filter(filterType.filterList, function(filterItem){
+						return filterItem.selected;
+					});
+
+					if (selected.length > 0) {
+						filterModel[filterType.param] = _.pluck(selected, 'value');
+					}
+				});
+
+				featuresListFilter.filter(filterModel, 'limit, offset');
+		}
+
 		var statusTypes = featuresData.StatusTypes;
+		var filterLists = null;
+
 		_.extend(ctrl, {
+			messageSortOptions: dataService.MessageSort,
 			featuresListFilter: featuresListFilter,
 			getStatusText: function(statusType){
 				return statusTypes[statusType].display;
 			},
 			filterTypes: [
 				{
-					param: 'requestType',
+					param: 'request',
+					defaultOption: { display: 'All Request Types', value: null, selected: true }, 
 					filterList: [
-						{ display: 'All Request Types', value: null, isDefault: true },
-						{ display: 'Alpha', value: 'alpha' },
-						{ display: 'Beta', value: 'beta' },
-						{ display: 'General', value: 'general' }
+						{ display: 'Alpha', value: 'alpha', selected: false },
+						{ display: 'Beta', value: 'beta', selected: false },
+						{ display: 'General', value: 'general', selected: false }
 					],
 				},
-				{ param: 'statusType', filterList: makeFilterList(featuresData.StatusTypes, 'All Status Types') },
-				{ param: 'severity', filterList: makeFilterList(featuresData.SeverityLevels, 'All Severity Levels') },
+				{ 
+					param: 'status', 
+					filterList: makeFilterList(featuresData.StatusTypes),
+					defaultOption: { display: 'All Status Types', value: null, selected: true }, 
+
+				},
+				{ 
+					param: 'severity', 
+					filterList: makeFilterList(featuresData.SeverityLevels), 
+					defaultOption: { display: 'All Severity Levels', value: null, selected: true }, 
+				},
 				{
-					param: 'attachmentType',
+					param: 'attachment',
 					filterList: [
-						{ display: 'All Attachments', value: null, isDefault: true },
 						{ display: 'Photo', value: 'photo' },
 						{ display: 'Video', value: 'video' }
 					],
-				},
-
+					defaultOption: { display: 'All Attachments', value: null, selected: true } 
+				}
 			],
-			filterModel: {
-				requestType: null,
-				statusType: null,
-				severity: null,
-				attachmentType: null
+			showNewPost: false,
+			newFeature: {
+				subject: null,
+				body: null
+			},
+			cancelSubmit: function(){
+				ctrl.showNewPost = false;
+			},
+			submitFeature: function(){
+				console.log(ctrl.newFeature);
+			},
+			filterChanged: function(filterType) {
+				var filterList = filterType.filterList;
+				var filtersSelected = _.some(_.pluck(filterList, 'selected'));
+
+				//if there are no filters selected, the default option should be selected
+				filterType.defaultOption.selected = !filtersSelected;
+
+				filterRequests();
+			},
+			defaultChanged: function(filterType){
+				if (filterType.defaultOption.selected) {
+					_.each(filterType.filterList, function(filter) {
+						filter.selected = false;
+					});
+				} else {
+					//this should never happen unless a user manually un-disables the element
+					filterType.defaultOption.selected = true;
+				}
+
+				filterRequests();
+			}
+		});
+
+	
+		//set filters from params
+		_.each(ctrl.filterTypes, function(filterType) {
+			var filterParam = $stateParams[filterType.param];
+			if (filterParam) {
+				if (!_.isArray(filterParam)) {
+					filterParam = [ filterParam ];
+				}
+
+				_.each(filterParam, function(paramString){
+					var matchedFilter = _.where(filterType.filterList, { value: paramString });
+					if (matchedFilter.length > 0) {
+						matchedFilter[0].selected = true;
+						filterType.defaultOption.selected = false;
+					}
+				});
 			}
 		});
 	}
-	featuresListController.$inject = ['FeaturesDataService', 'FeaturesListFilter'];
+	featuresListController.$inject = ['$stateParams', 'CommunityDataService', 'FeaturesDataService', 'FeaturesListFilter'];
 
 	angular.module('community.features')
 		.controller('FeaturesList', featuresListController);

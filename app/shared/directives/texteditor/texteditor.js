@@ -4,8 +4,13 @@
 	function communityTextEditor($timeout, routingService) {
 		var link = function(scope, element, attrs, ngModel) {
 			scope.texteditor.saveText = function(textString) {
+				if (!textString) {
+					textString = "";
+				}
+
 				var markedDownText = marked(textString, scope.texteditor.markdownOptions);
 				ngModel.$setViewValue(markedDownText);
+				scope.texteditor.ngModel = markedDownText;
 			};
 		};
 
@@ -16,7 +21,10 @@
 				editorHeight: ctrl.height | '150',
 				markdownOptions: {
 					sanitize: true
-				}
+				},
+				generatedText: "",
+				formattingHelpShown: false,
+				previewShown: false
 			});
 
 		};
@@ -33,7 +41,8 @@
 	        scope: {
 	        	height: '=editorHeight',
 	        	minimalEditor: '@',
-	        	placeholder: '@'
+	        	placeholder: '@',
+	        	hidePreviewLink: '@'
 	        }
 	    };
 
