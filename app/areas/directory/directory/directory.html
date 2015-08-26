@@ -9,27 +9,30 @@
 	</div>
 
 	<!-- pulse row -->
-	<!-- <div class="row">
-		<div class="col--md2">
-			<h4>LIVE ACTIVITY</h4>
-		</div>
-		<div class="col--md2">
-			<h5>TOTAL POSTS: 12,153</h5>
-		</div>
-		<div class="col--md2">
-			<h5>TOTAL MEMBERS: 9,173</h5>
-		</div>
-		<div class="col--md2">
-			<h5>USERS ONLINE: 6,878</h5>
-		</div>
-		<div class="col--md2">
-			<h5>RECENT POSTS: 55</h5>
+	<div class="row">
+		<div class="cmuPulse col--md12">
+			<div class="cmuPulse__label">
+				Live Activity
+			</div>
+			<div class="cmuPulse__counter">
+				TOTAL POSTS: 12,153
+			</div>
+			<div class="cmuPulse__counter">
+				<h5>TOTAL MEMBERS: 9,173</h5>
+			</div>
+			<div class="cmuPulse__counter">
+				<h5>USERS ONLINE: 6,878</h5>
+			</div>
+			<div class="cmuPulse__counter">
+				<h5>RECENT POSTS: 55</h5>
+			</div>
 		</div>
 	</div>
- -->
+
+
 	<div class="row">
 		<!-- sidebar -->
-		<div class="col--md3">
+		<div class="col--md3 noPadding">
 			<div ng-repeat="section in ::vm.directoryList">
 				<h5>{{ section.header }}</h5>
 

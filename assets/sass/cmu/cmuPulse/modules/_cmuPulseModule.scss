@@ -1,0 +1,37 @@
+
+
+// 
+// PULSE Module
+// 
+
+.cmuPulse {
+	position: relative;
+	display: table;
+	@extend %font-oswald;
+	padding: 0;
+	margin-bottom: $cmu-base;
+}
+
+.cmuPulse__counter, .cmuPulse__label {
+	display: table-cell;
+	width: 20%;
+	padding: $cmu-base;
+}
+
+.cmuPulse__label {
+	position: relative;
+	text-transform: uppercase;
+	color: $cmu-color-white;
+	background-color: $cmu-color-xmdgray;
+	font-size: $cmu-size-larger;
+	line-height: initial;
+
+	&:before {
+		content :' ';
+		display: block;
+		position: absolute;
+		width: 30px; height: 30px;
+		
+		background-color: $cmu-color-xmdgray;
+	}
+}

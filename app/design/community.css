@@ -6675,6 +6675,10 @@ body {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
+.cmuPulse {
+  font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
 .cmuUserbadge__levelDesc:before {
   font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
@@ -7269,10 +7273,12 @@ pre {
   width: 100%;
   height: 100%;
   z-index: 800;
+  display: none;
   opacity: 0;
 }
 
 .cmuMega--show {
+  display: block;
   opacity: 1;
 }
 
@@ -7384,6 +7390,36 @@ pre {
 }
 .cmuBanner__close:hover {
   color: #fafafa;
+}
+
+.cmuPulse {
+  position: relative;
+  display: table;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.cmuPulse__counter, .cmuPulse__label {
+  display: table-cell;
+  width: 20%;
+  padding: 1rem;
+}
+
+.cmuPulse__label {
+  position: relative;
+  text-transform: uppercase;
+  color: #fafafa;
+  background-color: #dadada;
+  font-size: 1.3125rem;
+  line-height: initial;
+}
+.cmuPulse__label:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #dadada;
 }
 
 .cmuFlexCenter {

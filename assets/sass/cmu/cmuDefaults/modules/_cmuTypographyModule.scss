@@ -43,6 +43,9 @@ body {
 // typography sizes
 // 
 
+$cmu-size-larger: remCalc(21px);
+$cmu-size-large-line-height: $cmu-size-larger;
+
 // used to be normal
 $cmu-size-large: remCalc(16px);
 $cmu-size-large-line-height: $cmu-base*1.6;
