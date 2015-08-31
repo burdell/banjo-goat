@@ -16,9 +16,6 @@
 				},
 				breadcrumbList: function(){
 					return breadcrumbService.breadcrumbList;
-				},
-				target: function(targetedHref) {
-					return (routingService.getArea(targetedHref) !== routingService.getCurrentArea()) ? '_self' : '';
 				}
 			});
 		};

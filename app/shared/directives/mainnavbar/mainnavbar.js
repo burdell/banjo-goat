@@ -6,7 +6,7 @@
 		    
 		}
 
-		function controller($location, userService, $state) {
+		function controller($scope, $location, nodeServiceWrapper, routingService, userServiceWrapper, $state) {
 			var ctrl = this;
 
 			var hrefs = {
@@ -14,9 +14,14 @@
 				stories: '/stories/'
 			}
 
+			
+			var toggleDiscussionsMenu = function(){
+				$scope.$broadcast('megamenu:toggleDiscussions');
+			}
+
 			var navMetaData = [
 				// { display: "Activity", href: "#"},
-				{ display: "Discussions", href: "#", dropItem: true },
+				{ display: "Discussions", clickFn: toggleDiscussionsMenu, dropItem: true },
 				// { display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
@@ -24,9 +29,13 @@
 			]; 
 
 			var currentUser = null;
-			userService.get().then(function(userObj){
+			userServiceWrapper.get().then(function(userObj){
 				ctrl.isAuthenticated = userObj.isAuthenticated();
 				currentUser = userObj.user;
+			});
+
+			nodeServiceWrapper.get().then(function(nodeService){
+				ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
 			});
 
 			_.extend(ctrl, {
@@ -51,11 +60,18 @@
 					}
 					
 					return active;
+				},
+				templateData: {
+					getDiscussionUrl: function(node){
+						var route = node.discussionType === 'category' ? 'hub' : 'forums.list';
+						return routingService.generateUrl(route, { nodeId: node.urlCode });
+					},
+					linksTarget: routingService.getCurrentArea() === 'directory' ? '' : '_self',
+					directoryUrl: routingService.generateUrl('directory')
 				}
-
 			})			
 		}
-		controller.$inject = ['$location', 'CurrentUserService', '$state' ];
+		controller.$inject = ['$scope', '$location', 'CommunityNodeService', 'CommunityRoutingService', 'CurrentUserService', '$state' ];
 	    
 	    var directive = {
 	        link: link,

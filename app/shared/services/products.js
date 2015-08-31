@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var products = function($q, nodeService){
+	var products = function($q, iconService, nodeService){
 		return {
 			_productList: null,
 			getProductList: function(){
@@ -23,13 +23,10 @@
 				}
 
 				return $q.when(this._productList);
-			},
-			productIconClasses: {
-				
 			}
 		};
 	};
-	products.$inject = ['$q', 'CommunityNodeService'];
+	products.$inject = ['$q', 'CommunityNodeService', 'CommunityIconService'];
 
 	angular.module('community.services')
 		.service('CommunityProductService', products);
