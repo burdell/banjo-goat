@@ -42,6 +42,17 @@
 // 
 @import "cmu/cmu";
 
+// temp fix for input for Nathan's search dev
+input[type=checkbox] {
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+input {
+  -webkit-appearance: initial;
+  appearance: initial;
+}
+
 
 
 // 

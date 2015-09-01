@@ -42,7 +42,7 @@
 					return specialUser;
 				}
 			});
-
+			
 			function setSpecialUser() {
 				 specialUser = _.find(specialUsernames, function(usernameData) {
 					return usernameData.userMatched();

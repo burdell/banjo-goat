@@ -18,8 +18,8 @@
 						<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
 					</div>
 					<div class="col--md6 alignRight">
-						<div class="cmuMessage__controls"> 
-							<div class="cmuMessage__controls--reply noPadding">
+						<div class="forumThreadMessage__controls"> 
+							<div class="forumThreadMessage__controls--reply noPadding">
 								<span community-permissions denied-behavior="disable">
 									<button class="button--vote button--compound-naked">
 										123 kudos
@@ -28,6 +28,11 @@
 										<span class="icon ubnt-icon--tools"></span> Helpful
 									</button>
 								</span>
+
+								<span ng-if="messageDisplay.upvoteOnly" community-permissions denied-behavior="disable">
+									<button class="button--vote button--compound-naked">123</button>
+								</span>
+
 								<button 
 									community-permissions
 									class="button--solid button--thin button-white-on-blue" 

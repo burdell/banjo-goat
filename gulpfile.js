@@ -80,7 +80,7 @@ gulp.task('clean', function(){
 //
 
 function areaBuilder(taskFn){
-    var areas = ['forums', 'announcements', 'stories', 'directory'];
+    var areas = ['forums', 'announcements', 'stories', 'directory', 'features'];
 
     _.each(areas, function(areaName){
         taskFn(areaName);
@@ -278,6 +278,11 @@ gulp.task('express', function() {
     app.get('/directory/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
+    });
+
+    app.get('/features/*', function (req,res) {
+        res.render('features/index.html');
+        console.log('served feature requests index.html');
     });
    
     app.listen(4200);

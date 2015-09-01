@@ -25,7 +25,7 @@
 				},
 				'Feature Requests': {
 					discussionType: 'features',
-					route: ''
+					route: 'features.list'
 				},
 				'Bugs': {
 					discussionType: 'bugs',
