@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="cmuGloNav">
   <div class="cmuGloNav__container container">
@@ -9,43 +10,67 @@
             </div>
             <div class="cmuGloNav__cmuHome">
               Community
+=======
+<div>
+  <div class="cmuGloNav">
+    <div class="cmuGloNav__container">
+        <div class="row">
+          <div class="col--md12 noPadding">
+            <div class="cmuGloNav__left">
+              <div class="cmuGloNav__logo">
+                <span class="icon ubnt-icon--u"></span>
+              </div>
+              <div class="cmuGloNav__cmuHome">
+                Community
+              </div>
+>>>>>>> 7053dfd0ac3e3801771e01f109d1958e3cfbcf71
             </div>
-          </div>
 
-          <div class="cmuGloNav__right">
-            <ul class="cmuGloNav__links">
-              <li 
-                ng-repeat="navItem in mainnavbar.navList"
-                ng-class="{ 'testActive' : mainnavbar.isActive(navItem.href) }"
-                class="cmuGloNav__link"
-              >
-                  <a href="{{ navItem.href }}" 
-                    target="{{ mainnavbar.target(navItem.href) }}"
-                    ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
-              </li>
-            </ul>
-            <div class="cmuGloNav__cmuSearch">
-              <span class="icon ubnt-icon--search-2"></span>
-            </div>
-            <div class="cmuGloNav__cmuAccount">
-              <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
-                <li class="cmuGloNav__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
-                </li>
-                <li class="cmuGloNav__inbox"><a href="#">
-                  <span class="icon ubnt-icon--inbox"></span></a>
-                </li>
-                <li class="cmuGloNav__avatar">
+            <div class="cmuGloNav__right">
+              <ul class="cmuGloNav__links">
+                <li 
+                  ng-repeat="navItem in mainnavbar.navList"
+                  ng-class="{ 'testActive' : mainnavbar.isActive(navItem.href) }"
+                  class="cmuGloNav__link">
+                    <span ng-if="navItem.href">
+                      <a href="{{ navItem.href }}" 
+                        target="{{ mainnavbar.target(navItem.href) }}"
+                        ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
+                    </span>
+                    <span ng-if="navItem.clickFn">
+                      <a ng-click="navItem.clickFn()" 
+                        ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
+                    </span>
                 </li>
               </ul>
-              <ul ng-hide="mainnavbar.isAuthenticated">
-                   <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
-                   <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/register" target="_blank">Register</a></li>
-              </ul>
+              <div class="cmuGloNav__cmuSearch">
+                <span class="icon ubnt-icon--search-2"></span>
+              </div>
+              <div class="cmuGloNav__cmuAccount">
+                <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
+                  <li class="cmuGloNav__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
+                  </li>
+                  <li class="cmuGloNav__inbox"><a href="#">
+                    <span class="icon ubnt-icon--inbox"></span></a>
+                  </li>
+                  <li class="cmuGloNav__avatar">
+                  </li>
+                </ul>
+                <ul ng-hide="mainnavbar.isAuthenticated">
+                     <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
+                     <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/register" target="_blank">Register</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
 
-</div>
+  <community-mega-menu 
+    open-event="toggleDiscussions"
+    menu-template-url="directives/mainnavbar/mainnavbar.discussions.html"
+    template-ctrl="mainnavbar.templateData">
+  </community-mega-menu>
 
+</div>
