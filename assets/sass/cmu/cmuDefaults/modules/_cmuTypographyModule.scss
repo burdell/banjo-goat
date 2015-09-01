@@ -44,7 +44,7 @@ body {
 // 
 
 $cmu-size-larger: remCalc(21px);
-$cmu-size-large-line-height: $cmu-size-larger;
+$cmu-size-larger-line-height: $cmu-base;
 
 // used to be normal
 $cmu-size-large: remCalc(16px);
@@ -87,7 +87,7 @@ $cmu-base-spacing-unit: $cmu-base;
 
 $cmu-size-breadcrumbs: $cmu-base*0.74;
 
-$cmu-size-letterspacing-header: 1.2px;
+$cmu-size-letterspacing-header: 0.8px;
 $cmu-size-letterspacing-text: 0.4px;
 
 

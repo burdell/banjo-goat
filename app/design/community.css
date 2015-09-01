@@ -6675,7 +6675,7 @@ body {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
-.cmuPulse {
+.cmuPulse, .cmuDirectory__count, .cmuDirectory__label {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
@@ -7306,7 +7306,7 @@ pre {
   font-weight: 300;
   vertical-align: top;
   padding-right: 0.5rem;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   line-height: 1.5rem;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -7327,7 +7327,7 @@ pre {
 
 .cmuMega__section__head {
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   font-size: 0.75rem;
   padding-bottom: 0.5rem;
 }
@@ -7397,29 +7397,190 @@ pre {
   display: table;
   padding: 0;
   margin-bottom: 1rem;
+  margin-top: -1rem;
 }
-
-.cmuPulse__counter, .cmuPulse__label {
-  display: table-cell;
-  width: 20%;
-  padding: 1rem;
+@media only screen and (max-width: 800px) {
+  .cmuPulse {
+    display: none;
+  }
 }
 
 .cmuPulse__label {
+  display: table-cell;
+  vertical-align: middle;
+  border-bottom: 1px #bbbbbd solid;
+  min-width: 9rem;
+  padding: 1rem;
+  padding-right: 4px;
   position: relative;
   text-transform: uppercase;
   color: #fafafa;
   background-color: #dadada;
   font-size: 1.3125rem;
-  line-height: initial;
+  line-height: 1rem;
+}
+@media only screen and (max-width: 1040px) {
+  .cmuPulse__label {
+    display: none;
+  }
 }
 .cmuPulse__label:before {
   content: ' ';
   display: block;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  right: -10px;
+  top: 0.5rem;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #dadada;
+  line-height: 0;
+}
+
+.cmuPulse__counter {
+  display: table-cell;
+  vertical-align: middle;
+  width: 24%;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  overflow: hidden;
+  text-transform: uppercase;
+  color: #474b52;
+}
+.cmuPulse__counter:nth-child(2) {
+  width: 13%;
+}
+.cmuPulse__counter:nth-child(3) {
+  width: 12%;
+}
+.cmuPulse__counter:nth-child(4) {
+  width: 10%;
+}
+.cmuPulse__counter .icon {
+  font-size: 1.1rem;
+  line-height: 0;
+  padding: 0.5rem;
   background-color: #dadada;
+  border-radius: 500px;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 2px;
+}
+
+.cmuPulse__counter {
+  border-bottom: 1px #bbbbbd solid;
+}
+.cmuPulse__counter div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cmuPulse__total {
+  padding-left: 2rem;
+}
+@media only screen and (max-width: 1040px) {
+  .cmuPulse__total {
+    padding-left: 0;
+  }
+}
+
+.cmuPulse__count {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+  color: #00a0df;
+}
+
+.cmuDirectory {
+  color: #474b52;
+}
+
+.cmuDirectory__sidebar__headline, .cmuDirectory__sidebar__item a {
+  letter-spacing: 0.4px;
+}
+
+.cmuDirectory__sidebar__headline {
+  color: #17191d;
+  margin-top: 1rem;
+}
+
+.cmuDirectory__sidebar__item a {
+  color: #969ba3;
+  line-height: 1.2rem;
+}
+.cmuDirectory__sidebar__item a:hover {
+  color: #00a0df;
+}
+
+.cmuDirectory__sidebar__other > div a {
+  text-transform: uppercase;
+  color: #00a0df;
+  font-size: 0.7rem;
+  line-height: 2rem;
+  background-color: #ebebeb;
+  padding: 0.5rem;
+}
+.cmuDirectory__sidebar__other > div a:hover {
+  color: #00a0df;
+  background-color: #bbbbbd;
+}
+
+.cmuDirectory__sidebar > div {
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .cmuSidebar {
+    display: none;
+  }
+}
+
+.cmuDirectory__header {
+  padding: 0.5rem;
+  background-color: #bbbbbd;
+  color: #fafafa;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+}
+
+.cmuDirectory__content {
+  border-bottom: 1px #bbbbbd solid;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.cmuDirectory__content__main {
+  padding: 1rem 0.5rem;
+  display: table-cell;
+  width: 80%;
+}
+
+.cmuDirectory__content__title {
+  font-size: 1.3125rem;
+  line-height: 1rem;
+}
+
+.cmuDirectory__content__right {
+  background-color: #ebebeb;
+  display: table-cell;
+  width: 20%;
+}
+
+.cmuDirectory__count, .cmuDirectory__label {
+  display: table-cell;
+  padding: 0.5rem;
+  vertical-align: middle;
+  color: #474b52;
+  text-transform: uppercase;
+}
+
+.cmuDirectory__count {
+  font-size: 1.3125rem;
+}
+
+.cmuDirectory__label {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .cmuFlexCenter {
@@ -9109,7 +9270,7 @@ button .icon, .button .icon {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   display: block;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #bbbbbd;
   padding-bottom: 6px;
 }
 
@@ -9121,7 +9282,7 @@ button .icon, .button .icon {
   font-weight: bold;
   font-size: 0.9375rem;
   padding-right: 16px;
-  border-right: 1px solid #969ba3;
+  border-right: 1px solid #bbbbbd;
   line-height: 14px;
   vertical-align: bottom;
   margin-top: 4px;

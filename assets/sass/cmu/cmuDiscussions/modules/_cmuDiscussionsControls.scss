@@ -6,7 +6,7 @@
 	margin-bottom: $cmu-base;
 	display: block;
 
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $cmu-color-mdgray;
     padding-bottom: 6px;
 
 }
@@ -24,7 +24,7 @@
 		font-size: remCalc(15px);
 
 		padding-right: 16px;
-		border-right: 1px solid $cmu-color-gray;
+		border-right: 1px solid $cmu-color-mdgray;
 		line-height: 14px;
 		vertical-align: bottom;
 		margin-top: 4px;
