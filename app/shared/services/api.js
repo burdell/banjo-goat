@@ -70,6 +70,7 @@
 		}
 
 		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
+		var v2Url = 'https://comm2-dev.ubnt.com/api2/';
 
 		var urlSegments = {
 			Announcement: function(id){

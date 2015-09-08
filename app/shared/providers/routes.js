@@ -24,6 +24,7 @@
 			},
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',
+			feed: '/feed/',
 			utils: {
 				intRoute: function(route) {
 					return '{' + route.replace(':', '') + ':int}'

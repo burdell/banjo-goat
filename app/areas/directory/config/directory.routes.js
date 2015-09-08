@@ -39,6 +39,11 @@
 						});
 					}]
 				}
+			})
+			.state('feed', {
+				url: routes.hub,
+				templateUrl: 'directory/hub/feed.html',
+				controller: 'Feed as vm'
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

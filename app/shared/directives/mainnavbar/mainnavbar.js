@@ -6,16 +6,16 @@
 		    
 		}
 
-		function controller($location, userService, $state) {
+		function controller($location, $state, userService, routesProvider) {
 			var ctrl = this;
-
 			var hrefs = {
-				announcements: '/announcements/',
-				stories: '/stories/'
-			}
+				announcements: routesProvider.announcements.landing,
+				stories: routesProvider.stories.landing,
+				feed: routesProvider.feed
+			};
 
 			var navMetaData = [
-				{ display: "Activity", href: "#"},
+				{ display: "Activity", href: hrefs.feed },
 				{ display: "Discussions", href: "#", dropItem: true },
 				{ display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
@@ -34,6 +34,12 @@
 				target: function(itemHref){
 					//kind of hacky, but dont have access to currentNode at this point :(
 					var currentPath = $location.path();
+
+					//'feed' is in the 'directory' app
+					if (currentPath === '/feed/') {
+						debugger;
+					}
+
 					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
 				},
 				isAuthenticated: false,
@@ -55,7 +61,7 @@
 
 			})			
 		}
-		controller.$inject = ['$location', 'CurrentUserService', '$state' ];
+		controller.$inject = ['$location', '$state', 'CurrentUserService', 'communityRoutes'];
 	    
 	    var directive = {
 	        link: link,
