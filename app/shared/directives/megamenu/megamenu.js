@@ -2,7 +2,7 @@
 	'use strict';
 	
 	function megaMenu() {
-		var controller = function($scope) {
+		var controller = function($scope, utils) {
 			var ctrl = this;
 
 			$scope.$on('megamenu:' + ctrl.openEvent, function(){
@@ -17,10 +17,11 @@
 				isOpen: false,
 				toggleMenu: function(){
 					ctrl.isOpen = !ctrl.isOpen;
+					utils.preventBodyScroll(ctrl.isOpen);
 				}
 			});
 		};
-		controller.$inject = ['$scope'];
+		controller.$inject = ['$scope', 'CommunityUtilsService'];
 
 	    var directive = {
 	        controller: controller,
