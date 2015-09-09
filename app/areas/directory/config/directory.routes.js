@@ -41,9 +41,16 @@
 				}
 			})
 			.state('feed', {
-				url: routes.hub,
-				templateUrl: 'directory/hub/feed.html',
-				controller: 'Feed as vm'
+				url: routes.feed,
+				templateUrl: 'directory/feed/feed.html',
+				controller: 'Feed as vm',
+				resolve: {
+					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.contentFeed
+						});
+					}]
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

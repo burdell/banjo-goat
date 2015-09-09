@@ -5,7 +5,7 @@
 		var nodeServiceHolder = null;
 
 		function setNodeUrl(node) {
-			if (node.href) {
+			if (!node || node.href) {
 				return;
 			}
 

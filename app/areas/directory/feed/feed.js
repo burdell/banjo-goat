@@ -1,14 +1,18 @@
 (function(_){
 	'use strict';
 
-	var feedController = function($q, $scope, communityApi, nodeServiceWrapper, routingService, hubData){
+	var feedController = function($scope, breadcrumbService, feedFilter){
 		var ctrl = this;
 
+		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
 
 		_.extend(ctrl, {
 		});
 	};
-	feedController.$inject = [];
+	feedController.$inject = ['$scope', 'CommunityBreadcrumbService', 'FeedFilter'];
 
 	angular.module('community.directory')
 		.controller('Feed', feedController);

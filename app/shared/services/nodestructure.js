@@ -24,7 +24,7 @@
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {
-				if (currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
+				if (currentNodeName && currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
 					nodeStructureService.CurrentNode = node;
 				}
 
@@ -54,6 +54,10 @@
 			var rootNode = nodeStructureService.getNode(-1);
 			if (rootNode && !rootNode.href) {
 				rootNode.href = routingService.generateUrl('directory');
+			}
+
+			if (!nodeStructureService.CurrentNode) {
+				nodeStructureService.CurrentNode = rootNode;
 			}
 			
 			return rootNode

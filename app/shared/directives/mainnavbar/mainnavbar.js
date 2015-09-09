@@ -34,12 +34,6 @@
 				target: function(itemHref){
 					//kind of hacky, but dont have access to currentNode at this point :(
 					var currentPath = $location.path();
-
-					//'feed' is in the 'directory' app
-					if (currentPath === '/feed/') {
-						debugger;
-					}
-
 					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
 				},
 				isAuthenticated: false,

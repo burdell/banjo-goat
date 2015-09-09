@@ -88,6 +88,9 @@
 			Forum: function(id) {
 				return 'forums/'  + this._Message(id);
 			},
+			Feed: function(){
+				return 'feed/';
+			},
 			_Message: function(id) {
 				var urlString = 'topics/';
 				if (id) {
@@ -129,6 +132,17 @@
 
 						return result.collection; //window.nodeStructure[0];
 					});
+				}
+			},
+			Feed: {
+				contentFeed: function(options){
+					return goToApi(v2Url + urlSegments.Feed() + '/content', options);
+				},
+				notifications: function(){
+
+				},
+				subscriptions: function(){
+
 				}
 			},
 			Forums: {
