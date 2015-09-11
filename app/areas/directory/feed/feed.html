@@ -14,16 +14,45 @@
 	<div class="row">
 		<!-- main body -->
 		<div class="col--md9">
-			<div>
-				<button>Community Feed</button>
-				<button>My Feed</button>
+			<div class="col--md8">
+				<div>
+					<button ng-click="vm.setFeedType('community')">Community Feed</button>
+					<button ng-click="vm.setFeedType('user')">My Feed</button>
+				</div>
 			</div>
+			 <div class="col--md2 noPaddingRight">
+	          	<community-sort 
+	          		sort-options="vm.categorySortOptions" 
+	          		sort-filter="vm.feedFilter" 
+	          		sort-exclude="limit, offset" 
+	          		class="community__sort"
+	          		sort-param="category">
+	          	</community-sort>
+	        </div>
+			<div class="col--md2 noPaddingRight">
+			  <community-sort 
+			  	sort-options="vm.discussionSortOptions" 
+			  	sort-filter="vm.feedFilter" 
+			  	sort-exclude="limit, offset" 
+			  	class="community__sort"
+			  	sort-param="section">
+			  </community-sort>
+	        </div>
 		</div>
 
 		<!-- sidebar -->
 		<div class="col--md3">
-			<h4>sidebar</h4>
-		</div>
-		
+			<div ng-repeat="landingPage in ::vm.landingPages">
+				<a href="{{ landingPage.href }}" target="_self">{{ landingPage.description }}</a>
+			</div>
+
+			<div>
+				<h5>Latest Announcements</h5>
+				<div ng-repeat="announcement in vm.recentAnnouncements">
+					<h6>{{ announcement.subject }}</h6>
+					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">{{ announcement.discussion.subject }}</a>
+				</div>
+			</div>
+		</div>	
 	</div>
 </div>

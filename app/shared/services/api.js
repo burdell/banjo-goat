@@ -89,7 +89,7 @@
 				return 'forums/'  + this._Message(id);
 			},
 			Feed: function(){
-				return 'feed/';
+				return 'feed';
 			},
 			_Message: function(id) {
 				var urlString = 'topics/';
@@ -136,7 +136,12 @@
 			},
 			Feed: {
 				contentFeed: function(options){
-					return goToApi(v2Url + urlSegments.Feed() + '/content', options);
+					// return goToApi(v2Url + urlSegments.Feed() + '/content', options).then(function(result){
+					// 	if (result) debugger;
+
+					// 	return result;
+					// });
+					return $q.when();
 				},
 				notifications: function(){
 

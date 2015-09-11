@@ -10,7 +10,14 @@
 			],
 			SearchConfig: {
 				delay: 300
-			}
+			},
+			DiscussionTypeSort: [
+				{ value: null, label: 'All Topics', default: true }, 
+				{ value: 'stories', label: 'Stories'  },
+				{ value: 'announcements', label: 'Announcements'  },
+				{ value: 'forums', label: 'Forums' },
+				{ value: 'features', label: 'Feature Requests' }
+			],
 		};
 	};
 

@@ -49,6 +49,9 @@
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.contentFeed
 						});
+					}],
+					AnnouncementsData: ['CommunityApiService', function(communityApi){
+						return communityApi.Announcements.all({ limit: 5, sort: 'postdate' });
 					}]
 				}
 			});
