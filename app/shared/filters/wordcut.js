@@ -2,8 +2,8 @@
 	'use strict';
 	
 	var wordCut = function(){
-		return function(wordString){
-			var wordLimit = 100;
+		return function(wordString, limit){
+			var wordLimit = limit || 100;
 
 			var wordList = wordString.split(' ');
 			

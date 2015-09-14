@@ -10404,6 +10404,16 @@ a:hover, a:focus,
   transform: scale(1.1, 1.1);
 }
 
+input[type=checkbox] {
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+input {
+  -webkit-appearance: initial;
+  appearance: initial;
+}
+
 @media only screen and (min-width: 801px) and (max-width: 1040px) {
   .sg_breakpoint-mixin {
     color: red !important;

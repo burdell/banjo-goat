@@ -1,0 +1,57 @@
+<div>
+	<div class="row row--comfy">
+		<div class="col--md10">
+			<h1>{{ vm.originalMessage.subject }}</h1>
+			<div>
+				<span>by <community-username user="vm.originalMessage.author"></community-username>, <h6 style="display: inline;">{{ ::vm.originalMessage.postTime | timeFromNow }}</h6></span>
+			</div>
+		</div>
+		<div class="col--md2">
+			<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
+		</div>
+	</div>
+
+	<div class="row row--comfy">
+		<div class="col--md2"><h5>{{ ::vm.getStatusText(vm.originalMessage.statusType) }}</h5></div>
+		<div class="col--md2"><h5>{{ feature.discussion.stats | extractKey : 'score' | number }} votes</h5></div>
+		<div class="col--md2"><h5>{{ ::vm.productName }}</h5></div>
+		<div class="col--md2"><h5>Version {{ ::vm.getMetaValue('versionNumber') }}</h5></div>
+		<div class="col--md2"><h5>Issue #{{ ::vm.getMetaValue('issueId') }}</h5></div>
+	</div>
+
+	<div class="row">
+		<span community-permissions>
+        	<button class="button--solid button-blue-white">Post Reply</button>
+        	<button class="button--vote button--compound-naked">{{ vm.originalMessage.stats | extractKey: 'score' }}</button>
+		</span>
+	</div>
+
+	<div class="row">
+		<div ng-bind-html="vm.originalMessage.body | sanitize"></div>
+	</div>
+
+	<div class="row">
+	</div>
+
+	<div class="row row--comfy">
+		<div ng-repeat="comment in vm.commentList">
+			<community-message 
+				message="comment"
+				reply-click-fn="vm.showReply"
+				show-op="vm.originalMessage.author.id"
+				upvote-only="true">
+			</community-message>
+		</div>
+	</div>
+
+	<div class="row">
+        <div class="col--md8 noPaddingLeft">
+		</div>
+		<div class="col--md4 noPaddingRight">
+			<community-pager 
+			  total-results="vm.commentCount" 
+			  pager-fn="vm.commentFilter">
+			</community-pager>
+		</div>
+	</div>
+</div>
