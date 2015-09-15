@@ -21,6 +21,9 @@
 	- Standard button height are 32px (2rem)
 	- all buttons are defined w/ border for height standardization
 		- solid buttons match border w/ bg color
+
+	TODO:
+	- shift reference to .button instead of <button> tag, since we need <a> to also look like buttons
 */
 
 // 
@@ -386,5 +389,16 @@ button, .button {
 	padding-left: 8px;
 }
 
+
+
+// disabled wrapper
+// MAYBE we shouldn't style these differently and they just forward you to login
+
+// .cmuDisabled {
+// 	.button, button {
+// 		background-color: $cmu-color-ltgray;
+// 		border-color: $cmu-color-ltgray;
+// 	}
+// }
 
 

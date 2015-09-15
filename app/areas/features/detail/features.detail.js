@@ -18,6 +18,9 @@
 
 		var statusTypes = featuresData.StatusTypes;
 		_.extend(ctrl, {
+			getStatusCode: function(statusType){
+				return statusTypes[statusType].code;
+			},
 			getStatusText: function(statusType){
 				return statusTypes[statusType].display;
 			},

@@ -1,40 +1,30 @@
-<div class="cmuUserbadge" ng-class="{ '{{ ::userbadge.userType }}' : userbadge.userType }">
-	<div class="cmuUserbadge__account clearfix">
-		<div class="cmuUserbadge__left col--md4">
-			<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
-		</div>
-		<div class="cmuUserbadge__right col--md8">
+<div class="cmuUserbadge" ng-class="{ 'cmuUserbadge__op' : {{userbadge.opId === userbadge.displayUser.id}} } ">
+	<div class="cmuUserbadge__account">
+
+		<div class="cmuUserbadge__user row">
 			<div class="cmuUserbadge__username">
+
+				<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
+
 				<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
 			</div>
-			<div class="cmuUserbadge__status">
-				<span ng-show="userbadge.opId === userbadge.displayUser.id" class="cmuUserbadge__status__op"></span>
-			</div>
+
 			<div class="cmuUserbadge__rank">
 				{{ userbadge.displayUser.rank.name }} 
 			</div>
 		</div>
-		<!-- <div class="cmuUserbadge__status">
-			<span class="cmuUserbadge__status__op"></span>
-		</div> -->
+
 	</div>
+
+	<div class="cmuUserbadge__points">
+		<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
+		<div class="cmuUserbadge__joined">702</div>
+	</div>
+
 	<div class="cmuUserbadge__info">
-		<!-- <div class="cmuUserbadge__gameInfo"> -->
-			<!-- {{ userbadge.user.stats | extractKey : 'totalpoints' }} -->
-			<!-- <div class="cmuUserbadge__level"></div>
-			<div class="cmuUserbadge__levelDesc" data-desc="Kudos">152</div>
-			<div class="cmuUserbadge__levelDesc" data-desc="Posts">623</div>
-			<div class="cmuUserbadge__levelDesc" data-desc="Helpful">214</div> -->
-			<!-- <div class="cmuUserbadge__levelDesc" data-desc="Answers">14</div> -->
-			<!-- <div class="cmuUserbadge__levelDesc" data-desc="Stories">12</div> -->
-		<!-- </div> -->
 		<div class="cmuUserbadge__descriptors">
-			<div data-desc="Kudos">152</div>
-			<!-- <div data-desc="Posts">623</div>
-			<div data-desc="Helpful">214</div> -->
-			<div data-desc="Location">San Francisco, CA</div>
-			<div data-desc="Joined">08-07-2008</div>
-			<!-- <div data-desc="IP">89.184.153.167</div> -->
+			<div class="cmuUserbadge__descriptor">San Francisco, CA</div>
+			<div class="cmuUserbadge__descriptor">Joined 08-07-2008</div>
 		</div>
 	</div>
 </div>

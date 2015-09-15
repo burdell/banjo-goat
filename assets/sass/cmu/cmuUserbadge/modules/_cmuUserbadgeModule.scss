@@ -5,248 +5,209 @@
 
 // note that thin userbadges override these settings
 .cmuUserbadge {
-	text-align: center;
-
-	display: table-cell;
-	width: 21%;
-	height: 100%;
-
+	// text-align: left;
 	// opacity onhover is contextual to the discussion style
 	// so this is moved to each discussion module ex: forumthreadmodule
-	@extend %ease-fast;
-	opacity: 0.46;
-	&:hover {
-		opacity: 1;
-	}
+	// @extend %ease-fast;
+	opacity: 1;
+	// &:hover {
+	// 	opacity: 1;
+	// }
 }
+
+	// appears at the top
+	.cmuUserbadge__op:before {
+		content: 'OP';
+		display: block;
+		@extend %type-tiny;
+		padding: $cmu-base/8;
+		text-align: center;
+		background-color: $cmu-color-post;
+		color: $cmu-color-active;
+		border-bottom: $style-line;
+		// margin-top: -1px;
+	}	
+	// except for on first posts
+	.cmuThread__firstPost > .cmuUserbadge__op:before {
+		display: none;
+	}
 
 
 // 
 // Main account information
 // 
 .cmuUserbadge__account {
-	padding-top: $cmu-base;
 	overflow: hidden;
-	// padding-bottom: $cmu-base;
-
 	cursor: pointer;
+	// margin-bottom: $cmu-base/4;
+	padding: $cmu-base/2 $cmu-base;
+    padding-bottom: 0;
+
 	&:hover {
 
 		a {
 			color: $cmu-color-black;
 		}
-		.cmuUserbadge__avatar:after {
-			background: $cmu-color-mdgray;
-			@extend %ease-fast;
-		}
+		// .cmuUserbadge__avatar:after {
+		// 	background: $cmu-color-mdgray;
+		// 	@extend %ease-fast;
+		// }
 	}
 }
+	.cmuUserbadge__avatar {
+		display: inline-block;
+		float: left;
+		margin-right: $cmu-base/2;
+		cursor: pointer;
+
+		&:after {
+			content: ' ';
+			display:block;
+			background: url('http://www.placecage.com/140/100');
+			// background-position: 10px 10px;
+    		background-position-x: -30px;
+			border-radius: 50%;
+			background-repeat: no-repeat;
+			width: $cmu-size-avatar;
+			height: $cmu-size-avatar;
+			@include transition-duration(0.35s);
+			@include transition-timing-function(ease-out);
+		}
+
+	}
+	.cmuUserbadge__username {
+		text-align: left;
+		@extend %type-base;
+		line-height: $cmu-base * 3/4;
+		word-break: break-all;
+
+		.cmuUsername {
+			margin-top: $cmu-base/2;
+		}
+
+		// icons have more lineheight
+		.cmuUsername__icon {
+			line-height: $cmu-base;
+		}
+	}
+
+
+// 
+// DESCRIPTORS – e.g. location, IP, post #, etc.
+// 
+.cmuUserbadge__descriptors {
+	word-wrap: break-word;
+	padding: 0 $cmu-base;
+	padding-bottom: $cmu-base;
+
+	// description tag
+	div {
+		text-transform: capitalize;
+		@extend %type-info;
+		// &:before {
+		// 	font-weight: 400;
+		// 	// content: attr(data-desc) ": ";
+		// 	display: inline-block;
+		// 	white-space: pre;
+		// }
+	}
+}
+
+
+	.cmuUserbadge__user {
+		margin-bottom: $cmu-base/2;
+	}
+
+
+
+.cmuUserbadge__rank {
+	@extend %type-info;
+	display: inline-block;
+	text-align: left;  
+	// padding-top: 4px;
+}
+
+
+.cmuUserbadge__points {
+    border: 1px solid #ccc;
+    // padding-left: $cmu-base;
+	margin: 0 $cmu-base/2;
+	margin-bottom: $cmu-base/4;
+}
+	.cmuUserbadge__kudos {
+		padding: 2px 4px;
+		padding-left: $cmu-base/2;
+		display: inline-block;
+
+		&:after {
+			content: ' kudos';
+			font-weight: 300;
+		}
+	}
+
+	.cmuUserbadge__joined {
+		display: inline-block;
+		&:after {
+			content: ' posts';
+			font-weight: 300;
+		}
+	}
+
+// 
+// TAGS
+// 
+.cmuUserbadge__status__op:before {
+	content: 'OP';
+	@extend %font-oswald;
+	font-size: $cmu-size-xxsmaller;
+	border: $style-line;
+	padding: 0px $cmu-base/8;
+	margin-right: 1px;
+	// color: $cmu-color-mdgray;
+
+    padding-bottom: 1px;
+    position: relative;
+    top: -1px;
+}	
 
 // ubnt employees
 .cmuUserbadge--ubnt {
 	background-color: $cmu-color-xltblue;
-
-	.cmuUserbadge__account {
-  		border-top: $cmu-line-thick $cmu-color-blue solid;
-	}
 }
 
-// right avatar area
-.cmuUserbadge__right {
-	text-align: left;
- 	padding-left: 4px;
-}
-
-.cmuUserbadge__avatar {
-
-	display: inline-block;
-	line-height: 0;
-	padding-right: $cmu-base/2;
-	padding-left: 4px;
-	width: 45px;
-	text-align: center;
-	font-size: 20px !important;
-
-	width: 60px;
-	cursor: pointer;
 
 
-	&:after {
-		content: ' ';
-		display:block;
-		background: $cmu-color-gray;
-		border-radius: 50%;
-		width: $cmu-base*3;
-		height: $cmu-base*3;
-		// position: absolute;
-		top: 11px;
-		@include transition-duration(0.35s);
-		@include transition-timing-function(ease-out);
-	}
 
-	// img {
-	// 	height: $cmu-base*3;
-	// 	width: $cmu-base*3;
-	// }
-
-}
-
-.cmuUserbadge__username {
-	text-align: left;
-	font-size: $cmu-size-normal;
-	line-height: 0.8rem;
-	padding-top: 4px;
-	word-break: break-all;
-}
-.cmuUserbadge {
-	.cmuUsername__icon {
-		line-height: 1.2rem !important;
-	}
-	.cmuUsername__login {
-		// line-height: 1.2rem;
-	}
-}
-
-.cmuUserbadge__rank {
-	font-size: $cmu-size-xsmaller;
-	line-height: 0.9rem;
-	display: inline-block;
-	text-align: left;  
-	padding-top: 4px;
-}
-
-.cmuUserbadge__status {
-	text-align: left;
-	font-size: $cmu-size-smaller;
-	line-height: $cmu-size-smaller-line-height;
-	// margin: $cmu-base/2 0 $cmu-base 0;
-	display: inline;
-}
-
-	.cmuUserbadge__status__op:after {
-		content: 'OP';
-		@extend %oswald;
-		font-size: $cmu-size-xxsmaller;
-		border: $cmu-line-thin solid $cmu-color-gray;
-		padding: 0px $cmu-base/4;
-		margin-right: 1px;
-	}	
-
-
-%cmuUserbadge__info {
-	background-color: $cmu-color-ltgray;
-	// opacity: 0.5;
-	text-align: left;
-	padding: $cmu-base/2;
-
-	font-size: $cmu-size-xsmaller;
-	line-height: $cmu-size-copy-line-height;
-	text-transform: uppercase;
-
-	// margin: $cmu-base 0; margin-bottom: 0;
-}
-
-	.cmuUserbadge__gameInfo {
-		@extend %cmuUserbadge__info;
-		@extend %oswald;
-		letter-spacing: 1.4px;
-		padding-left: $cmu-base/2;
-		background-color: $cmu-color-ltgray;
-		color: $cmu-color-black;
-		width: 100%;
-	}
-		.cmuUserbadge__level {
-			font-size: $cmu-size-xsmaller;
-			display: block;
-			padding-bottom: $cmu-base/3;
-			width: 100%;
-			position: relative;
-			&:before {
-				// content: "3830/5000";
-				content: "AARDVARK L.14";
-				color: $cmu-color-white;
-				background: $cmu-color-blue;
-				font-size: $cmu-size-xsmaller;
-				width: 75%;
-				display: inline-block;
-				position: absolute;
-				// top: 23px;
-				padding-left: $cmu-base/2;
-			}
-			&:after {
-				content: "    ";
-				background: $cmu-color-mdgray;
-				width: 100%;
-				height: 23px;
-				display: block;
-			}
-		}
-		.cmuUserbadge__levelDesc {
-			text-align: left;
-			word-wrap: break-word;
-			line-height: $cmu-base;
-			// padding-bottom: $cmu-base/6;
-			text-transform: capitalize;
-			font-size: $cmu-size-xsmaller;
-			color: $cmu-color-dkgray;
-			&:before {
-				// text-transform: uppercase;
-				font-weight: 300;
-				@extend %font-lato;
-				letter-spacing: normal;
-				padding-left: $cmu-base/2;
-				content: attr(data-desc) ": ";
-				display: inline-block;
-				white-space: pre;
-				margin-right: $cmu-base/4;
-			}
-		}
-
-
-	.cmuUserbadge__descriptors {
-		@extend %cmuUserbadge__info;
-		padding-left: $cmu-base/2;
-		word-wrap: break-word;
-		background-color: transparent;
-
-		// description tag
-		div {
-			line-height: $cmu-base;
-			padding-bottom: $cmu-base/6;
-			text-transform: capitalize;
-			font-size: $cmu-size-xsmaller;
-			color: $cmu-color-black;
-			&:before {
-				// text-transform: uppercase;
-				font-weight: 300;
-				color: $cmu-color-black;
-				content: attr(data-desc) ": ";
-				display: inline-block;
-				white-space: pre;
-				margin-right: $cmu-base/4;
-			}
-		}
-	}
 
 
 // 
 // 	THIN USERBADGE OVERRIDES
 // 
 
-.cmuUserbadge--thin {
-	display: block;
-    width: $cmu-base*25;
-    float: left;
-    height: auto; 
-    border: 1px solid $cmu-color-dkgray;
+// .cmuUserbadge--thin {
+// 	display: block;
+// 	opacity: 1;
+// 	margin-bottom: $cmu-base;
+// 	padding: 0;
 
-    .cmuUserbadge__account {
-    	float: left;
-    	padding: 0;
-    	margin: 8px;
-    	border-right: 1px solid $cmu-color-dkgray;
-    }
-    .cmuUserbadge__info {
-    	// float: left;
-    }
-}
+//     // LEFT side 
+//     .cmuUserbadge__account {
+//     	display: inline-block;
+//     	padding: 0;
+//     }
+
+// 	    .cmuUserbadge__account__left {
+// 	    	.cmuUserbadge__avatar {
+// 	    		padding-left: 0;
+// 	    	}
+// 	    }
+
+// 	// RIGHT side
+//     .cmuUserbadge__info {
+//     	display: inline-block;
+//     	vertical-align: top;
+//     	margin-left: $cmu-base;
+//     	padding-left: $cmu-base;
+//     	border-left: 1px solid $cmu-color-dkgray;
+//     }
+// }

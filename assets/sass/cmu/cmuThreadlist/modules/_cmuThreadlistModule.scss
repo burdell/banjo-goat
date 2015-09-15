@@ -17,26 +17,26 @@ $cmu-forum-size-maxWidth--author: 100px;
 // Filters and Dropdowns for threadlist
 // 
 
-.cmuThreadlist__filters {
-	margin-bottom: $cmu-vertical-rhythm;
+// control group for buttons, filters, pagination, etc.
+.cmuThreadlist__ctrl {
+	// border-bottom: 1px solid $cmu-color-ltgray;
+	padding-bottom: $cmu-base/2;
+	margin-bottom: $cmu-base/2;
 }
 
-
-// 
-// Info: message count, pagination
-// 
-
-.cmuThreadlist__listInfo {
-	margin-bottom: $cmu-base;
+// individual rows and controls
+.cmuThreadlist__ctrl__row {
+	margin-bottom: $cmu-vertical-rhythm/2;
 }
 
-	.cmuThreadlist__listInfo__count {
+	.cmuThreadlist__postCount {
 		font-size: $cmu-forum-size-thread;
 		font-weight: 400;
 		line-height: $cmu-base*2;
 
-		// desktop
-		padding-left: $cmu-base/2;
+		span {
+			font-weight: 600;
+		}
 	} 
  
 
@@ -165,7 +165,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 // 
 .cmuThreadList__row {
 	position: relative; // important for icon placement
-	@extend %size-community-base;
+	// @extend %size-community-base;
 	border-top: $cmu-style-border-thin-light;
 	border-bottom: $cmu-style-border-thin-light;
 	padding-top: $cmu-vertical-rhythm/2;
@@ -201,10 +201,17 @@ $cmu-forum-size-maxWidth--author: 100px;
 		// * { font-weight: 400; }
 		height: 100%; //required for eyecon
 		padding-right: $cmu-base*4;
-		@extend %style-community-mainlink;
+		// @extend %style-community-mainlink;
 		line-height: $cmu-base;
 		padding: $cmu-base/4 $cmu-base/2;
 		position: relative; //important for icon placement
+
+		a {
+			color: $cmu-color-black;
+			&:hover {
+				color: $cmu-color-blue; 
+			}
+		}
 	}
 
 	.cmuThreadList__row__author {
@@ -287,10 +294,10 @@ $cmu-forum-size-maxWidth--author: 100px;
 			display: inline-block;
 			position: relative;
 				top: 4px;
-			width: $cmu-base*1.2;
-			height: $cmu-base*1.2;
+			width: $cmu-base*0.8;
+			height: $cmu-base*0.8;
 
-			@extend .cmuIcons-pin;
+			@extend .cmuIcon-pin;
 	  		background-repeat: no-repeat;
 		}
 	}
@@ -313,7 +320,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	.cmuThreadList__row--locked {
 		.cmuThreadList__row__topic > a:after {
 			font-family: 'ubnt';
-			content: '\e787';
+			content: '\e78e';
 			display: inline-block;
 			padding: $cmu-base/6 $cmu-base/4;
 			// font-size: $cmu-size-xxsmaller;

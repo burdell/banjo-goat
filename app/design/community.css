@@ -6498,7 +6498,14 @@ tr:last-child td {
   user-select: none;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__cmuHome, .cmuGloNav__link a, .cmuGloNav__link.active, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuHome:hover, .cmuGloNav__link a:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, .cmuGloNav__dropItem:after, .cmuGloNav__avatar:before, .cmuMega, .cmuMega--show, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.cmuInput__checkbox input[type="checkbox"]:after, .cmuInput__checkbox input[type="checkbox"][disabled]:after, .cmuInput__checkbox input[type="checkbox"]:checked:after {
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.style-link--dark, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__cmuHome, .cmuGloNav__link a, .cmuGloNav__link.active, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuHome:hover, .cmuGloNav__link a:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, .cmuGloNav__dropItem:after, .cmuGloNav__avatar:before, .cmuMega, .cmuMega--show, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
@@ -6506,7 +6513,15 @@ tr:last-child td {
   transition: 0.31s;
 }
 
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__cmuHome, .cmuGloNav__link a, .cmuGloNav__link.active, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuHome:hover, .cmuGloNav__link a:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, .cmuGloNav__dropItem:after, .cmuGloNav__avatar:before, .cmuMega, .cmuMega--show, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuUserbadge__account:hover .cmuUserbadge__avatar:after, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
+.cmuInput__checkbox input[type="checkbox"]:after, .cmuInput__checkbox input[type="checkbox"][disabled]:after, .cmuInput__checkbox input[type="checkbox"]:checked:after {
+  -webkit-transition: all 230ms ease;
+  -moz-transition: all 230ms ease;
+  -ms-transition: all 230ms ease;
+  -o-transition: all 230ms ease;
+  transition: all 230ms ease;
+}
+
+.style-link--dark, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__cmuHome, .cmuGloNav__link a, .cmuGloNav__link.active, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuHome:hover, .cmuGloNav__link a:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, .cmuGloNav__dropItem:after, .cmuGloNav__avatar:before, .cmuMega, .cmuMega--show, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
 .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
@@ -6515,12 +6530,52 @@ tr:last-child td {
   transition: all 180ms ease;
 }
 
-.cmuIcon--hoverOff, .cmuIcons-pin:before, .cmuIcon--hoverOn, .cmuPagination__main, .cmuPagination__main__scrubber {
+.cmuIcon--hoverOff, .cmuIcon-pin:before, .cmuIcon-star:before, .cmuIcon-kudos:before, .cmuIcon--hoverOn, .cmuPagination__main, .cmuPagination__main__scrubber {
   -webkit-transition: all 320ms ease;
   -moz-transition: all 320ms ease;
   -ms-transition: all 320ms ease;
   -o-transition: all 320ms ease;
   transition: all 320ms ease;
+}
+
+.cmu-status-fixed {
+  background-color: #48af65 !important;
+  color: #fafafa;
+}
+
+.cmu-status-investigating {
+  background-color: #3cccac !important;
+  color: #fafafa;
+}
+
+.cmu-status-inprogress {
+  background-color: #0074ad !important;
+  color: #fafafa;
+}
+
+.cmu-status-pending {
+  background-color: #d6c633 !important;
+  color: #fafafa;
+}
+
+.cmu-status-invalid {
+  background-color: #d6c633 !important;
+  color: #fafafa;
+}
+
+.cmu-status-unspecified {
+  background-color: #81419f !important;
+  color: #fafafa;
+}
+
+.cmu-status-wontfix {
+  background-color: #474b52 !important;
+  color: #fafafa;
+}
+
+.cmu-status-duplicate {
+  background-color: #969ba3 !important;
+  color: #fafafa;
 }
 
 /* [1] */
@@ -6529,10 +6584,6 @@ tr:last-child td {
 /* [4] */
 /* [5] */
 /* [6] */
-.color-background-dark {
-  background-color: #17191d;
-}
-
 /**
  * These are very basic, high-level default settings to get a project started.
  */
@@ -6551,14 +6602,133 @@ body {
   line-height: inherit;
 }
 
-.community__content, .cmuGloNav__container, .cmuBanner__container, .comGlobalHeader__content {
+.community__content, .cmuGloNav__container, .cmuBanner__container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.cmuTooltipster {
+  border: 2px solid black;
+  border-color: #00a0df;
+}
+
+select, .cmuTextEditor label {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.cmuPulse, .cmuDirectory__count, .cmuDirectory__label, .cmuUserbadge__status__op:before {
+  font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+.cmuDiscussionsNavbar a, .cmuFeatures__threadlist__body__title a {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.cmuTooltipster .tooltipster-content {
+  font-size: 0.8125rem;
+  line-height: 1.3125rem;
+}
+
+.cmuThreadlist__list thead th, .cmuMessage__signature {
+  font-size: 0.6875rem;
+  line-height: 1.1875rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2.0625rem;
+  font-weight: 400;
+}
+
+h3, .cmuFeatures__votes__count {
+  font-size: 1.1875rem;
+  line-height: 1.625rem;
+  font-weight: 600;
+  color: #474b52;
+}
+
+h4, .timeline__year__title .timeline__year__title--text, .timeline__year__title:after {
+  font-size: 1.1875rem;
+  line-height: 1.625rem;
+  font-weight: 300;
+  color: #474b52;
+}
+
+h5 {
+  font-size: 0.8125rem;
+  line-height: 1.3125rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  color: #474b52;
+  font-style: italic;
+}
+
+.type-base, .cmuUserbadge__username, .cmuFeatureDetails .cmuFeatures__votes__count span {
+  font-size: 0.8125rem;
+  line-height: 1.3125rem;
+}
+
+.type-minor, .cmuBreadcrumbs, .cmuFeatures__threadlist__body__content {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.type-info, .cmuInlineInfo, .cmuThread__stats, .cmuUserbadge__descriptors div, .cmuUserbadge__rank, .cmuFeatures__votes__status {
+  font-size: 0.6875rem;
+  line-height: 1.1875rem;
+}
+
+.type-tiny, .cmuUserbadge__op:before {
+  font-size: 0.5625rem;
+  line-height: 0.875rem;
+}
+
+.cmuFeatures__votes__status {
+  letter-spacing: 0.2px;
+}
+
+.style-link {
+  color: #00a0df;
+}
+.style-link.active {
+  color: #00a0df;
+}
+.style-link:hover {
+  color: #474b52;
+}
+
+.style-link--dark, .cmuUsername a, .cmuDiscussionsNavbar a {
+  color: #474b52;
+}
+.style-link--dark.active, .cmuUsername a.active, .cmuDiscussionsNavbar a.active {
+  color: #00a0df;
+}
+.style-link--dark:hover, .cmuUsername a:hover, .cmuDiscussionsNavbar a:hover {
+  color: #00a0df;
+}
+
 .row {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .row .row {
   padding-left: 0;
@@ -6572,112 +6742,9 @@ body {
 }
 @media screen and (min-width: 1041px) {
   .row {
-    padding-left: 89px;
-    padding-right: 89px;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
   }
-}
-
-.comGlobalHeader {
-  position: relative !important;
-}
-
-.cmuTooltipster {
-  border: 2px solid black;
-  border-color: #00a0df;
-}
-
-body {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: auto;
-}
-
-.cmuTextEditor label {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-}
-
-.cmuUserbadge__status__op:after, .cmuUserbadge__gameInfo {
-  font-family: "Oswald", "lato", "helvetica neue", sans-serif;
-}
-
-.cmuPulse, .cmuDirectory__count, .cmuDirectory__label {
-  font-family: "Oswald", "lato", "helvetica neue", sans-serif;
-}
-
-.cmuUserbadge__levelDesc:before {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-}
-
-.type-titleThin, .cmuDiscussionsNavbar *, .cmuThreadList__row, .cmuTooltipster .tooltipster-content {
-  font-size: 0.8125rem;
-  line-height: 1.3rem;
-}
-
-.cmuThreadlist__list thead th {
-  font-size: 0.6875rem;
-  line-height: 1.1875rem;
-}
-
-h1 {
-  font-size: 3rem;
-  line-height: 3.75rem;
-  font-weight: 300;
-}
-
-h2 {
-  font-size: 1.6rem;
-  line-height: 2.75rem;
-  font-weight: 300;
-}
-
-h3 {
-  font-size: 1.5rem;
-  line-height: 2.1rem;
-  font-weight: 600;
-  color: #474b52;
-}
-
-h4, .timeline__year__title .timeline__year__title--text, .timeline__year__title:after {
-  font-size: 1.1rem;
-  line-height: 1.95rem;
-  font-weight: 600;
-  color: #474b52;
-}
-
-h5 {
-  font-size: 0.83rem;
-}
-
-h6 {
-  font-size: 0.6875rem;
-  line-height: 1.34063rem;
-  font-weight: 400;
-  color: #474b52;
-  font-style: italic;
-}
-
-.style-copy {
-  font-size: 0.88rem;
-  line-height: 1.45rem;
-  color: #17191d;
-}
-
-.type-titleThin, .cmuDiscussionsNavbar * {
-  font-weight: 300;
-  color: #17191d;
-  text-transform: uppercase;
-}
-
-.type-link, .cmuDiscussionsNavbar a {
-  color: #17191d;
-}
-.type-link.active, .cmuDiscussionsNavbar a.active {
-  color: #00a0df;
-}
-.type-link:hover, .cmuDiscussionsNavbar a:hover {
-  color: #00a0df;
 }
 
 html {
@@ -6724,7 +6791,7 @@ pre {
   margin-bottom: 0 !important;
 }
 
-.cmuIcon, .cmuIcon--hoverOff, .cmuIcons-pin:before, .cmuIcons-pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
+.cmuIcon, .cmuIcon--hoverOff, .cmuIcon-pin:before, .cmuIcon-star:before, .cmuIcon-kudos:before, .cmuIcon-pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuIcon-star, .cmuIcon-kudos, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
   display: inline-block;
   width: 42px;
   height: 42px;
@@ -6734,7 +6801,7 @@ pre {
   background-repeat: no-repeat;
 }
 
-.cmuIcon--small, .cmuIcons-pin:before {
+.cmuIcon--small, .cmuIcon-pin:before {
   height: 25px;
   width: 25px;
 }
@@ -6747,13 +6814,19 @@ pre {
   background-size: contain;
 }
 
+.cmuIcon--inline, .cmuIcon-star:before, .cmuIcon-kudos:before {
+  height: 0.75rem;
+  width: 0.75rem;
+  vertical-align: sub;
+}
+
 .cmuIcon--filter {
   width: 40px;
   background-position: center 5px;
   background-size: 1.9rem;
 }
 
-.cmuIcon--hoverOff, .cmuIcons-pin:before {
+.cmuIcon--hoverOff, .cmuIcon-pin:before, .cmuIcon-star:before, .cmuIcon-kudos:before {
   content: ' ';
   opacity: 0;
 }
@@ -6762,8 +6835,12 @@ pre {
   opacity: 1;
 }
 
-.cmuIcons-pin:before {
-  background-image: icon("pin", red);
+.cmuIcon-pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2220%22%20viewBox%3D%220%200%2018%2020%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M11.1167%2017.8142l.402-3.3696-.0034-.003L18%204.954%2013.496%200%204.872%207.132l-.0013.0104-3.075.4395%203.937%204.3212L0%2018.9928l.7344.8072%206.4447-6.3074%203.9377%204.3216z%22%20fill%3D%22%23474B52%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.cmuIcon-star, .cmuIcon-kudos {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.823%204.707L6.015%201.05%204.207%204.708l-4.037.59L3.095%208.14l-.69%204.024%203.61-1.898%203.61%201.898L8.94%208.14l2.92-2.843-4.037-.59z%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
 }
 
 .cmuIcon--platform, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
@@ -7062,6 +7139,49 @@ pre {
   flex-grow: 0;
 }
 
+/*
+	Usage
+
+	<div class="cmuThread__author"> 							-> content wrapper
+		<div class="row">										-> for alignment
+			<div class="cmuInlineInfo">							-> define the inline wrapper style
+				-> <cmuInlineInfo__intro> 						-> is the intro text
+				-> <community-username> 						-> is the contextual username (angular)
+				-> <cmuInlineInfo__data" data-divider=" |">		-> divider-separated data, like views | count | date | etc.
+				// Make SURE you don't add enter/carriage returns between the spans or the browser will add weird spacing to it
+				<span class="cmuInlineInfo__intro">by</span><community-username user="vm.originalMessage.author"></community-username><span class="cmuInlineInfo__data" data-divider=" |">{{ ::vm.originalMessage.postTime | timeFromNow }}</h6>
+			</div>
+		</div>
+	</div>
+
+*/
+/*
+	Usage
+
+	<div class="cmuThread__author"> 							-> content wrapper
+		<div class="row">										-> for alignment
+			<div class="cmuInlineInfo">							-> define the inline wrapper style
+				-> <cmuInlineInfo__intro> 						-> is the intro text
+				-> <community-username> 						-> is the contextual username (angular)
+				-> <cmuInlineInfo__data" data-divider=" |">		-> divider-separated data, like views | count | date | etc.
+				// Make SURE you don't add enter/carriage returns between the spans or the browser will add weird spacing to it
+				<span class="cmuInlineInfo__intro">by</span><community-username user="vm.originalMessage.author"></community-username><span class="cmuInlineInfo__data" data-divider=" |">{{ ::vm.originalMessage.postTime | timeFromNow }}</h6>
+			</div>
+		</div>
+	</div>
+
+*/
+.cmuInlineInfo {
+  color: #969ba3;
+}
+.cmuInlineInfo .cmuInlineInfo__intro {
+  margin-right: 0.25rem;
+}
+.cmuInlineInfo .cmuInlineInfo__data:not(:first-child):before {
+  content: attr(data-divider);
+  padding: 0 0.25rem;
+}
+
 .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__cmuHome, .cmuGloNav__link a, .cmuGloNav__link.active {
   text-transform: uppercase;
   color: #aeb4b7;
@@ -7260,7 +7380,7 @@ pre {
 }
 
 .cmuMega__section__col a {
-  letter-spacing: 0.4px;
+  letter-spacing: 0.2px;
   display: block;
   color: #fafafa;
   padding-bottom: 0.5rem;
@@ -7342,9 +7462,9 @@ pre {
   position: relative;
   text-transform: uppercase;
   color: #fafafa;
-  background-color: #dadada;
-  font-size: 1.3125rem;
-  line-height: 1rem;
+  background-color: #bbbbbd;
+  font-size: 1rem;
+  line-height: 1.625rem;
 }
 @media only screen and (max-width: 1040px) {
   .cmuPulse__label {
@@ -7356,10 +7476,10 @@ pre {
   display: block;
   position: absolute;
   right: -10px;
-  top: 0.5rem;
+  top: 0.25rem;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid #dadada;
+  border-left: 20px solid #bbbbbd;
   line-height: 0;
 }
 
@@ -7388,12 +7508,12 @@ pre {
   padding: 0.5rem;
   background-color: #dadada;
   border-radius: 500px;
-  margin-right: 0.5rem;
   position: relative;
   top: 2px;
 }
 
 .cmuPulse__counter {
+  padding-right: 1rem;
   border-bottom: 1px #bbbbbd solid;
 }
 .cmuPulse__counter div {
@@ -7421,18 +7541,24 @@ pre {
   color: #474b52;
 }
 
-.cmuDirectory__sidebar__headline, .cmuDirectory__sidebar__item a {
-  letter-spacing: 0.4px;
+.cmuDirectory__sidebar {
+  position: relative;
+  left: 1rem;
+}
+
+.cmuDirectory__sidebar__main:first-child .cmuDirectory__sidebar__headline {
+  margin-top: 0.5rem;
 }
 
 .cmuDirectory__sidebar__headline {
   color: #17191d;
   margin-top: 1rem;
+  font-weight: 600;
 }
 
 .cmuDirectory__sidebar__item a {
-  color: #969ba3;
-  line-height: 1.2rem;
+  color: #474b52;
+  font-weight: 400;
 }
 .cmuDirectory__sidebar__item a:hover {
   color: #00a0df;
@@ -7461,53 +7587,89 @@ pre {
   }
 }
 
+.cmuDirectory__item {
+  margin-bottom: 1rem;
+}
+.cmuDirectory__item:first-child .cmuDirectory__header {
+  margin-top: 0;
+}
+
 .cmuDirectory__header {
-  padding: 0.5rem;
-  background-color: #bbbbbd;
-  color: #fafafa;
+  padding: 0.25rem 0.5rem;
+  background-color: #ebebeb;
+  color: #474b52;
   font-weight: bold;
   letter-spacing: 0.8px;
 }
 
 .cmuDirectory__content {
   border-bottom: 1px #bbbbbd solid;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+  position: relative;
+}
+.cmuDirectory__content:last-child {
+  border: 0;
 }
 
 .cmuDirectory__content__main {
-  padding: 1rem 0.5rem;
-  display: table-cell;
-  width: 80%;
+  padding: 0.5rem 0.5rem;
 }
 
 .cmuDirectory__content__title {
-  font-size: 1.3125rem;
-  line-height: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.cmuDirectory__content__title a {
+  color: #00a0df;
+}
+.cmuDirectory__content__title a:hover {
+  color: #474b52;
+}
+
+.cmuDirectory__content__list a {
+  color: #474b52;
+}
+.cmuDirectory__content__list a:hover {
+  color: #00a0df;
 }
 
 .cmuDirectory__content__right {
-  background-color: #ebebeb;
-  display: table-cell;
-  width: 20%;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cmuDirectory__users, .cmuDirectory__posts {
+  display: inline-block;
+}
+
+.cmuDirectory__users .cmuDirectory__count {
+  padding-right: 0;
+  text-align: right;
+}
+.cmuDirectory__users .cmuDirectory__label {
+  padding: 0;
+  padding-right: 0.5rem;
 }
 
 .cmuDirectory__count, .cmuDirectory__label {
-  display: table-cell;
-  padding: 0.5rem;
-  vertical-align: middle;
   color: #474b52;
   text-transform: uppercase;
 }
 
 .cmuDirectory__count {
-  font-size: 1.3125rem;
+  color: #00a0df;
+  display: inline-block;
 }
 
 .cmuDirectory__label {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.cmuSidebar {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .cmuFlexCenter {
@@ -7543,10 +7705,7 @@ pre {
 
 .cmuBreadcrumbs {
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
   font-weight: 300;
-  font-size: 0.74rem;
-  line-height: 0.5rem;
 }
 .cmuBreadcrumbs:hover a {
   color: black;
@@ -7569,28 +7728,31 @@ pre {
   padding: 0 0.33333rem;
 }
 .cmuBreadcrumbs li a {
-  color: #969ba3;
+  color: #474b52;
 }
 .cmuBreadcrumbs li a:hover {
   color: #00a0df;
 }
 .cmuBreadcrumbs .cmuBreadcrumbs__last {
-  color: #969ba3;
+  color: #474b52;
 }
 
-.cmuThreadlist__filters {
-  margin-bottom: 1rem;
+.cmuThreadlist__ctrl {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.cmuThreadlist__listInfo {
-  margin-bottom: 1rem;
+.cmuThreadlist__ctrl__row {
+  margin-bottom: 0.5rem;
 }
 
-.cmuThreadlist__listInfo__count {
+.cmuThreadlist__postCount {
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: 2rem;
-  padding-left: 0.5rem;
+}
+.cmuThreadlist__postCount span {
+  font-weight: 600;
 }
 
 .cmuThreadlist__thead--topic {
@@ -7717,6 +7879,12 @@ pre {
   padding: 0.25rem 0.5rem;
   position: relative;
 }
+.cmuThreadList__row__topic a {
+  color: black;
+}
+.cmuThreadList__row__topic a:hover {
+  color: #00a0df;
+}
 
 .cmuThreadList__row__author {
   line-height: 1rem;
@@ -7761,8 +7929,8 @@ pre {
   display: inline-block;
   position: relative;
   top: 4px;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
   background-repeat: no-repeat;
 }
 
@@ -7779,7 +7947,7 @@ pre {
 
 .cmuThreadList__row--locked .cmuThreadList__row__topic > a:after {
   font-family: 'ubnt';
-  content: '\e787';
+  content: '\e78e';
   display: inline-block;
   padding: 0.16667rem 0.25rem;
 }
@@ -7792,8 +7960,15 @@ pre {
   font-weight: 300;
 }
 
+.cmuThread__firstPost {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #bbbbbd;
+  background-color: #f3f3f3;
+}
+
 .cmuThread__subject h3 {
-  margin-bottom: 1rem;
+  line-height: 2rem;
 }
 
 .cmuThread__subject--active h3:before {
@@ -7812,14 +7987,40 @@ pre {
 .cmuThread__subject--locked h3:after {
   font-size: 1rem;
   font-family: 'ubnt';
-  content: '\e787';
+  content: '\e78e';
   display: inline-block;
   padding: 0.16667rem 0.5rem;
   color: #969ba3;
+  position: absolute;
+  top: -4px;
+}
+
+.cmuThread__stats {
+  margin: 0.5rem 0;
+}
+
+.cmuThread__stat {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #ebebeb;
+  margin-right: 0.5rem;
+  line-height: 1rem;
+}
+
+.cmuThread__stat__desc {
+  padding-right: 0.25rem;
+}
+
+.cmuThread__stat__status {
+  font-weight: 600;
+}
+
+.cmuThread__author {
+  margin-bottom: 1rem;
 }
 
 .cmuThread__controls {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .cmuThread__container {
@@ -7854,6 +8055,7 @@ pre {
   border-left: 1px solid #bbbbbd;
   padding: 1rem;
   padding-top: 0.5rem;
+  background-color: #f3f3f3;
 }
 
 .cmuMessage__header {
@@ -7885,7 +8087,7 @@ pre {
   margin-bottom: 1rem;
   min-height: 3rem;
   font-size: 0.8125rem;
-  line-height: 1.3rem;
+  line-height: 1.3125rem;
 }
 .cmuMessage__content br {
   content: " ";
@@ -7919,8 +8121,6 @@ pre {
   border: 1px solid #ebebeb;
   padding: 2rem;
   padding-top: 0.25rem;
-  font-size: 0.6875rem;
-  line-height: 1.1875rem;
   margin-bottom: 0.5rem;
   max-height: 3rem;
   overflow: hidden;
@@ -7967,93 +8167,6 @@ pre {
   border-left: 4px solid #00a0df;
 }
 
-.cmuSearchbox {
-  text-align: right;
-}
-.cmuSearchbox::-webkit-input-placeholder {
-  color: #dadada;
-  font-weight: 400;
-  font-size: 0.8125rem;
-}
-.cmuSearchbox:-moz-placeholder {
-  color: #dadada;
-  font-weight: 400;
-  font-size: 0.8125rem;
-}
-.cmuSearchbox::-moz-placeholder {
-  color: #dadada;
-  font-weight: 400;
-  font-size: 0.8125rem;
-}
-.cmuSearchbox:-ms-input-placeholder {
-  color: #dadada;
-  font-weight: 400;
-  font-size: 0.8125rem;
-}
-
-.cmuSearchbox input {
-  background-color: white;
-  font-family: inherit;
-  margin-bottom: 1rem;
-  height: 2rem;
-  border: 1px solid #bebec0;
-  color: rgba(0, 0, 0, 0.75);
-  display: block;
-  font-size: 0.8125rem;
-  margin: 0 0 0.0625rem 0;
-  width: 100%;
-}
-.cmuSearchbox input:focus, .cmuSearchbox input:active {
-  outline-color: transparent;
-  outline-style: none;
-}
-.cmuSearchbox input:focus {
-  background: #fafafa;
-  border-color: #00a0df;
-}
-.cmuSearchbox input[disabled] {
-  background-color: #dddddd;
-}
-
-/*------------------------------------*\
-    #SELECT GROUP
-\*------------------------------------*/
-select {
-  background-color: white;
-  font-family: inherit;
-  height: 2rem;
-  width: 100%;
-  -webkit-appearance: none !important;
-  background: white url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSAyNzguNjI3LDM3MC4zNDMgDQoJNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=") no-repeat;
-  background-position: right 0.6em top 0.6rem;
-  border: 1px solid #bebec0;
-  padding: 0 0.5rem;
-  color: rgba(0, 0, 0, 0.75);
-  font-size: 0.8125rem;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  background-size: 16px 12px;
-}
-select:focus, select:active {
-  outline-color: transparent;
-  outline-style: none;
-}
-select:hover {
-  border-color: #00a0df;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-/* Disabled select background */
-select:disabled {
-  background: #dddddd;
-}
-
 /*
 	Button Usage:
 
@@ -8071,6 +8184,9 @@ select:disabled {
 	- Standard button height are 32px (2rem)
 	- all buttons are defined w/ border for height standardization
 		- solid buttons match border w/ bg color
+
+	TODO:
+	- shift reference to .button instead of <button> tag, since we need <a> to also look like buttons
 */
 button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button {
   font-size: 0.6875rem;
@@ -8565,66 +8681,55 @@ button .icon, .button .icon {
   background: #00a0df;
   color: white;
   position: relative;
-  top: -2px;
+  top: -1px;
 }
 .cmuUsername .cmuUsername__icon.ubnt-icon--u {
-  padding: 0.33333rem;
+  padding: 0.25rem;
 }
 
 .cmuUserbadge {
-  text-align: center;
-  display: table-cell;
-  width: 21%;
-  height: 100%;
-  opacity: 0.46;
-}
-.cmuUserbadge:hover {
   opacity: 1;
 }
 
+.cmuUserbadge__op:before {
+  content: 'OP';
+  display: block;
+  padding: 0.125rem;
+  text-align: center;
+  background-color: #f3f3f3;
+  color: #00a0df;
+  border-bottom: 1px solid #bbbbbd;
+}
+
+.cmuThread__firstPost > .cmuUserbadge__op:before {
+  display: none;
+}
+
 .cmuUserbadge__account {
-  padding-top: 1rem;
   overflow: hidden;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  padding-bottom: 0;
 }
 .cmuUserbadge__account:hover a {
   color: black;
 }
-.cmuUserbadge__account:hover .cmuUserbadge__avatar:after {
-  background: #bbbbbd;
-}
-
-.cmuUserbadge--ubnt {
-  background-color: #dff6ff;
-}
-.cmuUserbadge--ubnt .cmuUserbadge__account {
-  border-top: 0.33333rem #00a0df solid;
-}
-
-.cmuUserbadge__right {
-  text-align: left;
-  padding-left: 4px;
-}
 
 .cmuUserbadge__avatar {
   display: inline-block;
-  line-height: 0;
-  padding-right: 0.5rem;
-  padding-left: 4px;
-  width: 45px;
-  text-align: center;
-  font-size: 20px !important;
-  width: 60px;
+  float: left;
+  margin-right: 0.5rem;
   cursor: pointer;
 }
 .cmuUserbadge__avatar:after {
   content: ' ';
   display: block;
-  background: #969ba3;
+  background: url("http://www.placecage.com/140/100");
+  background-position-x: -30px;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  top: 11px;
+  background-repeat: no-repeat;
+  width: 2.5rem;
+  height: 2.5rem;
   -webkit-transition-duration: 0.35s;
   -moz-transition-duration: 0.35s;
   -o-transition-duration: 0.35s;
@@ -8637,132 +8742,71 @@ button .icon, .button .icon {
 
 .cmuUserbadge__username {
   text-align: left;
-  font-size: 0.8125rem;
-  line-height: 0.8rem;
-  padding-top: 4px;
+  line-height: 0.75rem;
   word-break: break-all;
 }
-
-.cmuUserbadge .cmuUsername__icon {
-  line-height: 1.2rem !important;
+.cmuUserbadge__username .cmuUsername {
+  margin-top: 0.5rem;
 }
-
-.cmuUserbadge__rank {
-  font-size: 0.6875rem;
-  line-height: 0.9rem;
-  display: inline-block;
-  text-align: left;
-  padding-top: 4px;
-}
-
-.cmuUserbadge__status {
-  text-align: left;
-  font-size: 0.75rem;
-  line-height: 1.3rem;
-  display: inline;
-}
-
-.cmuUserbadge__status__op:after {
-  content: 'OP';
-  font-size: 0.5625rem;
-  border: 1px solid #969ba3;
-  padding: 0px 0.25rem;
-  margin-right: 1px;
-}
-
-.cmuUserbadge__gameInfo, .cmuUserbadge__descriptors {
-  background-color: #ebebeb;
-  text-align: left;
-  padding: 0.5rem;
-  font-size: 0.6875rem;
-  line-height: 1.45rem;
-  text-transform: uppercase;
-}
-
-.cmuUserbadge__gameInfo {
-  letter-spacing: 1.4px;
-  padding-left: 0.5rem;
-  background-color: #ebebeb;
-  color: black;
-  width: 100%;
-}
-
-.cmuUserbadge__level {
-  font-size: 0.6875rem;
-  display: block;
-  padding-bottom: 0.33333rem;
-  width: 100%;
-  position: relative;
-}
-.cmuUserbadge__level:before {
-  content: "AARDVARK L.14";
-  color: #fafafa;
-  background: #00a0df;
-  font-size: 0.6875rem;
-  width: 75%;
-  display: inline-block;
-  position: absolute;
-  padding-left: 0.5rem;
-}
-.cmuUserbadge__level:after {
-  content: "    ";
-  background: #bbbbbd;
-  width: 100%;
-  height: 23px;
-  display: block;
-}
-
-.cmuUserbadge__levelDesc {
-  text-align: left;
-  word-wrap: break-word;
+.cmuUserbadge__username .cmuUsername__icon {
   line-height: 1rem;
-  text-transform: capitalize;
-  font-size: 0.6875rem;
-  color: #474b52;
-}
-.cmuUserbadge__levelDesc:before {
-  font-weight: 300;
-  letter-spacing: normal;
-  padding-left: 0.5rem;
-  content: attr(data-desc) ": ";
-  display: inline-block;
-  white-space: pre;
-  margin-right: 0.25rem;
 }
 
 .cmuUserbadge__descriptors {
-  padding-left: 0.5rem;
   word-wrap: break-word;
-  background-color: transparent;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
 }
 .cmuUserbadge__descriptors div {
-  line-height: 1rem;
-  padding-bottom: 0.16667rem;
   text-transform: capitalize;
-  font-size: 0.6875rem;
-  color: black;
-}
-.cmuUserbadge__descriptors div:before {
-  font-weight: 300;
-  color: black;
-  content: attr(data-desc) ": ";
-  display: inline-block;
-  white-space: pre;
-  margin-right: 0.25rem;
 }
 
-.cmuUserbadge--thin {
-  display: block;
-  width: 25rem;
-  float: left;
-  height: auto;
-  border: 1px solid #474b52;
+.cmuUserbadge__user {
+  margin-bottom: 0.5rem;
 }
-.cmuUserbadge--thin .cmuUserbadge__account {
-  float: left;
-  padding: 0;
-  margin: 8px;
-  border-right: 1px solid #474b52;
+
+.cmuUserbadge__rank {
+  display: inline-block;
+  text-align: left;
+}
+
+.cmuUserbadge__points {
+  border: 1px solid #ccc;
+  margin: 0 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cmuUserbadge__kudos {
+  padding: 2px 4px;
+  padding-left: 0.5rem;
+  display: inline-block;
+}
+.cmuUserbadge__kudos:after {
+  content: ' kudos';
+  font-weight: 300;
+}
+
+.cmuUserbadge__joined {
+  display: inline-block;
+}
+.cmuUserbadge__joined:after {
+  content: ' posts';
+  font-weight: 300;
+}
+
+.cmuUserbadge__status__op:before {
+  content: 'OP';
+  font-size: 0.5625rem;
+  border: 1px solid #bbbbbd;
+  padding: 0px 0.125rem;
+  margin-right: 1px;
+  padding-bottom: 1px;
+  position: relative;
+  top: -1px;
+}
+
+.cmuUserbadge--ubnt {
+  background-color: #dff6ff;
 }
 
 .cmuComments__header {
@@ -8805,7 +8849,7 @@ button .icon, .button .icon {
 
 .cmuComments__body {
   font-size: 0.8125rem;
-  line-height: 1.3rem;
+  line-height: 1.3125rem;
 }
 
 .cmuViewingCounter__count {
@@ -8815,6 +8859,10 @@ button .icon, .button .icon {
   border: 1px solid #969ba3;
   padding: 3px 12px;
   font-style: italic;
+}
+
+.cmuInputGroup {
+  margin-bottom: 1rem;
 }
 
 .cmuInputContainer {
@@ -8847,6 +8895,14 @@ button .icon, .button .icon {
 
 .cmuInput--wide {
   width: 100%;
+}
+
+.cmuInput--default input {
+  display: none;
+}
+.cmuInput--default span {
+  font-weight: 600;
+  color: #17191d !important;
 }
 
 .cmuInput--stacked:focus, .cmuInput--stacked:valid {
@@ -9086,6 +9142,164 @@ button .icon, .button .icon {
   cursor: pointer;
 }
 
+.cmuInput__checkbox {
+  /* hide default checkbox */
+  /* custom checkbox placeholder */
+  /* accessibility / focus outline color */
+  /* checkmark base style */
+}
+.cmuInput__checkbox input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: relative;
+  cursor: pointer;
+}
+.cmuInput__checkbox input[type="checkbox"]:before {
+  content: ' ';
+  display: block;
+  position: relative;
+  top: 0.1875rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #ebebeb;
+  background-color: #fafafa;
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+.cmuInput__checkbox input[type="checkbox"]:focus {
+  outline: 0;
+}
+.cmuInput__checkbox input[type="checkbox"]:focus:before {
+  border-color: #00a0df;
+}
+.cmuInput__checkbox input[type="checkbox"]:after {
+  content: '✔';
+  position: absolute;
+  margin-top: -0.71429rem;
+  margin-left: 0.25rem;
+  color: #fafafa;
+  font-size: 0.5625rem;
+  z-index: 100;
+  opacity: 0;
+}
+.cmuInput__checkbox input[type="checkbox"][disabled]:after {
+  opacity: 0;
+  background-color: #ebebeb;
+}
+.cmuInput__checkbox input[type="checkbox"][disabled] + span {
+  background-color: #ebebeb;
+}
+.cmuInput__checkbox input[type="checkbox"]:checked:before {
+  background-color: #00a0df;
+  border-color: #00a0df;
+}
+.cmuInput__checkbox input[type="checkbox"]:checked:after {
+  opacity: 1;
+}
+.cmuInput__checkbox input[type="checkbox"] + span {
+  color: #474b52;
+  cursor: pointer;
+}
+.cmuInput__checkbox input[type="checkbox"] + span:hover {
+  color: #00a0df;
+}
+.cmuInput__checkbox input[type="checkbox"]:checked + span {
+  color: #00a0df;
+}
+.cmuInput__checkbox input[type="checkbox"]:not(:checked) + span {
+  color: #474b52;
+}
+
+/*------------------------------------*\
+    #SELECT GROUP
+    - affects .cmuSort (sort dropdown)
+\*------------------------------------*/
+select {
+  background-color: white;
+  height: 2rem;
+  width: 100%;
+  -webkit-appearance: none !important;
+  background: white url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSAyNzguNjI3LDM3MC4zNDMgDQoJNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=") no-repeat;
+  background-position: right 0.6em top 0.6rem;
+  border: 1px solid #bebec0;
+  padding: 0 0.5rem;
+  color: #474b52;
+  font-size: 0.75rem;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-size: 16px 12px;
+}
+select:focus, select:active {
+  outline-color: transparent;
+  outline-style: none;
+}
+select:hover {
+  border-color: #00a0df;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Disabled select background */
+select:disabled {
+  background: #dddddd;
+}
+
+/*------------------------------------*\
+    #RADIO
+\*------------------------------------*/
+.cmuSearchbox {
+  text-align: right;
+}
+.cmuSearchbox::-webkit-input-placeholder {
+  color: #969ba3;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox:-moz-placeholder {
+  color: #969ba3;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox::-moz-placeholder {
+  color: #969ba3;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.cmuSearchbox:-ms-input-placeholder {
+  color: #969ba3;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+.cmuSearchbox input {
+  color: #17191d;
+  background-color: white;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  height: 2rem;
+  border: 1px solid #bbbbbd;
+  display: block;
+  font-size: 0.8125rem;
+  margin: 0 0 0.0625rem 0;
+  width: 100%;
+}
+.cmuSearchbox input:focus, .cmuSearchbox input:active {
+  outline-color: transparent;
+  outline-style: none;
+}
+.cmuSearchbox input:focus {
+  background: #fafafa;
+  border-color: #00a0df;
+}
+.cmuSearchbox input[disabled] {
+  background-color: #ebebeb;
+}
+
 .cmuImageMissing {
   display: block;
   width: 80px;
@@ -9173,55 +9387,26 @@ button .icon, .button .icon {
   border-bottom: 0;
 }
 
-.announcementThread__post {
-  margin-bottom: 0.5rem;
-}
-.announcementThread__post .cmuUserbadge {
-  border-top: 0;
-  border-left: 0;
-}
-.announcementThread__post .cmuMessage__container {
-  border: 0;
-}
-
-.announcementThread__post {
-  border: 1px solid #bbbbbd;
-}
-
-.announcementThread__controls {
-  display: inline-block;
-  vertical-align: top;
-}
-
 .cmuDiscussionsControls {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   display: block;
   border-bottom: 1px solid #bbbbbd;
-  padding-bottom: 6px;
+  padding-bottom: 0.5rem;
 }
 
 .cmuDiscussionsHeader {
-  float: left;
-  display: inline-block;
-}
-.cmuDiscussionsHeader h4, .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuDiscussionsHeader .timeline__year__title--text, .cmuDiscussionsHeader .timeline__year__title:after {
-  font-weight: bold;
-  font-size: 0.9375rem;
-  padding-right: 16px;
-  border-right: 1px solid #bbbbbd;
-  line-height: 14px;
-  vertical-align: bottom;
-  margin-top: 4px;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #474b52;
+  border-bottom-width: 2px;
 }
 
 .cmuDiscussionsNavbar {
   cursor: default;
-  display: inline-block;
-  margin-left: 1rem;
 }
 .cmuDiscussionsNavbar a {
-  font-size: 0.9375rem;
   font-weight: 300;
   text-transform: capitalize;
 }
@@ -9238,11 +9423,105 @@ button .icon, .button .icon {
   padding-left: 0;
 }
 
-.cmuThreadList__row__topic a {
-  color: black;
+.cmuFeatures__sidebar {
+  padding-right: 1rem;
 }
-.cmuThreadList__row__topic a:hover {
+
+.cmuFeatures__sidebar .cmuSearchbox {
+  margin-bottom: 1rem;
+}
+
+.cmuFeatures__threadlist__row {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #bbbbbd;
+}
+.cmuFeatures__threadlist__row:first-child {
+  margin-top: 1rem;
+}
+
+.cmuFeatures__votes {
+  text-align: center;
+  cursor: default;
+}
+
+.cmuFeatures__votes__count {
+  line-height: 1.4rem;
+  padding: 0.5rem;
+  padding-bottom: 2px;
+  background-color: #ebebeb;
+}
+
+.cmuFeatures__votes__caption {
+  background-color: #ebebeb;
+  padding-bottom: 0.5rem;
+  font-weight: 300;
+  vertical-align: bottom;
+}
+
+.cmuFeatures__votes__status {
+  padding: 0.5rem;
+  background-color: #ebebeb;
+  line-height: 1rem;
+}
+.cmuFeatures__votes__status.fixed {
+  background-color: #48af65;
+  color: #fafafa;
+}
+.cmuFeatures__votes__status.unspecified {
+  background-color: #81419f;
+  color: #fafafa;
+}
+.cmuFeatures__votes__status.pending {
+  background-color: #d6c633;
+  color: #fafafa;
+}
+.cmuFeatures__votes__status.inprogress {
+  background-color: #0074ad;
+  color: #fafafa;
+}
+.cmuFeatures__votes__status.invalid {
+  background-color: #d6c633;
+  color: #fafafa;
+}
+.cmuFeatures__votes__status.wontfix {
+  background-color: #474b52;
+  color: #fafafa;
+}
+
+.cmuFeatures__threadlist__body__content {
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+  line-height: 1.0625rem;
+  max-height: 2.625rem;
+  margin-bottom: 0.3125rem;
+  overflow: hidden;
+}
+
+.cmuFeatures__threadlist__body__title {
+  max-height: 1.3125rem;
+  overflow: hidden;
+  display: inline-block;
+}
+.cmuFeatures__threadlist__body__title a {
+  color: #474b52;
+}
+.cmuFeatures__threadlist__body__title a:hover {
   color: #00a0df;
+}
+
+.cmuFeatureDetails .cmuFeatures__votes__count {
+  padding: 0.5rem;
+}
+.cmuFeatureDetails .cmuFeatures__votes__count span {
+  vertical-align: bottom;
+  padding: 0;
+  padding-left: 0.25rem;
+  line-height: 1.5rem;
+  display: inline-block;
+}
+.cmuFeatureDetails .cmuFeatures__votes__status {
+  padding: 0.25rem;
 }
 
 .cmuStoryItem {
@@ -9288,7 +9567,7 @@ button .icon, .button .icon {
   line-height: 34px;
   border-radius: 100%;
   color: white;
-  background-color: #43ceae;
+  background-color: #3cccac;
   font-size: 18px;
 }
 
@@ -9741,6 +10020,26 @@ button .icon, .button .icon {
   cursor: pointer;
 }
 
+.announcementThread__post {
+  margin-bottom: 0.5rem;
+}
+.announcementThread__post .cmuUserbadge {
+  border-top: 0;
+  border-left: 0;
+}
+.announcementThread__post .cmuMessage__container {
+  border: 0;
+}
+
+.announcementThread__post {
+  border: 1px solid #bbbbbd;
+}
+
+.announcementThread__controls {
+  display: inline-block;
+  vertical-align: top;
+}
+
 /**
  * Typography.
  *
@@ -9827,806 +10126,6 @@ a.appIconInput__icon {
   /* [1] */
   margin-bottom: inherit;
   font-size: 0.8125rem;
-}
-
-.comGlobalHeader {
-  position: relative !important;
-  background-color: #11181c;
-  border-bottom: 1px solid #474b52;
-}
-
-.comGlobalFooter {
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.comGlobalFooter h4, .comGlobalFooter .timeline__year__title .timeline__year__title--text, .timeline__year__title .comGlobalFooter .timeline__year__title--text, .comGlobalFooter .timeline__year__title:after {
-  margin: 12px 0 4px;
-  color: #666;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-@media only screen and (min-width: 801px) {
-  .comGlobalFooter h4, .comGlobalFooter .timeline__year__title .timeline__year__title--text, .timeline__year__title .comGlobalFooter .timeline__year__title--text, .comGlobalFooter .timeline__year__title:after {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-}
-
-/*------------------------------------*\
-    #STATUS
-\*------------------------------------*/
-/**
- * Status colors.
- *
- * 1. Gray
- * 2. UBNT Blue
- * 3. Blue
- * 4. Green
- * 5. Yellow
- * 6. Red
- */
-/* [1] */
-/* [2] */
-/* [3] */
-/* [4] */
-/* [5] */
-/* [6] */
-/*------------------------------------*\
-    #DEFAULT
-\*------------------------------------*/
-/*------------------------------------*\
-    LINK
-\*------------------------------------*/
-/*------------------------------------*\
-    GLOBAL FOOTER
-\*------------------------------------*/
-/*------------------------------------*\
-    GLOBAL HEADER
-\*------------------------------------*/
-.comGlobalHeader .row, .comGlobalFooter .row {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
-}
-.comGlobalHeader .row .row, .comGlobalFooter .row .row {
-  padding-left: 0;
-  padding-right: 0;
-}
-@media screen and (min-width: 801px) {
-  .comGlobalHeader .row, .comGlobalFooter .row {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-@media screen and (min-width: 1041px) {
-  .comGlobalHeader .row, .comGlobalFooter .row {
-    padding-left: 89px;
-    padding-right: 89px;
-  }
-}
-
-/* Only mobile (phone) nav */
-/* Only tablet nav */
-/* Tablet nav breakpoint and below */
-/* Above tablet nav breakpoint */
-/*------------------------------------*\
-    #GlobalHeader
-\*------------------------------------*/
-.comGlobalHeader__navItem--Community {
-  background-color: #242931;
-}
-.comGlobalHeader__navItem--Community .comGlobalHeader__navItemLink {
-  color: #00a0df;
-}
-
-.comGlobalHeader__nav, .comGlobalHeader__logo {
-  border-bottom: 1px solid #474b52;
-}
-
-.comGlobalHeader__navItem--search {
-  border-right: 1px solid #474b52;
-}
-
-.comGlobalHeader__cmuItem {
-  display: inline-block;
-  line-height: 0;
-  padding: 0 0.5rem;
-  width: 45px;
-  text-align: center;
-  font-size: 20px !important;
-}
-
-.comGlobalHeader__login {
-  display: inline-block;
-  line-height: 0;
-  padding: 0 0.5rem;
-  text-align: center;
-  font-size: 12px;
-  background-color: #00a0df;
-  position: relative;
-  left: -3px;
-  padding: 0 !important;
-  -webkit-transition-property: background-color;
-  -moz-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.comGlobalHeader__login a {
-  color: #fafafa;
-  padding: 0 15px !important;
-}
-.comGlobalHeader__login:hover {
-  background-color: #0074ad;
-  -webkit-transition-property: background-color;
-  -moz-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.comGlobalHeader__register {
-  display: inline-block;
-  line-height: 0;
-  padding: 0 0.5rem;
-  text-align: center;
-  font-size: 12px;
-  padding: 0 !important;
-  -webkit-transition-property: background-color;
-  -moz-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.comGlobalHeader__register a {
-  padding: 0 15px !important;
-}
-
-.comGlobalHeader__cmuItem--inbox {
-  top: 3px;
-  position: relative;
-}
-
-.comGlobalHeader__cmuItem--notifications {
-  top: 5px;
-  position: relative;
-}
-
-.comGlobalHeader__cmuItem--avatar {
-  width: 60px;
-  cursor: pointer;
-}
-.comGlobalHeader__cmuItem--avatar:hover:after {
-  background: #ebebeb;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.comGlobalHeader__cmuItem--avatar:after {
-  content: ' ';
-  display: block;
-  background: #969ba3;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  top: 11px;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.comGlobalHeader__cmuItemLink {
-  display: block;
-  font-size: 1.2rem;
-  color: #aeb4b7;
-}
-.comGlobalHeader__cmuItemLink:hover {
-  color: white;
-}
-.comGlobalHeader__cmuItemLink:focus {
-  color: #aeb4b7;
-}
-.comGlobalHeader__cmuItemLink.is-link-selected {
-  color: #00a0df;
-}
-
-.comGlobalHeader {
-  position: fixed;
-  z-index: 60;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 57px;
-  backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-@media only screen and (max-width: 890px) {
-  .comGlobalHeader {
-    height: 48px;
-  }
-}
-
-.comGlobalHeader__content {
-  background-color: #17191d;
-  height: 56px;
-  width: 100%;
-  position: relative;
-  left: 0;
-  display: table;
-  margin: 0 auto;
-  -webkit-transition-property: left;
-  -moz-transition-property: left;
-  -o-transition-property: left;
-  transition-property: left;
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
-@media only screen and (max-width: 890px) {
-  .comGlobalHeader__content {
-    height: 48px;
-  }
-  .comGlobalHeader__content > .comGlobalHeader__logo {
-    height: 48px;
-  }
-  .comGlobalHeader__content > .comGlobalHeader__logo > .icon {
-    top: -16px;
-  }
-  .comGlobalHeader__content > .comGlobalHeader__nav {
-    display: none;
-  }
-}
-
-/* LOGO */
-/*
-* 1. Custom breakpoints for logo hover animation 
-*/
-.comGlobalHeader__logo {
-  display: table-cell;
-  width: 57px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1.8rem;
-  color: white;
-  background-color: #17191d;
-  line-height: 0;
-  overflow: hidden;
-  height: 57px;
-  -webkit-transition-property: width;
-  -moz-transition-property: width;
-  -o-transition-property: width;
-  transition-property: width;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.comGlobalHeader__logo:hover {
-  color: white;
-}
-@media only screen and (min-width: 1150px) {
-  .comGlobalHeader__logo:hover {
-    width: 132px;
-  }
-  .comGlobalHeader__logo:hover > .icon {
-    width: 105px;
-  }
-}
-.comGlobalHeader__logo:focus {
-  color: white;
-}
-.comGlobalHeader__logo > .icon {
-  position: absolute;
-  top: -11px;
-  left: 7px;
-  margin-left: 8px;
-  display: inline-block;
-  overflow: hidden;
-  height: 67px;
-  width: 32px;
-  font-size: 4.125rem;
-  -webkit-transition-property: width;
-  -moz-transition-property: width;
-  -o-transition-property: width;
-  transition-property: width;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-/* NAV */
-.comGlobalHeader__nav {
-  vertical-align: middle;
-  padding: 0 0 0 11px;
-  list-style: none;
-  background-color: #11181c;
-  display: none;
-}
-@media only screen and (min-width: 891px) {
-  .comGlobalHeader__nav {
-    display: table-cell;
-  }
-}
-
-/* SUB NAV */
-.comGlobalHeader__subNav {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0 auto;
-  padding-left: 93px;
-  z-index: -1;
-  background-color: #11181c;
-  line-height: 1;
-  border-top: 1px solid #212E35;
-  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
-  -webkit-transition-property: top;
-  -moz-transition-property: top;
-  -o-transition-property: top;
-  transition-property: top;
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.comGlobalHeader__subNav .comGlobalHeader__navItem {
-  text-transform: none;
-  letter-spacing: 1.5px;
-  margin-right: 24px;
-}
-
-/* NAV RIGHT */
-.comGlobalHeader__navRight {
-  text-align: right;
-  padding-left: 0;
-}
-
-/* NAV ITEM */
-.comGlobalHeader__navItem {
-  letter-spacing: 1.75px;
-  padding-left: 15px;
-  padding-right: 15px;
-  text-transform: uppercase;
-  /* 
-    When a navItem has a subNav and is selected
-  */
-}
-.comGlobalHeader__navItem.is-nav-item-selected > .comGlobalHeader__navItemLink {
-  color: white;
-  border-bottom: 1px solid #00a0df;
-}
-.comGlobalHeader__navItem.is-nav-item-selected .comGlobalHeader__subNav {
-  top: 57px;
-}
-@media only screen and (min-width: 801px) {
-  .comGlobalHeader__navItem {
-    display: inline-block;
-    line-height: 56px;
-  }
-}
-
-/* Mobile Menu Item (hamburger) */
-.comGlobalHeader__navItemMobile {
-  display: table-cell;
-  text-align: right;
-  padding: 0 1em 0 0;
-  vertical-align: middle;
-  line-height: 48px;
-}
-@media only screen and (min-width: 891px) {
-  .comGlobalHeader__navItemMobile {
-    display: none;
-  }
-}
-.comGlobalHeader__navItemMobile .comGlobalHeader__navItemLink {
-  font-size: 1.6rem;
-  color: #FFFFFF;
-}
-.comGlobalHeader__navItemMobile .comGlobalHeader__navItemLink:hover {
-  color: #00a0df;
-}
-
-/* NAV LINK */
-.comGlobalHeader__navItemLink {
-  display: block;
-  font-size: 1.5rem;
-  color: #aeb4b7;
-}
-.comGlobalHeader__navItemLink:hover {
-  color: white;
-}
-.comGlobalHeader__navItemLink:focus {
-  color: #aeb4b7;
-}
-.comGlobalHeader__navItemLink.is-link-selected {
-  color: #00a0df;
-}
-@media only screen and (min-width: 801px) {
-  .comGlobalHeader__navItemLink {
-    font-size: 0.71875rem;
-  }
-}
-
-/* SEARCH FORM */
-.comGlobalHeader__navItemSearchForm {
-  letter-spacing: 0;
-  width: 0;
-  display: inline-block;
-  overflow: hidden;
-  line-height: 1;
-  vertical-align: middle;
-  margin: 0 0.7em;
-  -webkit-transition-property: width;
-  -moz-transition-property: width;
-  -o-transition-property: width;
-  transition-property: width;
-  -webkit-transition-duration: 0.35s;
-  -moz-transition-duration: 0.35s;
-  -o-transition-duration: 0.35s;
-  transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease-out;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  /* 
-    1. tablet breakpoint 
-    At this breakpoint the search form will overlap the navRight
-  */
-}
-.comGlobalHeader__navItemSearchForm.is-nav-search-expanded {
-  width: 226px;
-}
-@media only screen and (min-width: 890px) and (max-width: 1090px) {
-  .comGlobalHeader__navItemSearchForm {
-    /* [1] */
-    position: absolute;
-    top: 12px;
-    right: 47px;
-  }
-}
-
-/* SEARCH ICON */
-.comGlobalHeader__navItemSearch {
-  vertical-align: -2px;
-  /* 
-    1. tablet breakpoint 
-    Maintain spacing since navItemSearchForm will now be positioned absolute
-  */
-}
-@media only screen and (min-width: 890px) and (max-width: 1090px) {
-  .comGlobalHeader__navItemSearch {
-    /* [1] */
-  }
-}
-.comGlobalHeader__navItemSearch .comGlobalHeader__navItemLink {
-  font-size: 0.96875rem;
-}
-.comGlobalHeader__navItemSearch.is-nav-search-expanded .comGlobalHeader__navItemLink {
-  color: white;
-}
-
-/* MOBILE CONTENT */
-.comGlobalHeader__mobileContent {
-  display: block;
-  position: fixed;
-  width: 100%;
-  overflow: scroll;
-  padding-bottom: 2em;
-  padding-left: 3.9em;
-  top: 48px;
-  bottom: 0;
-  left: 100%;
-  background-color: #11181c;
-  -webkit-overflow-scrolling: touch;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition-property: left;
-  -moz-transition-property: left;
-  -o-transition-property: left;
-  transition-property: left;
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  /* Hide mobile nav when above tablet nav breakpoint */
-  /* SECONDARY NAV ITEMS */
-  /* MOBILE SEARCH */
-}
-.comGlobalHeader__mobileContent.is-mobile-nav-expanded {
-  left: 0;
-}
-@media only screen and (min-width: 891px) {
-  .comGlobalHeader__mobileContent {
-    display: none;
-  }
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__nav {
-  display: block;
-  margin-bottom: 3.2rem;
-  border-bottom: 1px solid #272C31;
-  padding-left: 0;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__subNav {
-  position: relative;
-  z-index: 0;
-  border: 0 none;
-  box-shadow: none;
-  padding-left: 2.5em;
-  margin-top: 1.2em;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  height: 0;
-  display: none;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItem {
-  margin-bottom: 1.2em;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItemLink {
-  color: #aeb4b7;
-  font-size: 1.2rem;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__subNav .comGlobalHeader__navItemLink:hover {
-  color: white;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItem {
-  margin-bottom: 1.4em;
-  margin-right: 0;
-  display: list-item;
-  letter-spacing: 0;
-  line-height: 1;
-  /* mobile subnav expanded */
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected > .comGlobalHeader__navItemLink {
-  color: inherit;
-  border-bottom: 0 none;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .comGlobalHeader__subNav {
-  top: 0;
-  height: auto;
-  display: block;
-  -webkit-transition-property: height;
-  -moz-transition-property: height;
-  -o-transition-property: height;
-  transition-property: height;
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .ubnt-icon--pointer-down {
-  display: none;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItem.is-nav-item-selected .ubnt-icon--pointer-up {
-  display: block;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemIcon {
-  margin-right: 0.3em;
-  font-size: 1.8rem;
-  color: #87898B;
-  vertical-align: middle;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemSecondary .comGlobalHeader__navItemLabel {
-  color: #848484;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemSecondary .comGlobalHeader__navItemLabel:hover {
-  color: white;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink {
-  width: 100%;
-  display: inline-block;
-  font-size: 1rem;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink > .comGlobalHeader__subNavIcon {
-  color: #aeb4b7;
-  float: right;
-  margin-right: 1rem;
-  padding-top: 0.4em;
-  font-size: 1rem;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemLink .ubnt-icon--pointer-up {
-  display: none;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemLabel {
-  color: #FFFFFF;
-  font-size: 1.2rem;
-  vertical-align: middle;
-  letter-spacing: 0.5px;
-}
-.comGlobalHeader__mobileContent .comGlobalHeader__navItemSearchForm {
-  position: relative;
-  padding-top: 1.4em;
-  margin-left: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: auto;
-  display: block;
-}
-
-/*------------------------------------*\
-    #GlobalFooter
-\*------------------------------------*/
-.comGlobalFooter {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  padding: 0 0 24px 0;
-  text-align: center;
-  background-color: #fafafa;
-  display: none;
-}
-@media only screen and (min-width: 891px) {
-  .comGlobalFooter {
-    display: block;
-  }
-}
-
-.comGlobalFooter__border {
-  border-top: 1px solid #cccccc;
-  padding-top: 48px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-@media only screen and (max-width: 800px) {
-  .comGlobalFooter__border {
-    display: none;
-  }
-}
-@media only screen and (min-width: 1041px) {
-  .comGlobalFooter__border {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-.comGlobalFooter__col {
-  width: 20%;
-}
-
-.comGlobalFooter__icon {
-  color: #00a0df;
-  font-size: 2.5rem;
-}
-
-.comGlobalFooter__newsIcon {
-  font-size: 2.125rem;
-}
-
-.comGlobalFooter__title {
-  margin: 12px 0 4px;
-  color: #666666;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.comGlobalFooter__newsTitle {
-  margin-top: 18px;
-}
-
-.comGlobalFooter__legal {
-  text-align: center;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  padding-top: 24px;
-  color: #666666;
-  padding-bottom: 24px;
-  margin: 0;
-}
-@media only screen and (min-width: 801px) {
-  .comGlobalFooter__legal .comGlobalFooter__border {
-    padding-top: 24px;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .comGlobalFooter__legal .comGlobalFooter__border {
-    border-top: none;
-  }
-}
-
-.comGlobalFooter--noTopBorder .comGlobalFooter {
-  padding-top: 48px;
-}
-.comGlobalFooter--noTopBorder .comGlobalFooter__border {
-  display: none;
-}
-
-/**
- * Plain link
- */
-a,
-.comLink {
-  color: #00a0df;
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-  background: transparent;
-  -webkit-transition: 0.35s;
-  -moz-transition: 0.35s;
-  -o-transition: 0.35s;
-  transition: 0.35s;
-}
-a:hover,
-.comLink:hover {
-  color: #17191d;
-}
-a.is-link-selected,
-.comLink.is-link-selected {
-  color: #00a0df;
-}
-a:hover, a:focus,
-.comLink:hover,
-.comLink:focus {
-  outline: none;
-}
-
-.comLink--secondary {
-  color: #17191d;
-}
-.comLink--secondary:hover, .comLink--secondary.is-link-selected {
-  color: #00a0df;
-}
-
-.comLink--reverse {
-  color: white;
-}
-.comLink--reverse:hover, .comLink--reverse.is-link-selected {
-  color: white;
 }
 
 .cmuTooltipster {
@@ -10964,7 +10463,4 @@ input {
 }
 .sg_color-swatches .color-ltgray {
   background-color: #ebebeb;
-}
-.sg_color-swatches .color-xltgray {
-  background-color: #fafafa;
 }

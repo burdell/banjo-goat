@@ -72,6 +72,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	border-left: $cmu-style-border-thin-dark; 
 	padding: $cmu-base;
 	padding-top: $cmu-base/2;
+	background-color: $cmu-color-post;
 }
 
 .cmuMessage__header {
@@ -123,7 +124,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	min-height: $cmu-thread-message-height;
 
 	font-size: $cmu-size-normal;
-	line-height: $cmu-size-normal-line-height;
+	line-height: $cmu-size-normal--line-height;
 
 	// not sure about x-browser support
 	// br is notoriously weird
@@ -181,8 +182,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	border: $cmu-line-thin solid $cmu-color-ltgray;
 	padding: $cmu-base*2;
 	padding-top: $cmu-base/4;
-	font-size: $cmu-size-xsmaller;
-	line-height: $cmu-size-xsmaller-line-height;
+	@extend %size-xsmaller;
 	margin-bottom: $cmu-base/2;
 
 	max-height: $cmu-base*3; 

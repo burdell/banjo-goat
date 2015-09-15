@@ -1,5 +1,6 @@
-<div class="row" id="{{ messageDisplay.message.id }}">
+<div id="{{ messageDisplay.message.id }}">
 	<div class="cmuMessage__container">
+		
 		<community-user-badge 
 			user="messageDisplay.message.author"
 			op-id="messageDisplay.showOp">
@@ -48,12 +49,12 @@
 
 			<div class="cmuMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
 			</div>
-
+<!-- 
 			<div class="cmuMessage__signature">
 				<div>
 					WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

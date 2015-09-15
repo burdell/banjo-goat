@@ -5,6 +5,33 @@
 // @searchbox
 // 
 
+// We use this to set the base for lots of form spacing and positioning styles
+$cmu-searchbox-form-spacing: remCalc($cmu-base) !default;
+
+// We use these to style the labels in different ways
+$cmu-searchbox-font-family: inherit !default;
+$cmu-searchbox-font-size: $cmu-input-font-size;
+$cmu-searchbox-border-radius: 0 !default;
+$cmu-searchbox-box-shadow: none;
+
+// We use this to style the glowing effect of inputs when focused
+$cmu-searchbox-glowing-effect-fade-time: 0.45s !default;
+
+
+
+// 
+// COLORS
+// 
+
+$cmu-searchbox-font-color: $cmu-color-mdgray;
+$cmu-searchbox-background-color: $cmu-color-purewhite;
+$cmu-searchbox-focus-background-color: $cmu-primary-background-color;
+$cmu-searchbox-border-color: #bebec0;
+$cmu-searchbox-focus-border-color: $cmu-primary-link-color;
+$cmu-searchbox-disabled-background-color: #dddddd;
+
+
+
 .cmuSearchbox { 
   // padding: $cmu-base 0;
 

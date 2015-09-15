@@ -1,4 +1,5 @@
 <select 
+class="cmuSort"
 ng-model="sorter.sortValue"
 ng-change="sorter.sort()">
 	  <option ng-repeat="option in sorter.sortOptions" value="{{ option.value }}" ng-selected="option.value == sorter.sortValue || option.default">

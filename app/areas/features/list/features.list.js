@@ -45,6 +45,9 @@
 		_.extend(ctrl, {
 			messageSortOptions: dataService.MessageSort,
 			featuresListFilter: featuresListFilter,
+			getStatusCode: function(statusType){
+				return statusTypes[statusType].code;
+			},
 			getStatusText: function(statusType){
 				return statusTypes[statusType].display;
 			},

@@ -18,24 +18,24 @@
 				<div class="cmuPulse__counter cmuPulse__total">
 					<div><span class="icon ubnt-icon--pencil-2"></span></div>
 					<div><span class="cmuPulse__count">123,456</span></div>
-					<div><span class="">Total<br>Posts</span></div>
+					<div><span class="">Total</span></div>
 				</div>
 				<div class="cmuPulse__counter cmuPulse__members">
-					<div><span class="icon ubnt-icon--user"></span></div>
+					<div><span class="icon ubnt-icon--users"></span></div>
 					<div><span class="cmuPulse__count">3,456</span></div>
-					<div><span class="">Total<br>Members</span></div>
+					<div><span class="">Members</span></div>
 					
 				</div>
 				<div class="cmuPulse__counter cmuPulse__online">
-					<div><span class="icon ubnt-icon--world"></span></div>
+					<div><span class="icon ubnt-icon--ap-airos"></span></div>
 					<div><span class="cmuPulse__count">3,456</span></div>
-					<div><span class="">Users<br>Online</span></div>
+					<div><span class="">Online</span></div>
 					
 				</div>
 				<div class="cmuPulse__counter cmuPulse__recent">
-					<div><span class="icon ubnt-icon--calendar-3"></span></div>
+					<div><span class="icon ubnt-icon--chat-bubbles-2"></span></div>
 					<div><span class="cmuPulse__count">456</span></div>
-					<div><span class="">Recent<br>Posts</span></div>
+					<div><span class="">Recent</span></div>
 					
 				</div>
 			</div>
@@ -43,9 +43,9 @@
 	</div>
 
 
+	<!-- sidebar -->
 	<div class="row">
-		<!-- sidebar -->
-		<div class="cmuDirectory__sidebar cmuSidebar col--md3 noPadding">
+		<div class="cmuDirectory__sidebar cmuSidebar col--md3">
 			<div class="cmuDirectory__sidebar__main" ng-repeat="section in ::vm.directoryList">
 				<div class="cmuDirectory__sidebar__headline">{{ section.header }}</div>
 
@@ -76,27 +76,30 @@
 				<div class="cmuDirectory__content container noPadding" ng-repeat="discussion in ::section.list | filter:vm.manualExclude | orderBy: 'name'">
 				
 					<div class="cmuDirectory__content__main">
-						<div class="cmuDirectory__content__title">{{ discussion.name }}</div>
-						<div ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
-							<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }} Hub</a>
+						<!-- <div class="cmuDirectory__content__title">{{ discussion.name }}</div> -->
+						<div class="cmuDirectory__content__title" ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
+							<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }}</a>
 						</div>
-						<div ng-if="section.header === 'Community'">
+						<div class="cmuDirectory__content__title" ng-if="section.header === 'Community'">
 							<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }} Forum</a>
 						</div>
-						<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
-							<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
-							<span ng-if="!$last">&nbsp;/&nbsp;</span>
-						</span>
+
+						<div class="cmuDirectory__content__list">
+							<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
+								<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
+								<span ng-if="!$last">&nbsp;/&nbsp;</span>
+							</span>
+						</div>
 					</div>
 
 					<div class="cmuDirectory__content__right">
 						<div class="cmuDirectory__users">
 							<div class="cmuDirectory__count">1,234</div>
-							<div class="cmuDirectory__label">Users<br>Online</div>
+							<div class="cmuDirectory__label">Online</div>
 						</div>
 						<div class="cmuDirectory__posts">
 							<div class="cmuDirectory__count">1,234</div>
-							<div class="cmuDirectory__label">Recent<br>Posts</div>
+							<div class="cmuDirectory__label">Recent Posts</div>
 						</div>
 					</div>
 				</div>

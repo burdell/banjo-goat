@@ -33,6 +33,13 @@
     	background-size: contain;
 	}
 
+	// inline with text, used esp. with kudos
+	.cmuIcon--inline {
+		height: $cmu-base*3/4;
+		width: $cmu-base*3/4;
+    	vertical-align: sub;
+	}
+
 	// sizing for filters
 	.cmuIcon--filter {    
 		width: 40px;
@@ -55,28 +62,41 @@
 
 
 
-.cmuIcons-pin {
+.cmuIcon-pin {
 	@extend .cmuIcon;
 	// background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTI5MiAzODQgMjYgMjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTI5MiAzODQgMjYgMjYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBpZD0iUGFnZS0xIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj48ZyBpZD0iT3ZhbC0yNy1feDJCXy1TaGFwZS1Db3B5IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj48Y2lyY2xlIGlkPSJPdmFsLTI3IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBmaWxsPSIjNDc0QjUyIiBjeD0iLTI3OSIgY3k9IjM5NyIgcj0iMTMiPjwvY2lyY2xlPjxwYXRoIGlkPSJTaGFwZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgZmlsbD0iI0ZGRkZGRiIgZD0iTS0yNzcuNCw0MDIuNWwwLjMtMi40bDAsMGw1LTYuNmwtMy41LTMuNWwtNi42LDVsMCwwbC0yLjQsMC4zbDMsM2wtNC40LDVsMC42LDAuNmw1LTQuNEwtMjc3LjQsNDAyLjV6Ii8+PC9nPjwvZz48L3N2Zz4=);
+	background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2220%22%20viewBox%3D%220%200%2018%2020%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M11.1167%2017.8142l.402-3.3696-.0034-.003L18%204.954%2013.496%200%204.872%207.132l-.0013.0104-3.075.4395%203.937%204.3212L0%2018.9928l.7344.8072%206.4447-6.3074%203.9377%204.3216z%22%20fill%3D%22%23474B52%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
 
 	// background-image: icon('pin', black, 'width="612" height="632" viewBox="-292 384 26 26"');
 	
 	&:before { // hover state
 		@extend .cmuIcon--hoverOff;
 		@extend .cmuIcon--small;
-		background-image: icon('pin', red);
+		// background-image: icon('pin', red);
 	}
 }
 
+// used to represent a kudo
+.cmuIcon-star, .cmuIcon-kudos {
+	@extend .cmuIcon;
+	background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.823%204.707L6.015%201.05%204.207%204.708l-4.037.59L3.095%208.14l-.69%204.024%203.61-1.898%203.61%201.898L8.94%208.14l2.92-2.843-4.037-.59z%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+
+	&:before { // hover state
+		@extend .cmuIcon--hoverOff;
+		@extend .cmuIcon--inline;
+		// background-image: icon('pin', red);
+	}
+}
 
 // cmuIcon
 // <svg xmlns="http://www.w3.org/2000/svg" viewBox="-292 384 26 26"><circle fill="#474B52" cx="-279" cy="397" r="13"/><path fill="#FFF" d="M-277.4 402.5l.3-2.4 5-6.5-3.6-3.5-6.6 5-2.4.3 3 3-4.4 5 .6.6 5-4.5 3 3z"/></svg>
 
 
-
+// 
 
 //  
-// Product Platform ICons
+// Product Platform Icons
+// - used on the dropdown nav and other locations
 // 
 $cmuIcon-platformHeight: $cmu-base * 1.2;
 

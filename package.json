@@ -28,6 +28,7 @@
     "express": "^4.12.3",
     "glob": "^4.4.2",
     "gulp": "^3.8.11",
+    "gulp-cachebust": "0.0.6",
     "gulp-compass": "^2.0.4",
     "gulp-concat": "^2.5.2",
     "gulp-ext-replace": "^0.2.0",

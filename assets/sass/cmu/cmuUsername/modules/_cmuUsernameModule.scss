@@ -7,8 +7,6 @@
 // This module is used with the shared username module
 // Usernames appear in thread lists, in threads, and in many different areas around community
 
-
-// maybe use fittext?
 .cmuUsername {
 	display: inline-block;
 
@@ -19,11 +17,15 @@
 		color: white;
 		// padding: $cmu-base/3;
 		position: relative;
-		top: -2px;
+		top: -1px;
 		
 		&.ubnt-icon--u {
-			padding: $cmu-base/3;
+			padding: $cmu-base/4;
 		}
+	}
+
+	a {
+		@extend %style-link--dark;
 	}
 
 }

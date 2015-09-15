@@ -34,20 +34,20 @@
 	position: relative;
 	text-transform: uppercase;
 	color: $cmu-color-white;
-	background-color: $cmu-color-xmdgray;
-	font-size: $cmu-size-larger;
-	line-height: $cmu-size-larger-line-height;
+	background-color: $cmu-color-mdgray;
+	font-size: $cmu-size-large;
+	line-height: $cmu-size-larger--line-height;
 
 	&:before {
 		content :' ';
 		display: block;
 		position: absolute;
 		right: -10px;
-		top: $cmu-base/2;
+		top: $cmu-base/4;
 
     	border-top: 20px solid transparent;
 		border-bottom: 20px solid transparent;
-		border-left: 20px solid $cmu-color-xmdgray;;
+		border-left: 20px solid $cmu-color-mdgray;
 		line-height: 0;
 	}
 }
@@ -81,13 +81,14 @@
 		padding: $cmu-base/2;
 		background-color: $cmu-color-xmdgray;
 		border-radius: 500px;
-		margin-right: $cmu-base/2;
+		// margin-right: $cmu-base/2;
 
 		position: relative;
 		top: 2px;
 	}
 }
 	.cmuPulse__counter {
+		padding-right: $cmu-base;
 		div {
 			display: table-cell;
 			vertical-align: middle;

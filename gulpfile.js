@@ -80,7 +80,9 @@ gulp.task('clean', function(){
 //
 
 function areaBuilder(taskFn){
-    var areas = ['forums', 'announcements', 'stories', 'directory', 'features'];
+    // crashes everything
+    // var areas = ['forums', 'announcements', 'stories', 'directory', 'features'];
+    var areas = [ 'forums', 'announcements', 'features'];
 
     _.each(areas, function(areaName){
         taskFn(areaName);

@@ -7,10 +7,19 @@
 $cmu-thread-message-height:	$cmu-base * 3;
 
 
-// SUBJECT
-.cmuThread__subject h3 {
-	margin-bottom: $cmu-vertical-rhythm;
+.cmuThread__firstPost {
+	padding: $cmu-base;
+	margin-bottom: $cmu-vertical-rhythm/2;
+    border: $style-line;
+    background-color: $cmu-color-post;
 }
+
+// Subject
+.cmuThread__subject h3 {
+	// margin-bottom: $cmu-vertical-rhythm;
+	line-height: $cmu-base*2;
+}
+
 	// Active Thread
 	.cmuThread__subject--active {
 		h3:before {
@@ -32,18 +41,48 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		h3:after {
 			font-size: $cmu-size-large;
 			font-family: 'ubnt';
-			content: '\e787';
+			content: '\e78e';
 			display: inline-block;
 			padding: $cmu-base/6 $cmu-base/2;
 			color: $cmu-color-gray;
 			// font-size: $cmu-size-xxsmaller;
+			position: absolute; // remove it from flow
+			top: -4px;
 		}
 	}
 
+// Stats, used for announcements, feature bugs, etc.
+.cmuThread__stats {
+	@extend %type-info;
+	margin: $cmu-base/2 0;
+}
+	
+	.cmuThread__stat {
+		display: inline-block;
+		padding: $cmu-base/4 $cmu-base/2;
+		background: $cmu-color-bg;
+		margin-right: $cmu-base/2;
+		line-height: $cmu-base;
+	}
+
+	.cmuThread__stat__desc {
+		padding-right: $cmu-base/4;
+	}
+
+	.cmuThread__stat__status {
+		font-weight: 600;
+	}
+
+
+// Author (if it applies)
+.cmuThread__author {
+	// margin-top: -$cmu-base; //moved up only if author applies, otherwise margin pushes content down
+	margin-bottom: $cmu-base;
+}
 
 // pagination and filter area
 .cmuThread__controls {
-	margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm/2;
 }
 
 

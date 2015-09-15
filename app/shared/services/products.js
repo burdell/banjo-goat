@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var products = function($q, iconService, nodeService){
+	var products = function($q, nodeService){
 		return {
 			_productList: null,
 			getProductList: function(){
@@ -26,6 +26,7 @@
 			}
 		};
 	};
+	products.$inject = ['$q', 'CommunityNodeService'];
 	products.$inject = ['$q', 'CommunityNodeService', 'CommunityIconService'];
 
 	angular.module('community.services')
