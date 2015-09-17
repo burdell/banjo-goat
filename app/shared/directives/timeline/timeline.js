@@ -34,6 +34,11 @@
 				},
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);
+				},
+				go: function(data) {
+					// Jan: sorry I added this hack :)
+					window.location.href = this.hrefFn(data);
+					// $state.go('forums.message', { messageId: message.id });
 				}
 			});
 		};

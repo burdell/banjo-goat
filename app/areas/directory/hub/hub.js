@@ -2,6 +2,7 @@
 	'use strict';
 
 	var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routingService, hubData){
+
 		var ctrl = this;
 
 		var nodeUrl = null;
@@ -33,7 +34,7 @@
 		function getForumData(availableForums) {
 			var callList = [];
 			_.each(availableForums, function(forum) {
-				ctrl.forumMetaData.push({ 
+				ctrl.forumMetaData.push({
 					name: forum.name,
 					description: forum.description,
 					urlCode: forum.urlCode,
@@ -49,7 +50,6 @@
 		};
 
 		var forumOrder = ['Alpha', 'Beta', 'General'];
-
 		_.extend(ctrl, {
 			featuredStory: hubData.stories.shift(),
 			moreStories: hubData.stories,

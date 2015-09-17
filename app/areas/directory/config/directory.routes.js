@@ -22,6 +22,7 @@
 				controller: 'Hub as vm',
 				resolve: {
 					HubData: ['$stateParams', '$q', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, $q, communityApi, routingService){
+
 						var nodeHasStories = function() {
 							return $stateParams.nodeId.indexOf('airCRM') < 0;
 						};

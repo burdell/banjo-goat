@@ -83,6 +83,7 @@
 			<div class="row">
 				<div ng-repeat="forum in vm.forumMetaData">
 					<h5>{{ forum.description }} Discussions</h5>
+
 					<div ng-if="vm.forumMessages[$index].collection.length > 0">
 						 <table>
 					        <thead>

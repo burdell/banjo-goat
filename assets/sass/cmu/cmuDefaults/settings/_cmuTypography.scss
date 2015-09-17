@@ -1,0 +1,201 @@
+
+
+// 
+// TYPOGRAPHY
+// 
+
+%font-lato {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+// for data
+%font-oswald {
+	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
+}
+
+
+
+// 
+// Overall Typography Definitions
+// 
+
+body {
+	font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-size: $cmu-base;
+	@include fontSmoothing(subpixel-antialiased);
+}
+
+
+
+// 
+// SIZES
+// Base typography size definitions
+// 
+
+$cmu-size-largestest: remCalc(32px);
+$cmu-size-largestest--line-height: remCalc(48px);
+%size-largestest { font-size: $cmu-size-largestest; line-height: $cmu-size-largestest--line-height;}
+
+$cmu-size-largest: remCalc(24px);
+$cmu-size-largest--line-height: remCalc(33px);
+%size-largest { font-size: $cmu-size-largest; line-height: $cmu-size-largest--line-height;}
+
+// used for headlines
+$cmu-size-larger: remCalc(19px);
+$cmu-size-larger--line-height: remCalc(26px);
+%size-larger { font-size: $cmu-size-larger; line-height: $cmu-size-larger--line-height;}
+
+// standard display sizes, topics, subjects, etc.
+// used to be normal
+$cmu-size-large: remCalc(16px);
+$cmu-size-large--line-height: remCalc(24px);
+%size-large { font-size: $cmu-size-large; line-height: $cmu-size-large--line-height;}
+
+// 13px is used for body / standard paragraph text
+$cmu-size-normal: remCalc(13px);
+$cmu-size-normal--line-height: remCalc(21px);
+%size-normal { font-size: $cmu-size-normal; line-height: $cmu-size-normal--line-height;}
+
+// used for status messages, "et cetera messages" 
+$cmu-size-smaller: remCalc(12px);
+$cmu-size-smaller--line-height: remCalc(18px);
+%size-smaller { font-size: $cmu-size-smaller; line-height: $cmu-size-smaller--line-height;}
+
+$cmu-size-xsmaller: remCalc(11px);
+$cmu-size-xsmaller--line-height: remCalc(19px);
+%size-xsmaller { font-size: $cmu-size-xsmaller; line-height: $cmu-size-xsmaller--line-height;}
+
+// used for tags, and really small things
+$cmu-size-xxsmaller: remCalc(9px);
+$cmu-size-xxsmaller--line-height: remCalc(14px);
+%size-xxsmaller { font-size: $cmu-size-xxsmaller; line-height: $cmu-size-xxsmaller--line-height;}
+
+
+// avatar size
+$cmu-size-avatar: $cmu-base * 2.5;
+
+
+// 
+// DEFAULT STYLES
+// Base typography size definitions
+// 
+
+$cmu-size-h1: $cmu-size-largestest; 
+$cmu-size-h1--line-height: $cmu-size-largestest--line-height;
+	h1, %h1 {
+		font-size: $cmu-size-h1;
+		line-height: $cmu-size-h1--line-height;
+		font-weight: 300;
+	}
+
+
+$cmu-size-h2: $cmu-size-largest;
+$cmu-size-h2--line-height: $cmu-size-largest--line-height;
+	h2, %h2 {
+		font-size: $cmu-size-h2;
+		line-height: $cmu-size-h2--line-height;
+		font-weight: 400;
+	}
+
+$cmu-size-h3: $cmu-size-larger;
+$cmu-size-h3--line-height: $cmu-size-larger--line-height;
+	h3, %h3 {
+		font-size: $cmu-size-h3;
+		line-height: $cmu-size-h3--line-height;
+		font-weight: 600;
+		color: $cmu-color-dkgray;
+	}
+
+$cmu-size-h4: $cmu-size-larger;
+$cmu-size-h4--line-height: $cmu-size-larger--line-height;
+	h4, %h4 {
+		font-size: $cmu-size-h4;
+		line-height: $cmu-size-h4--line-height;
+		font-weight: 300;
+		color: $cmu-color-dkgray;
+}
+
+$cmu-size-h5: $cmu-size-normal;
+$cmu-size-h5--line-height: $cmu-size-normal--line-height;
+	h5, %h5 {
+		font-size: $cmu-size-h5;
+		line-height: $cmu-size-h5--line-height;
+	}
+
+
+$cmu-size-h6: $cmu-size-smaller;
+$cmu-size-h6--line-height: $cmu-size-smaller--line-height;
+	h6, %h6 {
+		font-size: $cmu-size-h6;
+		line-height: $cmu-size-h6--line-height;
+		font-weight: 400;
+		color: $cmu-color-dkgray;
+		font-style: italic;
+	}
+
+
+
+$cmu-base-spacing-unit: $cmu-base;
+
+
+
+
+
+// 
+// CONTEXTUAL TYPOGRAPHY STYLES
+// try to use these instead of just setting new sizes
+// 
+
+// base size for copy (13px)
+.type-base, %type-base {
+	font-size: $cmu-size-normal;
+	line-height: $cmu-size-normal--line-height;
+}
+
+// base size for minor copy like legal, breadcrumbs, etc.
+.type-minor, %type-minor {
+	font-size: $cmu-size-smaller;
+	line-height: $cmu-size-smaller--line-height;
+}
+
+// base size (11px) for info and tables: status, tables, summaries, "replies, views" etc.
+.type-info, %type-info {
+	font-size: $cmu-size-xsmaller;
+	line-height: $cmu-size-xsmaller--line-height;
+}
+
+	// tiny size (9px) for supplemental info.
+	.type-tiny, %type-tiny {
+		font-size: $cmu-size-xxsmaller;
+		line-height: $cmu-size-xxsmaller--line-height;
+	}
+
+
+
+
+	// Derived contextual typgraphy styles
+	.type-table-title {}
+
+
+
+
+
+
+$cmu-input-font-size: $cmu-size-normal;
+
+
+// 
+// Letter Spacing
+// 
+
+
+$cmu-size-letterspacing-header: 0.8px;
+$cmu-size-letterspacing-text: 0.2px;
+
+%cmu-letterspacing-text {
+	letter-spacing: $cmu-size-letterspacing-text;
+}
+
+
+

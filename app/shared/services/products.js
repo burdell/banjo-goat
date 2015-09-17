@@ -23,13 +23,11 @@
 				}
 
 				return $q.when(this._productList);
-			},
-			productIconClasses: {
-				
 			}
 		};
 	};
 	products.$inject = ['$q', 'CommunityNodeService'];
+	products.$inject = ['$q', 'CommunityNodeService', 'CommunityIconService'];
 
 	angular.module('community.services')
 		.service('CommunityProductService', products);

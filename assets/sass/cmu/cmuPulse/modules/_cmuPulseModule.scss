@@ -1,0 +1,112 @@
+
+
+// 
+// PULSE Module
+// 
+
+.cmuPulse {
+	position: relative;
+	display: table;
+	@extend %font-oswald;
+	padding: 0;
+	margin-bottom: $cmu-base;
+
+	@include respondTo(small-down) {
+		display: none;
+	}
+
+	// place flush to the menu
+	margin-top: $cmu-base * -1;
+}
+
+.cmuPulse__label {
+	display: table-cell;
+	vertical-align: middle;
+	border-bottom: $cmu-style-line;
+
+	min-width: $cmu-base * 9;
+	@include respondTo(medium-down) {
+		display: none;
+	}
+
+	padding: $cmu-base;
+	padding-right: 4px;
+	position: relative;
+	text-transform: uppercase;
+	color: $cmu-color-white;
+	background-color: $cmu-color-mdgray;
+	font-size: $cmu-size-large;
+	line-height: $cmu-size-larger--line-height;
+
+	&:before {
+		content :' ';
+		display: block;
+		position: absolute;
+		right: -10px;
+		top: $cmu-base/4;
+
+    	border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		border-left: 20px solid $cmu-color-mdgray;
+		line-height: 0;
+	}
+}
+
+.cmuPulse__counter {
+	display: table-cell;
+	vertical-align: middle;
+	width: 24%;
+	&:nth-child(2) {
+		width: 13%;
+	}
+
+	&:nth-child(3) {
+		width: 12%;
+	}
+
+	&:nth-child(4) {
+		width: 10%;
+	}
+
+	padding: $cmu-base/2;
+	padding-left: $cmu-base;
+	overflow: hidden;
+
+	text-transform: uppercase;
+	color: $cmu-color-dkgray;
+
+	.icon {
+		font-size: $cmu-base*1.1;
+		line-height: 0;
+		padding: $cmu-base/2;
+		background-color: $cmu-color-xmdgray;
+		border-radius: 500px;
+		// margin-right: $cmu-base/2;
+
+		position: relative;
+		top: 2px;
+	}
+}
+	.cmuPulse__counter {
+		padding-right: $cmu-base;
+		div {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		border-bottom: $cmu-style-line;
+	}
+
+		.cmuPulse__total {
+			padding-left: $cmu-base*2;
+
+
+			@include respondTo(medium-down) {
+				padding-left: 0;
+			}
+		}
+		.cmuPulse__count {
+			font-size: $cmu-base*1.5;
+			line-height: $cmu-base*1.5;
+			padding: $cmu-base/2;
+			color: $cmu-color-blue;
+		}

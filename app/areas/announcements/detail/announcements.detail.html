@@ -1,25 +1,255 @@
-<div>
+
+<div class="cmuThread__subject
+	        cmuThread__subject--locked
+	        cmuThread__subject--active">
 	<div class="row">
-		<h4>{{ vm.currentAnnouncement.subject }}</h4>
+		<h3>{{ vm.currentAnnouncement.subject | htmlUnescape}}</h3>
 	</div>
-	
-	<div class="row">
+</div>
+
+<div class="row">
+	<!-- 
 		<community-message 
 			message="vm.currentAnnouncement"
 			reply-click-fn="vm.showReply"
 			hide-vote-buttons="true">
 		</community-message>
+	-->
 
-		<div class="row row--comfy">
-			<div class="row row--comfy" ng-hide="!vm.replyInProgress">
-				<div ng-include="'partials/commentform.html'"></div>
+	<!-- 
+		COMMUNITY-ANNOUNCEMENT POST MOCKUP
+		NOTE: THE MESSAGE ITSELF HAS BEEN EDITED FOR SPECIAL MARKUP
+	 -->
+
+	<div class="announcementThread__post">
+
+		<div class="announcementThread__header">
+			<!-- 
+				COMMUNITY-USERBADGE__THIN MOCKUP
+
+				just add a cmuUserbadge--thin to the userbadge class
+			 -->
+			<div class="cmuUserbadge
+						cmuUserbadge--thin
+						ng-isolate-scope" ng-class="{ '' : userbadge.userType }" user="messageDisplay.message.author" op-id="messageDisplay.showOp">
+				<div class="cmuUserbadge__account clearfix">
+					<div class="cmuUserbadge__left col--md4">
+						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
+							<!-- <img src="{{ userbadge.user.avatar.url }}" /> -->
+							<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
+						</div>
+					</div>
+					<div class="cmuUserbadge__right col--md8">
+						<div class="cmuUserbadge__username">
+							<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
+								<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
+							</span>
+						</div>
+						<div class="cmuUserbadge__status">
+							<span ng-show="userbadge.opId === userbadge.displayUser.id" class="cmuUserbadge__status__op ng-hide"></span>
+						</div>
+						<div class="cmuUserbadge__rank ng-binding">
+							SuperUser 
+						</div>
+					</div>
+				</div>
+				<div class="cmuUserbadge__info">
+					
+					<div class="cmuUserbadge__descriptors">
+						<div data-desc="Kudos">152</div>
+						<div data-desc="Location">San Francisco, CA</div>
+						<div data-desc="Joined">08-07-2008</div>
+					</div>
+				</div>
+			</div>
+			<!-- 
+				END COMMUNITY-USERBADGE__THIN MOCKUP
+			 -->
+
+			<div class="announcementThread__controls"> 
+				<!-- (options?) -->
 			</div>
 		</div>
+
+
+		<!-- Nathan: 
+			--simple allows you to reuse the message template. Just add this class to community-message object 
+
+			__announcements adds extra content styling, like "highlight" areas
+		-->
+		<div class="cmuMessage--simple 
+					cmuMessage--announcements" id="{{ messageDisplay.message.id }}">
+			<div class="cmuMessage__container">
+				<community-user-badge 
+					user="messageDisplay.message.author"
+					op-id="messageDisplay.showOp">
+				</community-user-badge>
+
+				<div class="cmuMessage__body">
+					<div class="cmuMessage__header">
+						<div class="row">
+							<div class="col--md6">
+								<div class="cmuMessage__replyTo">
+								UBNT-Matt [1]
+								<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
+								</div>
+
+								<div class="cmuMessage__counter"></div>
+								<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+							</div>
+							<div class="col--md6 alignRight">
+								<div class="cmuMessage__controls"> 
+									<div class="cmuMessage__controls--reply noPadding">
+										<span community-permissions denied-behavior="disable">
+											<button class="button--vote button--compound-naked">
+												123 kudos
+											</button>
+											<button class="button--vote button--compound-naked ">
+												<span class="icon ubnt-icon--tools"></span> Helpful
+											</button>
+										</span>
+										<button 
+											community-permissions
+											class="button--solid button--thin button-white-on-blue" 
+											ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
+												Reply
+										</button>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="cmuMessage__content">
+						<p>Hi all,</p>
+						<p>airOS v5.5.4 has now been released. You can find it available from our downloads page:</p>
+						<p><a href="http://downloads.ubnt.com" target="_blank">http://downloads.ubnt.com</a></p>
+						<p>&nbsp;</p>
+						<div>----------------------------------------------</div>
+						<p><span style="line-height: 18px;">Version 5.5.4-Service Release (March 14, 2013)</span></p>
+						<div>
+							<div>----------------------------------------------</div>
+							<div>&nbsp;</div>
+
+							<div class="highlight">
+								<div>New:</div>
+								<div>- New: Data rate module: Alternative data rate algorithm option</div>
+								<div>- New: WEB UI: Audio option for Antenna Alignment Tool</div>
+								<div>- New: WEB UI: "Feed only - 3dBi" option for antenna type (AirGrid and NanoBridge models only)</div>
+							</div>
+
+							<div class="highlight">
+								<div>Improvements:</div>
+								<div>- airMax: Improved performance in PtMP scenarios</div>
+								<div>- airMax: Lower latency in Long Range PTP mode</div>
+								<div>- airMax: Voice performance/latency improvements in PtMP scenarios</div>
+								<div>&nbsp;</div>
+								<div>- QoS: Map commonly used VoIP TOS values (0x68, 0xb8) to Voice queue</div>
+								<div>&nbsp;</div>
+								<div>- Speed test: Improved timeout/errors handling and reporting</div>
+								<div>- TFTP recovery: Reset configuration to factory defaults when executing TFTP recovery mode without need to hold Reset button for 15sec and upload firmware image</div>
+								<div>- airView: Update certificate</div>
+								<div>&nbsp;</div>
+								<div>- WEB UI: Show if custom scripts are present on device</div>
+								<div>- WEB UI: Show signal strength from remote radio in Station information window (airMax mode only)</div>
+								<div>- WEB UI: Show Station TX/RX bit rate statistics</div>
+								<div>- WEB UI: Disable WEB UI while airView is running</div>
+								<div>- WEB UI: Automatically redirect to HTTPS port when running Speed test</div>
+								<div>- WEB UI: Make MAC addresses in Main page easily selectable</div>
+								<div>- WEB UI: Add help text for UBNT/Advanced settings pages</div>
+								<div>- WEB UI: Improved FW update failure messages</div>
+								<div>- WEB UI: Do not offer to apply configuration changes if there are not any changes made</div>
+								<div>- WEB UI: Latitude/Longitude setting validation</div>
+								<div>- WEB UI: Interface Language update: French translations</div>
+								<div>- WEB UI: Interface Language update: Lithuanian translation</div>
+								<div>&nbsp;</div>
+								<div>- Stability: Check filesystem on boot</div>
+								<div>- Stability: Memory leak protection for less than 1MB of RAM&nbsp;</div>
+								<div>- Stability: HW watchdog in u-boot</div>
+							</div>
+
+							<div class="highlight">
+								<div>Fixes:</div>
+								<div>- Fix: airMax: Radio is transmitting when operating in airView mode (AP mode only)</div>
+								<div>- Fix: airMax: Long range PtP mode: AP gets stuck at 81Mbps rate and transmit throughput goes down</div>
+								<div>- Fix: airMax: Sometimes AP locks up when applying configuration changes (possible fix)</div>
+								<div>- Fix: airSync: Rocket Titanium airSync Slave doesn't connect to airSync Master&nbsp;</div>
+								<div>- Fix: airSelect: Default airSelect announce count set to 30</div>
+								<div>- Fix: airView: airView does not start when Device Name contains comma symbol&nbsp;</div>
+								<div>- Fix: airView: M900/M3/M365/M6 products does not scan full frequency range&nbsp;</div>
+								<div>- Fix: Detect Ethernet loopback on defective device and bring Ethernet interface down</div>
+								<div>- Fix: Sometimes M Series devices hang during reboot (except Titanium)&nbsp;</div>
+								<div>- Fix: Change Max MTU to 2024 bytes on both Ethernet interfaces&nbsp;</div>
+								<div>- Fix: Returning from Test mode does not revert some configuration changes</div>
+								<div>- Fix: Redirection issue when enabling/disabling HTTPS</div>
+								<div>- Fix: Satellite signal bar is centred under IE&nbsp;</div>
+								<div>- Fix: During upgrade disable default route if DHCP client is configured&nbsp;</div>
+								<div>- Fix: DHCP fallback IP isn't set</div>
+								<div>- Fix: Memory leak in Main page with IE8/IE9 (session timeout implemented)</div>
+								<div>- Fix: Low power mode fix for newer revisions of NanoStation M5&nbsp;</div>
+								<div>- Fix: Device discovery issue when DMZ port is enabled&nbsp;</div>
+								<div>- Fix: Cannot switch from Advanced to Simple Configuration mode when network role is Router</div>
+								<div>- Fix: Auto Channel does not follow channel plan for Canada (Rocket Titanium)&nbsp;</div>
+								<div>- Fix: OSPF and other unregistered multicast traffic transmit problems in PtMP&nbsp;</div>
+								<div>- Fix: Skip EAP security certificate date validation if device date is before certificate start date</div>
+								<div>- Fix: Do not send discovery/ARP requests through bridge ports</div>
+								<div>- Fix: Enable busybox option to prefer IPv4</div>
+								<div>- Fix: UPnP: Router should accept "PORT FORWARD" requests from LAN side only</div>
+								<div>- Fix: Sometimes station can't associate when switching from open to WPA security</div>
+								<div>- Fix: Enable DFS when choosing country Austria</div>
+								<div>- Fix: Disable "Block Management" option for WAN in default configuration (AirRouter, AirRouter HP, PowerAP N)</div>
+							</div>
+
+							<div class="highlight">
+								<div>Regulatory updates:</div>
+								<div>- Enable DFS for Germany upper band (5.8GHz) channels&nbsp;</div>
+								<div>- Update New Zealand allowed frequencies for 5GHz&nbsp;</div>
+								<div>- Update Chilean allowed frequencies for 5GHz</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="cmuMessage__signature">
+						<div>
+							WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
 
-	<community-comment-list
-		current-comments="vm.currentComments"
-		comment-metadata="vm.commentData"
-		comment-filter="vm.moreCommentsFilter">
-	</community-comment-list>
+	<button 
+		class="button--solid button--thin button-white-on-blue" >
+			Reply
+	</button>
+	
+	<button class="button--vote button--compound-naked" disabled="">
+		123 kudos
+	</button>
 </div>
+<div class="row row--comfy">
+	<div class="row row--comfy" ng-hide="!vm.replyInProgress">
+		<div ng-include="'partials/commentform.html'"></div>
+	</div>
+</div>
+	
+<!-- 
+	END COMMUNITY-ANNOUNCEMENT POST MOCKUP
+ -->
+
+
+
+
+
+
+
+
+<community-comment-list
+	current-comments="vm.currentComments"
+	comment-metadata="vm.commentData"
+	comment-filter="vm.moreCommentsFilter">
+</community-comment-list>

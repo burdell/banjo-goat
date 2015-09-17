@@ -1,10 +1,13 @@
+
 @font-face {
 	font-family: 'ubnt';
-	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.eot?l3ageo');
-	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.eot?#iefixl3ageo') format('embedded-opentype'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.woff?l3ageo') format('woff'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.ttf?l3ageo') format('truetype'),
-		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.13.0/fonts/ubnt.svg?l3ageo#ubnt') format('svg');
+	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.eot?-o4o1ay');
+	src:url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.eot?#iefix-o4o1ay') format('embedded-opentype'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.woff2?-o4o1ay') format('woff2'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.ttf?-o4o1ay') format('truetype'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.woff?-o4o1ay') format('woff'),
+		url('//dl.ubnt.com/media/css-assets/ubnt-icon/v1.22.0/fonts/ubnt.svg?-o4o1ay#ubnt') format('svg');
+
 	font-weight: normal;
 	font-style: normal;
 }

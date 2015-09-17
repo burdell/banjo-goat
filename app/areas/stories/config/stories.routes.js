@@ -9,6 +9,7 @@
 				coverPhoto: "http://i.imgur.com/TT7XC8m.jpg"
 			}
 		};
+
 		var storiesRoutes = routesProvider.routes.stories;
 		$stateProvider
 			.state('storiesLanding', {
@@ -19,7 +20,8 @@
 					StoryDefaults: storyDefaults,
 					StoryListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Stories.all, 
+
+							filterFn: communityApi.Stories.all,
 							constants: {
 								limit: 30
 							},
@@ -65,6 +67,7 @@
 				reloadOnSearch: false
 			})
 			.state('stories.detail', {
+
 				url:  routesProvider.routes.utils.intRoute(storiesRoutes.detail), // '/{storyId:int}'
 				views: {
 					'mainContent': {

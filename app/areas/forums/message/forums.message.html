@@ -1,22 +1,14 @@
 
-<!-- TESTING STYLE -->
- <style type="text/css" scoped>
-    div.forumThreadMessage__linked
-    {
-      background-color: magenta;
-    }
-  </style>
-<!-- TESTING STYLE -->
 
-<div class="forumThread__subject
-	          forumThread__subject--locked
-	          forumThread__subject--active">
+<div class="cmuThread__subject
+	        cmuThread__subject--locked
+	        cmuThread__subject--active">
 	<div class="row">
 		<h3>{{ ::vm.originalMessage.subject | htmlUnescape }}</h3>
 	</div>
 </div>
 
-<div class="forumThreadControl">
+<div class="cmuThread__controls">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
@@ -35,9 +27,11 @@
 </div>
 
 
-<div class="forumThreadContainer">
-	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread" handle-image-error>
+<div class="cmuThread__container">
+	<div ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message 
+			class="cmuMessage 
+				   cmuMessage--sidebyside"
 			message="message"
 			original-message="vm.originalMessage"
 			reply-click-fn="vm.showReply"
@@ -73,7 +67,8 @@
 
 
 
-<div class="forumThreadMessage__main__bottomControls">
+<div class="cmuThread__controls
+			cmuThread__controls--bottom">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>

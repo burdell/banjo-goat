@@ -1,0 +1,47 @@
+
+
+// 
+// INLINE INFO 
+// 
+
+// // helper style that defines the partial: 'by {username} | {date} | other info'
+
+/*
+	Usage
+
+	<div class="cmuThread__author"> 							-> content wrapper
+		<div class="row">										-> for alignment
+			<div class="cmuInlineInfo">							-> define the inline wrapper style
+				-> <cmuInlineInfo__intro> 						-> is the intro text
+				-> <community-username> 						-> is the contextual username (angular)
+				-> <cmuInlineInfo__data" data-divider=" |">		-> divider-separated data, like views | count | date | etc.
+				// Make SURE you don't add enter/carriage returns between the spans or the browser will add weird spacing to it
+				<span class="cmuInlineInfo__intro">by</span><community-username user="vm.originalMessage.author"></community-username><span class="cmuInlineInfo__data" data-divider=" |">{{ ::vm.originalMessage.postTime | timeFromNow }}</h6>
+			</div>
+		</div>
+	</div>
+
+*/
+
+
+// thread info applies universally "by { }, date"
+.cmuInlineInfo {
+	color: $cmu-color-body--light;
+	@extend %type-info;
+
+	// it's the job of other objects to push this down
+	// margin-top: $cmu-base/2;
+
+	// leading text descr: 'by', 'from', etc.
+	.cmuInlineInfo__intro {
+		margin-right: $cmu-base/4;
+	}
+
+	// separated values like 'date' and 'replies'
+	.cmuInlineInfo__data {
+		&:not(:first-child):before {
+			content: attr(data-divider);
+			padding: 0 $cmu-base/4; 
+		}
+	}
+}

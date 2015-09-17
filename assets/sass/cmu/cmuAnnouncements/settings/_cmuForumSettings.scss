@@ -1,0 +1,19 @@
+
+%style-community-mainlink {
+	a {
+		color: $cmu-color-black;
+		&:hover {
+			color: $cmu-color-blue; 
+		}
+	}
+}
+
+
+
+// Forum Typography
+%size-community-base {
+	@extend %size-normal;
+} 
+
+
+

@@ -6,7 +6,7 @@
 		    
 		}
 
-		function controller($location, $state, userService, routesProvider) {
+		function controller($scope, $location, nodeServiceWrapper, routingService, userServiceWrapper, $state) {
 			var ctrl = this;
 			var hrefs = {
 				announcements: routesProvider.announcements.landing,
@@ -14,19 +14,28 @@
 				feed: routesProvider.feed
 			};
 
+			
+			var toggleDiscussionsMenu = function(){
+				$scope.$broadcast('megamenu:toggleDiscussions');
+			}
+
 			var navMetaData = [
-				{ display: "Activity", href: hrefs.feed },
-				{ display: "Discussions", href: "#", dropItem: true },
-				{ display: "Resources", href: "#", dropItem: true },
+				// { display: "Activity", href: "#"},
+				{ display: "Discussions", clickFn: toggleDiscussionsMenu, dropItem: true },
+				// { display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 
 
 			var currentUser = null;
-			userService.get().then(function(userObj){
+			userServiceWrapper.get().then(function(userObj){
 				ctrl.isAuthenticated = userObj.isAuthenticated();
 				currentUser = userObj.user;
+			});
+
+			nodeServiceWrapper.get().then(function(nodeService){
+				ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
 			});
 
 			_.extend(ctrl, {
@@ -51,11 +60,18 @@
 					}
 					
 					return active;
+				},
+				templateData: {
+					getDiscussionUrl: function(node){
+						var route = node.discussionType === 'category' ? 'hub' : 'forums.list';
+						return routingService.generateUrl(route, { nodeId: node.urlCode });
+					},
+					linksTarget: routingService.getCurrentArea() === 'directory' ? '' : '_self',
+					directoryUrl: routingService.generateUrl('directory')
 				}
-
 			})			
 		}
-		controller.$inject = ['$location', '$state', 'CurrentUserService', 'communityRoutes'];
+		controller.$inject = ['$scope', '$location', 'CommunityNodeService', 'CommunityRoutingService', 'CurrentUserService', '$state' ];
 	    
 	    var directive = {
 	        link: link,

@@ -12,7 +12,7 @@
 	cursor: text;
 
 	iframe html{
-		// does nothing:  content_css.css affects the interior of the editor
+		  // does nothing:  content_css.css affects the interior of the editor
 	}
 
 	@include cmu-placeholder {
@@ -22,7 +22,7 @@
    	label {
    		color: $cmu-color-ltgray;
    		font-size: 13px;
-   		@extend %cmu-lato;
+   		@extend %font-lato;
    		margin-left: 4px;
    	}
 }

@@ -1,6 +1,7 @@
 .row {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  // original padding was remCalc(15px) bumped up to base grid 
+  padding-left: $cmu-base;
+  padding-right: $cmu-base;
 
   & > div:first-child {
     // padding-left: 0;
@@ -15,12 +16,13 @@
   }
 
   @media screen and (min-width: $base-lower-medium) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: $cmu-base * 2;
+    padding-right: $cmu-base * 2;
   }
 
   @media screen and (min-width: $base-lower-large) {
-    padding-left: 89px;
-    padding-right: 89px;
+    padding-left: $cmu-base * 5.5;
+    padding-right: $cmu-base * 5.5;
+    // original padding was '89px'
   }
 }

@@ -4,12 +4,20 @@
 // BREADCRUMBS MODULE
 // 
 
+// 
+// BREADCRUMBS
+// 
+
+// $cmu-breadcrumbs-link-color: $cmu-color-gray;
+// $cmu-breadcrumbs-hover-link-color: $cmu-color-hover;
+// $cmu-breadcrumbs-last-color: $cmu-color-gray;
+
+
 .cmuBreadcrumbs {
  	margin-top: 1rem;
-	margin-bottom: $cmu-base/2;
+	// margin-bottom: $cmu-base/2;
 	font-weight: 300; 
-	font-size: $cmu-size-breadcrumbs;
-	line-height: $cmu-base/2;
+	@extend %type-minor;
 
 	&:hover a { 
 		color: $cmu-color-black;
@@ -32,15 +40,14 @@
 		}
 
 		a {
-			color: $cmu-color-gray;
-			&:hover { color: $cmu-color-blue; }
+			color: $cmu-color-link--dark;
+			&:hover { color: $cmu-color-link--dark_hover; }
 		}
 	}
 
 	// current crumb isn't clickable, so is grayed out
 	.cmuBreadcrumbs__last {
-		color: $cmu-color-gray; 
-		// &:after { content: ''; }
+		color: $cmu-color-link--dark; 
 	}
 
 }

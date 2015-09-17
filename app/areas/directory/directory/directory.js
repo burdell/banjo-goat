@@ -24,6 +24,7 @@
 			discussionNodeOrder: function(discussion){
 				var discussionType = discussion.discussionType === 'forums' ? discussion.name : discussion.discussionType;
 				return _.indexOf(discussionNodeOrder, discussionType);
+
 			},
 			manualExclude: function(node) {
 				return _.indexOf(mainSectionExclude, node.id) < 0;

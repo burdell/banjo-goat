@@ -1,0 +1,58 @@
+<div>
+	<div class="cmuMega__section col--md12">
+		<div class="cmuMega__section__head col--md12">
+			Service Providers
+		</div>
+
+		<div class="cmuMega__section__col col--md12">
+			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.broadband" class="cmuMega__icon">
+				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}"><span class="icon {{ product.iconClass }}"></span></a>
+			</div>
+		</div>
+	</div>
+	<div class="cmuMega__section col--md12">
+		<div class="cmuMega__section__head col--md12">
+			Enterprise
+		</div>
+
+		<div class="cmuMega__section__col col--md12">
+			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise" class="cmuMega__icon">
+				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}" community-area-handler><span class="icon {{ product.iconClass }}"></span></a>
+			</div>
+		</div>
+	</div>
+	<div class="cmuMega__section col--md12">
+		 <div class="cmuMega__section__head col--md12">
+			Community Forums
+		</div>
+
+		<div>
+			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.general" class="cmuMega__section__col col--md3">
+				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">{{ product.name }}</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="cmuMega__section col--md12">
+		<div class="cmuMega__section__head col--md12">
+			Resources
+		</div>
+
+		<div class="cmuMega__section__col col--md3">
+			<a>About our Community</a>
+		</div>
+		
+		<div class="cmuMega__section__col col--md3">
+			<a>Community Guidelines</a>
+		</div>
+
+		<div class="cmuMega__section__col col--md3">
+			<a>Community Board</a>
+		</div>
+
+	</div>
+
+	<div class="cmuMega__section col--md12">
+		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--solid button--padded button-blue-white">Directory</a>
+	</div>
+</div>

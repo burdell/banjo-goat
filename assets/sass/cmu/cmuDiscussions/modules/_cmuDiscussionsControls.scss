@@ -6,8 +6,8 @@
 	margin-bottom: $cmu-base;
 	display: block;
 
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
+    border-bottom: $style-line;
+    padding-bottom: $cmu-base/2;
 
 }
 
@@ -17,18 +17,24 @@
 // 
 
 .cmuDiscussionsHeader {
-	float: left;
-	display: inline-block;
-	h4 { 
-		font-weight: bold;
-		font-size: remCalc(15px);
+	// float: left;
+	// display: inline-block;
+	display: block;
+	margin-bottom: $cmu-base/2;
+	padding-bottom: $cmu-base/2;
+	border-bottom: $style-line--dark;
+	border-bottom-width: 2px; // thicker
 
-		padding-right: 16px;
-		border-right: 1px solid $cmu-color-gray;
-		line-height: 14px;
-		vertical-align: bottom;
-		margin-top: 4px;
-	}
+	// don't override main styles, left as notes
+	// h4 { 
+	// 	font-weight: bold;
+	// 	font-size: remCalc(15px);
+
+	// 	padding-right: 16px;
+	// 	line-height: 14px;
+	// 	vertical-align: bottom;
+	// 	margin-top: 4px;
+	// }
 }
 
 
@@ -41,28 +47,21 @@
 .cmuDiscussionsNavbar {
 	cursor: default;
 	// margin-bottom: $cmu-vertical-rhythm;
-	display: inline-block;
-	margin-left: $cmu-base;
-
-	* {
-		@extend .type-titleThin;
-	}
-
+	// display: inline-block; // nor necessary and introduces problems with empty navs (ex: directory)
+	// padding-left: $cmu-base;
+	// border-left: 1px solid $cmu-color-mdgray;
 	a {
-		@extend .type-link;
-		font-size: remCalc(15px);
+		@extend %size-large;
 		font-weight: 300;
+		@extend %ease-fast;
+		@extend %style-link--dark;
 		text-transform: capitalize;
 	}
 
 	ul {	
-		// float: left;
 		margin: 0; //override global style
-
 		display: block;
 		width: 100%;
-		// border-bottom: $cmu-style-border-thin;
-		// padding: $cmu-base/2 0;
 	}
 
 	li {

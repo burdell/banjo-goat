@@ -6,14 +6,14 @@
 
 $tooltip-text-height: $cmu-base*6.3;
 $tooltip-height: $cmu-base*12;
-$tooltip-width: $cmu-base*35;
+$tooltip-width: $cmu-base*20;
 
 .cmuTooltipster {
 	@extend %style-border-medium-blue;
 	background: $cmu-color-white; 
 	min-height: $cmu-base*2;
 	max-height: $tooltip-height;
-  	max-width: 	$tooltip-width !important; // base tooltipster tends to override this
+  	width: 	$tooltip-width !important; // base tooltipster tends to override this
   	// min-width: 	$tooltip-width !important; // base tooltipster tends to override this
 
 	overflow: hidden;
@@ -30,7 +30,7 @@ $tooltip-width: $cmu-base*35;
 
 .tooltip__message__text {
 	max-height: $tooltip-text-height;
-	margin-bottom: $cmu-base*0.75;
+	// margin-bottom: $cmu-base*0.75;
 	overflow: hidden;
 }
 

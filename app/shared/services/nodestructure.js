@@ -1,7 +1,7 @@
 (function(_) {
 	'use strict';
 	
-	var nodeStructure = function($q, $rootScope, $stateParams, initService, routingService){
+	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService){
 		var nodeStructureService;
 		var nodesById = {};
 		var nodesByUrl = {};
@@ -20,6 +20,7 @@
 
 			//hard coded includes/excludes :/ 
 			var exclude = [-1, 75, 141];
+
 			var include = [30, 20, 42, 43, 83];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
@@ -27,7 +28,7 @@
 				if (currentNodeName && currentNodeName.toLowerCase() === node.urlCode.toLowerCase()) {
 					nodeStructureService.CurrentNode = node;
 				}
-
+				
 				if (_.indexOf(include, node.id) >= 0 || (node.discussionType === 'category' && _.indexOf(exclude, node.id)) < 0) {
 					var discussionCategory = node.meta.org;
 					var discussionCategoryList = discussionTypes[discussionCategory];
@@ -36,6 +37,7 @@
 						if (!discussionCategoryList) {
 							discussionTypes[discussionCategory] = []
 						}
+						node.iconClass = iconService[node.urlCode];
 						discussionTypes[discussionCategory].push(node);
 					} 
 				}
@@ -113,6 +115,7 @@
 							nodeId = $stateParams.nodeId;
 						}
 
+
 						if (!nodeStructureService.NodeStructure) {
 							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
 						}
@@ -123,7 +126,7 @@
 			}
 		}
 	};
-	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityInitializeService', 'CommunityRoutingService'];
+	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityIconService', 'CommunityInitializeService', 'CommunityRoutingService'];
 
 	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);

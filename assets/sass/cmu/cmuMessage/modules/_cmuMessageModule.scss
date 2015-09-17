@@ -1,0 +1,273 @@
+
+
+// 
+// FORUM MESSAGES
+// 
+
+$cmu-thread-message-height:	$cmu-base * 3;
+
+
+
+// CONFIGURATIONS ARE AT THE BOTTOM
+
+
+// 
+// MESSAGE CONTAINER & BODY
+// badge is handled in cmuUserbadge
+// 
+
+// contained outside of message.html; in the invoking html
+// FOR PROTOTYPING ONLY
+.cmuThread__container {
+	counter-reset: messageCtr;
+}
+
+.cmuMessage__container {
+	border: $cmu-style-border-thin-dark; 
+	margin-bottom: $cmu-vertical-rhythm/2;
+	display: table;
+	width: 100%; // may not work as parent needs width declaration
+	// @extend .style-copy;
+	// border-top: 0px;
+	// &:first-of-type {
+	// 	border-top: $cmu-style-border-thin-light;
+	// }
+
+	// bottom row of buttons in a message
+	@extend %ease-fast;
+	&:hover {
+
+		// fade in / out the user badge on hover
+		.cmuUserbadge {
+			@extend %ease-fast;
+			opacity: 1;
+		}
+	}
+
+	&:hover {
+		.forumThreadMessage__controls {
+			opacity: 1; 
+			@extend %ease-fast;
+		}
+	}
+}
+
+
+	.forumThreadMessage__controls {
+		opacity: 0.3; 
+		@extend %ease-fast;
+	}
+
+	.cmuUserbadge {
+		@extend %ease-fast;
+		opacity: 0.46;
+		
+	}
+
+.cmuMessage__body {
+	display: table-cell;
+	vertical-align: top;
+	width: 80%;
+
+	border-left: $cmu-style-border-thin-dark; 
+	padding: $cmu-base;
+	padding-top: $cmu-base/2;
+	background-color: $cmu-color-post;
+}
+
+.cmuMessage__header {
+	font-size: $cmu-size-xsmaller;
+	color: $cmu-color-mdgray;
+}
+	
+	// add "Re:" to replies
+	// .forumThreadMessage:nth-child(n+2) {
+	// 	.forumThreadMessage__messageTopic:before {
+	// 		content: 'Re: '
+	// 	}
+	// }
+
+
+	// .forumThreadMessage {
+	// 	.forumThreadMessage__messageTopic {
+	// 		display: none;
+	// 	}
+	// }
+	// .forumThreadMessage:nth-child(2) {
+	// 	.forumThreadMessage__messageTopic {
+	// 		display: inline-block;
+	// 	}
+	// }
+	.cmuMessage__replyTo {
+		display: inline-block;
+		color: $cmu-color-blue;
+		&:before {
+			content: 'Re: ';
+			color: $cmu-color-gray;
+		}
+		&:after {
+			content: ' | ';
+			color: $cmu-color-gray;
+			margin: 0 $cmu-base/2;
+		}
+	}
+
+	.cmuMessage__date {
+		text-align: right;
+		display: inline-block;
+	}
+
+
+.cmuMessage__content {
+	margin-top: $cmu-base/2;
+	margin-bottom: $cmu-vertical-rhythm;
+	min-height: $cmu-thread-message-height;
+
+	font-size: $cmu-size-normal;
+	line-height: $cmu-size-normal--line-height;
+
+	// not sure about x-browser support
+	// br is notoriously weird
+	br {
+		content: " ";
+		display: block; 
+		margin-bottom: 0.5em;
+	}
+  
+
+	// users like to add empty paragraphs that lithium doesn't strip out
+	// we need to deal with it in code, so this is temporary
+	p {
+		margin-bottom: 0;
+		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+	}
+
+	blockquote {  
+
+		// border width is unfortunately set into the html?
+		border: 1px solid $cmu-color-gray;
+		border-left-width: 3px;
+		padding: $cmu-base/2 $cmu-base;
+
+		// these tend to appear in the migrated html
+		hr {
+			display: none;
+		}
+
+		// some quotes are tables nested in block quotes
+		// but other times they aren't in tables.
+		table {
+			// border-color: transparent;
+  			// padding: $cmu-base/2 $cmu-base/4;
+  			// border-left: $cmu-line-thick $cmu-color-blue solid;
+  			// background-color: $cmu-color-ltgray; 
+  			display: block;
+			// border: 1px solid $cmu-color-gray;
+			// border-left-width: 3px;
+			// padding: $cmu-base/2 $cmu-base;
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+		td {
+			border: 0;
+			// padding: 0 $cmu-base;
+			padding: 0;
+		}
+	}
+} 
+
+
+.cmuMessage__signature {
+	border: $cmu-line-thin solid $cmu-color-ltgray;
+	padding: $cmu-base*2;
+	padding-top: $cmu-base/4;
+	@extend %size-xsmaller;
+	margin-bottom: $cmu-base/2;
+
+	max-height: $cmu-base*3; 
+	overflow: hidden;
+}
+
+	.cmuMessage__counter {
+		display: inline-block;
+		text-align: right;
+  		
+  		// FPO
+  		&:before {
+			counter-increment: messageCtr;
+			content: counter(messageCtr) " of 20 ";
+  		}
+		&:after {
+			content: ' | ';
+			margin: 0 $cmu-base/2;
+		}
+	}
+
+.cmuMessage__controls--reply {
+	text-align: right;
+}
+
+// bottom row of controls of the thread
+
+.forumThreadMessage__main__bottomControls {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+
+
+
+// 
+// SIDE BY SIDE CONFIGURATION
+// use nesting to include these configurations
+// Used in:
+// - forum
+// - feature bugs
+// 
+
+
+// 
+// SIMPLE CONFIGURATION
+// use nesting to include these configurations
+// Used in:
+// - announcement post
+// 
+
+.cmuMessage--simple {
+
+	.cmuUserbadge {
+		display: none;
+		& + div {
+			border-left: 0;
+		}
+	}
+
+	.cmuMessage__header {
+		display: none;
+	}
+
+}
+
+// 
+// ANNOUNCEMENTS
+// Specific content styles for announcement posts
+// Used to mark special posts
+// NOTE: for simplicity in content generation, these classes do not have prefixes
+// 
+
+.cmuMessage--announcements {
+
+	.highlight {
+		background: $cmu-color-ltgray;
+	    padding: $cmu-base;
+	    margin-left: -$cmu-base;
+	    margin-right: -$cmu-base;
+	    margin-top: $cmu-base/2;
+	    margin-bottom: $cmu-base/2;
+
+	    border-left: 4px solid $cmu-color-blue;
+	}
+
+}
+
+

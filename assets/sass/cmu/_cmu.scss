@@ -12,21 +12,31 @@
 
 // Not Really Dependencies
 @import "cmuPagination/index";
-@import "cmuNav/index"; 
-@import "cmuBanner/index"; 			// announcement banner
-@import "cmuFlex/index"; 			// container row w/ flex properties
+@import "cmuInlineInfo/index"; 			// helper style that defines the partial: 'by {username} | {date} | other info'
+@import "cmuNav/index"; 				// global nav
+@import "cmuMega/index";				// mega screen-takeover popover menu (discussions, settings, new post, etc.) 
+@import "cmuBanner/index"; 				// announcement banner
+@import "cmuPulse/index"; 				// pulse component and variations
+@import "cmuDirectory/index"; 			// directory page styles minus modules
+@import "cmuSidebar/index";				// helper styles for the sidebar; each discussion style will also have own styles
+@import "cmuFlex/index"; 				// container row w/ flex properties
 @import "cmuBreadcrumbs/index";
-// @import "cmuForm/index";			// DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS
-@import "cmuSearchbox/index";		// Search filter for threads (not cmu search)
-@import "cmuThreadSort/index";		// Select input topic filter
-@import "cmuButtons/index";			// Community buttons, CTAs, etc.
-@import "cmuUsername/index";		// User's name displayed consistently across the site
-@import "cmuUserbadge/index";		// User area displayed in a thread	
-@import "cmuComments/index";		// Comments area 
-@import "cmuViewingCounter/index";	// "5 others are viewing" 
-@import "cmuInput/index";			// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
-@import "cmuImageMissing/index";	// works with 'handleimageerror.js' to replace missing images
-@import "cmuTextEditor/index";		// long form text editor, story body and comments editor (tinyMCE)
+@import "cmuThreadlist/index";			// generalized thread list - applies to ALL discussion styles
+@import "cmuThread/index";				// generalized thread - used by forum etc., announcement thread, etc.
+@import "cmuMessage/index";				// generalized message; contains styles for ALL discussion types (sidebyside [forums] and inline [announcements])
+// @import "cmuForm/index";				// CMUINPUT REPLACES THESE | FOR NOW DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS
+// @import "cmuSearchbox/index";		// MOVED to cmuInput Search filter for threads (not cmu search)
+@import "cmuButtons/index";				// Community buttons, CTAs, etc.
+@import "cmuUsername/index";			// User's name displayed consistently across the site
+@import "cmuUserbadge/index";			// User area displayed in a thread; contains both full and compact badges
+@import "cmuComments/index";			// Comments area 
+@import "cmuViewingCounter/index";		// "5 others are viewing" 
+@import "cmuInput/index";				// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
+@import "cmuSort/index";				// Sort select dropdown used for lists, etc.
+@import "cmuImageMissing/index";		// works with 'handleimageerror.js' to replace missing images
+@import "cmuTextEditor/index";			// long form text editor, story body and comments editor (tinyMCE)
+@import "cmuTimeline/index";			// generic styles for a timeline (used by announcements)
+
 
 
 
@@ -36,10 +46,10 @@
 // COMMUNITY DISCUSSION TYPES
 // 
 @import "cmuDiscussions/index";		// includes anything in forum
-@import "cmuForum/index";			// includes anything in forum
-
-// STORIES
-@import "cmuStories/index";	// "5 others are viewing" 
+@import "cmuForum/index";			// 
+@import "cmuFeatures/index";		// 
+@import "cmuStories/index";			// 
+@import "cmuAnnouncements/index";	// general styles for announcements; ann. also uses timeline
 
 
 // 
@@ -48,16 +58,20 @@
 @import "cmuAppDefaults/index";		// Simplified appDefaults
 @import "cmuAppIconInput/index";	// Works in conjunction w/ appIcon to place icons on input
 
+
 // 
 // Converted Com Theme Modules
+// - we want to distance ourselves from Com. The grid and the icons are the most important features
 // 
-@import "cmuComDefaults/index"; 	// Simplified comDefaults
+
+// 
+// @import "cmuComDefaults/index"; 	// Simplified comDefaults
+// @import "comGlobalFooter/index";	
 
 // these are clones from com
 // @import "comNormalize/index";	// (maybe?) necessary to set com styles
-@import "comGlobalHeader/index";
-@import "comGlobalFooter/index";
-@import "comLink/index";
+// @import "comGlobalHeader/index";
+// @import "comLink/index";			// not sure what this is...
 
 
 

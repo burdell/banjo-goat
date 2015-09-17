@@ -1,19 +1,7 @@
-<div>
-	<!-- search and submit new button -->
-	<div class="row row--comfy">
-		<div class="col--md2">
-			<input placeholder="Search requests" />
-		</div>
+<div class="cmuFeatures__threadlist cmuThreadlist">
 
-		<div class="col--md8">
-			<button ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Submit an Idea</button>
-		</div>
-		<div class="col--md2">
-          	<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.featuresListFilter" sort-exclude="limit, offset" class="community__sort"></community-sort>
-		</div>
-	</div>
 
-	<!-- new form -->
+	<!-- temp -->
 	<div class="row row--comfy" ng-show="vm.showNewPost">
 		<div>
 			<div class="row">
@@ -34,12 +22,27 @@
 		</div>
 	</div>
 
-	<!-- main list -->
-	<div class="row row--comfy">
-		<div class="col--md3">
-			<div class="row row--comfy" ng-repeat="filterType in vm.filterTypes">
+
+
+	<!-- sidebar -->
+	<div class="row">
+		<div class="cmuFeatures__sidebar cmuSidebar col--md3">
+			<!-- <input placeholder="Search requests" /> -->
+			<div class="cmuSearchbox">
+				<div class="appIconInput appIconInput--left">
+					<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
+					<input 
+						class="appIconInput__input"
+						placeholder="Keyword Filter" 
+						type="text" 
+					/>
+				</div>
+			</div>
+
+			<div class="cmuInputGroup" ng-repeat="filterType in vm.filterTypes">
 				<!-- filters -->
-				<div>
+
+				<div class="cmuInput__checkbox cmuInput--default">
 					<label>
 						<input 
 							type="checkbox" 
@@ -47,62 +50,97 @@
 							value="{{ filterType.defaultOption.value }}" 
 							ng-model="filterType.defaultOption.selected" 
 							ng-change="vm.defaultChanged(filterType)" 
-							ng-disabled="filterType.defaultOption.selected" />&nbsp;
-						{{ filterType.defaultOption.display }}
+							ng-checked="filterType.defaultOption.selected" 
+							/>
+							<span>{{ filterType.defaultOption.display }}</span>
 					</label>
 				</div>
-				<div ng-repeat="filter in filterType.filterList">
+
+				<div class="cmuInput__checkbox" ng-repeat="filter in filterType.filterList">
 					<label>
-						<input type="checkbox" name="vm.selectedFilters[]" value="{{ filter.value }}" ng-model="filter.selected" ng-change="vm.filterChanged(filterType)" />&nbsp;
-						{{ filter.display }}
+						<input 
+							type="checkbox" 
+							name="vm.selectedFilters[]" 
+							value="{{ filter.value }}" 
+							ng-model="filter.selected" 
+							ng-change="vm.filterChanged(filterType)" />
+						<span>{{ filter.display }}</span>
 					</label>
 									
 				</div>
 			</div>
 		</div>
 
-		<div class="col--md9">
-			<div class="row row--comfy">
-				<div class="col--md3">
-					 <div class="forumThreadCount__message">Showing <strong>{{ vm.featuresList.length | number }}</strong> of <strong>{{ vm.featuresCount | number}}</strong></div>
+
+
+
+
+
+	<!-- main list -->
+	<div class="col--md9">
+
+		<div class="cmuThreadlist__ctrl">
+
+    		<div class="cmuThreadlist__ctrl__row row">
+				<div class="col--md4 " community-permissions>
+					<button class="button--solid button--wide" ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Request a Feature</button>
+				</div>
+
+				<div class="col--md4 col--mdOffset4 noPadding">
+					<!-- <span class="">Sort by</span> -->
+					<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
 				</div>
 			</div>
 
-			<div>
-				<!-- feature requests list -->
-				<div class="row" ng-repeat="feature in vm.featuresList">
-					<div class="row">
-						<div class="col--md2">
-							<div>
-							 	<h4>{{ feature.discussion.stats | extractKey : 'score' | number }} votes</h4>
-							</div>
-							<div>
-								{{ ::vm.getStatusText(feature.discussion.statusType) }}
-							</div>
-						</div>
-						<div class="col--md10">
-							<div>
-								<span>
-									<a ui-sref="features.detail({ featureRequestId: feature.id })"><h5 style="display: inline;">{{ ::feature.discussion.subject }}</h5></a>
-									by <community-username user="feature.discussion.author"></community-username>,
-									<h6 style="display: inline;">{{ ::feature.discussion.latestComment.postTime | timeFromNow }}</h6>
-								</span>
-							</div>
-							
-							<p>{{ ::feature.discussion.body | unformatText | wordCut:20 }}</p>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col--md8"></div>
-						<div class="col--md4">
-							<span>Views: {{ feature.discussion.stats | extractKey : 'views' | number }}</span> |
-							<span>Replies: {{ feature.discussion.stats | extractKey : 'comments' | number }}</span>
-						</div>
-					</div>
+    		<div class="cmuThreadlist__ctrl__row row">
+				<div class="col--md4">
+					 <div class="cmuThreadlist__postCount">Showing <span>{{ vm.featuresList.length | number }}</span> of <span>{{ vm.featuresCount | number}}</span></div>
 				</div>
-			</div>
+
+				<div class="col--md8 noPadding">
+					<community-pager 
+			          total-results="vm.featuresCount"
+			          pager-fn="vm.featuresListFilter"
+			          front-biased="true">
+			        </community-pager>
+				</div>
+    		</div>
 		</div>
+
+		<!-- feature requests list -->
+		<div class="cmuFeatures__threadlist__row row" ng-repeat="feature in vm.featuresList">
+			<div class="cmuFeatures__threadlist__content col--md12 noPadding">
+				<div class="cmuFeatures__votes col--md2">
+					<div class="cmuFeatures__votes__count">{{ feature.discussion.stats | extractKey : 'score' | number }}</div>
+					 <div class="cmuFeatures__votes__caption">votes</div>
+					<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(feature.discussion.statusType) }}">
+						{{ ::vm.getStatusText(feature.discussion.statusType) }}
+					</div>
+				</div>
+				<div class="cmuFeatures__threadlist__body col--md10">
+					<span class="cmuFeatures__threadlist__body__title">
+						<a ui-sref="features.detail({ featureRequestId: feature.id })">{{ ::feature.discussion.subject }}</a>
+					</span>
+					
+					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.discussion.body | unformatText | wordCut:20 }}</div>
+
+
+					<div class="cmuInlineInfo row noPadding">
+						<div class="col--md9">
+							<community-username user="feature.discussion.author"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | Posted ">{{ ::feature.discussion.latestComment.postTime | timeFromNow }}</span>
+						</div>
+
+						<div class="alignRight col--md3">
+							<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'views' | number }} views</span>
+							<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 
 	<div class="row">

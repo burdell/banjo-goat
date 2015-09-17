@@ -1,26 +1,27 @@
-<div class="row" id="{{ messageDisplay.message.id }}">
-	<div class="forumThreadMessage__row">
+<div id="{{ messageDisplay.message.id }}">
+	<div class="cmuMessage__container">
+		
 		<community-user-badge 
 			user="messageDisplay.message.author"
 			op-id="messageDisplay.showOp">
 		</community-user-badge>
 
-		<div class="forumThreadMessage__body" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == messageDisplay.message.id }">
-			<div class="forumThreadMessage__header">
+		<div class="cmuMessage__body" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == messageDisplay.message.id }">
+			<div class="cmuMessage__header">
 				<div class="row">
 					<div class="col--md6">
-						<div class="forumThreadMessage__messageTopic">
+						<div class="cmuMessage__replyTo">
 						UBNT-Matt [1]
 						<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
 						</div>
 
-						<div class="forumThreadMessage__messageCounter"></div>
-						<div class="forumThreadMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+						<div class="cmuMessage__counter"></div>
+						<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
 					</div>
 					<div class="col--md6 alignRight">
 						<div class="forumThreadMessage__controls"> 
 							<div class="forumThreadMessage__controls--reply noPadding">
-								<span ng-if="!messageDisplay.upvoteOnly" community-permissions denied-behavior="disable">
+								<span community-permissions denied-behavior="disable">
 									<button class="button--vote button--compound-naked">
 										123 kudos
 									</button>
@@ -46,9 +47,10 @@
 				</div>
 			</div>
 
-			<div class="forumThreadMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
+			<div class="cmuMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
 			</div>
-			<!-- <div class="forumThreadMessage__signature">
+<!-- 
+			<div class="cmuMessage__signature">
 				<div>
 					WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
 				</div>
