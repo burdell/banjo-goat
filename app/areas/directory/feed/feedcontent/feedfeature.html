@@ -1,0 +1,17 @@
+<div class="row row--comfy">
+	<div ng-if="feedcontent.contentModel.type === 'comment'">
+		<div class="row">
+			<div class="col--md12">
+				<p>{{ feedcontent.contentModel.data.body | wordCut:20 }}</p>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="feedcontent.contentModel.type === 'topic'">
+		<div class="row">
+			<div class="col--md12">
+				<p>{{ feedcontent.contentModel.data.message.body | wordCut:20 }}</p>
+			</div>
+		</div>
+	</div>
+</div>

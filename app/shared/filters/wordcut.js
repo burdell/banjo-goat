@@ -3,6 +3,10 @@
 	
 	var wordCut = function(){
 		return function(wordString, limit){
+			if (!wordString) {
+				return '';
+			}
+
 			var wordLimit = limit || 100;
 
 			var wordList = wordString.split(' ');

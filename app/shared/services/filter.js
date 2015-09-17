@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 	
-	var communityFilter = function($location, utils){
+	var communityFilter = function($location, realtimeServiceWrapper, utils){
 		function Filter(){
 			var options = {
 				filterModel: {},
@@ -12,7 +12,8 @@
 				setInitialData: true,
 				initialData: null,
 				filterContext: null,
-				persistFilterModel: true
+				persistFilterModel: true,
+				realtime: false
 			};
 
 			var setFilterModel = function(filterData, exclude) {
@@ -65,6 +66,11 @@
 						});
 					}
 					
+					if (options.realtime) {
+						var realtimeService = realtimeServiceWrapper.getNew();
+						realtimeService.start(this.filter);
+					}
+
 					return filter;
 				},
 				filter: function(filterData, exclude){
@@ -112,7 +118,7 @@
 		};
 	};
 	
-	communityFilter.$inject = ['$location', 'CommunityUtilsService'];
+	communityFilter.$inject = ['$location', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
 	angular.module('community.services')
 		.service('CommunityFilterService', communityFilter);

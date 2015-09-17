@@ -47,7 +47,9 @@
 				resolve: {
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Feed.contentFeed
+							filterFn: communityApi.Feed.allContent,
+							constants: { },
+							//realtime: true
 						});
 					}],
 					AnnouncementsData: ['CommunityApiService', function(communityApi){

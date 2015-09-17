@@ -3,23 +3,35 @@
 	
 	var realTime = function($q, nodeService){
 		var defaultInterval = 10000;
-		var polls = {};
 
+		function RealTimeService() {
+			var poll = null;
+			
+			return  {
+				start: function(pollFn, interval, callback) {
+					if (!poll) {
+						var poller = function(){
+							pollFn();
+						};
 
-		return {
-			start: function(name, pollFn, interval, callback) {
-				if (!polls[name]) {
-					var poller = function(){
-					var pollResult = pollFn();
-					if (callback) {
-							pollResult.then(callback);
-						}
-					};
-
-					polls[name] = (setInterval(poller, interval || defaultInterval));
+						poll = (setInterval(poller, interval || defaultInterval));
+					}
+				},
+				stop: function(){
+					if (poll) {
+						clearInterval(poll);
+						poll = null;
+					}
 				}
 			}
 		};
+		
+
+		return {
+			getNew: function(){
+				return new RealTimeService();
+			}
+		}
 	};
 	realTime.$inject = [];
 
