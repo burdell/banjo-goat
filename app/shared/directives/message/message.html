@@ -15,25 +15,28 @@
 						<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
 						</div>
 
-						<div class="cmuMessage__counter"></div>
-						<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+						<div class="cmuMessage__data">
+							<div class="cmuMessage__counter"></div>
+							<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+						</div>
 					</div>
 					<div class="col--md6 alignRight">
 						<div class="forumThreadMessage__controls"> 
 							<div class="forumThreadMessage__controls--reply noPadding">
 								<span community-permissions denied-behavior="disable">
-									<button class="button--vote button--compound-naked">
+									<button class="button--vote button--thin button--compound-naked">
 										123 kudos
 									</button>
-									<button class="button--vote button--compound-naked ">
+									<button class="button--vote button--thin button--compound-naked ">
 										<span class="icon ubnt-icon--tools"></span> Helpful
 									</button>
 								</span>
-
+<!-- 
+								upvotes only happen on OP, unless in Q&A 
 								<span ng-if="messageDisplay.upvoteOnly" community-permissions denied-behavior="disable">
 									<button class="button--vote button--compound-naked">123</button>
 								</span>
-
+ -->
 								<button 
 									community-permissions
 									class="button--solid button--thin button-white-on-blue" 

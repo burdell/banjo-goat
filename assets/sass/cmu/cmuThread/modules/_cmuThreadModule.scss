@@ -6,12 +6,17 @@
 
 $cmu-thread-message-height:	$cmu-base * 3;
 
+.cmuThread {
+	margin-bottom: $cmu-base*2;
+}
 
 .cmuThread__firstPost {
+    position: relative;
 	padding: $cmu-base;
 	margin-bottom: $cmu-vertical-rhythm/2;
     border: $style-line;
     background-color: $cmu-color-post;
+    
 }
 
 // Subject
@@ -73,6 +78,10 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		font-weight: 600;
 	}
 
+
+.cmuThread__date {
+	margin-right: $cmu-base/2;
+}
 
 // Author (if it applies)
 .cmuThread__author {

@@ -10,6 +10,7 @@
 	// so this is moved to each discussion module ex: forumthreadmodule
 	// @extend %ease-fast;
 	opacity: 1;
+	min-width: $cmu-base*11; // 176px min width
 	// &:hover {
 	// 	opacity: 1;
 	// }
@@ -27,9 +28,17 @@
 		border-bottom: $style-line;
 		// margin-top: -1px;
 	}	
-	// except for on first posts
+	// don't show OP for on first posts
 	.cmuThread__firstPost > .cmuUserbadge__op:before {
 		display: none;
+	}
+
+	.cmuThread__firstPost {
+	    .cmuMessage__data {
+	    	float: right;
+	    	vertical-align: top;
+	    	@extend %type-info;
+	    }
 	}
 
 
@@ -75,19 +84,18 @@
 		}
 
 	}
-	.cmuUserbadge__username {
-		text-align: left;
-		@extend %type-base;
-		line-height: $cmu-base * 3/4;
-		word-break: break-all;
+	.cmuUserbadge__account {
 
 		.cmuUsername {
-			margin-top: $cmu-base/2;
+			@extend %type-base;
+			line-height: $cmu-base * 3/4;
+			margin-top: $cmu-base/4;
 		}
 
 		// icons have more lineheight
 		.cmuUsername__icon {
-			line-height: $cmu-base;
+			@extend %type-base;
+			line-height: $cmu-base*1.5;
 		}
 	}
 
@@ -122,23 +130,31 @@
 
 .cmuUserbadge__rank {
 	@extend %type-info;
-	display: inline-block;
-	text-align: left;  
-	// padding-top: 4px;
+    vertical-align: top;
+	display: block;
+    line-height: 0.75rem;
+	text-align: left;
 }
 
 
 .cmuUserbadge__points {
-    border: 1px solid #ccc;
+	display: inline-block;
+    // border: 1px solid $cmu-color-mltgray;
     // padding-left: $cmu-base;
+    padding-right: $cmu-base;
 	margin: 0 $cmu-base/2;
 	margin-bottom: $cmu-base/4;
+    @extend %type-info;
 }
 	.cmuUserbadge__kudos {
-		padding: 2px 4px;
+		// padding: $cmu-base/8 $cmu-base/4;
 		padding-left: $cmu-base/2;
 		display: inline-block;
 
+		.cmuIcon-kudos {
+			padding-right: $cmu-base/4;
+
+		}
 		&:after {
 			content: ' kudos';
 			font-weight: 300;
@@ -184,17 +200,47 @@
 // 	THIN USERBADGE OVERRIDES
 // 
 
-// .cmuUserbadge--thin {
-// 	display: block;
-// 	opacity: 1;
-// 	margin-bottom: $cmu-base;
-// 	padding: 0;
+.cmuUserbadge--thin {
+	display: inline-block;
+	opacity: 1;
+	margin-bottom: $cmu-base;
+	padding-bottom: 0;
 
-//     // LEFT side 
-//     .cmuUserbadge__account {
-//     	display: inline-block;
-//     	padding: 0;
-//     }
+    .cmuUserbadge__account {
+    	display: inline-block;
+    	padding: 0;
+		padding-right: $cmu-base*4;
+		white-space: nowrap;
+    }
+    	.cmuUsername {
+    		margin-top: 0;
+    	}
+
+    	.cmuUserbadge__avatar {
+   			padding-left: $cmu-base/2;
+    	}
+
+    .cmuUserbadge__points {
+    	display: inline-block;
+    	vertical-align: top;
+		// margin-top: -3px;
+
+    	div {
+    		display: block;
+			text-align: right;
+			// padding: 2px 8px;
+    	}
+    }
+
+    .cmuUserbadge__info {
+		display: inline-block;
+		vertical-align: top;		// border-left: $style-line;
+    }
+
+    .cmuUserbadge__descriptors {
+    	padding: 0;
+    }
+
 
 // 	    .cmuUserbadge__account__left {
 // 	    	.cmuUserbadge__avatar {
@@ -210,4 +256,4 @@
 //     	padding-left: $cmu-base;
 //     	border-left: 1px solid $cmu-color-dkgray;
 //     }
-// }
+}

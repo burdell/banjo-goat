@@ -1,45 +1,45 @@
 
-$com-base-font-size:        $base-font-size;
+$com-base-font-size:        $cmu-size-normal;
 $com-base-line-height:      24px !default;
 
 
 // community global header overrides 
-.comGlobalHeader {
-  position: relative !important;
-  background-color: $cmu-color-soot;
-    border-bottom: 1px solid $cmu-color-dkgray;
-}
+// .comGlobalHeader {
+//     position: relative;
+//     background-color: $cmu-color-menu;
+//     border-bottom: $style-line--dark;
+// }
 
-  .comGlobalHeader__content {
-    @extend %cmu-maxwidth;
-  }
+//     .comGlobalHeader__content {
+//         @extend %cmu-maxwidth;
+//     }
 
 
 
 // footer size overrides community style
-.comGlobalFooter {
-  // padding: 0 89px; 
-  margin: 0 auto;
-  max-width: 1200px;
-}
+// .comGlobalFooter {
+//   // padding: 0 89px; 
+//   margin: 0 auto;
+//   max-width: 1200px;
+// }
 
-.comGlobalFooter h4 {
+// .comGlobalFooter h4 {
 
-  margin: 12px 0 4px;
-  color: #666;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: normal;
-  @include fontSmoothing;
-  // @include comVerticalRhythm;
+//   margin: 12px 0 4px;
+//   color: #666;
+//   font-size: 1.25rem;
+//   line-height: 1.75rem;
+//   font-weight: normal;
+//   @include fontSmoothing;
+//   // @include comVerticalRhythm;
 
-  @include respondTo(medium-up) {
-    // font-size: remCalc(24px);
-    // line-height: remCalc(32px);
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-}
+//   @include respondTo(medium-up) {
+//     // font-size: remCalc(24px);
+//     // line-height: remCalc(32px);
+//     font-size: 1.25rem;
+//     line-height: 1.75rem;
+//   }
+// }
 
 /*------------------------------------*\
     #STATUS

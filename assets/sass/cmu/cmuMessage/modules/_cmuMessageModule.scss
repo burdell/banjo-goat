@@ -54,13 +54,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 	.forumThreadMessage__controls {
-		opacity: 0.3; 
+		opacity: 0.15; 
 		@extend %ease-fast;
 	}
 
+	// don't fade userbadge
 	.cmuUserbadge {
 		@extend %ease-fast;
-		opacity: 0.46;
+		// opacity: 0.46;
 		
 	}
 
@@ -76,8 +77,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 }
 
 .cmuMessage__header {
-	font-size: $cmu-size-xsmaller;
-	color: $cmu-color-mdgray;
+	@extend %type-info;
 }
 	
 	// add "Re:" to replies
@@ -100,6 +100,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// }
 	.cmuMessage__replyTo {
 		display: inline-block;
+		vertical-align: middle;
 		color: $cmu-color-blue;
 		&:before {
 			content: 'Re: ';
@@ -111,12 +112,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			margin: 0 $cmu-base/2;
 		}
 	}
-
-	.cmuMessage__date {
-		text-align: right;
-		display: inline-block;
-	}
-
 
 .cmuMessage__content {
 	margin-top: $cmu-base/2;
@@ -189,9 +184,21 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	overflow: hidden;
 }
 
+
+	.cmuMessage__data {
+		&, * { 
+			display: inline-block;
+			text-align: right;
+			vertical-align: middle;
+		}
+	}
+
+		// if it's in the first post
+		.cmuThread__firstPost .cmuMessage__data {
+			margin-left: $cmu-base * 2;
+		}
+
 	.cmuMessage__counter {
-		display: inline-block;
-		text-align: right;
   		
   		// FPO
   		&:before {

@@ -26,7 +26,7 @@
 
 // thread info applies universally "by { }, date"
 .cmuInlineInfo {
-	color: $cmu-color-body--light;
+	color: $cmu-color-body;
 	@extend %type-info;
 
 	// it's the job of other objects to push this down
@@ -39,6 +39,7 @@
 
 	// separated values like 'date' and 'replies'
 	.cmuInlineInfo__data {
+		vertical-align: middle;
 		&:not(:first-child):before {
 			content: attr(data-divider);
 			padding: 0 $cmu-base/4; 

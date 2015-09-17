@@ -6682,7 +6682,7 @@ h6 {
   font-style: italic;
 }
 
-.type-base, .cmuUserbadge__username, .cmuFeatureDetails .cmuFeatures__votes__count span {
+.type-base, .cmuUserbadge__account .cmuUsername, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
   font-size: 0.8125rem;
   line-height: 1.3125rem;
 }
@@ -6692,7 +6692,7 @@ h6 {
   line-height: 1.125rem;
 }
 
-.type-info, .cmuInlineInfo, .cmuThread__stats, .cmuUserbadge__descriptors div, .cmuUserbadge__rank, .cmuFeatures__votes__status {
+.type-info, .cmuInlineInfo, .cmuThread__stats, .cmuMessage__header, .cmuThread__firstPost .cmuMessage__data, .cmuUserbadge__descriptors div, .cmuUserbadge__rank, .cmuUserbadge__points, .cmuFeatures__votes__status {
   font-size: 0.6875rem;
   line-height: 1.1875rem;
 }
@@ -7172,10 +7172,13 @@ pre {
 
 */
 .cmuInlineInfo {
-  color: #969ba3;
+  color: #17191d;
 }
 .cmuInlineInfo .cmuInlineInfo__intro {
   margin-right: 0.25rem;
+}
+.cmuInlineInfo .cmuInlineInfo__data {
+  vertical-align: middle;
 }
 .cmuInlineInfo .cmuInlineInfo__data:not(:first-child):before {
   content: attr(data-divider);
@@ -7960,7 +7963,12 @@ pre {
   font-weight: 300;
 }
 
+.cmuThread {
+  margin-bottom: 2rem;
+}
+
 .cmuThread__firstPost {
+  position: relative;
   padding: 1rem;
   margin-bottom: 0.5rem;
   border: 1px solid #bbbbbd;
@@ -8015,6 +8023,10 @@ pre {
   font-weight: 600;
 }
 
+.cmuThread__date {
+  margin-right: 0.5rem;
+}
+
 .cmuThread__author {
   margin-bottom: 1rem;
 }
@@ -8041,11 +8053,7 @@ pre {
 }
 
 .forumThreadMessage__controls {
-  opacity: 0.3;
-}
-
-.cmuUserbadge {
-  opacity: 0.46;
+  opacity: 0.15;
 }
 
 .cmuMessage__body {
@@ -8058,13 +8066,9 @@ pre {
   background-color: #f3f3f3;
 }
 
-.cmuMessage__header {
-  font-size: 0.6875rem;
-  color: #bbbbbd;
-}
-
 .cmuMessage__replyTo {
   display: inline-block;
+  vertical-align: middle;
   color: #00a0df;
 }
 .cmuMessage__replyTo:before {
@@ -8075,11 +8079,6 @@ pre {
   content: ' | ';
   color: #969ba3;
   margin: 0 0.5rem;
-}
-
-.cmuMessage__date {
-  text-align: right;
-  display: inline-block;
 }
 
 .cmuMessage__content {
@@ -8126,10 +8125,16 @@ pre {
   overflow: hidden;
 }
 
-.cmuMessage__counter {
+.cmuMessage__data, .cmuMessage__data * {
   display: inline-block;
   text-align: right;
+  vertical-align: middle;
 }
+
+.cmuThread__firstPost .cmuMessage__data {
+  margin-left: 2rem;
+}
+
 .cmuMessage__counter:before {
   counter-increment: messageCtr;
   content: counter(messageCtr) " of 20 ";
@@ -8207,12 +8212,6 @@ button:hover, .button:hover, .cmuButton:hover, .cmuInput--waiting:hover, .cmuInp
   background-color: #00a0df;
   border-color: #00a0df;
 }
-button .icon, .button .icon, .cmuButton .icon, .cmuInput--waiting .icon, .cmuInputFile--label .icon, .cmuInputFile--uploading .icon, .cmuInputUrl--input + label + .cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting + .cmuButton, .cmuInputFile--label + .cmuButton, .cmuInputFile--uploading + .cmuButton, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuButton, .cmuButton + .cmuInput--waiting, .cmuInput--waiting + .cmuInput--waiting, .cmuInputFile--label + .cmuInput--waiting, .cmuInputFile--uploading + .cmuInput--waiting, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInput--waiting, .cmuButton + .cmuInputFile--label, .cmuInput--waiting + .cmuInputFile--label, .cmuInputFile--label + .cmuInputFile--label, .cmuInputFile--uploading + .cmuInputFile--label, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInputFile--label, .cmuButton + .cmuInputFile--uploading, .cmuInput--waiting + .cmuInputFile--uploading, .cmuInputFile--label + .cmuInputFile--uploading, .cmuInputFile--uploading + .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button + .cmuInputFile--uploading, .cmuInputUrl--input + label.cmuButton + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInput--waiting + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputFile--label + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputFile--uploading + .cmuInputUrl--button, .cmuInputUrl--input + label.cmuInputUrl--input + label.cmuInputUrl--button + .cmuInputUrl--button {
   margin-left: 0.5rem;
 }
@@ -8229,12 +8228,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #00a0df;
   border-color: #00a0df;
 }
-.button--ghost .icon, .cmuInputUrl--input + label + .cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--ghost.button-green-on-white, .cmuInputUrl--input + label + .button-green-on-white.cmuInputUrl--button {
   color: #48af65;
   background-color: default;
@@ -8246,12 +8239,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
-}
-.button--ghost.button-green-on-white .icon, .cmuInputUrl--input + label + .button-green-on-white.cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 .button--ghost.button-black-on-white, .cmuInputUrl--input + label + .button-black-on-white.cmuInputUrl--button {
   color: #242931;
@@ -8265,12 +8252,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #242931;
   border-color: #242931;
 }
-.button--ghost.button-black-on-white .icon, .cmuInputUrl--input + label + .button-black-on-white.cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--ghost.button-gray-on-white, .cmuInputUrl--input + label + .button-gray-on-white.cmuInputUrl--button {
   color: #bbbbbd;
   background-color: default;
@@ -8282,12 +8263,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   color: #fafafa;
   background-color: #bbbbbd;
   border-color: #bbbbbd;
-}
-.button--ghost.button-gray-on-white .icon, .cmuInputUrl--input + label + .button-gray-on-white.cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 
 .button--outline, .cmuInput--waiting, .cmuInputFile--uploading {
@@ -8305,12 +8280,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #00a0df;
   border-color: #00a0df;
 }
-.button--outline .icon, .cmuInput--waiting .icon, .cmuInputFile--uploading .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button-green-on-white.cmuInputFile--uploading {
   color: #48af65;
   background-color: default;
@@ -8325,12 +8294,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
-}
-.button--outline.button-green-on-white .icon, .button-green-on-white.cmuInput--waiting .icon, .button-green-on-white.cmuInputFile--uploading .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button-black-on-white.cmuInputFile--uploading {
   color: #242931;
@@ -8347,12 +8310,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #242931;
   border-color: #242931;
 }
-.button--outline.button-black-on-white .icon, .button-black-on-white.cmuInput--waiting .icon, .button-black-on-white.cmuInputFile--uploading .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button-gray-on-white.cmuInputFile--uploading {
   color: #969ba3;
   background-color: default;
@@ -8368,12 +8325,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #969ba3;
   border-color: #969ba3;
 }
-.button--outline.button-gray-on-white .icon, .button-gray-on-white.cmuInput--waiting .icon, .button-gray-on-white.cmuInputFile--uploading .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 
 .button--solid, .cmuInputFile--label, .cmuInputUrl--input:valid + label + .cmuInputUrl--button {
   color: #fafafa;
@@ -8387,12 +8338,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #007bac;
   border-color: #007bac;
 }
-.button--solid .icon, .cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--solid.button-white-on-green, .button-white-on-green.cmuInputFile--label, .cmuInputUrl--input:valid + label + .button-white-on-green.cmuInputUrl--button {
   color: #fafafa;
   background-color: #48af65;
@@ -8405,12 +8350,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: #398b50;
   border-color: #398b50;
 }
-.button--solid.button-white-on-green .icon, .button-white-on-green.cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .button-white-on-green.cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--solid.button-white-on-black, .button-white-on-black.cmuInputFile--label, .cmuInputUrl--input:valid + label + .button-white-on-black.cmuInputUrl--button {
   color: #fafafa;
   background-color: #242931;
@@ -8422,12 +8361,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   color: #fafafa;
   background-color: #0e1014;
   border-color: #0e1014;
-}
-.button--solid.button-white-on-black .icon, .button-white-on-black.cmuInputFile--label .icon, .cmuInputUrl--input:valid + label + .button-white-on-black.cmuInputUrl--button .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 
 .button--naked {
@@ -8447,12 +8380,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: transparent;
   border-color: transparent;
 }
-.button--naked .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--naked.button-black-on-white {
   color: black;
   background-color: #fafafa;
@@ -8464,12 +8391,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   color: #00a0df;
   background-color: transparent;
   border-color: transparent;
-}
-.button--naked.button-black-on-white .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 
 .button--compound {
@@ -8490,12 +8411,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
 }
 .button--compound:hover {
   border-color: #00a0df;
-}
-.button--compound .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 .button--compound:hover .button--compound--data {
   padding: 0 0.5rem !important;
@@ -8535,12 +8450,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
 .button--compound.button-green-on-white:hover {
   border-color: #48af65;
 }
-.button--compound.button-green-on-white .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 
 .button--compound-naked {
   text-align: left;
@@ -8555,12 +8464,6 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: transparent;
   border-color: #00a0df;
 }
-.button--compound-naked .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--compound-naked.button-black-on-white {
   color: black;
   background-color: #fafafa;
@@ -8573,15 +8476,13 @@ button + button, .button + .button, .cmuButton + .cmuButton, .cmuInput--waiting 
   background-color: transparent;
   border-color: #00a0df;
 }
-.button--compound-naked.button-black-on-white .icon {
+
+button .icon, .button .icon {
+  margin-right: 0.25rem;
   font-weight: 800;
   font-size: 0.8125rem;
   position: relative;
   top: 1px;
-}
-
-button .icon, .button .icon {
-  margin-right: 0.25rem;
 }
 
 .button--padded {
@@ -8590,8 +8491,7 @@ button .icon, .button .icon {
 }
 
 .button--thin {
-  line-height: 1.3125rem;
-  font-size: 10px;
+  line-height: 1.25rem;
 }
 
 .button--vote {
@@ -8599,6 +8499,7 @@ button .icon, .button .icon {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-right: 0;
+  cursor: pointer;
   color: #969ba3;
   background-color: #fafafa;
   border-width: 1px;
@@ -8607,32 +8508,30 @@ button .icon, .button .icon {
   color: #969ba3;
   background-color: #fafafa;
   border-color: #969ba3;
-  line-height: 1.3125rem;
-  font-size: 10px;
 }
 .button--vote:hover {
   color: #fafafa;
   background-color: #969ba3;
   border-color: #969ba3;
 }
-.button--vote .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--vote:after {
   content: '+';
   color: white;
-  padding: 6px 8px 6px 9px;
-  margin-left: 6px;
+  padding: 0.5625rem 0.75rem;
+  margin-left: 1rem;
   margin-right: -1px;
   background-color: #969ba3;
+}
+.button--vote.button--thin:after {
+  padding: 0.3125rem 0.5rem;
 }
 .button--vote:hover:after {
   font-family: "lato";
   content: '+1';
-  padding: 8px 5px 8px 6px;
+  padding: 9px 8.5px;
+}
+.button--vote.button--thin:hover:after {
+  padding: 0.3125rem 0.3125rem;
 }
 .button--vote.button-white-on-green {
   color: #48af65;
@@ -8649,17 +8548,11 @@ button .icon, .button .icon {
   background-color: #48af65;
   border-color: #48af65;
 }
-.button--vote.button-white-on-green .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 .button--vote.button-white-on-green:after {
   background-color: #48af65;
 }
 
-.button--wide {
+.button--stretch {
   width: 100%;
 }
 
@@ -8689,6 +8582,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge {
   opacity: 1;
+  min-width: 11rem;
 }
 
 .cmuUserbadge__op:before {
@@ -8703,6 +8597,11 @@ button .icon, .button .icon {
 
 .cmuThread__firstPost > .cmuUserbadge__op:before {
   display: none;
+}
+
+.cmuThread__firstPost .cmuMessage__data {
+  float: right;
+  vertical-align: top;
 }
 
 .cmuUserbadge__account {
@@ -8740,16 +8639,12 @@ button .icon, .button .icon {
   transition-timing-function: ease-out;
 }
 
-.cmuUserbadge__username {
-  text-align: left;
+.cmuUserbadge__account .cmuUsername {
   line-height: 0.75rem;
-  word-break: break-all;
+  margin-top: 0.25rem;
 }
-.cmuUserbadge__username .cmuUsername {
-  margin-top: 0.5rem;
-}
-.cmuUserbadge__username .cmuUsername__icon {
-  line-height: 1rem;
+.cmuUserbadge__account .cmuUsername__icon {
+  line-height: 1.5rem;
 }
 
 .cmuUserbadge__descriptors {
@@ -8766,20 +8661,25 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__rank {
-  display: inline-block;
+  vertical-align: top;
+  display: block;
+  line-height: 0.75rem;
   text-align: left;
 }
 
 .cmuUserbadge__points {
-  border: 1px solid #ccc;
+  display: inline-block;
+  padding-right: 1rem;
   margin: 0 0.5rem;
   margin-bottom: 0.25rem;
 }
 
 .cmuUserbadge__kudos {
-  padding: 2px 4px;
   padding-left: 0.5rem;
   display: inline-block;
+}
+.cmuUserbadge__kudos .cmuIcon-kudos {
+  padding-right: 0.25rem;
 }
 .cmuUserbadge__kudos:after {
   content: ' kudos';
@@ -8807,6 +8707,40 @@ button .icon, .button .icon {
 
 .cmuUserbadge--ubnt {
   background-color: #dff6ff;
+}
+
+.cmuUserbadge--thin {
+  display: inline-block;
+  opacity: 1;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+.cmuUserbadge--thin .cmuUserbadge__account {
+  display: inline-block;
+  padding: 0;
+  padding-right: 4rem;
+  white-space: nowrap;
+}
+.cmuUserbadge--thin .cmuUsername {
+  margin-top: 0;
+}
+.cmuUserbadge--thin .cmuUserbadge__avatar {
+  padding-left: 0.5rem;
+}
+.cmuUserbadge--thin .cmuUserbadge__points {
+  display: inline-block;
+  vertical-align: top;
+}
+.cmuUserbadge--thin .cmuUserbadge__points div {
+  display: block;
+  text-align: right;
+}
+.cmuUserbadge--thin .cmuUserbadge__info {
+  display: inline-block;
+  vertical-align: top;
+}
+.cmuUserbadge--thin .cmuUserbadge__descriptors {
+  padding: 0;
 }
 
 .cmuComments__header {
@@ -9014,12 +8948,6 @@ button .icon, .button .icon {
   background-color: #969ba3;
   border-color: #969ba3;
 }
-.cmuInput--waiting .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
-}
 
 .cmuInputFile--label input[type="file"] {
   position: fixed;
@@ -9051,12 +8979,6 @@ button .icon, .button .icon {
   color: #fafafa;
   background-color: #969ba3;
   border-color: #969ba3;
-}
-.cmuInputFile--uploading .icon {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  position: relative;
-  top: 1px;
 }
 
 .cmuInputUrl {

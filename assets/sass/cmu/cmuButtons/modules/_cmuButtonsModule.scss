@@ -26,16 +26,11 @@
 	- shift reference to .button instead of <button> tag, since we need <a> to also look like buttons
 */
 
-// 
-// 
-// 
-
 $cmu-style-button-borderwidth: remCalc(2px);
-
 $cmu-button-fontsize: $cmu-size-xsmaller;
+$cmu-button-fontsize--icon: $cmu-size-normal;
 $cmu-button-lineheight: $cmu-cta-height;
 $cmu-button-letterspacing: remCalc(0.5px);
-
 $cmu-button-color-base: $cmu-color-blue;
 
 
@@ -145,20 +140,12 @@ $cmu-button-color-base: $cmu-color-blue;
 		}
 	}
 
-
-	// specialty icons
-	.icon {
-		font-weight: 800;
-		font-size: $cmu-size-normal;
-		position: relative;
-		top: 1px;
-	}
 }
 
 
 
 button, .button, .cmuButton {
-	font-size: $cmu-size-xsmaller;
+	font-size: $cmu-button-fontsize;
 	text-transform: uppercase;
 
 	line-height: $cmu-button-lineheight - $cmu-style-button-borderwidth * 2;
@@ -319,6 +306,10 @@ button, .button {
 	// default treat icon on the left
 	.icon {
 		margin-right: $cmu-base/4;
+		font-weight: 800;
+		font-size: $cmu-button-fontsize--icon;
+		position: relative;
+		top: 1px;
 	}
 }
 
@@ -328,41 +319,48 @@ button, .button {
  }
 
 .button--thin {
-	line-height: remCalc(21px);
-	font-size: 10px;
-
-	&:hover {
-		// border-width: 1px; 
-	}
+	line-height: remCalc(20px);
  }
 
-.button--vote {
 
+
+ // 
+ // Vote Button Style
+ // 
+.button--vote {
 	text-align: left;
 	padding-top: 1px;
 	padding-bottom: 1px;
 	padding-right: 0;
-	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
+	cursor: pointer;
 
-	line-height: remCalc(21px);
-	font-size: 10px;
+	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
 
 	&:after {
 		// font-family: "ubnt";
 		content: '+';
 		color: white; 
-		padding: 6px 8px 6px 9px;
-		margin-left: 6px;
+		padding: remCalc(9px) remCalc(12px);
+		margin-left: $cmu-base;
 		margin-right: -1px;
 		background-color: $cmu-color-gray;
 	}
+		// thin vote buttons
+		&.button--thin:after {
+			padding: remCalc(5px) remCalc(8px);
+		}
+
 	&:hover {
 		&:after {
 			font-family: "lato";
 			content: '+1';
-			padding: 8px 5px 8px 6px;
+			padding: 9px 8.5px;
 		}
 	}
+		// thin vote buttons
+		&.button--thin:hover:after {
+			padding: remCalc(5px) remCalc(5px);
+		}
 
 
 	&.button-white-on-green {
@@ -374,7 +372,7 @@ button, .button {
 	}
 }
 
-.button--wide {
+.button--stretch {
 	width: 100%;
  }
 

@@ -1,4 +1,4 @@
-<div class="cmuFeatureDetails">
+<div class="cmuFeatureDetails cmuThread">
 
 	<div class="row">
 
@@ -27,7 +27,9 @@
 
 				<div class="cmuThread__stats">
 					<div class="row">
-						<div class="col--md8">
+						<div class="col--md12">
+							<span class="cmuInlineInfo__data cmuThread__date" data-divider=" | "><span>Posted </span>{{ ::feature.discussion.postTime | timeFromNow }}</span>
+
 							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ ::vm.productName }}</span></div>
 							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">{{ ::vm.getMetaValue('versionNumber') }}</span></div>
 							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">{{ ::vm.getMetaValue('issueId') }}</span></div>
@@ -35,62 +37,30 @@
 					</div>
 					
 				</div>
-<!-- 
-				<div class="cmuThread__author">
-					<div class="row">
-						<div class="cmuInlineInfo col--md12">
-							<span class="cmuInlineInfo__intro">by</span><community-username user="vm.originalMessage.author"></community-username><span class="cmuInlineInfo__data" data-divider=" |">{{ ::vm.originalMessage.postTime | timeFromNow }}</span>
-						</div>
-					</div>
-				</div>
-
-				 -->
 			</div>
-
 		</div>
 
 
-		<div class="cmuThread__firstPost">
-
-			<!-- 
-				COMMUNITY-USERBADGE__THIN MOCKUP
-				just add a cmuUserbadge--thin to the userbadge class
-			 -->
-			<div class="cmuUserbadge BANANA
-						cmuUserbadge--thin
-						ng-isolate-scope" ng-class="{ '' : userbadge.userType }" user="messageDisplay.message.author" op-id="messageDisplay.showOp">
-
-				<div class="cmuUserbadge__account">
-					<div class="cmuUserbadge__account__left">
-						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
-							<!-- <img src="{{ userbadge.user.avatar.url }}" /> -->
-							<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
-						</div>
-					</div>
-					<div class="cmuUserbadge__account__right">
-						<div class="cmuUserbadge__username">
-							<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
-								<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
-							</span>
-						</div>
-						<div class="cmuUserbadge__status">
-							<span ng-show="userbadge.opId === userbadge.displayUser.id" class="cmuUserbadge__status__op ng-hide"></span>
-						</div>
-						<div class="cmuUserbadge__rank ng-binding">
-							SuperUser 
-						</div>
-					</div>
-				</div>
-
-				<div class="cmuUserbadge__info">
-					<div class="cmuUserbadge__descriptors">
-						<div data-desc="Kudos">152</div>
-						<div data-desc="Location">San Francisco, CA</div>
-						<div data-desc="Joined">08-07-2008</div>
-					</div>
-				</div>
-
+		<div class="row cmuThread__controls">
+			<span community-permissions>
+				<div class="col--md1">
+	        		<button class="button--solid button-white-on-green button--stretch">Vote</button>
+	        	</div>
+				<div class="col--md1">
+	        		<button class="button--solid button--stretch">Reply</button>
+	        	</div>
+			</span>
+			<div class="col--md4 col--mdOffset6">
+				<community-pager 
+				  total-results="vm.commentCount" 
+				  pager-fn="vm.commentFilter">
+				</community-pager>
 			</div>
+		</div>
+
+
+
+		<div class="cmuThread__firstPost">
 
 			<div class="cmuUserbadge
 						cmuUserbadge--thin
@@ -98,18 +68,14 @@
 				<div class="cmuUserbadge__account">
 
 					<div class="cmuUserbadge__user row">
-						<div class="cmuUserbadge__username">
-							<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
-							<!-- <img src="{{ userbadge.user.avatar.url }}" /> -->
-								<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
-							</div>
 
-							<div class="cmuUserbadge__username">
-								<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
-									<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
-								</span>
-							</div>
+						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
+							<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
 						</div>
+
+						<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
+							<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
+						</span>
 
 						<div class="cmuUserbadge__rank">
 							SuperUser 
@@ -117,6 +83,7 @@
 
 					</div>
 				</div>
+
 
 				<div class="cmuUserbadge__points">
 					<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
@@ -131,7 +98,10 @@
 				</div>
 			</div>
 
-
+			<div class="cmuMessage__data">
+				<div class="cmuMessage__counter"></div>
+				<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+			</div>
 
 			<div class="row">
 				<div class="col--md12" ng-bind-html="vm.originalMessage.body | sanitize"></div>
@@ -139,24 +109,9 @@
 
 		</div>
 
-		<div class="row cmuThread__controls">
-			<div class="col--md8">
-				<span community-permissions>
-		        	<button class="button--solid button-blue-white">Reply</button>
-		        	<button class="button--vote button--compound-naked">{{ vm.originalMessage.stats | extractKey: 'score' }}</button>
-				</span>
-			</div>
-			<div class="col--md4">
-				<community-pager 
-				  total-results="vm.commentCount" 
-				  pager-fn="vm.commentFilter">
-				</community-pager>
-			</div>
-		</div>
-
 	</div>
 
-	<div class="row row--comfy">
+	<div class="row">
 		<div ng-repeat="comment in vm.commentList">
 			<community-message 
 				message="comment"
@@ -168,13 +123,12 @@
 	</div>
 
 	<div class="row">
-		<div class="col--md8">
+		<div class="col--md2 noPadding">
 			<span community-permissions>
-	        	<button class="button--solid button-blue-white">Reply</button>
-	        	<button class="button--vote button--compound-naked">{{ vm.originalMessage.stats | extractKey: 'score' }}</button>
+	        	<button class="button--solid button--stretch button-blue-white">Reply</button>
 			</span>
 		</div>
-		<div class="col--md4 noPaddingRight">
+		<div class="col--md4 col--mdOffset6 noPadding">
 			<community-pager 
 			  total-results="vm.commentCount" 
 			  pager-fn="vm.commentFilter">

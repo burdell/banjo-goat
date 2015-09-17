@@ -83,7 +83,7 @@
 
     		<div class="cmuThreadlist__ctrl__row row">
 				<div class="col--md4 " community-permissions>
-					<button class="button--solid button--wide" ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Request a Feature</button>
+					<button class="button--solid button--stretch" ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Request a Feature</button>
 				</div>
 
 				<div class="col--md4 col--mdOffset4 noPadding">
@@ -117,28 +117,37 @@
 						{{ ::vm.getStatusText(feature.discussion.statusType) }}
 					</div>
 				</div>
+
 				<div class="cmuFeatures__threadlist__body col--md10">
 					<span class="cmuFeatures__threadlist__body__title">
 						<a ui-sref="features.detail({ featureRequestId: feature.id })">{{ ::feature.discussion.subject }}</a>
 					</span>
 					
-					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.discussion.body | unformatText | wordCut:20 }}</div>
-
-
 					<div class="cmuInlineInfo row noPadding">
 						<div class="col--md9">
-							<community-username user="feature.discussion.author"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | Posted ">{{ ::feature.discussion.latestComment.postTime | timeFromNow }}</span>
+							<community-username user="feature.discussion.author"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | "><span>Posted </span>{{ ::feature.discussion.postTime | timeFromNow }}</span>
 						</div>
+					</div>
 
-						<div class="alignRight col--md3">
-							<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'views' | number }} views</span>
-							<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
+					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.discussion.body | unformatText | wordCut:20 }}</div>
+
+					<div class="cmuThread__stats">
+						<div class="row">
+							<div class="col--md8">
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">UniFi Video</span></div>
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.1.1.1</span></div>
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">LOL1234</span></div>
+							</div>
+
+							<div class="cmuInlineInfo alignRight col--md4">
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'views' | number }} views</span>
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
+							</div>
 						</div>
 					</div>
 
 				</div>
 			</div>
-
 		</div>
 
 	</div>
