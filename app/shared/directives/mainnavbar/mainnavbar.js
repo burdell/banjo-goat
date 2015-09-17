@@ -6,7 +6,7 @@
 		    
 		}
 
-		function controller($scope, $location, nodeServiceWrapper, routingService, userServiceWrapper, $state) {
+		function controller($scope, $state, $location, nodeServiceWrapper, routingService, userServiceWrapper, routesProvider) {
 			var ctrl = this;
 			var hrefs = {
 				announcements: routesProvider.announcements.landing,
@@ -71,7 +71,15 @@
 				}
 			})			
 		}
-		controller.$inject = ['$scope', '$location', 'CommunityNodeService', 'CommunityRoutingService', 'CurrentUserService', '$state' ];
+		controller.$inject = [
+			'$scope', 
+			'$state',
+			'$location', 
+			'CommunityNodeService', 
+			'CommunityRoutingService', 
+			'CurrentUserService',
+			'communityRoutes'
+		];
 	    
 	    var directive = {
 	        link: link,
