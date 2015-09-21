@@ -73,17 +73,20 @@
 		background-color: $cmu-color-ltgray;
 		color: $cmu-color-dkgray;
 		font-weight: bold;
-		letter-spacing: $cmu-size-letterspacing-header;
+		// letter-spacing: $cmu-size-letterspacing-header;
 	}
 
 	.cmuDirectory__content {
 		border-bottom: $cmu-style-line;
     	position: relative;
-		// display: table;
-		// width: 100%;
-		// table-layout: fixed;
+    	@extend %ease-fast;
 		&:last-child {
 			border: 0;
+		}
+
+		&:hover {
+    		@extend %ease-fast;
+			background-color: $cmu-color-purewhite;
 		}
 	}
 
@@ -96,64 +99,53 @@
 		.cmuDirectory__content__title {
 			font-size: $cmu-size-large;
 			line-height: $cmu-size-large--line-height;
-		
 			a {
-				color: $cmu-color-blue;
-				&:hover { color: $cmu-color-dkgray; }
+				@extend %style-link--dark;
 			}
 		}
 		.cmuDirectory__content__list {
+			padding: $cmu-base/2 $cmu-base;
+			padding-left: 0;
 
 			a {
-				color: $cmu-color-dkgray;
-				&:hover { color: $cmu-color-blue; }
+				white-space: nowrap;
+				@extend %style-link--dark;
 			}
 		}
 
 
 // Online Stats
 
-	.cmuDirectory__content__right {
-		// background-color: $cmu-color-ltgray;
-		display: inline-block;
-		// float: right;
-		position: absolute;
-		right: 0;
-		top: 0;
-		// display: table-cell;
-		// width: 20%;
-		// display:none; 
-	}
-		.cmuDirectory__users, .cmuDirectory__posts {
+	.cmuDirectory__stats {
+		text-align: right;
+
+		div {
 			display: inline-block;
+			padding-right: $cmu-base;
 		}
-
+	}
 		.cmuDirectory__users {
-
-			.cmuDirectory__count {
-				// font-size: $cmu-s;
-				padding-right: 0;
-				text-align: right;
-			}
-			.cmuDirectory__label {
-				padding: 0;
-				padding-right: $cmu-base/2;
-			}
-		}
-
-		.cmuDirectory__count, .cmuDirectory__label {
-			color: $cmu-color-dkgray;
-			text-transform: uppercase;
-			@extend %font-oswald;
+			margin-right: $cmu-base;
 		}
 
 		.cmuDirectory__count {
-			color: $cmu-color-blue;
-			display:inline-block;
+			@extend %font-oswald;
+			display: inline-block;
+			color: $cmu-color-dkgray;
+			text-transform: uppercase;
+    		vertical-align: middle;
+			margin-right: $cmu-base/4;
 		}
+
 		.cmuDirectory__label {
-			font-size: $cmu-size-smaller;
-			line-height: $cmu-base;
+			@extend %font-lato;
+			@extend %type-tiny--tight;
+			display: inline-block;
+			color: $cmu-color-gray;
+			text-transform: uppercase;
+    		vertical-align: middle;
+			width: $cmu-base;
+			margin-right: $cmu-base;
 		}
 
 

@@ -39,7 +39,7 @@
 
 	// separated values like 'date' and 'replies'
 	.cmuInlineInfo__data {
-		vertical-align: middle;
+		vertical-align: top;
 		&:not(:first-child):before {
 			content: attr(data-divider);
 			padding: 0 $cmu-base/4; 

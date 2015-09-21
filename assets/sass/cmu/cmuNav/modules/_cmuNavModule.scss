@@ -27,24 +27,29 @@ $nav-height: remCalc(40px);
 }
 
 
+
+
+
 .cmuGloNav {
-	height: $nav-height;
 	background-color: $cmu-color-soot;
 	border-bottom: 1px solid $cmu-color-dkgray;
 	z-index: $z-gloNav;
 	position: relative;
-
-	* {
-		display: inline-block;
-		vertical-align: top;
-	}
-	ul {
-		margin-bottom: 0;
-	}
-	.row {
-		display: block;
-	}
 }
+	.cmuGloNav--header {
+		height: $nav-height;
+
+		* {
+			display: inline-block;
+			vertical-align: top;
+		}
+		ul {
+			margin-bottom: 0;
+		}
+		.row {
+			display: block;
+		}
+	}
 
 	.cmuGloNav__container {
 		@extend %cmu-maxwidth;
@@ -57,7 +62,7 @@ $nav-height: remCalc(40px);
 		.cmuGloNav__logo {
 			.icon {
 				color: $cmu-color-white;
-				font-size: remCalc(24px);
+				font-size: $cmu-base*1.5;
 				padding: $cmu-base/2 $cmu-base;
 				padding-left: 0;
 			}
@@ -73,7 +78,7 @@ $nav-height: remCalc(40px);
 	}
 
 		.cmuGloNav__links {
-			border-right: 1px solid $cmu-color-dkgray;
+			border-right: $style-line--dark;
 		}
 			// fake active button
 			.cmuGloNav__links {
@@ -89,7 +94,7 @@ $nav-height: remCalc(40px);
 				a { @extend %nav-style; }
 
 				&:hover {
-					.cmuGloNav__dropItem:after {
+					.cmuGloNav__dropItem:before {
 						color: $cmu-color-white;
 						@extend %ease-fast;
 					}
@@ -98,12 +103,12 @@ $nav-height: remCalc(40px);
 			.cmuGloNav__dropItem {
 				padding-right: $cmu-base*1.5;
 
-				&:after {
+				&:before {
 					@extend %ease-fast;
 					font-family: 'ubnt';
-					content: "\e6d0";
+					content: "\e6d9";
 					position: relative;
-					left: $cmu-base/2;
+					padding-right: $cmu-base/2;
 					font-size: $cmu-base/2;
 					color: $cmu-color-gray;
 				}
@@ -149,90 +154,115 @@ $nav-height: remCalc(40px);
 
 
 
+.cmuGloNav--footer {
+
+	padding: $cmu-base 0;
+	@include respondTo(medium-up) {
+		padding: $cmu-base $cmu-base*4;
+	}
 
 
+	li {
+		cursor: default;
+		display: block;
+		@extend %nav-style;
+		text-transform: inherit;
+		height: auto;
+		padding: $cmu-base/2 0;
 
-// Temporary for the secondary nav
+		@include respondTo(small-down) {
+			padding-left: $cmu-base/2;
+		}
 
-// .cmuNav {
-// 	background-color: $cmu-secondmenu-background-color;
+		a { 
+			cursor: pointer;
+		}
+	}
 
-// 	* , a {
-// 		font-size: $cmu-size-navbar-fontsize;
-// 		color: $cmu-secondmenu-font-color;
-// 		text-transform: uppercase;
-// 	  	letter-spacing: $cmu-size-navbar-letterspacing;
-// 	}
+	span {
+		@extend %type-info;
+		color: $cmu-color-dkgray;
+	}
 
-// 	a { padding: $cmu-base 0; }
+	.ubnt-icon {
+		padding-right: $cmu-base/2;
+	}
+		.ubnt-icon--menu {
+			padding: 0;
+			color: $cmu-color-gray;
+			padding-left: $cmu-base/4;
+			&:before {
+				@extend %ease-fast;
+			}
+		}
+}
 
-// 	cursor: default; // used to prevent cursor from switching to text mode
+// 
+// Community part of the footer
+// 
 
-// 	ul {
-// 		padding: $cmu-base 0;
-// 		li {
-// 			list-style-type: none;
-// 			display: inline;
-// 			margin-right: $cmu-base/2;
-// 			cursor: pointer;
-// 		}
-// 		li:last-of-type {
-// 			margin-right: 0;
-// 		}
-// 	}
-// }
+	.cmuGloNav__community {
 
-// .cmuNav__container {
-// 	@extend %cmu-maxwidth;
-// }
+	}
 
-// .cmuNav__navItem {
-// 	padding: $cmu-base $cmu-base/2;
-// 	position: relative;
+	.cmuGloNav__discussions {
+		&:hover {
+			span:before {
+				@extend %ease-fast;
+				color: $cmu-color-white;
+			}
+		}
+	}
 
-// 	&:hover { 
-// 		a, &.cmuNav__dropItem:after  {
-// 			color: $cmu-secondmenu-font-active-color;
-// 			@extend %ease;
-// 		}
-// 	}
+	.cmuGloNav__social--label {
+		cursor: default !important;
+		// margin-top: $cmu-base*2;
+	}
 
-// }
+	.cmuGloNav__social {
+		cursor: default !important;
 
-// .cmuNav__active {
-// 	&, a {
-// 		color: $cmu-font-highlight;
-// 	}
-// }
+		span:before {
+			@extend %ease-fast;
+			cursor: pointer;
+			font-size: $cmu-base*1.5;
+			background-color: $cmu-color-gray;
+			border-radius: 50%;
+			padding: 4px;
+			color: $cmu-color-black;
+		}
+		span:hover:before {
+			@extend %ease-fast;
+			background-color: $cmu-color-mdgray;
+		}
+	}
 
-// .cmuNav__dropItem {
-// 	&:after {
-// 		font-family: 'ubnt';
-// 		content: "\e6d0";
-// 		position: absolute;
-// 		// top: 10px;
-// 		top: 26px;
-// 		left: 45%;
-// 		@extend %ease;
-// 	}
-// }
+	.cmuGloNav__top {
+		cursor: inherit;
+		position: absolute;
+		top: $cmu-base*1.5;
+		right: $cmu-base*1.5;
 
-// .cmuNav__search {
-// 	background-color: $cmu-secondmenu-search-background-color;
-// 	position: absolute;
-// 	right: 0;
-// 	padding: $cmu-base;
+		@include respondTo(small-only) {
+			top: $cmu-base * -0.7;
+		}
 
-// 	// icon
-// 	.icon {
-// 		font-size: $cmu-base;
-// 		line-height: 0;
-// 		margin-right: $cmu-base;
-// 		position: relative;
-// 		top: 3px;
-// 	}
-// }
+		span:before {
+			@extend %ease-fast;
+			cursor: pointer;
+			font-size: $cmu-base*1.8;
+			background-color: $cmu-color-dkgray;
+			border-radius: 50%;
+			padding: 8px;
+			color: $cmu-color-white;
 
-// temporary alignment with global nav
-// .cmuNav__left { padding-left: 74px; }
-// .cmuNav__right { text-align: right; }
+		}
+		span:hover:before {
+			@extend %ease-fast;
+			background-color: $cmu-color-gray;
+		}
+	}
+
+	.cmuGloNav__legal {
+		margin-top: $cmu-base * 2;
+	}

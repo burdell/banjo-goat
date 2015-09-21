@@ -175,6 +175,10 @@ $cmu-base-spacing-unit: $cmu-base;
 		font-size: $cmu-size-xxsmaller;
 		line-height: $cmu-size-xxsmaller--line-height;
 	}
+		.type-tiny--tight, %type-tiny--tight {
+			@extend %type-tiny;
+			line-height: $cmu-size-xxsmaller--line-height * 0.6;
+		}
 
 
 
