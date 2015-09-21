@@ -1,20 +1,20 @@
 (function(_, moment) {
 	'use strict';
 
-	function groupData(dataList, dateProperty){
+	function groupData(dataList, datePropertyFn){
 		 _.each(dataList, function(discussion){
-		 	var data = discussion.discussion;
+		 	var date = datePropertyFn(discussion);
 
-			var momentDate = moment(data[dateProperty]);
+			var momentDate = moment(date);
 
-			_.extend(data, {
+			_.extend(discussion, {
 				month: momentDate.month(),
 				year: momentDate.year()
 			})
  		});
 	
 		var dataByYear = _.groupBy(dataList, function(data){
-			return  data.discussion.year;
+			return  data.year;
 		});
 		
 		var groupedData = [];
@@ -26,7 +26,7 @@
 			};
 
 			var dataByMonth = _.groupBy(yearData, function(data){
-				return data.discussion.month;
+				return data.month;
 			});
 			_.each(dataByMonth, function(data, month){
 				yearObj.count += data.length
@@ -41,13 +41,15 @@
  		});
 	};
 
-	var timelineService = function(){
+	var timelineService = function($parse){
 		return {
 			getTimelineData: function(dataList, sortBy) {
-				return groupData(dataList, sortBy);
+				var sortByFn = $parse(sortBy);
+				return groupData(dataList, sortByFn);
 			}
 		};
 	};
+	timelineService.$inject = ['$parse'];
 
 	angular.module('community.services')
 		.service('CommunityTimelineService', timelineService);

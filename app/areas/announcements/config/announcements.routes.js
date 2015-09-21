@@ -17,7 +17,7 @@
 								return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
 							})
 							.then(function(result) {
-								return result.collection;
+								return result.content;
 							});
 					}]
 				}

@@ -1,4 +1,8 @@
 <div class="row row--comfy">
+	<div>
+		<span class="icon {{ feedcontent.getDiscussionIconClass(feedcontent.contentModel.discussionStyle) }}"></span>
+		<a>{{ feedcontent.contentModel.data.message.insertUser.login }} replied to a feature request</a>
+	</div>
 	<div ng-if="feedcontent.contentModel.type === 'comment'">
 		<div class="row">
 			<div class="col--md12">

@@ -22,21 +22,21 @@
 		};
 
 
-		var currentFirstItem = null;
+		var initialFeedLoaded = false;
 		var feedUpdates = null;
 		function setFeed(feedData) {
 			ctrl.feedList = feedData;
-			currentFirstItem = feedData[0];
+			initialFeedLoaded = true;
 
 			feedUpdates = null;
 		} 
 
 		feedFilter.set({
-			onFilter: function(result) {
-				var firstItem = result.content[0];
-				if (!currentFirstItem) {
+			onFilter: function(result, updates) {
+				debugger;
+				if (!initialFeedLoaded) {
 					setFeed(result.content);
-				} else if (firstItem && (firstItem.data.id !== currentFirstItem.data.id)) {
+				} else if (updates.length > 0) {
 					feedUpdates = result.content;
 				}
 			}
@@ -80,7 +80,7 @@
 				}
 
 				breadcrumbService.setCurrentBreadcrumb(feedDataObject.display);
-				currentFirstItem = null;
+				initialFeedLoaded = false;
 			},
 			landingPages: routingService.landingPages(),
 			discussionSortOptions: dataService.DiscussionTypeSort,

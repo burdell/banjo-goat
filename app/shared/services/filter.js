@@ -16,6 +16,8 @@
 				realtime: false
 			};
 
+			var realtimeService = null;
+
 			var setFilterModel = function(filterData, exclude) {
 				if (exclude) {
 					if (!_.isArray(exclude)) {
@@ -33,8 +35,12 @@
 			};
 
 			var executeOnFilterFns = function(result){
+				var updates;
+				if (realtimeService) {
+					updates = realtimeService.getUpdates();
+				}
 				_.each(options.onFilterFns, function(fn){
-					fn(result);
+					fn(result, updates);
 				});
 			};
 
@@ -47,6 +53,7 @@
 				});
 				$location.search(queryParams);
 			};
+
 
 			return {
 				set: function(newOptions){
@@ -67,7 +74,7 @@
 					}
 					
 					if (options.realtime) {
-						var realtimeService = realtimeServiceWrapper.getNew();
+						realtimeService = realtimeServiceWrapper.getNew();
 						realtimeService.start(this.filter);
 					}
 

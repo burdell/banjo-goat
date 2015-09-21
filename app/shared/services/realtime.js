@@ -6,15 +6,28 @@
 
 		function RealTimeService() {
 			var poll = null;
+			var lastResultTotal = null;
+			var updates = [];
 			
 			return  {
-				start: function(pollFn, interval, callback) {
+				start: function(pollFn, callImmediately, callback) {
 					if (!poll) {
 						var poller = function(){
-							pollFn();
+							pollFn().then(function(result){
+								updates = (lastResultTotal && (lastResultTotal < result.totalElements)) ? _.first(result.content, result.totalElements - lastResultTotal) : [];
+								if (callback) {
+									callback(result, updates);
+								}
+								lastResultTotal = result.totalElements;
+							});
+							
 						};
 
-						poll = (setInterval(poller, interval || defaultInterval));
+						if (callImmediately) {
+							poller();
+						}
+
+						poll = setInterval(poller, defaultInterval);
 					}
 				},
 				stop: function(){
@@ -22,6 +35,9 @@
 						clearInterval(poll);
 						poll = null;
 					}
+				},
+				getUpdates: function(){
+					return updates;
 				}
 			}
 		};

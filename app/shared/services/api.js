@@ -110,7 +110,7 @@
 		var service = {
 			Announcements: {
 				all: function(options){
-					return goToApi(baseUrl + urlSegments.Announcement(), options);
+					return goToApi(v2Url + 'announcements/', options);
 				},
 				count: function(nodeId){
 					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
@@ -142,28 +142,12 @@
 			},
 			Feed: {
 				allContent: function(options){
-					//console.log('all content');
-					//return $q.when(mockedData);
-					return goToApi(v2Url + urlSegments.Feed() + '/content', options).then(function(result){
-						var min = 1;
-						var max = 20;
-
-						var rando = Math.floor(Math.random() * (max - min + 1)) + min;
-						if (rando % 2 === 0) {
-							console.log('added');
-							result.content.unshift(_.clone(_.last(result.content)));	
-						}
-						
-						return result;
-					});
+					return goToApi(v2Url + urlSegments.Feed() + '/content', options);
 				},
-				notifications: function(){
-
+				notifications: function(options){
+					return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
 				},
 				subscriptions: function(options){
-					//console.log('subscriptions');
-					//return $q.when(mockedData);
-
 					return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
 				}
 			},

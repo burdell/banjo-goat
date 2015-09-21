@@ -1,3 +1,14 @@
 <div>
-	<h5>~* dIsCuSsIoN *~ ;) ;) ;)</h5>
+	<div>
+		<span class="icon {{ feedcontent.getDiscussionIconClass(feedcontent.contentModel.discussionStyle) }}"></span>
+		<a>{{ feedcontent.contentModel.data.message.insertUser.login }} posted a forum topic</a>
+	</div>
+	<div>
+		<span><h5 style="display: inline;">{{ feedcontent.contentModel.data.subject }}</h5></span>
+		<span>{{ feedcontent.contentModel.data.message.body | wordCut: 20 }}</span>
+	</div>
+
+	<div>
+		<h6> In {{ feedcontent.nodeName }} by {{ feedcontent.contentData.message.insertUser.login }} - {{ feedcontent.contentData.message.postDate | timeFromNow }}</h6>
+	</div>
 </div>

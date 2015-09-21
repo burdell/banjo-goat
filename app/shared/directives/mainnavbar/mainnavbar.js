@@ -6,7 +6,7 @@
 		    
 		}
 
-		function controller($scope, $state, $location, nodeServiceWrapper, routingService, userServiceWrapper, routesProvider) {
+		function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider) {
 			var ctrl = this;
 			var hrefs = {
 				announcements: routesProvider.announcements.landing,
@@ -19,8 +19,12 @@
 				$scope.$broadcast('megamenu:toggleDiscussions');
 			}
 
+			var checkNotifications = function(notifcationData, updates){
+				
+			}
+
 			var navMetaData = [
-				// { display: "Activity", href: "#"},
+				{ display: "Activity", href: hrefs.feed },
 				{ display: "Discussions", clickFn: toggleDiscussionsMenu, dropItem: true },
 				// { display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},
@@ -32,7 +36,11 @@
 			userServiceWrapper.get().then(function(userObj){
 				ctrl.isAuthenticated = userObj.isAuthenticated();
 				currentUser = userObj.user;
-			});
+
+				if (ctrl.isAuthenticated) {
+					realtimeService.getNew().start(apiService.Feed.notifications, true, checkNotifications)
+				}
+ 			});
 
 			nodeServiceWrapper.get().then(function(nodeService){
 				ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
@@ -75,7 +83,9 @@
 			'$scope', 
 			'$state',
 			'$location', 
+			'CommunityApiService',
 			'CommunityNodeService', 
+			'CommunityRealtimeService',
 			'CommunityRoutingService', 
 			'CurrentUserService',
 			'communityRoutes'
