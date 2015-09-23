@@ -247,7 +247,6 @@
 				},
 				story: function(storyData) {
 					var callData = getCallType(storyData);
-
 					return goToApi(baseUrl + urlSegments.Story(callData.id), callData.payload, callData.verb);
 				},
 				comments: function(storyData, params) {
@@ -258,6 +257,11 @@
 				},
 				stories: function(nodeId, data){
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stories', data);
+				},
+				test: function(options){
+					// return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
+
+					return goToApi(v2Url + '/stories', options);
 				}
 			},
 			Users: {

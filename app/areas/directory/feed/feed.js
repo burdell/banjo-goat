@@ -33,11 +33,13 @@
 
 		feedFilter.set({
 			onFilter: function(result, updates) {
-				debugger;
-				if (!initialFeedLoaded) {
-					setFeed(result.content);
-				} else if (updates.length > 0) {
+				console.log(result);
+				ctrl.numberOfPages = result.totalPages;
+
+				if (updates && updates.length > 0) {
 					feedUpdates = result.content;
+				} else {
+					setFeed(result.content);
 				}
 			}
 		});
@@ -47,7 +49,7 @@
 
 			var discussionTypes = _.flatten(_.toArray(nodeService.DiscussionTypes));
 			var bleh = _.map(discussionTypes, function(discussionType) {
-				return { value: discussionType.id, label: discussionType.description }
+				return { value: discussionType.urlCode, label: discussionType.description }
 			});
 
 			ctrl.categorySortOptions = categorySort.concat(bleh);
@@ -56,7 +58,6 @@
 		var currentFeedType = feedData.community;
 		var initialBreadcrumbSet = false;
 		_.extend(ctrl, {
-			currentfeed: 'user',
 			feedFilter: feedFilter,
 			setFeedUpdates: function(){
 				setFeed(feedUpdates)

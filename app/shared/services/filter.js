@@ -91,6 +91,14 @@
 					}
 					
 					var filterModel = _.extend(options.filterModel, options.constants);
+
+					//make sure falsy values are undefined
+					_.each(filterModel, function(modelValue, key) {
+						if (!modelValue && modelValue !== 0) {
+							filterModel[key] = undefined;
+						}
+					})
+
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;

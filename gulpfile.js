@@ -14,6 +14,8 @@ var bowerFiles = mainBowerFiles({ includeDev: true });
 var wholeFolderPlugins = ['vendor/bower/tinymce/**'];
 
 
+require('events').EventEmitter.prototype._maxListeners = 100;
+
 //
 //
 // FILTERS

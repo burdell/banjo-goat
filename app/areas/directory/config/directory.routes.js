@@ -49,12 +49,15 @@
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { },
+							constants: { size: 20 },
 							//realtime: true
 						});
 					}],
 					AnnouncementsData: ['CommunityApiService', function(communityApi){
-						return communityApi.Announcements.all({ limit: 5, sort: 'postdate' });
+						return {}; //communityApi.Announcements.all({ limit: 5, sort: 'postdate' });
+					}],
+					StoryData: ['CommunityApiService', function(communityApi){
+						return communityApi.Stories.test({ limit: 5, sort: 'postdate' });
 					}]
 				}
 			});

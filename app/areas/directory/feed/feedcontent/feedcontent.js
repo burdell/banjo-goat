@@ -18,7 +18,6 @@
 
 		var link = function(scope, element, attrs) {
 			var template = getTemplate(scope.feedcontent.contentModel.discussionStyle);
-			
 			var templateElement = $(element).find('.feed-content-template');
 			templateElement.html(template);
 

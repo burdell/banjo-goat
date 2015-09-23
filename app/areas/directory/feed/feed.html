@@ -25,21 +25,25 @@
 		          	<community-sort 
 		          		sort-options="vm.categorySortOptions" 
 		          		sort-filter="vm.feedFilter" 
-		          		sort-exclude="limit, offset" 
+		          		sort-exclude="page" 
 		          		class="community__sort"
-		          		sort-param="category">
+		          		sort-param="nodeUrlCode">
 		          	</community-sort>
 		        </div>
 				<div class="col--md2 noPaddingRight">
 				  <community-sort 
 				  	sort-options="vm.discussionSortOptions" 
 				  	sort-filter="vm.feedFilter" 
-				  	sort-exclude="limit, offset" 
+				  	sort-exclude="page" 
 				  	class="community__sort"
-				  	sort-param="section">
+				  	sort-param="style">
 				  </community-sort>
 		        </div>
 	        </div>
+
+	        <div ss="row row--comfy">
+
+	        </div>	
 
 	        <div class="row row--comfy" ng-show="vm.hasFeedUpdates()">
 	        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
@@ -49,6 +53,15 @@
 	        	<div ng-repeat="feedItem in vm.feedList">
 	        		<community-feed-content content-model="feedItem"></community-feed-content>
 	        	</div>
+	        </div>
+
+	        <div class="row">
+	        	<community-pager 
+		            number-of-pages="vm.numberOfPages" 
+		            pager-fn="vm.feedFilter"
+		            front-biased="true"
+		            page-based="true">
+		        </community-pager>
 	        </div>
 		</div>
 
