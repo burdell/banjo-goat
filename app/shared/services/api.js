@@ -116,7 +116,21 @@
 					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
 				},
 				announcements: function(nodeId, options) {
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'announcements', options);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
+				},
+				detail: function(announcementId){
+					return goToApi(v2Url + 'announcements/' + announcementId);
+				},
+				comments: function(announcementId, commentData){
+					return goToApi(v2Url + 'announcements/' + announcementId + '/comments');
+				},
+				thread: function(announcementId){
+					return $q.all([ this.detail(announcementId), this.comments(announcementId) ]).then(function(result){
+						return {
+							originalMessage: result[0],
+							comments: result[1]
+						}
+					});
 				}
 			},
 			Core: {
@@ -138,6 +152,10 @@
 
 						return result.collection; //window.nodeStructure[0];
 					});
+				},
+				message: function(messageData){
+					var callData = getCallType(messageData);
+					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
 				}
 			},
 			Feed: {

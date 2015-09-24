@@ -9,6 +9,7 @@
 	</div>
 
 	<div class="row">
+		
 	</div>
 
 	<div class="row">
@@ -41,9 +42,16 @@
 		        </div>
 	        </div>
 
-	        <div ss="row row--comfy">
-
-	        </div>	
+	        <div class="row row--comfy" ng-show="vm.feedType === 'community'">
+				<div ng-repeat="story in vm.storyData" class="col--md3">
+					<div ng-if="story.media.length > 0"><img ng-src="{{ story.media[0].url }}" /></div>
+					<div>
+						<a>{{ story.subject }}</a>
+						<h6>by {{ story.message.insertUser.login }}</h6>
+					</div>
+					<div>{{ story.node.description }}</div>
+				</div>
+			</div>	
 
 	        <div class="row row--comfy" ng-show="vm.hasFeedUpdates()">
 	        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
@@ -74,8 +82,7 @@
 			<div>
 				<h5>Latest Announcements</h5>
 				<div ng-repeat="announcement in vm.recentAnnouncements">
-					<h6>{{ announcement.subject }}</h6>
-					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">{{ announcement.discussion.subject }}</a>
+					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">{{ announcement.subject }}</a>
 				</div>
 			</div>
 		</div>	

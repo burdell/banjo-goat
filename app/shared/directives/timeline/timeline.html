@@ -21,9 +21,7 @@
 		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
 		</div>
 		
-		<div class="cmuTimeline__list 
-								cmuThreadlist__list" 
-					ng-show="timeline.showYear(yearData.year)">
+		<div class="cmuTimeline__list cmuThreadlist__list" ng-show="timeline.showYear(yearData.year)">
 			<div class="cmuTimeline__month" ng-repeat="monthData in yearData.yearData">
 				<table>
 
@@ -40,18 +38,17 @@
 			        </thead>
 
 					<tbody>
-
 			          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
 			          	<td class="cmuThreadList__row__topic">
-			          		{{ data.discussion.subject }}
+			          		{{ data.subject }}
 			          	</td>
 			            <td class="cmuThreadList__row__author">
-			              <community-username user="data.discussion.author"></community-username>
+			              <community-username user="data.message.insertUser"></community-username>
 			            </td>
-			            <td class="cmuThreadList__row__createdDate">{{ data.discussion.latestComment.postTime | timeFromNow }}
+			            <td class="cmuThreadList__row__createdDate">{{ data.message.postDate | timeFromNow }}
 			            </td>
 			            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
-			              {{  data.discussion.stats | extractKey : 'views' | number}}
+			              {{  data.countViews | number}}
 			            </td>
 			            <td class="cmuThreadList__row__counter" title="comments">
 			              {{  ( data.discussion.stats | extractKey : 'comments') - 1  | number}}
@@ -60,10 +57,8 @@
 			              {{  data.discussion.stats | extractKey : 'score'  | number}}
 			            </td>
 			          </tr>
-
 					</tbody>
 				</table>
-			 
 			</div>
 		</div>
 	</div>

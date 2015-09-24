@@ -7,6 +7,8 @@
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
+
+		console.log(announcements);
 		
 		var ctrl = this;
 		_.extend(ctrl, {

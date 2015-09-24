@@ -54,10 +54,10 @@
 						});
 					}],
 					AnnouncementsData: ['CommunityApiService', function(communityApi){
-						return {}; //communityApi.Announcements.all({ limit: 5, sort: 'postdate' });
+						return communityApi.Announcements.all({ per_page: 5, sort: 'postDate' });
 					}],
 					StoryData: ['CommunityApiService', function(communityApi){
-						return communityApi.Stories.test({ limit: 5, sort: 'postdate' });
+						return communityApi.Stories.test({ per_page: 4, sortField: 'postDate' });
 					}]
 				}
 			});

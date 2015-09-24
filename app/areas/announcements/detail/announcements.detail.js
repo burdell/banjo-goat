@@ -13,9 +13,19 @@
 			cancelReply: function(){
 				ctrl.replyInProgress = false;
 			},
-			commentData: announcementDetail.nextCommentMetaData,
+			submitReply: function(){
+				if (ctrl.comment.replyText) {
+					communityApi.Core.message({ 
+						body: ctrl.comment.replyText,
+						nodeId: ctrl.currentAnnouncement.node.id,
+						topicId: ctrl.currentAnnouncement.id
+					}).then(function(result){
+						debugger;
+					})
+				}
+			},
 			moreCommentsFilter: filterService.getNewFilter({ 
-				filterFn: communityApi.Forums.comments, 
+				filterFn: communityApi.Announcements.comments, 
 				filterArguments: [ announcementDetail.originalMessage.id ],
 				persistFilterModel: false,
 				setInitialData: false

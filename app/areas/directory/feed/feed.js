@@ -1,8 +1,10 @@
 (function(_){
 	'use strict';
 
-	var feedController = function($scope, announcementData, apiService, breadcrumbService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
+	var feedController = function($scope, announcementData, storyData, apiService, breadcrumbService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
 		var ctrl = this;
+
+		console.log(announcementData);
 		
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
@@ -33,7 +35,6 @@
 
 		feedFilter.set({
 			onFilter: function(result, updates) {
-				console.log(result);
 				ctrl.numberOfPages = result.totalPages;
 
 				if (updates && updates.length > 0) {
@@ -58,6 +59,7 @@
 		var currentFeedType = feedData.community;
 		var initialBreadcrumbSet = false;
 		_.extend(ctrl, {
+			storyData: storyData.content,
 			feedFilter: feedFilter,
 			setFeedUpdates: function(){
 				setFeed(feedUpdates)
@@ -66,6 +68,8 @@
 				return feedUpdates !== null;
 			},
 			setFeedType: function(feedType) {
+				ctrl.feedType = feedType;
+
 				if (initialBreadcrumbSet) {
 					breadcrumbService.clearCurrentBreadcrumb();
 				} else {
@@ -85,7 +89,7 @@
 			},
 			landingPages: routingService.landingPages(),
 			discussionSortOptions: dataService.DiscussionTypeSort,
-			recentAnnouncements: announcementData.collection,
+			recentAnnouncements: announcementData.content,
 			generateAnnouncementUrl: function(announcementData){
 				var nodeId = routingService.generateDiscussionUrl(announcementData.product, 'announcements');
 				return routingService.generateUrl('announcements.detail', { nodeId: nodeId, announcementId: announcementData.id });
@@ -97,6 +101,7 @@
 	feedController.$inject = [
 		'$scope', 
 		'AnnouncementsData',
+		'StoryData',
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 
 		'CommunityDataService', 

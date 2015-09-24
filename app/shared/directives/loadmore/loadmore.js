@@ -16,26 +16,30 @@
 
 		function controller() {	
 			var ctrl = this;
-			ctrl.listMetadata.offset = 0;
+			
+			var pageNumber = 1;
 
 			_.extend(ctrl, {
 				load: function(){
-					var metaData = this.listMetadata;
-					metaData.offset += metaData.limit;
 					ctrl.isLoading = true;
 
 					this.loadFilter.filter({
-						limit: this.listMetadata.limit,
-						offset: this.listMetadata.offset
+						page: pageNumber
 					}).then(function(result) {
+						pageNumber += 1;
+
 						if (ctrl.onLoadFn) {
-							ctrl.onLoadFn(result.collection);
+							ctrl.onLoadFn(result.content);
 						} else {
-							ctrl.listModel = ctrl.listModel.concat(result.collection);
+							ctrl.listModel = ctrl.listModel.concat(result.content);
 						}
+						
 						ctrl.isLoading = false;
-						ctrl.listMetadata.hasMore = result.next.hasMore;
+						ctrl.listMetadata.hasMore = !result.last;
 					});
+				},
+				listMetadata: {
+					hasMore: !ctrl.listModel.last
 				}
 			});
 		}
@@ -51,7 +55,6 @@
 	        replace: true,
 	        scope: {
 	        	listModel: '=',
-	        	listMetadata: '=',
 	        	loadText: '@',
 	        	loadFilter: '=',
 	        	infiniteScroll: '=',
