@@ -3,8 +3,20 @@
 
 	function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
 		var ctrl = this;
+
+		storyThread.comments.content.shift();
+
 		var story = storyThread.originalMessage;
-		var storyAuthor = story.discussion.author;
+		story.location = {
+			display: story.locName,
+			coordinates: {
+				lat: story.locLat,
+				lng: story.locLon
+			}
+		};
+		var storyAuthor = story.message.insertUser;
+
+		debugger;
 
 		var cover = _.find(story.media, function(mediaObj) {
 			return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
@@ -21,17 +33,17 @@
 			});
 		};
 		
+
 		_.extend(ctrl, {
 			story: story,
-			discussion: story.discussion,
+			discussion: story.message,
 			storyAuthor: storyAuthor,
 			comments: storyThread.comments,
-			commentData: storyThread.nextCommentMetaData,
 			productList: _.pluck(story.productsUsed, 'productKey'),
 			cover: cover,
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Forums.comments, 
-				filterArguments: [ storyThread.originalMessage.id ],
+				filterArguments: [ story.id ],
 				persistFilterModel: false,
 				setInitialData: false
 			}),
@@ -67,7 +79,7 @@
 			}
 		});
 
-		breadcrumbService.setCurrentBreadcrumb(this.story.discussion.subject);
+		breadcrumbService.setCurrentBreadcrumb(story.subject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});

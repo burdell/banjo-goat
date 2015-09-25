@@ -256,30 +256,30 @@
 			},
 			Stories: {
 				all: function(options) {
-					return goToApi(baseUrl + urlSegments.Story(), options);
+					return goToApi(v2Url + 'stories', options);
 				},
 				thread: function(storyId, data){
+					//return this.comments(storyId, data);
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {
 							return {
-								originalMessage: result[0].model,
-								comments: result[1].collection,
-								nextCommentMetaData: result[1].next
+								originalMessage: result[0],
+								comments: result[1]
 							};
 						});
 				},
 				story: function(storyData) {
 					var callData = getCallType(storyData);
-					return goToApi(baseUrl + urlSegments.Story(callData.id), callData.payload, callData.verb);
+					return goToApi(v2Url + 'stories/' + callData.id, callData.payload, callData.verb);
 				},
 				comments: function(storyData, params) {
 					var callData = getCallType(storyData, params);
 
 					var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
-					return goToApi(baseUrl + urlSegments.Story(id) + 'comments', callData.payload, callData.verb);
+					return goToApi(v2Url + 'stories/' + id + '/comments', callData.payload, callData.verb);
 				},
 				stories: function(nodeId, data){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stories', data);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
 				},
 				test: function(options){
 					// return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
