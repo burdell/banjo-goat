@@ -4,11 +4,10 @@
 	function StoriesListController ($scope, storyFilter, breadcrumbService, dataService, storyDefaults, $state){
 		var ctrl = this;
 		var intitialList = storyFilter.initialData();
-		
+
 		_.extend(ctrl, {
 			storyFilter: storyFilter,
-			storyList: intitialList.collection,
-			storyMetadata: intitialList.next,
+			storyList: intitialList,
 			sortOptions: dataService.MessageSort,
 			createStory: function(){
 				$state.go('stories.new');
@@ -16,7 +15,7 @@
 			defaultPhoto: storyDefaults.coverPhoto,
 			groupStoryData: function(newData){
 				_.each(newData, function(story) {
-					ctrl.storyList.push(story);
+					ctrl.storyList.content.push(story);
 				});
 
 				$scope.$broadcast('communityGridList:redraw');

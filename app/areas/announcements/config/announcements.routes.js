@@ -17,7 +17,7 @@
 								return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
 							})
 							.then(function(result) {
-								return result.collection;
+								return result.content;
 							});
 					}]
 				}
@@ -38,14 +38,9 @@
 				},
 				resolve: {
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						var nodeId = $stateParams.nodeId;
-						return communityApi.Announcements.count(nodeId)
-							.then(function(result){
-								return communityApi.Announcements.announcements($stateParams.nodeId, { limit: result.count, sort: 'postdate' });
-							})
-							.then(function(result) {
-								return result.collection;
-							});
+						return communityApi.Announcements.announcements($stateParams.nodeId, { per_page: 100, sortField: 'postDate' }).then(function(result){
+							return result.content;
+						});
 					}]
 				}
 			})
@@ -59,7 +54,7 @@
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Forums.thread($stateParams.announcementId, { limit: 10, offset: 0 });
+						return communityApi.Announcements.thread($stateParams.announcementId, { limit: 10, offset: 0 });
 					}]
 				}
 			});

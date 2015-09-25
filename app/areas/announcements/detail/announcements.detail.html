@@ -223,7 +223,7 @@
 	</div>
 
 	<button 
-		class="button--solid button--thin button-white-on-blue" >
+		class="button--solid button--thin button-white-on-blue" ng-click="vm.showReply()">
 			Reply
 	</button>
 	
@@ -241,15 +241,7 @@
 	END COMMUNITY-ANNOUNCEMENT POST MOCKUP
  -->
 
-
-
-
-
-
-
-
 <community-comment-list
 	current-comments="vm.currentComments"
-	comment-metadata="vm.commentData"
 	comment-filter="vm.moreCommentsFilter">
 </community-comment-list>

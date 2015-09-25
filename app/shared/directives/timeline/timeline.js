@@ -5,7 +5,7 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function(timelineService) {
+		var controller = function($state, timelineService) {
 			var ctrl =  this;
 			
 			var shown = {
@@ -36,13 +36,11 @@
 					return this.hrefFn(data);
 				},
 				go: function(data) {
-					// Jan: sorry I added this hack :)
-					window.location.href = this.hrefFn(data);
-					// $state.go('forums.message', { messageId: message.id });
+					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.node.urlCode });
 				}
 			});
 		};
-		controller.$inject = ['CommunityTimelineService'];
+		controller.$inject = ['$state', 'CommunityTimelineService'];
 
 	    var directive = {
 	        link: link,

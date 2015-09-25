@@ -40,6 +40,26 @@
 						});
 					}]
 				}
+			})
+			.state('feed', {
+				url: routes.feed,
+				templateUrl: 'directory/feed/feed.html',
+				controller: 'Feed as vm',
+				resolve: {
+					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.allContent,
+							//constants: { size: 20, sortDir: 'ASC' },
+							//realtime: true
+						});
+					}],
+					AnnouncementsData: ['CommunityApiService', function(communityApi){
+						return communityApi.Announcements.all({ per_page: 5, sort: 'postDate' });
+					}],
+					StoryData: ['CommunityApiService', function(communityApi){
+						return communityApi.Stories.test({ per_page: 4, sortField: 'postDate' });
+					}]
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

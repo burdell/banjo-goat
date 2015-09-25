@@ -14,6 +14,8 @@ var bowerFiles = mainBowerFiles({ includeDev: true });
 var wholeFolderPlugins = ['vendor/bower/tinymce/**'];
 
 
+require('events').EventEmitter.prototype._maxListeners = 100;
+
 //
 //
 // FILTERS
@@ -277,7 +279,7 @@ gulp.task('express', function() {
         console.log('served stories index.html');
     });
 
-    app.get('/directory/*', function (req,res) {
+    app.get('/:var(directiry|feed)/?', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });

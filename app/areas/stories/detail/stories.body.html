@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="cmuStories__title">{{ vm.discussion.subject || vm.placeholders.subject }}</div>	
+	<div class="cmuStories__title">{{ vm.story.subject || vm.placeholders.subject }}</div>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 </div>
 
@@ -12,7 +12,7 @@
 		<div class="cmuStories__author--info">
 			<span>by</span>
 			<community-username user="vm.storyAuthor"></community-username>
-			<span class="cmuStories__postTime">{{ vm.discussion.postTime | timeFromNow }}</span>
+			<span class="cmuStories__postTime">{{ vm.discussion.postDate | timeFromNow }}</span>
 		</div>
 		
 		<button community-permissions denied-behavior="disable" community-permissions ng-show="

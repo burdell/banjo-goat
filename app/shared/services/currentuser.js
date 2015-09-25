@@ -13,7 +13,7 @@
 			get: function(attr){
 				if (!currentUser.user) {
 					return intializeService.initialize().then(function(result){
-						currentUser.user = result.auth.model;
+						currentUser.user = result.auth;
 						
 						return currentUser;
 					});

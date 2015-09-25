@@ -36,7 +36,11 @@
 			return $http(callOptions).then(
 				function(result){
 					//SUCCESS :D
-					return result.data.data;
+					if (result.data.data) {
+						return result.data.data
+					} else {
+						return result.data;
+					}
 				},
 				function(error){
 					//ERROR :(
@@ -70,6 +74,7 @@
 		}
 
 		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
+		var v2Url = 'https://comm2-dev.ubnt.com/api2/2/';
 
 		var urlSegments = {
 			Announcement: function(id){
@@ -87,6 +92,9 @@
 			Forum: function(id) {
 				return 'forums/'  + this._Message(id);
 			},
+			Feed: function(){
+				return 'feed';
+			},
 			_Message: function(id) {
 				var urlString = 'topics/';
 				if (id) {
@@ -96,17 +104,33 @@
 			},
 		};
 
+
+
 		// ****** API DEFINITION ******
 		var service = {
 			Announcements: {
 				all: function(options){
-					return goToApi(baseUrl + urlSegments.Announcement(), options);
+					return goToApi(v2Url + 'announcements/', options);
 				},
 				count: function(nodeId){
 					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
 				},
 				announcements: function(nodeId, options) {
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'announcements', options);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
+				},
+				detail: function(announcementId){
+					return goToApi(v2Url + 'announcements/' + announcementId);
+				},
+				comments: function(announcementId, commentData){
+					return goToApi(v2Url + 'announcements/' + announcementId + '/comments');
+				},
+				thread: function(announcementId){
+					return $q.all([ this.detail(announcementId), this.comments(announcementId) ]).then(function(result){
+						return {
+							originalMessage: result[0],
+							comments: result[1]
+						}
+					});
 				}
 			},
 			Core: {
@@ -128,18 +152,39 @@
 
 						return result.collection; //window.nodeStructure[0];
 					});
+				},
+				message: function(messageData){
+					var callData = getCallType(messageData);
+					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
+				}
+			},
+			Feed: {
+				allContent: function(options){
+					return goToApi(v2Url + urlSegments.Feed() + '/content', options);
+				},
+				notifications: function(options){
+					return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
+				},
+				subscriptions: function(options){
+					return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
 				}
 			},
 			Forums: {
 				messages: function(nodeId, data){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics', data);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
 				},
 				message: function(messageData, mock) {
 					var callData = getCallType(messageData);
-					return goToApi(baseUrl + urlSegments.Forum(callData.id), callData.payload, callData.verb);
+
+					var url = v2Url + 'forums/';
+					if (callData.verb === 'GET' || callData.verb === 'PUT') {
+						url += callData.id;
+					}
+
+					return goToApi(url, callData.payload, callData.verb);
 				},
 				comments: function(messageId, data) {
-					return goToApi(baseUrl + urlSegments.Forum(messageId) + 'comments', data);
+					return goToApi(v2Url + 'forums/' + messageId + '/comments', data);
 				},
 				messageCount: function(nodeId) {
 					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics/count', null, "GET");
@@ -151,9 +196,8 @@
 					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
 						.then(function(result) {
 							return {
-								originalMessage: result[0].model,
-								comments: result[1].collection,
-								nextCommentMetaData: result[1].next
+								originalMessage: result[0],
+								comments: result[1]
 							};
 						});
 				}
@@ -212,36 +256,40 @@
 			},
 			Stories: {
 				all: function(options) {
-					return goToApi(baseUrl + urlSegments.Story(), options);
+					return goToApi(v2Url + 'stories', options);
 				},
 				thread: function(storyId, data){
+					//return this.comments(storyId, data);
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {
 							return {
-								originalMessage: result[0].model,
-								comments: result[1].collection,
-								nextCommentMetaData: result[1].next
+								originalMessage: result[0],
+								comments: result[1]
 							};
 						});
 				},
 				story: function(storyData) {
 					var callData = getCallType(storyData);
-
-					return goToApi(baseUrl + urlSegments.Story(callData.id), callData.payload, callData.verb);
+					return goToApi(v2Url + 'stories/' + callData.id, callData.payload, callData.verb);
 				},
 				comments: function(storyData, params) {
 					var callData = getCallType(storyData, params);
 
 					var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
-					return goToApi(baseUrl + urlSegments.Story(id) + 'comments', callData.payload, callData.verb);
+					return goToApi(v2Url + 'stories/' + id + '/comments', callData.payload, callData.verb);
 				},
 				stories: function(nodeId, data){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stories', data);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+				},
+				test: function(options){
+					// return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
+
+					return goToApi(v2Url + '/stories', options);
 				}
 			},
 			Users: {
 				authentication: function(){
-					return goToApi(baseUrl + urlSegments.User('self'));
+					return goToApi(v2Url + urlSegments.User('self'));
 				}
 			}
 		}

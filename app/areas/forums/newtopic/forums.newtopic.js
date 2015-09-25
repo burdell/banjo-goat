@@ -8,7 +8,12 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
-		var categoryDisplayId = $state.params.nodeId;
+		nodeStructure.get().then(function(nodeService){
+			var currentNode = nodeService.getNode($state.params.nodeId);
+			if (currentNode) {
+				ctrl.newTopic.nodeId = currentNode.id;
+			}
+		});
 
 		var ctrl = this;
 		_.extend(ctrl, {
@@ -16,14 +21,14 @@
 				$state.go('forums.list');
 			},
 			submitTopic: function() {
-				communityApi.Forums.message(this.newTopic, true).then(function(result){
-					var submittedMessage = result.model;
+				communityApi.Forums.message(this.newTopic).then(function(result){
+					var submittedMessage = result;
 					$state.go('forums.message', { messageId: submittedMessage.id });
 				});
 			},
 			newTopic: {
 			    'body': '',
-			    'categoryDisplayId': categoryDisplayId,
+			    'nodeId': null,
 			    'subject': ''
 			}
 		});
