@@ -7,12 +7,12 @@
 
 	<div ng-if="feedcontent.contentModel.type === 'comment'">
 		<h5 style="display: inline;">{{ feedcontent.contentModel.data.context.topicSubject }}</h5>
-		<span>{{ feedcontent.contentModel.data.body | wordCut:20 }}</span>
+		<span>{{ feedcontent.contentModel.data.body | unformatText | wordCut:20 }}</span>
 	</div>
 
 	<div ng-if="feedcontent.contentModel.type === 'topic'">
 		<h5 style="display: inline;">{{ feedcontent.contentModel.data.subject }}</h5>
-		<span>{{ feedcontent.contentModel.data.message.body | wordCut:20 }}</span>
+		<span>{{ feedcontent.contentModel.data.message.body | unformatText | wordCut:20 }}</span>
 	</div>
 
 	<div>

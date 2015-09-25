@@ -49,7 +49,7 @@
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { size: 20 },
+							constants: { size: 20, sortDir: 'ASC' },
 							//realtime: true
 						});
 					}],

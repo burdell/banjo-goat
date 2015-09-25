@@ -4,8 +4,6 @@
 	var feedController = function($scope, announcementData, storyData, apiService, breadcrumbService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
 		var ctrl = this;
 
-		console.log(announcementData);
-		
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});

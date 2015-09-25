@@ -38,7 +38,7 @@
 				currentUser = userObj.user;
 
 				if (ctrl.isAuthenticated) {
-					realtimeService.getNew().start(apiService.Feed.notifications, true, checkNotifications)
+					//realtimeService.getNew().start(apiService.Feed.notifications, true, checkNotifications)
 				}
  			});
 

@@ -16,6 +16,7 @@
 				if (!page) {
 					page = pagerInfo.initialPage;
 				}
+
 				var totalPages = pagerInfo.numberOfPages;
 				if(page >= 1 && page <= totalPages) {
 					// only scroll scrub if we have more pages 
@@ -165,6 +166,8 @@
 			var ctrl = this;
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
+			ctrl.pageBased = ctrl.offsetBased ? false : true;
+
 			/*** CONTROL FUNCTIONS *****/
 			function page() {
 				setUiPage();
@@ -211,7 +214,7 @@
 				}
 
 				if (ctrl.pageBased) {
-					pageData.page = Number(pageNumber) - 1;
+					pageData.page = Number(pageNumber);
 				} else {
 					pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				}
@@ -230,14 +233,14 @@
 
 			function setUiPage() {
 				var currentPage = getPageNumber();
-				$scope.setUiPage(currentPage + 1);
+				$scope.setUiPage(currentPage);
 			}
 
 			/**** PAGER DATA *****/
 			var defaultLimit = Number(filterer.model('limit')) || 30;
 			var defaultOffset = Number(filterer.model('offset')) || 0;
 
-			var defaultPage = Number(filterer.model('page')) ||0;
+			var defaultPage = Number(filterer.model('page')) || 1;
 
 			var pageData = ctrl.pageBased ? { page: defaultPage } : { limit: defaultLimit, offset: defaultOffset };
 
@@ -263,7 +266,7 @@
 			
 			var numberOfPages = ctrl.pageBased ? ctrl.numberOfPages : Math.ceil(Number(this.totalResults) / pageData.limit);
 			var pagerInfo = {
-				initialPage: getPageNumber() + 1,
+				initialPage: getPageNumber(),
 				numberOfPages: numberOfPages,
 				frontBiased: this.frontBiased === 'true'
 			};
@@ -291,7 +294,7 @@
 	        	pagerFn: '=',
 	        	totalResults: '=',
 	        	frontBiased: '@',
-	        	pageBased: '=',
+	        	offsetBased: '=',
 	        	numberOfPages: '='
 	        }
 	    };

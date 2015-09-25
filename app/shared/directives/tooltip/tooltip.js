@@ -17,7 +17,7 @@
 
 					if (origin.data('ajax') !== 'cached') {
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-							var content = result.model;
+							var content = result.message;
 
 							var tooltipText = $('<div>' + content.body + '</div>').text();
 							if (tooltipText === "") {

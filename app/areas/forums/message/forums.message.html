@@ -4,7 +4,7 @@
 	        cmuThread__subject--locked
 	        cmuThread__subject--active">
 	<div class="row">
-		<h3>{{ ::vm.originalMessage.subject | htmlUnescape }}</h3>
+		<h3>{{ ::vm.originalMessageSubject | htmlUnescape }}</h3>
 	</div>
 </div>
 
@@ -19,7 +19,7 @@
 
 		<div class="col--md4 noPaddingRight">
 			<community-pager 
-			  total-results="vm.allMessageCount" 
+			  number-of-pages="vm.numberOfPages"
 			  pager-fn="vm.messageThreadFilter">
 			</community-pager>
 		</div>
@@ -35,7 +35,7 @@
 			message="message"
 			original-message="vm.originalMessage"
 			reply-click-fn="vm.showReply"
-			show-op="vm.originalMessage.author.id">
+			show-op="vm.originalMessage.message.insertUser.id">
 		</community-message>
 
 		<!-- reply -->
@@ -43,7 +43,7 @@
 				<div class="col--md2">
 				</div>
 				<div class="col--md10">
-					<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
+					<h6>REPLY to <a href="#">{{ ::message.insertUser.login }}</a></h6>
 					<div class="row row--comfy">
 						<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
 					</div>
@@ -78,7 +78,7 @@
 		</div>
 		<div class="col--md4 noPaddingRight">
 			<community-pager 
-			  total-results="vm.allMessageCount" 
+			  number-of-pages="vm.numberOfPages" 
 			  pager-fn="vm.messageThreadFilter">
 			</community-pager>
 		</div>

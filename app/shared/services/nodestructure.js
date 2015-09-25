@@ -93,6 +93,10 @@
 				this.CurrentNode = this.CurrentNode.parent;
 			},
 			getNode: function(nodeId) {
+				if (_.isString(nodeId)) {
+					return nodesByUrl[nodeId.toLowerCase()];
+				} 
+
 				return nodesById[nodeId];
 			},
 			parent: function(childNodeId) {
