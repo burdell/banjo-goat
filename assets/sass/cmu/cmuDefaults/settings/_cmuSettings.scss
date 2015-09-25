@@ -39,6 +39,9 @@ body {
 	line-height: inherit;
 }
 
+#main-content {
+	margin-bottom: $cmu-base;
+}
 
 %cmu-maxwidth {
 	max-width: $cmu-maxwidth;

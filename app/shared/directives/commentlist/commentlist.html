@@ -1,25 +1,44 @@
 
 <div class="cmuComments row">
 	<div class="cmuComments__header" ng-pluralize count="commentlist.commentData.total" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></div>
-	<div class="cmuComments__row" ng-repeat="comment in commentlist.currentComments">
-		<div class="cmuComments__user col--md2">
-			<div class="cmuComments__user--avatar col--md3">
-				<community-user-avatar user="vm.story.author"></community-user-avatar>
+
+	<div class="container">
+		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments">
+
+			<community-user-badge 
+				class="cmuUserbadge--comment col--md2"
+				user="messageDisplay.message.author"
+				op-id="messageDisplay.showOp">
+			</community-user-badge>
+
+
+			<!-- <div class="cmuComments__user col--md3">
+				<div class="cmuComments__user--avatar col--md3">
+					<community-user-avatar user="vm.story.author"></community-user-avatar>
+				</div>
+				<div class="cmuComments__user--info col--md9">
+					<community-username user="comment.author"></community-username>
+					<div class="cmuComments__postTime">{{ comment.postTime | timeFromNow }}</div>
+				</div>
+			</div> -->
+
+			<div class="cmuComments__body col--md9">
+				<div class="cmuComments__body-content" ng-bind-html="comment.body | sanitize">
+				</div>
 			</div>
-			<div class="cmuComments__user--info col--md9">
-				<community-username user="comment.author"></community-username>
-				<div class="cmuComments__postTime">{{ comment.postTime | timeFromNow }}</div>
+
+			<div class="cmuComments__info col--md1">
+				<div class="cmuComments__date">a few seconds ago, 01:26 pm</div>
+				<div class="cmuComments__flag">
+					<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
+				</div>
 			</div>
 		</div>
 
-		<div class="cmuComments__body col--md10">
-			<div class="cmuComments__body-content" ng-bind-html="comment.body | sanitize">
-		</div>
+		<community-load-more
+			list-model="commentlist.currentComments"
+			load-filter="commentlist.commentFilter"
+			list-metadata="commentlist.commentData">
+		</community-load-more>
 	</div>
-
-	<community-load-more
-		list-model="commentlist.currentComments"
-		load-filter="commentlist.commentFilter"
-		list-metadata="commentlist.commentData">
-	</community-load-more>
 </div>

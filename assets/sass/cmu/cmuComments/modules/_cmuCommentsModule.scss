@@ -10,8 +10,9 @@
 }
 
 .cmuComments__header {
-	font-size: $cmu-base-font;
-	border-bottom: 3px solid $cmu-color-dkgray;
+	@extend %h3;
+	padding-bottom: $cmu-base/2;
+	border-bottom: $style-line--thick;
 }
 
 .cmuComments__row {
@@ -56,6 +57,37 @@
 }
 
 
+// right side 
+.cmuComments__info {
+	@extend %type-info;
+	line-height: $cmu-size-smaller;
+}
+
+	.cmuComments__date {
+		padding-bottom: $cmu-base/2;
+		color: $cmu-color-gray;
+	}
+
+	.cmuComments__flag {
+		text-align: right;
+
+		.cmuIcon-flag {
+			cursor: pointer;
+		    border: $style-line;
+		    border-radius: 50%;
+			opacity: 0; @extend %ease-fast;
+
+			&:hover {
+				opacity: 1 !important;
+				border-color: $cmu-color-blue;
+			}
+		}
+	}
+		.cmuComments__row:hover {
+			.cmuIcon-flag {
+				opacity: 0.465; @extend %ease-fast;
+			}
+		}
 
 
 

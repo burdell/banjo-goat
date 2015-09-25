@@ -5,7 +5,6 @@
 
 // note that thin userbadges override these settings
 .cmuUserbadge {
-	// text-align: left;
 	// opacity onhover is contextual to the discussion style
 	// so this is moved to each discussion module ex: forumthreadmodule
 	// @extend %ease-fast;
@@ -161,8 +160,9 @@
 		}
 	}
 
-	.cmuUserbadge__joined {
+	.cmuUserbadge__posts {
 		display: inline-block;
+		padding-left: $cmu-base/2;
 		&:after {
 			content: ' posts';
 			font-weight: 300;
@@ -218,6 +218,10 @@
 
     	.cmuUserbadge__avatar {
    			padding-left: $cmu-base/2;
+   			
+   			// required for thin to align profile image w/ rank and name
+		    vertical-align: top;
+		    float: left;
     	}
 
     .cmuUserbadge__points {
@@ -232,6 +236,13 @@
     	}
     }
 
+		.cmuUserbadge__posts {
+			padding-left: 0;
+			&:after {
+	    		padding-left: 3px; // makes up for the "posts" word being shorter 
+			}
+		}
+
     .cmuUserbadge__info {
 		display: inline-block;
 		vertical-align: top;		// border-left: $style-line;
@@ -241,19 +252,21 @@
     	padding: 0;
     }
 
-
-// 	    .cmuUserbadge__account__left {
-// 	    	.cmuUserbadge__avatar {
-// 	    		padding-left: 0;
-// 	    	}
-// 	    }
-
-// 	// RIGHT side
-//     .cmuUserbadge__info {
-//     	display: inline-block;
-//     	vertical-align: top;
-//     	margin-left: $cmu-base;
-//     	padding-left: $cmu-base;
-//     	border-left: 1px solid $cmu-color-dkgray;
-//     }
 }
+
+
+
+
+// 
+// Super Thin Userbadge for Comments
+// 
+
+.cmuUserbadge--comment {
+
+	min-width: inherit; // 176px min width
+
+	.cmuUserbadge__points, .cmuUserbadge__info {
+		display: none;
+	}
+}
+

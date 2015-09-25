@@ -93,7 +93,19 @@ $cmu-thread-message-height:	$cmu-base * 3;
 .cmuThread__controls {
 	margin-bottom: $cmu-vertical-rhythm/2;
 }
+	.cmuThread__controls--bottom {
+		margin-bottom: $cmu-vertical-rhythm*2;
+	}
 
 
+
+
+
+
+// 
+// Thread Content Formatting
+// - a lot of formatting comes with Lithium.
+// - we can only do so much to format it, but some of this is necessary
+// 
 
 

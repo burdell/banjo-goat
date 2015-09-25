@@ -237,44 +237,42 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // SIMPLE CONFIGURATION
 // use nesting to include these configurations
 // Used in:
-// - announcement post
+// - announcement post (unused after refactor)
 // 
 
-.cmuMessage--simple {
+// .cmuMessage--simple {
 
-	.cmuUserbadge {
-		display: none;
-		& + div {
-			border-left: 0;
-		}
-	}
+// 	.cmuUserbadge {
+// 		display: none;
+// 		& + div {
+// 			border-left: 0;
+// 		}
+// 	}
 
-	.cmuMessage__header {
-		display: none;
-	}
+// 	.cmuMessage__header {
+// 		display: none;
+// 	}
 
-}
+// }
 
-// 
-// ANNOUNCEMENTS
-// Specific content styles for announcement posts
-// Used to mark special posts
-// NOTE: for simplicity in content generation, these classes do not have prefixes
-// 
 
-.cmuMessage--announcements {
+.cmuMessage__content {
 
 	.highlight {
 		background: $cmu-color-ltgray;
 	    padding: $cmu-base;
-	    margin-left: -$cmu-base;
-	    margin-right: -$cmu-base;
+	    // margin-left: -$cmu-base;
+	    // margin-right: -$cmu-base;
 	    margin-top: $cmu-base/2;
 	    margin-bottom: $cmu-base/2;
 
-	    border-left: 4px solid $cmu-color-blue;
+	    border-left: $style-line--xthick;
+	    border-color: $cmu-color-blue;
 	}
 
+	li {
+		list-style-position: inside;
+	}
 }
 
 

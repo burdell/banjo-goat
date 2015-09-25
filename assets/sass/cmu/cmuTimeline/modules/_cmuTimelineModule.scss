@@ -6,14 +6,22 @@
 
 .cmuTimeline {
 
+	thead {
+		display: none;
+	}
+	.cmuTimeline__showheader {
+		thead {
+			display: table-header-group;
+		}
+	}
 }
 
 .timeline__year {
-	border: 1px solid $cmu-color-ltgray;
+	border: $style-line;
 	border-bottom: 0;
 
 	&:last-child {
-		border-bottom: 1px solid $cmu-color-ltgray;
+		border-bottom: $style-line;
 	}
 }
 
@@ -25,17 +33,19 @@
     @extend %ease-fast;
 
 	.timeline__year__title--text {
-		@extend h4;
+		@extend h3;
 		padding: $padding $cmu-base/2;
+    	line-height: $cmu-base*2;
 	}
 	span {
 		font-weight: 300;
+		font-size: $cmu-size-normal;
 		&:before { content: '(' }
 		&:after { content: ')' }
 	}
 
 	&:hover {
-		background: $cmu-color-ltgray;
+		background: $cmu-color-bodybg;
 		@extend %ease-fast;
 	}
 	// Open / Closed indicator
@@ -45,7 +55,7 @@
 		@extend h4;
 		display: inline-block;
 		content: '+';
-		color: $cmu-color-blue;
+		color: $cmu-color-active;
 
 		position: absolute;
 		right: 0;
@@ -59,8 +69,7 @@
 
 	}
 	&.open {
-		// background: $cmu-color-ltgray;
-		border-bottom: 3px solid $cmu-color-black;
+		border-bottom: $style-line--thick;
 
 		&:after {
 			display: inline-block;
@@ -74,7 +83,6 @@
 .cmuTimeline__month {
 	table {
 		margin-bottom: 0;
-		margin-top: $cmu-base/2;
 	}
 
 	// only add margin to the first table element
@@ -83,84 +91,12 @@
 	// }
 }
 
+	.cmuTimeline__showheader .cmuTimeline__month {
+		margin-top: $cmu-base/2;
+	}
+
 	.cmuTimeline__row:last-child {
 		border-bottom: 0;
 	}
 
-
-
-// // 
-// // Timeline table details
-// // inherits styles from threadlist
-// // 
-
-// .timeline__year__month {
-// 	padding: $cmu-base/4 $cmu-base/2;
-//     background-color: $cmu-color-purewhite;
-// }
-
-// 	.timeline__year__month table {
-// 		margin: 0;
-// 	}
-
-// // .timeline__year__month thead {
-// // 	text-align: left;
-// // 	border-bottom: 1px solid $cmu-color-ltgray;
-// // }
-// // 	.timeline__year__month th {
-// // 		padding: $cmu-base/4 0;
-// // 		cursor: default; 
-// // 		font-weight: 300;
-// // 	}
-
-// // 	.timeline__year__month--title {
-// // 		span {
-// // 			font-weight: 300;
-// // 			&:before { content: '(' }
-// // 			&:after { content: ')' }
-// // 		}
-// // 	}
-
-// // .timeline__year__month--title {
-// // 	width: 60%;
-// // }
-
-// // .timeline__year__month--header {
-// // 	width: 10%;
-// // }
-
-
-// .timeline__year__month--row {
-// 	@extend %ease-fast;
-// 	border-bottom: 1px solid transparent;
-
-// 	&:hover {
-// 		@extend %ease-fast;
-// 		border-bottom: 1px solid $cmu-color-blue;
-// 	}
-// }
-// .timeline__year__month--row td {
-// 	padding: $cmu-base/4 0;
-
-//     a {
-//     	color: $cmu-color-dkgray;
-//     	&:hover {
-//     		color: $cmu-color-blue;
-//     	}
-//     }
-// }
-// 	.timeline__year__month--count {
-// 		font-weight: 300;
-// 		font-size: $cmu-size-xsmaller;
-// 	}
-
-// 	.timeline__year__month--title {
-// 		font-size: $cmu-size-xsmaller;
-// 		color: $cmu-color-mdgray;
-// 	}
-// 	.timeline__year__month--header {
-// 		font-size: $cmu-size-xsmaller;
-// 		color: $cmu-color-mdgray;
-// 		font-weight: 400;
-// 	}
 

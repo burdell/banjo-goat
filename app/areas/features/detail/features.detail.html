@@ -28,7 +28,8 @@
 				<div class="cmuThread__stats">
 					<div class="row">
 						<div class="col--md12">
-							<span class="cmuInlineInfo__data cmuThread__date" data-divider=" | "><span>Posted </span>{{ ::feature.discussion.postTime | timeFromNow }}</span>
+							<!-- date / time already taken care of in the post! -->
+							<!-- <span class="cmuInlineInfo__data cmuThread__date" data-divider=" | "><span>Posted </span>{{ ::feature.discussion.postTime | timeFromNow }}</span> -->
 
 							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ ::vm.productName }}</span></div>
 							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">{{ ::vm.getMetaValue('versionNumber') }}</span></div>
@@ -87,7 +88,7 @@
 
 				<div class="cmuUserbadge__points">
 					<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
-					<div class="cmuUserbadge__joined">702</div>
+					<div class="cmuUserbadge__posts">702</div>
 				</div>
 
 				<div class="cmuUserbadge__info">
@@ -103,7 +104,7 @@
 				<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
 			</div>
 
-			<div class="row">
+			<div class="cmuMessage__content row">
 				<div class="col--md12" ng-bind-html="vm.originalMessage.body | sanitize"></div>
 			</div>
 

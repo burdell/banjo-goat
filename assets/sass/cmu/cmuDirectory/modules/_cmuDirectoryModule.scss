@@ -100,12 +100,13 @@
 			font-size: $cmu-size-large;
 			line-height: $cmu-size-large--line-height;
 			a {
-				@extend %style-link--dark;
+				@extend %style-link;
 			}
 		}
 		.cmuDirectory__content__list {
 			padding: $cmu-base/2 $cmu-base;
 			padding-left: 0;
+			padding-top: 0;
 
 			a {
 				white-space: nowrap;
@@ -118,6 +119,7 @@
 
 	.cmuDirectory__stats {
 		text-align: right;
+		cursor: default;
 
 		div {
 			display: inline-block;
@@ -130,6 +132,7 @@
 
 		.cmuDirectory__count {
 			@extend %font-oswald;
+			font-size: $cmu-size-large;
 			display: inline-block;
 			color: $cmu-color-dkgray;
 			text-transform: uppercase;

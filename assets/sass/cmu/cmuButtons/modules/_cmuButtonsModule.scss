@@ -103,9 +103,9 @@ $cmu-button-color-base: $cmu-color-blue;
 		border-color: $fgColor;
 
 		&:hover {
-			color: $cmu-color-white; // can't use transparent
-			background-color: $fgColor;
-			border-color: $fgColor;
+			color: $cmu-color-black; // can't use transparent
+			// background-color: $fgColor;
+			border-color: $cmu-color-black;
 		}
 	} @else if $type == 'outline' {
 		border-width: 1px;
@@ -158,6 +158,10 @@ button, .button, .cmuButton {
 
 	@include cmuButton('ghost');
 	@extend %ease-fast;
+
+	// important! this overrides the disabled default cursor
+	// we want all buttons to be clickable, and redirect users to the login / sign up process
+	cursor: pointer !important;
 
 	// space them out if next to each other
 	&+& {
@@ -322,6 +326,14 @@ button, .button {
 	line-height: remCalc(20px);
  }
 
+.button--large {
+	padding-left: $cmu-base*3;
+	padding-right: $cmu-base*3;
+	padding-top: $cmu-base;
+	padding-bottom: $cmu-base;
+
+ }
+
 
 
  // 
@@ -329,37 +341,42 @@ button, .button {
  // 
 .button--vote {
 	text-align: left;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	padding-right: 0;
-	cursor: pointer;
 
 	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
+
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+
+	position: relative;
+	top: -1px;
 
 	&:after {
 		// font-family: "ubnt";
 		content: '+';
 		color: white; 
-		padding: remCalc(9px) remCalc(12px);
+		padding: 1px $cmu-base*3/4;
 		margin-left: $cmu-base;
-		margin-right: -1px;
+		// margin-right: -1px;
 		background-color: $cmu-color-gray;
+		float: right;
+
 	}
 		// thin vote buttons
 		&.button--thin:after {
-			padding: remCalc(5px) remCalc(8px);
+			padding: 1px remCalc(8px);
 		}
 
 	&:hover {
 		&:after {
 			font-family: "lato";
 			content: '+1';
-			padding: 9px 8.5px;
+			// padding: 9px 8.5px;
 		}
 	}
 		// thin vote buttons
 		&.button--thin:hover:after {
-			padding: remCalc(5px) remCalc(5px);
+			padding: 1px remCalc(5px);
 		}
 
 
