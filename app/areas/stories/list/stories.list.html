@@ -12,10 +12,10 @@
 
 <div class="row">
 	<div class="col--md12 noPadding" community-grid-list>
-		<div ng-repeat="story in vm.storyList">
+		<div ng-repeat="story in vm.storyList.content">
 			<div>
 				<story-display 
-					story="story.discussion"
+					story="story"
 					story-media="story.media"
 					default-photo-url="vm.defaultPhoto">
 				</story-display>
@@ -27,7 +27,6 @@
 <community-load-more
 	list-model="vm.storyList"
 	load-filter="vm.storyFilter"
-	list-metadata="vm.storyMetadata"
 	infinite-scroll="true"
 	on-load-fn="vm.groupStoryData">
 </community-load-more>

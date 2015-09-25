@@ -5,8 +5,9 @@
 		var controller = this;
 
 		function setMessageData (result){
-			controller.messageList = result.collection;
-			controller.messageCount = result.next.total;
+			controller.messageList = result.content;
+			controller.messageCount = result.totalElements;
+			controller.numberOfPages = result.totalPages;
 		}
 		forumListFilter.set({ onFilter: setMessageData });
 		

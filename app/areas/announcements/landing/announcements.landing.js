@@ -8,6 +8,8 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
+		console.log(announcements);
+		
 		var ctrl = this;
 		_.extend(ctrl, {
 			announcementList: announcements,

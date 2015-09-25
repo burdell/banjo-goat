@@ -57,6 +57,10 @@
 			if (rootNode && !rootNode.href) {
 				rootNode.href = routingService.generateUrl('directory');
 			}
+
+			if (!nodeStructureService.CurrentNode) {
+				nodeStructureService.CurrentNode = rootNode;
+			}
 			
 			return rootNode
 		}
@@ -89,6 +93,10 @@
 				this.CurrentNode = this.CurrentNode.parent;
 			},
 			getNode: function(nodeId) {
+				if (_.isString(nodeId)) {
+					return nodesByUrl[nodeId.toLowerCase()];
+				} 
+
 				return nodesById[nodeId];
 			},
 			parent: function(childNodeId) {

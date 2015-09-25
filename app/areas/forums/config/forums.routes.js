@@ -26,7 +26,7 @@
 							filterFn: communityApi.Forums.messages, 
 							filterArguments: [ $stateParams.nodeId ], 
 							constants: {
-								limit: 30
+								per_page: 30
 							} 
 						});
 					}]
@@ -44,7 +44,7 @@
 				resolve: {
 					MessageThreadFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
-							filterFn: communityApi.Forums.thread, 
+							filterFn: communityApi.Forums.comments, 
 							filterArguments: [ $stateParams.messageId ],
 							filterContext: communityApi.Forums,
 							constants: {

@@ -11,7 +11,7 @@
 
       <div class="col--md6 noPaddingRight">
         <community-pager 
-          total-results="vm.messageCount" 
+          number-of-pages="vm.numberOfPages" 
           pager-fn="vm.forumListFilter"
           front-biased="true">
         </community-pager>
@@ -205,12 +205,12 @@
             </td>
             <td class="cmuThreadList__row__author">
               <!-- <a ui-sref="user">{{ ::message.author.login }}</a> -->
-              <community-username user="message.author"></community-username>
+              <community-username user="message.message.insertUser"></community-username>
             </td>
-            <td class="cmuThreadList__row__createdDate">{{ ::message.postTime | timeFromNow }}
+            <td class="cmuThreadList__row__createdDate">{{ ::message.message.postDate | timeFromNow }}
             </td>
             <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
-              {{  message.stats | extractKey : 'views' | number}}
+              {{  message.countViews | number}}
             </td>
             <td class="cmuThreadList__row__counter" title="comments">
               {{  ( message.stats | extractKey : 'comments') - 1  | number}}
@@ -222,7 +222,7 @@
               <community-username user="message.latestComment.author"></community-username>
               <!-- <span class="cmuThreadlist__date">04-24-2015, 03:42 PM</span> -->
             </td>
-            <td class="cmuThreadList__row__latestDate">{{ message.latestComment.postTime | timeFromNow }}
+            <td class="cmuThreadList__row__latestDate">{{ message.latestComment.postDate | timeFromNow }}
             </td>
           </tr>
         </tbody>
@@ -237,7 +237,7 @@
         </div>
         <div class="col--md4 noPaddingLeft">
           <community-pager 
-            total-results="vm.messageCount" 
+            number-of-pages="vm.numberOfPages" 
             pager-fn="vm.forumListFilter"
             front-biased="true">
           </community-pager>

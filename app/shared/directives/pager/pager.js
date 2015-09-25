@@ -16,6 +16,7 @@
 				if (!page) {
 					page = pagerInfo.initialPage;
 				}
+
 				var totalPages = pagerInfo.numberOfPages;
 				if(page >= 1 && page <= totalPages) {
 					// only scroll scrub if we have more pages 
@@ -79,7 +80,7 @@
 		  		},
 		  		pageRange: function(){
 					//first page is hard-coded, therefore start from 2
-					return _.range(2, pagerInfo.numberOfPages + 1);
+					return _.range(2, pagerInfo.numberOfPages);
 				}
 		  	});
 
@@ -165,6 +166,8 @@
 			var ctrl = this;
 			var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
+			ctrl.pageBased = ctrl.offsetBased ? false : true;
+
 			/*** CONTROL FUNCTIONS *****/
 			function page() {
 				setUiPage();
@@ -176,7 +179,12 @@
 					return;
 				}
 				
-				pageData.offset += pageData.limit;
+				if (ctrl.pageBased) {
+					pageData.page += 1;
+				} else {
+					pageData.offset += pageData.limit;
+				}
+
 				page();
 			}
 
@@ -185,10 +193,18 @@
 					return;
 				}
 
-				pageData.offset -= pageData.limit;
-				if (pageData.offset < 0) {
-					pageData.offset = 0;
+				if (ctrl.pageBased) {
+					pageData.page -= 1;
+					if (pageData.page < 0) {
+						pageData.page = 0;
+					}	
+				} else {
+					pageData.offset -= pageData.limit;
+					if (pageData.offset < 0) {
+						pageData.offset = 0;
+					}	
 				}
+				
 				page();
 			}
 
@@ -196,12 +212,22 @@
 				if (disabled) {
 					return;
 				}
-				pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
+
+				if (ctrl.pageBased) {
+					pageData.page = Number(pageNumber);
+				} else {
+					pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
+				}
+				
 				page();
 			}
 
 			/**** UI Functions *****/
 			function getPageNumber(){
+				if (ctrl.pageBased) {
+					return pageData.page;
+				} 
+
 				return (Math.floor(pageData.offset / pageData.limit) + 1);
 			}
 
@@ -214,23 +240,31 @@
 			var defaultLimit = Number(filterer.model('limit')) || 30;
 			var defaultOffset = Number(filterer.model('offset')) || 0;
 
-			var pageData = {
-				limit: defaultLimit,
-				offset: defaultOffset
-			};
+			var defaultPage = Number(filterer.model('page')) || 1;
+
+			var pageData = ctrl.pageBased ? { page: defaultPage } : { limit: defaultLimit, offset: defaultOffset };
 
 			function syncPagerToFilter(){
-				var filterLimit = filterer.model('limit');
-				var filterOffset = filterer.model('offset');
+				if (ctrl.pageBased) {
+					var page = filterer.model('page');
+					if (!page && page !== 0) {
+						page = defaultPage;
+					}
+					pageData.page = page;
+				} else {
+					var filterLimit = filterer.model('limit');
+					var filterOffset = filterer.model('offset');
 
-				pageData.limit = filterLimit !== undefined ? Number(filterLimit) : Number(defaultLimit);
-				pageData.offset = filterOffset !== undefined ? Number(filterOffset) : Number(defaultOffset);
+					pageData.limit = filterLimit !== undefined ? Number(filterLimit) : Number(defaultLimit);
+					pageData.offset = filterOffset !== undefined ? Number(filterOffset) : Number(defaultOffset);
+
+				}
 
 				setUiPage();
 			}
 			filterer.set({ onFilter: syncPagerToFilter });
-
-			var numberOfPages = Math.ceil(Number(this.totalResults) / pageData.limit);
+			
+			var numberOfPages = ctrl.pageBased ? ctrl.numberOfPages : Math.ceil(Number(this.totalResults) / pageData.limit);
 			var pagerInfo = {
 				initialPage: getPageNumber(),
 				numberOfPages: numberOfPages,
@@ -259,7 +293,9 @@
 	        	pageSize: '@',
 	        	pagerFn: '=',
 	        	totalResults: '=',
-	        	frontBiased: '@'
+	        	frontBiased: '@',
+	        	offsetBased: '=',
+	        	numberOfPages: '='
 	        }
 	    };
 

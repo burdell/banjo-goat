@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 	
-	var communityFilter = function($location, utils){
+	var communityFilter = function($location, realtimeServiceWrapper, utils){
 		function Filter(){
 			var options = {
 				filterModel: {},
@@ -12,8 +12,11 @@
 				setInitialData: true,
 				initialData: null,
 				filterContext: null,
-				persistFilterModel: true
+				persistFilterModel: true,
+				realtime: false
 			};
+
+			var realtimeService = null;
 
 			var setFilterModel = function(filterData, exclude) {
 				if (exclude) {
@@ -32,8 +35,12 @@
 			};
 
 			var executeOnFilterFns = function(result){
+				var updates;
+				if (realtimeService) {
+					updates = realtimeService.getUpdates();
+				}
 				_.each(options.onFilterFns, function(fn){
-					fn(result);
+					fn(result, updates);
 				});
 			};
 
@@ -46,6 +53,7 @@
 				});
 				$location.search(queryParams);
 			};
+
 
 			return {
 				set: function(newOptions){
@@ -65,6 +73,11 @@
 						});
 					}
 					
+					if (options.realtime) {
+						realtimeService = realtimeServiceWrapper.getNew();
+						realtimeService.start(this.filter);
+					}
+
 					return filter;
 				},
 				filter: function(filterData, exclude){
@@ -78,6 +91,14 @@
 					}
 					
 					var filterModel = _.extend(options.filterModel, options.constants);
+
+					//make sure falsy values are undefined
+					_.each(filterModel, function(modelValue, key) {
+						if (!modelValue && modelValue !== 0) {
+							filterModel[key] = undefined;
+						}
+					})
+
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;
@@ -112,7 +133,7 @@
 		};
 	};
 	
-	communityFilter.$inject = ['$location', 'CommunityUtilsService'];
+	communityFilter.$inject = ['$location', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
 	angular.module('community.services')
 		.service('CommunityFilterService', communityFilter);

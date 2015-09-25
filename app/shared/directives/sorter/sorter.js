@@ -8,9 +8,13 @@
 		var controller = function() {
 			var ctrl = this;
 
-			ctrl.sortValue = ctrl.sortFilter.model('sort');
+			var sortParam = ctrl.sortParam || 'sort';
+
+			ctrl.sortValue = ctrl.sortFilter.model(sortParam);
 			ctrl.sort = function(){
-				ctrl.sortFilter.filter({ sort: ctrl.sortValue }, ctrl.sortExclude);
+				var sortModel = {};
+				sortModel[sortParam] = ctrl.sortValue;
+				ctrl.sortFilter.filter(sortModel, ctrl.sortExclude);
 			};
 		};
 		controller.$inject = [];
@@ -25,7 +29,8 @@
 	        scope: {
 	        	'sortOptions': '=',
 	        	'sortFilter': '=',
-	        	'sortExclude': '@'
+	        	'sortExclude': '@',
+	        	'sortParam': '@'
 	        }
 	    };
 

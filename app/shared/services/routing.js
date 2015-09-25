@@ -42,8 +42,8 @@
 			},
 			landingPages: function(){
 				return [
-					{ area: 'Announcements', href: communityRoutes.announcements.landing },
-					{ area: 'Stories', href: communityRoutes.stories.landing  }
+					{ area: 'Announcements', href: communityRoutes.announcements.landing, description: 'View Announcements' },
+					{ area: 'Stories', href: communityRoutes.stories.landing, description: 'Read Members Stories'  }
 				]
 			},
 			generateDiscussionUrl: function(nodeName, discussionType) {

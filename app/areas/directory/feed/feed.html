@@ -1,0 +1,90 @@
+
+<div>
+	<community-breadcrumbs></community-breadcrumbs>
+	<div class="row">
+		<div class="cmuDiscussionsControls">
+			<discussions-header header-text="Activity"></discussions-header>
+			<discussions-nav-bar></discussions-nav-bar>
+		</div>
+	</div>
+
+	<div class="row">
+		
+	</div>
+
+	<div class="row">
+		<!-- main body -->
+		<div class="col--md9">
+			<div class="row row--comfy">
+				<div class="col--md8">
+					<div>
+						<button ng-click="vm.setFeedType('community')">Community Feed</button>
+						<button ng-click="vm.setFeedType('user')">My Feed</button>
+					</div>
+				</div>
+				 <div class="col--md2 noPaddingRight">
+		          	<community-sort 
+		          		sort-options="vm.categorySortOptions" 
+		          		sort-filter="vm.feedFilter" 
+		          		sort-exclude="page" 
+		          		class="community__sort"
+		          		sort-param="nodeUrlCode">
+		          	</community-sort>
+		        </div>
+				<div class="col--md2 noPaddingRight">
+				  <community-sort 
+				  	sort-options="vm.discussionSortOptions" 
+				  	sort-filter="vm.feedFilter" 
+				  	sort-exclude="page" 
+				  	class="community__sort"
+				  	sort-param="style">
+				  </community-sort>
+		        </div>
+	        </div>
+
+	        <div class="row row--comfy" ng-show="vm.feedType === 'community'">
+				<div ng-repeat="story in vm.storyData" class="col--md3">
+					<div ng-if="story.media.length > 0"><img ng-src="{{ story.media[0].url }}" /></div>
+					<div>
+						<a>{{ story.subject }}</a>
+						<h6>by {{ story.message.insertUser.login }}</h6>
+					</div>
+					<div>{{ story.node.description }}</div>
+				</div>
+			</div>	
+
+	        <div class="row row--comfy" ng-show="vm.hasFeedUpdates()">
+	        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+	        </div>
+
+	        <div class="row">
+	        	<div ng-repeat="feedItem in vm.feedList">
+	        		<community-feed-content content-model="feedItem"></community-feed-content>
+	        	</div>
+	        </div>
+
+	        <div class="row">
+	        	<community-pager 
+		            number-of-pages="vm.numberOfPages" 
+		            pager-fn="vm.feedFilter"
+		            front-biased="true"
+		            page-based="true">
+		        </community-pager>
+	        </div>
+		</div>
+
+		<!-- sidebar -->
+		<div class="col--md3">
+			<div ng-repeat="landingPage in ::vm.landingPages">
+				<a href="{{ landingPage.href }}" target="_self">{{ landingPage.description }}</a>
+			</div>
+
+			<div>
+				<h5>Latest Announcements</h5>
+				<div ng-repeat="announcement in vm.recentAnnouncements">
+					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">{{ announcement.subject }}</a>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>

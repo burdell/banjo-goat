@@ -32,13 +32,28 @@
 				<div class="cmuComments__flag">
 					<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
 				</div>
+	<!-- <div class="cmuComments__row" ng-repeat="comment in commentlist.commentList">
+		<div class="cmuComments__user col--md2">
+			<div class="cmuComments__user--avatar col--md3">
+				<community-user-avatar user="comment.insertUser"></community-user-avatar>
+			</div>
+			<div class="cmuComments__user--info col--md9">
+				<community-username user="comment.insertUser"></community-username>
+				<div class="cmuComments__postTime">{{ comment.postDate | timeFromNow }}</div> -->
 			</div>
 		</div>
 
-		<community-load-more
-			list-model="commentlist.currentComments"
-			load-filter="commentlist.commentFilter"
-			list-metadata="commentlist.commentData">
-		</community-load-more>
 	</div>
+<!-- 
+	<community-load-more
+		list-model="commentlist.currentComments"
+		load-filter="commentlist.commentFilter"
+		list-metadata="commentlist.commentData">
+	</community-load-more>
+	 -->
+
+	<community-load-more
+		list-model="commentlist.currentComments"
+		load-filter="commentlist.commentFilter">
+	</community-load-more>
 </div>

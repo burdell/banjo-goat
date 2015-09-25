@@ -2,7 +2,7 @@
 	<div class="cmuMessage__container">
 		
 		<community-user-badge 
-			user="messageDisplay.message.author"
+			user="messageDisplay.message.insertUser"
 			op-id="messageDisplay.showOp">
 		</community-user-badge>
 
@@ -15,10 +15,8 @@
 						<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
 						</div>
 
-						<div class="cmuMessage__data">
-							<div class="cmuMessage__counter"></div>
-							<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
-						</div>
+						<div class="cmuMessage__counter"></div>
+						<div class="cmuMessage__date">{{ messageDisplay.message.postDate | exactTimeFromNow }}</div>
 					</div>
 					<div class="col--md6 alignRight">
 						<div class="forumThreadMessage__controls"> 
