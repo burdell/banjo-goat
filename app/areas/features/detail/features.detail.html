@@ -4,9 +4,9 @@
 
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
-				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.stats | extractKey: 'score' }}<span class="cmuFeatures__votes__caption">votes</span></div>
-				<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(vm.originalMessage.statusType) }} ">
-					{{ ::vm.getStatusText(vm.originalMessage.statusType) }}
+				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.countVotes }}<span class="cmuFeatures__votes__caption">votes</span></div>
+				<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(vm.originalMessage) }} ">
+					{{ ::vm.getStatusText(vm.originalMessage) }}
 				</div>
 			</div>
 
@@ -19,7 +19,7 @@
 						</div>
 
 						<div class="col--md2 alignRight">
-							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
+							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.commentFilter" sort-exclude="limit, offset"></community-sort>
 						</div>
 
 					</div>
@@ -53,7 +53,7 @@
 			</span>
 			<div class="col--md4 col--mdOffset6">
 				<community-pager 
-				  total-results="vm.commentCount" 
+			  	  number-of-pages="vm.numberOfPages" 
 				  pager-fn="vm.commentFilter">
 				</community-pager>
 			</div>
@@ -105,7 +105,7 @@
 			</div>
 
 			<div class="cmuMessage__content row">
-				<div class="col--md12" ng-bind-html="vm.originalMessage.body | sanitize"></div>
+				<div class="col--md12" ng-bind-html="vm.originalMessage.message.body | sanitize"></div>
 			</div>
 
 		</div>
@@ -131,7 +131,7 @@
 		</div>
 		<div class="col--md4 col--mdOffset6 noPadding">
 			<community-pager 
-			  total-results="vm.commentCount" 
+			  number-of-pages="vm.numberOfPages" 
 			  pager-fn="vm.commentFilter">
 			</community-pager>
 		</div>

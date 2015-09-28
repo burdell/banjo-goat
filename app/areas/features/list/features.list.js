@@ -5,8 +5,11 @@
 		var ctrl = this;
 
 		function setMessageData (result){
-			ctrl.featuresList = result.collection;
-			ctrl.featuresCount = result.next.total;
+			console.log(result);
+			
+			ctrl.featuresCount = result.totalElements;
+			ctrl.numberOfPages = result.totalPages;
+			ctrl.featuresList = result.content;
 		}
 		featuresListFilter.set({ onFilter: setMessageData });
 
@@ -45,11 +48,11 @@
 		_.extend(ctrl, {
 			messageSortOptions: dataService.MessageSort,
 			featuresListFilter: featuresListFilter,
-			getStatusCode: function(statusType){
-				return statusTypes[statusType].code;
+			getStatusCode: function(feature){
+				return statusTypes[feature.state].code;
 			},
-			getStatusText: function(statusType){
-				return statusTypes[statusType].display;
+			getStatusText: function(feature){
+				return statusTypes[feature.state].display;
 			},
 			filterTypes: [
 				{
