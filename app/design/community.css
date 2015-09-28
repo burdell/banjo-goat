@@ -6600,6 +6600,11 @@ body {
   height: 100%;
   color: black;
   line-height: inherit;
+  background-color: #11181c;
+}
+
+.wrapper {
+  background-color: #fafafa;
 }
 
 #main-content {
@@ -7435,6 +7440,7 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuGloNav--footer {
+  z-index: 850;
   padding: 1rem 0;
 }
 @media only screen and (min-width: 801px) {
@@ -8256,6 +8262,12 @@ div.cmuUserbadge__avatar {
   margin-bottom: 2rem;
 }
 
+.cmuThread__reply {
+  margin-left: 11rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 .cmuThread__container {
   counter-reset: messageCtr;
 }
@@ -8300,6 +8312,11 @@ div.cmuUserbadge__avatar {
   content: ' | ';
   color: #969ba3;
   margin: 0 0.5rem;
+}
+
+.cmuMessage__counter, .cmuMessage__date {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .cmuMessage__content {
@@ -8931,6 +8948,16 @@ button .icon, .button .icon {
   opacity: 1;
   margin-bottom: 1rem;
   padding-bottom: 0;
+}
+.cmuUserbadge--thin.cmuUserbadge__op {
+  position: relative;
+  top: -1rem;
+  left: -1rem;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  padding-right: 2rem;
+  border-bottom: 1px solid #bbbbbd;
+  border-right: 1px solid #bbbbbd;
 }
 .cmuUserbadge--thin .cmuUserbadge__account {
   display: inline-block;

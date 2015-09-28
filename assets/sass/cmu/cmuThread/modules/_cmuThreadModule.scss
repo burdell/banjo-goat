@@ -103,9 +103,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 // 
-// Thread Content Formatting
-// - a lot of formatting comes with Lithium.
-// - we can only do so much to format it, but some of this is necessary
+// inline replies
 // 
+
+.cmuThread__reply {
+	margin-left: $size-badgewidth-min;
+	margin-bottom: $cmu-base;
+	margin-top: $cmu-base;
+}
 
 

@@ -9,7 +9,7 @@
 	// so this is moved to each discussion module ex: forumthreadmodule
 	// @extend %ease-fast;
 	opacity: 1;
-	min-width: $cmu-base*11; // 176px min width
+	min-width: $size-badgewidth-min; // 176px min width
 	// &:hover {
 	// 	opacity: 1;
 	// }
@@ -205,6 +205,17 @@
 	opacity: 1;
 	margin-bottom: $cmu-base;
 	padding-bottom: 0;
+
+	&.cmuUserbadge__op {
+		position: relative;
+	    top: -$cmu-base;
+	    left: -$cmu-base;
+	    padding: $cmu-base;
+	    padding-bottom: $cmu-base/2;
+	    padding-right: $cmu-base*2;
+	    border-bottom: $style-line;
+	    border-right: $style-line;
+	}
 
     .cmuUserbadge__account {
     	display: inline-block;

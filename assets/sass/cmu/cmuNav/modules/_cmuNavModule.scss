@@ -306,7 +306,7 @@ $nav-height: remCalc(40px);
 
 
 .cmuGloNav--footer {
-
+	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
 	@include respondTo(medium-up) {
 		padding: $cmu-base $cmu-base*4;

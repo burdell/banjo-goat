@@ -24,7 +24,7 @@
 			}
 
 			var navMetaData = [
-				{ display: "Activity", href: hrefs.feed },
+				// { display: "Activity", href: hrefs.feed }, // 'Community should take users here'
 				{ display: "Discussions", clickFn: toggleDiscussionsMenu, dropItem: true },
 				// { display: "Resources", href: "#", dropItem: true },
 				{ display: "Q&A", href: "#"},

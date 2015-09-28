@@ -1,9 +1,9 @@
 
 <div class="cmuComments row">
-	<div class="cmuComments__header" ng-pluralize count="commentlist.commentData.total" when="{ '0': 'No comments', 'one': '1 comment', 'other': '{} comments' }"></div>
+	<div class="cmuComments__header" ng-pluralize count="ctrl.currentComments.content" when="{ '0': 'No comments', '1': '1 comment', 'other': '{} comments' }"></div>
 
 	<div class="container">
-		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments">
+		<div class="cmuComments__row row" ng-repeat="comment in commentList">
 
 			<community-user-badge 
 				class="cmuUserbadge--comment col--md2"
@@ -56,4 +56,5 @@
 		list-model="commentlist.currentComments"
 		load-filter="commentlist.commentFilter">
 	</community-load-more>
+
 </div>

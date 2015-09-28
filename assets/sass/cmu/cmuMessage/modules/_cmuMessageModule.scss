@@ -112,7 +112,11 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			margin: 0 $cmu-base/2;
 		}
 	}
-
+	.cmuMessage__counter, .cmuMessage__date {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
 .cmuMessage__content {
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-vertical-rhythm;

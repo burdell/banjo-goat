@@ -11,7 +11,7 @@ $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
-
+$size-badgewidth-min:		$cmu-base*11;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -37,7 +37,11 @@ body {
 	height: 100%;
 	color: black;
 	line-height: inherit;
+	background-color: $cmu-color-menu;
 }
+	.wrapper {
+		background-color: $cmu-color-white;
+	}
 
 #main-content {
 	margin-bottom: $cmu-base;
@@ -143,6 +147,7 @@ $cmu-style-line--light: $cmu-line-thin $cmu-color-ltgray solid;
 // High 700-1000
 $z-top: 1000;	// Top z-index: gives us 10 levels to play with
 $z-gloNav: 900;	// global community menu
+$z-gloNav--footer: 850;
 $z-mega: 800;	// mega popover
 
 // Medium 400-700

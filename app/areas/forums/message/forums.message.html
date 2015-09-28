@@ -27,8 +27,8 @@
 </div>
 
 
-<div class="cmuThread__container">
-	<div ng-repeat="message in vm.messageThread" handle-image-error>
+<div class="cmuThread__container row">
+	<div class="col--md12 noPadding" ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message 
 			class="cmuMessage 
 				   cmuMessage--sidebyside"
@@ -39,24 +39,20 @@
 		</community-message>
 
 		<!-- reply -->
-		<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
-				<div class="col--md2">
-				</div>
-				<div class="col--md10">
-					<h6>REPLY to <a href="#">{{ ::message.insertUser.login }}</a></h6>
-					<div class="row row--comfy">
-						<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
-					</div>
+		<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
+				<div class="col--md12 noPadding">
+					<div class="cmuThread__reply__to">Reply to <span>{{ ::message.insertUser.login }}</span></div>
+					<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
 					<div>
 						<button 
-							class="button-ghost button-white-blue" 
+							class="button--ghost button-white-on-blue" 
 							ng-click="vm.cancelReply()">
 								Cancel
 						</button>
 						<button 
-							class="button-full button-blue-white"
+							class="button--solid button-white-on-blue"
 							ng-click="vm.submitReply(message.id)">
-								Submit Comment
+								Post Reply
 						</button>
 					</div>
 				</div>
