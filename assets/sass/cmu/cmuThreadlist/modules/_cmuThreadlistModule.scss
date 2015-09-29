@@ -173,12 +173,12 @@ $cmu-forum-size-maxWidth--author: 100px;
 	line-height: 2rem;
 
 	&:hover {
-		background-color: $cmu-color-mltgray;
+		background: $cmu-color-threadlist-hover;
 		cursor: pointer;
 		// @extend %ease-fast;
 
 		.cmuThreadList__row__topic {
-			color: $cmu-color-blue;
+			color: $cmu-color-active;
 		}
 	}
 
@@ -209,7 +209,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 		a {
 			color: $cmu-color-black;
 			&:hover {
-				color: $cmu-color-blue; 
+				color: $cmu-color-active; 
 			}
 		}
 	}

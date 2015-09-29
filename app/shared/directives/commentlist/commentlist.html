@@ -1,26 +1,19 @@
 
 <div class="cmuComments row">
-	<div class="cmuComments__header" ng-pluralize count="ctrl.currentComments.content" when="{ '0': 'No comments', '1': '1 comment', 'other': '{} comments' }"></div>
+
+{{ commentList }}
+
+
+	<div class="cmuComments__header" ng-pluralize count="{{ commentlist.currentComments.totalElements }}" when="{ '0': 'No comments', '1': '1 comment', 'other': '{} comments' }"></div>
 
 	<div class="container">
-		<div class="cmuComments__row row" ng-repeat="comment in commentList">
+		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments.content">
 
 			<community-user-badge 
 				class="cmuUserbadge--comment col--md2"
-				user="messageDisplay.message.author"
-				op-id="messageDisplay.showOp">
+				user="comment.insertUser">
 			</community-user-badge>
 
-
-			<!-- <div class="cmuComments__user col--md3">
-				<div class="cmuComments__user--avatar col--md3">
-					<community-user-avatar user="vm.story.author"></community-user-avatar>
-				</div>
-				<div class="cmuComments__user--info col--md9">
-					<community-username user="comment.author"></community-username>
-					<div class="cmuComments__postTime">{{ comment.postTime | timeFromNow }}</div>
-				</div>
-			</div> -->
 
 			<div class="cmuComments__body col--md9">
 				<div class="cmuComments__body-content" ng-bind-html="comment.body | sanitize">

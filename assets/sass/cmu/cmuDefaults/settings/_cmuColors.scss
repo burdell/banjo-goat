@@ -80,11 +80,12 @@ $cmu-color-textgray: 	#aeb4b7; 				// this color is on dotcom nav, but is not in
 
 	// 
 
-
 	// Forms, Input, Search, etc.
-	$cmu-color-placeholder: $cmu-color-xmdgray; 	// used as hint color for inputs
-	$cmu-color-darken: rgba(0,0,0,0.3); 			// used for button onhover states
+	$cmu-color-placeholder: $cmu-color-xmdgray; 			// used as hint color for inputs
+	$cmu-color-darken: rgba(0,0,0,0.3); 					// used for button onhover states
 
+	// Thread lists
+	$cmu-color-threadlist-hover: $cmu-color-mltgray; 		// used when hovering over a row in a list
 
 // 
 // ENVIRONMENT

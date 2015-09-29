@@ -8082,7 +8082,7 @@ div.cmuUserbadge__avatar {
   line-height: 2rem;
 }
 .cmuThreadList__row:hover {
-  background-color: #f3f3f3;
+  background: #f3f3f3;
   cursor: pointer;
 }
 .cmuThreadList__row:hover .cmuThreadList__row__topic {
@@ -8314,7 +8314,7 @@ div.cmuUserbadge__avatar {
   margin: 0 0.5rem;
 }
 
-.cmuMessage__counter, .cmuMessage__date {
+.cmuMessage__counter {
   display: inline-block;
   vertical-align: middle;
 }
@@ -8325,33 +8325,6 @@ div.cmuUserbadge__avatar {
   min-height: 3rem;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
-}
-.cmuMessage__content br {
-  content: " ";
-  display: block;
-  margin-bottom: 0.5em;
-}
-.cmuMessage__content p {
-  margin-bottom: 0;
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
-}
-.cmuMessage__content blockquote {
-  border: 1px solid #969ba3;
-  border-left-width: 3px;
-  padding: 0.5rem 1rem;
-}
-.cmuMessage__content blockquote hr {
-  display: none;
-}
-.cmuMessage__content blockquote table {
-  display: block;
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-.cmuMessage__content blockquote td {
-  border: 0;
-  padding: 0;
 }
 
 .cmuMessage__signature {
@@ -8364,8 +8337,12 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuMessage__data, .cmuMessage__data * {
-  display: inline-block;
   text-align: right;
+  vertical-align: middle;
+}
+
+.cmuMessage__date {
+  display: inline-block;
   vertical-align: middle;
 }
 
@@ -8400,6 +8377,33 @@ div.cmuUserbadge__avatar {
 }
 .cmuMessage__content li {
   list-style-position: inside;
+}
+.cmuMessage__content br {
+  content: " ";
+  display: block;
+  margin-bottom: 0.5em;
+}
+.cmuMessage__content p {
+  margin-bottom: 0;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+.cmuMessage__content blockquote {
+  border: 1px solid #969ba3;
+  border-left-width: 3px;
+  padding: 0.5rem 1rem;
+}
+.cmuMessage__content blockquote hr {
+  display: none;
+}
+.cmuMessage__content blockquote table {
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.cmuMessage__content blockquote td {
+  border: 0;
+  padding: 0;
 }
 
 /*
@@ -8896,7 +8900,6 @@ button .icon, .button .icon {
 .cmuUserbadge__rank {
   vertical-align: top;
   display: block;
-  line-height: 0.75rem;
   text-align: left;
 }
 
@@ -8948,8 +8951,6 @@ button .icon, .button .icon {
   opacity: 1;
   margin-bottom: 1rem;
   padding-bottom: 0;
-}
-.cmuUserbadge--thin.cmuUserbadge__op {
   position: relative;
   top: -1rem;
   left: -1rem;
@@ -9558,6 +9559,7 @@ select:disabled {
 }
 .timeline__year__title .timeline__year__title--text {
   padding: 0.25rem 0.5rem;
+  padding-bottom: 1px;
   line-height: 2rem;
 }
 .timeline__year__title span {
@@ -9571,7 +9573,7 @@ select:disabled {
   content: ")";
 }
 .timeline__year__title:hover {
-  background: #fafafa;
+  background: #f3f3f3;
 }
 .timeline__year__title:after {
   display: inline-block;

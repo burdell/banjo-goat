@@ -8,21 +8,21 @@
 			<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
 			
 			<div class="cmuUserbadge__rank">
-				{{ userbadge.displayUser.rank.name }} 
+				{{ userbadge.displayUser.rank.name }}
 			</div>
 		</div>
 
 	</div>
 
 	<div class="cmuUserbadge__points">
-		<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
-		<div class="cmuUserbadge__posts">702</div>
+		<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>{{ userbadge.displayUser.score }}</span></div>
+		<div class="cmuUserbadge__posts">[123]</div>
 	</div>
 
 	<div class="cmuUserbadge__info">
 		<div class="cmuUserbadge__descriptors">
-			<div class="cmuUserbadge__descriptor">San Francisco, CA</div>
-			<div class="cmuUserbadge__descriptor">Joined 08-07-2008</div>
+			<div class="cmuUserbadge__descriptor">Margaritaville, North Korea</div>
+			<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate | timeFromNow}}</div>
 		</div>
 	</div>
 </div>

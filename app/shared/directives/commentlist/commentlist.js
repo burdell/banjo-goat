@@ -8,9 +8,9 @@
 
 		function controller() {	
 			var ctrl = this;
-			console.log(ctrl.currentComments);
+			console.log(ctrl.currentComments.content);
 			_.extend(ctrl, {
-				commentList: ctrl.currentComments.content
+				commentList: this.currentComments.content
 			});
 		}
 		controller.$inject = [];

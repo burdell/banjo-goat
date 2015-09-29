@@ -1,7 +1,7 @@
 <div class="cmuAnnouncementsDetails cmuThread">
 
 	<div class="row">
-
+	
 		<div class="row">
 			<div class="col--md12">
 				<div class="cmuThread__subject">
@@ -11,7 +11,7 @@
 							<h3>{{ vm.currentAnnouncement.subject | htmlUnescape}}</h3>
 						</div>
 
-						<div class="col--md2 alignRight">
+						<div class="col--md2 alignRight"> 
 							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
 						</div>
 
@@ -52,51 +52,17 @@
 
 			<community-user-badge 
 				class="cmuUserbadge--thin"
-				user="messageDisplay.message.author"
+				user="vm.currentAnnouncement.message.context.parentAuthor"
 				op-id="messageDisplay.showOp">
 			</community-user-badge>
-<!-- 
-			<div class="cmuUserbadge
-						cmuUserbadge--thin
-						" ng-class="{ 'cmuUserbadge__op' : {{userbadge.opId === userbadge.displayUser.id}} } "  user="messageDisplay.message.author" op-id="messageDisplay.showOp">
-				<div class="cmuUserbadge__account">
-
-					<div class="cmuUserbadge__user row">
-
-						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
-							<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
-						</div>
-
-						<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
-							<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
-						</span>
-
-						<div class="cmuUserbadge__rank">
-							SuperUser 
-						</div>
-
-					</div>
-				</div>
 
 
-				<div class="cmuUserbadge__points">
-					<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
-					<div class="cmuUserbadge__posts">702</div>
-				</div>
-
-				<div class="cmuUserbadge__info">
-					<div class="cmuUserbadge__descriptors">
-						<div class="cmuUserbadge__descriptor">San Francisco, CA</div>
-						<div class="cmuUserbadge__descriptor">Joined 08-07-2008</div>
-					</div>
-				</div>
-			</div>
- -->
 			<div class="cmuMessage__data">
-				<div class="cmuMessage__date">{{ messageDisplay.message.postTime | exactTimeFromNow }}</div>
+				<div class="cmuMessage__date">{{ vm.currentAnnouncement.message.postDate | exactTimeFromNow }}</div>
+				<div class="cmuMessage__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate">Edited {{ vm.currentAnnouncement.message.editDate | exactTimeFromNow }}</div>
 			</div>
 
-			<div class="row">
+			<div class="">
 				<!-- <div class="col--md12" ng-bind-html="vm.originalMessage.body | sanitize"></div> -->
 
 						<!-- 
@@ -121,6 +87,7 @@
 							-->
 
 							<div class="cmuMessage__content">
+								<h2>FPO is used to show the .highlight class, esp. good on announcements </h2>
 								<p>Hi all,</p>
 								<p>airOS v5.5.4 has now been released. You can find it available from our downloads page:</p>
 								<p><a href="http://downloads.ubnt.com" target="_blank">http://downloads.ubnt.com</a></p>
@@ -130,6 +97,10 @@
 								<div>
 									<div>----------------------------------------------</div>
 									<div>&nbsp;</div>
+
+
+								<h2>THIS IS NEW: .highlight </h2>
+
 
 									<div class="highlight">
 										<div>New:</div>
@@ -210,6 +181,9 @@
 							</div>
 
 							<div class="cmuMessage__signature">
+
+								<h2>FPO SIGNATURE </h2>
+
 								<div>
 									WHT = Short Form Acronym for "You couldn't handle me even if I came with instructions!"<br><font color="#0000FF"><strong><em>Well engineered projects are indistinguishable from crazy ideas. </em></strong></font><br><br>Speed, distance, reliability, cost...Pick three.<br>...World's First Ubiquiti AirMax WISP....
 								</div>

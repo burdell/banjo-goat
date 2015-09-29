@@ -4,7 +4,7 @@
 // 
 
 // note that thin userbadges override these settings
-.cmuUserbadge {
+.cmuUserbadge { 
 	// opacity onhover is contextual to the discussion style
 	// so this is moved to each discussion module ex: forumthreadmodule
 	// @extend %ease-fast;
@@ -131,7 +131,7 @@
 	@extend %type-info;
     vertical-align: top;
 	display: block;
-    line-height: 0.75rem;
+    // line-height: 0.75rem; // looks weird when no ubnt logo on username, but might cause problems
 	text-align: left;
 }
 
@@ -206,16 +206,15 @@
 	margin-bottom: $cmu-base;
 	padding-bottom: 0;
 
-	&.cmuUserbadge__op {
-		position: relative;
-	    top: -$cmu-base;
-	    left: -$cmu-base;
-	    padding: $cmu-base;
-	    padding-bottom: $cmu-base/2;
-	    padding-right: $cmu-base*2;
-	    border-bottom: $style-line;
-	    border-right: $style-line;
-	}
+	position: relative;
+    top: -$cmu-base;
+    left: -$cmu-base;
+    padding: $cmu-base;
+    padding-bottom: $cmu-base/2;
+    padding-right: $cmu-base*2;
+    border-bottom: $style-line;
+    border-right: $style-line;
+
 
     .cmuUserbadge__account {
     	display: inline-block;

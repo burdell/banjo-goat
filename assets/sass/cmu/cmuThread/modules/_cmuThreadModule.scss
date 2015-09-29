@@ -41,7 +41,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
 
-	// Locked Thread
+	// Locked Thread 
 	.cmuThread__subject--locked {
 		h3:after {
 			font-size: $cmu-size-large;
@@ -55,7 +55,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			top: -4px;
 		}
 	}
-
+ 
 // Stats, used for announcements, feature bugs, etc.
 .cmuThread__stats {
 	@extend %type-info;
