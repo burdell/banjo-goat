@@ -4,12 +4,12 @@
 			.factory('FeaturesDataService', function(){
 				return {
 					StatusTypes: {
-						1: { code: 'fixed', display: 'Fixed' },
-						2: { code: 'pending', display: 'Pending' },
-						3: { code: 'inprogress', display: 'In Progress' },
-						4: { code: 'invalid', display: 'Invalid' },
-						5: { code: 'unspecified', display: 'Unspecified' },
-						6: { code: 'wontfix', display: 'Wont\'t Fix' }
+						'Fixed': { code: 'fixed', display: 'Fixed' },
+						'New': { code: 'pending', display: 'Pending' },
+						'InProgress': { code: 'inprogress', display: 'In Progress' },
+						'Invalid': { code: 'invalid', display: 'Invalid' },
+						'Unspecified': { code: 'unspecified', display: 'Unspecified' },
+						'WontFix': { code: 'wontfix', display: 'Wont\'t Fix' }
 					},
 					SeverityLevels: {
 						1: { code: 'high', display: 'High' },
