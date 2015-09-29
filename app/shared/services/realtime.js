@@ -7,24 +7,35 @@
 		function RealTimeService() {
 			var poll = null;
 			var lastResultTotal = null;
-			var updates = [];
+			var lastTimestamp = getTimestamp();
 			
+			function getTimestamp(){
+				return moment.utc().format('YYYY-MM-DDTHH:mm:ss');
+			}
+
 			return  {
 				start: function(pollFn, callImmediately, callback) {
 					if (!poll) {
-						var poller = function(){
-							pollFn().then(function(result){
-								updates = (lastResultTotal && (lastResultTotal < result.totalElements)) ? _.first(result.content, result.totalElements - lastResultTotal) : [];
-								if (callback) {
-									callback(result, updates);
-								}
-								lastResultTotal = result.totalElements;
-							});
+						var poller = function(applyTimestamp){
+							if (_.isUndefined(applyTimestamp)) {
+								applyTimestamp = true;
+							}
+
+							var callModel = {
+								page: undefined,
+								size: undefined,
+								since: applyTimestamp ? lastTimestamp : undefined
+							};
 							
+							pollFn(callModel).then(function(result){
+								if (callback) {
+									callback(result);
+								}
+							});
 						};
 
 						if (callImmediately) {
-							poller();
+							poller(false);
 						}
 
 						poll = setInterval(poller, defaultInterval);
@@ -36,8 +47,8 @@
 						poll = null;
 					}
 				},
-				getUpdates: function(){
-					return updates;
+				resetTimestamp: function(){
+					lastTimestamp = getTimestamp();
 				}
 			}
 		};

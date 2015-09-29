@@ -31,13 +31,23 @@
 			feedUpdates = null;
 		} 
 
+		function updateFeed() {
+			if (feedUpdates) {
+				feedUpdates = null;
+				feedFilter.filter({ page: 0 });
+				feedFilter.realtimeUpdatesLoaded();
+			}
+		}
+
 		feedFilter.set({
 			onFilter: function(result, updates) {
-				ctrl.numberOfPages = result.totalPages;
+				if (result) {
+					ctrl.numberOfPages = result.totalPages;
+				}
 
-				if (updates && updates.length > 0) {
-					feedUpdates = result.content;
-				} else {
+				if (updates && updates.content.length > 0) {
+					feedUpdates = updates.content;
+				} else if (result) {
 					setFeed(result.content);
 				}
 			}
@@ -60,10 +70,13 @@
 			storyData: storyData.content,
 			feedFilter: feedFilter,
 			setFeedUpdates: function(){
-				setFeed(feedUpdates)
+				updateFeed();
 			},
 			hasFeedUpdates: function(){
 				return feedUpdates !== null;
+			},
+			updateCount: function(){
+				return feedUpdates && feedUpdates.length;
 			},
 			setFeedType: function(feedType) {
 				ctrl.feedType = feedType;

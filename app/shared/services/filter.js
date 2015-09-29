@@ -34,10 +34,11 @@
 				options.filterModel = _.extend(options.filterModel, filterData);
 			};
 
-			var executeOnFilterFns = function(result){
+			var executeOnFilterFns = function(result, filterModel){
 				var updates;
-				if (realtimeService) {
-					updates = realtimeService.getUpdates();
+				if (options.realtime && filterModel.since) {
+					updates = result;
+					result = null;
 				}
 				_.each(options.onFilterFns, function(fn){
 					fn(result, updates);
@@ -73,16 +74,27 @@
 						});
 					}
 					
-					if (options.realtime) {
+					if (options.realtime && !realtimeService) {
 						realtimeService = realtimeServiceWrapper.getNew();
-						realtimeService.start(this.filter);
+						var filterFn = this.filter;
+						realtimeService.start(function(realtimeModel){
+							//keep any sorts, exclude paging information
+							realtimeModel = _.extend(realtimeModel, options.filterModel, { page: undefined, size: undefined });
+							return filterFn(realtimeModel, null, true);
+						});
 					}
 
 					return filter;
 				},
-				filter: function(filterData, exclude){
-					if (filterData) {
-						setFilterModel(filterData, exclude);
+				filter: function(filterData, exclude, oneTime){
+					var filterModel;
+					if (oneTime) {
+						filterModel = filterData;
+					} else {
+						if (filterData) {
+							setFilterModel(filterData, exclude);
+						}
+						filterModel = _.extend(options.filterModel, options.constants);
 					}
 
 					var args = [];
@@ -90,23 +102,20 @@
 						args = _.clone(options.filterArguments);
 					}
 					
-					var filterModel = _.extend(options.filterModel, options.constants);
-
 					//make sure falsy values are undefined
 					_.each(filterModel, function(modelValue, key) {
 						if (!modelValue && modelValue !== 0) {
 							filterModel[key] = undefined;
 						}
-					})
-
+					});
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;
 					return options.filterFn.apply(filterContext, args).then(function(result){
-						if (options.persistFilterModel) {
+						if (!oneTime && options.persistFilterModel) {
 							setQueryParams(filterModel);
 						}
-						executeOnFilterFns(result);
+						executeOnFilterFns(result, filterModel);
 						
 						return result;
 					});
@@ -118,6 +127,11 @@
 					var initialData = options.initialData;
 					options.initialData = null;
 					return initialData;
+				},
+				realtimeUpdatesLoaded: function(){
+					if (realtimeService) {
+						realtimeService.resetTimestamp();
+					}
 				}
 			};
 		}

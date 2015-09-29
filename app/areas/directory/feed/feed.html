@@ -54,7 +54,7 @@
 			</div>	
 
 	        <div class="row row--comfy" ng-show="vm.hasFeedUpdates()">
-	        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+	        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
 	        </div>
 
 	        <div class="row">

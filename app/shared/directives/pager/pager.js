@@ -16,6 +16,7 @@
 				if (!page) {
 					page = pagerInfo.initialPage;
 				}
+				page += 1;
 
 				var totalPages = pagerInfo.numberOfPages;
 				if(page >= 1 && page <= totalPages) {
@@ -214,7 +215,7 @@
 				}
 
 				if (ctrl.pageBased) {
-					pageData.page = Number(pageNumber);
+					pageData.page = Number(pageNumber - 1);
 				} else {
 					pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				}
@@ -228,11 +229,12 @@
 					return pageData.page;
 				} 
 
-				return (Math.floor(pageData.offset / pageData.limit) + 1);
+				return (Math.floor(pageData.offset / pageData.limit));
 			}
 
 			function setUiPage() {
 				var currentPage = getPageNumber();
+
 				$scope.setUiPage(currentPage);
 			}
 
@@ -240,7 +242,7 @@
 			var defaultLimit = Number(filterer.model('limit')) || 30;
 			var defaultOffset = Number(filterer.model('offset')) || 0;
 
-			var defaultPage = Number(filterer.model('page')) || 1;
+			var defaultPage = Number(filterer.model('page')) || 0;
 
 			var pageData = ctrl.pageBased ? { page: defaultPage } : { limit: defaultLimit, offset: defaultOffset };
 
