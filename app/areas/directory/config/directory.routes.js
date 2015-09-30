@@ -27,15 +27,15 @@
 							return $stateParams.nodeId.indexOf('airCRM') < 0;
 						};
 
-						var callList = [communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { limit: 4 })];
+						var callList = [communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { per_page: 4 })];
 						if (nodeHasStories()) {
-							callList.push(communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { limit: 4 }))
+							callList.push(communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 4 }))
 						}
 						
 						return $q.all(callList).then(function(result){
 							return {
-								stories: result[1] ? result[1].collection : [],
-								announcements: result[0].collection
+								stories: result[1] ? result[1].content : [],
+								announcements: result[0].content
 							}
 						});
 					}]
@@ -49,7 +49,7 @@
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { size: 20, sortDir: 'ASC' },
+							constants: { per_page: 20, sortDir: 'ASC' },
 							realtime: true
 						});
 					}],

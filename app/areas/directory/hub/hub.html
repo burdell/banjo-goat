@@ -52,7 +52,7 @@
 					</div>
 				</div>
 
-				<div class="cmuStories__title">{{ vm.featuredStory.discussion.subject || vm.placeholders.subject }}</div>	
+				<div class="cmuStories__title">{{ vm.featuredStory.subject || vm.placeholders.subject }}</div>	
 				<div class="cmuStories__summary" ng-show="vm.featuredStory.summary">{{ vm.featuredStory.summary }}</div>
 				<a ng-href="{{ vm.getStoryUrl(vm.featuredStory.id) }}" target="_self">Read Story</a>
 			</div>
@@ -69,7 +69,7 @@
 								</div>
 							</div>
 
-							<div class="cmuStories__title">{{ story.discussion.subject }}</div>	
+							<div class="cmuStories__title">{{ story.subject }}</div>	
 							<a ng-href="{{ vm.getStoryUrl(story.id) }}" target="_self">Read Story</a>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 				<div ng-repeat="forum in vm.forumMetaData">
 					<h5>{{ forum.description }} Discussions</h5>
 
-					<div ng-if="vm.forumMessages[$index].collection.length > 0">
+					<div ng-if="vm.forumMessages[$index].content.length > 0">
 						 <table>
 					        <thead>
 					          <th class="forumThreadList__head--topic"></th>
@@ -95,7 +95,7 @@
 					          <th class="forumThreadList__head--latestDate">Latest Date</th>
 					        </thead>
 					        <tbody>
-					          <tr class="forumThreadList__message" ng-repeat="message in vm.forumMessages[$index].collection">
+					          <tr class="forumThreadList__message" ng-repeat="message in vm.forumMessages[$index].content">
 					            <td class="forumThreadList__message__topic">
 					              <a ng-href="{{ vm.getForumMessageUrl(forum.urlCode, message.id) }}" target="_self">
 					                  {{ ::message.subject | htmlUnescape }}
@@ -105,7 +105,7 @@
 					            	<community-username user="message.author"></community-username>
 					            </td>
 					            <td class="forumThreadList__message__counter forumThreadList__message__counter--views" title="views">
-					              {{  message.stats | extractKey : 'views' | number}}
+					              {{  message.countViews| number}}
 					            </td>
 					            <td class="forumThreadList__message__counter" title="comments">
 					              {{  ( message.stats | extractKey : 'comments') - 1  | number}}
@@ -113,7 +113,7 @@
 					            <td class="forumThreadList__message__counter" title="kudos">
 					              {{  message.stats | extractKey : 'score'  | number}}
 					            </td>
-					            <td class="forumThreadList__message__latestDate">{{ message.latestComment.postTime | timeFromNow }}
+					            <td class="forumThreadList__message__latestDate">{{ message.message.postDate | timeFromNow }}
 					            </td>
 					          </tr>
 					        </tbody>
@@ -128,7 +128,7 @@
 					    </span>
 				    </div>
 
-				    <div ng-if="!vm.forumMessages[$index].collection.length">
+				    <div ng-if="!vm.forumMessages[$index].content.length">
 				    	<h6>No messages posted yet in {{ forum.description }}</h6>
 						<a ng-href="{{ ::vm.getForumUrl(forum.urlCode) }}" target="_self" class="button--solid button--padded button-blue-white">View {{ ::forum.description }}</a>
 				    </div>

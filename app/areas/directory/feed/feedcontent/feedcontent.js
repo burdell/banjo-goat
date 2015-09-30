@@ -28,11 +28,11 @@
 			var ctrl = this;
 
 			var discussionIcons = dataService.DiscussionTypeIcons;
-
 			var contentType = ctrl.contentModel.type;
+
 			var contentUser = contentType === 'topic' ? ctrl.contentModel.data.message.insertUser : ctrl.contentModel.data.insertUser;
 			var urlId = contentType === 'topic' ? ctrl.contentModel.data.id : ctrl.contentModel.data.parentId;
-			var contentNode = ctrl.contentModel.data.node;
+			var contentNode = contentType === 'topic' ? ctrl.contentModel.data.message.node : ctrl.contentModel.data.node;
 
 			var commentText = function(){
 				return contentUser.login + " replied to " + ctrl.contentModel.data.context.parentAuthor.login;

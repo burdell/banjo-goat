@@ -1,8 +1,14 @@
 (function(_){
 	'use strict';
 
-	var directoryController = function(routingService, nodeService){
+	var directoryController = function($scope, breadcrumbService, routingService, nodeService){
 		var ctrl = this;
+
+
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
+		breadcrumbService.setCurrentBreadcrumb('Directory');
 		
 		var discussionTypes = nodeService.DiscussionTypes;		
 		var directoryList = [
@@ -31,7 +37,7 @@
 			}
 		});
 	};
-	directoryController.$inject = ['CommunityRoutingService', 'NodeService'];
+	directoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityRoutingService', 'NodeService'];
 
 	angular.module('community.directory')
 		.controller('Directory', directoryController);

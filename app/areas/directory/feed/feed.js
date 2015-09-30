@@ -1,12 +1,8 @@
 (function(_){
 	'use strict';
 
-	var feedController = function($scope, announcementData, storyData, apiService, breadcrumbService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
+	var feedController = function($scope, announcementData, storyData, apiService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
 		var ctrl = this;
-
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
 
 		var feedData = {
 			community: {
@@ -65,7 +61,6 @@
 		});
 
 		var currentFeedType = feedData.community;
-		var initialBreadcrumbSet = false;
 		_.extend(ctrl, {
 			storyData: storyData.content,
 			feedFilter: feedFilter,
@@ -81,12 +76,6 @@
 			setFeedType: function(feedType) {
 				ctrl.feedType = feedType;
 
-				if (initialBreadcrumbSet) {
-					breadcrumbService.clearCurrentBreadcrumb();
-				} else {
-					initialBreadcrumbSet = true;
-				}
-
 				var feedDataObject = feedData[feedType];
 				if (feedDataObject != currentFeedType) {
 					feedFilter.set({
@@ -95,15 +84,16 @@
 					currentFeedType = feedDataObject;
 				}
 
-				breadcrumbService.setCurrentBreadcrumb(feedDataObject.display);
 				initialFeedLoaded = false;
 			},
 			landingPages: routingService.landingPages(),
 			discussionSortOptions: dataService.DiscussionTypeSort,
 			recentAnnouncements: announcementData.content,
 			generateAnnouncementUrl: function(announcementData){
-				var nodeId = routingService.generateDiscussionUrl(announcementData.product, 'announcements');
-				return routingService.generateUrl('announcements.detail', { nodeId: nodeId, announcementId: announcementData.id });
+				return routingService.generateUrl('announcements.detail', { nodeId: announcementData.node.urlCode, announcementId: announcementData.id });
+			},
+			generateStoryUrl: function(storyData){
+				return routingService.generateUrl('stories.detail', { nodeId: storyData.node.urlCode, storyId: storyData.id });
 			}
 		});
 
@@ -114,7 +104,6 @@
 		'AnnouncementsData',
 		'StoryData',
 		'CommunityApiService',
-		'CommunityBreadcrumbService', 
 		'CommunityDataService', 
 		'CommunityNodeService', 
 		'CommunityRealtimeService', 
