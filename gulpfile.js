@@ -279,7 +279,7 @@ gulp.task('express', function() {
         console.log('served stories index.html');
     });
 
-    app.get('/:var(directiry|feed)/?', function (req,res) {
+    app.get('/directiry/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });
@@ -288,6 +288,12 @@ gulp.task('express', function() {
         res.render('features/index.html');
         console.log('served feature requests index.html');
     });
+
+     app.get('/*', function (req,res) {
+        res.render('directory/index.html');
+        console.log('served directory index.html');
+    });
+
    
     app.listen(4200);
 });

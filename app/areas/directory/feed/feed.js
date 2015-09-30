@@ -1,12 +1,8 @@
 (function(_){
 	'use strict';
 
-	var feedController = function($scope, announcementData, storyData, apiService, breadcrumbService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
+	var feedController = function($scope, announcementData, storyData, apiService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
 		var ctrl = this;
-
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
 
 		var feedData = {
 			community: {
@@ -31,13 +27,23 @@
 			feedUpdates = null;
 		} 
 
+		function updateFeed() {
+			if (feedUpdates) {
+				feedUpdates = null;
+				feedFilter.filter({ page: 0 });
+				feedFilter.realtimeUpdatesLoaded();
+			}
+		}
+
 		feedFilter.set({
 			onFilter: function(result, updates) {
-				ctrl.numberOfPages = result.totalPages;
+				if (result) {
+					ctrl.numberOfPages = result.totalPages;
+				}
 
-				if (updates && updates.length > 0) {
-					feedUpdates = result.content;
-				} else {
+				if (updates && updates.content.length > 0) {
+					feedUpdates = updates.content;
+				} else if (result) {
 					setFeed(result.content);
 				}
 			}
@@ -55,24 +61,20 @@
 		});
 
 		var currentFeedType = feedData.community;
-		var initialBreadcrumbSet = false;
 		_.extend(ctrl, {
 			storyData: storyData.content,
 			feedFilter: feedFilter,
 			setFeedUpdates: function(){
-				setFeed(feedUpdates)
+				updateFeed();
 			},
 			hasFeedUpdates: function(){
 				return feedUpdates !== null;
 			},
+			updateCount: function(){
+				return feedUpdates && feedUpdates.length;
+			},
 			setFeedType: function(feedType) {
 				ctrl.feedType = feedType;
-
-				if (initialBreadcrumbSet) {
-					breadcrumbService.clearCurrentBreadcrumb();
-				} else {
-					initialBreadcrumbSet = true;
-				}
 
 				var feedDataObject = feedData[feedType];
 				if (feedDataObject != currentFeedType) {
@@ -82,15 +84,16 @@
 					currentFeedType = feedDataObject;
 				}
 
-				breadcrumbService.setCurrentBreadcrumb(feedDataObject.display);
 				initialFeedLoaded = false;
 			},
 			landingPages: routingService.landingPages(),
 			discussionSortOptions: dataService.DiscussionTypeSort,
 			recentAnnouncements: announcementData.content,
 			generateAnnouncementUrl: function(announcementData){
-				var nodeId = routingService.generateDiscussionUrl(announcementData.product, 'announcements');
-				return routingService.generateUrl('announcements.detail', { nodeId: nodeId, announcementId: announcementData.id });
+				return routingService.generateUrl('announcements.detail', { nodeId: announcementData.node.urlCode, announcementId: announcementData.id });
+			},
+			generateStoryUrl: function(storyData){
+				return routingService.generateUrl('stories.detail', { nodeId: storyData.node.urlCode, storyId: storyData.id });
 			}
 		});
 
@@ -101,7 +104,6 @@
 		'AnnouncementsData',
 		'StoryData',
 		'CommunityApiService',
-		'CommunityBreadcrumbService', 
 		'CommunityDataService', 
 		'CommunityNodeService', 
 		'CommunityRealtimeService', 

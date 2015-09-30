@@ -55,7 +55,7 @@
 			
 			var rootNode = nodeStructureService.getNode(-1);
 			if (rootNode && !rootNode.href) {
-				rootNode.href = routingService.generateUrl('directory');
+				rootNode.href = routingService.generateUrl('feed');
 			}
 
 			if (!nodeStructureService.CurrentNode) {

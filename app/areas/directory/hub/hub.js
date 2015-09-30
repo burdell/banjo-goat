@@ -41,10 +41,11 @@
 					offset: NUMBER_OF_FORUM_MESSAGES,
 					loadingMessages: false 
 				});
-				callList.push(communityApi.Forums.messages(forum.urlCode, { limit: NUMBER_OF_FORUM_MESSAGES }));
+				callList.push(communityApi.Forums.messages(forum.urlCode, { per_page: NUMBER_OF_FORUM_MESSAGES }));
 			});
 
 			$q.all(callList).then(function(result) {
+				console.log(result);
 				ctrl.forumMessages = result;
 			});
 		};
@@ -75,9 +76,9 @@
 				forum.loadingMessages = true;
 
 				var forumMessages = ctrl.forumMessages[index];
-				communityApi.Forums.messages(forum.urlCode, { limit: NUMBER_OF_FORUM_MESSAGES, offset: forum.offset })
+				communityApi.Forums.messages(forum.urlCode, { per_page: NUMBER_OF_FORUM_MESSAGES, offset: forum.offset })
 					.then(function(result){
-						forumMessages.collection = forumMessages.collection.concat(result.collection);
+						forumMessages.content = forumMessages.content.concat(result.content);
 					})
 					.finally(function(){
 						forum.loadingMessages = false;
