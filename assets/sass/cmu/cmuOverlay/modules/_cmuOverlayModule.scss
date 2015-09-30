@@ -1,0 +1,9 @@
+
+
+// adding div gives slightly higher importance
+div.cmuOverlay--show {
+	display: block;
+	opacity: 1;
+	overflow: scroll;
+	@extend %ease-fast;
+} 

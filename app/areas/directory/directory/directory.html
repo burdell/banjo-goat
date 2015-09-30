@@ -94,7 +94,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="cmuDirectory__content__list col--md6">
+						<div class="cmuDirectory__content__list col--md8">
 							<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
 								<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
 								<span ng-if="!$last">&nbsp;/&nbsp;</span>

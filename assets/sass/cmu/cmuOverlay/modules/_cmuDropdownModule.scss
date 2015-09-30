@@ -1,0 +1,129 @@
+
+
+// 
+// Dropdown
+// 
+
+%dropdownTopOffset {
+	position: relative;
+	top: $cmu-base*5;
+}
+%dropdownContentTopOffset {
+	position: relative;
+	top: $cmu-base*6;
+}
+
+// general settings; acts as a "blackout"
+.cmuDropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 800;
+    @extend %ease-fast;
+
+    display: none; // default is hidden
+    opacity: 0;
+    // overflow: hidden;
+}
+	.cmuDropdown--show {
+		display: block;
+		opacity: 1;
+    	overflow: scroll;
+    	@extend %ease-fast;
+	}
+
+	// background covering
+	// needs to reach the entire height of window
+	// needs to scroll with page
+	.cmuDropdown__shroud {
+		background-color: rgba($cmu-color-ltblack, 0.968);
+		top: 0;
+		left: 0;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.cmuDropdown__close {
+		color: $cmu-color-mdgray;
+		font-size: $cmu-base*1.5;
+		text-align: right;
+		padding-right: $cmu-base/2;
+		cursor: pointer;
+
+		@extend %megaTopOffset;
+		@extend %ease-fast;
+
+		&:before {
+    		display: inline-block;
+			font-size: $cmu-base;
+			content: 'close';
+			font-weight: 300;
+    		vertical-align: top;
+    		padding-right: $cmu-base/2;
+			letter-spacing: $cmu-size-letterspacing-header;
+    		line-height: 1.5rem;
+			text-transform: uppercase;
+			font-size: $cmu-size-smaller;
+		}
+		&:hover {
+			color: $cmu-color-white;
+			@extend %ease-fast;
+		}
+
+	}
+
+	.cmuDropdown__content {
+		@extend %megaContentTopOffset;
+		color: $cmu-color-mdgray;
+		border-bottom: 1px solid $cmu-color-dkgray;
+		// background-color: rgba($cmu-color-ltblack, 0.88);
+	}
+
+	.cmuDropdown__section {
+		border-top: 1px solid $cmu-color-dkgray;
+		padding: $cmu-base 0;
+	}
+
+		.cmuDropdown__section__head {
+			text-transform: uppercase;
+			letter-spacing: $cmu-size-letterspacing-header; 
+			font-size: $cmu-size-smaller;
+			// padding-top: $cmu-base / 2;
+			padding-bottom: $cmu-base / 2;
+		}
+
+		.cmuDropdown__section__col {
+			a { 
+				letter-spacing: $cmu-size-letterspacing-text;
+				display: block;
+				color: $cmu-color-white;
+				padding-bottom: $cmu-base/2;
+
+				&:hover {
+					color: $cmu-color-blue;
+				}
+			}
+		}
+
+		.cmuDropdown__icon {
+			border: 1px solid $cmu-color-dkgray;
+			padding: 0 $cmu-base;
+			margin-right: $cmu-base;
+			display: inline-block; 
+			cursor: pointer;
+			@extend %ease-fast;
+
+			height: $cmu-base*2.5;
+			overflow: hidden; // creates phantom padding/margin at the bottom...?
+			margin-bottom: $cmu-base/2;
+
+			&:hover {
+				background-color: $cmu-color-dkgray;
+				@extend %ease-fast;
+			}
+		}
+		

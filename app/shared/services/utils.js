@@ -20,10 +20,13 @@
 				var bodyTag = document.body;
 				var className = 'cmuWrapper--overlay';
 				if (shouldPrevent) {
-					bodyTag.classList.add(className);	
+					bodyTag.classList.add(className);
 				} else {
 					bodyTag.classList.remove(className);
 				}
+			},	
+			closeOverlays: function() {
+				$('.cmuOverlay--show').removeClass('cmuOverlay--show');
 			}	
 		};
 	};

@@ -119,11 +119,14 @@ $nav-height: remCalc(40px);
 				&:before {
 					@extend %ease-fast;
 					font-family: 'ubnt';
-					content: "\e6d9";
+					content: "\e68b";
 					position: relative;
-					padding-right: $cmu-base/2;
+					margin-right: $cmu-base/2;
 					font-size: $cmu-base/2;
 					color: $cmu-color-gray;
+				    border-radius: 50%;
+				    padding: 0.2rem;
+				    border: $style-line--dark;
 				}
 			}
 			.cmuGloNav__link.active {
@@ -168,7 +171,22 @@ $nav-height: remCalc(40px);
 
 
 
-// mobile 
+
+
+
+
+
+// 
+// DROPDOWNS (notifications, inbox)
+// 
+
+
+
+
+// 
+// MOBILE MENU 
+// 
+
 .cmuGloNav__mobile {
 	// hide on desktop
 	@include respondTo(medium-up) {
@@ -305,6 +323,21 @@ $nav-height: remCalc(40px);
 				}
 
 
+
+
+
+
+
+
+
+
+
+
+
+// 
+// FOOTER 
+// 
+
 .cmuGloNav--footer {
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
@@ -365,6 +398,15 @@ $nav-height: remCalc(40px);
 				@extend %ease-fast;
 				color: $cmu-color-white;
 			}
+		}
+
+		.ubnt-icon {
+			margin-left: $cmu-base/2;
+			font-size: $cmu-base/2;
+			color: $cmu-color-gray;
+		    border-radius: 50%;
+		    padding: 0.2rem;
+		    border: $style-line--dark;
 		}
 	}
 

@@ -14,8 +14,9 @@
               </div>
             </div>
 
-            <!-- desktop size menu -->
             <div class="cmuGloNav__right">
+
+            <!-- mobile menu -->
               <div class="cmuGloNav__mobile"
                    community-class-toggle="cmuGloNav__mobile__menu--open" >
                 <div class="cmuGloNav__mobile__btn">
@@ -81,8 +82,14 @@
               </div>
               <div class="cmuGloNav__cmuAccount">
                 <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
-                  <li class="cmuGloNav__notifications"><a href="#"><span class="icon ubnt-icon--bell"></span></a>
+                  <li class="cmuGloNav__notifications"
+                      ng-click="$broadcast('dropdown:toggleNotifications');"
+                      community-class-toggle="cmuGloNav__notifications--open">
+                    <a href="#">
+                       <span class="icon ubnt-icon--bell"></span>
+                    </a>
                   </li>
+
                   <li class="cmuGloNav__inbox"><a href="#">
                     <span class="icon ubnt-icon--inbox"></span></a>
                   </li>
@@ -105,5 +112,12 @@
     menu-template-url="directives/mainnavbar/mainnavbar.discussions.html"
     template-ctrl="mainnavbar.templateData">
   </community-mega-menu>
+
+  <community-drop-down
+    open-event="toggleNotifications"
+    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html"
+    template-ctrl="mainnavbar.templateData">
+  </community-drop-down>
+
 
 </div>

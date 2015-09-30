@@ -14,7 +14,8 @@
 @import "cmuPagination/index";
 @import "cmuInlineInfo/index"; 			// helper style that defines the partial: 'by {username} | {date} | other info'
 @import "cmuNav/index"; 				// global nav
-@import "cmuMega/index";				// mega screen-takeover popover menu (discussions, settings, new post, etc.) 
+@import "cmuOverlay/index";				// Includes dropdown, modal, and mega screen-takeover popover menu (discussions, settings, new post, etc.) 
+// @import "cmuDropdown/index";			// similar to mega screen, except dropdown variation
 @import "cmuBanner/index"; 				// announcement banner
 @import "cmuPulse/index"; 				// pulse component and variations
 @import "cmuDirectory/index"; 			// directory page styles minus modules

@@ -1,11 +1,12 @@
 (function(_){
 	'use strict';
 	
-	function megaMenu() {
+	function dropDown() {
 		var controller = function($scope, utils) {
 			var ctrl = this;
 
-			$scope.$on('megamenu:' + ctrl.openEvent, function(){
+			$scope.$on('dropdown:' + ctrl.openEvent, function(){
+				console.log('dropdown hey!')
 				ctrl.toggleMenu();
 			});
 
@@ -18,7 +19,7 @@
 				toggleMenu: function(){
 					utils.closeOverlays();
 					ctrl.isOpen = !ctrl.isOpen;
-					utils.preventBodyScroll(ctrl.isOpen);
+					// utils.preventBodyScroll(ctrl.isOpen);
 				}
 			});
 		};
@@ -26,8 +27,8 @@
 
 	    var directive = {
 	        controller: controller,
-	        templateUrl: 'directives/megamenu/megamenu.html',
-	        controllerAs: 'megamenu',
+	        templateUrl: 'directives/dropdown/dropdown.html',
+	        controllerAs: 'dropdown',
 	        bindToController: true,
 	        restrict: 'E',
 	        scope: {
@@ -40,6 +41,6 @@
 	}
 
 	angular.module('community.directives')
-		.directive('communityMegaMenu', megaMenu);
+		.directive('communityDropDown', dropDown);
 		
 }(window._));

@@ -1,5 +1,5 @@
 
-	<div ng-class="{ 'cmuOverlay--show' : megamenu.isOpen }" class="cmuMega row">
+	<div ng-class="{ 'cmuOverlay--show' : dropdown.isOpen }" class="cmuDropdown row">
 	<!-- JAN : TEMPORARY PROTOTYPE LOCATION 
 
 		To show cmuMega, attach cmuMega--show to the cmuMega class. remove cmuMega--show to close/hide it.
@@ -9,14 +9,17 @@
 		Attach .cmuWrapper--overlay to .cmuWrapper to add those styles
 		
 	-->
-		<div class="cmuMega__shroud"></div>
+		DROPDOWN!!!
+
+		
+		<div class="cmuDropdown__shroud"></div>
 		<div class="col--md12 noPadding">
 
-			<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
+			<div class="cmuDropdown__close" ng-click="dropdown.toggleMenu()" >
 				<span class="icon ubnt-icon--x"></span>
 			</div>
-			<div class="cmuMega__content container" >
-				<div ng-include="megamenu.menuTemplateUrl">
+			<div class="cmuDropdown__content container" >
+				<div ng-include="dropdown.menuTemplateUrl">
 				</div>
 			</div>
 		</div>
