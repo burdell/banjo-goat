@@ -1,10 +1,26 @@
 
 <div class="cmuDiscussionsNavbar">
 	<ul>
+		<li>
+			<a>Home</a>
+		</li>
 		<li ng-repeat="navLink in navbar.navLinks">
-			<a ng-class="{ active : navLink.active }" href="{{ ::navLink.href }}" target=" {{ ::navLink.target() }}">
+			<a ng-class="{ active : navLink.active, cmuDiscussionsNavbar__group : navLink.display=='Forums' }" href="{{ ::navLink.href }}" target=" {{ ::navLink.target() }}">
 				{{ navLink.display }}
 			</a>
+			<ul class="cmuDiscussionsNavbar__group__container" href="#">
+				<li>
+					<a href="#">Public</a>
+				</li>
+				<li>
+					<a href="#">Alpha</a>
+				</li>
+				<li>
+					<a href="#">Beta</a>
+				</li>
+			</ul>
+
+
 		</li>
 	</ul>
 </div>

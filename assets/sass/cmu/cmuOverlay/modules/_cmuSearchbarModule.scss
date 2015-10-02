@@ -1,0 +1,25 @@
+
+
+.cmuSearchbar {
+    @extend %ease-fast;
+
+    display: none; // default is hidden
+    opacity: 0;
+    // overflow: hidden;
+
+    .appIconInput__icon {
+    	@extend %size-larger;
+    }
+
+	.cmuSearchbox input {
+
+		@extend %h3;
+		color: $cmu-color-black;
+		padding: $cmu-base*2;
+		padding-left: $cmu-base*4;
+
+		@include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
+
+	}
+
+}
