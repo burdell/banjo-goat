@@ -3,8 +3,9 @@
 	
 	function communityMap() {
 		var link = function(scope, element, attrs) {
-			var coordinates = scope.map.mapCoordinates;	
-			var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+			var coordinates = scope.map.mapCoordinates;
+
+			var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
 			var mapOptions = {
 			    zoom: 4,
 			    center: latLng,
@@ -38,7 +39,7 @@
 				var mapInstance = ctrl.mapInstance;
 				var coordinates = ctrl.mapCoordinates;
 
-				var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+				var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
 
 				mapInstance.setCenter(latLng);
 				ctrl.setMarker(latLng);
@@ -62,7 +63,9 @@
 	        restrict: 'E',
 	        replace: true,
 	        scope: {
-	        	mapCoordinates: '='
+	        	mapCoordinates: '=',
+	        	lngCoord: '=',
+	        	latCoord: '='
 	        }
 	    };
 

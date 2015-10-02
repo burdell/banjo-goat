@@ -79,10 +79,10 @@
 		</div>
 	</div>
 	<div class="cmuStories__story__info col--md3">
-		<div ng-if="vm.story.location.display">
-			<community-map class="cmuStories__story__info--map" map-coordinates="vm.story.location.coordinates"></community-map>
+		<div ng-if="vm.coordinates.locName">
+			<community-map class="cmuStories__story__info--map" map-coordinates="vm.coordinates"></community-map>
 			<div class="cmuStories__story__info--title">Location</div>
-			<div class="cmuStories__story__info--map-location">{{ vm.story.location.display }}</div>
+			<div class="cmuStories__story__info--map-location">{{ vm.story.locName }}</div>
 		</div>
 		<div ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>

@@ -17,7 +17,7 @@
 			{ header: 'Enterprise', list: discussionTypes.enterprise }
 		];
 
-		var discussionNodeOrder = ['Alpha', 'Beta', 'General', 'stories', 'qa', 'announcements', 'features', 'bugs'];
+		var discussionNodeOrder = ['Alpha', 'Beta', 'Public', 'stories', 'qa', 'announcements', 'features', 'bugs'];
 
 		var mainSectionExclude  = [43, 83];
 
@@ -25,7 +25,7 @@
 			directoryList: directoryList,
 			landingPages: routingService.landingPages(),
 			getDiscussionHref: function(node){
-				return routingService.generateUrl(node.discussionType + '.list', { nodeId: node.urlCode })
+				return routingService.generateUrl(node.discussionStyle + '.list', { nodeId: node.urlCode })
 			},
 			discussionNodeOrder: function(discussion){
 				var discussionType = discussion.discussionType === 'forums' ? discussion.name : discussion.discussionType;

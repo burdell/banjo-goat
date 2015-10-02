@@ -16,6 +16,7 @@
 
 		var controller = function($scope) {
 			var ctrl = this;
+			
 			_.extend(ctrl, {
 				editorId: 'community-editor-' + $scope.$id,
 				editorHeight: ctrl.height | '150',

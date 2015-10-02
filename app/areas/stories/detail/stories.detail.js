@@ -7,13 +7,6 @@
 		storyThread.comments.content.shift();
 
 		var story = storyThread.originalMessage;
-		story.location = {
-			display: story.locName,
-			coordinates: {
-				lat: story.locLat,
-				lng: story.locLon
-			}
-		};
 		var storyAuthor = story.message.insertUser;
 
 		var cover = _.find(story.media, function(mediaObj) {
@@ -74,6 +67,11 @@
 						ctrl.comment.submittingComment = false;
 					}
 				);
+			},
+			coordinates: {
+				locLat: story.locLat,
+				locLon: story.locLon,
+				locName: story.locName
 			}
 		});
 

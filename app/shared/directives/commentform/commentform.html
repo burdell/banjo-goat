@@ -1,0 +1,22 @@
+
+<div>
+	<div class="row row--comfy">
+			<community-text-editor ng-model="commentform.comment.body" minimal-editor="true"></community-text-editor>
+	</div>
+	<div ng-show="!commentform.comment.submittingComment">
+		<button 
+			class="button-ghost button-white-blue" 
+			ng-click="commentform.cancelReply()">
+				Cancel
+		</button>
+		<button 
+			class="button-full button-blue-white"
+			ng-click="commentform.submitReply()">
+				Submit Comment
+		</button>
+	</div>
+	<div ng-show="vm.comment.submittingComment">
+		<button disabled>Submitting Comment...</button>
+	</div>
+</div>
+

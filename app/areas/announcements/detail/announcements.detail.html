@@ -12,7 +12,7 @@
 						</div>
 
 						<div class="col--md2 alignRight"> 
-							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
+							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.moreCommentsFilter" sort-exclude="limit, offset"></community-sort>
 						</div>
 
 					</div>
@@ -205,13 +205,16 @@
 			<button class="button--vote button--compound-naked" disabled="">
 				123 kudos
 			</button>
-    		<button class="button--solid">Add Comment</button>
+    		<button ng-click="vm.showCommentForm = true" class="button--solid">Add Comment</button>
 		</span>
 	</div>
 
-
-	<div class="row" ng-hide="!vm.replyInProgress">
-		<div ng-include="'partials/commentform.html'"></div>
+	<div class="row" ng-show="vm.showCommentForm">
+		<community-comment-form 
+			toggle-attribute="vm.showCommentForm"
+			parent-message="vm.currentAnnouncement"
+			comment-list="vm.currentComments">
+		</community-comment-form>
 	</div>
 		
 	<!-- 

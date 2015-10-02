@@ -13,7 +13,7 @@
 				stories: routesProvider.stories.landing,
 				feed: routesProvider.feed
 			};
-			
+
 			var toggleDiscussionsMenu = function(){
 				$scope.$broadcast('megamenu:toggleDiscussions');
 			}

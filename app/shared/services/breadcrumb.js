@@ -9,7 +9,7 @@
 				return;
 			}
 
-			node.href = routingService.generateUrl(node.discussionType + '.list', { nodeId: node.urlCode });
+			node.href = routingService.generateUrl(node.discussionStyle + '.list', { nodeId: node.urlCode });
 		}
 
 		var PRODUCT_NODE = 75;
@@ -34,7 +34,7 @@
 						}
 
 						//if node is a product, set url to landing page
-						if (parentNode.parentCategoryId === PRODUCT_NODE) {
+						if (parentNode.parentId === PRODUCT_NODE) {
 							parentNode.href = routingService.generateUrl('hub', { nodeId: parentNode.urlCode });
 						}
 

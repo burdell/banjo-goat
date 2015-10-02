@@ -16,8 +16,7 @@
 				if (!page) {
 					page = pagerInfo.initialPage;
 				}
-				page += 1;
-
+				
 				var totalPages = pagerInfo.numberOfPages;
 				if(page >= 1 && page <= totalPages) {
 					// only scroll scrub if we have more pages 
@@ -215,7 +214,7 @@
 				}
 
 				if (ctrl.pageBased) {
-					pageData.page = Number(pageNumber - 1);
+					pageData.page = Number(pageNumber);
 				} else {
 					pageData.offset = (Number(pageNumber) - 1) * pageData.limit;
 				}
@@ -242,7 +241,7 @@
 			var defaultLimit = Number(filterer.model('limit')) || 30;
 			var defaultOffset = Number(filterer.model('offset')) || 0;
 
-			var defaultPage = Number(filterer.model('page')) || 0;
+			var defaultPage = Number(filterer.model('page')) || 1;
 
 			var pageData = ctrl.pageBased ? { page: defaultPage } : { limit: defaultLimit, offset: defaultOffset };
 

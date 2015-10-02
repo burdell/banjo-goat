@@ -3,9 +3,7 @@
 
 {{ commentList }}
 
-
-	<div class="cmuComments__header" ng-pluralize count="{{ commentlist.currentComments.totalElements }}" when="{ '0': 'No comments', '1': '1 comment', 'other': '{} comments' }"></div>
-
+	<div class="cmuComments__header">{{ commentlist.getCommentCountText() }}</div>
 	<div class="container">
 		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments.content">
 
@@ -21,29 +19,14 @@
 			</div>
 
 			<div class="cmuComments__info col--md1">
-				<div class="cmuComments__date">a few seconds ago, 01:26 pm</div>
+				<div class="cmuComments__date">{{ comment.postDat | timeFromNow }}</div>
 				<div class="cmuComments__flag">
 					<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
 				</div>
-	<!-- <div class="cmuComments__row" ng-repeat="comment in commentlist.commentList">
-		<div class="cmuComments__user col--md2">
-			<div class="cmuComments__user--avatar col--md3">
-				<community-user-avatar user="comment.insertUser"></community-user-avatar>
-			</div>
-			<div class="cmuComments__user--info col--md9">
-				<community-username user="comment.insertUser"></community-username>
-				<div class="cmuComments__postTime">{{ comment.postDate | timeFromNow }}</div> -->
 			</div>
 		</div>
 
 	</div>
-<!-- 
-	<community-load-more
-		list-model="commentlist.currentComments"
-		load-filter="commentlist.commentFilter"
-		list-metadata="commentlist.commentData">
-	</community-load-more>
-	 -->
 
 	<community-load-more
 		list-model="commentlist.currentComments"

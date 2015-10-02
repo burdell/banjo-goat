@@ -57,7 +57,7 @@
 						return communityApi.Announcements.all({ per_page: 5, sort: 'postDate' });
 					}],
 					StoryData: ['CommunityApiService', function(communityApi){
-						return communityApi.Stories.test({ per_page: 4, sortField: 'postDate' });
+						return communityApi.Stories.all({ per_page: 4, sortField: 'postDate' });
 					}]
 				}
 			});
