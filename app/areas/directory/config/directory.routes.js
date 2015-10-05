@@ -60,6 +60,65 @@
 						return communityApi.Stories.all({ per_page: 4, sortField: 'postDate' });
 					}]
 				}
+			})
+			.state('userprofile', {
+				url: routes.userprofile,
+				templateUrl: 'directory/user/userprofile.html',
+				controller: 'UserProfile as vm',
+				resolve: {
+					UserData: ['$stateParams', 'CommunityApiService', 'CurrentUserService', function($stateParams, communityApi, userServiceWrapper){
+						if (!$stateParams.userId) {
+							return userServiceWrapper.get().then(function(userService){
+								return {
+									selfUser: true,
+									user: userService.user
+								}
+								
+							});
+						} else {
+							return communityApi.User.userData($stateParams.userId).then(function(result){
+								return {
+									selfUser: false,
+									user: result
+								}
+							});
+						}
+					}],
+					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
+						if (!$stateParams.userId) {
+							return userServiceWrapper.get().then(function(userService){
+								return filterService.getNewFilter({ 
+									filterFn: communityApi.Stories.all,
+									constants: { per_page: 3, sortDir: 'ASC', authorId: userService.user.id },
+									persistFilterModel: false
+								});
+							});
+						} else {
+							return filterService.getNewFilter({ 
+								filterFn: communityApi.Stories.all,
+								constants: { per_page: 3, sortDir: 'ASC', authorId: $stateParams.userId },
+								persistFilterModel: false
+							});
+						}
+					}],
+					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
+						if (!$stateParams.userId) {
+							return userServiceWrapper.get().then(function(userService){
+								return filterService.getNewFilter({ 
+									filterFn: communityApi.Feed.allContent,
+									constants: { size: 3, sortDir: 'ASC', authorId: userService.user.id },
+									persistFilterModel: false
+								});
+							});
+						} else {
+							return filterService.getNewFilter({ 
+								filterFn: communityApi.Feed.allContent,
+								constants: { size: 3, sortDir: 'ASC', authorId: $stateParams.userId },
+								persistFilterModel: false
+							});
+						}
+					}]
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

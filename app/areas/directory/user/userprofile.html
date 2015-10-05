@@ -1,0 +1,116 @@
+
+<div>
+	<community-breadcrumbs></community-breadcrumbs>
+	<!-- header -->
+	<div class="row">
+		<div class="cmuDiscussionsControls">
+			<discussions-header header-text="{{ vm.userData.login }}"></discussions-header>
+			<h6>{{ vm.userData.rank.name }}</h6>
+		</div>
+		<hr />
+	</div>
+
+
+	<div class="row">
+		<!-- sidebar -->
+		<div class="col--md2">
+			<div class="row row--comfy">
+				<div><img ng-src="{{ vm.userData.avatarUrl }}" /></div>
+				<button>Edit Profile</button>
+			</div>
+
+			<div class="row row--comfy">
+				<div ng-if="vm.userData.locName">
+					<label>Location</label>
+					<p>{{ vm.userData.locName }}</p>
+				</div>
+
+				<div ng-if="vm.userData.personalSiteUrl">
+					<label>Personal Web Page</label>
+					<p>{{ vm.userData.personalSiteUrl }}</p>
+				</div>
+
+				<div ng-if="vm.userData.occupation">
+					<label>Occupation</label>
+					<p>{{ vm.userData.occupation }}</p>
+				</div>
+
+				<div>
+					<label>Date Registered</label>
+					<p>{{ vm.userData.registrationDate | date }}</p>
+				</div>
+
+				<div>
+					<label>Date Last Visited</label>
+					<p>{{ vm.userData.lastVisitedDate | date }}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row row--comfy" ng-if="vm.userData.bioText">
+			<p>{{ vm.userData.bioText }}</p>
+		</div>
+
+		<!-- main body -->
+		<div class="col--md10">
+			<div class="row row--comfy">
+				<h1>{{ vm.totalPoints }} Total Points ({{ vm.percentageComplete }}%)</h1>
+			</div>
+
+			<div class="row row--comfy">
+				<div class="col--md2" ng-repeat="category in ::vm.pointCategories">
+					<div><h3>{{ category.count }}</h3></div>
+					<h6>{{ category.title }}</h6>
+				</div>
+			</div>
+
+			<div class="row">
+				<div>
+					<button ng-click="vm.profileSummaryShown = true">Profile Info</button>
+					<button ng-click="vm.profileSummaryShown = false">Earn Points</button>
+				</div>
+				<div ng-show="vm.profileSummaryShown">
+					<!-- stories -->
+					<div class="row row--comfy">
+						<div>
+							<h5>{{ ::vm.totalStories }} recent stories</h5>
+						</div>
+						<div>
+							<div class="col--md4" ng-repeat="story in vm.storyList">
+								<story-display 
+									story="story"
+									story-media="story.media"
+									hide-summary="true"
+									hide-author="true"
+									fill-width="true">
+								</story-display>
+							</div>
+							<button ng-click="vm.loadMore('stories')">Load More Stories</button>
+						</div>
+					</div>
+
+				  	<!-- feed -->
+				  	<div class="row row--comfy">
+				  		<h5>Recent Activity</h5>
+				  		<hr />
+				  		<div ng-repeat="activityItem in vm.activityList">
+			        		<community-feed-content content-model="activityItem"></community-feed-content>
+			        	</div>
+			        	<button ng-click="vm.loadMore('activity')">Load Activity</button>
+				  	</div>
+
+				</div>
+
+				<div ng-show="!vm.profileSummaryShown">
+					<div ng-repeat="category in ::vm.allCategories">
+						<div class="col--md2"><h2>10</h2></div>
+						<div class="col--md10">
+							<h5>{{ category.title }}</h5>
+							<p>{{ category.description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

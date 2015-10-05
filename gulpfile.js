@@ -279,9 +279,14 @@ gulp.task('express', function() {
         console.log('served stories index.html');
     });
 
-    app.get('/directiry/*', function (req,res) {
+    app.get('/directory/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
+    });
+
+    app.get('/user/*', function (req,res) {
+        res.render('directory/index.html');
+        console.log('served (user) directory index.html');
     });
 
     app.get('/features/*', function (req,res) {
@@ -291,7 +296,7 @@ gulp.task('express', function() {
 
      app.get('/*', function (req,res) {
         res.render('directory/index.html');
-        console.log('served directory index.html');
+        console.log('served (root) directory index.html');
     });
 
    

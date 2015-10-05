@@ -1,13 +1,13 @@
-<div class="cmuStoryItem cmuStoryItem--featured" ng-click="storydisplay.goStory()">
+<div class="cmuStoryItem--featured" ng-class="{ 'cmuStoryItem' : !storydisplay.fillWidth }" ng-click="storydisplay.goStory()">
 	<div class="cmuStoryItem--image">
 		<a ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })"><img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
 	</div>
 	<div class="cmuStoryItem--main" class="col--md3">
 		<a class="cmuStoryItem--link" ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })">{{ ::storydisplay.story.subject }}</a>	
-		<h6> by&nbsp; <community-username user="storydisplay.story.message.insertUser"></community-username> {{ ::storydisplay.story.message.postDate | timeFromNow }}</h6>
+		<h6 ng-if="!storydisplay.hideAuthor"> by&nbsp; <community-username user="storydisplay.story.message.insertUser"></community-username> {{ ::storydisplay.story.message.postDate | timeFromNow }}</h6>
 	</div>
 	<div class="cmuStoryItem--meta">
-		<p>{{ storydisplay.story.summary }}</p>
+		<p ng-if="!storydisplay.hideSummary">{{ storydisplay.story.summary }}</p>
 		<span class="cmuStoryItem--views">
 			<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
 		</span>

@@ -1,12 +1,12 @@
 (function(){
 	'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
+	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider, defaultsProvider) {
 		$locationProvider.html5Mode(true);
 
 		var storyDefaults = function(){
 			return {
-				coverPhoto: "http://i.imgur.com/TT7XC8m.jpg"
+				coverPhoto: defaultsProvider.defaults.noPhoto
 			}
 		};
 
@@ -95,7 +95,7 @@
 				}
 			})
 		};
-		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
+		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider', 'communityDefaultsProvider'];
 
 
 

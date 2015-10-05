@@ -61,7 +61,7 @@
 			}
 			//GET
 			else {
-				payload = params;3
+				payload = params;
 				verb = 'GET';
 				id = callData;
 			}
@@ -236,6 +236,9 @@
 			Users: {
 				authentication: function(){
 					return goToApi(v2Url + urlSegments.User('self'));
+				},
+				userData: function(userId){
+					return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 				}
 			}
 		}

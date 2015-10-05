@@ -5,7 +5,7 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function() {
+		var controller = function(communityDefaults) {
 			var ctrl = this;
 			
 			var media = _.find(ctrl.storyMedia, function(mediaObject){ 
@@ -17,14 +17,15 @@
 			}
 
 			_.extend(ctrl, {
-			})
+				defaultPhotoUrl: communityDefaults.noPhoto
+			});
 		};
-		controller.$inject = [];
+		controller.$inject = ['communityDefaults'];
 
 	    var directive = {
 	        link: link,
 	        controller: controller,
-	        templateUrl: 'stories/list/storydisplay.html',
+	        templateUrl: 'directives/storydisplay/storydisplay.html',
 	        controllerAs: 'storydisplay',
 	        bindToController: true,
 	        replace: true,
@@ -32,14 +33,16 @@
 	        scope: {
 	        	story: '=',
 	        	storyMedia: '=',
-	        	defaultPhotoUrl: '='
+	        	hideSummary: '=',
+	        	hideAuthor: '=',
+	        	fillWidth: '='
 	        }
 	    };
 
 	    return directive;
 	}
 
-	angular.module('community.stories')
+	angular.module('community.directives')
 		.directive('storyDisplay', storyDisplay);
 		
 }(window._));
