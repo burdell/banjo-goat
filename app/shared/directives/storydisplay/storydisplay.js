@@ -5,7 +5,7 @@
 		var link = function(scope, element, attrs) {
 		};
 
-		var controller = function(communityDefaults) {
+		var controller = function(communityDefaults, routingService) {
 			var ctrl = this;
 			
 			var media = _.find(ctrl.storyMedia, function(mediaObject){ 
@@ -17,10 +17,11 @@
 			}
 
 			_.extend(ctrl, {
-				defaultPhotoUrl: communityDefaults.noPhoto
+				defaultPhotoUrl: communityDefaults.noPhoto,
+				storyUrl: routingService.generateUrl('stories.detail', { storyId: ctrl.story.id, nodeId: ctrl.story.node.urlCode })
 			});
 		};
-		controller.$inject = ['communityDefaults'];
+		controller.$inject = ['communityDefaults', 'CommunityRoutingService'];
 
 	    var directive = {
 	        link: link,

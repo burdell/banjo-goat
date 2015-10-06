@@ -198,6 +198,11 @@
 					return goToApi(v2Url + 'features/' + messageId + '/comments', options);
 				}
 			},
+			Gamification: {
+				info: function(){
+					return goToApi(v2Url + 'gamify/info', null, 'GET');
+				}
+			},
 			Media: {
 				upload: function(fileData){
 					var formData = new FormData();
@@ -231,6 +236,9 @@
 				},
 				stories: function(nodeId, data){
 					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+				},
+				search: function(options){
+					return goToApi(v2Url + 'stories/search', options, 'GET');
 				}
 			},
 			Users: {

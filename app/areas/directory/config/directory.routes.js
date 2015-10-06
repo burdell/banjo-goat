@@ -88,15 +88,15 @@
 						if (!$stateParams.userId) {
 							return userServiceWrapper.get().then(function(userService){
 								return filterService.getNewFilter({ 
-									filterFn: communityApi.Stories.all,
-									constants: { per_page: 3, sortDir: 'ASC', authorId: userService.user.id },
+									filterFn: communityApi.Stories.search,
+									constants: { per_page: 3, sortDir: 'ASC', author_id: userService.user.id },
 									persistFilterModel: false
 								});
 							});
 						} else {
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.all,
-								constants: { per_page: 3, sortDir: 'ASC', authorId: $stateParams.userId },
+								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 						}
@@ -117,6 +117,9 @@
 								persistFilterModel: false
 							});
 						}
+					}],
+					GamificationInfo: ['CommunityApiService', function(communityApi){
+						return communityApi.Gamification.info();
 					}]
 				}
 			});

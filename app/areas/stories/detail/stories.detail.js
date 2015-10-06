@@ -23,7 +23,6 @@
 				ctrl.comment.submittingComment = false;
 			});
 		};
-		
 
 		_.extend(ctrl, {
 			story: story,

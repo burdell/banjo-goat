@@ -25,14 +25,14 @@
 					<p>{{ vm.userData.locName }}</p>
 				</div>
 
-				<div ng-if="vm.userData.personalSiteUrl">
+				<div ng-if="vm.userData.meta.personalSiteUrl.value">
 					<label>Personal Web Page</label>
-					<p>{{ vm.userData.personalSiteUrl }}</p>
+					<p>{{ vm.userData.meta.personalSiteUrl.value }}</p>
 				</div>
 
-				<div ng-if="vm.userData.occupation">
+				<div ng-if="vm.userData.meta.occupation">
 					<label>Occupation</label>
-					<p>{{ vm.userData.occupation }}</p>
+					<p>{{ vm.userData.meta.occupation.value }}</p>
 				</div>
 
 				<div>
@@ -42,7 +42,7 @@
 
 				<div>
 					<label>Date Last Visited</label>
-					<p>{{ vm.userData.lastVisitedDate | date }}</p>
+					<p>{{ vm.userData.lastOnlineDate | date }}</p>
 				</div>
 			</div>
 		</div>
@@ -58,9 +58,9 @@
 			</div>
 
 			<div class="row row--comfy">
-				<div class="col--md2" ng-repeat="category in ::vm.pointCategories">
+				<div class="col--md2" ng-repeat="category in ::vm.scoreCategories">
 					<div><h3>{{ category.count }}</h3></div>
-					<h6>{{ category.title }}</h6>
+					<h6>{{ category.name }}</h6>
 				</div>
 			</div>
 
@@ -73,7 +73,7 @@
 					<!-- stories -->
 					<div class="row row--comfy">
 						<div>
-							<h5>{{ ::vm.totalStories }} recent stories</h5>
+							<h5 ng-pluralize count="vm.totalStories" when="{ '0': 'No recent stories', 'one': '1 recent story', 'other': '{} recent stories' }"></h5>
 						</div>
 						<div>
 							<div class="col--md4" ng-repeat="story in vm.storyList">
@@ -85,8 +85,8 @@
 									fill-width="true">
 								</story-display>
 							</div>
-							<button ng-click="vm.loadMore('stories')">Load More Stories</button>
 						</div>
+						<button ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">Load More Stories</button>
 					</div>
 
 				  	<!-- feed -->
@@ -96,16 +96,16 @@
 				  		<div ng-repeat="activityItem in vm.activityList">
 			        		<community-feed-content content-model="activityItem"></community-feed-content>
 			        	</div>
-			        	<button ng-click="vm.loadMore('activity')">Load Activity</button>
+			        	<button ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">Load Activity</button>
 				  	</div>
 
 				</div>
 
 				<div ng-show="!vm.profileSummaryShown">
-					<div ng-repeat="category in ::vm.allCategories">
-						<div class="col--md2"><h2>10</h2></div>
-						<div class="col--md10">
-							<h5>{{ category.title }}</h5>
+					<div ng-repeat="category in ::vm.pointCategories" class="row row--comfy">
+						<div class="col--md1"><h2>{{ category.points }}</h2></div>
+						<div class="col--md11">
+							<h5>{{ category.name }}</h5>
 							<p>{{ category.description }}</p>
 						</div>
 					</div>
