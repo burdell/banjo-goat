@@ -12,6 +12,7 @@ $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta element
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
 $size-badgewidth-min:		$cmu-base*11;
+$cmu-nav-height:			remCalc(40px) !default;
 
 /**
  * These are private variables that should not be reassigned, overridden, or

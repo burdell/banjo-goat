@@ -16,7 +16,7 @@
 }
 %megaContentTopOffset {
 	position: relative;
-	top: $cmu-base*7;
+	top: $cmu-base*4;
 }
 
 // general settings; acts as a "blackout"
@@ -30,7 +30,6 @@
     @extend %ease-fast;
 
     display: none; // default is hidden
-    opacity: 0;
     // overflow: hidden;
 }
 
@@ -54,8 +53,8 @@
 		padding: 1rem;
 		padding-right: $cmu-base/2;
 		cursor: pointer;
-		position: absolute; 
-		right: 0px;
+		// position: absolute; 
+		// right: 0px;
 
 		// this prevents the entire row from being clickable
 		display: inline-block;
@@ -79,6 +78,10 @@
 		&:hover {
 			color: $cmu-color-white;
 			@extend %ease-fast;
+		}
+
+		* {
+			display: inline-block;
 		}
 
 	}

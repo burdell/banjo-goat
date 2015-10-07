@@ -2,11 +2,10 @@
 	'use strict';
 	
 	function dropDown() {
-		var controller = function($scope, utils) {
+		var controller = function($rootScope, $scope, utils) {
 			var ctrl = this;
 
 			$scope.$on('dropdown:' + ctrl.openEvent, function(){
-				console.log('dropdown hey!')
 				ctrl.toggleMenu();
 			});
 
@@ -14,16 +13,25 @@
 				ctrl.isOpen = false;
 			});
 
+			$rootScope.$on('rootScope:closeAllDropdowns', function(){
+				ctrl.isOpen = false;
+			});
+
 			_.extend(ctrl, {
 				isOpen: false,
 				toggleMenu: function(){
-					utils.closeOverlays();
+					if(!ctrl.isOpen) {
+						$scope.$emit('rootScope:closeAllDropdowns');
+					}
+
 					ctrl.isOpen = !ctrl.isOpen;
+
 					// utils.preventBodyScroll(ctrl.isOpen);
+
 				}
 			});
 		};
-		controller.$inject = ['$scope', 'CommunityUtilsService'];
+		controller.$inject = ['$rootScope', '$scope', 'CommunityUtilsService'];
 
 	    var directive = {
 	        controller: controller,

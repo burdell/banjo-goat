@@ -1,0 +1,40 @@
+
+
+
+// 
+// Notifications
+// 
+
+.cmuNotifications {
+
+}
+
+
+// 
+// Notifications Dropdown
+// 
+
+.cmuNotifications__dropdown__header {
+
+}
+
+.cmuNotifications__dropdown__content {
+	background-color: $cmu-color-purewhite;
+
+}
+
+    .cmuNotifications__dropdown__user {
+        font-weight: 600;
+        margin-right: $cmu-base/4;
+    }
+    .cmuNotifications__dropdown__date {
+        @extend %size-xsmaller;
+        margin-left: 3.3rem;
+        color: $cmu-color-mdgray;
+    }
+
+    .cmuNotifications__dropdown__link {
+		display: inline;
+        text-decoration: underline;
+        padding-left: $cmu-base/4;
+    }

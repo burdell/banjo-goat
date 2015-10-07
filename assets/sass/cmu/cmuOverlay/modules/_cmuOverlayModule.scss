@@ -15,6 +15,7 @@ div.cmuOverlay--show {
 	display: block;
 	opacity: 1;
 	overflow: scroll;
+    height: 90%; // keeps everything in screen
 	@extend %ease-fast;
 	
 	// position: relative;

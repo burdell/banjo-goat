@@ -23,7 +23,7 @@
 			}
 
 			var navMetaData = [
-				{ display: "Discussions", clickFn: toggleDiscussionsMenu, dropItem: true },
+				{ display: "Explore", clickFn: toggleDiscussionsMenu, dropItem: true },
 				{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
@@ -65,6 +65,11 @@
 					}
 					
 					return active;
+				},
+				dropdownIsActive: function(event) {
+
+					// haven't hooked this up yet
+					return true;
 				},
 				templateData: {
 					getDiscussionUrl: function(node){

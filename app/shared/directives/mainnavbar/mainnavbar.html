@@ -66,7 +66,7 @@
             <ul class="cmuGloNav__links">
               <li 
                 ng-repeat="navItem in mainnavbar.navList"
-                ng-class="{ 'testActive' : mainnavbar.isActive(navItem.href) }"
+                ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
                 class="cmuGloNav__link">
                   <span ng-if="navItem.href">
                     <a href="{{ navItem.href }}" 
@@ -91,16 +91,36 @@
                      <span class="icon ubnt-icon--bell"></span>
                   </a>
                 </li>
+                  <community-drop-down
+                    open-event="toggleNotifications"
+                    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
+                  </community-drop-down>
+
 
                 <li class="cmuGloNav__inbox"
+                    ng-class="{ 'active' : mainnavbar.dropdownIsActive(messages)}"
                     ng-click="$broadcast('dropdown:toggleMessages');">
                       <a href="#">
                         <span class="icon ubnt-icon--inbox"></span>
                       </a>
                 </li>
-                <li class="cmuGloNav__avatar"
+                    <community-drop-down
+                      open-event="toggleMessages"
+                      menu-template-url="directives/mainnavbar/mainnavbar.messages.html">
+                    </community-drop-down>
+
+
+                <li class="cmuGloNav__profile"
                     ng-click="$broadcast('dropdown:toggleProfile');">
+                    <a href="#">
+                        <span class="cmuProfile__avatar"></span>
+                      </a>
                 </li>
+                    <community-drop-down
+                      open-event="toggleProfile"
+                      menu-template-url="directives/mainnavbar/mainnavbar.profile.html">
+                    </community-drop-down>
+
               </ul>
               <ul ng-hide="mainnavbar.isAuthenticated">
                    <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
@@ -118,16 +138,6 @@
     menu-template-url="directives/mainnavbar/mainnavbar.discussions.html"
     template-ctrl="mainnavbar.templateData">
   </community-mega-menu>
-
-  <community-drop-down
-    open-event="toggleNotifications"
-    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
-  </community-drop-down>
-
-  <community-drop-down
-    open-event="toggleProfile"
-    menu-template-url="directives/mainnavbar/mainnavbar.profile.html">
-  </community-drop-down>
 
   <community-search-bar
     open-event="toggleSearchbar">

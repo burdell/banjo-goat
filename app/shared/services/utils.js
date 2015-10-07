@@ -24,10 +24,7 @@
 				} else {
 					bodyTag.classList.remove(className);
 				}
-			},	
-			closeOverlays: function() {
-				$('.cmuOverlay--show').removeClass('cmuOverlay--show');
-			}	
+			}
 		};
 	};
 	
