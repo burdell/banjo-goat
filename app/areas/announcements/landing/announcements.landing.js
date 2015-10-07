@@ -8,11 +8,11 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
-		console.log(announcements);
+		var announcementData = announcements.content;
 		
 		var ctrl = this;
 		_.extend(ctrl, {
-			announcementList: announcements,
+			announcementList: announcementData,
 			generateAnnouncementUrl: function(announcementData){
 				var nodeId = routingService.generateDiscussionUrl(announcementData.product, 'announcements');
 				return routingService.generateUrl('announcements.detail', { nodeId: nodeId, announcementId: announcementData.id });

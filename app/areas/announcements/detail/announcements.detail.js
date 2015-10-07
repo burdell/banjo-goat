@@ -4,26 +4,9 @@
 	function AnnouncementListController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
 		var ctrl = this;
 		_.extend(ctrl, {
+			showCommentForm: false,
 			currentAnnouncement: announcementDetail.originalMessage,
 			currentComments: announcementDetail.comments,
-			replyInProgress: false,
-			showReply: function(){
-				ctrl.replyInProgress = true;
-			},
-			cancelReply: function(){
-				ctrl.replyInProgress = false;
-			},
-			submitReply: function(){
-				if (ctrl.comment.replyText) {
-					communityApi.Core.message({ 
-						body: ctrl.comment.replyText,
-						nodeId: ctrl.currentAnnouncement.node.id,
-						topicId: ctrl.currentAnnouncement.id
-					}).then(function(result){
-						debugger;
-					})
-				}
-			},
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Announcements.comments, 
 				filterArguments: [ announcementDetail.originalMessage.id ],

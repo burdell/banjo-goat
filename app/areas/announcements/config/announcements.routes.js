@@ -12,13 +12,14 @@
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {
 					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
-						return communityApi.Announcements.count()
-							.then(function(result){
-								return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
-							})
-							.then(function(result) {
-								return result.content;
-							});
+						// return communityApi.Announcements.count()
+						// 	.then(function(result){
+						// 		return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
+						// 	})
+						// 	.then(function(result) {
+						// 		return result.content;
+						// 	});
+						return communityApi.Announcements.all({ per_page: 100 });
 					}]
 				}
 			})

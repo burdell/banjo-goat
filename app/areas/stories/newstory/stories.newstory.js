@@ -1,7 +1,7 @@
 (function(_){
 	'use strict';
 
-	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, productService, currentUserService, storyDefaults){
+	function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults){
 		breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 
 		$scope.$on('$stateChangeStart', function(){
@@ -15,7 +15,6 @@
 			if (data.type === 'image' && mediaList.length === 0) {
 				ctrl.setCoverPhoto(data);
 			}
-			
 			mediaList.push(data);
 		};
 
@@ -25,6 +24,10 @@
 
 		productService.getProductList().then(function(productList){
 			ctrl.productData = productList;
+		});
+
+		nodeServiceWrapper.get().then(function(nodeService){
+			ctrl.story.nodeId = nodeService.CurrentNode.id;
 		});
 
 		_.extend(ctrl, {
@@ -66,17 +69,15 @@
 			},
 			storyAuthor: currentUser,
 			story: {
-			    "categoryDisplayId": $state.params.nodeId,
-			    "media": mediaList,
-			    "summary": "",
-			    "location": {
-			        "display": "",
-			        "coordinates": {
-			            "lat": null,
-			            "lng": null
-			        }
-			    },
-			    meta: {}
+				nodeId: null,
+				media: mediaList,
+				summary: "",
+				meta: {}
+			},
+			coordinates: {
+				locLat: null,
+				locLon: null,
+				locDisplay: ''
 			},
 			setMetaField: function(fieldName){
 				var metaStoryFields = ctrl.story.meta;
@@ -144,11 +145,11 @@
 			},
 			postStory: function(){
 				ctrl.isPublishing = true;
-				var story = _.extend(ctrl.discussion, ctrl.story, { productsUsed: ctrl.productList });
-
+				var story = _.extend(ctrl.discussion, ctrl.story, ctrl.coordinates, { productsUsed: ctrl.productList });
 				communityApi.Stories.story(story).then(
 					function(result){
-						$state.go('stories.detail', { storyId: result.model.id });		
+						debugger;
+						$state.go('stories.detail', { storyId: result.id });		
 					},
 					function(){
 						ctrl.isPublishing = false;
@@ -166,6 +167,7 @@
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 
 		'CommunityMediaService',
+		'CommunityNodeService',
 		'CommunityProductService',
 		'CurrentUserService', 
 		'StoryDefaults'

@@ -8,9 +8,18 @@
 
 		function controller() {	
 			var ctrl = this;
-			console.log(ctrl.currentComments.content);
 			_.extend(ctrl, {
-				commentList: this.currentComments.content
+				commentList: this.currentComments.content,
+				getCommentCountText: function(){
+					var contentLength = ctrl.currentComments.content.length;
+					if (!contentLength) {
+						return 'No comments';
+					} else if (contentLength === 1) {
+						return '1 comment';
+					} else {
+						return contentLength + ' comments';
+					}
+				}
 			});
 		}
 		controller.$inject = [];

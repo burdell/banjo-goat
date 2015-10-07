@@ -52,7 +52,7 @@
 				var currentAreaSlug = routingService.getCurrentArea();
 				_.each(standardNavLinks, function(searchObj, displayName){
 					var navNode = _.find(siblingNodeList, function(node){
-						return node.discussionType === searchObj.discussionType;
+						return node.discussionStyle === searchObj.discussionType;
 					});
 					
 					if (navNode) {

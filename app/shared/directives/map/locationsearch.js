@@ -12,12 +12,11 @@
 				var placeData = autocomplete.getPlace();
 				scope.$apply(function(){
 					scope.locationsearch.locationModel = {
-						display: placeData.formatted_address,
-						coordinates: {
-							lat: placeData.geometry.location.lat(),
-							lng: placeData.geometry.location.lng()
-						}
+						locName: placeData.formatted_address,
+						locLat: placeData.geometry.location.lat(),
+						locLon: placeData.geometry.location.lng()
 					}
+
 				});
 			}
 

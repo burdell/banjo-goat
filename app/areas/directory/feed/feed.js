@@ -3,7 +3,6 @@
 
 	var feedController = function($scope, announcementData, storyData, apiService, dataService, nodeServiceWrapper, realtimeService, routingService, feedFilter){
 		var ctrl = this;
-
 		var feedData = {
 			community: {
 				display: 'Community Feed',

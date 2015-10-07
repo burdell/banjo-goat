@@ -57,7 +57,7 @@
 			if (_.isObject(callData)) {
 				verb = 'POST';
 				payload = callData;
-				id = callData.id;
+				id = callData.id ? callData.id : '';
 			}
 			//GET
 			else {
@@ -73,9 +73,7 @@
 			};
 		}
 
-		var baseUrl = 'https://comm2-dev.ubnt.com/api/';  // 'http://localhost:8080/'; 
 		var v2Url = 'https://comm2-dev.ubnt.com/api2/2/';
-
 		var urlSegments = {
 			Announcement: function(id){
 				return 'announcements/' + this._Message(id);
@@ -112,9 +110,6 @@
 				all: function(options){
 					return goToApi(v2Url + 'announcements/', options);
 				},
-				count: function(nodeId){
-					return goToApi(baseUrl + urlSegments.Announcement() + 'count');
-				},
 				announcements: function(nodeId, options) {
 					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
 				},
@@ -134,23 +129,9 @@
 				}
 			},
 			Core: {
-				advert: function(){
-					return goToApi(baseUrl + 'advert');
-				},
-				breadcrumbs: function(nodeId){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'breadcrumbs');
-				},
-				tags: function(nodeId, options){
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'tags');
-				},
-				userSummary: function(userId){
-					return goToApi(baseUrl + urlSegments.User(userId));
-				},
 				nodeStructure: function(){
-					return goToApi(baseUrl + 'nodes', { limit: 150 }).then(function(result) {
-						//var nodeCollection = result.collection
-
-						return result.collection; //window.nodeStructure[0];
+					return goToApi(v2Url + 'nodes', { per_page: 140 }).then(function(result) {
+						return result.content;
 					});
 				},
 				message: function(messageData){
@@ -185,12 +166,6 @@
 				},
 				comments: function(messageId, data) {
 					return goToApi(v2Url + 'forums/' + messageId + '/comments', data);
-				},
-				messageCount: function(nodeId) {
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'topics/count', null, "GET");
-				},
-				stats: function(nodeId, data) {
-					return goToApi(baseUrl + urlSegments.Node(nodeId) + 'stats');
 				},
 				thread: function(messageId, data){
 					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
@@ -228,7 +203,7 @@
 					var formData = new FormData();
 					formData.append('file', fileData);
 
-					return goToApi(baseUrl + 'media', formData, 'POST', true);
+					return goToApi(v2Url + 'media', formData, 'POST', true);
 				}
 			},
 			Stories: {
@@ -236,7 +211,6 @@
 					return goToApi(v2Url + 'stories', options);
 				},
 				thread: function(storyId, data){
-					//return this.comments(storyId, data);
 					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
 						.then(function(result) {
 							return {
@@ -257,11 +231,6 @@
 				},
 				stories: function(nodeId, data){
 					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
-				},
-				test: function(options){
-					// return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
-
-					return goToApi(v2Url + '/stories', options);
 				}
 			},
 			Users: {

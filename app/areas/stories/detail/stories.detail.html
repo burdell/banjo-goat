@@ -9,7 +9,11 @@
 	</div>
 
 	<div class="cmuStories__commentForm" ng-show="vm.replyInProgress" id="comment">
-		<div ng-include="'partials/commentform.html'"></div>
+		<community-comment-form 
+			toggle-attribute="vm.replyInProgress"
+			parent-message="vm.story"
+			comment-list="vm.comments">
+		</community-comment-form>
 	</div>
 
 	<div class="cmuStories__comments">

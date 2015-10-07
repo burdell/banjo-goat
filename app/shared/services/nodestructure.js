@@ -20,7 +20,6 @@
 
 			//hard coded includes/excludes :/ 
 			var exclude = [-1, 75, 141];
-
 			var include = [30, 20, 42, 43, 83];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
@@ -29,7 +28,8 @@
 					nodeStructureService.CurrentNode = node;
 				}
 				
-				if (_.indexOf(include, node.id) >= 0 || (node.discussionType === 'category' && _.indexOf(exclude, node.id)) < 0) {
+				//set up category nodes
+				if (_.indexOf(include, node.id) >= 0 || (node.discussionStyle === 'category' && _.indexOf(exclude, node.id)) < 0) {
 					var discussionCategory = node.meta.org;
 					var discussionCategoryList = discussionTypes[discussionCategory];
 
@@ -42,8 +42,9 @@
 					} 
 				}
 
-				if (!nodeStructureService.NodeStructure && node.parentCategoryId) {
-					var parentNode = nodeStructureService.getNode(node.parentCategoryId);
+				//populate children of category nodes
+				if (!nodeStructureService.NodeStructure && node.parentId) {
+					var parentNode = nodeStructureService.getNode(node.parentId);
 					if (parentNode) {
 						if (!parentNode.children) {
 							parentNode.children = [];
@@ -101,7 +102,7 @@
 			},
 			parent: function(childNodeId) {
 				var childNode = this.getNode(childNodeId);
-				return childNode ? this.getNode(childNode.parentCategoryId) : null;
+				return childNode && childNode.id !== -1 ? this.getNode(childNode.parentId) : null;
 			}
 		};
 
@@ -118,7 +119,6 @@
 						if (!nodeId) {
 							nodeId = $stateParams.nodeId;
 						}
-
 
 						if (!nodeStructureService.NodeStructure) {
 							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
