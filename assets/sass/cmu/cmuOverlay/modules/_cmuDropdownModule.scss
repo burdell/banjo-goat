@@ -54,17 +54,11 @@
         // cursor: pointer;
     }
 
-    .cmuDropdown__content {
-        // background-color: 
-    }
-
-
     .cmuDropdown__header {
+        cursor: default;
         background-color: $cmu-color-mltgray;
-        border-top: $style-line;
         border-bottom: $style-line;
         color: $cmu-color-black;
-        // text-transform: uppercase;
         @extend %size-normal;
         padding: $cmu-base/2 $cmu-base/2;
     }
@@ -78,6 +72,8 @@
         }
 
     .cmuDropdown__content {
+        cursor: pointer;
+
         li {
             @extend %size-xsmaller;
             padding: $cmu-base/2 $cmu-base/2;

@@ -37,7 +37,7 @@
 				if (ctrl.isAuthenticated) {
 					//realtimeService.getNew().start(apiService.Feed.notifications, true, checkNotifications)
 				}
- 			});
+			});
 
 			nodeServiceWrapper.get().then(function(nodeService){
 				ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
@@ -67,9 +67,8 @@
 					return active;
 				},
 				dropdownIsActive: function(event) {
-
 					// haven't hooked this up yet
-					return true;
+					return false;
 				},
 				templateData: {
 					getDiscussionUrl: function(node){

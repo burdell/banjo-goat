@@ -32,11 +32,6 @@
 // dropdown
 // 
 
-
-.cmuProfile__dropdown__header {
-
-}
-
 .cmuProfile__dropdown__content {
 	background-color: $cmu-color-purewhite;
 
@@ -45,4 +40,7 @@
 			text-decoration: underline;
 		}
 	}
+}
+.cmuProfile__dropdown__footer {
+    border-top: $style-line;	
 }

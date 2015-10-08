@@ -13,6 +13,10 @@
 	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
+// for icons
+%font-ubnt {
+	font-family: "ubnt";
+}
 
 
 // 
@@ -63,7 +67,7 @@ $cmu-size-smaller--line-height: remCalc(18px);
 %size-smaller { font-size: $cmu-size-smaller; line-height: $cmu-size-smaller--line-height;}
 
 $cmu-size-xsmaller: remCalc(11px);
-$cmu-size-xsmaller--line-height: remCalc(19px);
+$cmu-size-xsmaller--line-height: remCalc(16px);
 %size-xsmaller { font-size: $cmu-size-xsmaller; line-height: $cmu-size-xsmaller--line-height;}
 
 // used for tags, and really small things

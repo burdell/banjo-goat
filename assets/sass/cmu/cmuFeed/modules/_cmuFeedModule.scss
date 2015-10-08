@@ -1,0 +1,162 @@
+
+
+// 
+// Hub & Feed
+// 
+
+
+// 
+// Common Elements
+// 
+
+// 
+// Homepage Feed
+// 
+%sidebar-icon {
+	@extend %font-ubnt;
+}
+
+// icon representations (only within Feed/Hub)
+.cmuFeed__icon {
+	margin-right: $cmu-base/2;
+	&.announcements:before {
+		@extend %sidebar-icon;
+		content: '\e710';
+		text-decoration: none !important;
+	}
+	&.forums:before {
+		@extend %sidebar-icon;
+		content: '\e6c0';
+		text-decoration: none !important;
+	}
+	&.stories:before {
+		@extend %sidebar-icon;
+		content: '\e614';
+		text-decoration: none !important;
+	}
+	&.qa:before {
+		@extend %sidebar-icon;
+		content: '\e6ee';
+		text-decoration: none !important;
+	}
+
+	// product tag
+	.product {
+		color: $cmu-color-active;
+		margin-right: $cmu-base/4;
+	}
+}
+
+
+
+
+.cmuFeed__main {
+	padding-right: $cmu-base;
+}
+
+	// holds the story feeds and stuff
+	// affected by the toggle / tab
+	.cmuFeed__container {
+		padding: 0;
+		padding-top: $cmu-base;
+		border: $style-line;
+		background-color: $cmu-color-post;
+	}
+
+	// stories
+	.cmuFeed__stories {
+
+	}
+
+	// update button
+	.cmuFeed__update {
+
+	}
+
+	// list of items
+	.cmuFeed__list {
+		padding: 0;
+		padding-top: $cmu-base/2;
+	}
+
+		// individual story items
+		.cmuFeed__item {
+			padding: $cmu-base $cmu-base;
+			border-bottom: $style-line;
+			cursor: pointer;
+
+			&:hover {
+				background-color: $cmu-color-ltgray;
+			}
+		}
+
+		.cmuFeed__pagerBottom {
+			padding: $cmu-base/2 $cmu-base;
+		}
+
+
+
+
+
+
+
+// 
+// Sidebar 
+// 
+
+.cmuFeed__sidebar {
+	padding-left: $cmu-base;
+
+	h5 {
+		padding-bottom: $cmu-base/4;
+		margin-bottom: $cmu-base/4;
+		border-bottom: $style-line;
+	}
+}
+
+	.cmuFeed__actions {
+		margin-bottom: $cmu-vertical-rhythm;
+
+		a {
+			display: block;
+			padding: $cmu-base/4 0;
+			color: $cmu-color-active;
+			@extend %ease-fast;
+			span, span:before { 
+				@extend %ease-fast;
+			}
+
+			// icon color
+			span:before { 
+				color: $cmu-color-active;
+			}
+			&:hover {
+				span, span:before { 
+					@extend %ease-fast;
+					color: $cmu-color-black; 
+				}
+				span:last-child { 
+					text-decoration: underline; 
+				}
+			}
+		}
+	}
+
+	.cmuFeed__announcements {
+
+	}
+
+		.cmuFeed__anno {
+			@extend %size-smaller;
+			margin-bottom: $cmu-vertical-rhythm;
+			&:hover {
+				// text-decoration: underline; 
+				a {
+					border-bottom: $style-line;
+				}
+			}
+		}
+
+
+
+
