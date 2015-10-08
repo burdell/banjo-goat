@@ -1,7 +1,14 @@
-(function(_){
-	'use strict';
-	
-	function communityBreadcrumbs() {
+
+'use strict';
+
+require('services/breadcrumb.js');
+require('services/routing.js');
+
+require('directives/arealinkhandler/arealinkhandler.js');
+
+var _ = require('underscore');
+
+function communityBreadcrumbs() {
 		var link = function(scope, element, attrs) {
 		};
 
@@ -37,7 +44,6 @@
 	    return directive;
 	}
 
-	angular.module('community.directives')
-		.directive('communityBreadcrumbs', communityBreadcrumbs);
-		
-}(window._));
+angular.module('community.directives')
+	.directive('communityBreadcrumbs', communityBreadcrumbs);
+	

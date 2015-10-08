@@ -1,12 +1,22 @@
-(function(_){
+
 	'use strict';
+
+	require('services/data.js');
+
+	require('filters/extractkey.js');
+	require('filters/timefromnow.js');
+	require('filters/unformattext.js');
+	require('filters/wordcut.js');
+
+	require('directives/texteditor/texteditor.js');
+	require('directives/pager/pager.js');
+	
+	var _ = require('underscore');
 
 	function featuresListController ($stateParams, dataService, featuresData, featuresListFilter){
 		var ctrl = this;
 
-		function setMessageData (result){
-			console.log(result);
-			
+		function setMessageData (result){			
 			ctrl.featuresCount = result.totalElements;
 			ctrl.numberOfPages = result.totalPages;
 			ctrl.featuresList = result.content;
@@ -142,4 +152,4 @@
 	angular.module('community.features')
 		.controller('FeaturesList', featuresListController);
 
-}(window._));
+

@@ -1,26 +1,27 @@
-(function(_){
-	'use strict';
-	
-	var wordCut = function(){
-		return function(wordString, limit){
-			if (!wordString) {
-				return '';
-			}
 
-			var wordLimit = limit || 100;
+'use strict';
 
-			var wordList = wordString.split(' ');
-			
-			if (wordList.length >= wordLimit) {
-				wordList = _.first(wordList, wordLimit);
-				wordList.push('...');
-			}
+var _ =  require('underscore');
 
-			return wordList.join(' ');
-		};
+var wordCut = function(){
+	return function(wordString, limit){
+		if (!wordString) {
+			return '';
+		}
+
+		var wordLimit = limit || 100;
+
+		var wordList = wordString.split(' ');
+		
+		if (wordList.length >= wordLimit) {
+			wordList = _.first(wordList, wordLimit);
+			wordList.push('...');
+		}
+
+		return wordList.join(' ');
 	};
-	
-	angular.module('community.filters')
-		.filter('wordCut', wordCut);
+};
 
-}(window._));
+angular.module('community.filters')
+	.filter('wordCut', wordCut);
+

@@ -1,7 +1,9 @@
-(function(){
-	'use strict';
+'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
+require('shared/services/api.js')
+require('shared/providers/routes.js');
+
+var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
 
 		var announcementsRoutes = routesProvider.routes.announcements;
@@ -62,9 +64,5 @@
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 
-
-
-
-		angular.module('community.announcements')
-			.config(config);
-}());
+	angular.module('community.announcements')
+		.config(config);

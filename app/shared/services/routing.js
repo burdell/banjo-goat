@@ -1,6 +1,9 @@
-(function(_) {
-	'use strict';
-	
+
+'use strict';
+
+require('providers/routes.js');
+var _ = require('underscore');
+
 	var routingService = function($location, communityRoutes){
 		return {
 			getCurrentArea: function(){
@@ -58,13 +61,11 @@
 					bugs: '_bugs'
 				};
 
-				return nodeName + discussionCodes[discussionType.toLowerCase()];
-			}
-		};
+			return nodeName + discussionCodes[discussionType.toLowerCase()];
+		}
 	};
-	routingService.$inject = ['$location', 'communityRoutes'];
+};
+routingService.$inject = ['$location', 'communityRoutes'];
 
-	angular.module('community.services')
-		.service('CommunityRoutingService', routingService);
-
-}(window._));
+angular.module('community.services')
+	.service('CommunityRoutingService', routingService);

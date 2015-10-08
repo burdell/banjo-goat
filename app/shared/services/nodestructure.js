@@ -1,5 +1,11 @@
-(function(_) {
 	'use strict';
+
+	require('services/icon.js');
+	require('services/initialize.js');
+	require('services/routing.js');
+
+	var _ = require('underscore');
+
 	
 	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService){
 		var nodeStructureService;
@@ -135,4 +141,3 @@
 	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);
 
-}(window._));

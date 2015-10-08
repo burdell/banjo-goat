@@ -1,32 +1,20 @@
 var gulp = require('gulp');
 var del = require('del');
+var buffer = require('vinyl-buffer');
+var watchify = require('watchify');
+var source = require('vinyl-source-stream');
+
 var _ = require('underscore');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins({
     scope: ['devDependencies']
 });
-var packageJSON = require('./package');
 
-var mainBowerFiles = require('main-bower-files');
-var bowerFiles = mainBowerFiles({ includeDev: true });
-
-//plugins where we want to move the entire plugin folder
-var wholeFolderPlugins = ['vendor/bower/tinymce/**'];
+var browserify = require('browserify');
+var eventstream = require('event-stream');
 
 
 require('events').EventEmitter.prototype._maxListeners = 100;
-
-//
-//
-// FILTERS
-//
-//
-
-var jsFilter = $.filter(['**/*.js', '*.js']);
-var cssFilter = $.filter(['**/*.css', '']);
-var imgFilter = $.filter(['/**/*.png', '*.png', '**/*.gif']);
-var sassFilter = $.filter(['/**/*.scss', '*.scss']);
-var fontFilter = $.filter(['**/**/*.ttf', '*.ttf', '**/**/*.woff', '*.woff']);
 
 //
 //
@@ -38,24 +26,12 @@ var prodOutput = './dist/prod';
 var outputs = {
     dev: devOutput,
     prod: prodOutput,
-    devJs: devOutput + '/js/',
-    prodJs: prodOutput + '/js/',
-    devCss: devOutput + '/css/'
 };
 
+var jsAppFileName = 'community.app.js';
 
 var sources = {
     index: 'app/index.html',
-	js: ['app/**/*.js'],
-    dependencyJs: [
-        outputs.devJs + 'areas/**/config/*.js',
-        outputs.devJs + 'areas/**/*.js',
-        outputs.devJs + 'shared/**/*.module.js',
-        outputs.devJs + 'shared/**/*.js',
-        outputs.devJs + 'templates/**/*.js',
-        outputs.devJs + 'app.init.js'
-    ],
-    css: [outputs.devCss + '**/*.css'],
 	sass: ['assets/**/*.scss'],
 	partials: [
 		'app/areas/**/*.html',
@@ -65,35 +41,38 @@ var sources = {
 	]
 };
 
-//
-//
-// BUILD
-//
-//
-
-gulp.task('clean', function(){
-    del(['./dist/', './app/design/community.css']);
-});
 
 //
 //
-// BUILD TASKS
+// BUILD HELPERS
 //
 //
+
 
 function areaBuilder(taskFn){
-    // crashes everything
-     var areas = ['forums', 'announcements', 'stories', 'directory', 'features'];
-   // var areas = [ 'forums', 'announcements', 'features'];
+    var areas = ['announcements', 'directory', 'features', 'stories', 'forums'];
 
     _.each(areas, function(areaName){
         taskFn(areaName);
     });
 }
 
-function areaPath(areaName) {
-    return outputs.dev + '/' + areaName;
+function areaPath(areaName, prodBuild) {
+    var outputPath = './dist/build/'
+    return outputPath + areaName;
 }
+
+gulp.task('clean', function(){
+    del([ './dist/', './app/design/community.css' ]);
+});
+
+
+//
+//
+// INDEX TASKS
+//
+//
+
 
 gulp.task('index', function(){
     areaBuilder(function(areaName){
@@ -106,150 +85,136 @@ gulp.task('index', function(){
 
 /****  
         SCRIPT TASKS 
-                        *****/
-gulp.task('init-script', function(){
-    areaBuilder(function(areaName) {
-         gulp.src([ 'app/app.init.js'])
-            .pipe($.replace('{{GULP_BUILD_areaName}}', areaName))
-            .pipe(gulp.dest(areaPath(areaName) + '/js/'));
-    });
-})
-
-gulp.task('shared-scripts', function(){
-    areaBuilder(function(areaName){
-        gulp.src([ 'app/shared/**/*.js'])
-            // .pipe($.jshint(packageJSON.jshintConfig))
-            // .pipe($.jshint.reporter("jshint-stylish"))
-            // .pipe($.jshint.reporter('fail'))
-            .pipe(gulp.dest(areaPath(areaName) + '/js/shared'));
-    });
-});
-
-gulp.task('scripts', ['shared-scripts', 'init-script'], function() {
-    areaBuilder(function(areaName){
-        gulp.src([ 'app/areas/' + areaName + '/**/*.js' ])
-        // .pipe($.jshint(packageJSON.jshintConfig))
-        // .pipe($.jshint.reporter("jshint-stylish"))
-        // .pipe($.jshint.reporter('fail'))
-        .pipe(gulp.dest(areaPath(areaName) + '/js/'));
-    });
+                         *****/
+gulp.task('scripts', function() {
+    browserifyHelper();
 });
 
 gulp.task('prod-scripts', function(){
-    return gulp.src(bowerFiles.concat(sources.dependencyJs))
-        .pipe(jsFilter)
-        .pipe($.concat('app.min.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(outputs.prod))
-        .pipe(jsFilter.restore());
+    browserifyHelper(true);
 });
 
+function browserifyHelper(prodBuild) {
+    areaBuilder(function(areaName){
+        var b = browserify({ 
+            debug: true,
+            paths: ['app/', 'vendor/bower/', 'node_modules', 'app/shared/', 'app/areas/'],
+            fullPaths: true,
+            cache: {},
+            packageCache: {}
+        });
+
+        if (!prodBuild) {
+            b = watchify(b);
+            b.on('update', function(changedFilename){
+                bundleHelper(b);
+            });        
+        }
+        b.add('app/areas/' + areaName + '/init.js');
+        bundleHelper(prodBuild, b, areaName);
+    });
+}
+
+function bundleHelper(prodBuild, b, areaName){
+    
+    if (areaName) {
+        return bundle(areaName);
+    } else {
+        areaBuilder(function(areaName) {
+            return bundle(areaName);
+        })
+    }
+
+    function bundle(areaName) {
+        var bundleBlob = b.bundle()
+            .on('error', function(err) {
+                return $.notify().write(err);
+            })
+            .pipe(source(jsAppFileName))
+            .pipe(buffer());
+
+        if (!prodBuild) { 
+            bundleBlob = bundleBlob
+                .pipe($.sourcemaps.init({ loadMaps: true }))
+                .pipe($.sourcemaps.write('./maps'))
+                .pipe(gulp.dest(areaPath(areaName) + '/js/'));
+        } else {
+            bundleBlob = bundleBlob
+                .pipe($.uglify({ mangle: false }));
+        }
+        
+        bundleBlob
+            .pipe(gulp.dest(areaPath(areaName, prodBuild) + '/js/'))
+    }
+}
 
 /**** 
         TEMPLATE TASKS 
                         *****/
-gulp.task('shared-templates', function(){
-     var templateBlob = gulp.src(['app/shared/**/*.html', '!app/index.html'])
+
+gulp.task('templates', function() {
+    templateHelper();
+});
+
+gulp.task('prod-templates', function(){
+    templateHelper(true);
+});
+
+function templateHelper(prodBuild) {
+     areaBuilder(function(areaName){
+         return buildTemplates(areaName)
+            .pipe(gulp.dest(areaPath(areaName) + '/js/'));
+    });
+}
+
+function buildTemplates(areaName) {
+      return eventstream.merge(getSharedTemplates(), getAreaTemplates(areaName))
+            .pipe($.concat('community.templates.js'))
+}
+
+
+function getSharedTemplates(){
+      return gulp.src(['app/shared/**/*.html', '!app/index.html'])
             .pipe($.ngHtml2js({ moduleName: "community.templates" }));
+}
 
-    areaBuilder(function(areaName) {
-        templateBlob
-            .pipe(gulp.dest(areaPath(areaName) + '/js/templates'));
-    });
-});
-
-gulp.task('templates', ['shared-templates'], function() {
-    areaBuilder(function(areaName){
-        gulp.src(['app/areas/' + areaName + '/**/*.html','!app/index.html'])
+function getAreaTemplates(areaName) {
+     return gulp.src(['app/areas/' + areaName + '/**/*.html', '!app/index.html'])
             .pipe($.ngHtml2js({ moduleName: "community.templates", prefix: areaName + '/' }))
-            .pipe(gulp.dest(areaPath(areaName) + '/js/templates'));
-    });
-});
+}
 
 /***** 
         STYLE TASKS 
                         ******/
-
 gulp.task('compile-stylesheets', function(){
     return gulp.src(sources.sass)
         .pipe($.compass({
            css: 'app/design',
            sass: 'assets/sass'
-    }));
+    }))
 });
+
+function stylesheetHelper(prodBuild) {
+     areaBuilder(function(areaName){
+        var blob = gulp.src('app/design/*.css');
+
+        if (!prodBuild) {
+            blob = blob
+            .pipe(buffer())
+            .pipe($.sourcemaps.init({ loadMaps: true }))
+            .pipe($.sourcemaps.write('./maps'))
+        }
+
+        return blob.pipe(gulp.dest(areaPath(areaName) + '/css'));
+    });
+}
 
 gulp.task('stylesheets', ['compile-stylesheets'], function(){
-    areaBuilder(function(areaName){
-        gulp.src('app/design/*.css')
-            .pipe(gulp.dest(areaPath(areaName) + '/css'));
-    });
+    stylesheetHelper();
 });
 
-/****** 
-            VENDOR TASKS 
-                            ******/
-gulp.task('whole-plugin-folders', function(){
-    areaBuilder(function(areaName) {
-        gulp.src(wholeFolderPlugins, { base: 'vendor/bower/' })
-            .pipe(gulp.dest(areaPath(areaName) + '/js/vendor/'))
-    });    
-});
-
-gulp.task('bower', ['whole-plugin-folders'], function(){ 
-    var srcBlob = gulp.src(bowerFiles);
-
-    areaBuilder(function(areaName){
-        srcBlob
-            .pipe(jsFilter)
-            .pipe(gulp.dest(areaPath(areaName) + '/js/vendor'))
-            .pipe(jsFilter.restore())
-            .pipe(cssFilter)
-            .pipe(gulp.dest(areaPath(areaName) + '/css/vendor'))
-            .pipe(cssFilter.restore());
-            // .pipe(imgFilter)
-            // .pipe(gulp.dest(outputs.devCss + '/vendor'))
-            // .pipe(imgFilter.restore());
-    });
-});
-
-//
-//
-// INJECT
-//
-//
-
-gulp.task('inject', ['dev'], function () {
-    var fileDependencyOrder = [
-        'js/**/*.module.js',
-        'js/config/*.js',
-        'js/**/*.js',
-        '!js/app.init.js',
-        '!js/vendor/**/*.js'
-    ];
-
-    areaBuilder(function(areaName){
-            gulp.src('dist/dev/' + areaName + '/index.html')
-                .pipe($.inject(gulp.src(bowerFiles, { read: false }), {
-                    name: 'bower',
-                    ignorePath: 'vendor/bower/',
-                    addRootSlash: false,
-                    transform: function(filepath) {
-                        var newPath;
-                        var cleanFilepath = filepath.replace(/^[/\\\\]?(?:.+[/\\\\]+?)?(.+?)[/\\\\]/, '');
-                        var extension = cleanFilepath.split('.').pop();
-                        if (extension == 'js') {
-                            return '<script src="' + areaName + '/js/vendor/' + cleanFilepath + '"></script>';
-                        } else if (extension == 'css') {
-                            return '<link href="' + areaName + '/css/vendor/' + cleanFilepath + '" rel="stylesheet" type="text/css">'
-                        }
-                    }
-                }))
-            .pipe($.inject(gulp.src(fileDependencyOrder, { read: false, cwd: 'dist/dev/' + areaName }), { name: 'app', addRootSlash: false, addPrefix: areaName }))
-            //UGH
-            .pipe($.inject(gulp.src('js/app.init.js', { read: false, cwd: 'dist/dev/' + areaName }), { name: 'bootstrapper', addRootSlash: false, addPrefix: areaName  }))
-            .pipe($.rename('index.html'))
-            .pipe(gulp.dest(areaPath(areaName)));
-    });
+gulp.task('prod-stylesheets', ['compile-stylesheets'], function(){
+   stylesheetHelper(true);
 });
 
 //
@@ -263,23 +228,25 @@ gulp.task('express', function() {
     var app = express();
 
     app.engine('html', require('ejs').renderFile);
-    app.set('views', __dirname + '/dist/dev/');
+    app.set('views', __dirname + '/dist/build/');
     
-    app.use(express.static(__dirname + '/dist/dev/'));
+    app.use(express.static(__dirname + '/dist/build/'));
     app.get('/forums/*', function (req,res) {
         res.render('forums/index.html');
         console.log('served forums index.html');
     });
+
     app.get('/announcements/*', function (req,res) {
         res.render('announcements/index.html');
         console.log('served announcements index.html');
     });
+
     app.get('/stories/*', function (req,res) {
         res.render('stories/index.html');
         console.log('served stories index.html');
     });
 
-    app.get('/directiry/*', function (req,res) {
+    app.get('/directory/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });
@@ -293,7 +260,6 @@ gulp.task('express', function() {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });
-
    
     app.listen(4200);
 });
@@ -305,7 +271,6 @@ gulp.task('express', function() {
 //
 
 gulp.task('watch', function () {
-	gulp.watch(sources.js, ['scripts']);
 	gulp.watch(sources.partials, ['templates']);
     gulp.watch(sources.sass, ['stylesheets']);
 });
@@ -316,21 +281,15 @@ gulp.task('watch', function () {
 //
 //
 
-gulp.task('default', ['dev', 'inject', 'watch', 'express']);
+gulp.task('default', ['dev', 'watch', 'express']);
 
-gulp.task('dev', ['index', 'scripts', 'templates', 'stylesheets', 'bower']);
+gulp.task('dev-prod', ['prod', 'watch', 'express']);
 
-gulp.task('deploy', ['dev', 'inject']);
+gulp.task('deploy', ['prod']);
 
-gulp.task('prod', ['dev'], function(){
-    //build prod from dev build
-    var jsFilter = $.filter(['**/*.js', '*.js']);
-   
-    var appFiles = bowerFiles.concat(sources.dependencyJs, ['dist/dev/css/*.css'])
-    return gulp.src(appFiles)
-        .pipe(jsFilter)
-        .pipe($.concat('app.min.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(outputs.prod))
-        .pipe(jsFilter.restore());
-});
+gulp.task('dev', ['index', 'scripts', 'templates', 'stylesheets']);
+
+gulp.task('prod', ['index', 'prod-scripts', 'prod-templates', 'prod-stylesheets']);
+
+
+

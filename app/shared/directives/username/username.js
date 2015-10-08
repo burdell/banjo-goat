@@ -1,35 +1,36 @@
-(function(_){
-	'use strict';
-	
-	function communityUsername() {
-		var link = function(scope, element, attrs) {			
-		};
+'use strict';
 
-		var controller = function(userService) {
-			var ctrl = this;
-			var displayUser = null;
+var _ = require('underscore');
 
-			var ubntEmployee = {
-				userMatched: function(){
-					var user = displayUser;
-					return user && user.login && user.login.indexOf("UBNT-") >= 0;
-				},
-				iconClass: 'ubnt-icon--u',
-				userType: 'cmuUsername--ubnt'
-			}
+function communityUsername() {
+	var link = function(scope, element, attrs) {			
+	};
 
-			var specialUsernames = [ ubntEmployee ];
-			var specialUser = null;
+	var controller = function(userService) {
+		var ctrl = this;
+		var displayUser = null;
 
-			if (ctrl.currentUser) {
-				userService.get().then(function(userObj) {
-					displayUser = userObj.user;
-					setSpecialUser();
-				});
-			} else {
-				displayUser = ctrl.user;
+		var ubntEmployee = {
+			userMatched: function(){
+				var user = displayUser;
+				return user && user.login && user.login.indexOf("UBNT-") >= 0;
+			},
+			iconClass: 'ubnt-icon--u',
+			userType: 'cmuUsername--ubnt'
+		}
+
+		var specialUsernames = [ ubntEmployee ];
+		var specialUser = null;
+
+		if (ctrl.currentUser) {
+			userService.get().then(function(userObj) {
+				displayUser = userObj.user;
 				setSpecialUser();
-			}
+			});
+		} else {
+			displayUser = ctrl.user;
+			setSpecialUser();
+		}
 
 			ctrl.fuckOff  = {
 				iconClass: 'ubtn-icon--u'
@@ -51,24 +52,24 @@
 		};
 		controller.$inject = ['CurrentUserService'];
 
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        controllerAs: 'username',
-	        bindToController: true,
-	        replace: true,
-	        templateUrl: 'directives/username/username.html',
-	        restrict: 'E',
-	        scope: {
-	        	user: '=',
-	        	currentUser: '='
-	        }
-	    };
+    var directive = {
+        link: link,
+        controller: controller,
+        controllerAs: 'username',
+        bindToController: true,
+        replace: true,
+        templateUrl: 'directives/username/username.html',
+        restrict: 'E',
+        scope: {
+        	user: '=',
+        	currentUser: '='
+        }
+    };
 
-	    return directive;
-	}
+    return directive;
+}
 
-	angular.module('community.directives')
-		.directive('communityUsername', communityUsername);
-		
-}(window._));
+angular.module('community.directives')
+	.directive('communityUsername', communityUsername);
+	
+
