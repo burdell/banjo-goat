@@ -81,7 +81,12 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 
 
 
-
+.cmuRow, %cmuRow {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+	.cmuHalfRow, %cmuHalfRow {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
 
 
 
