@@ -1,5 +1,8 @@
-(function(_){
+
 	'use strict';
+
+	var $ = require('jquery');
+	var _ = require('underscore');
 	
 	function communityMap() {
 		var link = function(scope, element, attrs) {
@@ -75,4 +78,4 @@
 	angular.module('community.directives')
 		.directive('communityMap', communityMap);
 		
-}(window._));
+

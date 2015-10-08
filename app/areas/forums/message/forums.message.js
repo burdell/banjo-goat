@@ -1,5 +1,14 @@
-(function(_){
+
 	'use strict';
+
+	var _ = require('underscore');
+
+	require('services/api.js');
+	require('services/breadcrumb.js');
+
+	require('directives/pager/pager.js');
+	require('directives/texteditor/texteditor.js');
+	require('directives/message/message.js');
 
 	var forumMessageController = function($anchorScroll, $location, $scope, $timeout, communityApi, breadcrumbService, messageThreadFilter){
 		var ctrl = this;
@@ -95,4 +104,3 @@
 	angular.module('community.forums')
 		.controller('ForumMessage', forumMessageController);
 
-}(window._));

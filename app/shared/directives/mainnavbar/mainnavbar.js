@@ -1,10 +1,20 @@
-(function(_){
-	'use strict';
 
-	function mainNavBar() {
-		function link(scope, element, attrs) {
-		    
-		}
+'use strict';
+
+require('services/api.js')
+require('services/nodestructure.js');
+require('services/realtime.js');
+require('services/routing.js');;
+require('services/currentuser.js');
+
+require('providers/routes.js');
+
+var _ = require('underscore');
+
+function mainNavBar() {
+	function link(scope, element, attrs) {
+	    
+	}
 
 		function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider) {
 			var ctrl = this;
@@ -43,17 +53,17 @@
 				ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
 			});
 
-			_.extend(ctrl, {
-				navList: navMetaData,
-				target: function(itemHref){
-					//kind of hacky, but dont have access to currentNode at this point :(
-					var currentPath = $location.path();
-					return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
-				},
-				isAuthenticated: false,
-				isActive: function(navHref) {
-					var active = false;
-					var currentState = $state.current.name;
+		_.extend(ctrl, {
+			navList: navMetaData,
+			target: function(itemHref){
+				//kind of hacky, but dont have access to currentNode at this point :(
+				var currentPath = $location.path();
+				return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
+			},
+			isAuthenticated: false,
+			isActive: function(navHref) {
+				var active = false;
+				var currentState = $state.current.name;
 
 					switch(navHref) {
 						case hrefs.announcements: 
@@ -104,9 +114,9 @@
 	        scope: {}
 	    };
 
-	    return directive;
-	}
+    return directive;
+}
 
-	angular.module('community.directives')
-		.directive('mainNavBar', mainNavBar);
-}(window._));
+angular.module('community.directives')
+	.directive('mainNavBar', mainNavBar);
+

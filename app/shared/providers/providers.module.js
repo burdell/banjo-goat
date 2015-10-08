@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular.module('community.providers', []);
 
-}());
+'use strict';
+
+var moduleName = 'community.providers';
+require('angular').module(moduleName, []);	
+module.exports = moduleName;

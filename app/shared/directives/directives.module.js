@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular.module('community.directives', []);
 
-}());
+'use strict';
+
+var moduleName = 'community.directives';
+require('angular').module(moduleName, []);	
+module.exports = moduleName;

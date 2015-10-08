@@ -1,57 +1,58 @@
-(function(_, moment) {
-	'use strict';
 
-	function groupData(dataList, datePropertyFn){
-		 _.each(dataList, function(discussion){
-		 	var date = datePropertyFn(discussion);
+'use strict';
 
-			var momentDate = moment(date);
+var _ = require('underscore');
+var moment = require('moment/moment.js');
 
-			_.extend(discussion, {
-				month: momentDate.month(),
-				year: momentDate.year()
-			})
- 		});
+function groupData(dataList, datePropertyFn){
+	_.each(dataList, function(discussion){
+	 	var date = datePropertyFn(discussion);
+
+		var momentDate = moment(date);
+
+		_.extend(discussion, {
+			month: momentDate.month(),
+			year: momentDate.year()
+		})
+		});
+
+	var dataByYear = _.groupBy(dataList, function(data){
+		return  data.year;
+	});
 	
-		var dataByYear = _.groupBy(dataList, function(data){
-			return  data.year;
-		});
-		
-		var groupedData = [];
-		_.each(dataByYear, function(yearData, year){
-			var yearObj = {
-				year: year,
-				yearData: [],
-				count: 0
-			};
-
-			var dataByMonth = _.groupBy(yearData, function(data){
-				return data.month;
-			});
-			_.each(dataByMonth, function(data, month){
-				yearObj.count += data.length
-				yearObj.yearData.push({ month: month, monthData: data });
-			});
-
-			groupedData.push(yearObj);
-		});
-
- 		return _.sortBy(groupedData, function(data){
- 			return -(data.year);
- 		});
-	};
-
-	var timelineService = function($parse){
-		return {
-			getTimelineData: function(dataList, sortBy) {
-				var sortByFn = $parse(sortBy);
-				return groupData(dataList, sortByFn);
-			}
+	var groupedData = [];
+	_.each(dataByYear, function(yearData, year){
+		var yearObj = {
+			year: year,
+			yearData: [],
+			count: 0
 		};
+
+		var dataByMonth = _.groupBy(yearData, function(data){
+			return data.month;
+		});
+		_.each(dataByMonth, function(data, month){
+			yearObj.count += data.length
+			yearObj.yearData.push({ month: month, monthData: data });
+		});
+
+		groupedData.push(yearObj);
+	});
+
+	return _.sortBy(groupedData, function(data){
+		return -(data.year);
+	});
+};
+
+var timelineService = function($parse){
+	return {
+		getTimelineData: function(dataList, sortBy) {
+			var sortByFn = $parse(sortBy);
+			return groupData(dataList, sortByFn);
+		}
 	};
-	timelineService.$inject = ['$parse'];
+};
+timelineService.$inject = ['$parse'];
 
-	angular.module('community.services')
-		.service('CommunityTimelineService', timelineService);
-
-}(window._, window.moment));
+angular.module('community.services')
+	.service('CommunityTimelineService', timelineService);

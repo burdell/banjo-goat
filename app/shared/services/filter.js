@@ -1,20 +1,23 @@
-(function(_){
-	'use strict';
-	
-	var communityFilter = function($location, realtimeServiceWrapper, utils){
-		function Filter(){
-			var options = {
-				filterModel: {},
-				constants: {},
-				filterFn: null,
-				filterArguments: null,
-				onFilterFns: [],
-				setInitialData: true,
-				initialData: null,
-				filterContext: null,
-				persistFilterModel: true,
-				realtime: false
-			};
+
+'use strict';
+
+require('services/realtime.js');
+require('services/utils.js');
+
+var _ = require('underscore');
+var communityFilter = function($location, realtimeServiceWrapper, utils){
+	function Filter(){
+		var options = {
+			filterModel: {},
+			constants: {},
+			filterFn: null,
+			filterArguments: null,
+			onFilterFns: [],
+			setInitialData: true,
+			initialData: null,
+			filterContext: null,
+			persistFilterModel: true
+		};
 
 			var realtimeService = null;
 
@@ -27,12 +30,12 @@
 					var values = [];
 					values.length = exclude.length;
 
-					var excludeObject = _.object(exclude, values);
-					filterData = _.extend(filterData, excludeObject);
-				}
-				
-				options.filterModel = _.extend(options.filterModel, filterData);
-			};
+				var excludeObject = _.object(exclude, values);
+				filterData = _.extend(filterData, excludeObject);
+			}
+			
+			options.filterModel = _.extend(options.filterModel, filterData);
+		};
 
 			var executeOnFilterFns = function(result, filterModel){
 				var updates;
@@ -45,15 +48,15 @@
 				});
 			};
 
-			var setQueryParams = function(queryModel) {
-				var queryParams = {};
-				_.each(queryModel, function(value, key) {
-					if (_.isUndefined(options.constants[key])) {
-						queryParams[key] = value;
-					}
-				});
-				$location.search(queryParams);
-			};
+		var setQueryParams = function(queryModel) {
+			var queryParams = {};
+			_.each(queryModel, function(value, key) {
+				if (_.isUndefined(options.constants[key])) {
+					queryParams[key] = value;
+				}
+			});
+			$location.search(queryParams);
+		};
 
 
 			return {
@@ -136,11 +139,11 @@
 			};
 		}
 
-		return {
-			getNewFilter: function(options){
-				if (options.autoInitModel !== false || options.persistFilterModel !== false) {
-					options.filterModel = $location.search();
-				}
+	return {
+		getNewFilter: function(options){
+			if (options.autoInitModel !== false || options.persistFilterModel !== false) {
+				options.filterModel = $location.search();
+			}
 
 				return new Filter().set(options);
 			}
@@ -149,7 +152,6 @@
 	
 	communityFilter.$inject = ['$location', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
-	angular.module('community.services')
-		.service('CommunityFilterService', communityFilter);
-		
-}(window._));
+angular.module('community.services')
+	.service('CommunityFilterService', communityFilter);
+	
