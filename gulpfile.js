@@ -107,7 +107,7 @@ function browserifyHelper(prodBuild) {
         if (!prodBuild) {
             b = watchify(b);
             b.on('update', function(changedFilename){
-                bundleHelper(b);
+                bundleHelper(false, b, areaName);
             });        
         }
         b.add('app/areas/' + areaName + '/init.js');
@@ -137,10 +137,9 @@ function bundleHelper(prodBuild, b, areaName){
             bundleBlob = bundleBlob
                 .pipe($.sourcemaps.init({ loadMaps: true }))
                 .pipe($.sourcemaps.write('./maps'))
-                .pipe(gulp.dest(areaPath(areaName) + '/js/'));
         } else {
             bundleBlob = bundleBlob
-                .pipe($.uglify({ mangle: false }));
+                .pipe($.uglify());
         }
         
         bundleBlob

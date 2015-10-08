@@ -10,7 +10,6 @@ require('providers/routes.js');
 
 var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 	$locationProvider.html5Mode(true);
-
 	var routes = routesProvider.routes;
 	$stateProvider
 		.state('directory', {
@@ -54,7 +53,6 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			controller: 'Feed as vm',
 			resolve: {
 				FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
-					console.log('hello there');
 					return filterService.getNewFilter({ 
 						filterFn: communityApi.Feed.allContent,
 						constants: { per_page: 20, sortDir: 'ASC' },

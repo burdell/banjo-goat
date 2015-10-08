@@ -4,8 +4,8 @@ require('angular/angular.js');
 require('ui-router/release/angular-ui-router.js');
 require('angular-ui-select/dist/select.min.js');
 require('angular-sanitize');
-require('Sortable/Sortable.js');
-require('Sortable/ng-sortable');
+// require('Sortable/Sortable.js');
+// require('Sortable/ng-sortable');
 
 
 function initializeApp(areaName) {

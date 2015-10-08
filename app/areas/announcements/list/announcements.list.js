@@ -6,9 +6,7 @@
 
 	var announcementsController = function($state, announcements, routingService){
 		var ctrl = this;
-
 		var announcementNodeId = $state.params.nodeId;
-		console.log('hello there');
 		
 		_.extend(ctrl, {
 			announcementList: announcements,
