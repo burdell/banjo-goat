@@ -14,5 +14,5 @@
     RewriteRule ^([\w]+)/js/(.+)$     $1/js/$2
     RewriteRule ^([\w]+)/css/(.+)$    $1/css/$2
     RewriteRule ^([\w]+)/.*/(list/?|[0-9]+)$   $1/index.html
-    RewriteRule ^([\w]+)/.*/(list/?|[0-9]+)$   directory/index.html
+    RewriteRule ^/?$   directory/index.html
 </IfModule>
