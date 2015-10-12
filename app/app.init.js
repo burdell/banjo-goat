@@ -36,6 +36,7 @@ function initializeApp(areaName) {
     require('directives/mainnavbar/mainnavbar.js');
     require('directives/breadcrumbs/breadcrumbs.js');
     require('directives/discussionsnavbar/discussionsnavbar.js');
+    require('directives/megamenu/megamenu.js');
 
 
 

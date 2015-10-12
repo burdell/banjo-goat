@@ -71,16 +71,27 @@
 			<div class="cmuFeed__container container">
 
 		        <div class="cmuFeed__stories col--md12" ng-show="vm.feedType === 'community'">
-		        	<div class="cmuRow col--md12">
+		        	<div class="cmuHalfRow col--md12">
 						<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
 					</div>
-					<div ng-repeat="story in vm.storyData" class="col--md3">
-						<div ng-if="story.media.length > 0"><img ng-src="{{ story.media[0].url }}" /></div>
-						<div>
-							<a ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">{{ story.subject }}</a>
-							<h6>by {{ story.message.insertUser.login }}</h6>
-						</div>
-						<div>{{ story.node.description }}</div>
+
+					<div class="cmuFeed__story col--md3" ng-repeat="story in vm.storyData" >
+						<a ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
+							<div class="cmuFeed__story__img__container" ng-if="story.media.length > 0">
+								<div class="cmuFeed__story__img"
+								 style="background-image: url('{{ story.media[0].url }}')"></div>
+							</div>
+							<div class="cmuFeed__story__img__container" ng-if="story.media.length == 0">
+								<div class="cmuFeed__story__img"
+								 style="background-image: url('http://www.placecage.com/c/200/300')"></div>
+							</div>
+
+							<div>
+								<div class="cmuFeed__story__subject">{{ story.subject }}</div>
+								<span class="cmuFeed__story__user">{{ story.message.insertUser.login }}</span>
+								<span class="cmuFeed__story__user">{{ story.message.postDate | timeFromNow }}</span>
+							</div>
+							<div class="cmuFeed__location">{{ story.node.description }}</div>
 					</div>
 				</div>	
 
@@ -89,7 +100,11 @@
 		        </div>
 
 		        <div class="cmuFeed__list col--md12">
-		        	<div ng-repeat="feedItem in vm.feedList">
+		        	<div class="cmuFeed__list__title">
+						<h5><span class="cmuFeed__icon stories"></span>All Topics</h5>
+					</div>
+
+		        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
 		        		<community-feed-content content-model="feedItem"></community-feed-content>
 		        	</div>
 		        </div>
@@ -122,7 +137,7 @@
 					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self"><span class="product">airmax</span>{{ announcement.subject }}</a>
 				</div>
 				<div class="cmuFeed__sidebar__ctrl">
-					<a href="#"></span>All Announcements</a>
+					<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
 				</div>
 			</div>
 		</div>	
