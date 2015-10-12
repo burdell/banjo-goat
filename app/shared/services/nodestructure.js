@@ -25,7 +25,7 @@
 			});
 
 			//hard coded includes/excludes :/ 
-			var exclude = [-1, 75, 141];
+			var exclude = [-1, 75];
 			var include = [30, 20, 42, 43, 83];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;

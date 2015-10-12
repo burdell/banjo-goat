@@ -6,6 +6,9 @@ var _ = require('underscore');
 
 	var routingService = function($location, communityRoutes){
 		return {
+			getCurrentUrl: function(){
+				return $location.url();
+			},
 			getCurrentArea: function(){
 				return this.getArea($location.path());
 			},
