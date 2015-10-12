@@ -1,7 +1,6 @@
 
 'use strict';
 
-require('shared/services/nodestructure');
 require('shared/services/data.js');
 require('shared/services/routing.js');
 
@@ -26,14 +25,14 @@ function feedContent($compile, $templateCache) {
 		return (templateUrl ? $templateCache.get(templateUrl) : '');
 	}
 
-	var controller = function(nodeServiceWrapper, dataService, routingService) {
+	var controller = function(dataService, routingService) {
 		var ctrl = this;
 
 		var discussionIcons = dataService.DiscussionTypeIcons;
 		var contentType = ctrl.contentModel.type;
 
 		var contentUser = contentType === 'topic' ? ctrl.contentModel.data.message.insertUser : ctrl.contentModel.data.insertUser;
-		var urlId = contentType === 'topic' ? ctrl.contentModel.data.id : ctrl.contentModel.data.parentId;
+		var urlId = contentType === 'topic' ? ctrl.contentModel.data.id : ctrl.contentModel.data.topicId;
 		var contentNode = contentType === 'topic' ? ctrl.contentModel.data.message.node : ctrl.contentModel.data.node;
 
 		var commentText = function(){
@@ -92,16 +91,11 @@ function feedContent($compile, $templateCache) {
 			}
 		}
 
-		nodeServiceWrapper.get().then(function(nodeService){
-			var node = nodeService.getNode(ctrl.contentData.nodeId || ctrl.contentData.node.id);
-			ctrl.nodeName = node.description;
-		});
-
-		_.extend(ctrl, {
-			getDiscussionIconClass: function(discussionType) {
+		var contentFns = {
+			getDiscussionIconClass: function() {
+				var discussionType = ctrl.contentModel.discussionStyle;
 				return discussionIcons[discussionType] || '';
 			},
-			contentData: ctrl.contentModel.data,
 			getDiscussionActionString: function() {
 				var model = ctrl.contentModel;
 				return discussionActionTexts[model.discussionStyle][model.type]();
@@ -117,10 +111,24 @@ function feedContent($compile, $templateCache) {
 				var model = ctrl.contentModel;
 				return discussionActionTexts[model.discussionStyle].url()
 			}
+		};
+
+		var contentDisplay = {
+			subject: contentType === 'topic' ? ctrl.contentModel.data.subject : ctrl.contentModel.data.context.topicSubject,
+			body: contentType === 'topic' ? ctrl.contentModel.data.message.body : ctrl.contentModel.data.body,
+			iconClass: contentFns.getDiscussionIconClass(),
+			discussionActionString: contentFns.getDiscussionActionString(),
+			postData: contentFns.getPostDate(),
+			contentUrl: contentFns.getContentUrl(),
+			nodeName: ctrl.contentModel.data.node.description
+		};
+
+		_.extend(ctrl, {
+			contentDisplay: contentDisplay
 		});
 
 	};
-	controller.$inject = ['CommunityNodeService', 'CommunityDataService', 'CommunityRoutingService'];
+	controller.$inject = ['CommunityDataService', 'CommunityRoutingService'];
 
     var directive = {
        // link: link,

@@ -1,43 +1,22 @@
 
 <div class="cmuFeed__item">
-
-<!-- <div class="cmuFeed__item" ng-hide="feedcontent.contentModel.type === 'comment'"> -->
-	<a ng-href="{{ feedcontent.getContentUrl() }}" target="_self">
+	<a ng-href="{{ ::feedcontent.contentDisplay.contentUrl }}" target="_self">
 		<div class="cmuFeed__itemHeader">
-			<span class="cmuFeed__icon icon {{ feedcontent.getDiscussionIconClass(feedcontent.contentModel.discussionStyle) }}"></span>
+			<span class="cmuFeed__icon icon {{ ::feedcontent.contentDisplay.iconClass }}"></span>
 			<span class="cmuFeed__subject">
-				<!-- topic -->
-				{{ feedcontent.contentModel.data.subject }}
-
-				<!-- comment -->
-				{{ feedcontent.contentModel.data.context.topicSubject }}
+				{{ ::feedcontent.contentDisplay.subject }}
 			</span>
 		</div>
 		<div class="cmuFeed__content">
-			<!-- content -->
-			{{ feedcontent.contentModel.data.body | unformatText | wordCut: 20 }}
+			{{ ::feedcontent.contentDisplay.body | unformatText | wordCut: 20 }}
 		</div>
-		<!-- 
-		<div>
-			<span ng-if="feedcontent.contentModel.type === 'topic'">
-				<h5 style="display: inline;">{{ feedcontent.contentModel.data.subject }}</h5>
-				<span clas="cmuFeed__preview">{{ feedcontent.contentModel.data.message.body | unformatText | wordCut: 20 }}</span>
-			</span>
 
-			<span ng-if="feedcontent.contentModel.type === 'comment'">
-				<h5 style="display: inline;">{{ feedcontent.contentModel.data.context.topicSubject }}</h5>
-				<span>{{ feedcontent.contentModel.data.body | unformatText | wordCut: 20 }}</span>
-			</span>
-
-		</div>
- 		-->
 		<div class="row">
 			<div class="col--lg7">
-				<div class="cmuFeed__location"> {{ feedcontent.nodeName }}</div>
+				<div class="cmuFeed__location"> {{ ::feedcontent.contentDisplay.nodeName }}</div>
 				<span class="cmuFeed__userAction">
-					{{ ::feedcontent.getDiscussionActionString() }} - {{ ::feedcontent.getPostDate() | timeFromNow }}
+					{{ ::feedcontent.contentDisplay.discussionActionString }} - {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
 				</span>
-				<!-- <span ng-if="feedcontent.contentModel.type === 'comment'">by {{ feedcontent.contentModel.data.context.parentAuthor.login }} - {{ feedcontent.contentModel.data.context.parentPostDate | timeFromNow }}</span> -->
 			</div>
 			<div class="cmuFeed__stats col--lg5">
 				<span class="cmuFeed__stat">View: 324</span>
