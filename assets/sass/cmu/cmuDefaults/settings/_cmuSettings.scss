@@ -78,8 +78,9 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 
 
 
-
-
+// 
+// universal helper classes
+// 
 
 .cmuRow, %cmuRow {
 	margin-bottom: $cmu-vertical-rhythm;
@@ -88,8 +89,9 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 		margin-bottom: $cmu-vertical-rhythm/2;
 	}
 
-
-
+.cmuHidden {
+	display: none;
+}
 
 
 

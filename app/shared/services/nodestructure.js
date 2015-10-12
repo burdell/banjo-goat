@@ -45,7 +45,7 @@
 						}
 						node.iconClass = iconService[node.urlCode];
 						discussionTypes[discussionCategory].push(node);
-					} 
+					}
 				}
 
 				//populate children of category nodes

@@ -82,7 +82,7 @@ function mainNavBar() {
 				},
 				templateData: {
 					getDiscussionUrl: function(node){
-						var route = node.discussionType === 'category' ? 'hub' : 'forums.list';
+						var route = node.discussionStyle === 'category' ? 'hub' : 'forums.list';
 						return routingService.generateUrl(route, { nodeId: node.urlCode });
 					},
 					linksTarget: routingService.getCurrentArea() === 'directory' ? '' : '_self',

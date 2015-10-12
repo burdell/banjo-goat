@@ -1,31 +1,31 @@
-(function(){
-	'use strict';
 
-	function discussionsHeader() {
-		function controller(nodeService) {
-		    var ctrl = this;
-		    
-		    nodeService.get().then(function(nodeData) {
-		    	ctrl.currentNode = nodeData.CurrentNode;
-		    });
-		}
-		controller.$inject = ['CommunityNodeService'];
+'use strict';
 
-	    var directive = {
-	        controller: controller,
-	        controllerAs: 'discussionsheader',
-	        bindToController: true,
-	        templateUrl: 'directives/discussionsheader/discussionsheader.html',
-	        restrict: 'E',
-	        replace: true,
-	        scope: {
-	        	headerText: '@'
-	        }
-	    };
+require('services/nodestructure.js');
 
-	    return directive;
+function discussionsHeader() {
+	function controller(nodeService) {
+	    var ctrl = this;
+	    nodeService.get().then(function(nodeData) {
+	    	ctrl.currentNode = nodeData.CurrentNode;
+	    });
 	}
+	controller.$inject = ['CommunityNodeService'];
 
-	angular.module('community.directives')
-		.directive('discussionsHeader', discussionsHeader);
-}());
+    var directive = {
+        controller: controller,
+        controllerAs: 'discussionsheader',
+        bindToController: true,
+        templateUrl: 'directives/discussionsheader/discussionsheader.html',
+        restrict: 'E',
+        replace: true,
+        scope: {
+        	headerText: '@'
+        }
+    };
+
+    return directive;
+}
+
+angular.module('community.directives')
+	.directive('discussionsHeader', discussionsHeader);

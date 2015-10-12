@@ -32,7 +32,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterFn: communityApi.Forums.messages, 
 						filterArguments: [ $stateParams.nodeId ], 
 						constants: {
-							per_page: 30
+							per_page: 15
 						} 
 					});
 				}]
@@ -55,7 +55,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterContext: communityApi.Forums,
 						constants: {
 							limit: 20
-						}
+						},
+						autoInitModel: false,
+						persistFilterModel: false
 					});
 				}]
 			},
