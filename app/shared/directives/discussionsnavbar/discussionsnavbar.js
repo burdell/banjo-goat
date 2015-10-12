@@ -38,37 +38,58 @@ function discussionsNavBar() {
 		var ctrl = this;
 		nodeService.get().then(function(nodeData){
 			var currentNode = nodeData.CurrentNode;
+
 			var parentNode = nodeData.parent(currentNode.id);
 
 			if (!parentNode || !parentNode.children) {
 				return;
 			}
+			
+			var currentNodeSlug = currentNode && currentNode.urlCode;
+			var currentAreaSlug = routingService.getCurrentArea();
 
-			var siblingNodeList = parentNode.children;
-
+			var inDirectory = currentAreaSlug === 'directory';
+			var siblingNodeList = !inDirectory ? parentNode.children : currentNode.children;
 
 			_.extend(ctrl, {
-				navLinks: []
+				navLinks: [{
+					display: 'Home',
+					href: !inDirectory ? routingService.generateUrl('hub', { nodeId: parentNode.urlCode }) : routingService.getCurrentUrl(),
+					active: inDirectory
+				}]
 			})
 
-				var currentAreaSlug = routingService.getCurrentArea();
-				_.each(standardNavLinks, function(searchObj, displayName){
-					var navNode = _.find(siblingNodeList, function(node){
-						return node.discussionStyle === searchObj.discussionType;
-					});
-					
-					if (navNode) {
-						var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
+			_.each(standardNavLinks, function(searchObj, displayName){
+				var navNodeList = _.filter(siblingNodeList, function(node){
+					return node.discussionStyle === searchObj.discussionType;
+				});
+				
+				var navNodeCount = navNodeList.length;
+				if (navNodeCount === 1) {
+					var navNode = navNodeList[0];
+					var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
 
 					ctrl.navLinks.push({ 
 						display: displayName, 
 						href: discussionHref, 
-						active: currentAreaSlug === searchObj.discussionType,
-						target: function(){
-							return (!this.active ? '_self' : "");
-						} 
+						active: navNode.urlCode === currentNodeSlug
 					});
-				}
+				} else if (navNodeCount > 1) {
+				 	var subLinkList = [];
+				 	_.each(navNodeList, function(subLink){
+				 		subLinkList.push({
+				 			display: subLink.name, 
+				 			href: routingService.generateUrl(searchObj.route, { nodeId: subLink.urlCode }),
+				 			active: subLink.urlCode === currentNodeSlug
+						})
+				 	});
+
+					ctrl.navLinks.push({
+						href: subLinkList[0].href,
+						display: displayName,
+						subLinks: subLinkList
+					});
+				 }
 			}, ctrl);
 		});
 	}
@@ -82,7 +103,9 @@ function discussionsNavBar() {
         controllerAs: 'navbar',
         bindToController: true,
         replace: true,
-        scope: {}
+        scope: {
+        	discussionList: '='
+        }
     };
 
     return directive;
