@@ -16,6 +16,8 @@ function StoriesListController ($scope, storyFilter, breadcrumbService, dataServ
 	var ctrl = this;
 	var intitialList = storyFilter.initialData();
 
+	var isStoriesLanding = $state.current.name === 'storiesLanding';
+
 	_.extend(ctrl, {
 		storyFilter: storyFilter,
 		storyList: intitialList,
@@ -30,7 +32,8 @@ function StoriesListController ($scope, storyFilter, breadcrumbService, dataServ
 			});
 
 			$scope.$broadcast('communityGridList:redraw');
-		}
+		},
+		hideNewStoryButton: isStoriesLanding
 	});
 
 	if ($state.current.name === 'storiesLanding') {

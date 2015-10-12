@@ -19,7 +19,7 @@ function gridList($timeout) {
 					//$element.hide();
 				}
 
-				imagesloaded($element).on('done', function(){
+				imagesloaded($element).on('progress', function(){
 					$element.show();
 
 					if (reload) {
