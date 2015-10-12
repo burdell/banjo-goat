@@ -51,7 +51,7 @@
 				//populate children of category nodes
 				if (!nodeStructureService.NodeStructure && node.parentId) {
 					var parentNode = nodeStructureService.getNode(node.parentId);
-					if (parentNode) {
+					if (parentNode && node.discussionStyle !== 'qa' && node.discussionStyle !== 'bugs') {
 						if (!parentNode.children) {
 							parentNode.children = [];
 						}
