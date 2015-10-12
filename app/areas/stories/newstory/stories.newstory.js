@@ -134,19 +134,14 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		},
 		setCoverPhoto: function(imageObj){
 			if (ctrl.cover) {
-				ctrl.cover.meta.isCover.value = false;
+				ctrl.cover.meta.isCover = false;
 			}
 
 			if (!imageObj.meta) {
 				imageObj.meta = {};
 			}
-			if (!imageObj.meta.isCover) {
-				imageObj.meta.isCover = {
-					key: 'isCover'
-				};
-			}
 
-			imageObj.meta.isCover.value = true;
+			imageObj.meta.isCover = true;
 			ctrl.cover = imageObj;
 		},
 		removeCoverPhoto: function(){
@@ -166,7 +161,6 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 			var story = _.extend(ctrl.discussion, ctrl.story, ctrl.coordinates, { productsUsed: ctrl.productList });
 			communityApi.Stories.story(story).then(
 				function(result){
-					debugger;
 					$state.go('stories.detail', { storyId: result.id });		
 				},
 				function(){

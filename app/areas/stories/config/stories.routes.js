@@ -63,14 +63,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						constants: {
 							limit: 30
 						},
-						persistFilterModel: false 
+						persistFilterModel: false,
+						autoInitModel: false 
 					});
 				}]
 			},
 			reloadOnSearch: false
 		})
 		.state('stories.detail', {
-
 			url:  routesProvider.routes.utils.intRoute(storiesRoutes.detail), 
 			views: {
 				'mainContent': {

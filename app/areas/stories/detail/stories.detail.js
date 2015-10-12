@@ -25,7 +25,7 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 	var storyAuthor = story.message.insertUser;
 
 	var cover = _.find(story.media, function(mediaObj) {
-		return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true";
+		return mediaObj.meta && mediaObj.meta.isCover;
 	}) || { url: storyDefaults.coverPhoto };
 
 	var refreshComments = function(){
