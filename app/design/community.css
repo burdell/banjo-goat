@@ -10119,6 +10119,42 @@ select.cmuSort {
   border-bottom: 0;
 }
 
+.cmuLoader__container {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+}
+
+.cmuLoader {
+  position: relative;
+  margin: 0 auto;
+  animation: rotate 1s infinite linear;
+  border: 8px solid rgba(0, 160, 223, 0.2);
+  width: 80px;
+  height: 80px;
+  border-radius: 999px;
+}
+
+.cmuLoader span {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 8px solid transparent;
+  border-top: 8px solid #00a0df;
+  top: -8px;
+  left: -8px;
+  border-radius: 999px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .cmuDiscussionsControls {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
