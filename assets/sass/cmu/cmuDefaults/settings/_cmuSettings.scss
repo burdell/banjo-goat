@@ -70,6 +70,7 @@ body {
 // governs all community partials
 .community__content {
 	@extend %cmu-maxwidth;
+	min-height: $cmu-base * 20; 
 }
 
 // Various things

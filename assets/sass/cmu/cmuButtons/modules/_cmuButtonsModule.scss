@@ -389,6 +389,10 @@ button, .button {
 	}
 }
 
+.button--wide {
+	padding-left: $cmu-base;
+	padding-right: $cmu-base;
+}
 .button--stretch {
 	width: 100%;
  }
@@ -417,3 +421,29 @@ button, .button {
 // }
 
 
+
+// 
+// tabs
+// 
+
+.button--tab {
+	@include cmuButton('outline',$cmu-color-mdgray,$cmu-color-ltgray);
+	color: $cmu-color-black;
+	margin-left: 0;
+	display: inline-block;
+	@extend %ease-none;
+
+	&:first-child {
+		margin-right: -1px;
+	}
+
+	&.active {
+		@extend %ease-none;
+		border-top: 3px solid $cmu-color-active;
+		color: $cmu-color-active;
+		background-color: $cmu-color-white;
+		line-height: $cmu-button-lineheight - remCalc(3px) * 2;
+		position:relative;
+		top: 1px;
+	}
+}

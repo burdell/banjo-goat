@@ -6538,6 +6538,14 @@ tr:last-child td {
   transition: all 320ms ease;
 }
 
+.button--tab, .button--tab.active {
+  -webkit-transition: initial;
+  -moz-transition: initial;
+  -ms-transition: initial;
+  -o-transition: initial;
+  transition: initial;
+}
+
 .cmu-status-fixed {
   background-color: #48af65 !important;
   color: #fafafa;
@@ -6616,6 +6624,10 @@ body {
   margin: 0 auto;
 }
 
+.community__content {
+  min-height: 20rem;
+}
+
 .cmuRow {
   margin-bottom: 1rem;
 }
@@ -6641,7 +6653,7 @@ body {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
-.cmuFeed__icon.announcements:before, .cmuFeed__icon.forums:before, .cmuFeed__icon.stories:before, .cmuFeed__icon.qa:before {
+.cmuFeed__icon.all:before, .cmuFeed__icon.announcements:before, .cmuFeed__icon.forums:before, .cmuFeed__icon.stories:before, .cmuFeed__icon.qa:before {
   font-family: "ubnt";
 }
 
@@ -6653,7 +6665,7 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-.cmuSearchbar .appIconInput__icon, .cmuFeed__list .cmuFeed__icon {
+.cmuSearchbar .appIconInput__icon {
   font-size: 1.1875rem;
   line-height: 2.25rem;
 }
@@ -6663,22 +6675,22 @@ body {
   line-height: 1.5rem;
 }
 
-.cmuDropdown__header, .cmuTooltipster .tooltipster-content {
+.cmuDropdown__header, .cmuFeed__subject, .cmuTooltipster .tooltipster-content {
   font-size: 0.8125rem;
   line-height: 1.3125rem;
 }
 
-.cmuFeed__story__subject, .cmuFeed__anno {
+.cmuFeed__story__subject, .cmuFeed__content, .cmuFeed__anno {
   font-size: 0.75rem;
   line-height: 1.125rem;
 }
 
-.cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__story__user, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
+.cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__story__user, .cmuFeed__story__date, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
 
-.cmuFeed__location {
+.cmuFeed__location, .cmuFeed__stat {
   font-size: 0.5625rem;
   line-height: 0.875rem;
 }
@@ -8082,6 +8094,10 @@ div.cmuOverlay--show {
 .cmuFeed__icon {
   margin-right: 0.5rem;
 }
+.cmuFeed__icon.all:before {
+  content: '\e63b';
+  text-decoration: none !important;
+}
 .cmuFeed__icon.announcements:before {
   content: '\e710';
   text-decoration: none !important;
@@ -8112,11 +8128,25 @@ div.cmuOverlay--show {
   padding-top: 0.5rem;
 }
 
-.cmuFeed__location {
+.cmuFeed__update {
+  margin-bottom: 1rem;
+}
+
+.cmuFeed__location, .cmuFeed__stat {
   display: inline-block;
   border: 1px solid #bbbbbd;
   padding: 0.16667rem 0.5rem;
   background-color: #ebebeb;
+}
+
+.cmuFeed__title {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.cmuFeed__title--all {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #bbbbbd;
 }
 
 .cmuFeed__stories {
@@ -8124,7 +8154,11 @@ div.cmuOverlay--show {
   margin-bottom: 1rem;
   background-color: #f3f3f3;
   padding-top: 0.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.cmuFeed__storyList {
+  padding: 0.5rem;
 }
 
 .cmuFeed__story:hover .cmuFeed__story__img {
@@ -8134,6 +8168,24 @@ div.cmuOverlay--show {
 }
 .cmuFeed__story:hover .cmuFeed__story__subject {
   text-decoration: underline;
+}
+
+.cmuFeed__close {
+  text-align: right;
+  cursor: pointer;
+  position: absolute;
+  right: 18px;
+  top: 12px;
+}
+.cmuFeed__close span:before {
+  content: "\e6d0";
+}
+
+.cmuFeed__close--closed span:before {
+  content: "\e6cf";
+}
+.cmuFeed__close--closed ~ .cmuFeed__storyList {
+  display: none;
 }
 
 .cmuFeed__story__img__container {
@@ -8156,7 +8208,13 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__story__user {
+  color: #474b52;
+  margin-top: 0.25rem;
+}
+
+.cmuFeed__story__date {
   color: #969ba3;
+  margin-bottom: 0.25rem;
 }
 
 .cmuFeed__list {
@@ -8165,9 +8223,6 @@ div.cmuOverlay--show {
   border: 1px solid #bbbbbd;
   border-bottom: 0;
 }
-.cmuFeed__list .cmuFeed__icon {
-  color: #00a0df;
-}
 
 .cmuFeed__list__title {
   padding: 0.5rem 1rem;
@@ -8175,12 +8230,45 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__item {
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #bbbbbd;
   cursor: pointer;
+  overflow: hidden;
 }
 .cmuFeed__item:hover {
   background-color: #ebebeb;
+}
+.cmuFeed__item:hover .cmuFeed__subject {
+  text-decoration: underline;
+}
+.cmuFeed__item .cmuFeed__icon:before {
+  color: #00a0df;
+}
+
+.cmuFeed__itemHeader {
+  height: 1.2rem;
+  overflow: hidden;
+}
+
+.cmuFeed__subject {
+  color: #00a0df;
+}
+
+.cmuFeed__userAction {
+  color: #474b52;
+  margin-left: 0.5rem;
+}
+
+.cmuFeed__content {
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.cmuFeed__stats {
+  text-align: right;
+}
+
+.cmuFeed__stat {
+  margin-right: 0.5rem;
 }
 
 .cmuFeed__pagerBottom {
@@ -9171,6 +9259,11 @@ button .icon, .button .icon {
   background-color: #48af65;
 }
 
+.button--wide {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .button--stretch {
   width: 100%;
 }
@@ -9182,6 +9275,36 @@ button .icon, .button .icon {
 
 .button--icon {
   padding-left: 8px;
+}
+
+.button--tab {
+  color: #bbbbbd;
+  background-color: #ebebeb;
+  border-width: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #bbbbbd;
+  background-color: #ebebeb;
+  border-color: #bbbbbd;
+  color: black;
+  margin-left: 0;
+  display: inline-block;
+}
+.button--tab:hover {
+  color: #fafafa;
+  background-color: #bbbbbd;
+  border-color: #bbbbbd;
+}
+.button--tab:first-child {
+  margin-right: -1px;
+}
+.button--tab.active {
+  border-top: 3px solid #00a0df;
+  color: #00a0df;
+  background-color: #fafafa;
+  line-height: 1.625rem;
+  position: relative;
+  top: 1px;
 }
 
 .cmuUsername {
@@ -9889,6 +10012,11 @@ select:disabled {
 }
 .cmuSearchbox input[disabled] {
   background-color: #ebebeb;
+}
+
+select.cmuSort {
+  padding: 0 0.5rem;
+  padding-right: 1.8rem;
 }
 
 .cmuImageMissing {
