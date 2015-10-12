@@ -129,7 +129,6 @@ function bundleHelper(prodBuild, b, areaName){
         var bundleBlob = b.bundle();
 
             if (!prodBuild) {
-                console.log('error handling!');
                 bundleBlob =  bundleBlob.on('error', function(err) {
                     return $.notify().write(err);
                 });

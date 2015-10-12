@@ -85,7 +85,10 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		setFeedType: function(feedType) {
 			ctrl.feedType = feedType;
 
+
 			var feedDataObject = feedData[feedType];
+			ctrl.feedTypeDisplay = feedDataObject.display;
+			
 			if (feedDataObject != currentFeedType) {
 				feedFilter.set({
 					filterFn: feedDataObject.dataFn
