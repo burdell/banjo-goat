@@ -6680,7 +6680,7 @@ body {
   line-height: 1.3125rem;
 }
 
-.cmuFeed__story__subject, .cmuFeed__content, .cmuFeed__anno {
+.cmuFeed__story__subject, .cmuFeed__content, .cmuFeed__sidebar__link, .cmuFeed__anno {
   font-size: 0.75rem;
   line-height: 1.125rem;
 }
@@ -6873,7 +6873,8 @@ pre {
 .cmuIcon--inline {
   height: 0.75rem;
   width: 0.75rem;
-  vertical-align: sub;
+  margin-top: 1px;
+  margin-right: 2px;
 }
 
 .cmuIcon--filter {
@@ -7341,7 +7342,6 @@ pre {
 }
 
 a.cmuGloNav__dropItem {
-  margin-right: 1rem;
   background-color: #474b52;
   color: #dadada;
 }
@@ -8284,10 +8284,10 @@ div.cmuOverlay--show {
   border-bottom: 1px solid #bbbbbd;
 }
 
-.cmuFeed__sidebar__link a {
+.cmuFeed__sidebar__link {
   color: #00a0df;
 }
-.cmuFeed__sidebar__link a:hover {
+.cmuFeed__sidebar__link:hover {
   text-decoration: underline;
 }
 
@@ -8310,7 +8310,7 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__anno {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .cmuFeed__anno:hover a {
   border-bottom: 1px solid #bbbbbd;
@@ -9240,7 +9240,7 @@ button .icon, .button .icon {
 .button--vote.button--thin:hover:after {
   padding: 1px 0.3125rem;
 }
-.button--vote.button-white-on-green {
+.button--vote.button-green-on-white {
   color: #48af65;
   background-color: #fafafa;
   border-width: 1px;
@@ -9249,13 +9249,18 @@ button .icon, .button .icon {
   color: #48af65;
   background-color: #fafafa;
   border-color: #48af65;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  position: relative;
+  top: -1px;
 }
-.button--vote.button-white-on-green:hover {
+.button--vote.button-green-on-white:hover {
   color: #fafafa;
   background-color: #48af65;
   border-color: #48af65;
 }
-.button--vote.button-white-on-green:after {
+.button--vote.button-green-on-white:after {
   background-color: #48af65;
 }
 
@@ -9415,14 +9420,14 @@ button .icon, .button .icon {
   margin-bottom: 0.25rem;
 }
 
-.cmuUserbadge__kudos {
+.cmuUserbadge__kudos, .cmuUserbadge__postCount {
   padding-left: 0.5rem;
   display: inline-block;
 }
-.cmuUserbadge__kudos .cmuIcon-kudos {
+.cmuUserbadge__kudos .cmuIcon-kudos, .cmuUserbadge__kudos .cmuIcon-posts, .cmuUserbadge__postCount .cmuIcon-kudos, .cmuUserbadge__postCount .cmuIcon-posts {
   padding-right: 0.25rem;
 }
-.cmuUserbadge__kudos:after {
+.cmuUserbadge__kudos:after, .cmuUserbadge__postCount:after {
   content: ' kudos';
   font-weight: 300;
 }
@@ -9455,13 +9460,13 @@ button .icon, .button .icon {
   display: inline-block;
   opacity: 1;
   margin-bottom: 1rem;
-  padding-bottom: 0;
   position: relative;
   top: -1rem;
   left: -1rem;
   padding: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0;
   padding-right: 2rem;
+  padding-top: 0.75rem;
   border-bottom: 1px solid #bbbbbd;
   border-right: 1px solid #bbbbbd;
 }
@@ -9485,7 +9490,7 @@ button .icon, .button .icon {
 }
 .cmuUserbadge--thin .cmuUserbadge__points div {
   display: block;
-  text-align: right;
+  text-align: left;
 }
 .cmuUserbadge--thin .cmuUserbadge__posts {
   padding-left: 0;
@@ -10195,7 +10200,10 @@ select.cmuSort {
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
+  margin-right: 1rem;
   background-color: #fafafa;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
@@ -10477,7 +10485,7 @@ select.cmuSort {
   border: 1px solid #ccc;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img {
-  text-align: left;
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img img {

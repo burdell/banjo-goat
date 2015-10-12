@@ -38,7 +38,9 @@
 	.cmuIcon--inline {
 		height: $cmu-base*3/4;
 		width: $cmu-base*3/4;
-    	vertical-align: sub;
+    	// vertical-align: sub;
+    	margin-top: 1px;
+    	margin-right: 2px;
 	}
 
 	// sizing for filters
@@ -85,6 +87,17 @@
 	// 	@extend .cmuIcon--inline;
 	// }
 }
+
+// used to represent a post count
+// .cmuIcon-pencil, .cmuIcon-post {
+// 	@extend .cmuIcon;
+// 	background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.823%204.707L6.015%201.05%204.207%204.708l-4.037.59L3.095%208.14l-.69%204.024%203.61-1.898%203.61%201.898L8.94%208.14l2.92-2.843-4.037-.59z%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+
+// 	// &:before { // hover state
+// 	// 	@extend .cmuIcon--hoverOff;
+// 	// 	@extend .cmuIcon--inline;
+// 	// }
+// }
 
 // for flagging posts
 .cmuIcon-flag {

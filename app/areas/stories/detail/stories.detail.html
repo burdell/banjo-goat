@@ -1,11 +1,19 @@
 <div class="cmuStories__storyDetail">
 	<div ng-include="'stories/detail/stories.body.html'">Upload File</div>
-	<div class="row row--comfy">
+	<!-- <div class="row row--comfy">
 		<button community-permissions class="button-ghost button--thin button-white-blue" ng-click="vm.toggleCommentForm()">Add Comment</button>
 		
 		<button community-permissions denied-behavior="disable" class="button--vote button-white-on-green">
 			{{ vm.story.stats | extractKey : 'score' }} kudos
 		</button>
+	</div> -->
+	<div class="row cmuThread__controls cmuThread__controls--bottom">
+		<span community-permissions="">
+			<button class="button--vote button-green-on-white button--compound-naked" disabled="">
+				123 kudos
+			</button>
+    		<button ng-click="vm.showCommentForm = true" class="button--solid">Add Comment</button>
+		</span>
 	</div>
 
 	<div class="cmuStories__commentForm" ng-show="vm.replyInProgress" id="comment">

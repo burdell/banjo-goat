@@ -32,14 +32,14 @@
 		</div>
  		-->
 		<div class="row">
-			<div class="col--lg7">
+			<div class="col--md7">
 				<div class="cmuFeed__location"> {{ feedcontent.nodeName }}</div>
 				<span class="cmuFeed__userAction">
 					{{ ::feedcontent.getDiscussionActionString() }} - {{ ::feedcontent.getPostDate() | timeFromNow }}
 				</span>
 				<!-- <span ng-if="feedcontent.contentModel.type === 'comment'">by {{ feedcontent.contentModel.data.context.parentAuthor.login }} - {{ feedcontent.contentModel.data.context.parentPostDate | timeFromNow }}</span> -->
 			</div>
-			<div class="cmuFeed__stats col--lg5">
+			<div class="cmuFeed__stats col--md5">
 				<span class="cmuFeed__stat">View: 324</span>
 				<span class="cmuFeed__stat">Replies: 21</span>
 				<span class="cmuFeed__stat">Kudos: 124</span>
