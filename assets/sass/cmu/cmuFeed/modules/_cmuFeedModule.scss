@@ -276,8 +276,10 @@
 		border-bottom: $style-line;
 	}
 }
-	.cmuFeed__sidebar__link a {
+	.cmuFeed__sidebar__link {
 		color: $cmu-color-active;
+		@extend %size-smaller;
+		
 		&:hover {
 			text-decoration: underline;
 		}
@@ -317,7 +319,7 @@
 
 		.cmuFeed__anno {
 			@extend %size-smaller;
-			margin-bottom: $cmu-vertical-rhythm;
+			margin-bottom: $cmu-vertical-rhythm/2;
 			&:hover {
 				// text-decoration: underline; 
 				a {

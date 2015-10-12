@@ -75,7 +75,7 @@
 
 	li {
 		display: inline-block; 
-		padding-left: 1em;
+		// padding-left: 1em;
 
 		&:first-child a{
 			padding-left: 0;
@@ -89,10 +89,10 @@
 
 // grouped content
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
-	// margin-right: $cmu-base;
+	margin-right: $cmu-base;
 	background-color: $cmu-color-white;
 	padding-left: $cmu-base/2;
-	padding-right: $cmu-base*3/2;
+	padding-right: $cmu-base/2;
 }
 
 .cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {

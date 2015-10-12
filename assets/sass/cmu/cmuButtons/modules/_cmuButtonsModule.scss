@@ -380,9 +380,16 @@ button, .button {
 		}
 
 
-	&.button-white-on-green {
+	&.button-green-on-white {
 		@include cmuButton('outline',$cmu-color-green,$cmu-color-white,$cmu-color-gray);
-		// border-color:
+		
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+
+		position: relative;
+		top: -1px;
+		
 		&:after {
 			background-color: $cmu-color-green;
 		}
