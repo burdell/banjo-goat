@@ -85,7 +85,7 @@ function communityFilter($timeout) {
 	  		},
 	  		pageRange: function(){
 				//first page is hard-coded, therefore start from 2
-				return _.range(2, pagerInfo.numberOfPages);
+				return _.range(2, pagerInfo.numberOfPages + 1);
 			}
 	  	});
 

@@ -48,12 +48,13 @@
 			<div class="cmuWrapper" id="pageTop">
 				<div ng-include="'partials/globalheader.html'"></div>
 				<main-nav-bar></main-nav-bar>
-				<!-- <community-announcement></community-announcement> -->
-			    <div class="community__content container">
-			    	
+
+			    <div class="community__content container" ng-controller="BaseCommunityController as vm">
 					<div id='main-content'>
 						<community-error></community-error>
-						<div ui-view></div>
+						<community-loader base-loader="true"></community-loader>
+						
+						<div ui-view ng-hide="vm.showBaseLoader"></div>
 					</div>
 				</div>
 				<div ng-include="'partials/globalfooter.html'"></div>

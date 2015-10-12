@@ -7,7 +7,6 @@ require('angular-sanitize');
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
 
-
 function initializeApp(areaName) {
     var baseTag = document.createElement('base');
     baseTag.setAttribute('href', '/');
@@ -32,13 +31,14 @@ function initializeApp(areaName) {
         });
     }]);
 
-    //core directives
+    //core stuff
     require('directives/mainnavbar/mainnavbar.js');
     require('directives/breadcrumbs/breadcrumbs.js');
     require('directives/discussionsnavbar/discussionsnavbar.js');
     require('directives/megamenu/megamenu.js');
-
-
+    require('directives/pageheader/pageheader.js');
+    
+    require('basecontroller.js');
 
     angular.element(document).ready(function(){
         angular.bootstrap(document, ['communityApp']);
