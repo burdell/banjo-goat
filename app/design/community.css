@@ -10186,7 +10186,6 @@ select.cmuSort {
 }
 .cmuDiscussionsNavbar li {
   display: inline-block;
-  padding-left: 1em;
 }
 .cmuDiscussionsNavbar li:first-child a {
   padding-left: 0;
@@ -10197,8 +10196,6 @@ select.cmuSort {
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
   background-color: #fafafa;
-  padding-left: 0.5rem;
-  padding-right: 1.5rem;
 }
 
 .cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
