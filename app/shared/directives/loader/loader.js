@@ -4,7 +4,7 @@
 require('services/loader.js');
 
 var _ = require('underscore');
-var $ = require('jQuery');
+var $ = require('jquery');
 
 function loader() {
      var link = function(scope, element, attrs){
