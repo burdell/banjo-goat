@@ -34,7 +34,7 @@ function mainNavBar() {
 
 			var navMetaData = [
 				{ display: "Explore", clickFn: toggleDiscussionsMenu, dropItem: true },
-				{ display: "Q&A", href: "#"},
+				//{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 
