@@ -55,7 +55,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterContext: communityApi.Forums,
 						constants: {
 							limit: 20
-						}
+						},
+						autoInitModel: false,
+						persistFilterModel: false
 					});
 				}]
 			},

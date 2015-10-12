@@ -15,6 +15,7 @@ require('filters/unescape.js');
 var _ = require('underscore');
 		function AnnouncementListController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
 		var ctrl = this;
+		
 		_.extend(ctrl, {
 			showCommentForm: false,
 			currentAnnouncement: announcementDetail.originalMessage,

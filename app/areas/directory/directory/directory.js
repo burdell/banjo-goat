@@ -33,7 +33,7 @@ var directoryController = function($scope, breadcrumbService, routingService, no
 			return routingService.generateUrl(node.discussionStyle + '.list', { nodeId: node.urlCode })
 		},
 		discussionNodeOrder: function(discussion){
-			var discussionType = discussion.discussionType === 'forums' ? discussion.name : discussion.discussionType;
+			var discussionType = discussion.discussionStyle === 'forums' ? discussion.name : discussion.discussionStyle;
 			return _.indexOf(discussionNodeOrder, discussionType);
 
 		},

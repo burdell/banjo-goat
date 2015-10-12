@@ -126,12 +126,16 @@ function bundleHelper(prodBuild, b, areaName){
     }
 
     function bundle(areaName) {
-        var bundleBlob = b.bundle()
-            .on('error', function(err) {
-                return $.notify().write(err);
-            })
-            .pipe(source(jsAppFileName))
-            .pipe(buffer());
+        var bundleBlob = b.bundle();
+
+            if (!prodBuild) {
+                bundleBlob =  bundleBlob.on('error', function(err) {
+                    return $.notify().write(err);
+                });
+            }
+
+            bundleBlob = bundleBlob.pipe(source(jsAppFileName))
+                .pipe(buffer());
 
         if (!prodBuild) { 
             bundleBlob = bundleBlob
@@ -161,8 +165,13 @@ gulp.task('prod-templates', function(){
 
 function templateHelper(prodBuild) {
      areaBuilder(function(areaName){
-         return buildTemplates(areaName)
-            .pipe(gulp.dest(areaPath(areaName) + '/js/'));
+         var templateBlob =  buildTemplates(areaName);
+         if (prodBuild) {
+            templateBlob = templateBlob
+                .pipe($.uglify());
+         }
+        
+        return templateBlob.pipe(gulp.dest(areaPath(areaName) + '/js/'));
     });
 }
 

@@ -87,7 +87,10 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		setFeedType: function(feedType) {
 			ctrl.feedType = feedType;
 
+
 			var feedDataObject = feedData[feedType];
+			ctrl.feedTypeDisplay = feedDataObject.display;
+			
 			if (feedDataObject != currentFeedType) {
 				feedFilter.set({
 					filterFn: feedDataObject.dataFn
@@ -104,6 +107,8 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 			return routingService.generateUrl('announcements.detail', { nodeId: announcementData.node.urlCode, announcementId: announcementData.id });
 		},
 		generateStoryUrl: function(storyData){
+			if (!storyData) return "";
+
 			return routingService.generateUrl('stories.detail', { nodeId: storyData.node.urlCode, storyId: storyData.id });
 		}
 	});

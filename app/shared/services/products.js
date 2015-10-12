@@ -30,7 +30,6 @@ var products = function($q, nodeService){
 		}
 	};
 };
-products.$inject = ['$q', 'CommunityNodeService'];
 products.$inject = ['$q', 'CommunityNodeService', 'CommunityIconService'];
 
 angular.module('community.services')
