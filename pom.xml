@@ -55,7 +55,7 @@
                             <goal>gulp</goal>
                         </goals>
                         <configuration>
-                            <arguments>deploy</arguments>
+                            <arguments>prod</arguments>
                         </configuration>
                     </execution>
                 </executions>
