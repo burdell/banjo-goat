@@ -125,7 +125,7 @@ $nav-height: $cmu-nav-height;
 				}
 			}
 			a.cmuGloNav__dropItem {
-				// margin-right: $cmu-base*2;
+				margin-right: $cmu-base/2;
 				background-color: $cmu-color-dkgray;
 				color: $cmu-color-xmdgray;
 
@@ -511,7 +511,7 @@ $nav-height: $cmu-nav-height;
 		    border-radius: 50%;
 		    	width: 45px;
 		    	height: 45px;
-		    	padding: 0.8rem 0.2rem;
+		    	padding: 0.9rem 0.2rem;
 
 		}
 		span:hover:before {

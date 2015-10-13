@@ -8,7 +8,8 @@
 			</span>
 		</div>
 		<div class="cmuFeed__content">
-			{{ ::feedcontent.contentDisplay.body | unformatText | wordCut: 20 }}
+			<!-- {{ ::feedcontent.contentDisplay.body | unformatText | wordCut: 20 }} -->
+			{{ ::feedcontent.contentDisplay.body | unformatText }}
 		</div>
 
 		<div class="row">

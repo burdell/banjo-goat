@@ -26,7 +26,7 @@
 				
 			</div>
 			<div class="cmuPulse__counter cmuPulse__recent col--md3">
-				<div><span class="icon ubnt-icon--chat-bubbles-2"></span></div>
+				<div><span class="icon ubnt-icon ubnt-icon--calendar-3"></span></div>
 				<div><span class="cmuPulse__count">456</span></div>
 				<div><span class="cmuPulse__desc">Posts Today</span></div>
 				
@@ -69,7 +69,7 @@
 							<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
 						</div>
 					</div>
-					<div class="cmuFeed__close col--md4" community-class-toggle="cmuFeed__close--closed">
+					<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
 		        			<span class="ubnt-icon ubnt-icon--x"></span>
 						</div>
 
@@ -98,7 +98,7 @@
 				</div>	
 
 		        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
-		        	<button style="width: 100%" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+		        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
 		        </div>
 
 		        <div class="cmuFeed__list col--md12">

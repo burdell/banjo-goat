@@ -6,6 +6,7 @@
 			var ctrl = this;
 
 			$scope.$on('searchbar:' + ctrl.openEvent, function(){
+				console.log('searchbar trigger')
 				ctrl.toggleMenu();
 			});
 

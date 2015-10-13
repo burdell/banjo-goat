@@ -19,6 +19,10 @@
 // icon representations (only within Feed/Hub)
 .cmuFeed__icon {
 	margin-right: $cmu-base/2;
+	&:before {
+		color: $cmu-color-dkgray;
+	}
+
 	&.all:before {
 		@extend %sidebar-icon;
 		content: '\e63b';
@@ -242,6 +246,11 @@
 			.cmuFeed__content {
 				@extend %size-smaller;
 				margin: $cmu-base/4 0 $cmu-base/2 0;
+
+			    /* white-space: nowrap; */
+			    overflow: hidden;
+			    max-height: $cmu-base*3; // show a partial 3rd line?
+			    max-height: 40px; // preserve 2 lines
 			}
 			.cmuFeed__stats {
 				text-align: right;
@@ -320,12 +329,14 @@
 		.cmuFeed__anno {
 			@extend %size-smaller;
 			margin-bottom: $cmu-vertical-rhythm/2;
-			&:hover {
-				// text-decoration: underline; 
-				a {
-					border-bottom: $style-line;
-				}
-			}
+			// &:hover {
+			// 	// text-decoration: underline; 
+			// 	a {
+			// 		border-bottom: $style-line;
+			// 	}
+			// }
+
+			@extend %style-link--dark;
 		}
 
 
