@@ -10,7 +10,7 @@ function communityloadMore($window) {
 			var windowEl = $(window);
 			var documentEl = $(document);
 			windowEl.bind('scroll', function() {
-				if(scope.loadmore.hasMore && !scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
+				if(scope.loadmore.listMetadata.hasMore && !scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
 					scope.loadmore.load();
 				}
 			});
@@ -20,14 +20,14 @@ function communityloadMore($window) {
 	function controller() {	
 		var ctrl = this;
 		
-		var pageNumber = 0;
-
+		var pageNumber = 1;
+		
 		_.extend(ctrl, {
 			load: function(){
 				ctrl.isLoading = true;
 
 				this.loadFilter.filter({
-					page: pageNumber
+					page: pageNumber + 1
 				}).then(function(result) {
 					pageNumber += 1;
 
@@ -38,7 +38,7 @@ function communityloadMore($window) {
 					}
 					
 					ctrl.isLoading = false;
-					ctrl.listMetadata.hasMore = !result.last;
+					ctrl.listMetadata.hasMore = !(pageNumber === result.totalPages);
 				});
 			},
 			listMetadata: {

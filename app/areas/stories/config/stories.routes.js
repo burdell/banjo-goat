@@ -26,7 +26,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					return filterService.getNewFilter({ 
 						filterFn: communityApi.Stories.all,
 						constants: {
-							limit: 30
+							per_page: 30,
+							sortDir: 'DESC'
 						},
 						persistFilterModel: false 
 					});
@@ -61,7 +62,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterFn: communityApi.Stories.stories, 
 						filterArguments: [ $stateParams.nodeId ], 
 						constants: {
-							limit: 30
+							per_page: 30,
+							sortDir: 'DESC'
 						},
 						persistFilterModel: false,
 						autoInitModel: false 

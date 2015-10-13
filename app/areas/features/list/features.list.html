@@ -107,7 +107,7 @@
 		<div class="cmuFeatures__threadlist__row row" ng-repeat="feature in vm.featuresList">
 			<div class="cmuFeatures__threadlist__content col--md12 noPadding">
 				<div class="cmuFeatures__votes col--md2">
-					<div class="cmuFeatures__votes__count">{{ feature.discussion.stats | extractKey : 'score' | number }}</div>
+					<div class="cmuFeatures__votes__count">{{ feature.countVotes | number }}</div>
 					 <div class="cmuFeatures__votes__caption">votes</div>
 					<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(feature) }}">
 						{{ ::vm.getStatusText(feature) }}
@@ -132,11 +132,11 @@
 							<div class="col--md8">
 								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ feature.message.node.description }}</span></div>
 								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.1.1.1</span></div>
-								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">LOL1234</span></div>
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">1234</span></div>
 							</div>
 
 							<div class="cmuInlineInfo alignRight col--md4">
-								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'views' | number }} views</span>
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.countViews | number }} views</span>
 								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
 							</div>
 						</div>
