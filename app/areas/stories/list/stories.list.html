@@ -1,6 +1,6 @@
 <div class="row row--comfy">
 	<div class="col--md10 noPaddingLeft">
-		<button community-permissions class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
+		<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
 	</div>
 	<div class="col--md2 noPaddingRight">
           <community-sort 

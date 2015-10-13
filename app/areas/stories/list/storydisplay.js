@@ -14,7 +14,7 @@ function storyDisplay() {
 		var ctrl = this;
 		
 		var media = _.find(ctrl.storyMedia, function(mediaObject){ 
-			return mediaObject.meta && mediaObject.meta.isCover && mediaObject.meta.isCover.value === 'true' 
+			return mediaObject.meta && mediaObject.meta.isCover; 
 		});
 	
 		if (media) {
