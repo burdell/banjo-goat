@@ -2,31 +2,33 @@
 <div class="cmuDirectory">
 	<community-page-header hide-element-selector=".directory-container"></community-page-header>
 
-	<!-- pulse row -->
 	<div class="directory-container">
+
+
+		<!-- pulse row -->
 		<div class="row">
 			<div class="cmuPulse col--md12">
 				<!-- <div class="cmuPulse__label">
 					Live Activity
 				</div> -->
-				<div class="cmuPulse__counter cmuPulse__total">
+				<div class="cmuPulse__counter cmuPulse__total col--md3">
 					<div><span class="icon ubnt-icon--pencil-2"></span></div>
 					<div><span class="cmuPulse__count">123,456</span></div>
 					<div><span class="cmuPulse__desc">Total Posts</span></div>
 				</div>
-				<div class="cmuPulse__counter cmuPulse__members">
+				<div class="cmuPulse__counter cmuPulse__members col--md3">
 					<div><span class="icon ubnt-icon--users"></span></div>
 					<div><span class="cmuPulse__count">3,456</span></div>
 					<div><span class="cmuPulse__desc">Total Members</span></div>
 					
 				</div>
-				<div class="cmuPulse__counter cmuPulse__online">
+				<div class="cmuPulse__counter cmuPulse__online col--md3">
 					<div><span class="icon ubnt-icon--ap-airos"></span></div>
 					<div><span class="cmuPulse__count">3,456</span></div>
 					<div><span class="cmuPulse__desc">Members Online</span></div>
 					
 				</div>
-				<div class="cmuPulse__counter cmuPulse__recent">
+				<div class="cmuPulse__counter cmuPulse__recent col--md3">
 					<div><span class="icon ubnt-icon--chat-bubbles-2"></span></div>
 					<div><span class="cmuPulse__count">456</span></div>
 					<div><span class="cmuPulse__desc">Posts Today</span></div>
@@ -70,30 +72,36 @@
 					
 						<div class="cmuDirectory__content__main">
 							<!-- <div class="cmuDirectory__content__title">{{ discussion.name }}</div> -->
-							<div class="row">
-								<div class="cmuDirectory__content__title col--xs8" ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
-									<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }}</a>
-								</div>
-								<div class="cmuDirectory__content__title col--xs8" ng-if="section.header === 'Community'">
-									<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }} Forum</a>
-								</div>
+							<div class="cmuDirectory__content__table">
+								<div class="cmuDirectory__content__tablecell">
+									<div class="cmuDirectory__content__title" ng-if="section.header === 'Broadband' || section.header === 'Enterprise'">
+										<a ui-sref="hub({ nodeId: discussion.urlCode })">{{ discussion.name }}</a>
+									</div>
 
-								<div class="cmuDirectory__stats col--xs4">
-									<div class="cmuDirectory__users">
-										<span class="cmuDirectory__count">1,234</span>
-										<span class="cmuDirectory__label">Members Online</span>
+									<div class="cmuDirectory__content__title" ng-if="section.header === 'Community'">
+										<a ng-href="{{ vm.getDiscussionHref(discussion) }}" target="_self">{{ discussion.name }} Forum</a>
 									</div>
-									<div class="cmuDirectory__posts">
-										<span class="cmuDirectory__count">1,234</span>
-										<span class="cmuDirectory__label">Posts Today</span>
+
+									<div class="cmuDirectory__content__list noPadding">
+										<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
+											<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
+											<span ng-if="!$last">&nbsp;/&nbsp;</span>
+										</span>
+									</div>
+
+								</div>
+								<div class="cmuDirectory__content__tablecell col--xs4">
+									<div class="cmuDirectory__stats ">
+										<div class="cmuDirectory__users">
+											<span class="cmuDirectory__count">1,234</span>
+											<span class="cmuDirectory__label">Members Online</span>
+										</div>
+										<div class="cmuDirectory__posts">
+											<span class="cmuDirectory__count">1,234</span>
+											<span class="cmuDirectory__label">Posts Today</span>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="cmuDirectory__content__list col--md8">
-								<span ng-repeat="childDiscussion in ::discussion.children | orderBy:vm.discussionNodeOrder">
-									<a ng-href="{{ vm.getDiscussionHref(childDiscussion) }}" target="_self">{{ childDiscussion.name }}</a>
-									<span ng-if="!$last">&nbsp;/&nbsp;</span>
-								</span>
 							</div>
 						</div>
 	<!-- 

@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
 				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.countVotes }}<span class="cmuFeatures__votes__caption">votes</span></div>
-				<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(vm.originalMessage) }} ">
+				<div class="cmuFeatures__votes__status {{ vm.originalMessage.state | lowercase }} ">
 					{{ ::vm.getStatusText(vm.originalMessage) }}
 				</div>
 			</div>
@@ -31,9 +31,9 @@
 							<!-- date / time already taken care of in the post! -->
 							<!-- <span class="cmuInlineInfo__data cmuThread__date" data-divider=" | "><span>Posted </span>{{ ::feature.discussion.postTime | timeFromNow }}</span> -->
 
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ ::vm.productName }}</span></div>
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">{{ ::vm.getMetaValue('versionNumber') }}</span></div>
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">{{ ::vm.getMetaValue('issueId') }}</span></div>
+							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">airFiber Feature Requests{{ ::vm.description }}</span></div>
+							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.1.1.1{{ ::vm.getMetaValue('versionNumber') }}</span></div>
+							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">ABC123{{ ::vm.getMetaValue('issueId') }}</span></div>
 						</div>
 					</div>
 					

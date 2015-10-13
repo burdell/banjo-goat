@@ -7355,8 +7355,11 @@ a.cmuGloNav__dropItem:after {
   margin-left: 0.5rem;
   font-size: 0.5rem;
   color: #969ba3;
+  display: inline-block;
   border-radius: 50%;
-  padding: 0.2rem;
+  width: 19px;
+  height: 19px;
+  padding-left: 0.25rem;
   border: 1px solid #474b52;
   border-color: #969ba3;
 }
@@ -7570,8 +7573,11 @@ div.cmuUserbadge__avatar {
   margin-left: 0.5rem;
   font-size: 0.5rem;
   color: #969ba3;
+  display: inline-block;
   border-radius: 50%;
-  padding: 0.2rem;
+  width: 16px;
+  height: 16px;
+  padding-left: 0.2rem;
   border: 1px solid #474b52;
 }
 
@@ -7595,9 +7601,12 @@ div.cmuUserbadge__avatar {
   cursor: pointer;
   font-size: 1.5rem;
   background-color: #969ba3;
-  border-radius: 50%;
-  padding: 4px;
   color: black;
+  display: inline-block;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 0.4rem 0.1rem;
 }
 .cmuGloNav__social span:hover:before {
   background-color: #bbbbbd;
@@ -7618,9 +7627,13 @@ div.cmuUserbadge__avatar {
   cursor: pointer;
   font-size: 1.8rem;
   background-color: #474b52;
-  border-radius: 50%;
-  padding: 8px;
   color: #fafafa;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 0.8rem 0.2rem;
 }
 .cmuGloNav__top span:hover:before {
   background-color: #969ba3;
@@ -7876,11 +7889,18 @@ div.cmuOverlay--show {
   display: table;
   padding: 0;
   margin-bottom: 1rem;
+  border-bottom: 1px #bbbbbd solid;
+  text-align: center;
   margin-top: -1rem;
 }
 @media only screen and (max-width: 800px) {
   .cmuPulse {
     display: none;
+  }
+}
+@media only screen and (min-width: 1041px) {
+  .cmuPulse {
+    padding: 0 4rem;
   }
 }
 
@@ -7916,13 +7936,16 @@ div.cmuOverlay--show {
 }
 
 .cmuPulse__counter {
-  display: table-cell;
+  display: inline-block;
   vertical-align: middle;
-  width: 24%;
-  padding: 0.5rem 1rem 0.5rem 0;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   overflow: hidden;
   text-transform: uppercase;
   color: #474b52;
+}
+.cmuPulse__counter div {
+  display: inline-block;
+  vertical-align: middle;
 }
 .cmuPulse__counter .icon {
   font-size: 0.88rem;
@@ -7932,15 +7955,6 @@ div.cmuOverlay--show {
   border-radius: 500px;
   position: relative;
   top: -1px;
-}
-
-.cmuPulse__counter {
-  padding-right: 1rem;
-  border-bottom: 1px #bbbbbd solid;
-}
-.cmuPulse__counter div {
-  display: table-cell;
-  vertical-align: middle;
 }
 
 @media only screen and (max-width: 1040px) {
@@ -8041,31 +8055,39 @@ div.cmuOverlay--show {
   padding: 0.5rem 0.5rem;
 }
 
+.cmuDirectory__content__table {
+  display: table;
+  width: 100%;
+}
+
+.cmuDirectory__content__tablecell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 80%;
+}
+
 .cmuDirectory__content__title {
   font-size: 1rem;
   line-height: 1.5rem;
+  display: block;
 }
 
 .cmuDirectory__content__list {
-  padding: 0.5rem 1rem;
-  padding-left: 0;
-  padding-top: 0;
+  position: relative;
+  display: inline-block;
+  float: left;
 }
 .cmuDirectory__content__list a {
   white-space: nowrap;
 }
 
 .cmuDirectory__stats {
-  text-align: right;
+  float: right;
   cursor: default;
 }
 .cmuDirectory__stats div {
   display: inline-block;
   padding-right: 1rem;
-}
-
-.cmuDirectory__users {
-  margin-right: 1rem;
 }
 
 .cmuDirectory__count {
@@ -9571,6 +9593,9 @@ button .icon, .button .icon {
 .cmuComments__flag .cmuIcon-flag {
   cursor: pointer;
   border: 1px solid #bbbbbd;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   opacity: 0;
 }
@@ -10289,7 +10314,7 @@ select.cmuSort {
   background-color: #81419f;
   color: #fafafa;
 }
-.cmuFeatures__votes__status.pending {
+.cmuFeatures__votes__status.pending, .cmuFeatures__votes__status.new {
   background-color: #d6c633;
   color: #fafafa;
 }

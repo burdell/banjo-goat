@@ -95,18 +95,35 @@
 		// display: table-cell;
 		// width: 80%;
 	}
+		.cmuDirectory__content__table {
+			display: table;
+			width: 100%;
+		}
+			.cmuDirectory__content__tablecell {
+				display: table-cell;
+	    		vertical-align: middle;
+	    		width: 80%;
+			}
 
 		.cmuDirectory__content__title {
 			font-size: $cmu-size-large;
 			line-height: $cmu-size-large--line-height;
-			a {
+		    display: block;
+		    // float: left;
+
+		    a {
 				@extend %style-link;
 			}
 		}
 		.cmuDirectory__content__list {
-			padding: $cmu-base/2 $cmu-base;
-			padding-left: 0;
-			padding-top: 0;
+			// padding: $cmu-base/2 $cmu-base;
+			// padding-left: 0;
+			// padding-top: 0;
+
+		    position: relative;
+
+			display: inline-block;
+			float: left;
 
 			a {
 				white-space: nowrap;
@@ -118,7 +135,8 @@
 // Online Stats
 
 	.cmuDirectory__stats {
-		text-align: right;
+		// text-align: right;
+		float: right;
 		cursor: default;
 
 		div {
@@ -127,7 +145,7 @@
 		}
 	}
 		.cmuDirectory__users {
-			margin-right: $cmu-base;
+			// margin-right: $cmu-base;
 		}
 
 		.cmuDirectory__count {
