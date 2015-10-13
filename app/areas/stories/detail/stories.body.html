@@ -12,7 +12,7 @@
 		<div class="cmuStories__author--info">
 			<span>by</span>
 			<community-username user="vm.storyAuthor"></community-username>
-			<span class="cmuStories__postTime">{{ vm.discussion.postDate | timeFromNow }}</span>
+			<span class="cmuStories__postTime">{{ vm.story.message.postDate | timeFromNow }}</span>
 		</div>
 		
 		<button community-permissions denied-behavior="disable" community-permissions ng-if="

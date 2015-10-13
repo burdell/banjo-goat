@@ -19,7 +19,7 @@ var _ = require('underscore');
 function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
 	var ctrl = this;
 
-	storyThread.comments.content.shift();
+	storyThread.comments.content.pop();
 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;

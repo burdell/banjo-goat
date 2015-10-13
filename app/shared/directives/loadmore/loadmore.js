@@ -10,7 +10,7 @@ function communityloadMore($window) {
 			var windowEl = $(window);
 			var documentEl = $(document);
 			windowEl.bind('scroll', function() {
-				if(!scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
+				if(scope.loadmore.hasMore && !scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
 					scope.loadmore.load();
 				}
 			});
@@ -20,7 +20,7 @@ function communityloadMore($window) {
 	function controller() {	
 		var ctrl = this;
 		
-		var pageNumber = 1;
+		var pageNumber = 0;
 
 		_.extend(ctrl, {
 			load: function(){
