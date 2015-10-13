@@ -142,8 +142,11 @@ $nav-height: $cmu-nav-height;
 					// margin-right: $cmu-base*2;
 					font-size: $cmu-base/2;
 					color: $cmu-color-gray;
+					display: inline-block;
 				    border-radius: 50%;
-				    padding: 0.2rem;
+				    	width: 19px;
+				    	height: 19px;
+				    padding-left: 0.25rem;
 				    border: $style-line--dark;
 				    border-color: $cmu-color-gray;
 				}
@@ -440,8 +443,11 @@ $nav-height: $cmu-nav-height;
 			margin-left: $cmu-base/2;
 			font-size: $cmu-base/2;
 			color: $cmu-color-gray;
+			display: inline-block;
 		    border-radius: 50%;
-		    padding: 0.2rem;
+		    	width: 16px;
+		    	height: 16px;
+		    	padding-left: 0.2rem;
 		    border: $style-line--dark;
 		}
 	}
@@ -470,9 +476,13 @@ $nav-height: $cmu-nav-height;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
 			background-color: $cmu-color-gray;
-			border-radius: 50%;
-			padding: 4px;
 			color: $cmu-color-black;
+
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 28px;
+		    	height: 28px;
+		    	padding: 0.4rem 0.1rem;
 		}
 		span:hover:before {
 			@extend %ease-fast;
@@ -495,9 +505,13 @@ $nav-height: $cmu-nav-height;
 			cursor: pointer;
 			font-size: $cmu-base*1.8;
 			background-color: $cmu-color-dkgray;
-			border-radius: 50%;
-			padding: 8px;
 			color: $cmu-color-white;
+			text-align: center;
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 45px;
+		    	height: 45px;
+		    	padding: 0.8rem 0.2rem;
 
 		}
 		span:hover:before {

@@ -67,7 +67,7 @@
 			background-color: $cmu-color-status-unspecified;
 			color: $cmu-color-white;
 		}
-		&.pending {
+		&.pending, &.new {
 			background-color: $cmu-color-status-pending;
 			color: $cmu-color-white;
 		}
