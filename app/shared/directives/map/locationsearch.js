@@ -2,14 +2,17 @@
 'use strict';
 
 var $ = require('jquery');
+var mapsLoader = require('google-maps');
+mapsLoader.LIBRARIES = ['places'];
 
 function communityLocationSearch() {
 	var link = function(scope, element, attrs) {	
-		var autocomplete = new google.maps.places.Autocomplete(element[0], {
-			types: ['(regions)']
+		var autocomplete = null;
+		mapsLoader.load(function(google){
+			autocomplete = new google.maps.places.Autocomplete(element[0], { types: ['(regions)'] });
+			google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
 		});
-		google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-
+	
 		function onPlaceChanged(){
 			var placeData = autocomplete.getPlace();
 			scope.$apply(function(){
@@ -18,7 +21,6 @@ function communityLocationSearch() {
 					locLat: placeData.geometry.location.lat(),
 					locLon: placeData.geometry.location.lng()
 				}
-
 			});
 		}
 

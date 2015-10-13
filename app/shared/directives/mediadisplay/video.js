@@ -1,6 +1,8 @@
-(function(_){
+
 	'use strict';
 	
+	var youTubeLoader = require('youtube-iframe');
+
 	function videoEmbed() {
 		var link = function(scope, element, attrs) {
 			var videoElementId = 'community-video-' + scope.$id;
@@ -8,9 +10,11 @@
 			
 			var videoType = scope.videoembed.videoType;
 			if (videoType === 'youtube') {
-				var player = new YT.Player(videoElementId, {
-	                videoId: scope.videoembed.videoId
-	            });
+				youTubeLoader.load(function(YT){
+					new YT.Player(videoElementId, {
+		                videoId: scope.videoembed.videoId
+		            });
+				});
 			} else if (videoType === 'vimeo') {
 				var $element = $(element);
 				$element.append('<iframe src="//player.vimeo.com/video/' + scope.videoembed.videoId +'" frameborder="0" width="615.5" height="365" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
@@ -42,4 +46,3 @@
 	angular.module('community.directives')
 		.directive('communityVideoEmbed', videoEmbed);
 		
-}(window._));
