@@ -159,6 +159,11 @@
 			font-weight: 300;
 		}
 	}
+	.cmuUserbadge__postCount {
+		&:after {
+			content: ' posts';
+		}
+	}
 
 	.cmuUserbadge__posts {
 		display: inline-block;

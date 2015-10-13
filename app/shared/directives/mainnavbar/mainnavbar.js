@@ -9,6 +9,9 @@ require('services/currentuser.js');
 
 require('providers/routes.js');
 
+require('directives/dropdown/dropdown.js');
+require('directives/searchbar/searchbar.js');
+
 var _ = require('underscore');
 
 function mainNavBar() {
@@ -76,9 +79,8 @@ function mainNavBar() {
 					
 					return active;
 				},
-				dropdownIsActive: function(event) {
-					// haven't hooked this up yet
-					return false;
+				openDropdown: function(eventName) {
+					$scope.$broadcast('dropdown:' + eventName);
 				},
 				templateData: {
 					getDiscussionUrl: function(node){

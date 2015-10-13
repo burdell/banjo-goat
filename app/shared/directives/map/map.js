@@ -3,22 +3,27 @@
 
 	var $ = require('jquery');
 	var _ = require('underscore');
-	
+
+	var mapsLoader = require('google-maps');
+	mapsLoader.LIBRARIES = ['places'];
+
 	function communityMap() {
 		var link = function(scope, element, attrs) {
 			var coordinates = scope.map.mapCoordinates;
 
-			var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
-			var mapOptions = {
-			    zoom: 4,
-			    center: latLng,
-			    mapTypeId: google.maps.MapTypeId.TERRAIN,
-			    streetViewControl: false,
-			    mapTypeControl: false
-			}
-			var mapElement = $(element).find('.map-canvas')[0];
-			scope.map.mapInstance = new google.maps.Map(mapElement, mapOptions);
-			scope.map.setMarker(latLng);
+			mapsLoader.load(function(google){
+				var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
+				var mapOptions = {
+				    zoom: 4,
+				    center: latLng,
+				    mapTypeId: google.maps.MapTypeId.TERRAIN,
+				    streetViewControl: false,
+				    mapTypeControl: false
+				}
+				var mapElement = $(element).find('.map-canvas')[0];
+				scope.map.mapInstance = new google.maps.Map(mapElement, mapOptions);
+				scope.map.setMarker(latLng);
+			});
 		};
 
 		var controller = function($scope) {

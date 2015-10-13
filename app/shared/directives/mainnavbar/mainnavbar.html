@@ -86,7 +86,7 @@
             <div class="cmuGloNav__cmuAccount">
               <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
                 <li class="cmuGloNav__notifications"
-                    ng-click="$broadcast('dropdown:toggleNotifications');">
+                    ng-click="mainnavbar.openDropdown('toggleNotifications')">
                   <a href="#">
                      <span class="icon ubnt-icon--bell"></span>
                   </a>
@@ -99,7 +99,7 @@
 
                 <li class="cmuGloNav__inbox"
                     ng-class="{ 'active' : mainnavbar.dropdownIsActive(messages)}"
-                    ng-click="$broadcast('dropdown:toggleMessages');">
+                    ng-click="mainnavbar.openDropdown('toggleMessages')">
                       <a href="#">
                         <span class="icon ubnt-icon--inbox"></span>
                       </a>
@@ -111,9 +111,10 @@
 
 
                 <li class="cmuGloNav__profile"
-                    ng-click="$broadcast('dropdown:toggleProfile');">
+                    ng-click="mainnavbar.openDropdown('toggleProfile')">
                     <a href="#">
-                        <span class="cmuProfile__avatar"></span>
+                        <span class="cmuProfile__avatar"
+                        ></span>
                       </a>
                 </li>
                     <community-drop-down

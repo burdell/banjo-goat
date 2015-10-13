@@ -7,12 +7,15 @@
 		<h6> by&nbsp; <community-username user="storydisplay.story.message.insertUser"></community-username> {{ ::storydisplay.story.message.postDate | timeFromNow }}</h6>
 	</div>
 	<div class="cmuStoryItem--meta">
-		<p>{{ storydisplay.story.summary }}</p>
+		<!-- <p>{{ storydisplay.story.summary }}</p> -->
 		<span class="cmuStoryItem--views">
 			<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
 		</span>
 		<span class="cmuStoryItem--kudos">
 			<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
+		</span>
+		<span>
+			{{ storydisplay.story.node.description }}
 		</span>
 	</div>
 </div>
