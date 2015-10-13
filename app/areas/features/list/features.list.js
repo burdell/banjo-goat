@@ -16,7 +16,8 @@
 	function featuresListController ($stateParams, dataService, featuresData, featuresListFilter){
 		var ctrl = this;
 
-		function setMessageData (result){			
+		function setMessageData (result){		
+			console.log(result.content);
 			ctrl.featuresCount = result.totalElements;
 			ctrl.numberOfPages = result.totalPages;
 			ctrl.featuresList = result.content;
@@ -54,6 +55,7 @@
 
 		var statusTypes = featuresData.StatusTypes;
 		var filterLists = null;
+
 
 		_.extend(ctrl, {
 			messageSortOptions: dataService.MessageSort,

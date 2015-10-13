@@ -1,5 +1,9 @@
-(function(_){
+
 	'use strict';
+
+	require('services/utils.js');
+
+	var _ = require('underscore');
 	
 	function dropDown() {
 		var controller = function($rootScope, $scope, utils) {
@@ -26,7 +30,6 @@
 
 					ctrl.isOpen = !ctrl.isOpen;
 
-					// utils.preventBodyScroll(ctrl.isOpen);
 
 				}
 			});
@@ -51,4 +54,3 @@
 	angular.module('community.directives')
 		.directive('communityDropDown', dropDown);
 		
-}(window._));

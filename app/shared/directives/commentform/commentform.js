@@ -20,13 +20,17 @@ function commentForm() {
 			},
 			submitReply: function(){
 				if (ctrl.comment.body) {
-					console.log(ctrl.comment);
+					ctrl.submittingComment = true;
 					communityApi.Core.message(ctrl.comment).then(function(result){
-						ctrl.commentList.content.push(result);
-						
+						ctrl.submittingComment = false;
 
+						ctrl.commentList.content.unshift(result);
+						
 						ctrl.comment.body = null;
 						ctrl.cancelReply();
+					},
+					function(){
+						ctrl.submittingComment = false;
 					});
 				}
 			},

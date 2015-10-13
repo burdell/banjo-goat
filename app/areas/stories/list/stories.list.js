@@ -36,7 +36,7 @@ function StoriesListController ($scope, storyFilter, breadcrumbService, dataServ
 		hideNewStoryButton: isStoriesLanding
 	});
 
-	if ($state.current.name === 'storiesLanding') {
+	if (isStoriesLanding) {
 		breadcrumbService.setCurrentBreadcrumb('Stories');
 	}
 }
