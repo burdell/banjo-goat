@@ -159,6 +159,29 @@ $nav-height: $cmu-nav-height;
 
 
 		.cmuGloNav__cmuAccount {
+
+			// fun!
+
+			.cmuProfile__avatar {
+				&:before {
+					content: ' ';
+					display: block;
+					background: #969ba3;
+					border-radius: 50%;
+					margin-top: 5px;
+					margin-right: 0;
+					margin-left: 4px;
+					@extend %ease-fast;
+					height: remCalc(28px);
+					width: remCalc(28px);
+
+					background-image: url('http://images1.fanpop.com/images/photos/2200000/Matt-Hardy-matt-hardy-2282840-624-388.jpg');
+					background-size: cover;
+					background-repeat: no-repeat;
+				}
+			}
+
+
 			a { 
 				outline:none;
 			}
@@ -324,7 +347,7 @@ $nav-height: $cmu-nav-height;
 				border-left: $style-line--dark;
 				font-size: $cmu-base;
 			}
-		}cmuGloNav__avatar
+		}
 
 		.cmuGloNav__mobile__link {
 			@extend %nav-style--mobile;
