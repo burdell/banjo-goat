@@ -1,6 +1,10 @@
-(function(_){
+
 	'use strict';
-	
+
+	require('services/utils.js');
+
+	var _ = require('underscore');
+
 	function searchBar() {
 		var controller = function($rootScope, $scope, utils) {
 			var ctrl = this;
@@ -49,4 +53,3 @@
 	angular.module('community.directives')
 		.directive('communitySearchBar', searchBar);
 		
-}(window._));
