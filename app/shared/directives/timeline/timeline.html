@@ -1,19 +1,54 @@
-<div>
-	<div ng-repeat="yearData in timeline.timelineData">
-		<div ng-click="timeline.yearClicked(yearData.year)"
-			<h4>{{ yearData.year }} ({{ yearData.count }})</h4>
-		</div>
 
-		<div ng-show="timeline.showYear(yearData.year)">
-			<div ng-repeat="monthData in yearData.yearData" style="padding-left: 10px;">
-				<div ng-click="timeline.monthClicked(monthData.month)">
-					<h5>{{ monthData.month | monthDisplay }} ({{ monthData.monthData.length }})</h5>
-				</div>
-				<div ng-show="timeline.showMonth(monthData.month, yearData.year)">
-					<div ng-repeat="data in monthData.monthData" style="padding-left: 10px;">
-						<a ui-sref="announcements.detail({ announcementId: data.id })">{{ data.subject }}</a>
-					</div>
-				</div>
+<div class="cmuTimeline" >
+
+	<div class="timeline__year" ng-repeat="yearData in timeline.timelineData">
+		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
+		</div>
+		
+		<!-- remove cmuTimeline__showheader to hide table headers (benefits lists w/ 10 or fewer) -->
+		<div class="cmuTimeline__list 
+					cmuThreadlist__list
+					cmuTimeline__showheader
+					" 
+					ng-show="timeline.showYear(yearData.year)">
+			<div class="cmuTimeline__month" ng-repeat="monthData in yearData.yearData">
+				<table>
+
+			        <thead>
+			          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }}</th>
+			          <th class="cmuThreadlist__thead--author">Author</th>
+			          <th class="cmuThreadlist__thead--createdDate">Created</th>
+			          <th class="cmuThreadlist__thead--counter
+			                     cmuThreadlist__thead--views"></th>
+			          <th class="cmuThreadlist__thead--counter
+			          					 cmuThreadlist__thead--replies"></th>
+			          <th class="cmuThreadlist__thead--counter
+			          					 cmuThreadlist__thead--kudos"></th>
+			        </thead>
+
+					<tbody>
+			          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
+			          	<td class="cmuThreadList__row__topic">
+			          		{{ data.subject }}
+			          	</td>
+			            <td class="cmuThreadList__row__author">
+			              <community-username user="data.message.insertUser"></community-username>
+			            </td>
+			            <td class="cmuThreadList__row__createdDate">{{ data.message.postDate | timeFromNow }}
+			            </td>
+			            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
+			              {{  data.countViews | number}}
+			            </td>
+			            <td class="cmuThreadList__row__counter" title="comments">
+			              <!-- {{  ( data.discussion.stats | extractKey : 'comments') - 1  | number}} -->
+			              123
+			            </td>
+			            <td class="cmuThreadList__row__counter" title="kudos">
+			              {{  data.discussion.stats | extractKey : 'score'  | number}}
+			            </td>
+			          </tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

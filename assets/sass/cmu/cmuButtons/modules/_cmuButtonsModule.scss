@@ -21,18 +21,16 @@
 	- Standard button height are 32px (2rem)
 	- all buttons are defined w/ border for height standardization
 		- solid buttons match border w/ bg color
+
+	TODO:
+	- shift reference to .button instead of <button> tag, since we need <a> to also look like buttons
 */
 
-// 
-// 
-// 
-
 $cmu-style-button-borderwidth: remCalc(2px);
-
 $cmu-button-fontsize: $cmu-size-xsmaller;
+$cmu-button-fontsize--icon: $cmu-size-normal;
 $cmu-button-lineheight: $cmu-cta-height;
 $cmu-button-letterspacing: remCalc(0.5px);
-
 $cmu-button-color-base: $cmu-color-blue;
 
 
@@ -105,9 +103,9 @@ $cmu-button-color-base: $cmu-color-blue;
 		border-color: $fgColor;
 
 		&:hover {
-			color: $cmu-color-white; // can't use transparent
-			background-color: $fgColor;
-			border-color: $fgColor;
+			color: $cmu-color-black; // can't use transparent
+			// background-color: $fgColor;
+			border-color: $cmu-color-black;
 		}
 	} @else if $type == 'outline' {
 		border-width: 1px;
@@ -142,20 +140,12 @@ $cmu-button-color-base: $cmu-color-blue;
 		}
 	}
 
-
-	// specialty icons
-	.icon {
-		font-weight: 800;
-		font-size: $cmu-size-normal;
-		position: relative;
-		top: 1px;
-	}
 }
 
 
 
 button, .button, .cmuButton {
-	font-size: $cmu-size-xsmaller;
+	font-size: $cmu-button-fontsize;
 	text-transform: uppercase;
 
 	line-height: $cmu-button-lineheight - $cmu-style-button-borderwidth * 2;
@@ -168,6 +158,10 @@ button, .button, .cmuButton {
 
 	@include cmuButton('ghost');
 	@extend %ease-fast;
+
+	// important! this overrides the disabled default cursor
+	// we want all buttons to be clickable, and redirect users to the login / sign up process
+	cursor: pointer !important;
 
 	// space them out if next to each other
 	&+& {
@@ -316,6 +310,10 @@ button, .button {
 	// default treat icon on the left
 	.icon {
 		margin-right: $cmu-base/4;
+		font-weight: 800;
+		font-size: $cmu-button-fontsize--icon;
+		position: relative;
+		top: 1px;
 	}
 }
 
@@ -325,46 +323,73 @@ button, .button {
  }
 
 .button--thin {
-	line-height: remCalc(21px);
-	font-size: 10px;
-
-	&:hover {
-		// border-width: 1px; 
-	}
+	line-height: remCalc(20px);
  }
 
-.button--vote {
+.button--large {
+	padding-left: $cmu-base*3;
+	padding-right: $cmu-base*3;
+	padding-top: $cmu-base;
+	padding-bottom: $cmu-base;
 
+ }
+
+
+
+ // 
+ // Vote Button Style
+ // 
+.button--vote {
 	text-align: left;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	padding-right: 0;
+
 	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
 
-	line-height: remCalc(21px);
-	font-size: 10px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+
+	position: relative;
+	top: -1px;
 
 	&:after {
 		// font-family: "ubnt";
 		content: '+';
 		color: white; 
-		padding: 8px 8px 8px 9px;
-		margin-left: 6px;
-		margin-right: -1px;
+		padding: 1px $cmu-base*3/4;
+		margin-left: $cmu-base;
+		// margin-right: -1px;
 		background-color: $cmu-color-gray;
+		float: right;
+
 	}
+		// thin vote buttons
+		&.button--thin:after {
+			padding: 1px remCalc(8px);
+		}
+
 	&:hover {
 		&:after {
 			font-family: "lato";
 			content: '+1';
-			padding: 8px 5px 8px 6px;
+			// padding: 9px 8.5px;
 		}
 	}
+		// thin vote buttons
+		&.button--thin:hover:after {
+			padding: 1px remCalc(5px);
+		}
 
 
-	&.button-white-on-green {
+	&.button-green-on-white {
 		@include cmuButton('outline',$cmu-color-green,$cmu-color-white,$cmu-color-gray);
-		// border-color:
+		
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+
+		position: relative;
+		top: -1px;
+		
 		&:after {
 			background-color: $cmu-color-green;
 		}
@@ -372,6 +397,10 @@ button, .button {
 }
 
 .button--wide {
+	padding-left: $cmu-base;
+	padding-right: $cmu-base;
+}
+.button--stretch {
 	width: 100%;
  }
 
@@ -388,3 +417,40 @@ button, .button {
 
 
 
+// disabled wrapper
+// MAYBE we shouldn't style these differently and they just forward you to login
+
+// .cmuDisabled {
+// 	.button, button {
+// 		background-color: $cmu-color-ltgray;
+// 		border-color: $cmu-color-ltgray;
+// 	}
+// }
+
+
+
+// 
+// tabs
+// 
+
+.button--tab {
+	@include cmuButton('outline',$cmu-color-mdgray,$cmu-color-ltgray);
+	color: $cmu-color-black;
+	margin-left: 0;
+	display: inline-block;
+	@extend %ease-none;
+
+	&:first-child {
+		margin-right: -1px;
+	}
+
+	&.active {
+		@extend %ease-none;
+		border-top: 3px solid $cmu-color-active;
+		color: $cmu-color-active;
+		background-color: $cmu-color-white;
+		line-height: $cmu-button-lineheight - remCalc(3px) * 2;
+		position:relative;
+		top: 1px;
+	}
+}

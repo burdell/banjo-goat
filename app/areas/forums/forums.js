@@ -1,16 +1,11 @@
-(function(_){
-	'use strict';
 
-	var forumController = function($stateParams, $state, nodeService){
-		var ctrl = this;
-		
-		_.extend(ctrl, {
-			currentNode: nodeService.CurrentNode
-		});
-	};
-	forumController.$inject = ['$stateParams', '$state', 'CommunityNodeService'];
+'use strict';
 
-	angular.module('community.forums')
-		.controller('Forum', forumController);
+var forumController = function(){
+};
+forumController.$inject = [];
 
-}(window._));
+angular.module('community.forums')
+	.controller('Forum', forumController);
+
+

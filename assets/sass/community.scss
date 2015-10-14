@@ -19,7 +19,9 @@
 @import "../../node_modules/css-base/src/baseLayout/index";
 @import "../../node_modules/css-base/src/base";
 
-// 
+
+
+//  
 // UBNT MODULES / COMPONENTS / DEPENDENCIES
 // 
 
@@ -41,6 +43,17 @@
 // Includes: settings, base styles, mixins, components / modules, and external dependencies and overrides
 // 
 @import "cmu/cmu";
+
+// temp fix for input for Nathan's search dev
+input[type=checkbox] {
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+input {
+  -webkit-appearance: initial;
+  appearance: initial;
+}
 
 
 

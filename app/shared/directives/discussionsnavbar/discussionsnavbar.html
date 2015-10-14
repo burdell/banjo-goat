@@ -1,10 +1,20 @@
 
 <div class="cmuDiscussionsNavbar">
 	<ul>
-		<li ng-repeat="navLink in navbar.navLinks">
-			<a ng-class="{ active : navLink.active }" href="{{ ::navLink.href }}" target=" {{ ::navLink.target() }}">
+		<!-- <li>
+			<a>Home</a>
+		</li> -->
+		<li ng-repeat="navLink in ::navbar.navLinks">
+
+			<a ng-class="{ active : navLink.active, cmuDiscussionsNavbar__group : navLink.display=='Forums' }" area-link-handler="{{ ::navLink.href }}">
 				{{ navLink.display }}
 			</a>
+
+			<ul ng-if="navLink.subLinks" class="cmuDiscussionsNavbar__group__container" href="#">
+				<li ng-repeat="subLink in navLink.subLinks">
+					<a ng-class="{ active : subLink.active }" area-link-handler="{{ ::subLink.href }}" >{{ subLink.display }}</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </div>

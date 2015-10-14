@@ -6,8 +6,8 @@
 	margin-bottom: $cmu-base;
 	display: block;
 
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
+    // border-bottom: $style-line;
+    // padding-bottom: $cmu-base/2;
 
 }
 
@@ -17,18 +17,24 @@
 // 
 
 .cmuDiscussionsHeader {
-	float: left;
-	display: inline-block;
-	h4 { 
-		font-weight: bold;
-		font-size: remCalc(15px);
+	// float: left;
+	// display: inline-block;
+	display: block;
+	// margin-bottom: $cmu-base/2;
+	font-size: $cmu-size-xsmaller;
+	// border-bottom: $style-line--dark;
+	// border-bottom-width: 2px; // thicker
 
-		padding-right: 16px;
-		border-right: 1px solid $cmu-color-gray;
-		line-height: 14px;
-		vertical-align: bottom;
-		margin-top: 4px;
-	}
+	// don't override main styles, left as notes
+	// h4 { 
+	// 	font-weight: bold;
+	// 	font-size: remCalc(15px);
+
+	// 	padding-right: 16px;
+	// 	line-height: 14px;
+	// 	vertical-align: bottom;
+	// 	margin-top: 4px;
+	// }
 }
 
 
@@ -41,36 +47,92 @@
 .cmuDiscussionsNavbar {
 	cursor: default;
 	// margin-bottom: $cmu-vertical-rhythm;
-	display: inline-block;
-	margin-left: $cmu-base;
-
-	* {
-		@extend .type-titleThin;
-	}
+	// display: inline-block; // nor necessary and introduces problems with empty navs (ex: directory)
+	// padding-left: $cmu-base;
+	// border-left: 1px solid $cmu-color-mdgray;
+	
+	border-top: $style-line;
+	border-bottom: $style-line--dark;
+	border-bottom-width: 2px; // thicker
 
 	a {
-		@extend .type-link;
-		font-size: remCalc(15px);
-		font-weight: 300;
-		text-transform: capitalize;
+		display: inline-block;
+		@extend %size-xsmaller;
+		font-weight: 400;
+		@extend %ease-fast;
+		@extend %style-link--dark;
+		text-transform: uppercase;
+		padding: $cmu-base $cmu-base/2;
+		line-height: 0;
+		outline: none;
 	}
 
 	ul {	
-		// float: left;
 		margin: 0; //override global style
-
 		display: block;
 		width: 100%;
-		// border-bottom: $cmu-style-border-thin;
-		// padding: $cmu-base/2 0;
 	}
 
 	li {
-		display: inline; 
-		padding-left: 1em;
+		display: inline-block; 
+		// padding-left: 1em;
+
+		&:first-child a{
+			padding-left: 0;
+		}
 	}
 
 	li:first-of-type {
 		padding-left: 0;
 	}
 }
+
+// grouped content
+.cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
+	margin-right: $cmu-base;
+	background-color: $cmu-color-white;
+	padding-left: $cmu-base/2;
+	padding-right: $cmu-base/2;
+}
+
+.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
+	display: none;
+	// @include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
+	background-color: $cmu-color-ltgray;
+	// margin-left: $cmu-base/2;
+    position: relative;
+    left: -4px;
+    top: 1px;
+    padding: $cmu-base/2 0;
+    // padding-left: $cmu-base;
+    line-height: 0;
+
+
+    &:before {
+    	content: ' ';
+		width: 0; 
+		height: 0; 
+		border-top: 6px solid transparent;
+		border-bottom: 6px solid transparent; 
+		border-left:6px solid $cmu-color-mdgray; 
+	    position: absolute;
+	    top: 10px;
+	    left: -12px;
+    }
+
+	li {
+		padding: 0;
+
+		&:last-child a {
+			padding-right: $cmu-base*3/4;
+		}
+	}
+	a {
+		padding-left: $cmu-base*3/4;
+	}
+}
+
+.cmuDiscussionsNavbar .cmuDiscussionsNavbar__group + .cmuDiscussionsNavbar__group__container {
+	display: inline;
+}
+

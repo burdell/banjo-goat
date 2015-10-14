@@ -2,9 +2,17 @@
 // community input fields
 
 // surround <input>s in these for positioning
+
+// groups together form elements
+.cmuInputGroup {
+	margin-bottom: $cmu-base;
+}
+
+
 .cmuInputContainer {
 	position: relative;
 }
+
 
 .cmuInput {
 	border: 1px solid $cmu-color-gray;
@@ -29,6 +37,27 @@
 		width: 100%;
 	}
 
+	// in inputgroups, this acts like the default "all checkboxes" option
+	.cmuInput--default {
+		// border-bottom: 1px solid $cmu-color-ltgray;
+		// padding-bottom: $cmu-base/2;
+		// margin-bottom: $cmu-base/2;
+
+		// most sites actually hide this guy, since it's implied 
+		input {
+			display: none;
+		}
+		span {
+			font-weight: 600;
+			color: $cmu-color-ltblack !important;
+		}
+
+		// shift input boxes to denote hierarchy better
+		& ~ .cmuInput__checkbox {
+			// removed since we now just hide this
+			// margin-left: $cmu-base/2;
+		}
+	}
 
 // 
 %cmuInput--stacked--expanded {
@@ -289,3 +318,294 @@
 	}
 
 
+// 
+// Generalized inputs
+// 
+
+
+// 
+// Checkboxes and Radio
+// 
+
+.cmuInput__checkbox {
+
+	/* hide default checkbox */
+	input[type="checkbox"] {
+		-webkit-appearance: none;
+		appearance: none;
+		display: relative;
+		cursor: pointer; 
+	}
+
+	/* custom checkbox placeholder */
+	input[type="checkbox"]:before {
+		content: ' ';
+		display: block;
+		position: relative;
+		// left: 0;
+		top: $cmu-base/4 - remCalc(1px);
+		width: $cmu-base;
+		height: $cmu-base;
+		border: 1px solid $cmu-color-line--light;
+		background-color: $cmu-color-bodybg;
+		margin-right: $cmu-base/4;
+		cursor: pointer; 
+	}
+
+	/* accessibility / focus outline color */
+	input[type="checkbox"]:focus {
+		outline: 0;
+	}
+	input[type="checkbox"]:focus:before {
+		border-color: $cmu-color-active;
+	}
+
+	/* checkmark base style */
+	input[type="checkbox"]:after {
+		content: '✔';
+		position: absolute;
+		margin-top: -$cmu-base/1.4;
+		margin-left: $cmu-base/4;
+		color: $cmu-color-bodybg;
+		font-size: $cmu-size-xxsmaller;
+		z-index: 100;
+		@extend %ease;
+		opacity: 0;
+	}
+
+		// disabled
+		input[type="checkbox"][disabled]:after {
+			@extend %ease;
+			opacity: 0;
+			background-color: $cmu-color-bg;
+		}
+
+		// disabled label style
+		input[type="checkbox"][disabled] + span {
+			background-color: $cmu-color-bg;
+		}
+
+
+		// checked checkbox container
+		input[type="checkbox"]:checked:before {
+			background-color: $cmu-color-active;
+			border-color: $cmu-color-active;
+		}
+
+		// checked checkmark
+		input[type="checkbox"]:checked:after {
+			@extend %ease;
+			opacity: 1;
+		}
+			// (special) group default checkbox not-checked label style
+			.cmuInput__checkbox input[type="checkbox"] + span {
+				// color: $cmu-color-red;
+			}
+
+		// label style
+		input[type="checkbox"] + span {
+			color: $cmu-color-title;
+			cursor: pointer;
+
+			&:hover {
+				color: $cmu-color-active;
+			}
+		}
+
+		// checked label style
+		input[type="checkbox"]:checked + span {
+			color: $cmu-color-active;
+		}
+
+		// not checked label
+		input[type="checkbox"]:not(:checked) + span {
+			color: $cmu-color-title;
+		}
+
+			// (special) group default checkbox not-checked label style
+			// .cmuInput--default label input[type="checkbox"]:not(:checked) + span {
+			// 	color: $cmu-color-red;
+			// }
+
+}
+
+
+
+/*------------------------------------*\
+    #SELECT GROUP
+    - affects .cmuSort (sort dropdown)
+\*------------------------------------*/
+
+
+$cmu-threadsort-font-color: rgba(0,0,0,0.75);
+$cmu-threadsort-background-color: #ffffff;
+$cmu-threadsort-focus-background-color: $cmu-primary-background-color;
+$cmu-threadsort-border-color: #bebec0;
+$cmu-threadsort-focus-border-color: $cmu-primary-link-color;
+$cmu-threadsort-disabled-background-color: #dddddd;
+
+
+select {
+
+  background-color: $cmu-threadsort-background-color;
+  @extend %font-lato;
+  // margin-bottom: $cmu-base-spacing-unit;
+  height: double($cmu-base-spacing-unit);
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+  }
+  
+  width: 100%;
+  -webkit-appearance: none !important;
+  background:
+    $cmu-threadsort-background-color
+    url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHBvaW50cz0iNDg0LjY4OCwxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3MSAyNzguNjI3LDM3MC4zNDMgDQoJNTA3LjMxMiwxNDEuNjU3ICIvPg0KPC9zdmc+DQo=") no-repeat;
+  background-position: right 0.6em top $cmu-base*0.6;
+  border: 1px solid $cmu-threadsort-border-color;
+  padding: 0 $cmu-base/2;
+  color: $cmu-color-dkgray;
+  font-size: $cmu-size-smaller;
+  @include border-radius(0);
+  background-size: 16px 12px;
+
+  &:hover {
+    border-color: $cmu-threadsort-focus-border-color;
+  }
+}
+
+select::-ms-expand {
+  display:none;
+}
+
+/* Disabled select background */
+select:disabled {
+  background: $cmu-threadsort-disabled-background-color; 
+}
+
+
+
+
+
+// $cmu-radio-width: $cmu-base;
+
+// $cmu-input-background-color: $cmu-color-white;
+// $cmu-input-border-color: $cmu-color-ltgray;
+// $cmu-input-font-color: $cmu-color-black;
+// $cmu-input-focus-background-color: $cmu-color-blue;
+// $cmu-input-focus-border-color: $cmu-color-blue;
+// $cmu-input-disabled-background-color: $cmu-color-ltgray;
+// $cmu-select-background-color: $cmu-color-white;
+
+
+// $cmu-input-dark-font-color: $cmu-color-white;
+// $cmu-input-dark-border-color: $cmu-color-ltgray;
+// $cmu-input-dark-focus-background-color: $cmu-color-blue;
+// $cmu-input-dark-focus-border-color: $cmu-color-blue;
+// $cmu-input-dark-disabled-background-color: $cmu-color-ltgray;
+// $cmu-select-dark-background-color: $cmu-color-white;
+// $cmu-input-blue-background-color: $cmu-color-blue;
+// $cmu-radio-background-color: $cmu-color-white;
+// $cmu-radio-checked-background-color: $cmu-color-blue;
+
+// $cmu-checkbox-border-color: $cmu-color-ltgray;
+// $cmu-checkbox-check-color: $cmu-color-white;
+// $cmu-form-label-color: $cmu-color-gray;
+
+// $cmu-form-description-font-color: $cmu-color-blue;
+// $cmu-form-required-default-color: $cmu-color-blue;
+// $cmu-form-required-invalid-color: $cmu-color-red;
+
+
+/*------------------------------------*\
+    #RADIO
+\*------------------------------------*/
+// input[type="checkbox"],
+// input[type="radio"] {
+//   display: none;
+// }
+
+// input[type="checkbox"] + label,
+// input[type="radio"] + label {
+//   display: inline-block;
+//   margin-left: $cmu-form-spacing * .5;
+//   margin-right: $cmu-form-spacing;
+//   margin-bottom: 0;
+//   vertical-align: baseline;
+// }
+
+// input[type="radio"] + label span {
+//   background-color:$cmu-radio-background-color;
+//   display: inline-block;
+//   width: $cmu-radio-width;
+//   height: $cmu-radio-width;
+//   margin: -1px 8px 0 4px; //#TODO Spacing
+//   vertical-align: middle;
+//   cursor: pointer;
+//   @include border-radius(100%);
+// }
+
+// input[type="radio"]:checked + label span{
+//   background-color: $cmu-radio-checked-background-color;
+// }
+
+// input[type="radio"] + label span,
+// input[type="radio"]:checked + label span {
+//   @include single-transition(background-color, 0.2s, linear);
+// }
+
+// /*------------------------------------*\
+//     #CHECKBOX BUTTON
+// \*------------------------------------*/
+
+// /* Base for label styling */
+// input[type="checkbox"]:not(:checked) + label,
+// input[type="checkbox"]:checked + label {
+//   position: relative;
+//   padding-left: 25px; //#TODO Spacing
+//   cursor: pointer;
+// }
+
+// /* checkbox aspect */
+// input[type="checkbox"]:not(:checked) + label:before,
+// input[type="checkbox"]:checked + label:before {
+//   content: '';
+//   position: absolute;
+//   left: 0;
+//   top: 2px;
+//   width: 20px;
+//   height: 20px;
+//   border: 1px solid $cmu-checkbox-border-color;
+//   background: #fff;
+//   @include border-radius(1px);
+// }
+
+// /* checked mark aspect */
+// input[type="checkbox"]:not(:checked) + label:after,
+// input[type="checkbox"]:checked + label:after {
+//   content: '✔';
+//   position: absolute;
+//   top: 0;
+//   left: 4px;
+//   color: $cmu-checkbox-check-color;
+//   font-size: 0.875rem;
+//   @include transition(all .2s);
+// }
+
+// /* checked mark aspect changes */
+// input[type="checkbox"]:not(:checked) + label:after {
+//   opacity: 0;
+//   transform: scale(0);
+// }
+// input[type="checkbox"]:checked + label:after {
+//   opacity: 1;
+//   transform: scale(1);
+// }
+
+// /* accessibility */
+// input[type="checkbox"]:checked:focus + label:before,
+// input[type="checkbox"]:not(:checked):focus + label:before {
+//   border: 1px dotted $cmu-checkbox-check-color;
+// }

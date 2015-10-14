@@ -1,47 +1,56 @@
-(function(_){
-	'use strict';
 
-	var forumNewTopicController = function($scope, $state, communityApi, breadcrumbService, nodeStructure, currentUserService){
-		breadcrumbService.setCurrentBreadcrumb('New Topic');
+'use strict';
 
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
+var _ = require('underscore');
 
-		var categoryDisplayId = nodeStructure.CurrentNode.urlSlug;
+require('services/api.js');
+require('services/breadcrumb.js');
+require('services/nodestructure.js');
 
-		var ctrl = this;
-		var currentUser = currentUserService.get();
-		_.extend(ctrl, {
-			currentUser: currentUser,
-			cancelTopic: function() {
-				$state.go('forums.list');
-			},
-			submitTopic: function() {
-				communityApi.Forums.message(this.newTopic, true).then(function(result){
-					var submittedMessage = result.model;
-					$state.go('forums.message', { messageId: submittedMessage.id });
-				});
-			},
-			newTopic: {
-			    'currentUserId': currentUser.id,
-			    'body': '',
-			    'categoryDisplayId': categoryDisplayId,
-			    'subject': ''
-			}
-		});
-		
-	};
-	forumNewTopicController.$inject = [
-		'$scope', 
-		'$state', 
-		'CommunityApiService', 
-		'CommunityBreadcrumbService', 
-		'CommunityNodeService',
-		'CurrentUserService'
-	];
+require('directives/userbadge/userbadge.js');
+require('directives/texteditor/texteditor.js');
 
-	angular.module('community.forums')
-		.controller('NewForumTopic', forumNewTopicController);
+var forumNewTopicController = function($scope, $state, communityApi, breadcrumbService, nodeStructure){
+	breadcrumbService.setCurrentBreadcrumb('New Topic');
 
-}(window._));
+	$scope.$on('$stateChangeStart', function(){
+		breadcrumbService.clearCurrentBreadcrumb();
+	});
+
+	nodeStructure.get().then(function(nodeService){
+		var currentNode = nodeService.getNode($state.params.nodeId);
+		if (currentNode) {
+			ctrl.newTopic.nodeId = currentNode.id;
+		}
+	});
+
+	var ctrl = this;
+	_.extend(ctrl, {
+		cancelTopic: function() {
+			$state.go('forums.list');
+		},
+		submitTopic: function() {
+			communityApi.Forums.message(this.newTopic).then(function(result){
+				var submittedMessage = result;
+				$state.go('forums.message', { messageId: submittedMessage.id });
+			});
+		},
+		newTopic: {
+		    'body': '',
+		    'nodeId': null,
+		    'subject': ''
+		}
+	});
+	
+};
+forumNewTopicController.$inject = [
+	'$scope', 
+	'$state', 
+	'CommunityApiService', 
+	'CommunityBreadcrumbService', 
+	'CommunityNodeService'
+];
+
+angular.module('community.forums')
+	.controller('NewForumTopic', forumNewTopicController);
+

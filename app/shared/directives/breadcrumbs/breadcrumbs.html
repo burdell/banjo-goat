@@ -1,10 +1,10 @@
 <div class="cmuBreadcrumbs">
 	<div class="row">
-		<ul class="cmuBreadcrumbs__list col--md12 noPadding">
-			<li ng-repeat="breadcrumb in breadcrumbs.breadcrumbListFn()" itemtype="http://data-vocabulary.org/Breadcrumb">
-			 	<span><a href="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
+		<ul class="cmuBreadcrumbs__list col--md12">
+			<li ng-repeat="breadcrumb in breadcrumbs.breadcrumbList()" itemtype="http://data-vocabulary.org/Breadcrumb">
+			 	<span><a area-link-handler="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
 			</li>
-		<span class="cmuBreadcrumbs__last" itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
+			<span class="cmuBreadcrumbs__last" itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
 		</ul>
 	</div>
 </div>

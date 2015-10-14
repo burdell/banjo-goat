@@ -1,0 +1,103 @@
+
+// 
+// TIMELINE MODULE
+// used by announcements
+// 
+
+.cmuTimeline {
+
+	thead {
+		display: none;
+	}
+	.cmuTimeline__showheader {
+		thead {
+			display: table-header-group;
+		}
+	}
+}
+
+.timeline__year {
+	border: $style-line;
+	border-bottom: 0;
+
+	&:last-child {
+		border-bottom: $style-line;
+	}
+}
+
+.timeline__year__title {
+	position: relative;
+	cursor: pointer;
+    background-color: $cmu-color-purewhite;
+    $padding: $cmu-base/4;
+    @extend %ease-fast;
+
+	.timeline__year__title--text {
+		@extend h3;
+		padding: $padding $cmu-base/2;
+		padding-bottom: 1px; 
+    	line-height: $cmu-base*2;
+	}
+	span {
+		font-weight: 300;
+		font-size: $cmu-size-normal;
+		&:before { content: '(' }
+		&:after { content: ')' }
+	}
+
+	&:hover {
+		background: $cmu-color-threadlist-hover;
+		@extend %ease-fast;
+	}
+	// Open / Closed indicator
+	// default is closed
+	&:after {
+		@extend %ease-fast;
+		@extend h4;
+		display: inline-block;
+		content: '+';
+		color: $cmu-color-active;
+
+		position: absolute;
+		right: 0;
+		float: right;
+		height: $cmu-base*2 + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
+		width: $cmu-base*2 + $padding*2; // 31px;
+		top: 0;
+		line-height: $cmu-base*2 + $padding*2; //31px;;
+		text-align: center;
+		// background-color: white;
+
+	}
+	&.open {
+		border-bottom: $style-line--thick;
+
+		&:after {
+			display: inline-block;
+			content: '\2013';
+    		box-shadow: 0px 0px 5px 1px $cmu-color-ltgray inset;
+			// color: $cmu-color-dkgray;
+		}
+	}
+}
+
+.cmuTimeline__month {
+	table {
+		margin-bottom: 0;
+	}
+
+	// only add margin to the first table element
+	// &:first-of-type table {
+	// 	margin-top: $cmu-base/2;
+	// }
+}
+
+	.cmuTimeline__showheader .cmuTimeline__month {
+		margin-top: $cmu-base/2;
+	}
+
+	.cmuTimeline__row:last-child {
+		border-bottom: 0;
+	}
+
+

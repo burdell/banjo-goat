@@ -2,17 +2,16 @@
 <div class="cmuStoriesNew row">
 
 	<div class="cmuStoriesNew__Title">
-		Tell Us Your Story
+		Tell Us Your Story, {{ vm.currentUserLogin }}!
 	</div>
 	<div class="cmuStoriesNew__Form col--md4">
 		<div class="cmuStoriesNew__Form--intro">
 			Give us some details about your project.
-			<!-- <h4>Tell Your Story, {{ vm.story.author.login }}</h4> -->
 		</div>
 		<div class="cmuStoriesNew__Form--subject cmuInputContainer">
 			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
 				id="{{ ::vm.placeholders.subject }}" 
-				ng-model="vm.discussion.subject" 
+				ng-model="vm.story.subject" 
 				maxlength="{{ ::vm.titleCharacterLimit }}" required />
 			<label for="{{ ::vm.placeholders.subject }}">{{ ::vm.placeholders.subject }}</label>
 		</div>
@@ -27,13 +26,14 @@
 	          ng-model="vm.discussion.body"
 	          editor-height="200"
 	          minimal-editor="true"
-	          placeholder="Tell us about your story">
+	          placeholder="Tell us about your story"
+	          hide-preview-link="true">
 	        </community-text-editor>
 		</div>
 		<div class="cmuStoriesNew__Form--location cmuInputContainer">
 			<input class="cmuInput cmuInput--stacked cmuInput--wide"
 				community-location-search 
-				location-model="vm.story.location" 
+				location-model="vm.coordinates" 
 				id="{{ ::vm.placeholders.location }}" 
 				placeholder="" 
 				required />
@@ -186,11 +186,11 @@
 
 		<div class="cmuStoriesNew__Form--publish">
 			<div ng-hide="vm.isPublishing">
-				<button class="button--solid button--tall button--wide button--padded" ng-click="vm.postStory()">Publish</button>
+				<button class="button--solid button--tall button--stretch button--padded" ng-click="vm.postStory()">Publish</button>
 				<!-- <button>Cancel</button> -->
 			</div>
 			<div ng-show="vm.isPublishing">
-				<button class="cmuInput--waiting button--tall button--wide button--padded" disabled>Publishing Your Story...</button>
+				<button class="cmuInput--waiting button--tall button--stretch button--padded" disabled>Publishing Your Story...</button>
 			</div>
 		</div>
 	</div>

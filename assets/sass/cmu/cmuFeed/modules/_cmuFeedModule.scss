@@ -1,0 +1,346 @@
+
+
+// 
+// Hub & Feed
+// 
+
+
+// 
+// Common Elements
+// 
+
+// 
+// Homepage Feed
+// 
+%sidebar-icon {
+	@extend %font-ubnt;
+}
+
+// icon representations (only within Feed/Hub)
+.cmuFeed__icon {
+	margin-right: $cmu-base/2;
+	&:before {
+		color: $cmu-color-dkgray;
+	}
+
+	&.all:before {
+		@extend %sidebar-icon;
+		content: '\e63b';
+		text-decoration: none !important;
+	}
+	&.announcements:before {
+		@extend %sidebar-icon;
+		content: '\e710';
+		text-decoration: none !important;
+	}
+	&.forums:before {
+		@extend %sidebar-icon;
+		content: '\e6c0';
+		text-decoration: none !important;
+	}
+	&.stories:before {
+		@extend %sidebar-icon;
+		content: '\e614';
+		text-decoration: none !important;
+	}
+	&.qa:before {
+		@extend %sidebar-icon;
+		content: '\e6ee';
+		text-decoration: none !important;
+	}
+
+	// product tag
+	.product {
+		color: $cmu-color-active;
+		margin-right: $cmu-base/4;
+	}
+}
+
+
+
+.cmuFeed__main {
+	padding-right: $cmu-base;
+}
+
+	// holds the story feeds and stuff
+	// affected by the toggle / tab
+	.cmuFeed__container {
+		padding: 0;
+		padding-top: $cmu-base/2;
+		// border: $style-line;
+	}
+
+	// update button
+	.cmuFeed__update {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
+	// location tag
+	.cmuFeed__location {
+		display: inline-block;
+		@extend %size-xxsmaller;
+		border: $style-line;
+		padding: $cmu-base/6 $cmu-base/2;
+		background-color: $cmu-color-ltgray;
+	}
+
+	.cmuFeed__title {
+		padding-left: $cmu-base/2;
+		padding-right: $cmu-base/2;
+	}
+		.cmuFeed__title--all {
+			padding: $cmu-base/2 $cmu-base;
+			border-bottom: $style-line;
+		}
+
+
+	// 
+	// stories
+	// 
+
+	.cmuFeed__stories {
+		border: $style-line;
+		margin-bottom: $cmu-vertical-rhythm;
+		background-color: $cmu-color-post;
+		padding-top: $cmu-base/2;
+		padding-bottom: $cmu-base/2;
+
+	}
+		.cmuFeed__storyList {
+			padding: $cmu-base/2;
+		}
+		.cmuFeed__story {
+			* { @extend %ease-fast; }
+			&:hover {
+
+				.cmuFeed__story__img {
+				    -moz-transform: scale(1.2);
+				    -webkit-transform: scale(1.2);
+				    transform: scale(1.2);
+				}
+
+				.cmuFeed__story__subject {
+					text-decoration: underline;
+				}
+			}
+		}
+
+			.cmuFeed__story__subject {
+				@extend %size-smaller;
+			}
+			.cmuFeed__close {
+				text-align: right;
+				cursor: pointer;
+
+				// fpo
+			    position: absolute;
+			    right: 18px;
+			    top: 12px;
+
+			    span:before {
+			    	content: "\e6d0";
+			    }
+			}
+				.cmuFeed__close--closed {
+				    span:before {
+				    	content: "\e6cf";
+				    }
+					& ~ .cmuFeed__storyList {
+						display: none;
+					}
+				}
+
+		.cmuFeed__story__img__container {
+			height: $cmu-base*8;
+			width: 100%;
+			overflow: hidden;
+			margin-bottom: $cmu-base/2;
+		}
+
+		// background image fed into inline style
+		.cmuFeed__story__img {
+			height: $cmu-base*8;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.cmuFeed__story__subject {
+			@extend %size-smaller;
+			line-height: $cmu-size-xsmaller--line-height;
+			color: $cmu-color-active;
+			// margin-bottom: $cmu-base/2;
+		}
+
+		.cmuFeed__story__user {
+			@extend %size-xsmaller;
+			color: $cmu-color-dkgray;
+			margin-top: $cmu-base/4;
+		}
+		.cmuFeed__story__date {
+			@extend %size-xsmaller;
+			color: $cmu-color-gray;
+			margin-bottom: $cmu-base/4;
+		}
+
+
+
+
+
+
+
+
+	// 
+	// list of items
+	// 
+
+
+	.cmuFeed__list {
+		padding: 0;
+		background-color: $cmu-color-post;
+		border: $style-line;
+		border-bottom: 0;
+	}
+
+		.cmuFeed__list__title {
+			padding: $cmu-base/2 $cmu-base;
+			// padding-bottom: 0; //let content push up instead
+			border-bottom: $style-line;
+		}
+
+		// individual story items
+		.cmuFeed__item {
+			padding: $cmu-base/2 $cmu-base;
+			border-bottom: $style-line;
+			cursor: pointer;
+			overflow: hidden;
+
+			&:hover {
+				background-color: $cmu-color-ltgray;
+				.cmuFeed__subject {
+					text-decoration: underline;
+				}
+			}
+
+			.cmuFeed__icon {
+				&:before {color: $cmu-color-blue;}
+			}
+		}
+			.cmuFeed__itemHeader {
+				height: $cmu-base*1.2;
+    			overflow: hidden;
+			}
+				.cmuFeed__subject {
+					// font-weight: 600;
+					color: $cmu-color-blue;
+					// white-space: nowrap;
+
+					@extend %size-normal;
+				}
+			.cmuFeed__userAction {
+				@extend %size-xsmaller;
+				color: $cmu-color-dkgray;
+				// margin-top: $cmu-base/4;
+				margin-left: $cmu-base/2;
+			}
+			.cmuFeed__content {
+				@extend %size-smaller;
+				margin: $cmu-base/4 0 $cmu-base/2 0;
+
+			    /* white-space: nowrap; */
+			    overflow: hidden;
+			    max-height: $cmu-base*3; // show a partial 3rd line?
+			    max-height: 40px; // preserve 2 lines
+			}
+			.cmuFeed__stats {
+				text-align: right;
+			}
+				.cmuFeed__stat {
+					@extend .cmuFeed__location;
+					margin-right: $cmu-base/2;
+				}
+
+
+		.cmuFeed__pagerBottom {
+			padding: $cmu-base/2 $cmu-base;
+		}
+
+
+
+
+
+
+
+
+// 
+// Sidebar 
+// 
+
+.cmuFeed__sidebar {
+	padding-left: $cmu-base;
+
+	h5 {
+		padding-bottom: $cmu-base/4;
+		margin-bottom: $cmu-base/4;
+		border-bottom: $style-line;
+	}
+}
+	.cmuFeed__sidebar__link {
+		color: $cmu-color-active;
+		@extend %size-smaller;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.cmuFeed__actions {
+		margin-bottom: $cmu-vertical-rhythm;
+
+		a {
+			display: block;
+			padding: $cmu-base/4 0;
+			color: $cmu-color-active;
+			@extend %ease-fast;
+			span, span:before { 
+				@extend %ease-fast;
+			}
+
+			// icon color
+			span:before { 
+				color: $cmu-color-active;
+			}
+			&:hover {
+				span, span:before { 
+					@extend %ease-fast;
+					color: $cmu-color-black; 
+				}
+				span:last-child { 
+					text-decoration: underline; 
+				}
+			}
+		}
+	}
+
+	.cmuFeed__announcements {
+
+	}
+
+		.cmuFeed__anno {
+			@extend %size-smaller;
+			margin-bottom: $cmu-vertical-rhythm/2;
+			// &:hover {
+			// 	// text-decoration: underline; 
+			// 	a {
+			// 		border-bottom: $style-line;
+			// 	}
+			// }
+
+			@extend %style-link--dark;
+		}
+
+
+
+
+
+

@@ -1,19 +1,25 @@
-(function(_){
-	'use strict';
-	
-	var communityFilter = function($location, utils){
-		function Filter(){
-			var options = {
-				filterModel: {},
-				constants: {},
-				filterFn: null,
-				filterArguments: null,
-				onFilterFns: [],
-				setInitialData: true,
-				initialData: null,
-				filterContext: null,
-				persistFilterModel: true
-			};
+
+'use strict';
+
+require('services/realtime.js');
+require('services/utils.js');
+
+var _ = require('underscore');
+var communityFilter = function($location, realtimeServiceWrapper, utils){
+	function Filter(){
+		var options = {
+			filterModel: {},
+			constants: {},
+			filterFn: null,
+			filterArguments: null,
+			onFilterFns: [],
+			setInitialData: true,
+			initialData: null,
+			filterContext: null,
+			persistFilterModel: true
+		};
+
+			var realtimeService = null;
 
 			var setFilterModel = function(filterData, exclude) {
 				if (exclude) {
@@ -24,28 +30,34 @@
 					var values = [];
 					values.length = exclude.length;
 
-					var excludeObject = _.object(exclude, values);
-					filterData = _.extend(filterData, excludeObject);
+				var excludeObject = _.object(exclude, values);
+				filterData = _.extend(filterData, excludeObject);
+			}
+			
+			options.filterModel = _.extend(options.filterModel, filterData);
+		};
+
+			var executeOnFilterFns = function(result, filterModel){
+				var updates;
+				if (options.realtime && filterModel.since) {
+					updates = result;
+					result = null;
 				}
-				
-				options.filterModel = _.extend(options.filterModel, filterData);
-			};
-
-			var executeOnFilterFns = function(result){
 				_.each(options.onFilterFns, function(fn){
-					fn(result);
+					fn(result, updates);
 				});
 			};
 
-			var setQueryParams = function(queryModel) {
-				var queryParams = {};
-				_.each(queryModel, function(value, key) {
-					if (_.isUndefined(options.constants[key])) {
-						queryParams[key] = value;
-					}
-				});
-				$location.search(queryParams);
-			};
+		var setQueryParams = function(queryModel) {
+			var queryParams = {};
+			_.each(queryModel, function(value, key) {
+				if (_.isUndefined(options.constants[key])) {
+					queryParams[key] = value;
+				}
+			});
+			$location.search(queryParams);
+		};
+
 
 			return {
 				set: function(newOptions){
@@ -65,11 +77,27 @@
 						});
 					}
 					
+					if (options.realtime && !realtimeService) {
+						realtimeService = realtimeServiceWrapper.getNew();
+						var filterFn = this.filter;
+						realtimeService.start(function(realtimeModel){
+							//keep any sorts, exclude paging information
+							realtimeModel = _.extend(realtimeModel, options.filterModel, { page: undefined, size: undefined });
+							return filterFn(realtimeModel, null, true);
+						});
+					}
+
 					return filter;
 				},
-				filter: function(filterData, exclude){
-					if (filterData) {
-						setFilterModel(filterData, exclude);
+				filter: function(filterData, exclude, oneTime){
+					var filterModel;
+					if (oneTime) {
+						filterModel = filterData;
+					} else {
+						if (filterData) {
+							setFilterModel(filterData, exclude);
+						}
+						filterModel = _.extend(options.filterModel, options.constants);
 					}
 
 					var args = [];
@@ -77,15 +105,20 @@
 						args = _.clone(options.filterArguments);
 					}
 					
-					var filterModel = _.extend(options.filterModel, options.constants);
+					//make sure falsy values are undefined
+					_.each(filterModel, function(modelValue, key) {
+						if (!modelValue && modelValue !== 0) {
+							filterModel[key] = undefined;
+						}
+					});
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;
 					return options.filterFn.apply(filterContext, args).then(function(result){
-						if (options.persistFilterModel) {
+						if (!oneTime && options.persistFilterModel) {
 							setQueryParams(filterModel);
 						}
-						executeOnFilterFns(result);
+						executeOnFilterFns(result, filterModel);
 						
 						return result;
 					});
@@ -97,24 +130,28 @@
 					var initialData = options.initialData;
 					options.initialData = null;
 					return initialData;
+				},
+				realtimeUpdatesLoaded: function(){
+					if (realtimeService) {
+						realtimeService.resetTimestamp();
+					}
 				}
 			};
 		}
 
-		return {
-			getNewFilter: function(options){
-				if (options.autoInitModel !== false || options.persistFilterModel !== false) {
-					options.filterModel = $location.search();
-				}
+	return {
+		getNewFilter: function(options){
+			if (options.autoInitModel !== false || options.persistFilterModel !== false) {
+				options.filterModel = $location.search();
+			}
 
 				return new Filter().set(options);
 			}
 		};
 	};
 	
-	communityFilter.$inject = ['$location', 'CommunityUtilsService'];
+	communityFilter.$inject = ['$location', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
-	angular.module('community.services')
-		.service('CommunityFilterService', communityFilter);
-		
-}(window._));
+angular.module('community.services')
+	.service('CommunityFilterService', communityFilter);
+	

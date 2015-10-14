@@ -1,89 +1,115 @@
-(function(_){
-	'use strict';
 
-	function discussionsNavBar() {
-		function link(scope, element, attrs) {
-		}
+'use strict';
+
+var _ = require('underscore');
+
+function discussionsNavBar() {
+	function link(scope, element, attrs) {
+	}
 
 		function controller(nodeService, routingService) {
-			var ctrl = this;
-			// 'Forums': '-General',
-			// 	'Q&A': '_QnA',
-			// 	'Stories': '_Stories',
-			// 	'Announcements': 'Blog_',
-			// 	'Feature Requests': '_Features',
-			// 	'Bugs': '_Bugs'
 			var standardNavLinks = {
 				'Forums': { 
-					nodeString: '-General',
-					urlString: routingService.areaSlugs.forums
+					discussionType: 'forums',
+					route: 'forums.list'
 				},
 				'Q&A': {
-					nodeString: '_QnA',
-					urlString: routingService.areaSlugs.qna
+					discussionType: 'qa',
+					route: ''
 				},
 				'Stories': {
-					nodeString: '_Stories',
-					urlString: routingService.areaSlugs.stories
+					discussionType: 'stories',
+					route: 'stories.list'
 				},
 				'Announcements': {
-					nodeString: 'Blog_',
-					urlString: routingService.areaSlugs.announcements
+					discussionType: 'announcements',
+					route: 'announcements.list'
 				},
 				'Feature Requests': {
-					nodeString: '_Features',
-					urlString: routingService.areaSlugs.features
+					discussionType: 'features',
+					route: 'features.list'
 				},
 				'Bugs': {
-					nodeString: '_Bugs',
-					urlString: routingService.areaSlugs.bugs
+					discussionType: 'bugs',
+					route: ''
 				}
 			};
 
-			var currentNode = nodeService.CurrentNode;
-			var siblingNodeList = currentNode.parent.children;
+		var ctrl = this;
+		nodeService.get().then(function(nodeData){
+			var currentNode = nodeData.CurrentNode;
+
+			var parentNode = nodeData.parent(currentNode.id);
+
+			if (!parentNode || !parentNode.children) {
+				return;
+			}
+			
+			var currentNodeSlug = currentNode && currentNode.urlCode;
+			var currentAreaSlug = routingService.getCurrentArea();
+
+			var inDirectory = currentAreaSlug === 'directory';
+			var siblingNodeList = !inDirectory ? parentNode.children : currentNode.children;
 
 			_.extend(ctrl, {
-				navLinks: []
+				navLinks: [{
+					display: 'Home',
+					href: !inDirectory ? routingService.generateUrl('hub', { nodeId: parentNode.urlCode }) : routingService.getCurrentUrl(),
+					active: inDirectory
+				}]
 			})
 
-			var currentAreaSlug = routingService.getCurrentArea();
 			_.each(standardNavLinks, function(searchObj, displayName){
-				var searchValue = searchObj.nodeString;
-
-				var navNode = _.find(siblingNodeList, function(node){
-					return (node.urlSlug.indexOf(searchValue) >= 0);
+				var navNodeList = _.filter(siblingNodeList, function(node){
+					return node.discussionStyle === searchObj.discussionType;
 				});
 				
-				if (navNode) {
-					this.navLinks.push({ 
+				var navNodeCount = navNodeList.length;
+				if (navNodeCount === 1) {
+					var navNode = navNodeList[0];
+					var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
+
+					ctrl.navLinks.push({ 
 						display: displayName, 
-						href: navNode.href, 
-						active: currentAreaSlug === searchObj.urlString,
-						target: function(){
-							return (!this.active ? '_self' : "");
-						} 
+						href: discussionHref, 
+						active: navNode.urlCode === currentNodeSlug
 					});
-				}
+				} else if (navNodeCount > 1) {
+				 	var subLinkList = [];
+				 	_.each(navNodeList, function(subLink){
+				 		subLinkList.push({
+				 			display: subLink.name, 
+				 			href: routingService.generateUrl(searchObj.route, { nodeId: subLink.urlCode }),
+				 			active: subLink.urlCode === currentNodeSlug
+						})
+				 	});
+
+					ctrl.navLinks.push({
+						href: subLinkList[0].href,
+						display: displayName,
+						subLinks: subLinkList
+					});
+				 }
 			}, ctrl);
-			
-		}
-		controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
-	    
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        templateUrl: 'directives/discussionsnavbar/discussionsnavbar.html',
-	        restrict: 'E',
-	        controllerAs: 'navbar',
-	        bindToController: true,
-	        replace: true,
-	        scope: {}
-	    };
-
-	    return directive;
+		});
 	}
+	controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
+    
+    var directive = {
+        link: link,
+        controller: controller,
+        templateUrl: 'directives/discussionsnavbar/discussionsnavbar.html',
+        restrict: 'E',
+        controllerAs: 'navbar',
+        bindToController: true,
+        replace: true,
+        scope: {
+        	discussionList: '='
+        }
+    };
 
-	angular.module('community.directives')
-		.directive('discussionsNavBar', discussionsNavBar);
-}(window._));
+    return directive;
+}
+
+angular.module('community.directives')
+	.directive('discussionsNavBar', discussionsNavBar);

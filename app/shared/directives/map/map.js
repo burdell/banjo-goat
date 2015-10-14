@@ -1,20 +1,29 @@
-(function(_){
+
 	'use strict';
-	
+
+	var $ = require('jquery');
+	var _ = require('underscore');
+
+	var mapsLoader = require('google-maps');
+	mapsLoader.LIBRARIES = ['places'];
+
 	function communityMap() {
 		var link = function(scope, element, attrs) {
-			var coordinates = scope.map.mapCoordinates;	
-			var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
-			var mapOptions = {
-			    zoom: 4,
-			    center: latLng,
-			    mapTypeId: google.maps.MapTypeId.TERRAIN,
-			    streetViewControl: false,
-			    mapTypeControl: false
-			}
-			var mapElement = $(element).find('.map-canvas')[0];
-			scope.map.mapInstance = new google.maps.Map(mapElement, mapOptions);
-			scope.map.setMarker(latLng);
+			var coordinates = scope.map.mapCoordinates;
+
+			mapsLoader.load(function(google){
+				var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
+				var mapOptions = {
+				    zoom: 4,
+				    center: latLng,
+				    mapTypeId: google.maps.MapTypeId.TERRAIN,
+				    streetViewControl: false,
+				    mapTypeControl: false
+				}
+				var mapElement = $(element).find('.map-canvas')[0];
+				scope.map.mapInstance = new google.maps.Map(mapElement, mapOptions);
+				scope.map.setMarker(latLng);
+			});
 		};
 
 		var controller = function($scope) {
@@ -38,7 +47,7 @@
 				var mapInstance = ctrl.mapInstance;
 				var coordinates = ctrl.mapCoordinates;
 
-				var latLng = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+				var latLng = new google.maps.LatLng(coordinates.locLat, coordinates.locLon);
 
 				mapInstance.setCenter(latLng);
 				ctrl.setMarker(latLng);
@@ -62,7 +71,9 @@
 	        restrict: 'E',
 	        replace: true,
 	        scope: {
-	        	mapCoordinates: '='
+	        	mapCoordinates: '=',
+	        	lngCoord: '=',
+	        	latCoord: '='
 	        }
 	    };
 
@@ -72,4 +83,4 @@
 	angular.module('community.directives')
 		.directive('communityMap', communityMap);
 		
-}(window._));
+

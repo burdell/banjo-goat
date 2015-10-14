@@ -1,0 +1,142 @@
+
+
+// 
+// FEATURES (and bugs) MODULE
+// 
+
+
+.cmuFeatures {
+
+}
+
+.cmuFeatures__sidebar {
+	padding-right: $cmu-base;
+}
+
+	.cmuFeatures__sidebar .cmuSearchbox {
+		margin-bottom: $cmu-base;
+	}
+
+
+
+// Features Thread List
+
+.cmuFeatures__threadlist__row {
+	padding-bottom: $cmu-base;
+	margin-bottom: $cmu-base;
+	border-bottom: $style-line;
+
+	&:first-child {
+		margin-top: $cmu-base;
+	}
+}
+
+.cmuFeatures__votes {
+	text-align: center;
+	cursor: default;
+}
+
+	.cmuFeatures__votes__count {
+		@extend %h3;
+		line-height: 1.4rem; //override to line up
+		padding: $cmu-base/2;
+		padding-bottom: 2px;
+		background-color: $cmu-color-bg;
+	}
+
+	.cmuFeatures__votes__caption {
+		background-color: $cmu-color-bg;
+		padding-bottom: $cmu-base/2;
+		font-weight: 300;
+		vertical-align: bottom;
+	}
+
+	.cmuFeatures__votes__status {
+		@extend %type-info;
+		padding: $cmu-base/2;
+		background-color: $cmu-color-bg; // default
+		@extend %cmu-letterspacing-text;
+		line-height: $cmu-base;
+
+		// custom color statuses
+		&.fixed {
+			background-color: $cmu-color-status-fixed;
+			color: $cmu-color-white;
+		}
+		&.unspecified {
+			background-color: $cmu-color-status-unspecified;
+			color: $cmu-color-white;
+		}
+		&.pending, &.new {
+			background-color: $cmu-color-status-pending;
+			color: $cmu-color-white;
+		}
+		&.inprogress {
+			background-color: $cmu-color-status-inprogress;
+			color: $cmu-color-white;
+		}
+		&.invalid {
+			background-color: $cmu-color-status-invalid;
+			color: $cmu-color-white;
+		}
+		&.wontfix {
+			background-color: $cmu-color-status-wontfix;
+			color: $cmu-color-white;
+		}
+	}
+
+
+.cmuFeatures__threadlist__body {
+
+}
+.cmuFeatures__threadlist__body__content {
+	padding-top: $cmu-base/4;
+	padding-bottom: $cmu-base/2;
+	line-height: remCalc(17px); // for alignment w/ inline user info
+    max-height: remCalc(42px);
+    margin-bottom: remCalc(5px);
+    overflow: hidden;
+    @extend %type-minor;
+}
+
+	.cmuFeatures__threadlist__body__title {
+	    max-height: remCalc(21px);
+	    overflow: hidden;
+	    display: inline-block;
+
+		a {
+			color: $cmu-color-link--dark;
+			@extend %size-large;
+			&:hover {
+				color: $cmu-color-link--dark_hover;
+			}
+		}
+	}
+
+
+
+
+
+// Features Details Page
+
+.cmuFeatureDetails {
+	// adjust the vote box
+	.cmuFeatures__votes__count {
+		padding: $cmu-base/2;
+
+		// for the __caption in the details page
+		span {
+			@extend %type-base;
+			vertical-align: bottom;
+			padding: 0;
+			padding-left: $cmu-base/4;
+			line-height: $cmu-base*3/2;
+			display: inline-block;
+		}
+	}
+	.cmuFeatures__votes__status {
+		padding: $cmu-base/4;
+	}
+}
+
+

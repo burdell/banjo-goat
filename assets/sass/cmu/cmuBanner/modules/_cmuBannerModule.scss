@@ -4,6 +4,21 @@
 // Banner (Announcements)
 // 
 
+// 
+// BANNER
+// 
+
+// base banner style
+$cmu-banner-background-color: $cmu-color-ltorange;
+$cmu-banner-hover-background-color: $cmu-color-dkorange;
+
+$cmu-banner-text-color: $cmu-color-dkgray;
+$cmu-banner-hover-text-color: $cmu-color-black;
+
+$cmu-banner-icon-color: $cmu-color-black;
+$cmu-banner-hover-icon-color: $cmu-color-white;
+
+
 // Note that the html uses Flexbox to center
 .cmuBanner {
 

@@ -26,9 +26,17 @@
     -o-transition: all $speed ease;
     transition: all $speed ease;
 }
+
 %ease{@include ease(230ms);}
 %ease-fast{@include ease(180ms);}
 %ease-slow{@include ease(320ms);}
+%ease-none{
+    -webkit-transition: initial;
+    -moz-transition: initial;
+    -ms-transition: initial;
+    -o-transition: initial;
+    transition: initial;
+}
 
 @mixin ease-out($speed){
     -webkit-transition: all $speed ease-out 0;
@@ -36,4 +44,16 @@
     -ms-transition: all $speed ease-out 0;
     -o-transition: all $speed ease-out 0;
     transition: all $speed ease-out 0;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
 }

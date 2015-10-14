@@ -11,7 +11,8 @@ $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
-
+$size-badgewidth-min:		$cmu-base*11;
+$cmu-nav-height:			remCalc(40px) !default;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -35,10 +36,17 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 body {
 	background-color: $cmu-color-white;
 	height: 100%;
-	color: black;
+	color: $cmu-color-body;
 	line-height: inherit;
+	background-color: $cmu-color-menu;
 }
+	.wrapper {
+		background-color: $cmu-color-white;
+	}
 
+#main-content {
+	margin-bottom: $cmu-base;
+}
 
 %cmu-maxwidth {
 	max-width: $cmu-maxwidth;
@@ -62,11 +70,99 @@ body {
 // governs all community partials
 .community__content {
 	@extend %cmu-maxwidth;
+	min-height: $cmu-base * 20; 
 }
 
 // Various things
 
 $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b90fead886/no_pic_720.png';
+
+
+
+// 
+// universal helper classes
+// 
+
+.cmuRow, %cmuRow {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+	.cmuHalfRow, %cmuHalfRow {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
+
+.cmuHidden {
+	display: none;
+}
+
+
+
+
+
+// 
+// BORDERS, LINES, EDGES
+// 
+
+
+$cmu-line-thin: 1px;
+$cmu-style-border-thin: 1px solid $cmu-color-black;
+%style-border-bottom-thin { 
+	border-bottom: $cmu-style-border-thin;
+}
+
+$cmu-style-border-thin-light: 1px solid $cmu-color-ltgray;
+%style-border-bottom-thin-light {
+	border-bottom: $cmu-style-border-thin;
+}
+
+$cmu-style-border-thin-dark: 1px solid $cmu-color-mdgray;
+
+$cmu-line-medium: 2px;
+$cmu-style-border-medium: 2px solid $cmu-color-black;
+%style-border-medium-blue {
+	border: $cmu-style-border-medium;
+	border-color: $cmu-color-blue;
+}
+%style-border-bottom-medium {
+	border-bottom: $cmu-style-border-medium;
+}
+
+$cmu-line-thick: $cmu-base/3;
+%style-border-thick {
+	border: $cmu-style-border-medium;
+	border-color: $cmu-color-blue;
+}
+
+$cmu-line-xthick: $cmu-base/2;
+
+$cmu-style-border: 1px solid $cmu-color-gray;
+$cmu-style-line: $cmu-line-thin $cmu-color-mdgray solid;
+$cmu-style-line--light: $cmu-line-thin $cmu-color-ltgray solid;
+
+
+
+
+
+
+
+
+
+
+
+
+// 
+//	Z-Index Settings
+// 
+
+// High 700-1000
+$z-top: 1000;	// Top z-index: gives us 10 levels to play with
+$z-gloNav: 900;	// global community menu
+$z-overlay: 875;
+$z-gloNav--footer: 850;
+$z-mega: 800;	// mega popover
+
+// Medium 400-700
+
+// Low 0-400
 
 
 

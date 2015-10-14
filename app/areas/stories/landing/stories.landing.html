@@ -1,0 +1,15 @@
+
+<div class="cmuForum">
+	<community-page-header 
+		header-text="All Stories"
+		hide-element-selector=".stories-container">
+	</community-page-header>
+
+	<div class="stories-container">
+		<div class="row">
+			<community-product-navigator></community-product-navigator>
+		</div>
+
+		<div class="cmuStories" ng-include="'stories/list/stories.list.html'" autoscroll="false"></div>
+	</div>
+</div>

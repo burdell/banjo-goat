@@ -1,0 +1,29 @@
+
+.cmuLoader__container {
+	margin-top: $cmu-base*12;
+	margin-bottom: $cmu-base*12;
+}
+
+	.cmuLoader {
+		position:relative;
+		margin: 0 auto;
+		animation: rotate 1s infinite linear;
+		border: 8px solid rgba($cmu-color-blue, 0.2);
+		width: 80px;
+		height: 80px;
+		border-radius: 999px;
+	}
+	.cmuLoader span {
+		position:absolute;
+		width:80px;
+		height:80px;
+		border: 8px solid transparent;
+		border-top: 8px solid $cmu-color-blue;
+		top: -8px;
+		left: -8px;
+		border-radius:999px;
+	}
+	@keyframes rotate {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(360deg);}
+	}

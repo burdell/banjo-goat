@@ -1,45 +1,47 @@
-(function(){
-	'use strict';
+'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider) {
+require('shared/services/api.js')
+require('shared/providers/routes.js');
+
+var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
-
+		
+		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
-				url: '/announcements/',
+				url: announcementsRoutes.landing,
+				controller: 'AnnouncementsLanding as vm',
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {
-					CommunityNodeStructure: ['CommunityBreadcrumbService', 'CommunityNodeService', function(breadcrumbService, nodeService){
-						var nodeStructure = nodeService.setNodeStructure('announcements');
-						breadcrumbService.syncToNodeStructure();
-						return nodeStructure;
+					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
+						return communityApi.Announcements.all({ per_page: 100 });
 					}]
 				}
 			})
 			.state('announcements', {
-				url: '/announcements/:nodeId/',
+				url: announcementsRoutes.announcements,
+				abstract: true,
+				templateUrl: 'announcements/announcements.html',
+			})
+			.state('announcements.list', {
+				url: 'list',
 				templateUrl: 'announcements/list/announcements.list.html',
-				controller: 'CommunityAnnouncements as vm',
+				views: {
+					'mainContent': {
+						templateUrl: 'announcements/list/announcements.list.html',
+						controller: 'CommunityAnnouncements as vm',
+					}
+				},
 				resolve: {
-					CommunityNodeStructure: ['$stateParams', 'CommunityBreadcrumbService', 'CommunityNodeService', function($stateParams, breadcrumbService, nodeService){
-						var nodeStructure = nodeService.setNodeStructure($stateParams.nodeId);
-						breadcrumbService.syncToNodeStructure();
-						return nodeStructure;
-					}],
 					AnnouncementList: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						var nodeId = $stateParams.nodeId;
-						return communityApi.Forums.messageCount(nodeId)
-							.then(function(result){
-								return communityApi.Forums.messages($stateParams.nodeId, { limit: result.count, sort: 'postdate' });
-							})
-							.then(function(result) {
-								return result.collection;
-							});
+						return communityApi.Announcements.announcements($stateParams.nodeId, { per_page: 100, sortField: 'postDate' }).then(function(result){
+							return result.content;
+						});
 					}]
 				}
 			})
 			.state('announcements.detail', {
-				url: ':announcementId', 
+				url: announcementsRoutes.detail, 
 				views: {
 					'mainContent': {
 						templateUrl: 'announcements/detail/announcements.detail.html',
@@ -48,16 +50,12 @@
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Forums.thread($stateParams.announcementId, { limit: 10, offset: 0 });
+						return communityApi.Announcements.thread($stateParams.announcementId, { limit: 10, offset: 0 });
 					}]
 				}
 			});
 		};
-		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 
-
-
-
-		angular.module('community.announcements')
-			.config(config);
-}());
+	angular.module('community.announcements')
+		.config(config);

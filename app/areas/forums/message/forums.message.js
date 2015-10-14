@@ -1,20 +1,28 @@
-(function(_){
+
 	'use strict';
+
+	var _ = require('underscore');
+
+	require('services/api.js');
+	require('services/breadcrumb.js');
+
+	require('directives/pager/pager.js');
+	require('directives/texteditor/texteditor.js');
+	require('directives/message/message.js');
 
 	var forumMessageController = function($anchorScroll, $location, $scope, $timeout, communityApi, breadcrumbService, messageThreadFilter){
 		var ctrl = this;
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 
 		function setThreadData(dataResult) {
-			ctrl.originalMessage = dataResult.originalMessage;
+			ctrl.originalMessage = dataResult.content[0];
+			ctrl.originalMessageSubject = ctrl.originalMessage.context.topicSubject;
 			
-			var messageThread = dataResult.comments;
-			if (!messageThreadFilter.model('offset')) {
-				messageThread.unshift(ctrl.originalMessage);
-			}
-			ctrl.messageThread = messageThread;
-			ctrl.allMessageCount = _.findWhere(ctrl.originalMessage.stats, { key: 'comments' }).value;
-			setMessageBreadcrumb(ctrl.originalMessage.subject);
+			ctrl.messageThread = dataResult.content;;
+			ctrl.allMessageCount = dataResult.totalElements;
+			ctrl.numberOfPages = dataResult.totalPages;
+
+			setMessageBreadcrumb(ctrl.originalMessageSubject);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 
@@ -96,4 +104,3 @@
 	angular.module('community.forums')
 		.controller('ForumMessage', forumMessageController);
 
-}(window._));

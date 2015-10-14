@@ -1,90 +1,61 @@
-(function(_, tinymce, $){
-	'use strict';
-	
-	function communityTextEditor($timeout, routingService) {
-		var link = function(scope, element, attrs, ngModel) {
-			$timeout(function(){
-				var textElement = $(element).find('#' + scope.texteditor.editorId);
-				var editorInstance = null;
 
-				ngModel.$render = function(){
-					if (!editorInstance) {
-						editorInstance = tinymce.get(scope.texteditor.editorId);
-					}
+'use strict';
 
-					editorInstance.setContent(ngModel.$viewValue || '');
-				};
-				
-				var currentArea = routingService.getCurrentArea();
+require('services/routing.js');
 
-				tinymce.init({
-					height: scope.texteditor.height || 150,
-					elements: scope.texteditor.editorId,
-					mode: 'exact',
-					content_css : "{{GULP_BUILD_areaName}}/css/editor.css",
-					menubar: false,
-					preview_styles: false,
-					browser_spellcheck: true,
-					toolbar: scope.texteditor.minimalEditor === 'true' ? false : undefined,
-					plugins: 'placeholder',
-					setup: function(editor) {
-						function updateModel() {
-							editor.save();
+var _ = require('underscore');
+var marked = require('marked');
 
-							ngModel.$setViewValue(textElement.val());
-							if (!scope.$$phase) {
-	                            scope.$apply();
-	                        }
-						}
+function communityTextEditor($timeout, routingService) {
+	var link = function(scope, element, attrs, ngModel) {
+		scope.texteditor.saveText = function(textString) {
+			if (!textString) {
+				textString = "";
+			}
 
-						editor.on('KeyUp', function(e) {
-							updateModel();
-						});
-
-						editor.on('ExecCommand', function(e) {
-							updateModel();
-						});
-
-						editor.on('init', function(){
-							ngModel.$render();
-						});
-					},
-					init_instance_callback: function(){
-						$(element).find('.mce-path').css('visibility', 'hidden');
-					}
-				});
-			}, 0);
+			var markedDownText = marked(textString, scope.texteditor.markdownOptions);
+			ngModel.$setViewValue(markedDownText);
+			scope.texteditor.ngModel = markedDownText;
 		};
+	};
 
-		var controller = function($scope) {
-			var ctrl = this;
-			_.extend(ctrl, {
-				editorId: 'community-editor-' + $scope.$id
-			});
-
-		};
-		controller.$inject = ['$scope'];
-
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        require: 'ngModel',
-	        templateUrl: 'directives/texteditor/texteditor.html',
-	        controllerAs: 'texteditor',
-	        bindToController: true,
-	        restrict: 'E',
-	        scope: {
-	        	height: '=editorHeight',
-	        	minimalEditor: '@',
-	        	placeholder: '@'
-	        }
-	    };
-
-	    return directive;
-	}
-	communityTextEditor.$inject = ['$timeout', 'CommunityRoutingService'];
-
-	angular.module('community.directives')
-		.directive('communityTextEditor', communityTextEditor);
+	var controller = function($scope) {
+		var ctrl = this;
 		
-}(window._, window.tinymce, window.jQuery));
+		_.extend(ctrl, {
+			editorId: 'community-editor-' + $scope.$id,
+			editorHeight: ctrl.height | '150',
+			markdownOptions: {
+				sanitize: true
+			},
+			generatedText: "",
+			formattingHelpShown: false,
+			previewShown: false
+		});
+
+	};
+	controller.$inject = ['$scope'];
+
+    var directive = {
+        link: link,
+        controller: controller,
+        require: 'ngModel',
+        templateUrl: 'directives/texteditor/texteditor.html',
+        controllerAs: 'texteditor',
+        bindToController: true,
+        restrict: 'E',
+        scope: {
+        	height: '=editorHeight',
+        	minimalEditor: '@',
+        	placeholder: '@',
+        	hidePreviewLink: '@'
+        }
+    };
+
+    return directive;
+}
+communityTextEditor.$inject = ['$timeout', 'CommunityRoutingService'];
+
+angular.module('community.directives')
+	.directive('communityTextEditor', communityTextEditor);
+	

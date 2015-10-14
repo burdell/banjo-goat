@@ -1,18 +1,22 @@
 
 
-// General community placeholders (%classes)
-@import "placeholders/cmuPlaceholders";
+// 
+// Base Settings, Mixins, and Placeholders
+// 
 
-// General community mixins 
-@import "mixins/cmuMixins";
+@import "placeholders/cmuPlaceholders";				// General community placeholders (%classes)
+@import "mixins/cmuMixins";							// General community mixins 
+@import "settings/cmuBasegrid";						// responsive grid
 
-// All Community Settings
-@import "settings/cmuColors";
-@import "settings/cmuSettings";
-@import "settings/cmuBasegrid";
+@import "settings/cmuColors";						// All color variables
+@import "settings/cmuSettings";						// Heights, widths, universal sizing
+@import "settings/cmuTypography";					// Typography: font sizing, line height, etc.
+@import "settings/cmuDesign";						// Settings that combine colors, widths, and type
+
 
 @import "modules/cmuOverrideGridModule"; 			// Similar to comOverrideGridModule. Uses the same padding but we don't use maxwidth settings from comWrapper
-@import "modules/cmuOverrideGlobalHeaderModule";	// Similar to comOverrideGridModule. Uses the same padding but we don't use maxwidth settings from comWrapper
-@import "modules/cmuStylesModule";
-@import "modules/cmuTypographyModule";
+
+
+// old and unnecessary
+// @import "modules/cmuOverrideGlobalHeaderModule";	// Overrides the global header module styling
 // @import "modules/cmuHorizontalRuleModule";		// We don't really use these

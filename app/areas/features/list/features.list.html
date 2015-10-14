@@ -1,0 +1,162 @@
+<div class="cmuFeatures__threadlist cmuThreadlist">
+	<div class="row row--comfy" ng-show="vm.showNewPost">
+		<div>
+			<div class="row">
+				<div class="col--md9">
+					<input placeholder="Feauture Title" ng-model="vm.newFeature.subject" style="width: 100%;" />
+					<community-text-editor height="500" ng-model="vm.newFeature.body"></community-text-editor>
+				</div>
+
+				<div class="col--md3">
+					<span class="cmuBanner__close icon ubnt-icon--x col--md1" ng-click="vm.cancelSubmit()"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<button class="button-square button-white-blue" ng-click="vm.cancelSubmit()">Cancel</button>
+				<button class="button--solid button--padded" ng-click="vm.submitFeature()">Submit</button>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- sidebar -->
+	<div class="row">
+		<div class="cmuFeatures__sidebar cmuSidebar col--md3">
+			<!-- <input placeholder="Search requests" /> -->
+			<div class="cmuSearchbox">
+				<div class="appIconInput appIconInput--left">
+					<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
+					<input 
+						class="appIconInput__input"
+						placeholder="Keyword Filter" 
+						type="text" 
+					/>
+				</div>
+			</div>
+
+			<div class="cmuInputGroup" ng-repeat="filterType in vm.filterTypes">
+				<!-- filters -->
+
+				<div class="cmuInput__checkbox cmuInput--default">
+					<label>
+						<input 
+							type="checkbox" 
+							name="vm.selectedFilters[]" 
+							value="{{ filterType.defaultOption.value }}" 
+							ng-model="filterType.defaultOption.selected" 
+							ng-change="vm.defaultChanged(filterType)" 
+							ng-checked="filterType.defaultOption.selected" 
+							/>
+							<span>{{ filterType.defaultOption.display }}</span>
+					</label>
+				</div>
+
+				<div class="cmuInput__checkbox" ng-repeat="filter in filterType.filterList">
+					<label>
+						<input 
+							type="checkbox" 
+							name="vm.selectedFilters[]" 
+							value="{{ filter.value }}" 
+							ng-model="filter.selected" 
+							ng-change="vm.filterChanged(filterType)" />
+						<span>{{ filter.display }}</span>
+					</label>
+									
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+	<!-- main list -->
+	<div class="col--md9">
+		<div class="cmuThreadlist__ctrl">
+
+    		<div class="cmuThreadlist__ctrl__row row">
+				<div class="col--md4 " community-permissions>
+					<button class="button--solid button--stretch" ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Request a Feature</button>
+				</div>
+
+				<div class="col--md4 col--mdOffset4 noPadding">
+					<!-- <span class="">Sort by</span> -->
+					<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.featuresListFilter" sort-exclude="limit, offset"></community-sort>
+				</div>
+			</div>
+
+    		<div class="cmuThreadlist__ctrl__row row">
+				<div class="col--md4">
+					 <div class="cmuThreadlist__postCount">Showing <span>{{ vm.featuresList.length | number }}</span> of <span>{{ vm.featuresCount | number}}</span></div>
+				</div>
+
+				<div class="col--md8 noPadding">
+					<community-pager 
+						number-of-pages="vm.numberOfPages" 
+						pager-fn="vm.featuresListFilter"
+						front-biased="true">
+			        </community-pager>
+				</div>
+    		</div>
+		</div>
+
+		<!-- feature requests list -->
+		<div class="cmuFeatures__threadlist__row row" ng-repeat="feature in vm.featuresList">
+			<div class="cmuFeatures__threadlist__content col--md12 noPadding">
+				<div class="cmuFeatures__votes col--md2">
+					<div class="cmuFeatures__votes__count">{{ feature.countVotes | number }}</div>
+					 <div class="cmuFeatures__votes__caption">votes</div>
+					<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(feature) }}">
+						{{ ::vm.getStatusText(feature) }}
+					</div>
+				</div>
+
+				<div class="cmuFeatures__threadlist__body col--md10">
+					<span class="cmuFeatures__threadlist__body__title">
+						<a ui-sref="features.detail({ featureRequestId: feature.id })">{{ ::feature.subject }}</a>
+					</span>
+					
+					<div class="cmuInlineInfo row noPadding">
+						<div class="col--md9">
+							<community-username user="feature.message.insertUser"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | "><span>Posted </span>{{ ::feature.message.postDate | timeFromNow }}</span>
+						</div>
+					</div>
+
+					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.message.body | unformatText | wordCut:20 }}</div>
+
+					<div class="cmuThread__stats">
+						<div class="row">
+							<div class="col--md8">
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ feature.message.node.description }}</span></div>
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.1.1.1</span></div>
+								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">ABC123</span></div>
+							</div>
+
+							<div class="cmuInlineInfo alignRight col--md4">
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.countViews | number }} views</span>
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col--md8">
+		</div>
+		<div class="col--md4">
+			<community-pager 
+	          number-of-pages="vm.numberOfPages" 
+	          pager-fn="vm.featuresListFilter"
+	          front-biased="true">
+	        </community-pager>
+		</div>
+	</div>
+</div>

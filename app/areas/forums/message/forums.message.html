@@ -1,31 +1,25 @@
 
-<!-- TESTING STYLE -->
- <style type="text/css" scoped>
-    div.forumThreadMessage__linked
-    {
-      background-color: magenta;
-    }
-  </style>
-<!-- TESTING STYLE -->
 
-<div class="forumThread__subject
-	          forumThread__subject--locked
-	          forumThread__subject--active">
+<div class="cmuThread__subject
+	        cmuThread__subject--locked
+	        cmuThread__subject--active">
 	<div class="row">
-		<h3>{{ ::vm.originalMessage.subject | htmlUnescape }}</h3>
+		<h3>{{ ::vm.originalMessageSubject | htmlUnescape }}</h3>
 	</div>
 </div>
 
-<div class="forumThreadControl">
+<div class="cmuThread__controls">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
-        	<button class="button--solid button--padded button-blue-white">Reply</button>
-			<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
+        	<span community-permissions>
+	        	<button class="button--solid button--padded button-blue-white">Reply</button>
+				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
+			</span>
 		</div>
 
 		<div class="col--md4 noPaddingRight">
 			<community-pager 
-			  total-results="vm.allMessageCount" 
+			  number-of-pages="vm.numberOfPages"
 			  pager-fn="vm.messageThreadFilter">
 			</community-pager>
 		</div>
@@ -33,34 +27,32 @@
 </div>
 
 
-<div class="forumThreadContainer">
-	<div class="forumThreadMessage" ng-repeat="message in vm.messageThread" handle-image-error>
+<div class="cmuThread__container row">
+	<div class="col--md12 noPadding" ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message 
+			class="cmuMessage 
+				   cmuMessage--sidebyside"
 			message="message"
 			original-message="vm.originalMessage"
 			reply-click-fn="vm.showReply"
-			show-op="vm.originalMessage.author.id">
+			show-op="vm.originalMessage.message.insertUser.id">
 		</community-message>
 
 		<!-- reply -->
-		<div class="row row--comfy" ng-show="vm.messageIsBeingRepliedTo(message.id)">
-				<div class="col--md2">
-				</div>
-				<div class="col--md10">
-					<h6>REPLY to <a href="#">{{ ::message.author.login }}</a></h6>
-					<div class="row row--comfy">
-						<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
-					</div>
+		<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
+				<div class="col--md12 noPadding">
+					<div class="cmuThread__reply__to">Reply to <span>{{ ::message.insertUser.login }}</span></div>
+					<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
 					<div>
 						<button 
-							class="button-ghost button-white-blue" 
+							class="button--ghost button-white-on-blue" 
 							ng-click="vm.cancelReply()">
 								Cancel
 						</button>
 						<button 
-							class="button-full button-blue-white"
+							class="button--solid button-white-on-blue"
 							ng-click="vm.submitReply(message.id)">
-								Submit Comment
+								Post Reply
 						</button>
 					</div>
 				</div>
@@ -71,15 +63,18 @@
 
 
 
-<div class="forumThreadMessage__main__bottomControls">
+<div class="cmuThread__controls
+			cmuThread__controls--bottom">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
-        	<button class="button--solid button-blue-white">Post Reply</button>
-			<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
+        	<span community-permissions>
+	        	<button class="button--solid button-blue-white">Post Reply</button>
+				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
+			</span>
 		</div>
 		<div class="col--md4 noPaddingRight">
 			<community-pager 
-			  total-results="vm.allMessageCount" 
+			  number-of-pages="vm.numberOfPages" 
 			  pager-fn="vm.messageThreadFilter">
 			</community-pager>
 		</div>

@@ -2,10 +2,18 @@
     RewriteEngine On
 
     RewriteBase /
+
+    #Redirect http > https
+    RewriteCond %{HTTP:X-Forwarded-Proto} !^$
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
     RewriteRule ^([\w]+)/js/(.+)$     $1/js/$2
     RewriteRule ^([\w]+)/css/(.+)$    $1/css/$2
     RewriteRule ^([\w]+)/.*/(list/?|[0-9]+)$   $1/index.html
+    RewriteRule ^directory/\w+/$   directory/index.html
+    RewriteRule ^/?$   directory/index.html
 </IfModule>

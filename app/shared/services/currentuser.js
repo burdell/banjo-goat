@@ -1,24 +1,33 @@
-(function(_) {
-	'use strict';
+'use strict';
 
-	var currentUser = function(){
-		var user = null;
+require('shared/services/api.js');
+require('shared/services/initialize.js');
+
+var currentUser = function($q, apiService, intializeService){
+	var currentUser = {
+		user: null,
+		isAuthenticated: function(){
+			return !!currentUser.user && currentUser.user.id >= 0; 
+		}
+	};
 
 		return {
-			set: function(userObject){
-				user = userObject;
-			},
 			get: function(attr){
-				if (_.isUndefined(attr)) {
-					return user;
-				}
-
-				return user[attr];
+				if (!currentUser.user) {
+					return intializeService.initialize().then(function(result){
+						currentUser.user = result.auth;
+						
+						return currentUser;
+					});
+				} 
+				return $q.when(currentUser);
 			}
 		};
 	};
+	currentUser.$inject = ['$q', 'CommunityApiService', 'CommunityInitializeService'];
 
-	angular.module('community.services')
-		.service('CurrentUserService', currentUser);
+var serviceName = 'CurrentUserService';
+require('angular').module('community.services')
+	.service(serviceName, currentUser);
 
-}(window._));
+module.exports = serviceName;

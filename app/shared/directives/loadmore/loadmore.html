@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col--md12">
 		<div ng-show="!loadmore.isLoading && loadmore.listMetadata.hasMore && !loadmore.infiniteScroll">
-			<a ng-click="loadmore.load()">Load more</a>
+			<a class="button button--large button--ghost" ng-click="loadmore.load()">Show More</a>
 		</div>
 		<div ng-show="loadmore.isLoading">
 			<h6 class="alignCenter">Loading...</h6>

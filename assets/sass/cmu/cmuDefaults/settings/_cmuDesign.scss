@@ -1,0 +1,41 @@
+
+
+// 
+// Horizontal Lines
+// 
+
+$style-line: 1px solid $cmu-color-line;
+	$style-line--light: 1px solid $cmu-color-line--light;
+	$style-line--dark: 1px solid $cmu-color-line--dark;
+	$style-line--thick: 3px solid $cmu-color-black;
+	$style-line--xthick: 6px solid $cmu-color-black;
+
+
+
+// 
+// Text Styles
+// 
+
+
+// Standard Links blue w/ dark hover
+.style-link, %style-link {
+	color: $cmu-color-link;
+	&.active {
+		color: $cmu-color-link_active;
+	}
+	&:hover {
+		color: $cmu-color-link_hover;
+	}
+}
+
+// Reverse Links / dark w/ blue hover
+.style-link--dark, %style-link--dark {
+	@extend %ease-fast;
+	color: $cmu-color-link--dark;
+	&.active {
+		color: $cmu-color-link--dark_active;
+	}
+	&:hover {
+		color: $cmu-color-link--dark_hover;
+	}
+}

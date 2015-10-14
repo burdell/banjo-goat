@@ -1,0 +1,23 @@
+
+// NOTE
+// to prevent scrolling past the menu content, attach
+// a window height to the wrapper class with JS (can't do that here)
+// this needs to be removed when the overlay is hidden
+.cmuWrapper--overlay {
+	// height: 300px;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+// adding div gives slightly higher importance
+div.cmuOverlay--show {
+	display: block;
+	opacity: 1;
+	overflow: scroll;
+    height: 90%; // keeps everything in screen
+	@extend %ease-fast;
+	
+	// position: relative;
+	z-index: $z-overlay;
+} 

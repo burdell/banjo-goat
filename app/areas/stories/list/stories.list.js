@@ -1,33 +1,48 @@
-(function(_){
-	'use strict';
 
-	function StoriesListController ($scope, storyFilter, dataService, storyDefaults, $state){
-		var ctrl = this;
+'use strict';
 
-		var intitialList = storyFilter.initialData();
-		var storiesPerRow = 4;
+require('services/data.js');
 
-		_.extend(ctrl, {
-			storyFilter: storyFilter,
-			storyList: intitialList.collection,
-			storyMetadata: intitialList.next,
-			sortOptions: dataService.MessageSort,
-			createStory: function(){
-				$state.go('stories.new');
-			},
-			defaultPhoto: storyDefaults.coverPhoto,
-			groupStoryData: function(newData){
-				_.each(newData, function(story) {
-					ctrl.storyList.push(story);
-				});
+require('directives/sorter/sorter.js');
+require('directives/loadmore/loadmore.js');
 
-				$scope.$broadcast('communityGridList:redraw');
-			}
-		});
+require('stories/list/fluidlayout.js');
+require('stories/list/storydisplay.js');
+
+
+var _ = require('underscore');
+
+function StoriesListController ($scope, storyFilter, breadcrumbService, dataService, storyDefaults, $state){
+	var ctrl = this;
+	var intitialList = storyFilter.initialData();
+
+	var isStoriesLanding = $state.current.name === 'storiesLanding';
+
+	_.extend(ctrl, {
+		storyFilter: storyFilter,
+		storyList: intitialList,
+		sortOptions: dataService.MessageSort,
+		createStory: function(){
+			$state.go('stories.new');
+		},
+		defaultPhoto: storyDefaults.coverPhoto,
+		groupStoryData: function(newData){
+			_.each(newData, function(story) {
+				ctrl.storyList.content.push(story);
+			});
+
+			$scope.$broadcast('communityGridList:redraw');
+		},
+		hideNewStoryButton: isStoriesLanding
+	});
+
+	if (isStoriesLanding) {
+		breadcrumbService.setCurrentBreadcrumb('Stories');
 	}
-	StoriesListController.$inject = ['$scope', 'StoryListFilter', 'CommunityDataService', 'StoryDefaults', '$state'];
+}
+StoriesListController.$inject = ['$scope', 'StoryListFilter', 'CommunityBreadcrumbService', 'CommunityDataService', 'StoryDefaults', '$state'];
 
-	angular.module('community.stories')
-		.controller('StoriesList', StoriesListController);
+angular.module('community.stories')
+	.controller('StoriesList', StoriesListController);
 
-}(window._));
+
