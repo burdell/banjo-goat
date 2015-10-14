@@ -81,14 +81,9 @@
 	}
 
 	.cmuFeed__title {
-		padding-left: $cmu-base/2;
-		padding-right: $cmu-base/2;
+		padding: $cmu-base/2 $cmu-base;
+		border-bottom: $style-line;
 	}
-		.cmuFeed__title--all {
-			padding: $cmu-base/2 $cmu-base;
-			border-bottom: $style-line;
-		}
-
 
 	// 
 	// stories
@@ -96,14 +91,17 @@
 
 	.cmuFeed__stories {
 		border: $style-line;
+		border-bottom: 0;
+
 		margin-bottom: $cmu-vertical-rhythm;
 		background-color: $cmu-color-post;
-		padding-top: $cmu-base/2;
-		padding-bottom: $cmu-base/2;
+		// padding-top: $cmu-base/2;
+		// padding-bottom: $cmu-base/2;
 
 	}
 		.cmuFeed__storyList {
 			padding: $cmu-base/2;
+			border-bottom: $style-line;
 		}
 		.cmuFeed__story {
 			@extend %style-listItem;
@@ -131,6 +129,7 @@
 			    }
 			}
 				.cmuFeed__close--closed {
+
 				    span:before {
 				    	content: "\e6cf";
 				    }
@@ -206,19 +205,18 @@
 
 			.cmuFeed__userAction {
 				@extend %size-xsmaller;
-				color: $cmu-color-dkgray;
-				// margin-top: $cmu-base/4;
-				margin-left: $cmu-base/2;
+				color: $cmu-color-mdgray;
+				margin: $cmu-base/4 0;
 			}
 			.cmuFeed__content {
 				@extend %size-smaller;
 				color: $cmu-color-dkgray;
-				margin: $cmu-base/4 0 $cmu-base/2 0;
+				margin: $cmu-base/4 0;
 
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 40px; // preserve 2 lines
+			    max-height: 38px; // preserve 2 lines
 			}
 			.cmuFeed__stats {
 				text-align: right;

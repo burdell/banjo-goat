@@ -8201,25 +8201,20 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__title {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.cmuFeed__title--all {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #bbbbbd;
 }
 
 .cmuFeed__stories {
   border: 1px solid #bbbbbd;
+  border-bottom: 0;
   margin-bottom: 1rem;
   background-color: #f3f3f3;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .cmuFeed__storyList {
   padding: 0.5rem;
+  border-bottom: 1px solid #bbbbbd;
 }
 
 .cmuFeed__story:hover .cmuFeed__story__img {
@@ -8292,17 +8287,17 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__userAction {
-  color: #474b52;
-  margin-left: 0.5rem;
+  color: #bbbbbd;
+  margin: 0.25rem 0;
 }
 
 .cmuFeed__content {
   color: #474b52;
-  margin: 0.25rem 0 0.5rem 0;
+  margin: 0.25rem 0;
   /* white-space: nowrap; */
   overflow: hidden;
   max-height: 3rem;
-  max-height: 40px;
+  max-height: 38px;
 }
 
 .cmuFeed__stats {

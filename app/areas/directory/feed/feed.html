@@ -63,12 +63,14 @@
 
 			<div class="cmuFeed__container container">
 
-		        <div class="cmuFeed__stories col--md12" ng-show="vm.feedType === 'community'">
-		        	<div class="cmuFeed__title  clearfix">
+		        <div class="cmuFeed__stories col--md12 noPadding" ng-show="vm.feedType === 'community'">
+		        
+		        	<div class="cmuFeed__title clearfix">
 		        		<div class="col--md8">
 							<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
 						</div>
 					</div>
+
 					<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
 		        			<span class="ubnt-icon ubnt-icon--x"></span>
 						</div>
@@ -81,12 +83,13 @@
 									<div class="cmuFeed__story__img"
 									 style="background-image: url('{{ story.media[0].url }}')"></div>
 								</div>
+								<!-- used for stories w/missing images -->
 								<!-- 
 								<div class="cmuFeed__story__img__container" ng-if="story.media.length == 0">
 									<div class="cmuFeed__story__img"
 									 style="background-image: url('http://www.placecage.com/c/200/300')"></div>
 								</div>
- -->
+								-->
 								<div>
 									<div class="cmuFeed__story__subject">{{ story.subject }}</div>
 									<div class="cmuFeed__story__user">{{ story.message.insertUser.login }}</div>
@@ -103,7 +106,7 @@
 		        </div>
 
 		        <div class="cmuFeed__list col--md12">
-		        	<div class="cmuFeed__title cmuFeed__title--all clearfix">
+		        	<div class="cmuFeed__title  clearfix">
 						<h5><span class="cmuFeed__icon all"></span>{{ vm.feedTypeDisplay }}</h5>
 					</div>
 
