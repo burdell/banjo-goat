@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-(function(_){
-	'use strict';
-
-	var communityApiService = function($http, $q, $timeout, errorService){
-		function getCallOptions(url, data, verb, isMedia) {
-			if (_.isUndefined(verb)) {
-				verb = 'GET';
-			}
-=======
 'use strict';
->>>>>>> master
 
 require('shared/services/error.js');
 var _ = require('underscore');
