@@ -1,8 +1,8 @@
 
 //vendor
-require('angular/angular.js');
-require('ui-router/release/angular-ui-router.js');
-require('angular-ui-select/dist/select.min.js');
+require('angular');
+require('angular-ui-router');
+require('angular-ui-select/select.js');
 require('angular-sanitize');
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
@@ -37,6 +37,7 @@ function initializeApp(areaName) {
     require('directives/discussionsnavbar/discussionsnavbar.js');
     require('directives/megamenu/megamenu.js');
     require('directives/pageheader/pageheader.js');
+    require('directives/pagescroll/pagescroll.js');
     
     require('basecontroller.js');
 

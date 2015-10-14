@@ -2,7 +2,7 @@
 'use strict';
 
 var _ = require('underscore');
-var moment = require('moment/moment.js');
+var moment = require('moment');
 
 function groupData(dataList, datePropertyFn){
 	_.each(dataList, function(discussion){

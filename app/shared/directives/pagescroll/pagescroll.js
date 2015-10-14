@@ -4,7 +4,12 @@
 var _ = require('underscore');
 
 function pageScroll() {
-	
+	var link = function(scope, element, attrs){
+		element.on('click', function(){
+			scope.pagescroll.scrollPage();
+		});	
+	};
+
 	var controller = function($anchorScroll) {
 		var ctrl = this;
 		_.extend(ctrl, {
@@ -18,11 +23,11 @@ function pageScroll() {
 	controller.$inject = ['$anchorScroll'];
 
     var directive = {
+    	link: link,
         controller: controller,
         controllerAs: 'pagescroll',
-        templateUrl: 'directives/pagescroll/pagescroll.html',
         bindToController: true,
-        restrict: 'E',
+        restrict: 'A',
         scope: {
         	scrollerText: '@',
         	scrollTo: '@'
