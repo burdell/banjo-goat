@@ -439,7 +439,13 @@ button, .button {
 	margin-left: 0;
 	display: inline-block;
     margin-top: -1px;
-	@extend %ease-none;
+	@extend %ease-fast;
+
+	&:hover {
+		@extend %ease-fast;
+		color: $cmu-color-dkgray;
+		background-color: $cmu-color-xmdgray;
+	}
 
 	&:first-child {
 		margin-right: -1px;

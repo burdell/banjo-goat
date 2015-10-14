@@ -42,7 +42,7 @@
 	color: $cmu-color-white;
 	background-color: $cmu-color-mdgray;
 	font-size: $size-large;
-	line-height: $size-larger--line-height;
+	line-height: $size-larger__lineHeight;
 
 	&:before {
 		content :' ';
@@ -103,6 +103,6 @@
 			@extend %font-lato; 
 			@extend %type-info;
 			width: $cmu-base;
-			line-height: $size-xxsmaller--line-height;
+			line-height: $size-xxsmaller__lineHeight;
 			display: inline-block;
 		}

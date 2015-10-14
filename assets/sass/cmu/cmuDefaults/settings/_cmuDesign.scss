@@ -44,14 +44,18 @@ $style-line: 1px solid $cmu-color-line;
 		color: $cmu-color-link--dark_active;
 	}
 	&:hover {
-		@extend %ease-fast;
+		// @extend %ease-fast;
 		color: $cmu-color-link--dark_hover;
 		text-decoration: none;
 	}
 }
 
+
+
+
+
 // 
-// Contextual Link Styles
+// Communal Styles
 // 
 
 
@@ -72,20 +76,49 @@ $style-line: 1px solid $cmu-color-line;
 // - hover:			blue
 // - underline:		none
 // - background: 	light (depends on context, and isn't set by this module)
-.style-link-listItem, %style-link-listItem {
+.style-listItem, %style-listItem {
+	@extend %size-normal;
 	@extend %style-link--dark;
+	@extend %ease-fast;
+	// background-color: $cmu-color-ltgray;
 
 	&:hover {
 		// background: $cmu-color-threadlist-hover;
 		cursor: pointer;
 		.cmuThreadList__row__topic {
-			color: $cmu-color-active;
+			color: $cmu-color-link--dark_hover;
 		}
 	}
+}
 
+.style-ctaLink, %style-ctaLink {
+	@extend %style-link;
 }
 
 
+// 
+// Doodads
+// 
+
+.style-user, %style-user {
+	@extend %size-xsmaller;
+	color: $cmu-color-dkgray;
+	margin-top: $cmu-base/4;
+}
+.style-date, %style-date {
+	@extend %size-xsmaller;
+	color: $cmu-color-gray;
+	margin-bottom: $cmu-base/4;
+}
+
+.style-tag, %style-tag {
+	display: inline-block;
+	@extend %size-xxsmaller;
+	color: $cmu-color-dkgray;
+	border: $style-line;
+	padding: $cmu-base/6 $cmu-base/2;
+	background-color: $cmu-color-ltgray;
+}
 
 
 

@@ -38,42 +38,44 @@ body {
 // 
 
 $size-largestest: remCalc(32px);
-$size-largestest--line-height: remCalc(48px);
-%size-largestest { font-size: $size-largestest; line-height: $size-largestest--line-height;}
+$size-largestest__lineHeight: remCalc(48px);
+%size-largestest { font-size: $size-largestest; line-height: $size-largestest__lineHeight;}
 
 $size-largest: remCalc(24px);
-$size-largest--line-height: remCalc(33px);
-%size-largest { font-size: $size-largest; line-height: $size-largest--line-height;}
+$size-largest__lineHeight: remCalc(33px);
+%size-largest { font-size: $size-largest; line-height: $size-largest__lineHeight;}
 
 // used for headlines
 $size-larger: remCalc(19px);
-$size-larger--line-height: remCalc(36px);
-%size-larger { font-size: $size-larger; line-height: $size-larger--line-height;}
+$size-larger__lineHeight: remCalc(36px);
+%size-larger { font-size: $size-larger; line-height: $size-larger__lineHeight;}
 
 // standard display sizes, topics, subjects, etc.
 // used to be normal
 $size-large: remCalc(16px);
-$size-large--line-height: remCalc(24px);
-%size-large { font-size: $size-large; line-height: $size-large--line-height;}
+$size-large__lineHeight: remCalc(24px);
+%size-large { font-size: $size-large; line-height: $size-large__lineHeight;}
 
 // 13px is used for body / standard paragraph text
 $size-normal: remCalc(13px);
-$size-normal--line-height: remCalc(21px);
-%size-normal { font-size: $size-normal; line-height: $size-normal--line-height;}
+$size-normal__lineHeight: remCalc(21px);
+%size-normal { font-size: $size-normal; line-height: $size-normal__lineHeight;}
 
 // used for status messages, "et cetera messages" 
 $size-smaller: remCalc(12px);
-$size-smaller--line-height: remCalc(18px);
-%size-smaller { font-size: $size-smaller; line-height: $size-smaller--line-height;}
+$size-smaller__lineHeight: remCalc(18px);
+%size-smaller { font-size: $size-smaller; line-height: $size-smaller__lineHeight;}
 
 $size-xsmaller: remCalc(11px);
-$size-xsmaller--line-height: remCalc(16px);
-%size-xsmaller { font-size: $size-xsmaller; line-height: $size-xsmaller--line-height;}
+$size-xsmaller__lineHeight: remCalc(16px);
+%size-xsmaller { font-size: $size-xsmaller; line-height: $size-xsmaller__lineHeight;}
 
 // used for tags, and really small things
-$size-xxsmaller: remCalc(9px);
-$size-xxsmaller--line-height: remCalc(14px);
-%size-xxsmaller { font-size: $size-xxsmaller; line-height: $size-xxsmaller--line-height;}
+$size-xxsmaller: remCalc(10px);
+$size-xxsmaller__lineHeight: remCalc(13px);
+%size-xxsmaller { font-size: $size-xxsmaller; line-height: $size-xxsmaller__lineHeight;}
+
+// anything under 10px is illegible
 
 
 // avatar size
@@ -91,54 +93,54 @@ $size-avatar: $cmu-base * 2.5;
 // 
 
 $size-h1: $size-largestest; 
-$size-h1--line-height: $size-largestest--line-height;
+$size-h1__lineHeight: $size-largestest__lineHeight;
 	h1, %h1 {
 		font-size: $size-h1;
-		line-height: $size-h1--line-height;
+		line-height: $size-h1__lineHeight;
 		font-weight: 300;
 	}
 
 
 $size-h2: $size-largest;
-$size-h2--line-height: $size-largest--line-height;
+$size-h2__lineHeight: $size-largest__lineHeight;
 	h2, %h2 {
 		font-size: $size-h2;
-		line-height: $size-h2--line-height;
+		line-height: $size-h2__lineHeight;
 		font-weight: 400;
 	}
 
 $size-h3: $size-larger;
-$size-h3--line-height: $size-larger--line-height;
+$size-h3__lineHeight: $size-larger__lineHeight;
 	h3, %h3 {
 		font-size: $size-h3;
-		line-height: $size-h3--line-height;
+		line-height: $size-h3__lineHeight;
 		font-weight: 600;
 		color: $cmu-color-dkgray;
 	}
 
 $size-h4: $size-larger;
-$size-h4--line-height: $size-larger--line-height;
+$size-h4__lineHeight: $size-larger__lineHeight;
 	h4, %h4 {
 		font-size: $size-h4;
-		line-height: $size-h4--line-height;
+		line-height: $size-h4__lineHeight;
 		font-weight: 300;
 		color: $cmu-color-dkgray;
 }
 
 $size-h5: $size-normal;
-$size-h5--line-height: $size-normal--line-height;
+$size-h5__lineHeight: $size-normal__lineHeight;
 	h5, %h5 {
 		font-size: $size-h5;
-		line-height: $size-h5--line-height;
+		line-height: $size-h5__lineHeight;
 		color: $cmu-color-dkgray;
 	}
 
 
 $size-h6: $size-smaller;
-$size-h6--line-height: $size-smaller--line-height;
+$size-h6__lineHeight: $size-smaller__lineHeight;
 	h6, %h6 {
 		font-size: $size-h6;
-		line-height: $size-h6--line-height;
+		line-height: $size-h6__lineHeight;
 		font-weight: 400;
 		color: $cmu-color-dkgray;
 		font-style: italic;
@@ -160,29 +162,29 @@ $cmu-base-spacing-unit: $cmu-base;
 // base size for copy (13px)
 .type-base, %type-base {
 	font-size: $size-normal;
-	line-height: $size-normal--line-height;
+	line-height: $size-normal__lineHeight;
 }
 
 // base size for minor copy like legal, breadcrumbs, etc.
 .type-minor, %type-minor {
 	font-size: $size-smaller;
-	line-height: $size-smaller--line-height;
+	line-height: $size-smaller__lineHeight;
 }
 
 // base size (11px) for info and tables: status, tables, summaries, "replies, views" etc.
 .type-info, %type-info {
 	font-size: $size-xsmaller;
-	line-height: $size-xsmaller--line-height;
+	line-height: $size-xsmaller__lineHeight;
 }
 
 	// tiny size (9px) for supplemental info.
 	.type-tiny, %type-tiny {
 		font-size: $size-xxsmaller;
-		line-height: $size-xxsmaller--line-height;
+		line-height: $size-xxsmaller__lineHeight;
 	}
 		.type-tiny--tight, %type-tiny--tight {
 			@extend %type-tiny;
-			line-height: $size-xxsmaller--line-height * 0.6;
+			line-height: $size-xxsmaller__lineHeight * 0.6;
 		}
 
 

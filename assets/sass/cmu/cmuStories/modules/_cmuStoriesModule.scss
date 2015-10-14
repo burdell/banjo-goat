@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 // 
 // Stories Grid
 // 
@@ -36,8 +31,8 @@
 		max-width: calc((100% - 14px * 0) / 1); // technically just 100%
 	}
 
-	@extend %style-link-listItem;
-	
+	@extend %style-listItem;
+
 	&:hover {
 		@extend %ease-fast;
 		img {
@@ -112,10 +107,13 @@
 		}
 	}
 
+	.cmuStoryItem__user {
+		@extend %style-user;
+	}
+
 	.cmuStoryItem__meta {
 		padding: $cmu-base/2;
 		background-color: $cmu-color-ltgray;
-		margin-bottom: $cmu-base;
 
 		border: $style-line;
 		border-top: 0;
@@ -126,6 +124,10 @@
 		&>span {
 			margin-right: $cmu-base/2;
 		}
+	}
+
+	.cmuStoryItem__desc {
+		@extend %style-tag;
 	}
 
 

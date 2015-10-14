@@ -65,7 +65,7 @@
         .cmuDropdown__headline {
             span {
                 @extend %size-xsmaller;
-                line-height: $size-normal--line-height !important;
+                line-height: $size-normal__lineHeight !important;
                 margin-left: $cmu-base/8;
             }
 

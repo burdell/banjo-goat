@@ -169,10 +169,8 @@ $cmu-forum-size-maxWidth--author: 100px;
 	border-bottom: $style-line;
 	padding-top: $cmu-vertical-rhythm/2;
 	padding-bottom: $cmu-vertical-rhythm/2;
-	line-height: 2rem;
 
-	@extend %style-link-listItem;
-
+	@extend %style-listItem;
 
 	td {
 		overflow: hidden; 

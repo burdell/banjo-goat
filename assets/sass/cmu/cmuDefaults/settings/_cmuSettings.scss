@@ -39,6 +39,10 @@ body {
 	color: $cmu-color-body;
 	line-height: inherit;
 	background-color: $cmu-color-menu;
+
+	a:focus {
+		outline: none;
+	}
 }
 	.wrapper {
 		background-color: $cmu-color-white;

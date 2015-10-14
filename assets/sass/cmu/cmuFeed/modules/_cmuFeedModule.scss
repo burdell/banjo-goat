@@ -77,11 +77,7 @@
 
 	// location tag
 	.cmuFeed__location {
-		display: inline-block;
-		@extend %size-xxsmaller;
-		border: $style-line;
-		padding: $cmu-base/6 $cmu-base/2;
-		background-color: $cmu-color-ltgray;
+		@extend %style-tag;
 	}
 
 	.cmuFeed__title {
@@ -110,24 +106,17 @@
 			padding: $cmu-base/2;
 		}
 		.cmuFeed__story {
-			* { @extend %ease-fast; }
+			@extend %style-listItem;
 			&:hover {
-
 				.cmuFeed__story__img {
+					@extend %ease-fast;
 				    -moz-transform: scale(1.2);
 				    -webkit-transform: scale(1.2);
 				    transform: scale(1.2);
 				}
-
-				.cmuFeed__story__subject {
-					text-decoration: underline;
-				}
 			}
 		}
 
-			.cmuFeed__story__subject {
-				@extend %size-smaller;
-			}
 			.cmuFeed__close {
 				text-align: right;
 				cursor: pointer;
@@ -159,34 +148,19 @@
 
 		// background image fed into inline style
 		.cmuFeed__story__img {
+			@extend %ease-fast;
 			height: $cmu-base*8;
 			width: 100%;
 			background-repeat: no-repeat;
 			background-size: cover;
 		}
 
-		.cmuFeed__story__subject {
-			@extend %size-smaller;
-			line-height: $size-xsmaller--line-height;
-			color: $cmu-color-active;
-			// margin-bottom: $cmu-base/2;
-		}
-
 		.cmuFeed__story__user {
-			@extend %size-xsmaller;
-			color: $cmu-color-dkgray;
-			margin-top: $cmu-base/4;
+			@extend %style-user;
 		}
 		.cmuFeed__story__date {
-			@extend %size-xsmaller;
-			color: $cmu-color-gray;
-			margin-bottom: $cmu-base/4;
+			@extend %style-date;
 		}
-
-
-
-
-
 
 
 
@@ -208,18 +182,17 @@
 			border-bottom: $style-line;
 		}
 
-		// individual story items
+		// individual article items
 		.cmuFeed__item {
 			padding: $cmu-base/2 $cmu-base;
 			border-bottom: $style-line;
 			cursor: pointer;
 			overflow: hidden;
+			@extend %style-listItem;
+			background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-ltgray;
-				.cmuFeed__subject {
-					text-decoration: underline;
-				}
+				background-color: $cmu-color-white;
 			}
 
 			.cmuFeed__icon {
@@ -230,13 +203,7 @@
 				height: $cmu-base*1.2;
     			overflow: hidden;
 			}
-				.cmuFeed__subject {
-					// font-weight: 600;
-					color: $cmu-color-blue;
-					// white-space: nowrap;
 
-					@extend %size-normal;
-				}
 			.cmuFeed__userAction {
 				@extend %size-xsmaller;
 				color: $cmu-color-dkgray;
@@ -245,6 +212,7 @@
 			}
 			.cmuFeed__content {
 				@extend %size-smaller;
+				color: $cmu-color-dkgray;
 				margin: $cmu-base/4 0 $cmu-base/2 0;
 
 			    /* white-space: nowrap; */
@@ -256,7 +224,7 @@
 				text-align: right;
 			}
 				.cmuFeed__stat {
-					@extend .cmuFeed__location;
+					@extend %style-tag;
 					margin-right: $cmu-base/2;
 				}
 
@@ -286,36 +254,28 @@
 	}
 }
 	.cmuFeed__sidebar__link {
-		color: $cmu-color-active;
-		@extend %size-normal;
-		
-		&:hover {
-			text-decoration: underline;
-		}
+		@extend %style-ctaLink;
 	}
 
 	.cmuFeed__actions {
 		margin-bottom: $cmu-vertical-rhythm;
 
+
 		a {
 			display: block;
 			padding: $cmu-base/4 0;
-			color: $cmu-color-active;
 			@extend %ease-fast;
-			span, span:before { 
-				@extend %ease-fast;
-			}
+			@extend %style-ctaLink;
 
 			// icon color
 			span:before { 
+				@extend %ease-fast;
 				color: $cmu-color-active;
 			}
 			&:hover {
 				span, span:before { 
 					@extend %ease-fast;
-				}
-				span:last-child { 
-					text-decoration: underline; 
+					color: $cmu-color-dkgray;
 				}
 			}
 		}

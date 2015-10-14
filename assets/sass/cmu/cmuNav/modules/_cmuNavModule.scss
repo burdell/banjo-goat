@@ -416,15 +416,17 @@ $nav-height: $cmu-nav-height;
 		cursor: default;
 		display: block;
 		@extend %nav-style;
+		font-size: $size-smaller;
+		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
 		height: auto;
 		padding: $cmu-base/2 0;
+		cursor: pointer;
 
 		@include respondTo(small-down) {
 			padding-left: $cmu-base/2;
 		}
 
-		cursor: pointer;
 	}
 
 	span {
@@ -479,9 +481,9 @@ $nav-height: $cmu-nav-height;
 	.cmuGloNav__social--label {
 		cursor: default !important;
 		@extend %nav-style;
-		display: block;
+		font-size: $size-smaller;
+		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
-		height: auto;
 		padding: $cmu-base/2;
 		margin-bottom: $cmu-base/2;
 

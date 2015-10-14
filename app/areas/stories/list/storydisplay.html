@@ -7,11 +7,13 @@
 		</div>
 		<div class="cmuStoryItem__main" class="col--md3">
 			<div class="cmuStoryItem__link">{{ ::storydisplay.story.subject }}</div>	
-			<h6> 
-				by&nbsp; 
-				<community-username user="storydisplay.story.message.insertUser"></community-username> 
+			<div class="cmuStoryItem__user">
+				<community-username user="storydisplay.story.message.insertUser"></community-username>
+			</div>
+
+			<div class="cmuStoryItem__user">  
 				{{ ::storydisplay.story.message.postDate | timeFromNow }}
-			</h6>
+			</div>
 		</div>
 		<div class="cmuStoryItem__meta">
 			<!-- <p>{{ storydisplay.story.summary }}</p> -->
@@ -21,7 +23,7 @@
 			<span class="cmuStoryItem__kudos">
 				<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
 			</span>
-			<span>
+			<span class="cmuStoryItem__desc">
 				{{ storydisplay.story.node.description }}
 			</span>
 		</div>
