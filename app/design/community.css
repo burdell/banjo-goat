@@ -6683,7 +6683,7 @@ body {
   line-height: 1.125rem;
 }
 
-.style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
+.style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuStoryItem__date, .cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
@@ -6798,7 +6798,7 @@ h6 {
   margin-top: 0.25rem;
 }
 
-.style-date, .cmuFeed__story__date {
+.style-date, .cmuFeed__story__date, .cmuStoryItem__date {
   color: #969ba3;
   margin-bottom: 0.25rem;
 }
@@ -9344,6 +9344,7 @@ button .icon, .button .icon {
   color: white;
   position: relative;
   top: -1px;
+  line-height: 1rem;
 }
 .cmuUsername .cmuUsername__icon.ubnt-icon--u {
   padding: 0.25rem;
@@ -10440,11 +10441,10 @@ select.cmuSort {
   border-bottom: 0;
 }
 
-.cmuStoryItem__link {
-  margin-bottom: 0.5rem;
+.cmuStoryItem__subject {
   display: inline-block;
 }
-.cmuStoryItem__link:hover {
+.cmuStoryItem__subject:hover {
   color: #00a0df;
 }
 

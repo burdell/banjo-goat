@@ -96,10 +96,7 @@
 		border-bottom: 0
 	}
 
-	.cmuStoryItem__link {
-		// color: $cmu-color-dkgray;
-		// font-size: $cmu-base-font;
-		margin-bottom: $cmu-base/2;
+	.cmuStoryItem__subject {
 		display: inline-block;
 
 		&:hover {
@@ -109,6 +106,9 @@
 
 	.cmuStoryItem__user {
 		@extend %style-user;
+	}
+	.cmuStoryItem__date {
+		@extend %style-date;
 	}
 
 	.cmuStoryItem__meta {

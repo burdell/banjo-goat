@@ -92,7 +92,11 @@
 								-->
 								<div>
 									<div class="cmuFeed__story__subject">{{ story.subject }}</div>
-									<div class="cmuFeed__story__user">{{ story.message.insertUser.login }}</div>
+									<div class="cmuFeed__story__user">
+
+										<community-username user="story.message.insertUser"></community-username>
+										<!-- {{ story.message.insertUser.login }} -->
+									</div>
 									<div class="cmuFeed__story__date">{{ story.message.postDate | timeFromNow }}</div>
 								</div>
 								<div class="cmuFeed__location">{{ story.node.description }}</div>

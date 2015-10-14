@@ -6,12 +6,12 @@
 			</div>
 		</div>
 		<div class="cmuStoryItem__main" class="col--md3">
-			<div class="cmuStoryItem__link">{{ ::storydisplay.story.subject }}</div>	
+			<div class="cmuStoryItem__subject">{{ ::storydisplay.story.subject }}</div>	
 			<div class="cmuStoryItem__user">
 				<community-username user="storydisplay.story.message.insertUser"></community-username>
 			</div>
 
-			<div class="cmuStoryItem__user">  
+			<div class="cmuStoryItem__date">  
 				{{ ::storydisplay.story.message.postDate | timeFromNow }}
 			</div>
 		</div>
