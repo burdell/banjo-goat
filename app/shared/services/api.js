@@ -86,7 +86,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		};
 	}
 
-		var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
+		var v2Url = 'https://comm2-stage-api.ubnt.com/2/';
 		var urlSegments = {
 			Announcement: function(id){
 				return 'announcements/' + this._Message(id);
