@@ -6688,7 +6688,7 @@ body {
   line-height: 1rem;
 }
 
-.style-tag, .cmuFeed__location, .cmuFeed__stat, .cmuStoryItem__desc, .cmuComments__date {
+.style-tag, .style-tag--noLine, .cmuFeed__stat, .cmuFeed__location, .cmuStoryItem__desc, .cmuComments__date {
   font-size: 0.625rem;
   line-height: 0.8125rem;
 }
@@ -6762,7 +6762,6 @@ h6 {
 }
 
 .style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a {
-  display: inline-block;
   color: #00a0df;
   cursor: pointer;
 }
@@ -6774,7 +6773,6 @@ h6 {
 }
 
 .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuDirectory__content__list a, .cmuFeed__anno a, .cmuUsername a, .cmuDiscussionsNavbar a {
-  display: inline-block;
   color: #474b52;
   cursor: pointer;
 }
@@ -6803,12 +6801,17 @@ h6 {
   margin-bottom: 0.25rem;
 }
 
-.style-tag, .cmuFeed__location, .cmuFeed__stat, .cmuStoryItem__desc {
+.style-tag, .style-tag--noLine, .cmuFeed__stat, .cmuFeed__location, .cmuStoryItem__desc {
   display: inline-block;
   color: #474b52;
   border: 1px solid #bbbbbd;
   padding: 0.16667rem 0.5rem;
   background-color: #ebebeb;
+}
+
+.style-tag--noLine, .cmuFeed__stat {
+  border: 0;
+  background-color: transparent;
 }
 
 .row {
@@ -8306,10 +8309,6 @@ div.cmuOverlay--show {
   text-align: right;
 }
 
-.cmuFeed__stat {
-  margin-right: 0.5rem;
-}
-
 .cmuFeed__pagerBottom {
   padding: 0.5rem 1rem;
 }
@@ -8522,6 +8521,7 @@ div.cmuOverlay--show {
   border-bottom: 1px solid #bbbbbd;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  display: table-row;
 }
 .cmuThreadList__row td {
   overflow: hidden;

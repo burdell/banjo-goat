@@ -222,8 +222,8 @@
 				text-align: right;
 			}
 				.cmuFeed__stat {
-					@extend %style-tag;
-					margin-right: $cmu-base/2;
+					@extend %style-tag--noLine;
+					// margin-right: $cmu-base/2;
 				}
 
 

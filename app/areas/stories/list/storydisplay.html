@@ -14,6 +14,10 @@
 			<div class="cmuStoryItem__date">  
 				{{ ::storydisplay.story.message.postDate | timeFromNow }}
 			</div>
+			
+			<div class="cmuStoryItem__desc">
+				{{ storydisplay.story.node.description }}
+			</div>
 		</div>
 		<div class="cmuStoryItem__meta">
 			<!-- <p>{{ storydisplay.story.summary }}</p> -->
@@ -22,9 +26,6 @@
 			</span>
 			<span class="cmuStoryItem__kudos">
 				<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
-			</span>
-			<span class="cmuStoryItem__desc">
-				{{ storydisplay.story.node.description }}
 			</span>
 		</div>
 	</a>
