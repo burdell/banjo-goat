@@ -6762,6 +6762,7 @@ h6 {
 }
 
 .style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a {
+  display: inline-block;
   color: #00a0df;
   cursor: pointer;
 }
@@ -6773,6 +6774,7 @@ h6 {
 }
 
 .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuDirectory__content__list a, .cmuFeed__anno a, .cmuUsername a, .cmuDiscussionsNavbar a {
+  display: inline-block;
   color: #474b52;
   cursor: pointer;
 }
