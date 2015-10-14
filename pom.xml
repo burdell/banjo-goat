@@ -38,17 +38,7 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
-                    
-                    <execution>
-                        <id>bower install</id>
-                        <goals>
-                            <goal>bower</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>                    
-
+                  
                     <execution>
                         <id>gulp build</id>
                         <goals>

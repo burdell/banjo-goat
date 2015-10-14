@@ -1,10 +1,10 @@
 
 'use strict';
 
-var $ = require('jquery/dist/jquery.js');
+var $ = require('jquery');
 //tooltip plugin needs this
 window.jQuery = $;
-require('tooltipster/js/jquery.tooltipster.js');
+require('tooltipster');
 
 var _ = require('underscore');
 

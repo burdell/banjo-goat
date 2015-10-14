@@ -1,7 +1,7 @@
 
 'use strict';
 
-var moment = require('moment/moment.js');
+var moment = require('moment');
 
 var timeFromNow = function(){
 	return function(unixTimestamp){
