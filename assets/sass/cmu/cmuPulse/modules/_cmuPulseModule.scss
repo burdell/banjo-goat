@@ -10,9 +10,15 @@
 	@extend %font-oswald;
 	padding: 0;
 	margin-bottom: $cmu-base;
+	border-bottom: $cmu-style-line;
+	text-align: center;
 
 	@include respondTo(small-down) {
 		display: none;
+	}
+
+	@include respondTo(large-up) {
+    	padding: 0 $cmu-base*4;
 	}
 
 	// place flush to the menu
@@ -53,9 +59,10 @@
 }
 
 .cmuPulse__counter {
-	display: table-cell;
+	display: inline-block;
+	// display: table-cell;
 	vertical-align: middle;
-	width: 24%;
+	// width: 24%;
 	// &:nth-child(2) {
 	// 	width: 13%;
 	// }
@@ -68,11 +75,17 @@
 	// 	width: 10%;
 	// }
 
-	padding: $cmu-base/2 $cmu-base $cmu-base/2 0;
+	padding: $cmu-base/2 $cmu-base/2 $cmu-base/2 0;
 	overflow: hidden;
 
 	text-transform: uppercase;
 	color: $cmu-color-dkgray;
+
+	div {
+		// display: table-cell;
+		display: inline-block;
+		vertical-align: middle;
+	}
 
 	.icon {
 		font-size: $cmu-base*0.88;
@@ -86,14 +99,6 @@
 		top: -1px;
 	}
 }
-	.cmuPulse__counter {
-		padding-right: $cmu-base;
-		div {
-			display: table-cell;
-			vertical-align: middle;
-		}
-		border-bottom: $cmu-style-line;
-	}
 
 		.cmuPulse__total {
 			// padding-left: $cmu-base*2;

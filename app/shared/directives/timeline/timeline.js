@@ -1,9 +1,16 @@
-(function(_){
-	'use strict';
-	
-	function communityTimeline() {
-		var link = function(scope, element, attrs) {
-		};
+
+'use strict';
+
+require('shared/services/timeline.js');
+require('shared/filters/monthdisplay.js');
+require('shared/filters/extractkey.js');
+require('shared/filters/timefromnow.js');
+
+var _ = require('underscore');
+
+function communityTimeline() {
+	var link = function(scope, element, attrs) {
+	};
 
 		var controller = function($state, timelineService) {
 			var ctrl =  this;
@@ -42,27 +49,26 @@
 		};
 		controller.$inject = ['$state', 'CommunityTimelineService'];
 
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        templateUrl: 'directives/timeline/timeline.html',
-	        controllerAs: 'timeline',
-	        bindToController: true,
-	        restrict: 'E',
-	        scope: {
-	        	timelineModel: '=',
-	        	timelineItemTemplate: '=',
-	        	sortedModel: '=',
-	        	dateAttribute: '@',
-	        	hrefFn: '=',
-	        	showProductInfo: '='
-	        }
-	    };
+    var directive = {
+        link: link,
+        controller: controller,
+        templateUrl: 'directives/timeline/timeline.html',
+        controllerAs: 'timeline',
+        bindToController: true,
+        restrict: 'E',
+        scope: {
+        	timelineModel: '=',
+        	timelineItemTemplate: '=',
+        	sortedModel: '=',
+        	dateAttribute: '@',
+        	hrefFn: '=',
+        	showProductInfo: '='
+        }
+    };
 
-	    return directive;
-	}
+    return directive;
+}
 
-	angular.module('community.directives')
-		.directive('communityTimeline', communityTimeline);
+angular.module('community.directives')
+	.directive('communityTimeline', communityTimeline);
 		
-}(window._));

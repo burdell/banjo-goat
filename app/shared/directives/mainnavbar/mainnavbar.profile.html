@@ -1,58 +1,25 @@
-<div>
-	<div class="cmuMega__section col--md12">
-		<div class="cmuMega__section__head col--md12">
-			PROOOOOFILE
+<div class="col--md6 col--mdOffset6">
+	<div class="cmuProfile__dropdown__container cmuDropdown__container">
+		<div class="cmuProfile__dropdown__header cmuDropdown__header clearfix">
+			<div class="cmuDropdown__headline">UBNT-Matt</div>
 		</div>
 
-		<div class="cmuMega__section__col col--md12">
-			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.broadband" class="cmuMega__icon">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}"><span class="icon {{ product.iconClass }}"></span></a>
-			</div>
-		</div>
-	</div>
-	<div class="cmuMega__section col--md12">
-		<div class="cmuMega__section__head col--md12">
-			Enterprise
-		</div>
-
-		<div class="cmuMega__section__col col--md12">
-			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise" class="cmuMega__icon">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}" community-area-handler><span class="icon {{ product.iconClass }}"></span></a>
-			</div>
-		</div>
-	</div>
-	<div class="cmuMega__section col--md12">
-		 <div class="cmuMega__section__head col--md12">
-			Community Forums
+		<div class="cmuProfile__dropdown__content cmuDropdown__content clearfix">
+			<ul>
+				<li class="col--md12">
+					<a>User Profile</a>
+				</li>
+				<li class="col--md12">
+					<a>Account Settings</a>
+				</li>
+				<li class="col--md12">
+					<a>Support</a>
+				</li>
+			</ul>
 		</div>
 
-		<div>
-			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.general" class="cmuMega__section__col col--md3">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">{{ product.name }}</a>
-			</div>
+		<div class="cmuDropdown__header cmuProfile__dropdown__footer clearfix">
+			<div class="col--md12 noPadding"><a>Sign Out</a></div>
 		</div>
-	</div>
-
-	<div class="cmuMega__section col--md12">
-		<div class="cmuMega__section__head col--md12">
-			Resources
-		</div>
-
-		<div class="cmuMega__section__col col--md3">
-			<a>About our Community</a>
-		</div>
-		
-		<div class="cmuMega__section__col col--md3">
-			<a>Community Guidelines</a>
-		</div>
-
-		<div class="cmuMega__section__col col--md3">
-			<a>Community Board</a>
-		</div>
-
-	</div>
-
-	<div class="cmuMega__section col--md12">
-		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--solid button--padded button-blue-white">Directory</a>
 	</div>
 </div>

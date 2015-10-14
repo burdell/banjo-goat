@@ -1,11 +1,11 @@
-(function(_){
-	'use strict';
 
-	var forumController = function(){
-	};
-	forumController.$inject = [];
+'use strict';
 
-	angular.module('community.forums')
-		.controller('Forum', forumController);
+var forumController = function(){
+};
+forumController.$inject = [];
 
-}(window._));
+angular.module('community.forums')
+	.controller('Forum', forumController);
+
+

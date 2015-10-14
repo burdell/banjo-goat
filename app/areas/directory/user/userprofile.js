@@ -1,82 +1,85 @@
-(function(_){
-	'use strict';
 
-	var profileController = function($scope, breadcrumbService, communityDefaults, activityFilter, gamificationInfo, storyFilter, userData){
-		var ctrl = this;
-		console.log(gamificationInfo);
+'use strict';
 
-		var userPointData = userData.user.gamification;
+var _ = require('underscore');
 
-		var userPointDetails = userPointData.details;		
-		var categoriesWithScore = [];
-		var categoriesWithPoints = [];
+require('services/breadcrumb.js');
+require('providers/defaults.js');
 
-		_.each(gamificationInfo, function(categoryData){
-			var categoryKey = categoryData.key;
+var profileController = function($scope, breadcrumbService, communityDefaults, activityFilter, gamificationInfo, storyFilter, userData){
+	var ctrl = this;
 
-			_.extend(categoryData, {
-				count: userPointDetails[categoryKey],
-				score: userPointDetails[categoryKey + '_SCORE']
-			});
+	var userPointData = userData.user.gamification;
 
-			if (categoryData.count > 0) {
-				categoriesWithScore.push(categoryData);
-			}
+	var userPointDetails = userPointData.details;		
+	var categoriesWithScore = [];
+	var categoriesWithPoints = [];
 
-			if (categoryData.points > 0) {
-				categoriesWithPoints.push(categoryData);
-			}
-		});
-		
-		activityFilter.set({ 
-			onFilter: function(result){
-				ctrl.hasMoreActivity = !result.last;
+	_.each(gamificationInfo, function(categoryData){
+		var categoryKey = categoryData.key;
 
-				var existingList = ctrl.activityList || [];
-				ctrl.activityList = existingList.concat(result.content);
-			} 
+		_.extend(categoryData, {
+			count: userPointDetails[categoryKey],
+			score: userPointDetails[categoryKey + '_SCORE']
 		});
 
-		storyFilter.set({
-			onFilter: function(result){
-				ctrl.totalStories = result.totalElements;
-				ctrl.hasMoreStories = !result.last;
+		if (categoryData.count > 0) {
+			categoriesWithScore.push(categoryData);
+		}
 
-				var existingList = ctrl.storyList || [];
-				ctrl.storyList = existingList.concat(result.content);
-			}
-		})
+		if (categoryData.points > 0) {
+			categoriesWithPoints.push(categoryData);
+		}
+	});
+	
+	activityFilter.set({ 
+		onFilter: function(result){
+			ctrl.hasMoreActivity = !result.last;
 
-		var filters = {
-			stories: storyFilter,
-			activity: activityFilter
-		};
+			var existingList = ctrl.activityList || [];
+			ctrl.activityList = existingList.concat(result.content);
+		} 
+	});
 
+	storyFilter.set({
+		onFilter: function(result){
+			ctrl.totalStories = result.totalElements;
+			ctrl.hasMoreStories = !result.last;
 
-		_.extend(ctrl, {
-			userData: userData.user,
-			allCategories: gamificationInfo,
-			scoreCategories: categoriesWithScore,
-			pointCategories: categoriesWithPoints,
-			totalPoints: userPointData.score,
-			percentageComplete: (userPointData.score / userPointData.nextRank.minScore) * 100,
-			profileSummaryShown: true,
-			loadMore: function(type){
-				var filter = filters[type];
+			var existingList = ctrl.storyList || [];
+			ctrl.storyList = existingList.concat(result.content);
+		}
+	})
 
-				var page = filter.model('page') || 1;
-				filter.filter({ page: page + 1 });
-			}
-		});
-
-		breadcrumbService.setCurrentBreadcrumb(userData.user.login);
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
+	var filters = {
+		stories: storyFilter,
+		activity: activityFilter
 	};
-	profileController.$inject = ['$scope', 'CommunityBreadcrumbService', 'communityDefaults', 'ActivityDataFilter', 'GamificationInfo', 'StoryDataFilter', 'UserData'];
 
-	angular.module('community.directory')
-		.controller('UserProfile', profileController);
 
-}(window._));
+	_.extend(ctrl, {
+		userData: userData.user,
+		allCategories: gamificationInfo,
+		scoreCategories: categoriesWithScore,
+		pointCategories: categoriesWithPoints,
+		totalPoints: userPointData.score,
+		percentageComplete: (userPointData.score / userPointData.nextRank.minScore) * 100,
+		profileSummaryShown: true,
+		loadMore: function(type){
+			var filter = filters[type];
+
+			var page = filter.model('page') || 1;
+			filter.filter({ page: page + 1 });
+		}
+	});
+
+	breadcrumbService.setCurrentBreadcrumb(userData.user.login);
+	$scope.$on('$stateChangeStart', function(){
+		breadcrumbService.clearCurrentBreadcrumb();
+	});
+};
+profileController.$inject = ['$scope', 'CommunityBreadcrumbService', 'communityDefaults', 'ActivityDataFilter', 'GamificationInfo', 'StoryDataFilter', 'UserData'];
+
+angular.module('community.directory')
+	.controller('UserProfile', profileController);
+

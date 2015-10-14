@@ -12,6 +12,7 @@ $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta element
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
 $size-badgewidth-min:		$cmu-base*11;
+$cmu-nav-height:			remCalc(40px) !default;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -35,7 +36,7 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 body {
 	background-color: $cmu-color-white;
 	height: 100%;
-	color: black;
+	color: $cmu-color-body;
 	line-height: inherit;
 	background-color: $cmu-color-menu;
 }
@@ -69,6 +70,7 @@ body {
 // governs all community partials
 .community__content {
 	@extend %cmu-maxwidth;
+	min-height: $cmu-base * 20; 
 }
 
 // Various things
@@ -77,13 +79,20 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 
 
 
+// 
+// universal helper classes
+// 
 
+.cmuRow, %cmuRow {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+	.cmuHalfRow, %cmuHalfRow {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
 
-
-
-
-
-
+.cmuHidden {
+	display: none;
+}
 
 
 

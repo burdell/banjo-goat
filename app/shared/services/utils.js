@@ -1,12 +1,15 @@
-(function(_) {
-	'use strict';
-	
-	var utils = function($templateCache){
-		return {
-			splitCsv: function(csvString) {
-				if (_.isUndefined(csvString) || _.isNull(csvString)) {
-					return;
-				}
+
+'use strict';
+
+var _ = require('underscore');
+var $ = require('jquery/dist/jquery.js');
+
+var utils = function($templateCache){
+	return {
+		splitCsv: function(csvString) {
+			if (_.isUndefined(csvString) || _.isNull(csvString)) {
+				return;
+			}
 
 				return _.map(csvString.split(','), function(string){
 					return string.trim();
@@ -24,16 +27,12 @@
 				} else {
 					bodyTag.classList.remove(className);
 				}
-			},	
-			closeOverlays: function() {
-				$('.cmuOverlay--show').removeClass('cmuOverlay--show');
-			}	
+			}
 		};
 	};
 	
 	utils.$inject = [];
 
-	angular.module('community.services')
-		.service('CommunityUtilsService', utils);
+angular.module('community.services')
+	.service('CommunityUtilsService', utils);
 
-}(window._));

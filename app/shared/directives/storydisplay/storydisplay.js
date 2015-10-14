@@ -1,49 +1,46 @@
-(function(_){
-	'use strict';
+
+'use strict';
+
+var _ = require('underscore');
+
+require('filters/timefromnow.js');
+require('filters/extractkey.js');
+
+function storyDisplay() {
+	var link = function(scope, element, attrs) {
+	};
+
+	var controller = function() {
+		var ctrl = this;
+		
+		var media = _.find(ctrl.storyMedia, function(mediaObject){ 
+			return mediaObject.meta && mediaObject.meta.isCover; 
+		});
 	
-	function storyDisplay() {
-		var link = function(scope, element, attrs) {
-		};
+		if (media) {
+			ctrl.coverphoto = media.url;
+		}
+	};
+	controller.$inject = [];
 
-		var controller = function(communityDefaults, routingService) {
-			var ctrl = this;
-			
-			var media = _.find(ctrl.storyMedia, function(mediaObject){ 
-				return mediaObject.meta && mediaObject.meta.isCover && mediaObject.meta.isCover.value === 'true' 
-			});
-		
-			if (media) {
-				ctrl.coverphoto = media.url;
-			}
+    var directive = {
+        link: link,
+        controller: controller,
+        templateUrl: 'stories/list/storydisplay.html',
+        controllerAs: 'storydisplay',
+        bindToController: true,
+        replace: true,
+        restrict: 'E',
+        scope: {
+        	story: '=',
+        	storyMedia: '=',
+        	defaultPhotoUrl: '='
+        }
+    };
 
-			_.extend(ctrl, {
-				defaultPhotoUrl: communityDefaults.noPhoto,
-				storyUrl: routingService.generateUrl('stories.detail', { storyId: ctrl.story.id, nodeId: ctrl.story.node.urlCode })
-			});
-		};
-		controller.$inject = ['communityDefaults', 'CommunityRoutingService'];
+    return directive;
+}
 
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        templateUrl: 'directives/storydisplay/storydisplay.html',
-	        controllerAs: 'storydisplay',
-	        bindToController: true,
-	        replace: true,
-	        restrict: 'E',
-	        scope: {
-	        	story: '=',
-	        	storyMedia: '=',
-	        	hideSummary: '=',
-	        	hideAuthor: '=',
-	        	fillWidth: '='
-	        }
-	    };
-
-	    return directive;
-	}
-
-	angular.module('community.directives')
-		.directive('storyDisplay', storyDisplay);
-		
-}(window._));
+angular.module('community.stories')
+	.directive('storyDisplay', storyDisplay);
+	

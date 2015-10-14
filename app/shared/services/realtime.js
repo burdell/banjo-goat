@@ -1,6 +1,9 @@
-(function(_) {
+
 	'use strict';
-	
+
+	var _ = require('underscore');
+	var moment = require('moment');
+
 	var realTime = function($q, nodeService){
 		var defaultInterval = 10000;
 
@@ -65,4 +68,3 @@
 	angular.module('community.services')
 		.factory('CommunityRealtimeService', realTime);
 
-}(window._));

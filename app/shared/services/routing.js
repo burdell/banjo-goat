@@ -1,8 +1,14 @@
-(function(_) {
-	'use strict';
-	
+
+'use strict';
+
+require('providers/routes.js');
+var _ = require('underscore');
+
 	var routingService = function($location, communityRoutes){
 		return {
+			getCurrentUrl: function(){
+				return $location.url();
+			},
 			getCurrentArea: function(){
 				return this.getArea($location.path());
 			},
@@ -42,8 +48,9 @@
 			},
 			landingPages: function(){
 				return [
-					{ area: 'Announcements', href: communityRoutes.announcements.landing, description: 'View Announcements' },
-					{ area: 'Stories', href: communityRoutes.stories.landing, description: 'Read Members Stories'  }
+					{ area: 'Announcements', href: communityRoutes.announcements.landing, description: 'Announcements' },
+					//{ area: 'QA', href: communityRoutes.stories.landing, description: 'Questions & Answers'  },
+					{ area: 'Stories', href: communityRoutes.stories.landing, description: 'Stories'  },
 				]
 			},
 			generateDiscussionUrl: function(nodeName, discussionType) {
@@ -57,13 +64,11 @@
 					bugs: '_bugs'
 				};
 
-				return nodeName + discussionCodes[discussionType.toLowerCase()];
-			}
-		};
+			return nodeName + discussionCodes[discussionType.toLowerCase()];
+		}
 	};
-	routingService.$inject = ['$location', 'communityRoutes'];
+};
+routingService.$inject = ['$location', 'communityRoutes'];
 
-	angular.module('community.services')
-		.service('CommunityRoutingService', routingService);
-
-}(window._));
+angular.module('community.services')
+	.service('CommunityRoutingService', routingService);

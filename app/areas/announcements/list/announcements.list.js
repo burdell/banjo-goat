@@ -1,11 +1,13 @@
-(function(_){
 	'use strict';
+
+	require('services/routing.js');
+	var _ = require('underscore');
+
 
 	var announcementsController = function($state, announcements, routingService){
 		var ctrl = this;
-
 		var announcementNodeId = $state.params.nodeId;
-
+		
 		_.extend(ctrl, {
 			announcementList: announcements,
 			getAnnouncementUrl: function(announcementData) {
@@ -13,9 +15,9 @@
 			}
 		});
 	};
-	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityRoutingService'];
+	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityRoutingService', '$templateCache'];
 
 	angular.module('community.announcements')
 		.controller('CommunityAnnouncements', announcementsController);
 
-}(window._));
+

@@ -14,10 +14,10 @@
 			UniFiVoip: 'cmuIcon-unifiVoip',
 			UniFiRS: 'cmuIcon-switching',
 			EdgeSw: 'cmuIcon-edgeSwitch',
-			airCRM_control: 'cmuIcon-airCrmControl',
-			airCRM_billing: 'cmuIcon-airCrmBilling',
-			airCRM_operations: 'cmuIcon-airCrmOps',
-			airCRM_marketing: 'cmuIcon-airCrmMarket'
+			airCRM_Control: 'cmuIcon-airCrmControl',
+			airCRM_Billing: 'cmuIcon-airCrmBilling',
+			airCRM_Operations: 'cmuIcon-airCrmOps',
+			airCRM_Marketing: 'cmuIcon-airCrmMarket'
 		};
 	};
 

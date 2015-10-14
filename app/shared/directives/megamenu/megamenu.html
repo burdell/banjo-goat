@@ -1,13 +1,25 @@
 
-	<div ng-class="{ 'cmuMega--show' : megamenu.isOpen }" class="cmuMega row">
-		<div class="cmuMega__shroud"></div>
-		<div class="col--md12 noPadding">
-			<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
-				<span class="icon ubnt-icon--x"></span>
-			</div>
-			<div class="cmuMega__content container" >
-				<div ng-include="megamenu.menuTemplateUrl">
+<div ng-class="{ 'cmuOverlay--show' : megamenu.isOpen }" class="cmuMega row">
+<!-- JAN : TEMPORARY PROTOTYPE LOCATION 
+
+	To show cmuMega, attach cmuMega--show to the cmuMega class. remove cmuMega--show to close/hide it.
+	
+	Note that to make the mega menu work we must add some styles to the .cmuWrapper class (it encompasses all content without having to touch <body>)
+
+	Attach .cmuWrapper--overlay to .cmuWrapper to add those styles
+	
+-->
+	<div class="cmuDropdown__shroud" ng-click="megamenu.toggleMenu()"></div>
+		<div class="row">
+			<div class="col--md12 noPadding">
+				<div class="cmuMega__close col--md12" ng-click="megamenu.toggleMenu()" >
+					<span class="icon ubnt-icon--x"></span>
+				</div>
+				<div class="cmuMega__content" >
+					<div ng-include="megamenu.menuTemplateUrl">
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>

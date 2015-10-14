@@ -1,31 +1,37 @@
-(function(){
-	'use strict';
+'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
-		$locationProvider.html5Mode(true);
+require('services/api.js')
+require('services/filter.js');
+require('services/routing.js');
+require('services/nodestructure.js');
 
-		var routes = routesProvider.routes;
-		$stateProvider
-			.state('directory', {
-				url: routes.directory,
-				templateUrl: 'directory/directory/directory.html',
-				controller: 'Directory as vm',
-				resolve: {
-					NodeService: ['CommunityNodeService', function(nodeServiceWrapper) {
-						return nodeServiceWrapper.get('community');
-					}]
-				}
-			})
-			.state('hub', {
-				url: routes.hub,
-				templateUrl: 'directory/hub/hub.html',
-				controller: 'Hub as vm',
-				resolve: {
-					HubData: ['$stateParams', '$q', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, $q, communityApi, routingService){
+require('providers/routes.js');
 
-						var nodeHasStories = function() {
-							return $stateParams.nodeId.indexOf('airCRM') < 0;
-						};
+
+var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
+	$locationProvider.html5Mode(true);
+	var routes = routesProvider.routes;
+	$stateProvider
+		.state('directory', {
+			url: routes.directory,
+			templateUrl: 'directory/directory/directory.html',
+			controller: 'Directory as vm',
+			resolve: {
+				NodeService: ['CommunityNodeService', function(nodeServiceWrapper) {
+					return nodeServiceWrapper.get('community');
+				}]
+			}
+		})
+		.state('hub', {
+			url: routes.hub,
+			templateUrl: 'directory/hub/hub.html',
+			controller: 'Hub as vm',
+			resolve: {
+				HubData: ['$stateParams', '$q', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, $q, communityApi, routingService){
+
+					var nodeHasStories = function() {
+						return $stateParams.nodeId.indexOf('airCRM') < 0;
+					};
 
 						var callList = [communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { per_page: 4 })];
 						if (nodeHasStories()) {
@@ -89,7 +95,7 @@
 							return userServiceWrapper.get().then(function(userService){
 								return filterService.getNewFilter({ 
 									filterFn: communityApi.Stories.search,
-									constants: { per_page: 3, sortDir: 'ASC', author_id: userService.user.id },
+									constants: { per_page: 3, sortDir: 'ASC', author_id: userService.user.id, node_url_code: 'airMax_stories' },
 									persistFilterModel: false
 								});
 							});
@@ -121,11 +127,10 @@
 					GamificationInfo: ['CommunityApiService', function(communityApi){
 						return communityApi.Gamification.info();
 					}]
-				}
+				}			
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 		
 		angular.module('community.directory')
 			.config(config);
-}());

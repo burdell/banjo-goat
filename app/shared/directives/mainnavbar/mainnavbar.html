@@ -5,7 +5,7 @@
     
       <div class="row">
         <div class="col--xs12 noPadding">
-          <a href="/">
+          <a area-link-handler="/">
             <div class="cmuGloNav__left">
               <div class="cmuGloNav__logo">
                 <span class="icon ubnt-icon--u"></span>
@@ -32,9 +32,9 @@
                   <div class="cmuGloNav__mobile__link">
                     Discussions <span class="ubnt-icon ubnt-icon--menu"></span>
                   </div>
-                  <div class="cmuGloNav__mobile__link">
+                  <!--  <div class="cmuGloNav__mobile__link">
                     Q&amp;A
-                  </div>
+                  </div> -->
                   <div class="cmuGloNav__mobile__link">
                     Stories
                   </div>
@@ -66,7 +66,7 @@
             <ul class="cmuGloNav__links">
               <li 
                 ng-repeat="navItem in mainnavbar.navList"
-                ng-class="{ 'testActive' : mainnavbar.isActive(navItem.href) }"
+                ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
                 class="cmuGloNav__link">
                   <span ng-if="navItem.href">
                     <a href="{{ navItem.href }}" 
@@ -86,21 +86,42 @@
             <div class="cmuGloNav__cmuAccount">
               <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
                 <li class="cmuGloNav__notifications"
-                    ng-click="$broadcast('dropdown:toggleNotifications');">
+                    ng-click="mainnavbar.openDropdown('toggleNotifications')">
                   <a href="#">
                      <span class="icon ubnt-icon--bell"></span>
                   </a>
                 </li>
+                  <community-drop-down
+                    open-event="toggleNotifications"
+                    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
+                  </community-drop-down>
+
 
                 <li class="cmuGloNav__inbox"
-                    ng-click="$broadcast('dropdown:toggleMessages');">
+                    ng-class="{ 'active' : mainnavbar.dropdownIsActive(messages)}"
+                    ng-click="mainnavbar.openDropdown('toggleMessages')">
                       <a href="#">
                         <span class="icon ubnt-icon--inbox"></span>
                       </a>
                 </li>
-                <li class="cmuGloNav__avatar"
-                    ng-click="$broadcast('dropdown:toggleProfile');">
+                    <community-drop-down
+                      open-event="toggleMessages"
+                      menu-template-url="directives/mainnavbar/mainnavbar.messages.html">
+                    </community-drop-down>
+
+
+                <li class="cmuGloNav__profile"
+                    ng-click="mainnavbar.openDropdown('toggleProfile')">
+                    <a href="#">
+                        <span class="cmuProfile__avatar"
+                        ></span>
+                      </a>
                 </li>
+                    <community-drop-down
+                      open-event="toggleProfile"
+                      menu-template-url="directives/mainnavbar/mainnavbar.profile.html">
+                    </community-drop-down>
+
               </ul>
               <ul ng-hide="mainnavbar.isAuthenticated">
                    <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
@@ -118,16 +139,6 @@
     menu-template-url="directives/mainnavbar/mainnavbar.discussions.html"
     template-ctrl="mainnavbar.templateData">
   </community-mega-menu>
-
-  <community-drop-down
-    open-event="toggleNotifications"
-    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
-  </community-drop-down>
-
-  <community-drop-down
-    open-event="toggleProfile"
-    menu-template-url="directives/mainnavbar/mainnavbar.profile.html">
-  </community-drop-down>
 
   <community-search-bar
     open-event="toggleSearchbar">

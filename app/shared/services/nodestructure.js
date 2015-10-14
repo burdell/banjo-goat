@@ -1,5 +1,11 @@
-(function(_) {
 	'use strict';
+
+	require('services/icon.js');
+	require('services/initialize.js');
+	require('services/routing.js');
+
+	var _ = require('underscore');
+
 	
 	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService){
 		var nodeStructureService;
@@ -19,7 +25,7 @@
 			});
 
 			//hard coded includes/excludes :/ 
-			var exclude = [-1, 75, 141];
+			var exclude = [-1, 75];
 			var include = [30, 20, 42, 43, 83];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
@@ -39,13 +45,13 @@
 						}
 						node.iconClass = iconService[node.urlCode];
 						discussionTypes[discussionCategory].push(node);
-					} 
+					}
 				}
 
 				//populate children of category nodes
 				if (!nodeStructureService.NodeStructure && node.parentId) {
 					var parentNode = nodeStructureService.getNode(node.parentId);
-					if (parentNode) {
+					if (parentNode && node.discussionStyle !== 'qa' && node.discussionStyle !== 'bugs') {
 						if (!parentNode.children) {
 							parentNode.children = [];
 						}
@@ -135,4 +141,3 @@
 	angular.module('community.services')
 		.service('CommunityNodeService', nodeStructure);
 
-}(window._));

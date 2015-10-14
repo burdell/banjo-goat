@@ -1,15 +1,4 @@
 
-	<div ng-class="{ 'cmuOverlay--show' : dropdown.isOpen }" class="cmuDropdown row">
-	
-		<div class="cmuDropdown__shroud"></div>
-		<div class="col--md12 noPadding">
-
-			<div class="cmuDropdown__close" ng-click="dropdown.toggleMenu()" >
-				<span class="icon ubnt-icon--x"></span>
-			</div>
-			<div class="cmuDropdown__content container" >
-				<div ng-include="dropdown.menuTemplateUrl">
-				</div>
-			</div>
-		</div>
+	<div ng-class="{ 'cmuDropdown--show' : dropdown.isOpen }" class="cmuDropdown col--md11">
+		<div ng-include="dropdown.menuTemplateUrl" class=""></div>
 	</div>

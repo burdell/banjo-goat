@@ -1,11 +1,16 @@
-(function(_){
+
 	'use strict';
-	
+
+	require('services/utils.js');
+
+	var _ = require('underscore');
+
 	function searchBar() {
-		var controller = function($scope, utils) {
+		var controller = function($rootScope, $scope, utils) {
 			var ctrl = this;
 
 			$scope.$on('searchbar:' + ctrl.openEvent, function(){
+				console.log('searchbar trigger')
 				ctrl.toggleMenu();
 			});
 
@@ -13,16 +18,23 @@
 				ctrl.isOpen = false;
 			});
 
+			$rootScope.$on('rootScope:closeAllDropdowns', function(){
+				ctrl.isOpen = false;
+			});
+
 			_.extend(ctrl, {
 				isOpen: false,
 				toggleMenu: function(){
-					utils.closeOverlays();
+					if(!ctrl.isOpen) {
+						$scope.$emit('rootScope:closeAllDropdowns');
+					}
+
 					ctrl.isOpen = !ctrl.isOpen;
 					// utils.preventBodyScroll(ctrl.isOpen);
 				}
 			});
 		};
-		controller.$inject = ['$scope', 'CommunityUtilsService'];
+		controller.$inject = ['$rootScope', '$scope', 'CommunityUtilsService'];
 
 	    var directive = {
 	        controller: controller,
@@ -42,4 +54,3 @@
 	angular.module('community.directives')
 		.directive('communitySearchBar', searchBar);
 		
-}(window._));

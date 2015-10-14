@@ -1,5 +1,5 @@
-(function(_) {
-	'use strict';
+
+'use strict';
 
 	var routesProvider = function(){
 		var routeData = {
@@ -38,13 +38,11 @@
 			}
 		};
 
-		this.routes = routeData;
-		this.$get = function(){
-			return this.routes;
-		}
-	};
+	this.routes = routeData;
+	this.$get = function(){
+		return this.routes;
+	}
+};
 
-	angular.module('community.providers')
-		.provider('communityRoutes', routesProvider);
-
-}(window._));
+angular.module('community.providers')
+	.provider('communityRoutes', routesProvider);

@@ -1,13 +1,20 @@
-(function(_){
-	'use strict';
 
-	function communityMessage() {
-		function link(scope, element, attrs) {
-		    
-		}
+'use strict';
 
-		function controller() {	
-			var ctrl = this;
+require('filters/sanitize.js');
+require('filters/timefromnow.js');
+
+require('directives/userbadge/userbadge.js');
+
+var _ = require('underscore');
+
+function communityMessage() {
+	function link(scope, element, attrs) {
+	    
+	}
+
+	function controller() {	
+		var ctrl = this;
 
 			_.extend(ctrl, {
 				hideVoteButtons: this.hideVoteButtons
@@ -33,9 +40,8 @@
 	        }
 	    };
 
-	    return directive;
-	}
+    return directive;
+}
 
-	angular.module('community.directives')
-		.directive('communityMessage', communityMessage);
-}(window._));
+angular.module('community.directives')
+	.directive('communityMessage', communityMessage);

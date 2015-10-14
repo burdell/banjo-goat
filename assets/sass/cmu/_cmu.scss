@@ -20,11 +20,15 @@
 @import "cmuPulse/index"; 				// pulse component and variations
 @import "cmuDirectory/index"; 			// directory page styles minus modules
 @import "cmuSidebar/index";				// helper styles for the sidebar; each discussion style will also have own styles
+@import "cmuFeed/index";				// Homepage, feed and hub pages / landing pages
 @import "cmuFlex/index"; 				// container row w/ flex properties
 @import "cmuBreadcrumbs/index";
 @import "cmuThreadlist/index";			// generalized thread list - applies to ALL discussion styles
 @import "cmuThread/index";				// generalized thread - used by forum etc., announcement thread, etc.
 @import "cmuMessage/index";				// generalized message; contains styles for ALL discussion types (sidebyside [forums] and inline [announcements])
+@import "cmuPrivateMessage/index";		// for PMs and PM drropdowns
+@import "cmuProfile/index";				// user profile, avatar, etc. but not userbadge
+@import "cmuNotifications/index";		// for Notifications and Notifications drropdowns
 // @import "cmuForm/index";				// CMUINPUT REPLACES THESE | FOR NOW DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS
 // @import "cmuSearchbox/index";		// MOVED to cmuInput Search filter for threads (not cmu search)
 @import "cmuButtons/index";				// Community buttons, CTAs, etc.
@@ -37,6 +41,7 @@
 @import "cmuImageMissing/index";		// works with 'handleimageerror.js' to replace missing images
 @import "cmuTextEditor/index";			// long form text editor, story body and comments editor (tinyMCE)
 @import "cmuTimeline/index";			// generic styles for a timeline (used by announcements)
+@import "cmuLoader/index";				// Loader animation and styles for full page and components
 
 
 

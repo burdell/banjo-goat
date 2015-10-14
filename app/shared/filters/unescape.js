@@ -1,13 +1,12 @@
-(function(_){
-	'use strict';
-	
-	var htmlUnescape = function(){
-		return function(escapedHtml){
-			return _.unescape(escapedHtml);
-		};
-	}
+'use strict';
 
-	angular.module('community.filters')
-		.filter('htmlUnescape', htmlUnescape);
+var _ = require('underscore');
 
-}(window._));
+var htmlUnescape = function(){
+	return function(escapedHtml){
+		return _.unescape(escapedHtml);
+	};
+}
+
+angular.module('community.filters')
+	.filter('htmlUnescape', htmlUnescape);

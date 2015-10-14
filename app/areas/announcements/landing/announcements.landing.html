@@ -1,28 +1,28 @@
-<community-breadcrumbs node-id="Community"></community-breadcrumbs>
+<div>	
+	<community-page-header 
+		header-text="All Annnouncements"
+		hide-element-selector=".landing-container">
+	</community-page-header>
 
-<div class="row">
-	<div class="cmuDiscussionsControls">
-		<discussions-header header-text="All Announcements"></discussions-header>
-		<discussions-nav-bar></discussions-nav-bar>
-	</div>
-</div>
+	<div class="landing-container">
+		<div class="cmuThreadlist__ctrl">
+			<div class="cmuThreadlist__listInfo row">
+				<button community-permissions="" class="button-ghost button-white-blue">Select Platform</button>
+				<button community-permissions="" class="button-ghost button-white-blue">Manage Subscriptions</button>
+			</div>
+		</div>
 
-<div class="row row--comfy">
-	<button community-permissions="" class="button-ghost button--thin button-white-blue">Select Platform</button>
-	<button community-permissions="" class="button-ghost button--thin button-white-blue">Manage Subscriptions</button>
-	
-</div>
-
-
-<div class="row">
-	<div class="col--md12">
-		<div>
-			 <community-timeline 
-			 	href-fn="vm.generateAnnouncementUrl"
-				timeline-model="vm.announcementList" 
-				date-attribute="message.postDate"
-				show-product-info="true">
-			</community-timeline>
+		<div class="row">
+			<div class="col--md12 noPadding">
+				<div>
+					 <community-timeline 
+					 	href-fn="vm.generateAnnouncementUrl"
+						timeline-model="vm.announcementList" 
+						date-attribute="message.postDate"
+						show-product-info="true">
+					</community-timeline>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

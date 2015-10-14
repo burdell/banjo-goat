@@ -1,0 +1,6 @@
+- Subscriptions page: remove subs + manage subs button
+- Feed: add a x to close button for stories (fpo / temp for now)
+- Feed: done with general styling
+- Template: set min-height so footer isn’t so high up
+- Feed: made headers and non-click icons black
+- Feed: tabs styling

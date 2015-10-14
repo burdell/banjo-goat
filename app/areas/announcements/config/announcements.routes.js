@@ -1,9 +1,11 @@
-(function(){
-	'use strict';
+'use strict';
 
-	var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
+require('shared/services/api.js')
+require('shared/providers/routes.js');
+
+var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 		$locationProvider.html5Mode(true);
-
+		
 		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
@@ -12,13 +14,6 @@
 				templateUrl: 'announcements/landing/announcements.landing.html',
 				resolve: {
 					AllAnnouncementsList: ['CommunityApiService', function(communityApi){
-						// return communityApi.Announcements.count()
-						// 	.then(function(result){
-						// 		return communityApi.Announcements.all({ limit: result.count, sort: 'postdate' });
-						// 	})
-						// 	.then(function(result) {
-						// 		return result.content;
-						// 	});
 						return communityApi.Announcements.all({ per_page: 100 });
 					}]
 				}
@@ -62,9 +57,5 @@
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 
-
-
-
-		angular.module('community.announcements')
-			.config(config);
-}());
+	angular.module('community.announcements')
+		.config(config);

@@ -1,35 +1,37 @@
-(function(_){
-	'use strict';
+'use strict';
 
-	var communityApiService = function($http, $q, $timeout, errorService){
-		function getCallOptions(url, data, verb, isMedia) {
-			if (_.isUndefined(verb)) {
-				verb = 'GET';
-			}
+require('shared/services/error.js');
+var _ = require('underscore');
 
-			var params = null;
-			var payload = null;
-
-			if (verb === 'GET') {
-				params = data;
-			} else {
-				payload = data;
-			}
-
-			var callOptions =  {
-				method: verb,
-				url: url,
-				params: params,
-				data: payload,
-				withCredentials: true
-			};
-
-			if (isMedia) {
-				_.extend(callOptions, { transformRequest: angular.identity, headers: {'Content-Type': undefined} });
-			}
-
-			return callOptions;
+var communityApiService = function($http, $q, $timeout, errorService){
+	function getCallOptions(url, data, verb, isMedia) {
+		if (_.isUndefined(verb)) {
+			verb = 'GET';
 		}
+
+		var params = null;
+		var payload = null;
+
+		if (verb === 'GET') {
+			params = data;
+		} else {
+			payload = data;
+		}
+
+		var callOptions =  {
+			method: verb,
+			url: url,
+			params: params,
+			data: payload,
+			withCredentials: true
+		};
+
+		if (isMedia) {
+			_.extend(callOptions, { transformRequest: angular.identity, headers: {'Content-Type': undefined} });
+		}
+
+		return callOptions;
+	}
 
 		function goToApi(url, data, verb, isMedia){
 			var callOptions = getCallOptions(url, data, verb, isMedia);
@@ -50,8 +52,8 @@
 			);
 		}
 
-		function getCallType(callData, params) {
-			var id, payload, verb;
+	function getCallType(callData, params) {
+		var id, payload, verb;
 
 			//POST
 			if (_.isObject(callData)) {
@@ -66,14 +68,14 @@
 				id = callData;
 			}
 
-			return {
-				verb: verb,
-				id: id,
-				payload: payload
-			};
-		}
+		return {
+			verb: verb,
+			id: id,
+			payload: payload
+		};
+	}
 
-		var v2Url = 'https://comm2-dev.ubnt.com/api2/2/';
+		var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
 		var urlSegments = {
 			Announcement: function(id){
 				return 'announcements/' + this._Message(id);
@@ -251,12 +253,14 @@
 			}
 		}
 
-		return service;
-	};
+	return service;
+};
 
-	communityApiService.$inject = ['$http', '$q', '$timeout', 'CommunityErrorService'];
+communityApiService.$inject = ['$http', '$q', '$timeout', 'CommunityErrorService'];
 
-	angular.module('community.services')
-		.service('CommunityApiService', communityApiService);
+var serviceName = 'CommunityApiService';
+angular.module('community.services')
+	.service(serviceName, communityApiService);
 
-}(window._));
+module.exports = serviceName;
+

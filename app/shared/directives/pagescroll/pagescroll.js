@@ -1,40 +1,43 @@
-(function(_){
-	'use strict';
-	  
-	function pageScroll() {
-		var link = function(scope, element, attrs) {
 
-		};
+'use strict';
+ 
+var _ = require('underscore');
 
-		var controller = function($anchorScroll) {
-			var ctrl = this;
-			_.extend(ctrl, {
-				scrollTo: this.scrollTo || "#pageTop",
-				text: this.scrollerText || "Back to Top",
-				scrollPage: function(){
-					$anchorScroll(this.scrollTo);
-				}
-			});
-		};
-		controller.$inject = ['$anchorScroll'];
+function pageScroll() {
+	var link = function(scope, element, attrs){
+		element.on('click', function(){
+			scope.pagescroll.scrollPage();
+		});	
+	};
 
-	    var directive = {
-	        link: link,
-	        controller: controller,
-	        controllerAs: 'pagescroll',
-	        templateUrl: 'directives/pagescroll/pagescroll.html',
-	        bindToController: true,
-	        restrict: 'E',
-	        scope: {
-	        	scrollerText: '@',
-	        	scrollTo: '@'
-	        }
-	    };
+	var controller = function($anchorScroll) {
+		var ctrl = this;
+		_.extend(ctrl, {
+			scrollTo: this.scrollTo || "#pageTop",
+			text: this.scrollerText || "Back to Top",
+			scrollPage: function(){
+				$anchorScroll(this.scrollTo);
+			}
+		});
+	};
+	controller.$inject = ['$anchorScroll'];
 
-	    return directive;
-	}
+    var directive = {
+    	link: link,
+        controller: controller,
+        controllerAs: 'pagescroll',
+        bindToController: true,
+        restrict: 'A',
+        scope: {
+        	scrollerText: '@',
+        	scrollTo: '@'
+        }
+    };
 
-	angular.module('community.directives')
-		.directive('pageScroll', pageScroll);
-		
-}(window._));
+    return directive;
+}
+
+angular.module('community.directives')
+	.directive('pageScroll', pageScroll);
+	
+

@@ -13,6 +13,10 @@
 	font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
+// for icons
+%font-ubnt {
+	font-family: "ubnt";
+}
 
 
 // 
@@ -43,7 +47,7 @@ $cmu-size-largest--line-height: remCalc(33px);
 
 // used for headlines
 $cmu-size-larger: remCalc(19px);
-$cmu-size-larger--line-height: remCalc(26px);
+$cmu-size-larger--line-height: remCalc(36px);
 %size-larger { font-size: $cmu-size-larger; line-height: $cmu-size-larger--line-height;}
 
 // standard display sizes, topics, subjects, etc.
@@ -63,7 +67,7 @@ $cmu-size-smaller--line-height: remCalc(18px);
 %size-smaller { font-size: $cmu-size-smaller; line-height: $cmu-size-smaller--line-height;}
 
 $cmu-size-xsmaller: remCalc(11px);
-$cmu-size-xsmaller--line-height: remCalc(19px);
+$cmu-size-xsmaller--line-height: remCalc(16px);
 %size-xsmaller { font-size: $cmu-size-xsmaller; line-height: $cmu-size-xsmaller--line-height;}
 
 // used for tags, and really small things
@@ -126,6 +130,7 @@ $cmu-size-h5--line-height: $cmu-size-normal--line-height;
 	h5, %h5 {
 		font-size: $cmu-size-h5;
 		line-height: $cmu-size-h5--line-height;
+		color: $cmu-color-dkgray;
 	}
 
 

@@ -1,7 +1,7 @@
 
 
 // New Primary+Secondary Nav
-$nav-height: remCalc(40px);
+$nav-height: $cmu-nav-height;
 
 %nav-style {
 	text-transform: uppercase;
@@ -39,10 +39,6 @@ $nav-height: remCalc(40px);
 	.cmuGloNav--header {
 		height: $nav-height;
 
-		* {
-			display: inline-block;
-			vertical-align: top;
-		}
 		ul {
 			margin-bottom: 0;
 		}
@@ -50,6 +46,19 @@ $nav-height: remCalc(40px);
 			display: block;
 		}
 	}
+
+		// align everything properly
+		.cmuGloNav__left,
+			.cmuGloNav__logo, .cmuGloNav__logo .icon, 
+			.cmuGloNav__cmuHome,
+		.cmuGloNav__right,
+		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
+		.cmuGloNav__cmuSearch,
+		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
+			display: inline-block;
+			vertical-align: top;
+		}
+
 
 	.cmuGloNav__container {
 		@extend %cmu-maxwidth;
@@ -73,6 +82,7 @@ $nav-height: remCalc(40px);
 		}
 
 	.cmuGloNav__right {
+		// @extend %nav-style;
 		// float: right;
 		position: absolute;
 		right: 0;
@@ -92,10 +102,11 @@ $nav-height: remCalc(40px);
 		}
 			// fake active button
 			.cmuGloNav__links {
-				.testActive {
-					background-color: $cmu-color-dkgray;
+				.active {
+					// background-color: $cmu-color-dkgray;
 					a { 
-						color: $cmu-color-blue; 
+						outline:none;
+						color: $cmu-color-white; 
 						&:hover { color: $cmu-color-white; }
 					}
 				}
@@ -103,34 +114,42 @@ $nav-height: remCalc(40px);
 			.cmuGloNav__link {
 				a { 
 					@extend %nav-style; 
+					outline:none;
 				}
 
 				&:hover {
-					.cmuGloNav__dropItem:before {
+					.cmuGloNav__dropItem:after {
 						color: $cmu-color-white;
 						@extend %ease-fast;
 					}
 				}
 			}
-			.cmuGloNav__dropItem {
-				padding-right: $cmu-base*1.5;
+			a.cmuGloNav__dropItem {
+				margin-right: $cmu-base/2;
+				background-color: $cmu-color-dkgray;
+				color: $cmu-color-xmdgray;
 
-				&:before {
+				&:hover {
+					color: $cmu-color-white;
+				}
+
+				&:after {
 					@extend %ease-fast;
 					font-family: 'ubnt';
 					content: "\e68b";
 					position: relative;
-					margin-right: $cmu-base/2;
+					margin-left: $cmu-base/2;
+					// margin-right: $cmu-base*2;
 					font-size: $cmu-base/2;
 					color: $cmu-color-gray;
+					display: inline-block;
 				    border-radius: 50%;
-				    padding: 0.2rem;
+				    	width: 19px;
+				    	height: 19px;
+				    padding-left: 0.25rem;
 				    border: $style-line--dark;
+				    border-color: $cmu-color-gray;
 				}
-			}
-			.cmuGloNav__link.active {
-				@extend %nav-style;
-				background-color: $cmu-color-dkgray;
 			}
 
 		.cmuGloNav__cmuSearch {
@@ -140,6 +159,32 @@ $nav-height: remCalc(40px);
 
 
 		.cmuGloNav__cmuAccount {
+
+			// fun!
+
+			.cmuProfile__avatar {
+				&:before {
+					content: ' ';
+					display: block;
+					background: #969ba3;
+					border-radius: 50%;
+					margin-top: 5px;
+					margin-right: 0;
+					margin-left: 4px;
+					@extend %ease-fast;
+					height: remCalc(28px);
+					width: remCalc(28px);
+
+					background-image: url('http://images1.fanpop.com/images/photos/2200000/Matt-Hardy-matt-hardy-2282840-624-388.jpg');
+					background-size: cover;
+					background-repeat: no-repeat;
+				}
+			}
+
+
+			a { 
+				outline:none;
+			}
 			.icon {
 				@extend %nav-icon-style;
 				padding-left: $cmu-base/2;
@@ -150,25 +195,43 @@ $nav-height: remCalc(40px);
 				position: relative;
 				top: -1px;
 			}
-		}
 
-		.cmuGloNav__avatar {
-			&:before {
-				content: ' ';
-				display: block;
-				background: #969ba3;
-				border-radius: 50%;
-				margin-top: 5px;
-				margin-right: 0;
-				margin-left: 4px;
-				@extend %ease-fast;
-				height: remCalc(28px);
-				width: remCalc(28px);
+			.active {
+    			position: relative;
+				background-color: $cmu-color-dkgray;
+				span { color: $cmu-color-white; }
+
+				&:after {
+					content: ' ';
+					display: block;
+					position: absolute;
+					z-index: $z-gloNav;
+					left: 10px;
+					bottom: 0;
+					width: 0; 
+					height: 0; 
+					border-left: 7px solid transparent;
+					border-right: 7px solid transparent;
+					border-bottom: 7px solid $cmu-color-ltgray;
+				}
 			}
 		}
 
+			.cmuGloNav__notifications, .cmuGloNav__inbox {
+				position: relative;
+			}
 
-
+			.cmuGloNav__profile {
+			    cursor: pointer;
+			    
+				a {
+				    display: inline-block;
+				    vertical-align: top;
+				    line-height: 40px;
+				    padding-right: 4px;
+				    // padding-top: 2px;
+				}
+			}
 
 
 
@@ -403,8 +466,11 @@ $nav-height: remCalc(40px);
 			margin-left: $cmu-base/2;
 			font-size: $cmu-base/2;
 			color: $cmu-color-gray;
+			display: inline-block;
 		    border-radius: 50%;
-		    padding: 0.2rem;
+		    	width: 16px;
+		    	height: 16px;
+		    	padding-left: 0.2rem;
 		    border: $style-line--dark;
 		}
 	}
@@ -433,9 +499,13 @@ $nav-height: remCalc(40px);
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
 			background-color: $cmu-color-gray;
-			border-radius: 50%;
-			padding: 4px;
 			color: $cmu-color-black;
+
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 28px;
+		    	height: 28px;
+		    	padding: 0.4rem 0.1rem;
 		}
 		span:hover:before {
 			@extend %ease-fast;
@@ -458,9 +528,13 @@ $nav-height: remCalc(40px);
 			cursor: pointer;
 			font-size: $cmu-base*1.8;
 			background-color: $cmu-color-dkgray;
-			border-radius: 50%;
-			padding: 8px;
 			color: $cmu-color-white;
+			text-align: center;
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 45px;
+		    	height: 45px;
+		    	padding: 0.9rem 0.2rem;
 
 		}
 		span:hover:before {

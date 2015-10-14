@@ -1,7 +1,6 @@
 
 <div>
-	<community-breadcrumbs></community-breadcrumbs>
-	<!-- header -->
+	<!-- <community-breadcrumbs></community-breadcrumbs>
 	<div class="row">
 		<div class="cmuDiscussionsControls">
 			<discussions-header header-text="{{ vm.userData.login }}"></discussions-header>
@@ -9,7 +8,12 @@
 		</div>
 		<hr />
 	</div>
+ -->
 
+ 	<community-page-header 
+ 		header-text="{{ vm.userData.login }}"
+ 		subtitle-text="{{ vm.userData.rank.name }}">
+ 	</community-page-header>
 
 	<div class="row">
 		<!-- sidebar -->
