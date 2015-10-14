@@ -58,7 +58,7 @@ $size-large__lineHeight: remCalc(24px);
 
 // 13px is used for body / standard paragraph text
 $size-normal: remCalc(13px);
-$size-normal__lineHeight: remCalc(21px);
+$size-normal__lineHeight: remCalc(19px);
 %size-normal { font-size: $size-normal; line-height: $size-normal__lineHeight;}
 
 // used for status messages, "et cetera messages" 

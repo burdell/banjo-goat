@@ -6675,7 +6675,7 @@ body {
 
 .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuDropdown__header, .cmuTooltipster .tooltipster-content {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1875rem;
 }
 
 .cmuFeed__content, .cmuFeed__anno {
@@ -6721,7 +6721,7 @@ h4, .timeline__year__title:after {
 
 h5 {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1875rem;
   color: #474b52;
 }
 
@@ -6735,7 +6735,7 @@ h6 {
 
 .type-base, .cmuGloNav__mobile__search, .cmuGloNav__mobile__search span, .cmuUserbadge__account .cmuUsername, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1875rem;
 }
 
 .type-minor, .cmuBreadcrumbs, .cmuFeatures__threadlist__body__content {
@@ -7742,7 +7742,7 @@ div.cmuOverlay--show {
 }
 
 .cmuDropdown__headline span {
-  line-height: 1.3125rem !important;
+  line-height: 1.1875rem !important;
   margin-left: 0.125rem;
 }
 
@@ -8757,7 +8757,7 @@ div.cmuOverlay--show {
   margin-bottom: 1rem;
   min-height: 3rem;
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1875rem;
 }
 
 .cmuMessage__signature {
@@ -9589,7 +9589,7 @@ button .icon, .button .icon {
 
 .cmuComments__body {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1875rem;
 }
 
 .cmuComments__info {
