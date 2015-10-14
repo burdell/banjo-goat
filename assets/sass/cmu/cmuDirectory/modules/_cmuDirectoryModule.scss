@@ -19,7 +19,7 @@
 		color: $cmu-color-ltblack;
 		margin-top: $cmu-base;
 		font-weight: 600;
-		// letter-spacing: $cmu-size-letterspacing-text;
+		// letter-spacing: $size-letterspacing-text;
 	}
 
 	.cmuDirectory__sidebar__item a {
@@ -73,11 +73,11 @@
 		background-color: $cmu-color-ltgray;
 		color: $cmu-color-dkgray;
 		font-weight: bold;
-		// letter-spacing: $cmu-size-letterspacing-header;
+		// letter-spacing: $size-letterspacing-header;
 	}
 
 	.cmuDirectory__content {
-		border-bottom: $cmu-style-line;
+		border-bottom: $style-line;
     	position: relative;
     	@extend %ease-fast;
 		&:last-child {
@@ -91,9 +91,7 @@
 	}
 
 	.cmuDirectory__content__main {
-		padding: $cmu-base/2 $cmu-base/2;
-		// display: table-cell;
-		// width: 80%;
+		padding: $cmu-base/2;
 	}
 		.cmuDirectory__content__table {
 			display: table;
@@ -106,8 +104,8 @@
 			}
 
 		.cmuDirectory__content__title {
-			font-size: $cmu-size-large;
-			line-height: $cmu-size-large--line-height;
+			font-size: $size-large;
+			line-height: $size-large--line-height;
 		    display: block;
 		    // float: left;
 
@@ -116,12 +114,7 @@
 			}
 		}
 		.cmuDirectory__content__list {
-			// padding: $cmu-base/2 $cmu-base;
-			// padding-left: 0;
-			// padding-top: 0;
-
 		    position: relative;
-
 			display: inline-block;
 			float: left;
 
@@ -150,7 +143,7 @@
 
 		.cmuDirectory__count {
 			@extend %font-oswald;
-			font-size: $cmu-size-large;
+			font-size: $size-large;
 			display: inline-block;
 			color: $cmu-color-dkgray;
 			text-transform: uppercase;

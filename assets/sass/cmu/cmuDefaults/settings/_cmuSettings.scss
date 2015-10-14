@@ -1,4 +1,7 @@
 
+// 
+// Note: for community, some of the framework settings aren't actually used.
+// 
 
 /**
  * These are very basic, high-level default settings to get a project started.
@@ -12,7 +15,7 @@ $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta element
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
 $size-badgewidth-min:		$cmu-base*11;
-$cmu-nav-height:			remCalc(40px) !default;
+$cmu-nav-height:			remCalc(40px) !default; // main nav bar
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -21,9 +24,6 @@ $cmu-nav-height:			remCalc(40px) !default;
 $cmu-base-spacing-unit:     $cmu-base-line-height !default;
 $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 
-
-
-// $cmu-thread-message-height:	$cmu-base * 8;
 
 // 
 // BASIC COMMUNITY RESET STYLES
@@ -53,8 +53,6 @@ body {
 	margin: 0 auto;
 }
 
-
-
 %radius { border-radius: 8px; }
 
 
@@ -67,14 +65,14 @@ body {
 // 	max-width: 100%;
 // }
 
-// governs all community partials
+// base container for all community content
+// min-height is set so the footer doesn't jump up/down on page load
 .community__content {
 	@extend %cmu-maxwidth;
 	min-height: $cmu-base * 20; 
 }
 
 // Various things
-
 $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b90fead886/no_pic_720.png';
 
 
@@ -93,51 +91,6 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 .cmuHidden {
 	display: none;
 }
-
-
-
-
-
-// 
-// BORDERS, LINES, EDGES
-// 
-
-
-$cmu-line-thin: 1px;
-$cmu-style-border-thin: 1px solid $cmu-color-black;
-%style-border-bottom-thin { 
-	border-bottom: $cmu-style-border-thin;
-}
-
-$cmu-style-border-thin-light: 1px solid $cmu-color-ltgray;
-%style-border-bottom-thin-light {
-	border-bottom: $cmu-style-border-thin;
-}
-
-$cmu-style-border-thin-dark: 1px solid $cmu-color-mdgray;
-
-$cmu-line-medium: 2px;
-$cmu-style-border-medium: 2px solid $cmu-color-black;
-%style-border-medium-blue {
-	border: $cmu-style-border-medium;
-	border-color: $cmu-color-blue;
-}
-%style-border-bottom-medium {
-	border-bottom: $cmu-style-border-medium;
-}
-
-$cmu-line-thick: $cmu-base/3;
-%style-border-thick {
-	border: $cmu-style-border-medium;
-	border-color: $cmu-color-blue;
-}
-
-$cmu-line-xthick: $cmu-base/2;
-
-$cmu-style-border: 1px solid $cmu-color-gray;
-$cmu-style-line: $cmu-line-thin $cmu-color-mdgray solid;
-$cmu-style-line--light: $cmu-line-thin $cmu-color-ltgray solid;
-
 
 
 

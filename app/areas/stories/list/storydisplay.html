@@ -1,21 +1,29 @@
 <div class="cmuStoryItem cmuStoryItem--featured" ng-click="storydisplay.goStory()">
-	<div class="cmuStoryItem--image">
-		<a ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })"><img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}"></a>
-	</div>
-	<div class="cmuStoryItem--main" class="col--md3">
-		<a class="cmuStoryItem--link" ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })">{{ ::storydisplay.story.subject }}</a>	
-		<h6> by&nbsp; <community-username user="storydisplay.story.message.insertUser"></community-username> {{ ::storydisplay.story.message.postDate | timeFromNow }}</h6>
-	</div>
-	<div class="cmuStoryItem--meta">
-		<!-- <p>{{ storydisplay.story.summary }}</p> -->
-		<span class="cmuStoryItem--views">
-			<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
-		</span>
-		<span class="cmuStoryItem--kudos">
-			<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
-		</span>
-		<span>
-			{{ storydisplay.story.node.description }}
-		</span>
-	</div>
+	<a ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })">
+		<div class="cmuStoryItem__image__container">
+			<div class="cmuStoryItem__image">
+				<img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}">
+			</div>
+		</div>
+		<div class="cmuStoryItem__main" class="col--md3">
+			<div class="cmuStoryItem__link">{{ ::storydisplay.story.subject }}</div>	
+			<h6> 
+				by&nbsp; 
+				<community-username user="storydisplay.story.message.insertUser"></community-username> 
+				{{ ::storydisplay.story.message.postDate | timeFromNow }}
+			</h6>
+		</div>
+		<div class="cmuStoryItem__meta">
+			<!-- <p>{{ storydisplay.story.summary }}</p> -->
+			<span class="cmuStoryItem__views">
+				<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
+			</span>
+			<span class="cmuStoryItem__kudos">
+				<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
+			</span>
+			<span>
+				{{ storydisplay.story.node.description }}
+			</span>
+		</div>
+	</a>
 </div>

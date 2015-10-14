@@ -167,7 +167,7 @@
 
 		.cmuFeed__story__subject {
 			@extend %size-smaller;
-			line-height: $cmu-size-xsmaller--line-height;
+			line-height: $size-xsmaller--line-height;
 			color: $cmu-color-active;
 			// margin-bottom: $cmu-base/2;
 		}
@@ -287,7 +287,7 @@
 }
 	.cmuFeed__sidebar__link {
 		color: $cmu-color-active;
-		@extend %size-smaller;
+		@extend %size-normal;
 		
 		&:hover {
 			text-decoration: underline;
@@ -313,7 +313,6 @@
 			&:hover {
 				span, span:before { 
 					@extend %ease-fast;
-					color: $cmu-color-black; 
 				}
 				span:last-child { 
 					text-decoration: underline; 
@@ -336,7 +335,9 @@
 			// 	}
 			// }
 
-			@extend %style-link--dark;
+			a {
+				@extend %style-link--dark;
+			}
 		}
 
 

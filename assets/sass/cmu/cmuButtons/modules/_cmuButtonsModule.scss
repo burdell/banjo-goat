@@ -27,8 +27,8 @@
 */
 
 $cmu-style-button-borderwidth: remCalc(2px);
-$cmu-button-fontsize: $cmu-size-xsmaller;
-$cmu-button-fontsize--icon: $cmu-size-normal;
+$cmu-button-fontsize: $size-xsmaller;
+$cmu-button-fontsize--icon: $size-normal;
 $cmu-button-lineheight: $cmu-cta-height;
 $cmu-button-letterspacing: remCalc(0.5px);
 $cmu-button-color-base: $cmu-color-blue;
@@ -438,6 +438,7 @@ button, .button {
 	color: $cmu-color-black;
 	margin-left: 0;
 	display: inline-block;
+    margin-top: -1px;
 	@extend %ease-none;
 
 	&:first-child {

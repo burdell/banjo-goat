@@ -1,7 +1,7 @@
 
 
-$cmu-forum-size-thread: $cmu-size-normal;
-$cmu-forum-size-numerical: $cmu-size-xsmaller;
+$cmu-forum-size-thread: $size-normal;
+$cmu-forum-size-numerical: $size-xsmaller;
 
 $cmu-forum-size-counterWidth: 5%;
 $cmu-forum-size-maxWidth: 100px;
@@ -54,7 +54,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	width: 12%;
 	padding-right: $cmu-base/2;
 	max-width: $cmu-forum-size-maxWidth--author;
-	font-size: $cmu-size-xsmaller;
+	font-size: $size-xsmaller;
 	white-space: nowrap;
 
 	// author links disabled so entire row can link to message
@@ -101,7 +101,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 // 
 
 .cmuThreadlist__list thead {
-	border-bottom: $cmu-style-border-thin-light;
+	border-bottom: $style-line;
 
 	th {
 		// @extend .type-titleThin;
@@ -165,21 +165,13 @@ $cmu-forum-size-maxWidth--author: 100px;
 .cmuThreadList__row {
 	position: relative; // important for icon placement
 	// @extend %size-community-base;
-	border-top: $cmu-style-border-thin-light;
-	border-bottom: $cmu-style-border-thin-light;
+	border-top: $style-line;
+	border-bottom: $style-line;
 	padding-top: $cmu-vertical-rhythm/2;
 	padding-bottom: $cmu-vertical-rhythm/2;
 	line-height: 2rem;
 
-	&:hover {
-		background: $cmu-color-threadlist-hover;
-		cursor: pointer;
-		// @extend %ease-fast;
-
-		.cmuThreadList__row__topic {
-			color: $cmu-color-active;
-		}
-	}
+	@extend %style-link-listItem;
 
 
 	td {
@@ -277,7 +269,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 // separate list of pinned threads
 // 
 .cmuThreadlist__pinnedList {
-	border-bottom: $cmu-style-border-medium;
+	border-bottom: $style-line--thick;
 	border-color: $cmu-color-dkgray;
 }
 
@@ -310,7 +302,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 			padding: $cmu-base/6 $cmu-base/2;
 			margin-right: $cmu-base/2;
 			color: $cmu-color-white;
-			font-size: $cmu-size-xxsmaller;
+			font-size: $size-xxsmaller;
 			line-height: $cmu-base;
 		}
 	}
@@ -322,7 +314,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 			content: '\e78e';
 			display: inline-block;
 			padding: $cmu-base/6 $cmu-base/4;
-			// font-size: $cmu-size-xxsmaller;
+			// font-size: $size-xxsmaller;
 		}
 	}
 

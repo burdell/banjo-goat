@@ -10,7 +10,7 @@
 	@extend %font-oswald;
 	padding: 0;
 	margin-bottom: $cmu-base;
-	border-bottom: $cmu-style-line;
+	border-bottom: $style-line;
 	text-align: center;
 
 	@include respondTo(small-down) {
@@ -28,7 +28,7 @@
 .cmuPulse__label {
 	display: table-cell;
 	vertical-align: middle;
-	border-bottom: $cmu-style-line;
+	border-bottom: $style-line;
 
 	min-width: $cmu-base * 9;
 	@include respondTo(medium-down) {
@@ -41,8 +41,8 @@
 	text-transform: uppercase;
 	color: $cmu-color-white;
 	background-color: $cmu-color-mdgray;
-	font-size: $cmu-size-large;
-	line-height: $cmu-size-larger--line-height;
+	font-size: $size-large;
+	line-height: $size-larger--line-height;
 
 	&:before {
 		content :' ';
@@ -60,20 +60,7 @@
 
 .cmuPulse__counter {
 	display: inline-block;
-	// display: table-cell;
 	vertical-align: middle;
-	// width: 24%;
-	// &:nth-child(2) {
-	// 	width: 13%;
-	// }
-
-	// &:nth-child(3) {
-	// 	width: 12%;
-	// }
-
-	// &:nth-child(4) {
-	// 	width: 10%;
-	// }
 
 	padding: $cmu-base/2 $cmu-base/2 $cmu-base/2 0;
 	overflow: hidden;
@@ -116,6 +103,6 @@
 			@extend %font-lato; 
 			@extend %type-info;
 			width: $cmu-base;
-			line-height: $cmu-size-xxsmaller--line-height;
+			line-height: $size-xxsmaller--line-height;
 			display: inline-block;
 		}

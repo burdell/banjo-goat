@@ -1,14 +1,14 @@
 
 
 // 
-// Horizontal Lines
+// Lines and Borders
 // 
 
 $style-line: 1px solid $cmu-color-line;
 	$style-line--light: 1px solid $cmu-color-line--light;
 	$style-line--dark: 1px solid $cmu-color-line--dark;
-	$style-line--thick: 3px solid $cmu-color-black;
-	$style-line--xthick: 6px solid $cmu-color-black;
+	$style-line--thick: 3px solid $cmu-color-dkgray;
+	$style-line--xthick: 6px solid $cmu-color-dkgray;
 
 
 
@@ -17,13 +17,20 @@ $style-line: 1px solid $cmu-color-line;
 // 
 
 
+// 
+// Basic Link Styles
+// 
+
 // Standard Links blue w/ dark hover
 .style-link, %style-link {
+	@extend %ease-fast;
 	color: $cmu-color-link;
+	cursor: pointer;
 	&.active {
 		color: $cmu-color-link_active;
 	}
 	&:hover {
+		@extend %ease-fast;
 		color: $cmu-color-link_hover;
 	}
 }
@@ -32,10 +39,57 @@ $style-line: 1px solid $cmu-color-line;
 .style-link--dark, %style-link--dark {
 	@extend %ease-fast;
 	color: $cmu-color-link--dark;
+	cursor: pointer;
 	&.active {
 		color: $cmu-color-link--dark_active;
 	}
 	&:hover {
+		@extend %ease-fast;
 		color: $cmu-color-link--dark_hover;
+		text-decoration: none;
 	}
 }
+
+// 
+// Contextual Link Styles
+// 
+
+
+// List Item
+// NOTE: many of these use .cmuThreadList__row, which uses on-click instead of <a> tags
+// 		 - the design is identical but implemented differently (__topic)
+// - story list
+// - forum thread list
+// - announcement thread list
+// - q&a thread list
+// - features thread list
+// - feed list
+// - notifications list (dropdown & list)
+// - messages list (dropdown & list)
+// 
+// Design
+// - text: 			dark
+// - hover:			blue
+// - underline:		none
+// - background: 	light (depends on context, and isn't set by this module)
+.style-link-listItem, %style-link-listItem {
+	@extend %style-link--dark;
+
+	&:hover {
+		// background: $cmu-color-threadlist-hover;
+		cursor: pointer;
+		.cmuThreadList__row__topic {
+			color: $cmu-color-active;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+

@@ -74,8 +74,9 @@
 						</div>
 
 					<div class="cmuFeed__storyList clearfix">
-						<div class="cmuFeed__story col--md3" ng-repeat="story in vm.storyData" >
-							<a ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
+						<a ng-repeat="story in vm.storyData" 
+						   ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
+							<div class="cmuFeed__story col--md3" >
 								<div class="cmuFeed__story__img__container" ng-if="story.media.length > 0">
 									<div class="cmuFeed__story__img"
 									 style="background-image: url('{{ story.media[0].url }}')"></div>
@@ -92,8 +93,8 @@
 									<div class="cmuFeed__story__date">{{ story.message.postDate | timeFromNow }}</div>
 								</div>
 								<div class="cmuFeed__location">{{ story.node.description }}</div>
-							</a>
-						</div>
+							</div>
+						</a>
 					</div>
 				</div>	
 

@@ -76,8 +76,8 @@
     		background-position-x: -30px;
 			border-radius: 50%;
 			background-repeat: no-repeat;
-			width: $cmu-size-avatar;
-			height: $cmu-size-avatar;
+			width: $size-avatar;
+			height: $size-avatar;
 			@include transition-duration(0.35s);
 			@include transition-timing-function(ease-out);
 		}
@@ -180,7 +180,7 @@
 .cmuUserbadge__status__op:before {
 	content: 'OP';
 	@extend %font-oswald;
-	font-size: $cmu-size-xxsmaller;
+	font-size: $size-xxsmaller;
 	border: $style-line;
 	padding: 0px $cmu-base/8;
 	margin-right: 1px;
@@ -268,7 +268,17 @@
     }
 
 }
+	.cmuUserbadge--thin--open {
+		margin: 0;
+		border: 0;
+		position: initial;
+		padding-left: 0;
+		padding-top: 0;
 
+		.cmuUserbadge__user {
+			margin-bottom: 0;
+		}
+	}
 
 
 
