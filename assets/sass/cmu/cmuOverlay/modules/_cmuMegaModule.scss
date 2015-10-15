@@ -52,10 +52,6 @@
 		// cursor: pointer;
 	}
 
-	.cmuMega__content {
-		max-width: $cmu-maxwidth;
-	}
-
 	.cmuMega__close {
 		color: $cmu-color-mdgray;
 		font-size: $cmu-base*1.5;
@@ -99,6 +95,7 @@
 	.cmuMega__content {
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
+		max-width: $cmu-maxwidth;
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}

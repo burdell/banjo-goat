@@ -7827,10 +7827,6 @@ div.cmuOverlay--show {
   height: 100%;
 }
 
-.cmuMega__content {
-  max-width: 1200px;
-}
-
 .cmuMega__close {
   color: #bbbbbd;
   font-size: 1.5rem;
@@ -7862,6 +7858,7 @@ div.cmuOverlay--show {
 
 .cmuMega__content {
   color: #bbbbbd;
+  max-width: 1200px;
 }
 
 .cmuMega__section {
