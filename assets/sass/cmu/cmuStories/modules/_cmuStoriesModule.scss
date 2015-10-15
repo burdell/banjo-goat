@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 // 
 // Stories Grid
 // 
@@ -36,96 +31,104 @@
 		max-width: calc((100% - 14px * 0) / 1); // technically just 100%
 	}
 
+	@extend %style-listItem;
+
 	&:hover {
 		@extend %ease-fast;
 		img {
 			@extend %ease-fast;
-			opacity: 0.4;
-		}
-		a {
-			color: $cmu-color-blue;
+		    transform: scale(1.2);
 			@extend %ease-fast;
 		}
 	}
 }
+	
+	// featured story
+	.cmuStoryItem__featured {
+		position: relative;
 
-// each story item in the grid
-.cmuStoryItem--image {
-	background-color: $cmu-color-purewhite;
+		&:before {
+			display: block;
+			font-family: 'ubnt';
+			content: '\e719';
+			position: absolute;
+			top: 10px;
+			left: 10px;
 
-	// fixes weird spacing problems w/ images
-	font-size: 0px;
-	line-height: 0;
+			height: $cmu-base;
+			width: $cmu-base;
 
-	img {
-		@extend %ease-fast;
-		width: 100%;
-		max-height: 420px;
+			text-align: center;
+			line-height: 34px;
+
+			border-radius: 100%;
+			color: white;
+			background-color: $cmu-color-teal;
+
+			font-size: $size-larger;
+		}
 	}
-}
 
-// featured story
-.cmuStoryItem--featured {
-	position: relative;
+	// each story item in the grid
+	.cmuStoryItem__image {
+		background-color: $cmu-color-purewhite;
 
-	&:before {
-		display: block;
-		font-family: 'ubnt';
-		content: '\e719';  
+		// fixes weird spacing problems w/ images
+		font-size: 0px;
+		line-height: 0;
 
-		position: absolute;
-		top: 10px;
-		left: 10px;
-
-		height: 32px;
-		width: 32px;
-
-		text-align: center;
-		/* padding-top: 7px; */
-		line-height: 34px;
-
-		border-radius: 100%;
-		color: white;
-		background-color: $cmu-color-teal;
-
-		font-size: 18px;
+		img {
+			@extend %ease-fast;
+			width: 100%;
+			max-height: 420px;
+		}
 	}
-}
-// each story item in the grid
-.cmuStoryItem--main {
-	background-color: $cmu-color-purewhite;
-	padding: $cmu-base/2;
-	border: $style-line;
-	border-top: 0;
-	border-bottom: 0
-}
+		.cmuStoryItem__image__container {
+			overflow: hidden;
+		}
 
-.cmuStoryItem--link {
-	color: $cmu-color-dkgray;
-	// font-size: $cmu-base-font;
-	margin-bottom: $cmu-base/2;
-	display: inline-block;
-
-	&:hover {
-		color: $cmu-color-blue;
+	// each story item in the grid
+	.cmuStoryItem__main {
+		background-color: $cmu-color-purewhite;
+		padding: $cmu-base/2;
+		border: $style-line;
+		border-top: 0;
+		border-bottom: 0
 	}
-}
 
-.cmuStoryItem--meta {
-	padding: $cmu-base/2;
-	background-color: $cmu-color-ltgray;
-	margin-bottom: $cmu-base;
+	.cmuStoryItem__link {
+		// color: $cmu-color-dkgray;
+		// font-size: $cmu-base-font;
+		margin-bottom: $cmu-base/2;
+		display: inline-block;
 
-	border: $style-line;
-	border-top: 0;
-
-	.icon {
-		margin-right: $cmu-base/2;
+		&:hover {
+			color: $cmu-color-blue;
+		}
 	}
-	&>span {
-		margin-right: $cmu-base/2;
+
+	.cmuStoryItem__user {
+		@extend %style-user;
 	}
-}
+
+	.cmuStoryItem__meta {
+		padding: $cmu-base/2;
+		background-color: $cmu-color-ltgray;
+
+		border: $style-line;
+		border-top: 0;
+
+		.icon {
+			margin-right: $cmu-base/2;
+		}
+		&>span {
+			margin-right: $cmu-base/2;
+		}
+	}
+
+	.cmuStoryItem__desc {
+		@extend %style-tag;
+	}
 
 
 
@@ -144,38 +147,33 @@
 // 
 
 // only shows up on story page, not in preview
-.cmuStories__storyDetail {
+.cmuStoryDetail {
+
+	h1 {
+		margin-top: $cmu-vertical-rhythm/2;
+		// margin-bottom: $cmu-vertical-rhythm/2;
+	}
 }
 
 // only shows up on preview page, not on story
-.cmuStoriesNew__Preview {
+.cmuStoriesNew__preview {
 	max-width: 800px;
 }
 
-.cmuStories__title {
-	font-weight: 300;
-	font-size: 32px;
-	line-height: initial;
-	color: $cmu-color-dkgray;
-}
-
 .cmuStories__summary {
-	font-style: italic;
-	font-size: $cmu-base * 1.1;
-	line-height: initial;
-  	color: $cmu-color-gray;
+	@extend %size-large;
+  	color: $cmu-color-dkgray;
 	margin-bottom: $cmu-base;
-	font-weight: 300;
 }
 
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-base/2;
 
 	
 	// adjust usernames 
 	.cmuUsername {
-		margin-left: $cmu-base/4;
+		// margin-left: $cmu-base/4;
 	}
 }
 	.cmuStories__story__controlsTop--left {
@@ -224,7 +222,7 @@
 	// 'picture frame'
 	padding: 12px;
 	background: white;
-	border: 1px solid #ccc;
+	border: $style-line;
 
 	.cmuStories__story__cover--img {
 		// max-height: 300px;
@@ -349,25 +347,25 @@
 .cmuStories__story__imageContainer {
 	margin-bottom: $cmu-base;
 
-	&.break-columns {
-		@include respondTo(medium-up) {
-			-webkit-columns: 2 200px;
-			 -moz-columns: 2 200px;
-			      columns: 2 200px;
-			-webkit-column-gap: 4em;
-			 -moz-column-gap: 4em;
-			      column-gap: 4em;
-			-webkit-column-rule: 1px solid $cmu-color-ltgray;
-			 -moz-column-rule: 1px solid $cmu-color-ltgray;
-			      column-rule: 1px solid $cmu-color-ltgray;
-		}
-	}
+	// &.break-columns {
+	// 	@include respondTo(medium-up) {
+	// 		-webkit-columns: 2 200px;
+	// 		 -moz-columns: 2 200px;
+	// 		      columns: 2 200px;
+	// 		-webkit-column-gap: 4em;
+	// 		 -moz-column-gap: 4em;
+	// 		      column-gap: 4em;
+	// 		-webkit-column-rule: 1px solid $cmu-color-ltgray;
+	// 		 -moz-column-rule: 1px solid $cmu-color-ltgray;
+	// 		      column-rule: 1px solid $cmu-color-ltgray;
+	// 	}
+	// }
           
 	.cmuStories__story__mediaItem {
 		// margin-bottom: $cmu-base;
-		-webkit-column-break-inside: avoid;
-		page-break-inside: avoid;
-		break-inside: avoid;
+		// -webkit-column-break-inside: avoid;
+		// page-break-inside: avoid;
+		// break-inside: avoid;
 
 		// for videos: 
 		// http://i.imgur.com/TT7XC8m.jpg

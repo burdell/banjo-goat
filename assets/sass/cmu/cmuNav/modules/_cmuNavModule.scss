@@ -7,7 +7,7 @@ $nav-height: $cmu-nav-height;
 	text-transform: uppercase;
 	color: $cmu-color-textgray;
 	letter-spacing: 0.4px;
-	font-size: $cmu-size-xsmaller;
+	font-size: $size-xsmaller;
 	vertical-align: top;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
@@ -146,7 +146,8 @@ $nav-height: $cmu-nav-height;
 				    border-radius: 50%;
 				    	width: 19px;
 				    	height: 19px;
-				    padding-left: 0.25rem;
+				    padding-left: 0.26rem;
+    				line-height: 18px;
 				    border: $style-line--dark;
 				    border-color: $cmu-color-gray;
 				}
@@ -296,7 +297,7 @@ $nav-height: $cmu-nav-height;
 		text-transform: uppercase;
 		color: $cmu-color-textgray;
 		letter-spacing: 0.4px;
-		font-size: $cmu-size-xsmaller;
+		font-size: $size-xsmaller;
 		line-height: $cmu-base*1.5;
 	}
 
@@ -363,7 +364,7 @@ $nav-height: $cmu-nav-height;
 			display: block;
 			border: 0;
 			color: white;
-			font-size: $cmu-size-normal;
+			font-size: $size-normal;
 
 		}
 			.cmuGloNav__mobile__container
@@ -415,15 +416,17 @@ $nav-height: $cmu-nav-height;
 		cursor: default;
 		display: block;
 		@extend %nav-style;
+		font-size: $size-smaller;
+		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
 		height: auto;
 		padding: $cmu-base/2 0;
+		cursor: pointer;
 
 		@include respondTo(small-down) {
 			padding-left: $cmu-base/2;
 		}
 
-		cursor: pointer;
 	}
 
 	span {
@@ -478,9 +481,9 @@ $nav-height: $cmu-nav-height;
 	.cmuGloNav__social--label {
 		cursor: default !important;
 		@extend %nav-style;
-		display: block;
+		font-size: $size-smaller;
+		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
-		height: auto;
 		padding: $cmu-base/2;
 		margin-bottom: $cmu-base/2;
 

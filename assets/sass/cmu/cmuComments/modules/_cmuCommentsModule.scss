@@ -49,27 +49,31 @@
 
 		.cmuComments__body-content {
 			margin-right: $cmu-base;
+    		padding-bottom: $cmu-base/2;
 		}
 
 .cmuComments__body {
-	font-size: $cmu-size-normal;
-	line-height: $cmu-size-normal--line-height;
+	font-size: $size-normal;
+	line-height: $size-normal__lineHeight;
 }
 
 
 // right side 
 .cmuComments__info {
 	@extend %type-info;
-	line-height: $cmu-size-normal;
+	line-height: $size-normal;
 }
 
 	.cmuComments__date {
+		@extend %size-xxsmaller;
 		padding-bottom: $cmu-base/2;
 		color: $cmu-color-gray;
 	}
 
 	.cmuComments__flag {
 		text-align: right;
+		float: right;
+		margin-right: $cmu-base/2;
 
 		.cmuIcon-flag {
 			cursor: pointer;

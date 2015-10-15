@@ -40,7 +40,7 @@
 	}
 	span {
 		font-weight: 300;
-		font-size: $cmu-size-normal;
+		font-size: $size-normal;
 		&:before { content: '(' }
 		&:after { content: ')' }
 	}

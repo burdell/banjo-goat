@@ -70,10 +70,10 @@
 			font-weight: 300;
     		vertical-align: top;
     		padding-right: $cmu-base/2;
-			letter-spacing: $cmu-size-letterspacing-header;
+			letter-spacing: $size-letterspacing-header;
     		line-height: 1.5rem;
 			text-transform: uppercase;
-			font-size: $cmu-size-smaller;
+			font-size: $size-smaller;
 		}
 		&:hover {
 			color: $cmu-color-white;
@@ -100,15 +100,15 @@
 
 		.cmuMega__section__head {
 			text-transform: uppercase;
-			letter-spacing: $cmu-size-letterspacing-header; 
-			font-size: $cmu-size-smaller;
+			letter-spacing: $size-letterspacing-header; 
+			font-size: $size-smaller;
 			// padding-top: $cmu-base / 2;
 			padding-bottom: $cmu-base / 2;
 		}
 
 		.cmuMega__section__col {
 			a { 
-				letter-spacing: $cmu-size-letterspacing-text;
+				letter-spacing: $size-letterspacing-text;
 				display: block;
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;

@@ -11,13 +11,13 @@
 			<!-- {{ ::feedcontent.contentDisplay.body | unformatText | wordCut: 20 }} -->
 			{{ ::feedcontent.contentDisplay.body | unformatText }}
 		</div>
+		<div class="cmuFeed__userAction">
+			{{ ::feedcontent.contentDisplay.discussionActionString }} - {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
+		</div>
 
 		<div class="row">
 			<div class="col--md7">
 				<div class="cmuFeed__location"> {{ ::feedcontent.contentDisplay.nodeName }}</div>
-				<span class="cmuFeed__userAction">
-					{{ ::feedcontent.contentDisplay.discussionActionString }} - {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
-				</span>
 			</div>
 			<div class="cmuFeed__stats col--md5">
 				<span class="cmuFeed__stat">Views: 324</span>
