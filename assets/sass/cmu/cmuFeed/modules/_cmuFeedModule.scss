@@ -18,6 +18,7 @@
 
 // icon representations (only within Feed/Hub)
 .cmuFeed__icon {
+	font-size: $cmu-base;
 	margin-right: $cmu-base/2;
 	&:before {
 		color: $cmu-color-dkgray;
@@ -57,6 +58,19 @@
 }
 
 
+.cmuFeed {
+	// hide breadcrumbs
+	.cmuBreadcrumbs { 
+		display: none;
+	}
+
+	.cmuDiscussionsHeader h3 {
+		@extend %h2;
+		margin-top: $cmu-vertical-rhythm*2;
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
+}
 
 .cmuFeed__main {
 	padding-right: $cmu-base;
@@ -207,6 +221,7 @@
 				@extend %size-xsmaller;
 				color: $cmu-color-mdgray;
 				margin: $cmu-base/4 0;
+				margin-bottom: $cmu-base/2;
 			}
 			.cmuFeed__content {
 				@extend %size-smaller;
@@ -222,7 +237,7 @@
 				text-align: right;
 			}
 				.cmuFeed__stat {
-					@extend %style-tag--noLine;
+					@extend %style-stat;
 					// margin-right: $cmu-base/2;
 				}
 
@@ -284,18 +299,7 @@
 	}
 
 		.cmuFeed__anno {
-			@extend %size-smaller;
-			margin-bottom: $cmu-vertical-rhythm/2;
-			// &:hover {
-			// 	// text-decoration: underline; 
-			// 	a {
-			// 		border-bottom: $style-line;
-			// 	}
-			// }
-
-			a {
-				@extend %style-link--dark;
-			}
+			@extend %cmuRailLink;
 		}
 
 

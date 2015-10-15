@@ -1,6 +1,6 @@
 
 <div class="cmuFeed">
-	<community-page-header header-text="Community Feed"></community-page-header>
+	<community-page-header header-text="Community News"></community-page-header>
 
 	<!-- pulse row -->
 	<div class="row">
@@ -39,7 +39,7 @@
 		<div class="cmuFeed__main col--md9 noPaddingLeft">
 			<div class="cmuThreadlist__ctrl__row row">
 				<div class="col--md8">
-					<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Community Feed</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >My Feed</button>
+					<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Recent Topics</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >Followed Topics</button>
 				</div>
 				 <div class="col--md2 noPaddingRight">
 		          	<community-sort 
@@ -143,9 +143,9 @@
 
 			<div class="cmuFeed__announcements">
 				<h5><span class="cmuFeed__icon announcements"></span>Latest Announcements</h5>
-				<div class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements">
-					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self"><span class="product">airmax</span>{{ announcement.subject }}</a>
-				</div>
+				<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
+					<span class="product">airmax</span>{{ announcement.subject }}
+				</a>
 				<div class="cmuFeed__sidebar__ctrl">
 					<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
 				</div>
