@@ -12,18 +12,24 @@
 
 %megaTopOffset {
 	position: relative;
-	top: $cmu-base*3;
+	// top: $cmu-base*3;
+	top: 0;
 }
 %megaContentTopOffset {
 	position: relative;
-	top: $cmu-base*4;
+	// top: $cmu-base*4;
+	top: 0;
 }
 
 // general settings; acts as a "blackout"
 .cmuMega {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
     width: 100%;
     height: 100%;
     z-index: $z-overlay;
@@ -89,6 +95,7 @@
 	.cmuMega__content {
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
+		max-width: $cmu-maxwidth;
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}

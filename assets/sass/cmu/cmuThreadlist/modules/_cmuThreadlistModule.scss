@@ -171,6 +171,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	padding-bottom: $cmu-vertical-rhythm/2;
 
 	@extend %style-listItem;
+	display: table-row;
 
 	td {
 		overflow: hidden; 

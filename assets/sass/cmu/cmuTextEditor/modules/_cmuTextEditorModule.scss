@@ -11,6 +11,10 @@
 .cmuTextEditor {
 	cursor: text;
 
+  .cmuTextEditor__textarea {
+    @extend .cmuInput;
+  }
+
 	iframe html{
 		  // does nothing:  content_css.css affects the interior of the editor
 	}

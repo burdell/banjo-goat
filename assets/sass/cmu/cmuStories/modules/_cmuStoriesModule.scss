@@ -14,6 +14,7 @@
 
 .cmuStoryItem {
 	@extend %ease-fast;
+	margin-bottom: $cmu-base;
 	max-width: 245px;
 
 	// Note on how this works:
@@ -93,13 +94,10 @@
 		padding: $cmu-base/2;
 		border: $style-line;
 		border-top: 0;
-		border-bottom: 0
+		border-bottom: 0;
 	}
 
-	.cmuStoryItem__link {
-		// color: $cmu-color-dkgray;
-		// font-size: $cmu-base-font;
-		margin-bottom: $cmu-base/2;
+	.cmuStoryItem__subject {
 		display: inline-block;
 
 		&:hover {
@@ -109,6 +107,9 @@
 
 	.cmuStoryItem__user {
 		@extend %style-user;
+	}
+	.cmuStoryItem__date {
+		@extend %style-date;
 	}
 
 	.cmuStoryItem__meta {
@@ -155,15 +156,14 @@
 	}
 }
 
-// only shows up on preview page, not on story
-.cmuStoriesNew__preview {
-	max-width: 800px;
+.cmuStoryDetail__container {
+	padding: $cmu-base;
+	border: $style-line;
 }
 
 .cmuStories__summary {
 	@extend %size-large;
   	color: $cmu-color-dkgray;
-	margin-bottom: $cmu-base;
 }
 
 .cmuStories__story__controlsTop {
@@ -217,6 +217,7 @@
 		}
 
 .cmuStories__story__cover {
+	margin-top: $cmu-base; // separates either title or subtitle
 	margin-bottom: $cmu-base;
 	
 	// 'picture frame'

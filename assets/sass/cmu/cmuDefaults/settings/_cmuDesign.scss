@@ -24,6 +24,7 @@ $style-line: 1px solid $cmu-color-line;
 // Standard Links blue w/ dark hover
 .style-link, %style-link {
 	@extend %ease-fast;
+	// display: inline-block;
 	color: $cmu-color-link;
 	cursor: pointer;
 	&.active {
@@ -38,6 +39,7 @@ $style-line: 1px solid $cmu-color-line;
 // Reverse Links / dark w/ blue hover
 .style-link--dark, %style-link--dark {
 	@extend %ease-fast;
+	// display: inline-block;
 	color: $cmu-color-link--dark;
 	cursor: pointer;
 	&.active {
@@ -116,13 +118,61 @@ $style-line: 1px solid $cmu-color-line;
 	@extend %size-xxsmaller;
 	color: $cmu-color-dkgray;
 	border: $style-line;
-	padding: $cmu-base/6 $cmu-base/2;
+	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
 	background-color: $cmu-color-ltgray;
+}
+	.style-tag--noLine, %style-tag--noLine {
+		@extend %style-tag;
+		border: 0;
+		background-color: transparent;
+	}
+
+.style-stat, %style-stat {
+	display: inline-block;
+	@extend %size-xxsmaller;
+	color: $cmu-color-dkgray;
+	padding: 3.5px $cmu-base/2;
+	border: 0;
+
+	.ubnt-icon {
+		margin-right: $cmu-base/4;
+		@extend %size-normal;
+	}
+	.cmuIcon {
+		margin-right: $cmu-base/2;
+		width: 14px;
+		height: 14px;
+		position:relative;
+		top: -2px;
+	}
 }
 
 
 
 
 
+// 
+// Right Rail links
+// - feed announcements
+/*
+	right_rail
+		links
+			cmuRailLink - rpt
+
+
+*/
+.cmuRailLink, %cmuRailLink {
+	@extend %size-smaller;
+	margin-bottom: $cmu-vertical-rhythm*3/4;
+	// &:hover {
+	// 	// text-decoration: underline; 
+	// 	a {
+	// 		border-bottom: $style-line;
+	// 	}
+	// }
+
+	display: block;
+	@extend %style-link--dark;
+}
 
 
