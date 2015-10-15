@@ -7903,6 +7903,8 @@ div.cmuOverlay--show {
 .cmuSearchbar {
   display: none;
   overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
   margin-top: 1rem;
 }
 .cmuSearchbar .appIconInput__icon {
