@@ -14,6 +14,7 @@
 
 .cmuStoryItem {
 	@extend %ease-fast;
+	margin-bottom: $cmu-base;
 	max-width: 245px;
 
 	// Note on how this works:
@@ -155,15 +156,14 @@
 	}
 }
 
-// only shows up on preview page, not on story
-.cmuStoriesNew__preview {
-	max-width: 800px;
+.cmuStoryDetail__container {
+	padding: $cmu-base;
+	border: $style-line;
 }
 
 .cmuStories__summary {
 	@extend %size-large;
   	color: $cmu-color-dkgray;
-	margin-bottom: $cmu-base;
 }
 
 .cmuStories__story__controlsTop {
@@ -217,6 +217,7 @@
 		}
 
 .cmuStories__story__cover {
+	margin-top: $cmu-base; // separates either title or subtitle
 	margin-bottom: $cmu-base;
 	
 	// 'picture frame'

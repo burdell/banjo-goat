@@ -16,6 +16,7 @@ $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
 $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
+$cmu-min-pageHeight:		$cmu-base*20;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -34,8 +35,10 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 }
 
 body {
+	position: relative;
 	background-color: $cmu-color-white;
 	height: 100%;
+	min-height: 100%;
 	color: $cmu-color-body;
 	line-height: inherit;
 	background-color: $cmu-color-menu;
@@ -46,6 +49,9 @@ body {
 }
 	.wrapper {
 		background-color: $cmu-color-white;
+	    // padding-bottom: $cmu-min-pageHeight;
+	    min-height: 100%;
+	    position: relative;
 	}
 
 #main-content {
@@ -59,6 +65,9 @@ body {
 
 %radius { border-radius: 8px; }
 
+ol, li {
+	list-style-position: inside;
+}
 
 // CONTAINER--RESPONSIVE IS NOT USED
 // responsive containers are always 100% wide, and have no side margins
@@ -72,8 +81,10 @@ body {
 // base container for all community content
 // min-height is set so the footer doesn't jump up/down on page load
 .community__content {
+	position: relative;
+	padding-bottom: $cmu-min-pageHeight;
+	min-height: 100%;
 	@extend %cmu-maxwidth;
-	min-height: $cmu-base * 20; 
 }
 
 // Various things

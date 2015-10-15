@@ -404,6 +404,11 @@ $nav-height: $cmu-nav-height;
 .cmuGloNav--footer {
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
+
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	
 	@include respondTo(medium-up) {
 		padding: $cmu-base $cmu-base*4;
 	}
@@ -414,7 +419,7 @@ $nav-height: $cmu-nav-height;
 
 	li a {
 		cursor: default;
-		display: block;
+		display: inline-block;
 		@extend %nav-style;
 		font-size: $size-smaller;
 		line-height: $size-smaller__lineHeight;
@@ -485,7 +490,9 @@ $nav-height: $cmu-nav-height;
 		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
 		padding: $cmu-base/2;
-		margin-bottom: $cmu-base/2;
+		padding-left: 0;
+		padding-bottom: 0;
+		// margin-bottom: $cmu-base/2;
 
 		&:hover {
 			color: $cmu-color-textgray;
@@ -497,6 +504,9 @@ $nav-height: $cmu-nav-height;
 		cursor: default !important;
     	margin-left: $cmu-base * 1/4;
 
+    	a {
+    		padding: 0;
+    	}
 		span:before {
 			@extend %ease-fast;
 			cursor: pointer;

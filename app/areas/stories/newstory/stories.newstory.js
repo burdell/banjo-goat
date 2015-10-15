@@ -53,35 +53,10 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		titleCharacterLimit: 140,
 		subtitleWordLimit: 35,
 		placeholders: {
-			subject: 'Story title',
+			subject: 'Story Name',
 			summary: 'Subtitle',
 			coverPhotoUrl: storyDefaults.coverPhoto,
-			body: '<div>Your story will appear here.</div>\
-			Tips to writing a great story:\
-				<ol>\
-					<li><strong>Great titles grabs attention</strong>\
-						<ul>\
-							<li>Use short, engaging, inspiring, titles</li>\
-							<li><em>Ex: "How mFi saved me another HUGE mess on the farm."</em></li>\
-							<li><em>Ex: "The shed caught on fire... and the airFiber still works."</em></li>\
-						</ul>\
-					</li>\
-					<li><strong>Add photos!</strong>\
-						<ul>\
-							<li>Beautiful, inspiring, or interesting images get more viewers</li>\
-							<li>Photos of equipment, environments and screenshots help illustrate the story</li>\
-							<li>Set your best image as the cover photo</li>\
-						</ul>\
-					</li>\
-					<li><strong>Everyone loves a good story</strong>\
-						<ul>\
-							<li>Give us some details: What did you see? What did you set out to do? What were some challenges? </li>\
-							<li>How did you resolve your issues, or overcome your obstacles? What was your solution?</li>\
-							<li>What did you learn?</li>\
-						</ul>\
-					</li>\
-				</ol>\
-				',
+			body: '<div>Tell us your story!</div>',
 			location: 'Project location',
 			productsUsed: 'Products mentioned'
 		},
@@ -169,7 +144,7 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 			);
 		},		
 		sortConfig: {
-			handle: '.cmuStoriesNew__Form--uploadItem--downup'
+			handle: '.cmuStoriesNew__form--uploadItem--downup'
 		}
 	});
 }
