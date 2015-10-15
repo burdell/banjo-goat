@@ -11,6 +11,7 @@ require('providers/routes.js');
 var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
 	$locationProvider.html5Mode(true);
 	var routes = routesProvider.routes;
+
 	$stateProvider
 		.state('directory', {
 			url: routes.directory,
@@ -73,56 +74,36 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				controller: 'UserProfile as vm',
 				resolve: {
 					UserData: ['$stateParams', 'CommunityApiService', 'CurrentUserService', function($stateParams, communityApi, userServiceWrapper){
-						if (!$stateParams.userId) {
-							return userServiceWrapper.get().then(function(userService){
+						return userServiceWrapper.get().then(function(userService){
+							var currentUser = userService.user;
+							if (currentUser.id === Number($stateParams.userId)) {
 								return {
 									selfUser: true,
 									user: userService.user
 								}
-								
-							});
-						} else {
-							return communityApi.User.userData($stateParams.userId).then(function(result){
-								return {
-									selfUser: false,
-									user: result
-								}
-							});
-						}
+							} else {
+								return communityApi.Users.userData($stateParams.userId).then(function(result){
+									return {
+										selfUser: false,
+										user: result
+									}
+								});
+							}
+						});
 					}],
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
-						if (!$stateParams.userId) {
-							return userServiceWrapper.get().then(function(userService){
-								return filterService.getNewFilter({ 
-									filterFn: communityApi.Stories.search,
-									constants: { per_page: 3, sortDir: 'ASC', author_id: userService.user.id, node_url_code: 'airMax_stories' },
-									persistFilterModel: false
-								});
-							});
-						} else {
 							return filterService.getNewFilter({ 
-								filterFn: communityApi.Stories.all,
-								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId },
+								filterFn: communityApi.Stories.search,
+								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId, node_url_code: 'airMax_stories' },
 								persistFilterModel: false
 							});
-						}
 					}],
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
-						if (!$stateParams.userId) {
-							return userServiceWrapper.get().then(function(userService){
-								return filterService.getNewFilter({ 
-									filterFn: communityApi.Feed.allContent,
-									constants: { size: 3, sortDir: 'ASC', authorId: userService.user.id },
-									persistFilterModel: false
-								});
-							});
-						} else {
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
 								constants: { size: 3, sortDir: 'ASC', authorId: $stateParams.userId },
 								persistFilterModel: false
 							});
-						}
 					}],
 					GamificationInfo: ['CommunityApiService', function(communityApi){
 						return communityApi.Gamification.info();

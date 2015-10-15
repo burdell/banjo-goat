@@ -13,7 +13,11 @@ var _ = require('underscore');
 				return this.getArea($location.path());
 			},
 			getArea: function(url) {
-				return url.split('/')[1]
+				var areaName = url.split('/')[1];
+				if (areaName === '' || areaName === 'user' ) {
+					areaName = 'directory';
+				}
+				return areaName;
 			},
 			areaSlugs: {
 				announcements: 'announcements',

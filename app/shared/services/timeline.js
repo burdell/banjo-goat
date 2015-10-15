@@ -14,7 +14,7 @@ function groupData(dataList, datePropertyFn){
 			month: momentDate.month(),
 			year: momentDate.year()
 		})
-		});
+	});
 
 	var dataByYear = _.groupBy(dataList, function(data){
 		return  data.year;

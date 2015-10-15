@@ -1,4 +1,4 @@
-(function(_){
+
 	'use strict';
 
 	function StoriesLandingController (breadcrumbService){
@@ -9,4 +9,4 @@
 	angular.module('community.stories')
 		.controller('StoriesLanding', StoriesLandingController);
 
-}(window._));
+

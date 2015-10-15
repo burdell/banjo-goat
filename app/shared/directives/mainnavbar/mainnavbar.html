@@ -112,14 +112,14 @@
 
                 <li class="cmuGloNav__profile"
                     ng-click="mainnavbar.openDropdown('toggleProfile')">
-                    <a href="#">
-                        <span class="cmuProfile__avatar"
-                        ></span>
+                    <a>
+                        <span class="cmuProfile__avatar"></span>
                       </a>
                 </li>
                     <community-drop-down
                       open-event="toggleProfile"
-                      menu-template-url="directives/mainnavbar/mainnavbar.profile.html">
+                      menu-template-url="directives/mainnavbar/mainnavbar.profile.html"
+                      template-ctrl="mainnavbar.currentUser">
                     </community-drop-down>
 
               </ul>

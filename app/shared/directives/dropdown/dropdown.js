@@ -29,8 +29,6 @@
 					}
 
 					ctrl.isOpen = !ctrl.isOpen;
-
-
 				}
 			});
 		};

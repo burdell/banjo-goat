@@ -3,6 +3,7 @@
 
 var _ = require('underscore');
 
+require('directives/storydisplay/storydisplay.js');
 require('services/breadcrumb.js');
 require('providers/defaults.js');
 

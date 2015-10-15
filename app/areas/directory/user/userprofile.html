@@ -1,21 +1,13 @@
 
 <div>
-	<!-- <community-breadcrumbs></community-breadcrumbs>
-	<div class="row">
-		<div class="cmuDiscussionsControls">
-			<discussions-header header-text="{{ vm.userData.login }}"></discussions-header>
-			<h6>{{ vm.userData.rank.name }}</h6>
-		</div>
-		<hr />
-	</div>
- -->
-
  	<community-page-header 
  		header-text="{{ vm.userData.login }}"
- 		subtitle-text="{{ vm.userData.rank.name }}">
+ 		subtitle-text="{{ vm.userData.rank.name }}"
+ 		hide-element-selector=".profile-container">
  	</community-page-header>
 
-	<div class="row">
+
+	<div class="row profile-container">
 		<!-- sidebar -->
 		<div class="col--md2">
 			<div class="row row--comfy">
@@ -51,7 +43,7 @@
 			</div>
 		</div>
 
-		<div class="row row--comfy" ng-if="vm.userData.bioText">
+		<div class="row row--comfy" ng-if="vm.userData.meta.bioText">
 			<p>{{ vm.userData.bioText }}</p>
 		</div>
 

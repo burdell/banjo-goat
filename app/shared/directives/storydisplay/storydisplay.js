@@ -26,7 +26,7 @@ function storyDisplay() {
     var directive = {
         link: link,
         controller: controller,
-        templateUrl: 'stories/list/storydisplay.html',
+        templateUrl: 'directives/storydisplay/storydisplay.html',
         controllerAs: 'storydisplay',
         bindToController: true,
         replace: true,
@@ -34,13 +34,14 @@ function storyDisplay() {
         scope: {
         	story: '=',
         	storyMedia: '=',
-        	defaultPhotoUrl: '='
+        	defaultPhotoUrl: '=',
+        	fillWidth: '='
         }
     };
 
     return directive;
 }
 
-angular.module('community.stories')
+angular.module('community.directives')
 	.directive('storyDisplay', storyDisplay);
 	

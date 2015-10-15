@@ -1,147 +1,149 @@
 
 <div class="cmuFeed">
-	<community-page-header header-text="Community Feed"></community-page-header>
+	<community-page-header header-text="Community Feed" hide-element-selector=".feed-container"></community-page-header>
 
 	<!-- pulse row -->
-	<div class="row">
-		<div class="cmuPulse col--md12">
-			<!-- <div class="cmuPulse__label">
-				Live Activity
-			</div> -->
-			<div class="cmuPulse__counter cmuPulse__total col--md3">
-				<div><span class="icon ubnt-icon--pencil-2"></span></div>
-				<div><span class="cmuPulse__count">123,456</span></div>
-				<div><span class="cmuPulse__desc">Total Posts</span></div>
-			</div>
-			<div class="cmuPulse__counter cmuPulse__members col--md3">
-				<div><span class="icon ubnt-icon--users"></span></div>
-				<div><span class="cmuPulse__count">3,456</span></div>
-				<div><span class="cmuPulse__desc">Total Members</span></div>
-				
-			</div>
-			<div class="cmuPulse__counter cmuPulse__online col--md3">
-				<div><span class="icon ubnt-icon--ap-airos"></span></div>
-				<div><span class="cmuPulse__count">3,456</span></div>
-				<div><span class="cmuPulse__desc">Members Online</span></div>
-				
-			</div>
-			<div class="cmuPulse__counter cmuPulse__recent col--md3">
-				<div><span class="icon ubnt-icon ubnt-icon--calendar-3"></span></div>
-				<div><span class="cmuPulse__count">456</span></div>
-				<div><span class="cmuPulse__desc">Posts Today</span></div>
-				
+	<div class="feed-container">
+		<div class="row">
+			<div class="cmuPulse col--md12">
+				<!-- <div class="cmuPulse__label">
+					Live Activity
+				</div> -->
+				<div class="cmuPulse__counter cmuPulse__total col--md3">
+					<div><span class="icon ubnt-icon--pencil-2"></span></div>
+					<div><span class="cmuPulse__count">123,456</span></div>
+					<div><span class="cmuPulse__desc">Total Posts</span></div>
+				</div>
+				<div class="cmuPulse__counter cmuPulse__members col--md3">
+					<div><span class="icon ubnt-icon--users"></span></div>
+					<div><span class="cmuPulse__count">3,456</span></div>
+					<div><span class="cmuPulse__desc">Total Members</span></div>
+					
+				</div>
+				<div class="cmuPulse__counter cmuPulse__online col--md3">
+					<div><span class="icon ubnt-icon--ap-airos"></span></div>
+					<div><span class="cmuPulse__count">3,456</span></div>
+					<div><span class="cmuPulse__desc">Members Online</span></div>
+					
+				</div>
+				<div class="cmuPulse__counter cmuPulse__recent col--md3">
+					<div><span class="icon ubnt-icon ubnt-icon--calendar-3"></span></div>
+					<div><span class="cmuPulse__count">456</span></div>
+					<div><span class="cmuPulse__desc">Posts Today</span></div>
+					
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<!-- main body -->
-		<div class="cmuFeed__main col--md9 noPaddingLeft">
-			<div class="cmuThreadlist__ctrl__row row">
-				<div class="col--md8">
-					<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Community Feed</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >My Feed</button>
+		<div class="row">
+			<!-- main body -->
+			<div class="cmuFeed__main col--md9 noPaddingLeft">
+				<div class="cmuThreadlist__ctrl__row row">
+					<div class="col--md8">
+						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Community Feed</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >My Feed</button>
+					</div>
+					 <div class="col--md2 noPaddingRight">
+			          	<community-sort 
+			          		sort-options="vm.categorySortOptions" 
+			          		sort-filter="vm.feedFilter" 
+			          		sort-exclude="page" 
+			          		class="community__sort"
+			          		sort-param="nodeUrlCode">
+			          	</community-sort>
+			        </div>
+					<div class="col--md2">
+					  <community-sort 
+					  	sort-options="vm.discussionSortOptions" 
+					  	sort-filter="vm.feedFilter" 
+					  	sort-exclude="page" 
+					  	class="community__sort"
+					  	sort-param="style">
+					  </community-sort>
+			        </div>
+		        </div>
+
+				<div class="cmuFeed__container container">
+
+			        <div class="cmuFeed__stories col--md12" ng-show="vm.feedType === 'community'">
+			        	<div class="cmuFeed__title  clearfix">
+			        		<div class="col--md8">
+								<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
+							</div>
+						</div>
+						<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
+			        			<span class="ubnt-icon ubnt-icon--x"></span>
+							</div>
+
+						<div class="cmuFeed__storyList clearfix">
+							<div class="cmuFeed__story col--md3" ng-repeat="story in vm.storyData" >
+								<a ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
+									<div class="cmuFeed__story__img__container" ng-if="story.media.length > 0">
+										<div class="cmuFeed__story__img"
+										 style="background-image: url('{{ story.media[0].url }}')"></div>
+									</div>
+									<!-- 
+									<div class="cmuFeed__story__img__container" ng-if="story.media.length == 0">
+										<div class="cmuFeed__story__img"
+										 style="background-image: url('http://www.placecage.com/c/200/300')"></div>
+									</div>
+	 -->
+									<div>
+										<div class="cmuFeed__story__subject">{{ story.subject }}</div>
+										<div class="cmuFeed__story__user">{{ story.message.insertUser.login }}</div>
+										<div class="cmuFeed__story__date">{{ story.message.postDate | timeFromNow }}</div>
+									</div>
+									<div class="cmuFeed__location">{{ story.node.description }}</div>
+								</a>
+							</div>
+						</div>
+					</div>	
+
+			        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
+			        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+			        </div>
+
+			        <div class="cmuFeed__list col--md12">
+			        	<div class="cmuFeed__title cmuFeed__title--all clearfix">
+							<h5><span class="cmuFeed__icon all"></span>{{ vm.feedTypeDisplay }}</h5>
+						</div>
+
+			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
+			        		<community-feed-content content-model="feedItem"></community-feed-content>
+			        	</div>
+			        </div>
+
+			        <div class="cmuFeed__pagerBottom col--md12">
+			        	<community-pager 
+				            number-of-pages="vm.numberOfPages" 
+				            pager-fn="vm.feedFilter"
+				            front-biased="true"
+				            page-based="true">
+				        </community-pager>
+			        </div>
+
+			    </div>
+			</div>
+
+
+
+			<!-- sidebar -->
+			<div class="cmuFeed__sidebar col--md3">
+
+				<div class="cmuFeed__actions">
+					<h5>Links</h5>
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 				</div>
-				 <div class="col--md2 noPaddingRight">
-		          	<community-sort 
-		          		sort-options="vm.categorySortOptions" 
-		          		sort-filter="vm.feedFilter" 
-		          		sort-exclude="page" 
-		          		class="community__sort"
-		          		sort-param="nodeUrlCode">
-		          	</community-sort>
-		        </div>
-				<div class="col--md2">
-				  <community-sort 
-				  	sort-options="vm.discussionSortOptions" 
-				  	sort-filter="vm.feedFilter" 
-				  	sort-exclude="page" 
-				  	class="community__sort"
-				  	sort-param="style">
-				  </community-sort>
-		        </div>
-	        </div>
 
-			<div class="cmuFeed__container container">
-
-		        <div class="cmuFeed__stories col--md12" ng-show="vm.feedType === 'community'">
-		        	<div class="cmuFeed__title  clearfix">
-		        		<div class="col--md8">
-							<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
-						</div>
+				<div class="cmuFeed__announcements">
+					<h5><span class="cmuFeed__icon announcements"></span>Latest Announcements</h5>
+					<div class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements">
+						<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self"><span class="product">airmax</span>{{ announcement.subject }}</a>
 					</div>
-					<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
-		        			<span class="ubnt-icon ubnt-icon--x"></span>
-						</div>
-
-					<div class="cmuFeed__storyList clearfix">
-						<div class="cmuFeed__story col--md3" ng-repeat="story in vm.storyData" >
-							<a ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
-								<div class="cmuFeed__story__img__container" ng-if="story.media.length > 0">
-									<div class="cmuFeed__story__img"
-									 style="background-image: url('{{ story.media[0].url }}')"></div>
-								</div>
-								<!-- 
-								<div class="cmuFeed__story__img__container" ng-if="story.media.length == 0">
-									<div class="cmuFeed__story__img"
-									 style="background-image: url('http://www.placecage.com/c/200/300')"></div>
-								</div>
- -->
-								<div>
-									<div class="cmuFeed__story__subject">{{ story.subject }}</div>
-									<div class="cmuFeed__story__user">{{ story.message.insertUser.login }}</div>
-									<div class="cmuFeed__story__date">{{ story.message.postDate | timeFromNow }}</div>
-								</div>
-								<div class="cmuFeed__location">{{ story.node.description }}</div>
-							</a>
-						</div>
+					<div class="cmuFeed__sidebar__ctrl">
+						<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
 					</div>
-				</div>	
-
-		        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
-		        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
-		        </div>
-
-		        <div class="cmuFeed__list col--md12">
-		        	<div class="cmuFeed__title cmuFeed__title--all clearfix">
-						<h5><span class="cmuFeed__icon all"></span>{{ vm.feedTypeDisplay }}</h5>
-					</div>
-
-		        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
-		        		<community-feed-content content-model="feedItem"></community-feed-content>
-		        	</div>
-		        </div>
-
-		        <div class="cmuFeed__pagerBottom col--md12">
-		        	<community-pager 
-			            number-of-pages="vm.numberOfPages" 
-			            pager-fn="vm.feedFilter"
-			            front-biased="true"
-			            page-based="true">
-			        </community-pager>
-		        </div>
-
-		    </div>
+				</div>
+			</div>	
 		</div>
-
-
-
-		<!-- sidebar -->
-		<div class="cmuFeed__sidebar col--md3">
-
-			<div class="cmuFeed__actions">
-				<h5>Links</h5>
-				<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
-			</div>
-
-			<div class="cmuFeed__announcements">
-				<h5><span class="cmuFeed__icon announcements"></span>Latest Announcements</h5>
-				<div class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements">
-					<a ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self"><span class="product">airmax</span>{{ announcement.subject }}</a>
-				</div>
-				<div class="cmuFeed__sidebar__ctrl">
-					<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
-				</div>
-			</div>
-		</div>	
 	</div>
 </div>

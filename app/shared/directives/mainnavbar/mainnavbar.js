@@ -11,6 +11,7 @@ require('providers/routes.js');
 
 require('directives/dropdown/dropdown.js');
 require('directives/searchbar/searchbar.js');
+require('directives/arealinkhandler/arealinkhandler.js');
 
 var _ = require('underscore');
 
@@ -37,15 +38,21 @@ function mainNavBar() {
 
 			var navMetaData = [
 				{ display: "Explore Forums", clickFn: toggleDiscussionsMenu, dropItem: true },
-				//{ display: "Q&A", href: "#"},
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 
 
-			var currentUser = null;
 			userServiceWrapper.get().then(function(userObj){
 				ctrl.isAuthenticated = userObj.isAuthenticated();
-				currentUser = userObj.user;
+				
+				var currentUser = userObj.user;
+				ctrl.userHit = true;
+				ctrl.currentUser = {
+					login: currentUser.login,
+					avatarUrl: currentUser.avatarUrl,
+					profileUrl: routingService.generateUrl('userprofile', { userId: currentUser.id }),
+					profileUrlTarget: routingService.getCurrentArea() === 'directory' ? '' : '_self'
+				};
 
 				if (ctrl.isAuthenticated) {
 					//realtimeService.getNew().start(apiService.Feed.notifications, true, checkNotifications)
