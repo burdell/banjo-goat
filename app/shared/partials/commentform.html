@@ -1,7 +1,7 @@
 
 <div>
 	<div class="row row--comfy">
-			<community-text-editor ng-model="vm.comment.replyText" minimal-editor="true"></community-text-editor>
+			<community-text-editor ng-model="commentform.comment.replyText" minimal-editor="{{ !commentform.fulltEditor }}"></community-text-editor>
 	</div>
 	<div ng-show="!vm.comment.submittingComment">
 		<button 
@@ -9,11 +9,7 @@
 			ng-click="vm.cancelReply()">
 				Cancel
 		</button>
-		<button 
-			class="button-full button-blue-white"
-			ng-click="vm.submitReply()">
-				Submit Comment
-		</button>
+		<button class="button-full button-blue-white" ng-click="vm.submitReply()">{{ commentform.replyText }}</button>
 	</div>
 	<div ng-show="vm.comment.submittingComment">
 		<button disabled>Submitting Comment...</button>
