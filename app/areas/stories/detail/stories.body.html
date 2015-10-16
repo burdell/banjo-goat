@@ -128,7 +128,7 @@
 			<div class="cmuStories__story__products--title">Products Used</div>
 			<div class="cmuStories__story__products--items">
 				<div class="cmuStories__story__products--item col--md12 noPadding" ng-repeat="product in vm.productList track by $index">
-					<div class="cmuStories__story__products--name">{{ product }}</div>
+					<div class="cmuStories__story__products--name">{{ vm.getProductName(product) }}</div>
 					<div class="cmuStories__story__products--links">
 						<a href="#">Product Details</a> 
 					</div>

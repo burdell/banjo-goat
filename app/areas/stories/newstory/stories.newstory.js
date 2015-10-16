@@ -46,6 +46,11 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 
 	nodeServiceWrapper.get().then(function(nodeService){
 		ctrl.story.nodeId = nodeService.CurrentNode.id;
+
+		ctrl.getProductName = function(nodeId){
+			var node = nodeService.getNode(nodeId);
+			return node ? node.name : nodeId;
+		}
 	});
 
 	_.extend(ctrl, {

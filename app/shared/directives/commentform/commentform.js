@@ -44,7 +44,7 @@ function commentForm() {
 				body: null,
 				nodeId: parentMessage.node.id,
 				parentId: parentMessage.id,
-				topicId: parentMessage.topicId
+				topicId: parentMessage.topicId || parentMessage.id
 			},
 			replyText: ctrl.replyButtonText || 'Submit Comment',
 			replyingText: ctrl.replyingButtonText || 'Submitting Comment'

@@ -5,6 +5,7 @@ require('services/api.js');
 require('services/breadcrumb.js');
 require('services/filter.js');
 require('services/currentuser.js');
+require('services/nodestructure.js');
 
 require('directives/commentform/commentform.js');
 require('directives/commentlist/commentlist.js');
@@ -16,15 +17,13 @@ require('filters/sanitize.js');
 
 var _ = require('underscore');
 
-function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
+function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults){
 	var ctrl = this;
 
 	storyThread.comments.content.pop();
 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;
-
-	console.log(story.productsUsed);
 
 	var cover = _.find(story.media, function(mediaObj) {
 		return mediaObj.meta && mediaObj.meta.isCover;
@@ -40,6 +39,13 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 				ctrl.comment.submittingComment = false;
 			});
 		};
+
+		nodeServiceWrapper.get().then(function(nodeService){
+			ctrl.getProductName = function(nodeId){
+				var node = nodeService.getNode(Number(nodeId));
+				return node ? node.name : nodeId;
+			}
+		});
 
 		_.extend(ctrl, {
 			story: story,
@@ -103,6 +109,7 @@ StoryDetailController.$inject = [
 	'CommunityApiService', 
 	'CommunityBreadcrumbService',  
 	'CommunityFilterService', 
+	'CommunityNodeService',
 	'CurrentUserService',
 	'StoryThread', 
 	'StoryDefaults'
