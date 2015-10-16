@@ -9,6 +9,8 @@ require('shared/services/routing.js');
 require('shared/directives/feedcontent/feedcontent.js');
 require('shared/directives/sorter/sorter.js');
 require('shared/directives/pager/pager.js');
+
+require('directives/loadmore/loadmore.js');
 require('directives/classtoggle/classtoggle.js');
 
 

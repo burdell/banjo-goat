@@ -121,12 +121,10 @@
 				        </div>
 
 				        <div class="cmuFeed__pagerBottom col--md12">
-				        	<community-pager 
-					            number-of-pages="vm.numberOfPages" 
-					            pager-fn="vm.feedFilter"
-					            front-biased="true"
-					            page-based="true">
-					        </community-pager>
+					        <community-load-more
+								list-model="vm.feedList"
+								load-filter="vm.feedFilter">
+							</community-load-more>
 				        </div>
 
 				    </div>
