@@ -31,11 +31,11 @@ function groupData(dataList, datePropertyFn){
 		var dataByMonth = _.groupBy(yearData, function(data){
 			return data.month;
 		});
+
 		_.each(dataByMonth, function(data, month){
 			yearObj.count += data.length
-			yearObj.yearData.push({ month: month, monthData: data });
+			yearObj.yearData.unshift({ month: month, monthData: data });
 		});
-
 		groupedData.push(yearObj);
 	});
 
