@@ -66,8 +66,6 @@
 				} else {
 					ctrl.messageThread.push(result);
 				}
-
-				ctrl.scrollToMessage(result.id);
 			},
 			showTopicReply: function(){
 				ctrl.topicReplyShown = true

@@ -18,6 +18,8 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 	
 	function setCommentData (result){
 		ctrl.commentList = result.content;
+		ctrl.commentList.pop()
+
 		ctrl.numberOfPages = result.totalPages;
 	}
 	featuresCommentFilter.set({ onFilter: setCommentData });
