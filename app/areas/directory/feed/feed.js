@@ -10,7 +10,7 @@ require('shared/directives/feedcontent/feedcontent.js');
 require('shared/directives/sorter/sorter.js');
 require('shared/directives/pager/pager.js');
 
-require('directives/loadmore/loadmore.js');
+require('directives/loadmore/loadmore.js')
 require('directives/classtoggle/classtoggle.js');
 
 
@@ -56,7 +56,7 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 
 			if (updates && updates.content.length > 0) {
 				feedUpdates = updates.content;
-			} else if (result) {
+			} else if (result && !feedFilter.model('page')) {
 				setFeed(result.content);
 			}
 		}

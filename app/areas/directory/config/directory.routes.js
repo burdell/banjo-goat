@@ -56,8 +56,10 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { size: 20 },
-							realtime: true
+							constants: { size: 5 },
+							realtime: true,
+							autoInitModel: false,
+							persistFilterModel: false
 						});
 					}],
 					AnnouncementsData: ['CommunityApiService', function(communityApi){
