@@ -94,14 +94,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
-								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId, node_url_code: 'airMax_stories' },
+								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 3, sortDir: 'ASC', authorId: $stateParams.userId },
+								constants: { size: 3, sortDir: 'ASC', author_id: $stateParams.userId, node_url_code: 'airMax_stories' },
 								persistFilterModel: false
 							});
 					}],

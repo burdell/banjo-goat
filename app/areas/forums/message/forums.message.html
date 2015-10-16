@@ -12,7 +12,7 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
-	        	<button class="button--solid button--padded button-blue-white">Reply</button>
+	        	<button class="button--solid button--padded button-blue-white" ng-click="vm.showTopicReply()">Reply</button>
 				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
 			</span>
 		</div>
@@ -42,23 +42,16 @@
 		<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
 				<div class="col--md12 noPadding">
 					<div class="cmuThread__reply__to">Reply to <span>{{ ::message.insertUser.login }}</span></div>
-					<community-text-editor ng-model="vm.messageReplyText"></community-text-editor>
-					<div>
-						<button 
-							class="button--ghost button-white-on-blue" 
-							ng-click="vm.cancelReply()">
-								Cancel
-						</button>
-						<button 
-							class="button--solid button-white-on-blue"
-							ng-click="vm.submitReply(message.id)">
-								Post Reply
-						</button>
-					</div>
+					<community-comment-form
+						reply-button-text="Post Reply" 
+						replying-button-text="Posting Reply..." 
+						parent-message="message"
+						toggle-attribute="vm.currentReply"
+						on-success-fn="vm.replyPosted">
+					</community-comment-form>
 				</div>
 			</div>
 		</div>
-	</div>
 </div>
 
 
@@ -68,7 +61,7 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
-	        	<button class="button--solid button-blue-white">Post Reply</button>
+	        	<button class="button--solid button-blue-white" ng-click="vm.showTopicReply()">Post Reply</button>
 				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
 			</span>
 		</div>
@@ -78,6 +71,15 @@
 			  pager-fn="vm.messageThreadFilter">
 			</community-pager>
 		</div>
+	</div>
+	<div class="row" ng-if="vm.topicReplyShown">
+		<community-comment-form
+			reply-button-text="Post Reply" 
+			replying-button-text="Posting Reply..." 
+			parent-message="vm.topicReplyMessage"
+			toggle-attribute="vm.topicReplyShown"
+			on-success-fn="vm.replyPosted">
+		</community-comment-form>
 	</div>
 </div>
 

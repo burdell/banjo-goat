@@ -1,7 +1,5 @@
 <div class="cmuFeatureDetails cmuThread">
-
 	<div class="row">
-
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
 				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.countVotes }}<span class="cmuFeatures__votes__caption">votes</span></div>
@@ -48,7 +46,7 @@
 	        		<button class="button--solid button-white-on-green button--stretch">Vote</button>
 	        	</div>
 				<div class="col--md1">
-	        		<button class="button--solid button--stretch">Reply</button>
+	        		<button class="button--solid button--stretch" ng-click="vm.showFeatureReply()">Reply</button>
 	        	</div>
 			</span>
 			<div class="col--md4 col--mdOffset6">
@@ -62,12 +60,9 @@
 
 
 		<div class="cmuThread__firstPost">
-
 			<div class="cmuUserbadge
-						cmuUserbadge--thin
-						" ng-class="{ 'cmuUserbadge__op' : {{userbadge.opId === userbadge.displayUser.id}} } "  user="messageDisplay.message.author" op-id="messageDisplay.showOp">
+						cmuUserbadge--thin" ng-class="{ 'cmuUserbadge__op' : {{userbadge.opId === userbadge.displayUser.id}} } "  user="messageDisplay.message.author" op-id="messageDisplay.showOp">
 				<div class="cmuUserbadge__account">
-
 					<div class="cmuUserbadge__user row">
 
 						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
@@ -81,7 +76,6 @@
 						<div class="cmuUserbadge__rank">
 							SuperUser 
 						</div>
-
 					</div>
 				</div>
 
@@ -107,26 +101,38 @@
 			<div class="cmuMessage__content row">
 				<div class="col--md12" ng-bind-html="vm.originalMessage.message.body | sanitize"></div>
 			</div>
-
 		</div>
-
 	</div>
 
 	<div class="row">
-		<div ng-repeat="comment in vm.commentList">
+		<div ng-repeat="message in vm.commentList">
 			<community-message 
-				message="comment"
+				message="message"
 				reply-click-fn="vm.showReply"
 				show-op="vm.originalMessage.author.id"
 				upvote-only="true">
 			</community-message>
+		
+			<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
+					<div class="col--md12 noPadding">
+						<div class="cmuThread__reply__to">Reply to <span>{{ ::message.insertUser.login }}</span></div>
+						<community-comment-form
+							reply-button-text="Post Reply" 
+							replying-button-text="Posting Reply..." 
+							parent-message="message"
+							toggle-attribute="vm.currentReply"
+							on-success-fn="vm.replyPosted">
+						</community-comment-form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col--md2 noPadding">
 			<span community-permissions>
-	        	<button class="button--solid button--stretch button-blue-white">Reply</button>
+	        	<button class="button--solid button--stretch button-blue-white" ng-click="vm.showFeatureReply()">Reply</button>
 			</span>
 		</div>
 		<div class="col--md4 col--mdOffset6 noPadding">
@@ -135,6 +141,16 @@
 			  pager-fn="vm.commentFilter">
 			</community-pager>
 		</div>
+	</div>
+
+	<div class="row" ng-if="vm.featureReplyShown">
+		<community-comment-form
+			reply-button-text="Post Reply" 
+			replying-button-text="Posting Reply..." 
+			parent-message="vm.originalMessage.message"
+			toggle-attribute="vm.featureReplyShown"
+			on-success-fn="vm.replyPosted">
+		</community-comment-form>
 	</div>
 
 </div>

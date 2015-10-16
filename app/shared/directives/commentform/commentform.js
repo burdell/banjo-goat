@@ -24,10 +24,16 @@ function commentForm() {
 					communityApi.Core.message(ctrl.comment).then(function(result){
 						ctrl.submittingComment = false;
 
-						ctrl.commentList.content.unshift(result);
+						if (ctrl.commentList) {
+							ctrl.commentList.content.unshift(result);
+						}
 						
 						ctrl.comment.body = null;
 						ctrl.cancelReply();
+
+						if (ctrl.onSuccessFn) {
+							ctrl.onSuccessFn(result);
+						}
 					},
 					function(){
 						ctrl.submittingComment = false;
@@ -38,8 +44,10 @@ function commentForm() {
 				body: null,
 				nodeId: parentMessage.node.id,
 				parentId: parentMessage.id,
-				topicId: parentMessage.id
-			}
+				topicId: parentMessage.topicId
+			},
+			replyText: ctrl.replyButtonText || 'Submit Comment',
+			replyingText: ctrl.replyingButtonText || 'Submitting Comment'
 		});
 	};
 	controller.$inject = ['CommunityApiService'];
@@ -53,7 +61,11 @@ function commentForm() {
         scope: {
         	toggleAttribute: '=',
         	parentMessage: '=',
-        	commentList: '='
+        	commentList: '=',
+        	replyButtonText: '@',
+        	fullEditor: "=",
+        	onSuccessFn: '=',
+        	topicId: '='
         }
     };
     return directive;

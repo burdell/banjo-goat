@@ -8,6 +8,7 @@ require('filters/sanitize.js');
 
 require('directives/message/message.js');
 require('directives/pager/pager.js');
+require('directives/commentform/commentform.js');
 
 var _ = require('underscore');
 
@@ -26,8 +27,10 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 		ctrl.productName = productNode.name;
 	});
 
+
 	var statusTypes = featuresData.StatusTypes;
 	_.extend(ctrl, {
+		currentReply: null,
 		getStatusCode: function(feature){
 			return statusTypes[feature.state].code;
 		},
@@ -39,7 +42,26 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 			return metaObject && metaObject.value;
 		},
 		originalMessage: featureRequest,
-		commentFilter: featuresCommentFilter
+		commentFilter: featuresCommentFilter,
+		showFeatureReply: function(){
+			ctrl.featureReplyShown = true;
+		},
+		replyPosted: function(result){
+			if (ctrl.numberOfPages > 1) {
+				featuresCommentFilter.filter({ page: ctrl.numberOfPages });
+			} else {
+				ctrl.commentList.push(result);
+			}
+		},
+		showReply: function(messageId){
+			ctrl.currentReply = messageId;
+		},
+		messageIsBeingRepliedTo: function(messageId){
+			return messageId === this.currentReply;
+		},
+		showReply: function(messageId){
+			ctrl.currentReply = messageId;
+		}
 	});
 
 	breadcrumbService.setCurrentBreadcrumb(featureRequest.subject);

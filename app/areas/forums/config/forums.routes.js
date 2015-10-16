@@ -54,7 +54,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterArguments: [ $stateParams.messageId ],
 						filterContext: communityApi.Forums,
 						constants: {
-							limit: 20
+							per_page: 20
 						},
 						autoInitModel: false,
 						persistFilterModel: false
