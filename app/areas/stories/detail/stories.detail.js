@@ -24,6 +24,8 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;
 
+	console.log(story.productsUsed);
+
 	var cover = _.find(story.media, function(mediaObj) {
 		return mediaObj.meta && mediaObj.meta.isCover;
 	}) || { url: storyDefaults.coverPhoto };
@@ -38,14 +40,13 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 				ctrl.comment.submittingComment = false;
 			});
 		};
-		
 
 		_.extend(ctrl, {
 			story: story,
 			discussion: story.message,
 			storyAuthor: storyAuthor,
 			comments: storyThread.comments,
-			productList: _.pluck(story.productsUsed, 'productKey'),
+			productList: story.productsUsed,
 			cover: cover,
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Forums.comments, 
