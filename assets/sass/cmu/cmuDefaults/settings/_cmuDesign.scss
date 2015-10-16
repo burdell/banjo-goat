@@ -139,7 +139,7 @@ $style-line: 1px solid $cmu-color-line;
 		@extend %size-normal;
 	}
 	.cmuIcon {
-		margin-right: $cmu-base/2;
+		margin-right: $cmu-base/4;
 		width: 14px;
 		height: 14px;
 		position:relative;
@@ -162,7 +162,7 @@ $style-line: 1px solid $cmu-color-line;
 
 */
 .cmuRailLink, %cmuRailLink {
-	@extend %size-smaller;
+	@extend %size-normal;
 	margin-bottom: $cmu-vertical-rhythm*3/4;
 	// &:hover {
 	// 	// text-decoration: underline; 
@@ -176,3 +176,69 @@ $style-line: 1px solid $cmu-color-line;
 }
 
 
+
+// 
+// Hover Flag
+// - default is bottom
+// 
+.cmuHoverflag__trigger:hover {
+	.cmuHoverflag:before, .cmuHoverflag:after {
+		opacity: 1;
+	}
+}
+
+.cmuHoverflag, %cmuHoverflag {
+	position: relative;
+	text-align: center; // center aligns content with the flag, but may affect content
+	@extend %ease-fast;
+
+	&:before {
+		opacity: 0;
+		position: relative;
+		content: attr(data-tooltip);
+		display: block;
+		@extend %style-tag;
+		@extend %ease-fast;
+
+		border: 0;
+		background-color: $cmu-color-dkgray;
+		// border-color: $cmu-color-white;
+		color: $cmu-color-white;
+	}
+
+	&:after {
+		opacity: 0;
+		content: '';
+		width: 0; 
+		height: 0; 
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 10px solid $cmu-color-ltblack;
+		border: 0;
+		@extend %ease-fast;
+	    position: relative;
+	}
+
+	&.cmuHoverflag--right {
+
+	}
+
+	&.cmuHoverflag--left {
+		
+	}
+
+	&.cmuHoverflag--top {
+		&:after {
+			opacity: 0;
+			content: '';
+			width: 0; 
+			height: 0; 
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid $cmu-color-dkgray;
+			@extend %ease-fast;
+		    position: relative;
+		    top: 8px;
+		}
+	}
+}

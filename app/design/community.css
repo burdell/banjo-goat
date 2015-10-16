@@ -6505,7 +6505,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top span:before, .cmuGloNav__top span:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuHoverflag, .cmuHoverflag:before, .cmuHoverflag:after, .cmuHoverflag.cmuHoverflag--top:after, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top .ubnt--icon:before, .cmuGloNav__top .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
 .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
@@ -6521,7 +6521,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top span:before, .cmuGloNav__top span:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuHoverflag, .cmuHoverflag:before, .cmuHoverflag:after, .cmuHoverflag.cmuHoverflag--top:after, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top .ubnt--icon:before, .cmuGloNav__top .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
 .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
@@ -6683,14 +6683,9 @@ body {
   line-height: 1.5rem;
 }
 
-.style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon, .cmuDropdown__header, .cmuTooltipster .tooltipster-content {
+.style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon, .cmuStoryItem__stat .ubnt-icon, .cmuRailLink, .cmuFeed__anno, .cmuDropdown__header, .cmuFeed__content, .cmuTooltipster .tooltipster-content {
   font-size: 0.8125rem;
   line-height: 1.1rem;
-}
-
-.cmuRailLink, .cmuFeed__anno, .cmuFeed__content {
-  font-size: 0.75rem;
-  line-height: 1.125rem;
 }
 
 .style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuStoryItem__date, .cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
@@ -6698,7 +6693,7 @@ body {
   line-height: 1rem;
 }
 
-.style-tag, .style-tag--noLine, .cmuFeed__location, .cmuStoryItem__desc, .style-stat, .cmuFeed__stat, .cmuComments__date {
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .style-stat, .cmuFeed__stat, .cmuStoryItem__stat, .cmuComments__date {
   font-size: 0.625rem;
   line-height: 0.8125rem;
 }
@@ -6811,7 +6806,7 @@ h6 {
   margin-bottom: 0.25rem;
 }
 
-.style-tag, .style-tag--noLine, .cmuFeed__location, .cmuStoryItem__desc {
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc {
   display: inline-block;
   color: #474b52;
   border: 1px solid #bbbbbd;
@@ -6824,17 +6819,17 @@ h6 {
   background-color: transparent;
 }
 
-.style-stat, .cmuFeed__stat {
+.style-stat, .cmuFeed__stat, .cmuStoryItem__stat {
   display: inline-block;
   color: #474b52;
   padding: 3.5px 0.5rem;
   border: 0;
 }
-.style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon {
+.style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon, .cmuStoryItem__stat .ubnt-icon {
   margin-right: 0.25rem;
 }
-.style-stat .cmuIcon, .style-stat .cmuIcon--hoverOff, .style-stat .cmuIcon-pin, .style-stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .style-stat .cmuThreadList__row__topic:after, .style-stat .cmuIcon-star, .style-stat .cmuIcon-flag, .style-stat .cmuIcon-cool, .style-stat .cmuIcon-kudos, .style-stat .cmuIcon-airFiber, .style-stat .cmuIcon-airMax, .style-stat .cmuIcon-airControl, .style-stat .cmuIcon-edgeMax, .style-stat .cmuIcon-edgeSwitch, .style-stat .cmuIcon-toughSwitch, .style-stat .cmuIcon-airCrmBilling, .style-stat .cmuIcon-airCrmControl, .style-stat .cmuIcon-airCrmMarket, .style-stat .cmuIcon-airCrmOps, .style-stat .cmuIcon-unifi, .style-stat .cmuIcon-unifiVideo, .style-stat .cmuIcon-unifiVoip, .style-stat .cmuIcon-switching, .style-stat .cmuIcon-mfi, .cmuFeed__stat .cmuIcon, .cmuFeed__stat .cmuIcon--hoverOff, .cmuFeed__stat .cmuIcon-pin, .cmuFeed__stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .cmuFeed__stat .cmuThreadList__row__topic:after, .cmuFeed__stat .cmuIcon-star, .cmuFeed__stat .cmuIcon-flag, .cmuFeed__stat .cmuIcon-cool, .cmuFeed__stat .cmuIcon-kudos, .cmuFeed__stat .cmuIcon-airFiber, .cmuFeed__stat .cmuIcon-airMax, .cmuFeed__stat .cmuIcon-airControl, .cmuFeed__stat .cmuIcon-edgeMax, .cmuFeed__stat .cmuIcon-edgeSwitch, .cmuFeed__stat .cmuIcon-toughSwitch, .cmuFeed__stat .cmuIcon-airCrmBilling, .cmuFeed__stat .cmuIcon-airCrmControl, .cmuFeed__stat .cmuIcon-airCrmMarket, .cmuFeed__stat .cmuIcon-airCrmOps, .cmuFeed__stat .cmuIcon-unifi, .cmuFeed__stat .cmuIcon-unifiVideo, .cmuFeed__stat .cmuIcon-unifiVoip, .cmuFeed__stat .cmuIcon-switching, .cmuFeed__stat .cmuIcon-mfi {
-  margin-right: 0.5rem;
+.style-stat .cmuIcon, .style-stat .cmuIcon--hoverOff, .style-stat .cmuIcon-pin, .style-stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .style-stat .cmuThreadList__row__topic:after, .style-stat .cmuIcon-star, .style-stat .cmuIcon-flag, .style-stat .cmuIcon-cool, .style-stat .cmuIcon-kudos, .style-stat .cmuIcon-airFiber, .style-stat .cmuIcon-airMax, .style-stat .cmuIcon-airControl, .style-stat .cmuIcon-edgeMax, .style-stat .cmuIcon-edgeSwitch, .style-stat .cmuIcon-toughSwitch, .style-stat .cmuIcon-airCrmBilling, .style-stat .cmuIcon-airCrmControl, .style-stat .cmuIcon-airCrmMarket, .style-stat .cmuIcon-airCrmOps, .style-stat .cmuIcon-unifi, .style-stat .cmuIcon-unifiVideo, .style-stat .cmuIcon-unifiVoip, .style-stat .cmuIcon-switching, .style-stat .cmuIcon-mfi, .cmuFeed__stat .cmuIcon, .cmuStoryItem__stat .cmuIcon, .cmuFeed__stat .cmuIcon--hoverOff, .cmuStoryItem__stat .cmuIcon--hoverOff, .cmuFeed__stat .cmuIcon-pin, .cmuStoryItem__stat .cmuIcon-pin, .cmuFeed__stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .cmuFeed__stat .cmuThreadList__row__topic:after, .cmuStoryItem__stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .cmuStoryItem__stat .cmuThreadList__row__topic:after, .cmuFeed__stat .cmuIcon-star, .cmuStoryItem__stat .cmuIcon-star, .cmuFeed__stat .cmuIcon-flag, .cmuStoryItem__stat .cmuIcon-flag, .cmuFeed__stat .cmuIcon-cool, .cmuStoryItem__stat .cmuIcon-cool, .cmuFeed__stat .cmuIcon-kudos, .cmuStoryItem__stat .cmuIcon-kudos, .cmuFeed__stat .cmuIcon-airFiber, .cmuStoryItem__stat .cmuIcon-airFiber, .cmuFeed__stat .cmuIcon-airMax, .cmuStoryItem__stat .cmuIcon-airMax, .cmuFeed__stat .cmuIcon-airControl, .cmuStoryItem__stat .cmuIcon-airControl, .cmuFeed__stat .cmuIcon-edgeMax, .cmuStoryItem__stat .cmuIcon-edgeMax, .cmuFeed__stat .cmuIcon-edgeSwitch, .cmuStoryItem__stat .cmuIcon-edgeSwitch, .cmuFeed__stat .cmuIcon-toughSwitch, .cmuStoryItem__stat .cmuIcon-toughSwitch, .cmuFeed__stat .cmuIcon-airCrmBilling, .cmuStoryItem__stat .cmuIcon-airCrmBilling, .cmuFeed__stat .cmuIcon-airCrmControl, .cmuStoryItem__stat .cmuIcon-airCrmControl, .cmuFeed__stat .cmuIcon-airCrmMarket, .cmuStoryItem__stat .cmuIcon-airCrmMarket, .cmuFeed__stat .cmuIcon-airCrmOps, .cmuStoryItem__stat .cmuIcon-airCrmOps, .cmuFeed__stat .cmuIcon-unifi, .cmuStoryItem__stat .cmuIcon-unifi, .cmuFeed__stat .cmuIcon-unifiVideo, .cmuStoryItem__stat .cmuIcon-unifiVideo, .cmuFeed__stat .cmuIcon-unifiVoip, .cmuStoryItem__stat .cmuIcon-unifiVoip, .cmuFeed__stat .cmuIcon-switching, .cmuStoryItem__stat .cmuIcon-switching, .cmuFeed__stat .cmuIcon-mfi, .cmuStoryItem__stat .cmuIcon-mfi {
+  margin-right: 0.25rem;
   width: 14px;
   height: 14px;
   position: relative;
@@ -6851,6 +6846,46 @@ h6 {
 .cmuRailLink, .cmuFeed__anno {
   margin-bottom: 0.75rem;
   display: block;
+}
+
+.cmuHoverflag__trigger:hover .cmuHoverflag:before, .cmuHoverflag__trigger:hover .cmuHoverflag:after {
+  opacity: 1;
+}
+
+.cmuHoverflag {
+  position: relative;
+  text-align: center;
+}
+.cmuHoverflag:before {
+  opacity: 0;
+  position: relative;
+  content: attr(data-tooltip);
+  display: block;
+  border: 0;
+  background-color: #474b52;
+  color: #fafafa;
+}
+.cmuHoverflag:after {
+  opacity: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #17191d;
+  border: 0;
+  position: relative;
+}
+.cmuHoverflag.cmuHoverflag--top:after {
+  opacity: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #474b52;
+  position: relative;
+  top: 8px;
 }
 
 .row {
@@ -7690,10 +7725,9 @@ div.cmuUserbadge__avatar {
 
 .cmuGloNav__social {
   cursor: default !important;
-  margin-left: 0.25rem;
 }
 .cmuGloNav__social a {
-  padding: 0;
+  padding: 0 !important;
 }
 .cmuGloNav__social span:before {
   cursor: pointer;
@@ -7711,17 +7745,19 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuGloNav__top {
-  cursor: inherit;
-  position: absolute;
-  top: 1.5rem;
+  position: fixed;
+  opacity: 0.7;
+  bottom: 0;
   right: 1.5rem;
+  text-align: center;
 }
-@media only screen and (min-width: 481px) and (max-width: 800px) {
-  .cmuGloNav__top {
-    top: -0.5rem;
-  }
+.cmuGloNav__top .cmuHoverflag {
+  top: -85px;
 }
-.cmuGloNav__top span:before {
+.cmuGloNav__top .ubnt--icon {
+  display: inline-block;
+}
+.cmuGloNav__top .ubnt--icon:before {
   cursor: pointer;
   font-size: 1.8rem;
   background-color: #474b52;
@@ -7733,7 +7769,7 @@ div.cmuUserbadge__avatar {
   height: 45px;
   padding: 0.9rem 0.2rem;
 }
-.cmuGloNav__top span:hover:before {
+.cmuGloNav__top .ubnt--icon:hover:before {
   background-color: #969ba3;
 }
 
@@ -9765,7 +9801,7 @@ button .icon, .button .icon {
   left: 9px;
   text-transform: uppercase;
   color: #969ba3;
-  font-size: 0.625rem;
+  font-size: 0.8125rem;
   cursor: text;
 }
 
@@ -9943,7 +9979,7 @@ button .icon, .button .icon {
   left: 9px;
   text-transform: uppercase;
   color: #969ba3;
-  font-size: 0.625rem;
+  font-size: 0.8125rem;
   cursor: text;
 }
 .cmuInputUrl--input + label + .cmuInputUrl--button {
@@ -10049,7 +10085,7 @@ select {
   border: 1px solid #bebec0;
   padding: 0 0.5rem;
   color: #474b52;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -10081,23 +10117,23 @@ select:disabled {
   text-align: right;
 }
 .cmuSearchbox::-webkit-input-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox:-moz-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox::-moz-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox:-ms-input-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 
@@ -10279,15 +10315,15 @@ select.cmuSort {
 
 .cmuDiscussionsNavbar {
   cursor: default;
-  border-top: 1px solid #bbbbbd;
-  border-bottom: 1px solid #474b52;
-  border-bottom-width: 2px;
+  border-bottom: 1px solid #bbbbbd;
+  border-top: 1px solid #474b52;
+  border-top-width: 2px;
 }
 .cmuDiscussionsNavbar a {
   display: inline-block;
   font-weight: 400;
   text-transform: uppercase;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   line-height: 0;
   outline: none;
 }
@@ -10307,44 +10343,50 @@ select.cmuSort {
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
-  margin-right: 1rem;
-  background-color: #fafafa;
+  background-color: #ebebeb;
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
 }
 
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
+.cmuDiscussionsNavbar__group {
+  border-left: 1px solid #bbbbbd;
+}
+
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container {
   display: none;
-  background-color: #ebebeb;
+  background-color: white;
   position: relative;
   left: -4px;
-  top: 1px;
-  padding: 0.5rem 0;
   line-height: 0;
+  border-right: 1px solid #bbbbbd;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container:before {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container:before {
   content: ' ';
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 6px solid #bbbbbd;
+  border-left: 6px solid #ebebeb;
   position: absolute;
   top: 10px;
-  left: -12px;
+  left: 0px;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container li {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink {
+  display: inline;
   padding: 0;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container li:last-child a {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink:first-child a {
+  padding-left: 1rem;
+}
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink:last-child a {
   padding-right: 0.75rem;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container a {
-  padding-left: 0.75rem;
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container a {
+  padding-left: 0.5rem;
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group + .cmuDiscussionsNavbar__group__container {
-  display: inline;
+  display: inline-block;
 }
 
 .cmuFeatures__sidebar {
