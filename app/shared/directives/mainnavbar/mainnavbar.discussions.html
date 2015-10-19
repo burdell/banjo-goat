@@ -1,12 +1,21 @@
 <div>
-	<div class="cmuMega__section col--md12">
+
+	<div class="cmuMega__section noBorder col--xs4">
+		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">Directory</a>
+	</div>
+	<div class="col--md8 alignRight">
+		<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
+			<span class="icon ubnt-icon--x"></span>
+		</div>
+	</div>
+	<div class="cmuMega__section col--xs12">
 		<div class="cmuMega__section__head col--md12">
 			Service Providers
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
 			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.broadband">
-				<a class="cmuMega__icon__container" area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
+				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
 					<div class="cmuMega__icon">
 						<span class="icon {{ product.iconClass }}"></span>
 					</div>
@@ -17,18 +26,27 @@
 			</div>
 		</div>
 	</div>
-	<div class="cmuMega__section col--md12">
+	<div class="cmuMega__section col--xs12">
 		<div class="cmuMega__section__head col--md12">
 			Enterprise
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
-			<div ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise" class="cmuMega__icon">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}" community-area-handler><span class="icon {{ product.iconClass }}"></span></a>
+
+			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise">
+				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
+					<div class="cmuMega__icon">
+						<span class="icon {{ product.iconClass }}"></span>
+					</div>
+					<div class="cmuMega__desc">
+						{{ product.name }}
+					</div>
+				</a>
 			</div>
+
 		</div>
 	</div>
-	<div class="cmuMega__section col--md12">
+	<div class="cmuMega__section col--xs12">
 		 <div class="cmuMega__section__head col--md12">
 			Community Forums
 		</div>
@@ -40,7 +58,7 @@
 		</div>
 	</div>
 
-	<div class="cmuMega__section col--md12">
+	<div class="cmuMega__section col--xs12">
 		<div class="cmuMega__section__head col--md12">
 			Resources
 		</div>
@@ -62,7 +80,8 @@
 
 	</div>
 
-	<div class="cmuMega__section col--md12">
-		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--solid button--padded button-blue-white">Directory</a>
+	<div class="cmuMega__section col--xs12">
+		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">Directory</a>
+		<span class="cmuMega__section__directoryDesc">Find out what the Community has to offer </span>
 	</div>
 </div>

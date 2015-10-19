@@ -37,6 +37,10 @@
 
     display: none; // default is hidden
     // overflow: hidden;
+
+    &.cmuOverlay--show {
+    	position: absolute;
+    }
 }
 
 	// background covering
@@ -52,7 +56,7 @@
 		// cursor: pointer;
 
 		// temp
-		background-color: rgba($cmu-color-soot, 0.5);
+		background-color: rgba($cmu-color-soot, 0.8);
 	}
 
 	.cmuMega__close {
@@ -67,7 +71,7 @@
 
 		// this prevents the entire row from being clickable
 		display: inline-block;
-		float: right;
+		// float: right;
 
 		@extend %megaTopOffset;
 		@extend %ease-fast;
@@ -107,12 +111,16 @@
 			margin-bottom: $cmu-base*4;
 			padding: $cmu-base;
 			border: $style-line--dark;
-			background-color: $cmu-color-soot;
+			background-color: rgba($cmu-color-soot, 0.88);
 		}
 
 	.cmuMega__section {
 		border-top: 1px solid $cmu-color-dkgray;
 		padding: $cmu-base 0;
+
+		&.noBorder {
+			border: 0;
+		}
 	}
 
 		.cmuMega__section__head {
@@ -126,7 +134,11 @@
 		.cmuMega__section__col {
 			display: inline-block; 
 			margin-right: $cmu-base;
-			
+
+			@include respondTo(small-down) {
+				display: block;
+			}
+
 			a { 
 				@extend %ease-fast;
 				letter-spacing: $size-letterspacing-text;
@@ -134,10 +146,10 @@
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;
 
-				&:hover {
-				@extend %ease-fast;
-					color: $cmu-color-blue;
-				}
+				// &:hover {
+				// @extend %ease-fast;
+				// 	color: $cmu-color-blue;
+				// }
 			}
 		}
 
@@ -154,7 +166,8 @@
 
 			&:hover {
 				.cmuMega__icon {
-					background-color: $cmu-color-dkgray;
+					background-color: rgba($cmu-color-dkblue,0.68);
+					border-color: $cmu-color-blue;
 					@extend %ease-fast;
 				}
 			}
@@ -164,9 +177,6 @@
 			border: 1px solid $cmu-color-dkgray;
 			padding: 0 $cmu-base;
 
-			// margin-right: $cmu-base;
-			// margin-bottom: $cmu-base/2;
-
 			display: inline-block; 
 			cursor: pointer;
 			@extend %ease-fast;
@@ -175,4 +185,20 @@
 			overflow: hidden; // creates phantom padding/margin at the bottom...?
 
 		}
+
+		.cmuMega__desc {
+			color: $cmu-color-gray;
+			font-weight: 300;
+		}
+
+.cmuMega__section__directoryDesc {
+	margin-left: $cmu-base;
+	display: inline-block;
+	color: $cmu-color-dkgray;
+
+	@include respondTo(small-down) {
+		margin: 0;
+		margin-top: $cmu-base;
+	}
+}
 		

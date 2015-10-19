@@ -40,7 +40,7 @@ function mainNavBar() {
 			}
 
 			var navMetaData = [
-				{ display: "Explore Forums", clickFn: toggleDiscussionsMenu, dropItem: true },
+				{ display: "Explore", clickFn: toggleDiscussionsMenu, dropItem: true },
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 

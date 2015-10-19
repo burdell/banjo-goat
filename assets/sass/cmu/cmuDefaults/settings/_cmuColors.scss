@@ -9,7 +9,8 @@
 // BASE COLOR PALETTE
 // avoid referencing these directly in code
 // 
-$cmu-color-ltblue: 		#1374AB; 				// this is what was in the comp //#13BCFF; < this is the Sketch spec color;
+$cmu-color-vltblue: 	lighten(#13BCFF,30);
+$cmu-color-ltblue: 		#13BCFF;
 $cmu-color-blue: 		#00A0DF;
 $cmu-color-dkblue: 		#0074AD;
 $cmu-color-xltblue: 	lighten($cmu-color-blue,50);
