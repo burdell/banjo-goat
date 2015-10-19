@@ -43,13 +43,16 @@
 	// needs to reach the entire height of window
 	// needs to scroll with page
 	.cmuMega__shroud {
-		background-color: rgba($cmu-color-ltblack, 0.968);
+		// background-color: rgba($cmu-color-ltblack, 0.968);
 		top: 0;
 		left: 0;
 		position: fixed;
 		width: 100%;
 		height: 100%;
 		// cursor: pointer;
+
+		// temp
+		background-color: rgba($cmu-color-soot, 0.5);
 	}
 
 	.cmuMega__close {
@@ -99,6 +102,13 @@
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}
+		.cmuMega__content__container {
+			margin-top: $cmu-base*4;
+			margin-bottom: $cmu-base*4;
+			padding: $cmu-base;
+			border: $style-line--dark;
+			background-color: $cmu-color-soot;
+		}
 
 	.cmuMega__section {
 		border-top: 1px solid $cmu-color-dkgray;
@@ -114,14 +124,38 @@
 		}
 
 		.cmuMega__section__col {
+			display: inline-block; 
+			margin-right: $cmu-base;
+			
 			a { 
+				@extend %ease-fast;
 				letter-spacing: $size-letterspacing-text;
-				display: block;
+				// display: block;
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;
 
 				&:hover {
+				@extend %ease-fast;
 					color: $cmu-color-blue;
+				}
+			}
+		}
+
+
+		.cmuMega__item {
+			display: inline-block;
+			text-align: center;
+			margin-right: $cmu-base;
+			margin-bottom: $cmu-base*2;
+
+			a, a:hover {
+				@extend %ease-fast;
+			}
+
+			&:hover {
+				.cmuMega__icon {
+					background-color: $cmu-color-dkgray;
+					@extend %ease-fast;
 				}
 			}
 		}
@@ -129,18 +163,16 @@
 		.cmuMega__icon {
 			border: 1px solid $cmu-color-dkgray;
 			padding: 0 $cmu-base;
-			margin-right: $cmu-base;
+
+			// margin-right: $cmu-base;
+			// margin-bottom: $cmu-base/2;
+
 			display: inline-block; 
 			cursor: pointer;
 			@extend %ease-fast;
 
 			height: $cmu-base*2.5;
 			overflow: hidden; // creates phantom padding/margin at the bottom...?
-			margin-bottom: $cmu-base/2;
 
-			&:hover {
-				background-color: $cmu-color-dkgray;
-				@extend %ease-fast;
-			}
 		}
 		

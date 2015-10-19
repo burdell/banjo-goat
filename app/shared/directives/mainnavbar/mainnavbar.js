@@ -12,6 +12,7 @@ require('providers/routes.js');
 require('directives/dropdown/dropdown.js');
 require('directives/searchbar/searchbar.js');
 require('directives/arealinkhandler/arealinkhandler.js');
+require('directives/pagescroll/pagescroll.js');
 
 var _ = require('underscore');
 
@@ -20,7 +21,8 @@ function mainNavBar() {
 	    
 	}
 
-		function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider) {
+		function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, $anchorScroll) {
+			
 			var ctrl = this;
 			var hrefs = {
 				announcements: routesProvider.announcements.landing,
@@ -30,6 +32,7 @@ function mainNavBar() {
 
 			var toggleDiscussionsMenu = function(){
 				$scope.$broadcast('megamenu:toggleDiscussions');
+				$anchorScroll("#pageTop");
 			}
 
 			var checkNotifications = function(notifcationData, updates){
@@ -108,7 +111,8 @@ function mainNavBar() {
 			'CommunityRealtimeService',
 			'CommunityRoutingService', 
 			'CurrentUserService',
-			'communityRoutes'
+			'communityRoutes',
+			'$anchorScroll'
 		];
 	    
 	    var directive = {

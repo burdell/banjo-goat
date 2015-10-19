@@ -9,16 +9,18 @@
 	Attach .cmuWrapper--overlay to .cmuWrapper to add those styles
 	
 -->
-	<div class="cmuDropdown__shroud" ng-click="megamenu.toggleMenu()"></div>
+	<div class="cmuMega__shroud" ng-click="megamenu.toggleMenu()"></div>
 		<div class="container noPadding">
 			<div class="cmuMega__content row">
-				<div class="col--md12 alignRight">
-					<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
-						<span class="icon ubnt-icon--x"></span>
+				<div class="cmuMega__content__container clearfix">
+					<div class="col--md12 alignRight">
+						<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
+							<span class="icon ubnt-icon--x"></span>
+						</div>
 					</div>
-				</div>
-				<div class="noPadding col--md12" >
-					<div ng-include="megamenu.menuTemplateUrl">
+					<div class="noPadding col--md12" >
+						<div ng-include="megamenu.menuTemplateUrl">
+						</div>
 					</div>
 				</div>
 			</div>

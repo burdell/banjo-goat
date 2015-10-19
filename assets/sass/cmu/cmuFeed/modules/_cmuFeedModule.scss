@@ -300,6 +300,9 @@
 
 		.cmuFeed__anno {
 			@extend %cmuRailLink;
+
+				margin-top: $cmu-base/2 !important;
+			
 		}
 
 

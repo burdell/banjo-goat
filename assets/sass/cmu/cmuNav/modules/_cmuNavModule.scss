@@ -28,14 +28,50 @@ $nav-height: $cmu-nav-height;
 
 
 
-
+// required to position:fix the nav
+.cmuGloNav__metaContainer {
+	position: fixed;
+	width: 100%;
+	z-index: $z-top;
+}
 
 .cmuGloNav {
 	background-color: $cmu-color-soot;
 	border-bottom: 1px solid $cmu-color-dkgray;
 	z-index: $z-gloNav;
 	position: relative;
+
+
+	// fun
+	// background:red;
+	// animation:rainbow 5s;
+	// -moz-animation:rainbow 5s infinite; /* Firefox */
+	// -webkit-animation:rainbow 5s infinite; /* Safari and Chrome */
 }
+
+    @-moz-keyframes rainbow /* Firefox */
+    {
+	    0%   {background:red;}
+	    20%  {background:orange;}
+	    40%  {background:yellow;}
+	    60%  {background:green;}
+	    80%  {background:blue;}
+	    100%   {background:red;}
+    }
+
+    @-webkit-keyframes rainbow /* Safari and Chrome */
+    {
+	    0%   {background:red;}
+	    20%  {background:orange;}
+	    40%  {background:yellow;}
+	    60%  {background:green;}
+	    80%  {background:blue;}
+	    100%   {background:red;}
+    }
+
+
+
+
 	.cmuGloNav--header {
 		height: $nav-height;
 
@@ -255,6 +291,7 @@ $nav-height: $cmu-nav-height;
 	@include respondTo(medium-up) {
 		display: none;
 	}
+
 }
 	.cmuGloNav__mobile__btn {
 		float: right;
@@ -332,22 +369,33 @@ $nav-height: $cmu-nav-height;
 		.cmuGloNav__mobile__search {
 			@extend %nav-style--mobile;
 			@extend %type-base;
-			text-transform: uppercase;
-			font-weight: 300;
-			padding: 0;
 
-			span {
-				padding: $cmu-base *3/4 $cmu-base;
-				@extend %type-base;
-			}
 
-			.ubnt-icon {
-				float: right; 
-				padding-left: $cmu-base*3/2;
-				padding-right: $cmu-base*3/2;
-				border-left: $style-line--dark;
-				font-size: $cmu-base;
+			// special search styling
+			.cmuSearchbox {
+				.appIconInput__icon {
+					padding-right: $cmu-base;
+				}
+				.appIconInput__input {
+					padding-left: $cmu-base;
+				}
 			}
+			// text-transform: uppercase;
+			// font-weight: 300;
+			// padding: 0;
+
+			// span {
+			// 	padding: $cmu-base *3/4 $cmu-base;
+			// 	@extend %type-base;
+			// }
+
+			// .ubnt-icon {
+			// 	float: right; 
+			// 	padding-left: $cmu-base*3/2;
+			// 	padding-right: $cmu-base*3/2;
+			// 	border-left: $style-line--dark;
+			// 	font-size: $cmu-base;
+			// }
 		}
 
 		.cmuGloNav__mobile__link {

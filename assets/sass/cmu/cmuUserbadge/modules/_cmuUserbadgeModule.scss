@@ -295,3 +295,33 @@
 	}
 }
 
+
+// 
+// Hover Flag
+// - hoverable expandable tooltip
+// 
+.cmuUserbadge:hover {
+	.cmuUserbadge__flag {
+		display: block;
+	}
+}
+.cmuUserbadge__flag {
+	display: none;
+	position: relative;
+
+	.cmuUserbadge__flag__container {
+		position: absolute;
+		top: -66px;
+		left: -$cmu-base;
+		padding: $cmu-base;
+
+		background-color: $cmu-color-white;
+		border: $style-line;
+
+		.cmuUserbadge__avatar:after {
+			height: 5rem;
+			width: 5rem;
+		}
+	}
+}
+
