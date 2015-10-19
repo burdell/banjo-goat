@@ -7,14 +7,21 @@
 	require('services/breadcrumb.js');
 
 	require('directives/pager/pager.js');
-	require('directives/texteditor/texteditor.js');
+	require('directives/commentform/commentform.js');
 	require('directives/message/message.js');
 
-	var forumMessageController = function($anchorScroll, $location, $scope, $timeout, communityApi, breadcrumbService, messageThreadFilter){
+	var forumMessageController = function($anchorScroll, $location, $scope, $stateParams, $timeout, communityApi, breadcrumbService, messageThreadFilter){
 		var ctrl = this;
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
+		var setReplyMessage = _.once(function(message){
+			ctrl.topicReplyMessage = {
+				id: message.id,
+				topicId: message.topicId,
+				node: message.node
+			}
+		});
 
-		function setThreadData(dataResult) {
+		function setThreadData(dataResult) {	
 			ctrl.originalMessage = dataResult.content[0];
 			ctrl.originalMessageSubject = ctrl.originalMessage.context.topicSubject;
 			
@@ -23,13 +30,11 @@
 			ctrl.numberOfPages = dataResult.totalPages;
 
 			setMessageBreadcrumb(ctrl.originalMessageSubject);
+			setReplyMessage(ctrl.originalMessage);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 
-		function clearMessageReplyText(){
-			ctrl.messageReplyText = null;
-		}
-
+		
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
@@ -50,43 +55,20 @@
 				return messageId === this.currentReply;
 			},
 			showReply: function(messageId){
-				clearMessageReplyText();
 				ctrl.currentReply = messageId;
 			},
 			cancelReply: function(){
 				this.currentReply = null;
 			},
-			submitReply: function(messageRepliedTo){
-				// communityApi.Forums.message({
-				// 	body: this.messageReplyText,
-				// 	categoryId: null,
-				// 	subject: '',
-				// 	replyTo: messageRepliedTo,
-				// }, true).then(function(result){
-				// 	ctrl.currentReply = null;
-				// 	var submittedMessage = result.model;
-
-				// 	var offset = messageThreadFilter.model('offset') || 0;
-				// 	var limit = messageThreadFilter.model('limit');
-					
-				// 	var totalNumberOfPages = Math.floor((ctrl.allMessageCount) / limit);
-				// 	var currentPageNumber = Math.floor(offset / limit) + 1;
-					
-				// 	if (currentPageNumber !== (totalNumberOfPages + 1)) {
-				// 		//if we're not on the last page, go to  page...
-				// 		messageThreadFilter.filter({ offset: totalNumberOfPages * limit });
-				// 			// .then(function(){
-				// 			// 	submittedMessage.author = currentUser;
-				// 			// 	ctrl.messageThread.push(submittedMessage);
-				// 			// });
-				// 	} else {
-				// 		//...otherwise just add the new message to the list
-				// 		// ctrl.allMessageCount += 1;
-				// 		// submittedMessage.author = currentUser;
-				// 		// ctrl.messageThread.push(submittedMessage);
-				// 	}
-				// });
-				
+			replyPosted: function(result){
+				if (ctrl.numberOfPages > 1) {
+					messageThreadFilter.filter({ page: ctrl.numberOfPages });
+				} else {
+					ctrl.messageThread.push(result);
+				}
+			},
+			showTopicReply: function(){
+				ctrl.topicReplyShown = true
 			}
 		});
 
@@ -95,6 +77,7 @@
 		'$anchorScroll',
 		'$location',
 		'$scope',
+		'$stateParams',
 		'$timeout',
 		'CommunityApiService',
 		'CommunityBreadcrumbService', 

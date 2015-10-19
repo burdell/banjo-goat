@@ -30,7 +30,7 @@ function communityloadMore($window) {
 					page: pageNumber + 1
 				}).then(function(result) {
 					pageNumber += 1;
-
+					
 					if (ctrl.onLoadFn) {
 						ctrl.onLoadFn(result.content);
 					} else {

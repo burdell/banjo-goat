@@ -55,7 +55,7 @@
 		@extend %type-info;
 		padding: $cmu-base/2;
 		background-color: $cmu-color-bg; // default
-		@extend %cmu-letterspacing-text;
+		@extend %size-letterspacing-text;
 		line-height: $cmu-base;
 
 		// custom color statuses

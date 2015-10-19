@@ -1,14 +1,14 @@
 
 
 // 
-// Horizontal Lines
+// Lines and Borders
 // 
 
 $style-line: 1px solid $cmu-color-line;
 	$style-line--light: 1px solid $cmu-color-line--light;
 	$style-line--dark: 1px solid $cmu-color-line--dark;
-	$style-line--thick: 3px solid $cmu-color-black;
-	$style-line--xthick: 6px solid $cmu-color-black;
+	$style-line--thick: 3px solid $cmu-color-dkgray;
+	$style-line--xthick: 6px solid $cmu-color-dkgray;
 
 
 
@@ -17,13 +17,21 @@ $style-line: 1px solid $cmu-color-line;
 // 
 
 
+// 
+// Basic Link Styles
+// 
+
 // Standard Links blue w/ dark hover
 .style-link, %style-link {
+	@extend %ease-fast;
+	// display: inline-block;
 	color: $cmu-color-link;
+	cursor: pointer;
 	&.active {
 		color: $cmu-color-link_active;
 	}
 	&:hover {
+		@extend %ease-fast;
 		color: $cmu-color-link_hover;
 	}
 }
@@ -31,11 +39,206 @@ $style-line: 1px solid $cmu-color-line;
 // Reverse Links / dark w/ blue hover
 .style-link--dark, %style-link--dark {
 	@extend %ease-fast;
+	// display: inline-block;
 	color: $cmu-color-link--dark;
+	cursor: pointer;
 	&.active {
 		color: $cmu-color-link--dark_active;
 	}
 	&:hover {
+		// @extend %ease-fast;
 		color: $cmu-color-link--dark_hover;
+		text-decoration: none;
+	}
+}
+
+
+
+
+
+// 
+// Communal Styles
+// 
+
+
+// List Item
+// NOTE: many of these use .cmuThreadList__row, which uses on-click instead of <a> tags
+// 		 - the design is identical but implemented differently (__topic)
+// - story list
+// - forum thread list
+// - announcement thread list
+// - q&a thread list
+// - features thread list
+// - feed list
+// - notifications list (dropdown & list)
+// - messages list (dropdown & list)
+// 
+// Design
+// - text: 			dark
+// - hover:			blue
+// - underline:		none
+// - background: 	light (depends on context, and isn't set by this module)
+.style-listItem, %style-listItem {
+	@extend %size-normal;
+	@extend %style-link--dark;
+	@extend %ease-fast;
+	// background-color: $cmu-color-ltgray;
+
+	&:hover {
+		// background: $cmu-color-threadlist-hover;
+		cursor: pointer;
+		.cmuThreadList__row__topic {
+			color: $cmu-color-link--dark_hover;
+		}
+	}
+}
+
+.style-ctaLink, %style-ctaLink {
+	@extend %style-link;
+}
+
+
+// 
+// Doodads
+// 
+
+.style-user, %style-user {
+	@extend %size-xsmaller;
+	color: $cmu-color-dkgray;
+	margin-top: $cmu-base/4;
+}
+.style-date, %style-date {
+	@extend %size-xsmaller;
+	color: $cmu-color-gray;
+	margin-bottom: $cmu-base/4;
+}
+
+.style-tag, %style-tag {
+	display: inline-block;
+	@extend %size-xxsmaller;
+	color: $cmu-color-dkgray;
+	border: $style-line;
+	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
+	background-color: $cmu-color-ltgray;
+}
+	.style-tag--noLine, %style-tag--noLine {
+		@extend %style-tag;
+		border: 0;
+		background-color: transparent;
+	}
+
+.style-stat, %style-stat {
+	display: inline-block;
+	@extend %size-xxsmaller;
+	color: $cmu-color-dkgray;
+	padding: 3.5px $cmu-base/2;
+	border: 0;
+
+	.ubnt-icon {
+		margin-right: $cmu-base/4;
+		@extend %size-normal;
+	}
+	.cmuIcon {
+		margin-right: $cmu-base/4;
+		width: 14px;
+		height: 14px;
+		position:relative;
+		top: -2px;
+	}
+}
+
+
+
+
+
+// 
+// Right Rail links
+// - feed announcements
+/*
+	right_rail
+		links
+			cmuRailLink - rpt
+
+
+*/
+.cmuRailLink, %cmuRailLink {
+	@extend %size-normal;
+	margin-bottom: $cmu-vertical-rhythm*3/4;
+	// &:hover {
+	// 	// text-decoration: underline; 
+	// 	a {
+	// 		border-bottom: $style-line;
+	// 	}
+	// }
+
+	display: block;
+	@extend %style-link--dark;
+}
+
+
+
+// 
+// Hover Flag
+// - default is bottom
+// 
+.cmuHoverflag__trigger:hover {
+	.cmuHoverflag:before, .cmuHoverflag:after {
+		opacity: 1;
+	}
+}
+
+.cmuHoverflag, %cmuHoverflag {
+	position: relative;
+	text-align: center; // center aligns content with the flag, but may affect content
+	@extend %ease-fast;
+
+	&:before {
+		opacity: 0;
+		position: relative;
+		content: attr(data-tooltip);
+		display: block;
+		@extend %style-tag;
+		@extend %ease-fast;
+
+		border: 0;
+		background-color: $cmu-color-dkgray;
+		// border-color: $cmu-color-white;
+		color: $cmu-color-white;
+	}
+
+	&:after {
+		opacity: 0;
+		content: '';
+		width: 0; 
+		height: 0; 
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 10px solid $cmu-color-ltblack;
+		border: 0;
+		@extend %ease-fast;
+	    position: relative;
+	}
+
+	&.cmuHoverflag--right {
+
+	}
+
+	&.cmuHoverflag--left {
+		
+	}
+
+	&.cmuHoverflag--top {
+		&:after {
+			opacity: 0;
+			content: '';
+			width: 0; 
+			height: 0; 
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid $cmu-color-dkgray;
+			@extend %ease-fast;
+		    position: relative;
+		    top: 8px;
+		}
 	}
 }

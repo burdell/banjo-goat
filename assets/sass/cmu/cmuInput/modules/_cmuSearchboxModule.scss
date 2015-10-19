@@ -36,8 +36,8 @@ $cmu-searchbox-disabled-background-color: $cmu-color-bg;
   // padding: $cmu-base 0;
 
   @include cmu-placeholder {
-    color: $cmu-color-body--light;
-    font-weight: 400;
+    color: red;
+    font-weight: 300;
     font-size: $cmu-searchbox-font-size;
   }
   text-align: right;

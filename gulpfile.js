@@ -259,6 +259,11 @@ gulp.task('express', function() {
         console.log('served directory index.html');
     });
 
+    app.get('/user/*', function (req,res) {
+        res.render('directory/index.html');
+        console.log('served (user) directory index.html');
+    });
+
     app.get('/features/*', function (req,res) {
         res.render('features/index.html');
         console.log('served feature requests index.html');
@@ -266,7 +271,7 @@ gulp.task('express', function() {
 
      app.get('/*', function (req,res) {
         res.render('directory/index.html');
-        console.log('served directory index.html');
+        console.log('served (root) directory index.html');
     });
    
     app.listen(4200);

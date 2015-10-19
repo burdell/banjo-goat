@@ -30,6 +30,7 @@
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',
 			feed: '/',
+			userprofile: '/user/:userId/',
 			utils: {
 				intRoute: function(route) {
 					return '{' + route.replace(':', '') + ':int}'

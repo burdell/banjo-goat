@@ -2,19 +2,22 @@
 'use strict';
 
 require('providers/routes.js');
+require('providers/defaults.js');
+
 require('services/api.js');
 require('services/filter.js');
 
-var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider) {
+var config = function($stateProvider, $urlRouterProvider, $locationProvider, routesProvider, defaultsProvider) {
 	$locationProvider.html5Mode(true);
 
 	var storyDefaults = function(){
 		return {
-			coverPhoto: "http://i.imgur.com/TT7XC8m.jpg"
+			coverPhoto:  defaultsProvider.defaults.noPhoto
 		}
 	};
 
 	var storiesRoutes = routesProvider.routes.stories;
+
 	$stateProvider
 		.state('storiesLanding', {
 			url: storiesRoutes.landing,
@@ -101,11 +104,10 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			}
 		})
 	};
-	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
+	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider', 'communityDefaultsProvider'];
 
 
 
 
 	angular.module('community.stories')
 		.config(config);
-

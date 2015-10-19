@@ -6505,8 +6505,8 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.style-link--dark, .cmuDirectory__content__list a, .cmuFeed__anno, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top span:before, .cmuGloNav__top span:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story *, .cmuFeed__actions a, .cmuFeed__actions a span, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuHoverflag, .cmuHoverflag:before, .cmuHoverflag:after, .cmuHoverflag.cmuHoverflag--top:after, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top .ubnt--icon:before, .cmuGloNav__top .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
   -o-transition: 0.31s;
@@ -6521,8 +6521,8 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.style-link--dark, .cmuDirectory__content__list a, .cmuFeed__anno, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top span:before, .cmuGloNav__top span:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story *, .cmuFeed__actions a, .cmuFeed__actions a span, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem:hover a, .cmuStoryItem--image img, .cmuStoriesNew__Form--uploadItem--downup, .cmuStoriesNew__Form--uploadItem--downup + span:before, .cmuStoriesNew__Form--uploadItem--downup:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover, .cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover, .cmuStoriesNew__Form--additional, .cmuStoriesNew__Form--additional .icon, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
+.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a, .style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuHoverflag, .cmuHoverflag:before, .cmuHoverflag:after, .cmuHoverflag.cmuHoverflag--top:after, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuGloNav__cmuSearch, .cmuGloNav__cmuAccount .icon, .cmuGloNav__left, .cmuGloNav__link a, .cmuGloNav__mobile__btn:before, .cmuGloNav__mobile__btn:after, .cmuGloNav--footer li a, .cmuGloNav__social--label, .cmuGloNav__cmuSearch:hover, .cmuGloNav__cmuAccount .icon:hover, .cmuGloNav__left:hover, .cmuGloNav__link a:hover, .cmuGloNav__mobile__btn:hover:before, .cmuGloNav__mobile__btn:hover:after, .cmuGloNav--footer li a:hover, .cmuGloNav__social--label:hover, .cmuGloNav__link:hover .cmuGloNav__dropItem:after, a.cmuGloNav__dropItem:after, .cmuGloNav__cmuAccount .cmuProfile__avatar:before, .cmuGloNav--footer .ubnt-icon--menu:before, .cmuGloNav__discussions a:hover span:before, .cmuGloNav__social span:before, .cmuGloNav__social span:hover:before, .cmuGloNav__top .ubnt--icon:before, .cmuGloNav__top .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuDropdown__content li:hover, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__icon, .cmuMega__icon:hover, .cmuSearchbar, .cmuSearchbar .appIconInput__icon, .cmuSearchbar .appIconInput__icon:hover, .cmuBanner, .cmuBanner:not(.cmuBanner__close):hover a, .cmuBanner:not(.cmuBanner__close):hover span, .cmuBanner__close, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuFeed__actions a span:before, .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before, .cmuThreadlist__list thead th, .cmuThreadList__row .cmuThreadList__tooltip, .cmuThreadList__row:hover .cmuThreadList__tooltip, .cmuThreadList__tooltip .icon:before, .cmuThreadList__tooltip:hover, .cmuThreadList__tooltip:hover .icon:before, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuMessage__container:hover .forumThreadMessage__controls, .forumThreadMessage__controls, .cmuUserbadge, .cmuProfile__avatar:before, button, .button, .cmuButton, .cmuInput--waiting, .cmuInputFile--label, .cmuInputFile--uploading, .cmuInputUrl--input + label + .cmuInputUrl--button, .button--compound .button--compound--data, .button--tab, .button--tab:hover, .cmuComments__flag .cmuIcon-flag, .cmuComments__row:hover .cmuIcon-flag, .cmuInput, .cmuTextEditor .cmuTextEditor__textarea, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuInputUrl--input, .cmuInputUrl--input:focus, .cmuInputUrl--input:valid, .timeline__year__title, .timeline__year__title:hover, .timeline__year__title:after, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
   -ms-transition: all 180ms ease;
@@ -6538,7 +6538,7 @@ tr:last-child td {
   transition: all 320ms ease;
 }
 
-.button--tab, .button--tab.active {
+.button--tab.active {
   -webkit-transition: initial;
   -moz-transition: initial;
   -ms-transition: initial;
@@ -6604,15 +6604,22 @@ tr:last-child td {
 }
 
 body {
+  position: relative;
   background-color: #fafafa;
   height: 100%;
+  min-height: 100%;
   color: #17191d;
   line-height: inherit;
   background-color: #11181c;
 }
+body a:focus {
+  outline: none;
+}
 
 .wrapper {
   background-color: #fafafa;
+  min-height: 100%;
+  position: relative;
 }
 
 #main-content {
@@ -6624,8 +6631,14 @@ body {
   margin: 0 auto;
 }
 
+ol, li {
+  list-style-position: inside;
+}
+
 .community__content {
-  min-height: 20rem;
+  position: relative;
+  padding-bottom: 20rem;
+  min-height: 100%;
 }
 
 .cmuRow {
@@ -6638,11 +6651,6 @@ body {
 
 .cmuHidden {
   display: none;
-}
-
-.cmuTooltipster {
-  border: 2px solid black;
-  border-color: #00a0df;
 }
 
 .cmuPulse__desc, .cmuDirectory__label, select, .cmuTextEditor label {
@@ -6670,29 +6678,24 @@ body {
   line-height: 2.25rem;
 }
 
-.cmuFeatures__threadlist__body__title a {
+.cmuFeatures__threadlist__body__title a, .cmuStories__summary {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.cmuDropdown__header, .cmuFeed__subject, .cmuTooltipster .tooltipster-content {
+.style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon, .cmuStoryItem__stat .ubnt-icon, .cmuRailLink, .cmuFeed__anno, .cmuDropdown__header, .cmuFeed__content, .cmuTooltipster .tooltipster-content {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1rem;
 }
 
-.cmuFeed__story__subject, .cmuFeed__content, .cmuFeed__sidebar__link, .cmuFeed__anno {
-  font-size: 0.75rem;
-  line-height: 1.125rem;
-}
-
-.cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__story__user, .cmuFeed__story__date, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
+.style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuStoryItem__date, .cmuDropdown__headline span, .cmuDropdown__content li, .cmuDropdown__footer, .cmuFeed__userAction, .cmuThreadlist__list thead th, .cmuMessage__signature, .cmuPrivateMessage__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
 
-.cmuFeed__location, .cmuFeed__stat {
-  font-size: 0.5625rem;
-  line-height: 0.875rem;
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .style-stat, .cmuFeed__stat, .cmuStoryItem__stat, .cmuComments__date {
+  font-size: 0.625rem;
+  line-height: 0.8125rem;
 }
 
 h1 {
@@ -6701,7 +6704,7 @@ h1 {
   font-weight: 300;
 }
 
-h2 {
+h2, .cmuFeed .cmuDiscussionsHeader h3, .cmuFeed .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuFeed .cmuDiscussionsHeader .timeline__year__title--text {
   font-size: 1.5rem;
   line-height: 2.0625rem;
   font-weight: 400;
@@ -6723,7 +6726,7 @@ h4, .timeline__year__title:after {
 
 h5 {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1rem;
   color: #474b52;
 }
 
@@ -6737,7 +6740,7 @@ h6 {
 
 .type-base, .cmuGloNav__mobile__search, .cmuGloNav__mobile__search span, .cmuUserbadge__account .cmuUsername, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1rem;
 }
 
 .type-minor, .cmuBreadcrumbs, .cmuFeatures__threadlist__body__content {
@@ -6751,36 +6754,138 @@ h6 {
 }
 
 .type-tiny, .type-tiny--tight, .cmuDirectory__label, .cmuUserbadge__op:before {
-  font-size: 0.5625rem;
-  line-height: 0.875rem;
+  font-size: 0.625rem;
+  line-height: 0.8125rem;
 }
 
 .type-tiny--tight, .cmuDirectory__label {
-  line-height: 0.525rem;
+  line-height: 0.4875rem;
 }
 
 .cmuFeatures__votes__status {
   letter-spacing: 0.2px;
 }
 
-.style-link, .cmuDirectory__content__title a {
+.style-link, .style-ctaLink, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuDirectory__content__title a {
+  color: #00a0df;
+  cursor: pointer;
+}
+.style-link.active, .active.style-ctaLink, .active.cmuFeed__sidebar__link, .cmuFeed__actions a.active, .cmuDirectory__content__title a.active {
   color: #00a0df;
 }
-.style-link.active, .cmuDirectory__content__title a.active {
-  color: #00a0df;
-}
-.style-link:hover, .cmuDirectory__content__title a:hover {
+.style-link:hover, .style-ctaLink:hover, .cmuFeed__sidebar__link:hover, .cmuFeed__actions a:hover, .cmuDirectory__content__title a:hover {
   color: #474b52;
 }
 
-.style-link--dark, .cmuDirectory__content__list a, .cmuFeed__anno, .cmuUsername a, .cmuDiscussionsNavbar a {
+.style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadList__row, .cmuStoryItem, .cmuRailLink, .cmuFeed__anno, .cmuDirectory__content__list a, .cmuUsername a, .cmuDiscussionsNavbar a {
   color: #474b52;
+  cursor: pointer;
 }
-.style-link--dark.active, .cmuDirectory__content__list a.active, .active.cmuFeed__anno, .cmuUsername a.active, .cmuDiscussionsNavbar a.active {
+.style-link--dark.active, .active.style-listItem, .active.cmuFeed__story, .active.cmuFeed__item, .active.cmuThreadList__row, .active.cmuStoryItem, .active.cmuRailLink, .active.cmuFeed__anno, .cmuDirectory__content__list a.active, .cmuUsername a.active, .cmuDiscussionsNavbar a.active {
   color: #00a0df;
 }
-.style-link--dark:hover, .cmuDirectory__content__list a:hover, .cmuFeed__anno:hover, .cmuUsername a:hover, .cmuDiscussionsNavbar a:hover {
+.style-link--dark:hover, .style-listItem:hover, .cmuFeed__story:hover, .cmuFeed__item:hover, .cmuThreadList__row:hover, .cmuStoryItem:hover, .cmuRailLink:hover, .cmuFeed__anno:hover, .cmuDirectory__content__list a:hover, .cmuUsername a:hover, .cmuDiscussionsNavbar a:hover {
   color: #00a0df;
+  text-decoration: none;
+}
+
+.style-listItem:hover, .cmuFeed__story:hover, .cmuFeed__item:hover, .cmuThreadList__row:hover, .cmuStoryItem:hover {
+  cursor: pointer;
+}
+.style-listItem:hover .cmuThreadList__row__topic, .cmuFeed__story:hover .cmuThreadList__row__topic, .cmuFeed__item:hover .cmuThreadList__row__topic, .cmuThreadList__row:hover .cmuThreadList__row__topic, .cmuStoryItem:hover .cmuThreadList__row__topic {
+  color: #00a0df;
+}
+
+.style-user, .cmuFeed__story__user, .cmuStoryItem__user {
+  color: #474b52;
+  margin-top: 0.25rem;
+}
+
+.style-date, .cmuFeed__story__date, .cmuStoryItem__date {
+  color: #969ba3;
+  margin-bottom: 0.25rem;
+}
+
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc {
+  display: inline-block;
+  color: #474b52;
+  border: 1px solid #bbbbbd;
+  padding: 0.28125rem 0.5rem;
+  background-color: #ebebeb;
+}
+
+.style-tag--noLine {
+  border: 0;
+  background-color: transparent;
+}
+
+.style-stat, .cmuFeed__stat, .cmuStoryItem__stat {
+  display: inline-block;
+  color: #474b52;
+  padding: 3.5px 0.5rem;
+  border: 0;
+}
+.style-stat .ubnt-icon, .cmuFeed__stat .ubnt-icon, .cmuStoryItem__stat .ubnt-icon {
+  margin-right: 0.25rem;
+}
+.style-stat .cmuIcon, .style-stat .cmuIcon--hoverOff, .style-stat .cmuIcon-pin, .style-stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .style-stat .cmuThreadList__row__topic:after, .style-stat .cmuIcon-star, .style-stat .cmuIcon-flag, .style-stat .cmuIcon-cool, .style-stat .cmuIcon-kudos, .style-stat .cmuIcon-airFiber, .style-stat .cmuIcon-airMax, .style-stat .cmuIcon-airControl, .style-stat .cmuIcon-edgeMax, .style-stat .cmuIcon-edgeSwitch, .style-stat .cmuIcon-toughSwitch, .style-stat .cmuIcon-airCrmBilling, .style-stat .cmuIcon-airCrmControl, .style-stat .cmuIcon-airCrmMarket, .style-stat .cmuIcon-airCrmOps, .style-stat .cmuIcon-unifi, .style-stat .cmuIcon-unifiVideo, .style-stat .cmuIcon-unifiVoip, .style-stat .cmuIcon-switching, .style-stat .cmuIcon-mfi, .cmuFeed__stat .cmuIcon, .cmuStoryItem__stat .cmuIcon, .cmuFeed__stat .cmuIcon--hoverOff, .cmuStoryItem__stat .cmuIcon--hoverOff, .cmuFeed__stat .cmuIcon-pin, .cmuStoryItem__stat .cmuIcon-pin, .cmuFeed__stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .cmuFeed__stat .cmuThreadList__row__topic:after, .cmuStoryItem__stat .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuThreadList__row--pinned .cmuStoryItem__stat .cmuThreadList__row__topic:after, .cmuFeed__stat .cmuIcon-star, .cmuStoryItem__stat .cmuIcon-star, .cmuFeed__stat .cmuIcon-flag, .cmuStoryItem__stat .cmuIcon-flag, .cmuFeed__stat .cmuIcon-cool, .cmuStoryItem__stat .cmuIcon-cool, .cmuFeed__stat .cmuIcon-kudos, .cmuStoryItem__stat .cmuIcon-kudos, .cmuFeed__stat .cmuIcon-airFiber, .cmuStoryItem__stat .cmuIcon-airFiber, .cmuFeed__stat .cmuIcon-airMax, .cmuStoryItem__stat .cmuIcon-airMax, .cmuFeed__stat .cmuIcon-airControl, .cmuStoryItem__stat .cmuIcon-airControl, .cmuFeed__stat .cmuIcon-edgeMax, .cmuStoryItem__stat .cmuIcon-edgeMax, .cmuFeed__stat .cmuIcon-edgeSwitch, .cmuStoryItem__stat .cmuIcon-edgeSwitch, .cmuFeed__stat .cmuIcon-toughSwitch, .cmuStoryItem__stat .cmuIcon-toughSwitch, .cmuFeed__stat .cmuIcon-airCrmBilling, .cmuStoryItem__stat .cmuIcon-airCrmBilling, .cmuFeed__stat .cmuIcon-airCrmControl, .cmuStoryItem__stat .cmuIcon-airCrmControl, .cmuFeed__stat .cmuIcon-airCrmMarket, .cmuStoryItem__stat .cmuIcon-airCrmMarket, .cmuFeed__stat .cmuIcon-airCrmOps, .cmuStoryItem__stat .cmuIcon-airCrmOps, .cmuFeed__stat .cmuIcon-unifi, .cmuStoryItem__stat .cmuIcon-unifi, .cmuFeed__stat .cmuIcon-unifiVideo, .cmuStoryItem__stat .cmuIcon-unifiVideo, .cmuFeed__stat .cmuIcon-unifiVoip, .cmuStoryItem__stat .cmuIcon-unifiVoip, .cmuFeed__stat .cmuIcon-switching, .cmuStoryItem__stat .cmuIcon-switching, .cmuFeed__stat .cmuIcon-mfi, .cmuStoryItem__stat .cmuIcon-mfi {
+  margin-right: 0.25rem;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  top: -2px;
+}
+
+/*
+	right_rail
+		links
+			cmuRailLink - rpt
+
+
+*/
+.cmuRailLink, .cmuFeed__anno {
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.cmuHoverflag__trigger:hover .cmuHoverflag:before, .cmuHoverflag__trigger:hover .cmuHoverflag:after {
+  opacity: 1;
+}
+
+.cmuHoverflag {
+  position: relative;
+  text-align: center;
+}
+.cmuHoverflag:before {
+  opacity: 0;
+  position: relative;
+  content: attr(data-tooltip);
+  display: block;
+  border: 0;
+  background-color: #474b52;
+  color: #fafafa;
+}
+.cmuHoverflag:after {
+  opacity: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #17191d;
+  border: 0;
+  position: relative;
+}
+.cmuHoverflag.cmuHoverflag--top:after {
+  opacity: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #474b52;
+  position: relative;
+  top: 8px;
 }
 
 .row {
@@ -6848,7 +6953,7 @@ pre {
   margin-bottom: 0 !important;
 }
 
-.cmuIcon, .cmuIcon--hoverOff, .cmuIcon-pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuIcon-star, .cmuIcon-kudos, .cmuIcon-flag, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
+.cmuIcon, .cmuIcon--hoverOff, .cmuIcon-pin, .cmuThreadList__row--pinned .cmuThreadList__row__topic:after, .cmuIcon-star, .cmuIcon-flag, .cmuIcon-cool, .cmuIcon-kudos, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
   display: inline-block;
   width: 42px;
   height: 42px;
@@ -6897,12 +7002,16 @@ pre {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2220%22%20viewBox%3D%220%200%2018%2020%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M11.1167%2017.8142l.402-3.3696-.0034-.003L18%204.954%2013.496%200%204.872%207.132l-.0013.0104-3.075.4395%203.937%204.3212L0%2018.9928l.7344.8072%206.4447-6.3074%203.9377%204.3216z%22%20fill%3D%22%23474B52%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
 }
 
-.cmuIcon-star, .cmuIcon-kudos {
+.cmuIcon-star {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3ESlice%201%3C%2Ftitle%3E%3Cpath%20d%3D%22M7.823%204.707L6.015%201.05%204.207%204.708l-4.037.59L3.095%208.14l-.69%204.024%203.61-1.898%203.61%201.898L8.94%208.14l2.92-2.843-4.037-.59z%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
 }
 
 .cmuIcon-flag {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-294%20386%2022%2022%22%3E%3Cstyle%3E.st0%7Bfill%3A%23474B52%3B%7D%3C%2Fstyle%3E%3Cg%3E%3Cg%20id%3D%22flag%22%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M-278.1%20392.633s-.3-.3-1.1-.3c-.6%200-1.6.2-2.9.8-1.6.8-3.2.9-4.3.9h-.6l-.1-.8v-.2c-.1-.3-.4-.5-.7-.4-.3%200-.5.3-.5.6v.2l1.8%2010.3%201.2-.2-.6-3.2c1.1%200%202.8-.2%205-1.1%201.2-.5%202.1-.7%202.7-.7%201%200%201.4.4%201.4.4l-1.3-6.3z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.cmuIcon-cool, .cmuIcon-kudos {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M256%2050C142.23%2050%2050%20142.23%2050%20256s92.23%20206%20206%20206%20206-92.23%20206-206S369.77%2050%20256%2050zm0%2040c58.655%200%20110.162%2030.35%20139.686%2076.223h-279.37C145.836%20120.353%20197.338%2090%20256%2090zm0%20332c-91.74%200-166-74.243-166-166%200-20.324%203.65-39.786%2010.32-57.777h25.408c5.204%2029.462%2028.825%2066.647%2070.5%2066.647%2040.54%200%2035.244-37.814%2060.475-37.814s19.936%2037.814%2060.475%2037.814c41.675%200%2065.296-37.186%2070.5-66.647h24.002C418.35%20216.213%20422%20235.675%20422%20256c0%2091.742-74.243%20166-166%20166zm100.334-137.666l8.79%208.79C345%20323.835%20308%20356.805%20258%20356.805s-87-32.97-107.125-63.68l8.79-8.79c27.002%2021.333%2056.668%2034.47%2098.335%2034.47s71.333-13.137%2098.334-34.47z%22%2F%3E%3C%2Fsvg%3E");
 }
 
 .cmuIcon--platform, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
@@ -7361,7 +7470,8 @@ a.cmuGloNav__dropItem:after {
   border-radius: 50%;
   width: 19px;
   height: 19px;
-  padding-left: 0.25rem;
+  padding-left: 0.26rem;
+  line-height: 18px;
   border: 1px solid #474b52;
   border-color: #969ba3;
 }
@@ -7544,6 +7654,9 @@ div.cmuUserbadge__avatar {
 .cmuGloNav--footer {
   z-index: 850;
   padding: 1rem 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 @media only screen and (min-width: 801px) {
   .cmuGloNav--footer {
@@ -7555,7 +7668,9 @@ div.cmuUserbadge__avatar {
 }
 .cmuGloNav--footer li a {
   cursor: default;
-  display: block;
+  display: inline-block;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   text-transform: inherit;
   height: auto;
   padding: 0.5rem 0;
@@ -7597,11 +7712,12 @@ div.cmuUserbadge__avatar {
 
 .cmuGloNav__social--label {
   cursor: default !important;
-  display: block;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   text-transform: inherit;
-  height: auto;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding-left: 0;
+  padding-bottom: 0;
 }
 .cmuGloNav__social--label:hover {
   color: #aeb4b7;
@@ -7609,7 +7725,9 @@ div.cmuUserbadge__avatar {
 
 .cmuGloNav__social {
   cursor: default !important;
-  margin-left: 0.25rem;
+}
+.cmuGloNav__social a {
+  padding: 0 !important;
 }
 .cmuGloNav__social span:before {
   cursor: pointer;
@@ -7627,17 +7745,19 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuGloNav__top {
-  cursor: inherit;
-  position: absolute;
-  top: 1.5rem;
+  position: fixed;
+  opacity: 0.7;
+  bottom: 0;
   right: 1.5rem;
+  text-align: center;
 }
-@media only screen and (min-width: 481px) and (max-width: 800px) {
-  .cmuGloNav__top {
-    top: -0.5rem;
-  }
+.cmuGloNav__top .cmuHoverflag {
+  top: -85px;
 }
-.cmuGloNav__top span:before {
+.cmuGloNav__top .ubnt--icon {
+  display: inline-block;
+}
+.cmuGloNav__top .ubnt--icon:before {
   cursor: pointer;
   font-size: 1.8rem;
   background-color: #474b52;
@@ -7649,7 +7769,7 @@ div.cmuUserbadge__avatar {
   height: 45px;
   padding: 0.9rem 0.2rem;
 }
-.cmuGloNav__top span:hover:before {
+.cmuGloNav__top .ubnt--icon:hover:before {
   background-color: #969ba3;
 }
 
@@ -7713,7 +7833,7 @@ div.cmuOverlay--show {
 }
 
 .cmuDropdown__headline span {
-  line-height: 1.3125rem !important;
+  line-height: 1.1rem !important;
   margin-left: 0.125rem;
 }
 
@@ -7746,18 +7866,21 @@ div.cmuOverlay--show {
 
 .cmuMega__close {
   position: relative;
-  top: 3rem;
+  top: 0;
 }
 
 .cmuMega__content {
   position: relative;
-  top: 4rem;
+  top: 0;
 }
 
 .cmuMega {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
   height: 100%;
   z-index: 875;
@@ -7804,6 +7927,7 @@ div.cmuOverlay--show {
 
 .cmuMega__content {
   color: #bbbbbd;
+  max-width: 1200px;
 }
 
 .cmuMega__section {
@@ -7845,6 +7969,8 @@ div.cmuOverlay--show {
 .cmuSearchbar {
   display: none;
   overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
   margin-top: 1rem;
 }
 .cmuSearchbar .appIconInput__icon {
@@ -7903,7 +8029,7 @@ div.cmuOverlay--show {
   display: table;
   padding: 0;
   margin-bottom: 1rem;
-  border-bottom: 1px #bbbbbd solid;
+  border-bottom: 1px solid #bbbbbd;
   text-align: center;
   margin-top: -1rem;
 }
@@ -7921,7 +8047,7 @@ div.cmuOverlay--show {
 .cmuPulse__label {
   display: table-cell;
   vertical-align: middle;
-  border-bottom: 1px #bbbbbd solid;
+  border-bottom: 1px solid #bbbbbd;
   min-width: 9rem;
   padding: 1rem;
   padding-right: 4px;
@@ -7986,7 +8112,7 @@ div.cmuOverlay--show {
 
 .cmuPulse__desc {
   width: 1rem;
-  line-height: 0.875rem;
+  line-height: 0.8125rem;
   display: inline-block;
 }
 
@@ -8055,7 +8181,7 @@ div.cmuOverlay--show {
 }
 
 .cmuDirectory__content {
-  border-bottom: 1px #bbbbbd solid;
+  border-bottom: 1px solid #bbbbbd;
   position: relative;
 }
 .cmuDirectory__content:last-child {
@@ -8066,7 +8192,7 @@ div.cmuOverlay--show {
 }
 
 .cmuDirectory__content__main {
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .cmuDirectory__content__table {
@@ -8128,6 +8254,7 @@ div.cmuOverlay--show {
 }
 
 .cmuFeed__icon {
+  font-size: 1rem;
   margin-right: 0.5rem;
 }
 .cmuFeed__icon:before {
@@ -8158,6 +8285,14 @@ div.cmuOverlay--show {
   margin-right: 0.25rem;
 }
 
+.cmuFeed .cmuBreadcrumbs {
+  display: none;
+}
+.cmuFeed .cmuDiscussionsHeader h3, .cmuFeed .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuFeed .cmuDiscussionsHeader .timeline__year__title--text {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 .cmuFeed__main {
   padding-right: 1rem;
 }
@@ -8171,33 +8306,21 @@ div.cmuOverlay--show {
   margin-bottom: 1rem;
 }
 
-.cmuFeed__location, .cmuFeed__stat {
-  display: inline-block;
-  border: 1px solid #bbbbbd;
-  padding: 0.16667rem 0.5rem;
-  background-color: #ebebeb;
-}
-
 .cmuFeed__title {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.cmuFeed__title--all {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #bbbbbd;
 }
 
 .cmuFeed__stories {
   border: 1px solid #bbbbbd;
+  border-bottom: 0;
   margin-bottom: 1rem;
   background-color: #f3f3f3;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .cmuFeed__storyList {
   padding: 0.5rem;
+  border-bottom: 1px solid #bbbbbd;
 }
 
 .cmuFeed__story:hover .cmuFeed__story__img {
@@ -8205,16 +8328,13 @@ div.cmuOverlay--show {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-.cmuFeed__story:hover .cmuFeed__story__subject {
-  text-decoration: underline;
-}
 
 .cmuFeed__close {
   text-align: right;
   cursor: pointer;
   position: absolute;
   right: 18px;
-  top: 12px;
+  top: 10px;
 }
 .cmuFeed__close span:before {
   content: "\e6d0";
@@ -8241,21 +8361,6 @@ div.cmuOverlay--show {
   background-size: cover;
 }
 
-.cmuFeed__story__subject {
-  line-height: 1rem;
-  color: #00a0df;
-}
-
-.cmuFeed__story__user {
-  color: #474b52;
-  margin-top: 0.25rem;
-}
-
-.cmuFeed__story__date {
-  color: #969ba3;
-  margin-bottom: 0.25rem;
-}
-
 .cmuFeed__list {
   padding: 0;
   background-color: #f3f3f3;
@@ -8273,12 +8378,10 @@ div.cmuOverlay--show {
   border-bottom: 1px solid #bbbbbd;
   cursor: pointer;
   overflow: hidden;
+  background-color: #f3f3f3;
 }
 .cmuFeed__item:hover {
-  background-color: #ebebeb;
-}
-.cmuFeed__item:hover .cmuFeed__subject {
-  text-decoration: underline;
+  background-color: #fafafa;
 }
 .cmuFeed__item .cmuFeed__icon:before {
   color: #00a0df;
@@ -8289,29 +8392,23 @@ div.cmuOverlay--show {
   overflow: hidden;
 }
 
-.cmuFeed__subject {
-  color: #00a0df;
-}
-
 .cmuFeed__userAction {
-  color: #474b52;
-  margin-left: 0.5rem;
+  color: #bbbbbd;
+  margin: 0.25rem 0;
+  margin-bottom: 0.5rem;
 }
 
 .cmuFeed__content {
-  margin: 0.25rem 0 0.5rem 0;
+  color: #474b52;
+  margin: 0.25rem 0;
   /* white-space: nowrap; */
   overflow: hidden;
   max-height: 3rem;
-  max-height: 40px;
+  max-height: 38px;
 }
 
 .cmuFeed__stats {
   text-align: right;
-}
-
-.cmuFeed__stat {
-  margin-right: 0.5rem;
 }
 
 .cmuFeed__pagerBottom {
@@ -8327,33 +8424,18 @@ div.cmuOverlay--show {
   border-bottom: 1px solid #bbbbbd;
 }
 
-.cmuFeed__sidebar__link {
-  color: #00a0df;
-}
-.cmuFeed__sidebar__link:hover {
-  text-decoration: underline;
-}
-
 .cmuFeed__actions {
   margin-bottom: 1rem;
 }
 .cmuFeed__actions a {
   display: block;
   padding: 0.25rem 0;
-  color: #00a0df;
 }
 .cmuFeed__actions a span:before {
   color: #00a0df;
 }
 .cmuFeed__actions a:hover span, .cmuFeed__actions a:hover span:before {
-  color: black;
-}
-.cmuFeed__actions a:hover span:last-child {
-  text-decoration: underline;
-}
-
-.cmuFeed__anno {
-  margin-bottom: 0.5rem;
+  color: #474b52;
 }
 
 .cmuFlexCenter {
@@ -8481,7 +8563,7 @@ div.cmuOverlay--show {
 }
 
 .cmuThreadlist__list thead {
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid #bbbbbd;
 }
 .cmuThreadlist__list thead th {
   font-weight: 300;
@@ -8533,18 +8615,11 @@ div.cmuOverlay--show {
 
 .cmuThreadList__row {
   position: relative;
-  border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
+  border-top: 1px solid #bbbbbd;
+  border-bottom: 1px solid #bbbbbd;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  line-height: 2rem;
-}
-.cmuThreadList__row:hover {
-  background: #f3f3f3;
-  cursor: pointer;
-}
-.cmuThreadList__row:hover .cmuThreadList__row__topic {
-  color: #00a0df;
+  display: table-row;
 }
 .cmuThreadList__row td {
   overflow: hidden;
@@ -8604,7 +8679,7 @@ div.cmuOverlay--show {
 }
 
 .cmuThreadlist__pinnedList {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #474b52;
   border-color: #474b52;
 }
 
@@ -8625,7 +8700,7 @@ div.cmuOverlay--show {
   padding: 0.16667rem 0.5rem;
   margin-right: 0.5rem;
   color: #fafafa;
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   line-height: 1rem;
 }
 
@@ -8667,7 +8742,7 @@ div.cmuOverlay--show {
   color: #fafafa;
   padding: 0.16667rem 0.5rem;
   margin-right: 0.5rem;
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   line-height: 1rem;
   position: relative;
   top: -5px;
@@ -8731,7 +8806,7 @@ div.cmuOverlay--show {
 }
 
 .cmuMessage__container {
-  border: 1px solid #bbbbbd;
+  border: 1px solid #474b52;
   margin-bottom: 0.5rem;
   display: table;
   width: 100%;
@@ -8751,7 +8826,7 @@ div.cmuOverlay--show {
   display: table-cell;
   vertical-align: top;
   width: 80%;
-  border-left: 1px solid #bbbbbd;
+  border-left: 1px solid #474b52;
   padding: 1rem;
   padding-top: 0.5rem;
   background-color: #f3f3f3;
@@ -8782,11 +8857,11 @@ div.cmuOverlay--show {
   margin-bottom: 1rem;
   min-height: 3rem;
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1rem;
 }
 
 .cmuMessage__signature {
-  border: 1px solid #ebebeb;
+  border: 1px solid #bbbbbd;
   padding: 2rem;
   padding-top: 0.25rem;
   margin-bottom: 0.5rem;
@@ -8830,7 +8905,7 @@ div.cmuOverlay--show {
   padding: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  border-left: 6px solid black;
+  border-left: 6px solid #474b52;
   border-color: #00a0df;
 }
 .cmuMessage__content li {
@@ -9334,11 +9409,16 @@ button .icon, .button .icon {
   color: black;
   margin-left: 0;
   display: inline-block;
+  margin-top: -1px;
 }
 .button--tab:hover {
   color: #fafafa;
   background-color: #bbbbbd;
   border-color: #bbbbbd;
+}
+.button--tab:hover {
+  color: #474b52;
+  background-color: #dadada;
 }
 .button--tab:first-child {
   margin-right: -1px;
@@ -9362,6 +9442,7 @@ button .icon, .button .icon {
   color: white;
   position: relative;
   top: -1px;
+  line-height: 1rem;
 }
 .cmuUsername .cmuUsername__icon.ubnt-icon--u {
   padding: 0.25rem;
@@ -9487,7 +9568,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__status__op:before {
   content: 'OP';
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   border: 1px solid #bbbbbd;
   padding: 0px 0.125rem;
   margin-right: 1px;
@@ -9550,6 +9631,17 @@ button .icon, .button .icon {
   padding: 0;
 }
 
+.cmuUserbadge--thin--open {
+  margin: 0;
+  border: 0;
+  position: initial;
+  padding-left: 0;
+  padding-top: 0;
+}
+.cmuUserbadge--thin--open .cmuUserbadge__user {
+  margin-bottom: 0;
+}
+
 .cmuUserbadge--comment {
   min-width: inherit;
 }
@@ -9559,7 +9651,7 @@ button .icon, .button .icon {
 
 .cmuComments__header {
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #474b52;
 }
 
 .cmuComments__row {
@@ -9593,11 +9685,12 @@ button .icon, .button .icon {
 
 .cmuComments__body-content {
   margin-right: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .cmuComments__body {
   font-size: 0.8125rem;
-  line-height: 1.3125rem;
+  line-height: 1.1rem;
 }
 
 .cmuComments__info {
@@ -9611,6 +9704,8 @@ button .icon, .button .icon {
 
 .cmuComments__flag {
   text-align: right;
+  float: right;
+  margin-right: 0.5rem;
 }
 .cmuComments__flag .cmuIcon-flag {
   cursor: pointer;
@@ -9647,25 +9742,25 @@ button .icon, .button .icon {
   position: relative;
 }
 
-.cmuInput {
+.cmuInput, .cmuTextEditor .cmuTextEditor__textarea {
   border: 1px solid #969ba3;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   background-color: white;
 }
-.cmuInput::-webkit-input-placeholder {
+.cmuInput::-webkit-input-placeholder, .cmuTextEditor .cmuTextEditor__textarea::-webkit-input-placeholder {
   color: black;
 }
-.cmuInput:-moz-placeholder {
+.cmuInput:-moz-placeholder, .cmuTextEditor .cmuTextEditor__textarea:-moz-placeholder {
   color: black;
 }
-.cmuInput::-moz-placeholder {
+.cmuInput::-moz-placeholder, .cmuTextEditor .cmuTextEditor__textarea::-moz-placeholder {
   color: black;
 }
-.cmuInput:-ms-input-placeholder {
+.cmuInput:-ms-input-placeholder, .cmuTextEditor .cmuTextEditor__textarea:-ms-input-placeholder {
   color: black;
 }
-.cmuInput:focus {
+.cmuInput:focus, .cmuTextEditor .cmuTextEditor__textarea:focus {
   border: 1px solid #00a0df;
   outline: 0;
   background-color: #fafafa;
@@ -9706,7 +9801,7 @@ button .icon, .button .icon {
   left: 9px;
   text-transform: uppercase;
   color: #969ba3;
-  font-size: 0.625rem;
+  font-size: 0.8125rem;
   cursor: text;
 }
 
@@ -9884,7 +9979,7 @@ button .icon, .button .icon {
   left: 9px;
   text-transform: uppercase;
   color: #969ba3;
-  font-size: 0.625rem;
+  font-size: 0.8125rem;
   cursor: text;
 }
 .cmuInputUrl--input + label + .cmuInputUrl--button {
@@ -9944,7 +10039,7 @@ button .icon, .button .icon {
   margin-top: -0.71429rem;
   margin-left: 0.25rem;
   color: #fafafa;
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   z-index: 100;
   opacity: 0;
 }
@@ -9990,7 +10085,7 @@ select {
   border: 1px solid #bebec0;
   padding: 0 0.5rem;
   color: #474b52;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -10022,23 +10117,23 @@ select:disabled {
   text-align: right;
 }
 .cmuSearchbox::-webkit-input-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox:-moz-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox::-moz-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 .cmuSearchbox:-ms-input-placeholder {
-  color: #969ba3;
-  font-weight: 400;
+  color: red;
+  font-weight: 300;
   font-size: 0.8125rem;
 }
 
@@ -10151,7 +10246,7 @@ select.cmuSort {
   text-align: center;
 }
 .timeline__year__title.open {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #474b52;
 }
 .timeline__year__title.open:after {
   display: inline-block;
@@ -10220,15 +10315,15 @@ select.cmuSort {
 
 .cmuDiscussionsNavbar {
   cursor: default;
-  border-top: 1px solid #bbbbbd;
-  border-bottom: 1px solid #474b52;
-  border-bottom-width: 2px;
+  border-bottom: 1px solid #bbbbbd;
+  border-top: 1px solid #474b52;
+  border-top-width: 2px;
 }
 .cmuDiscussionsNavbar a {
   display: inline-block;
   font-weight: 400;
   text-transform: uppercase;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   line-height: 0;
   outline: none;
 }
@@ -10248,44 +10343,50 @@ select.cmuSort {
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
-  margin-right: 1rem;
-  background-color: #fafafa;
+  background-color: #ebebeb;
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
 }
 
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
+.cmuDiscussionsNavbar__group {
+  border-left: 1px solid #bbbbbd;
+}
+
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container {
   display: none;
-  background-color: #ebebeb;
+  background-color: white;
   position: relative;
   left: -4px;
-  top: 1px;
-  padding: 0.5rem 0;
   line-height: 0;
+  border-right: 1px solid #bbbbbd;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container:before {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container:before {
   content: ' ';
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 6px solid #bbbbbd;
+  border-left: 6px solid #ebebeb;
   position: absolute;
   top: 10px;
-  left: -12px;
+  left: 0px;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container li {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink {
+  display: inline;
   padding: 0;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container li:last-child a {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink:first-child a {
+  padding-left: 1rem;
+}
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container .subLink:last-child a {
   padding-right: 0.75rem;
 }
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container a {
-  padding-left: 0.75rem;
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container a {
+  padding-left: 0.5rem;
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group + .cmuDiscussionsNavbar__group__container {
-  display: inline;
+  display: inline-block;
 }
 
 .cmuFeatures__sidebar {
@@ -10390,6 +10491,7 @@ select.cmuSort {
 }
 
 .cmuStoryItem {
+  margin-bottom: 1rem;
   max-width: 245px;
   max-width: calc((100% - 14px * 3) / 4);
 }
@@ -10399,44 +10501,44 @@ select.cmuSort {
   }
 }
 .cmuStoryItem:hover img {
-  opacity: 0.4;
-}
-.cmuStoryItem:hover a {
-  color: #00a0df;
+  transform: scale(1.2);
 }
 
-.cmuStoryItem--image {
-  background-color: white;
-  font-size: 0px;
-  line-height: 0;
-}
-.cmuStoryItem--image img {
-  width: 100%;
-  max-height: 420px;
-}
-
-.cmuStoryItem--featured {
+.cmuStoryItem__featured {
   position: relative;
 }
-.cmuStoryItem--featured:before {
+.cmuStoryItem__featured:before {
   display: block;
   font-family: 'ubnt';
   content: '\e719';
   position: absolute;
   top: 10px;
   left: 10px;
-  height: 32px;
-  width: 32px;
+  height: 1rem;
+  width: 1rem;
   text-align: center;
-  /* padding-top: 7px; */
   line-height: 34px;
   border-radius: 100%;
   color: white;
   background-color: #3cccac;
-  font-size: 18px;
+  font-size: 1.1875rem;
 }
 
-.cmuStoryItem--main {
+.cmuStoryItem__image {
+  background-color: white;
+  font-size: 0px;
+  line-height: 0;
+}
+.cmuStoryItem__image img {
+  width: 100%;
+  max-height: 420px;
+}
+
+.cmuStoryItem__image__container {
+  overflow: hidden;
+}
+
+.cmuStoryItem__main {
   background-color: white;
   padding: 0.5rem;
   border: 1px solid #bbbbbd;
@@ -10444,55 +10546,42 @@ select.cmuSort {
   border-bottom: 0;
 }
 
-.cmuStoryItem--link {
-  color: #474b52;
-  margin-bottom: 0.5rem;
+.cmuStoryItem__subject {
   display: inline-block;
 }
-.cmuStoryItem--link:hover {
+.cmuStoryItem__subject:hover {
   color: #00a0df;
 }
 
-.cmuStoryItem--meta {
+.cmuStoryItem__meta {
   padding: 0.5rem;
   background-color: #ebebeb;
-  margin-bottom: 1rem;
   border: 1px solid #bbbbbd;
   border-top: 0;
 }
-.cmuStoryItem--meta .icon {
+.cmuStoryItem__meta .icon {
   margin-right: 0.5rem;
 }
-.cmuStoryItem--meta > span {
+.cmuStoryItem__meta > span {
   margin-right: 0.5rem;
 }
 
-.cmuStoriesNew__Preview {
-  max-width: 800px;
+.cmuStoryDetail h1 {
+  margin-top: 0.5rem;
 }
 
-.cmuStories__title {
-  font-weight: 300;
-  font-size: 32px;
-  line-height: initial;
-  color: #474b52;
+.cmuStoryDetail__container {
+  padding: 1rem;
+  border: 1px solid #bbbbbd;
 }
 
 .cmuStories__summary {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: initial;
-  color: #969ba3;
-  margin-bottom: 1rem;
-  font-weight: 300;
+  color: #474b52;
 }
 
 .cmuStories__story__controlsTop {
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-.cmuStories__story__controlsTop .cmuUsername {
-  margin-left: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .cmuStories__story__controlsTop--left button {
@@ -10532,10 +10621,11 @@ select.cmuSort {
 }
 
 .cmuStories__story__cover {
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 12px;
   background: white;
-  border: 1px solid #ccc;
+  border: 1px solid #bbbbbd;
 }
 .cmuStories__story__cover .cmuStories__story__cover--img {
   text-align: center;
@@ -10632,56 +10722,37 @@ select.cmuSort {
 .cmuStories__story__imageContainer {
   margin-bottom: 1rem;
 }
-@media only screen and (min-width: 801px) {
-  .cmuStories__story__imageContainer.break-columns {
-    -webkit-columns: 2 200px;
-    -moz-columns: 2 200px;
-    columns: 2 200px;
-    -webkit-column-gap: 4em;
-    -moz-column-gap: 4em;
-    column-gap: 4em;
-    -webkit-column-rule: 1px solid #ebebeb;
-    -moz-column-rule: 1px solid #ebebeb;
-    column-rule: 1px solid #ebebeb;
-  }
-}
-.cmuStories__story__imageContainer .cmuStories__story__mediaItem {
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
 .cmuStories__story__imageContainer .cmuStories__story__mediaItem__caption {
   margin-bottom: 1rem;
 }
 
-.cmuStoriesNew__Title, .cmuStoriesNew__Form--title {
+.cmuStoriesNew__title, .cmuStoriesNew__form--title {
   font-size: 16px;
   margin-bottom: 0.5rem;
 }
 
-.cmuStoriesNew__Form {
+.cmuStoriesNew__form {
   overflow: hidden;
   padding-top: 0.5rem;
   padding-left: 0;
   padding-right: 1rem;
 }
 @media only screen and (min-width: 1441px) {
-  .cmuStoriesNew__Form {
+  .cmuStoriesNew__form {
     max-width: 410px;
   }
 }
 
-.cmuStoriesNew__Form--intro {
+.cmuStoriesNew__form--intro {
   padding-bottom: 0.5rem;
 }
 
-.cmuStoriesNew__Preview {
-  border: 1px solid #ebebeb;
-  background-color: white;
-  padding: 8px 21px;
+.cmuStoriesNew__form--text {
+  margin-bottom: 1rem;
 }
+
 @media only screen and (min-width: 1441px) {
-  .cmuStoriesNew__Preview {
+  .cmuStoriesNew__preview {
     width: calc(100% - 410px) !important;
   }
 }
@@ -10704,20 +10775,20 @@ select.cmuSort {
   display: none !important;
 }
 
-.cmuStoriesNew__Form--products {
+.cmuStoriesNew__form--products {
   margin-bottom: 2rem;
 }
 
-.cmuStoriesNew__Form--media {
+.cmuStoriesNew__form--media {
   margin-bottom: 1rem;
 }
 
-.cmuStoriesNew__Form--uploads {
+.cmuStoriesNew__form--uploads {
   counter-reset: mediaItem;
   position: relative;
 }
 
-.cmuStoriesNew__Form--uploadItem {
+.cmuStoriesNew__form--uploadItem {
   display: table;
   counter-increment: mediaItem;
   border: 1px solid #969ba3;
@@ -10726,14 +10797,14 @@ select.cmuSort {
   width: 100%;
 }
 
-.cmuStoriesNew__Form__uploadItem--preview {
+.cmuStoriesNew__form__uploadItem--preview {
   height: 120px;
   background-position: center;
   background-size: contain;
   width: 100%;
 }
 
-.cmuStoriesNew__Form--uploadItem--downup {
+.cmuStoriesNew__form--uploadItem--downup {
   display: table-cell;
   vertical-align: middle;
   padding: 0 0.5rem;
@@ -10742,7 +10813,7 @@ select.cmuSort {
   text-align: center;
   cursor: move;
 }
-.cmuStoriesNew__Form--uploadItem--downup + span:before {
+.cmuStoriesNew__form--uploadItem--downup + span:before {
   content: ' DRAG TO REPOSITION ';
   width: calc(100% - 29px);
   height: 100%;
@@ -10756,31 +10827,31 @@ select.cmuSort {
   position: absolute;
   z-index: -1;
 }
-.cmuStoriesNew__Form--uploadItem--downup:hover {
+.cmuStoriesNew__form--uploadItem--downup:hover {
   background-color: #ebebeb;
   color: #00a0df;
 }
-.cmuStoriesNew__Form--uploadItem--downup:hover + span:before {
+.cmuStoriesNew__form--uploadItem--downup:hover + span:before {
   opacity: 0.9;
   z-index: 100;
 }
 
-.cmuStoriesNew__Form--uploadItem--info {
+.cmuStoriesNew__form--uploadItem--info {
   display: table-cell;
   vertical-align: middle;
   padding-bottom: 0.5rem;
   width: 100%;
 }
 
-.cmuStoriesNew__Form--uploadItem--caption {
+.cmuStoriesNew__form--uploadItem--caption {
   margin-top: -5px;
 }
-.cmuStoriesNew__Form--uploadItem--caption .cmuInput {
+.cmuStoriesNew__form--uploadItem--caption .cmuInput, .cmuStoriesNew__form--uploadItem--caption .cmuTextEditor .cmuTextEditor__textarea, .cmuTextEditor .cmuStoriesNew__form--uploadItem--caption .cmuTextEditor__textarea {
   border: 0  !important;
   border-bottom: 1px solid #ebebeb !important;
 }
 
-.cmuStoriesNew__Form__uploadItem--count:before {
+.cmuStoriesNew__form__uploadItem--count:before {
   content: " # " counter(mediaItem);
   display: block;
   position: absolute;
@@ -10790,7 +10861,7 @@ select.cmuSort {
   font-size: 10px;
 }
 
-.cmuStoriesNew__Form--cover {
+.cmuStoriesNew__form--cover {
   color: #00a0df;
   text-transform: uppercase;
   font-size: 10px;
@@ -10802,34 +10873,34 @@ select.cmuSort {
   top: 0;
   left: 38px;
 }
-.cmuStoriesNew__Form--cover .icon {
+.cmuStoriesNew__form--cover .icon {
   font-size: 16px;
   line-height: 0;
   position: relative;
   margin-right: 12px;
 }
-.cmuStoriesNew__Form--cover .icon:before {
+.cmuStoriesNew__form--cover .icon:before {
   position: relative;
   top: 3px;
 }
 
-.cmuStoriesNew__Form__uploadItem--preview {
+.cmuStoriesNew__form__uploadItem--preview {
   background-position: center;
   background-repeat: no-repeat;
   left: 0px;
   background-size: cover;
 }
 
-.cmuStoriesNew__Form--cover--hide {
+.cmuStoriesNew__form--cover--hide {
   display: none !important;
 }
 
-.cmuStoriesNew__Form--cover--show {
+.cmuStoriesNew__form--cover--show {
   display: inline-block !important;
 }
 
-.cmuStoriesNew__Form--uploadItem--url,
-.cmuStoriesNew__Form--uploadItem--title {
+.cmuStoriesNew__form--uploadItem--url,
+.cmuStoriesNew__form--uploadItem--title {
   margin: 0 0.5rem;
   font-size: 10px;
   color: #474b52;
@@ -10837,43 +10908,43 @@ select.cmuSort {
   word-break: break-all;
 }
 
-.cmuStoriesNew__Form--uploadItem--controls {
+.cmuStoriesNew__form--uploadItem--controls {
   z-index: 75;
 }
-.cmuStoriesNew__Form--uploadItem--controls span {
+.cmuStoriesNew__form--uploadItem--controls span {
   cursor: pointer;
   font-size: 12px;
   margin: 0 0.5rem;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover {
   color: #00a0df;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCover:hover {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover {
   color: black;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--setCoverVideo {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCoverVideo {
   color: #ebebeb;
   cursor: default;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete {
   float: right;
   color: black;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete:hover {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover {
   color: #00a0df;
 }
-.cmuStoriesNew__Form--uploadItem--controls .cmuStoriesNew__Form--uploadItem--controls--delete .icon {
+.cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete .icon {
   font-size: 10px;
   margin-right: 0.5rem;
 }
 
-.cmuStoriesNew__Form--additional {
+.cmuStoriesNew__form--additional {
   border: 1px solid #ebebeb;
   padding: 1rem;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
-.cmuStoriesNew__Form--additional .icon {
+.cmuStoriesNew__form--additional .icon {
   font-size: 10px;
   line-height: 28px;
   content: "\e6ce";
@@ -10881,13 +10952,17 @@ select.cmuSort {
   position: relative;
   top: -1.5px;
 }
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--title,
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .cmuStoriesNew__Form--intro, .cmuStoriesNew__Form--additional .cmuStoriesNew__Form--additional--controller:hover .icon {
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon {
   color: #00a0df;
 }
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--title,
-.cmuStoriesNew__Form--additional .cmuStoriesNew__Form--intro {
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--title,
+.cmuStoriesNew__form--additional .cmuStoriesNew__form--intro {
   cursor: pointer;
+}
+
+.cmuStoriesNew__tips {
+  margin-top: 1rem;
 }
 
 .cmuAnnouncementsDetails .cmuUserbadge__op:before {
@@ -10983,6 +11058,8 @@ a.appIconInput__icon {
 }
 
 .cmuTooltipster {
+  border: 3px solid #474b52;
+  border-color: #00a0df;
   background: #fafafa;
   min-height: 2rem;
   max-height: 12rem;

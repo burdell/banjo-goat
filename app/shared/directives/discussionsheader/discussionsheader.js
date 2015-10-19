@@ -20,7 +20,8 @@ function discussionsHeader() {
         restrict: 'E',
         replace: true,
         scope: {
-        	headerText: '@'
+        	headerText: '@',
+            subtitleText: '@'
         }
     };
 

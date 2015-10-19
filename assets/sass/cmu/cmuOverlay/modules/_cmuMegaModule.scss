@@ -12,18 +12,24 @@
 
 %megaTopOffset {
 	position: relative;
-	top: $cmu-base*3;
+	// top: $cmu-base*3;
+	top: 0;
 }
 %megaContentTopOffset {
 	position: relative;
-	top: $cmu-base*4;
+	// top: $cmu-base*4;
+	top: 0;
 }
 
 // general settings; acts as a "blackout"
 .cmuMega {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
     width: 100%;
     height: 100%;
     z-index: $z-overlay;
@@ -70,10 +76,10 @@
 			font-weight: 300;
     		vertical-align: top;
     		padding-right: $cmu-base/2;
-			letter-spacing: $cmu-size-letterspacing-header;
+			letter-spacing: $size-letterspacing-header;
     		line-height: 1.5rem;
 			text-transform: uppercase;
-			font-size: $cmu-size-smaller;
+			font-size: $size-smaller;
 		}
 		&:hover {
 			color: $cmu-color-white;
@@ -89,6 +95,7 @@
 	.cmuMega__content {
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
+		max-width: $cmu-maxwidth;
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}
@@ -100,15 +107,15 @@
 
 		.cmuMega__section__head {
 			text-transform: uppercase;
-			letter-spacing: $cmu-size-letterspacing-header; 
-			font-size: $cmu-size-smaller;
+			letter-spacing: $size-letterspacing-header; 
+			font-size: $size-smaller;
 			// padding-top: $cmu-base / 2;
 			padding-bottom: $cmu-base / 2;
 		}
 
 		.cmuMega__section__col {
 			a { 
-				letter-spacing: $cmu-size-letterspacing-text;
+				letter-spacing: $size-letterspacing-text;
 				display: block;
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;

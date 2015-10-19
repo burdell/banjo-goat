@@ -4,6 +4,8 @@
     @extend %ease-fast;
     display: none; // default is hidden
     overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
     margin-top: $cmu-base;
 
     .appIconInput__icon {

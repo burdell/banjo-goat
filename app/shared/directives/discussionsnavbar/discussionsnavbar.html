@@ -10,11 +10,13 @@
 				{{ navLink.display }}
 			</a>
 
-			<ul ng-if="navLink.subLinks" class="cmuDiscussionsNavbar__group__container" href="#">
-				<li ng-repeat="subLink in navLink.subLinks">
-					<a ng-class="{ active : subLink.active }" area-link-handler="{{ ::subLink.href }}" >{{ subLink.display }}</a>
-				</li>
-			</ul>
+			<div ng-if="navLink.subLinks" class="cmuDiscussionsNavbar__group__container" href="#">
+				<div class="subLink" ng-repeat="subLink in navLink.subLinks">
+					<span class="subLink__container">
+						<a ng-class="{ active : subLink.active }" area-link-handler="{{ ::subLink.href }}" >{{ subLink.display }}</a>
+					</span>
+				</div>
+			</div>
 		</li>
 	</ul>
 </div>

@@ -34,7 +34,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			color: $cmu-color-white;
 			padding: $cmu-base/6 $cmu-base/2;
 			margin-right: $cmu-base/2;
-			font-size: $cmu-size-xxsmaller;
+			font-size: $size-xxsmaller;
 			line-height: $cmu-base;
 			position: relative;
 			top: -5px;
@@ -44,13 +44,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// Locked Thread 
 	.cmuThread__subject--locked {
 		h3:after {
-			font-size: $cmu-size-large;
+			font-size: $size-large;
 			font-family: 'ubnt';
 			content: '\e78e';
 			display: inline-block;
 			padding: $cmu-base/6 $cmu-base/2;
 			color: $cmu-color-gray;
-			// font-size: $cmu-size-xxsmaller;
+			// font-size: $size-xxsmaller;
 			position: absolute; // remove it from flow
 			top: -4px;
 		}

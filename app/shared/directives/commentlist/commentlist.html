@@ -3,27 +3,31 @@
 
 {{ commentList }}
 
-	<div class="cmuComments__header">{{ commentlist.getCommentCountText() }}</div>
+	<div class="cmuComments__header" ng-class="{ 'cmuComments__noComments' : commentlist.currentComments.content.length == 0 }">{{ commentlist.getCommentCountText() }} </div>
 	<div class="container">
 		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments.content">
 
-			<community-user-badge 
-				class="cmuUserbadge--comment col--md2"
-				user="comment.insertUser">
-			</community-user-badge>
-
+			<div class="col--md3">
+				<community-user-badge 
+					class="cmuUserbadge--comment"
+					user="comment.insertUser">
+				</community-user-badge>
+			</div>
 
 			<div class="cmuComments__body col--md9">
+
+				<div>
+					<span class="cmuComments__date">
+						{{ comment.postDate | timeFromNow }}
+					</span>
+					<span class="cmuComments__flag">
+						<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
+					</span>
+				</div>
 				<div class="cmuComments__body-content" ng-bind-html="comment.body | sanitize">
 				</div>
 			</div>
 
-			<div class="cmuComments__info col--md1">
-				<div class="cmuComments__date">{{ comment.postDate | timeFromNow }}</div>
-				<div class="cmuComments__flag">
-					<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
-				</div>
-			</div>
 		</div>
 
 	</div>

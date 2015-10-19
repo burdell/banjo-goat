@@ -16,7 +16,6 @@ var currentUser = function($q, apiService, intializeService){
 				if (!currentUser.user) {
 					return intializeService.initialize().then(function(result){
 						currentUser.user = result.auth;
-						
 						return currentUser;
 					});
 				} 

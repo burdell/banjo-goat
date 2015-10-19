@@ -63,7 +63,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			}
 			//GET
 			else {
-				payload = params;3
+				payload = params;
 				verb = 'GET';
 				id = callData;
 			}
@@ -200,6 +200,11 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'features/' + messageId + '/comments', options);
 				}
 			},
+			Gamification: {
+				info: function(){
+					return goToApi(v2Url + 'gamify/info', null, 'GET');
+				}
+			},
 			Media: {
 				upload: function(fileData){
 					var formData = new FormData();
@@ -233,12 +238,18 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				},
 				stories: function(nodeId, data){
 					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+				},
+				search: function(options){
+					return goToApi(v2Url + 'stories/search', options, 'GET');
 				}
 			},
 
 			Users: {
 				authentication: function(){
 					return goToApi(v2Url + urlSegments.User('self'));
+				},
+				userData: function(userId){
+					return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 				}
 			}
 		}

@@ -5,9 +5,9 @@ require('services/data.js');
 
 require('directives/sorter/sorter.js');
 require('directives/loadmore/loadmore.js');
+require('directives/storydisplay/storydisplay.js');
 
 require('stories/list/fluidlayout.js');
-require('stories/list/storydisplay.js');
 
 
 var _ = require('underscore');

@@ -18,6 +18,7 @@
 
 // icon representations (only within Feed/Hub)
 .cmuFeed__icon {
+	font-size: $cmu-base;
 	margin-right: $cmu-base/2;
 	&:before {
 		color: $cmu-color-dkgray;
@@ -57,6 +58,19 @@
 }
 
 
+.cmuFeed {
+	// hide breadcrumbs
+	.cmuBreadcrumbs { 
+		display: none;
+	}
+
+	.cmuDiscussionsHeader h3 {
+		@extend %h2;
+		margin-top: $cmu-vertical-rhythm*2;
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
+}
 
 .cmuFeed__main {
 	padding-right: $cmu-base;
@@ -77,22 +91,13 @@
 
 	// location tag
 	.cmuFeed__location {
-		display: inline-block;
-		@extend %size-xxsmaller;
-		border: $style-line;
-		padding: $cmu-base/6 $cmu-base/2;
-		background-color: $cmu-color-ltgray;
+		@extend %style-tag;
 	}
 
 	.cmuFeed__title {
-		padding-left: $cmu-base/2;
-		padding-right: $cmu-base/2;
+		padding: $cmu-base/2 $cmu-base;
+		border-bottom: $style-line;
 	}
-		.cmuFeed__title--all {
-			padding: $cmu-base/2 $cmu-base;
-			border-bottom: $style-line;
-		}
-
 
 	// 
 	// stories
@@ -100,34 +105,30 @@
 
 	.cmuFeed__stories {
 		border: $style-line;
+		border-bottom: 0;
+
 		margin-bottom: $cmu-vertical-rhythm;
 		background-color: $cmu-color-post;
-		padding-top: $cmu-base/2;
-		padding-bottom: $cmu-base/2;
+		// padding-top: $cmu-base/2;
+		// padding-bottom: $cmu-base/2;
 
 	}
 		.cmuFeed__storyList {
 			padding: $cmu-base/2;
+			border-bottom: $style-line;
 		}
 		.cmuFeed__story {
-			* { @extend %ease-fast; }
+			@extend %style-listItem;
 			&:hover {
-
 				.cmuFeed__story__img {
+					@extend %ease-fast;
 				    -moz-transform: scale(1.2);
 				    -webkit-transform: scale(1.2);
 				    transform: scale(1.2);
 				}
-
-				.cmuFeed__story__subject {
-					text-decoration: underline;
-				}
 			}
 		}
 
-			.cmuFeed__story__subject {
-				@extend %size-smaller;
-			}
 			.cmuFeed__close {
 				text-align: right;
 				cursor: pointer;
@@ -135,13 +136,14 @@
 				// fpo
 			    position: absolute;
 			    right: 18px;
-			    top: 12px;
+			    top: 10px;
 
 			    span:before {
 			    	content: "\e6d0";
 			    }
 			}
 				.cmuFeed__close--closed {
+
 				    span:before {
 				    	content: "\e6cf";
 				    }
@@ -159,34 +161,19 @@
 
 		// background image fed into inline style
 		.cmuFeed__story__img {
+			@extend %ease-fast;
 			height: $cmu-base*8;
 			width: 100%;
 			background-repeat: no-repeat;
 			background-size: cover;
 		}
 
-		.cmuFeed__story__subject {
-			@extend %size-smaller;
-			line-height: $cmu-size-xsmaller--line-height;
-			color: $cmu-color-active;
-			// margin-bottom: $cmu-base/2;
-		}
-
 		.cmuFeed__story__user {
-			@extend %size-xsmaller;
-			color: $cmu-color-dkgray;
-			margin-top: $cmu-base/4;
+			@extend %style-user;
 		}
 		.cmuFeed__story__date {
-			@extend %size-xsmaller;
-			color: $cmu-color-gray;
-			margin-bottom: $cmu-base/4;
+			@extend %style-date;
 		}
-
-
-
-
-
 
 
 
@@ -208,18 +195,17 @@
 			border-bottom: $style-line;
 		}
 
-		// individual story items
+		// individual article items
 		.cmuFeed__item {
 			padding: $cmu-base/2 $cmu-base;
 			border-bottom: $style-line;
 			cursor: pointer;
 			overflow: hidden;
+			@extend %style-listItem;
+			background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-ltgray;
-				.cmuFeed__subject {
-					text-decoration: underline;
-				}
+				background-color: $cmu-color-white;
 			}
 
 			.cmuFeed__icon {
@@ -230,34 +216,29 @@
 				height: $cmu-base*1.2;
     			overflow: hidden;
 			}
-				.cmuFeed__subject {
-					// font-weight: 600;
-					color: $cmu-color-blue;
-					// white-space: nowrap;
 
-					@extend %size-normal;
-				}
 			.cmuFeed__userAction {
 				@extend %size-xsmaller;
-				color: $cmu-color-dkgray;
-				// margin-top: $cmu-base/4;
-				margin-left: $cmu-base/2;
+				color: $cmu-color-mdgray;
+				margin: $cmu-base/4 0;
+				margin-bottom: $cmu-base/2;
 			}
 			.cmuFeed__content {
-				@extend %size-smaller;
-				margin: $cmu-base/4 0 $cmu-base/2 0;
+				@extend %size-normal;
+				color: $cmu-color-dkgray;
+				margin: $cmu-base/4 0;
 
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 40px; // preserve 2 lines
+			    max-height: 38px; // preserve 2 lines
 			}
 			.cmuFeed__stats {
 				text-align: right;
 			}
 				.cmuFeed__stat {
-					@extend .cmuFeed__location;
-					margin-right: $cmu-base/2;
+					@extend %style-stat;
+					// margin-right: $cmu-base/2;
 				}
 
 
@@ -286,37 +267,28 @@
 	}
 }
 	.cmuFeed__sidebar__link {
-		color: $cmu-color-active;
-		@extend %size-smaller;
-		
-		&:hover {
-			text-decoration: underline;
-		}
+		@extend %style-ctaLink;
 	}
 
 	.cmuFeed__actions {
 		margin-bottom: $cmu-vertical-rhythm;
 
+
 		a {
 			display: block;
 			padding: $cmu-base/4 0;
-			color: $cmu-color-active;
 			@extend %ease-fast;
-			span, span:before { 
-				@extend %ease-fast;
-			}
+			@extend %style-ctaLink;
 
 			// icon color
 			span:before { 
+				@extend %ease-fast;
 				color: $cmu-color-active;
 			}
 			&:hover {
 				span, span:before { 
 					@extend %ease-fast;
-					color: $cmu-color-black; 
-				}
-				span:last-child { 
-					text-decoration: underline; 
+					color: $cmu-color-dkgray;
 				}
 			}
 		}
@@ -327,16 +299,7 @@
 	}
 
 		.cmuFeed__anno {
-			@extend %size-smaller;
-			margin-bottom: $cmu-vertical-rhythm/2;
-			// &:hover {
-			// 	// text-decoration: underline; 
-			// 	a {
-			// 		border-bottom: $style-line;
-			// 	}
-			// }
-
-			@extend %style-link--dark;
+			@extend %cmuRailLink;
 		}
 
 

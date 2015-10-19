@@ -5,6 +5,7 @@ require('services/api.js');
 require('services/breadcrumb.js');
 require('services/filter.js');
 require('services/currentuser.js');
+require('services/nodestructure.js');
 
 require('directives/commentform/commentform.js');
 require('directives/commentlist/commentlist.js');
@@ -16,7 +17,7 @@ require('filters/sanitize.js');
 
 var _ = require('underscore');
 
-function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, currentUserService, storyThread, storyDefaults){
+function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults){
 	var ctrl = this;
 
 	storyThread.comments.content.pop();
@@ -28,33 +29,39 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 		return mediaObj.meta && mediaObj.meta.isCover;
 	}) || { url: storyDefaults.coverPhoto };
 
-	var refreshComments = function(){
-		communityApi.Stories.comments(story.id).then(function(result){
-			ctrl.comments = result.collection;
-			ctrl.commentData = result.next;
-			ctrl.comment.replyText = null;
-			ctrl.toggleCommentForm();
-		}).finally(function(){
-			ctrl.comment.submittingComment = false;
-		});
-	};
-	
+		var refreshComments = function(){
+			communityApi.Stories.comments(story.id).then(function(result){
+				ctrl.comments = result.collection;
+				ctrl.commentData = result.next;
+				ctrl.comment.replyText = null;
+				ctrl.toggleCommentForm();
+			}).finally(function(){
+				ctrl.comment.submittingComment = false;
+			});
+		};
 
-	_.extend(ctrl, {
-		story: story,
-		discussion: story.message,
-		storyAuthor: storyAuthor,
-		comments: storyThread.comments,
-		productList: _.pluck(story.productsUsed, 'productKey'),
-		cover: cover,
-		moreCommentsFilter: filterService.getNewFilter({ 
-			filterFn: communityApi.Forums.comments, 
-			filterArguments: [ story.id ],
-			persistFilterModel: false,
-			setInitialData: false
-		}),
-		toggleCommentForm: function(scroll) {
-			ctrl.replyInProgress = !ctrl.replyInProgress;
+		nodeServiceWrapper.get().then(function(nodeService){
+			ctrl.getProductName = function(nodeId){
+				var node = nodeService.getNode(Number(nodeId));
+				return node ? node.name : nodeId;
+			}
+		});
+
+		_.extend(ctrl, {
+			story: story,
+			discussion: story.message,
+			storyAuthor: storyAuthor,
+			comments: storyThread.comments,
+			productList: story.productsUsed,
+			cover: cover,
+			moreCommentsFilter: filterService.getNewFilter({ 
+				filterFn: communityApi.Forums.comments, 
+				filterArguments: [ story.id ],
+				persistFilterModel: false,
+				setInitialData: false
+			}),
+			toggleCommentForm: function(scroll) {
+				ctrl.replyInProgress = !ctrl.replyInProgress;
 
 			//only scroll if we're showing comment form
 			if (ctrl.replyInProgress && scroll) {
@@ -102,6 +109,7 @@ StoryDetailController.$inject = [
 	'CommunityApiService', 
 	'CommunityBreadcrumbService',  
 	'CommunityFilterService', 
+	'CommunityNodeService',
 	'CurrentUserService',
 	'StoryThread', 
 	'StoryDefaults'

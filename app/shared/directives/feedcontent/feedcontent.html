@@ -11,18 +11,19 @@
 			<!-- {{ ::feedcontent.contentDisplay.body | unformatText | wordCut: 20 }} -->
 			{{ ::feedcontent.contentDisplay.body | unformatText }}
 		</div>
+		<div class="cmuFeed__userAction">
+			<span>{{ ::feedcontent.contentDisplay.discussionActionString }}</span> &mdash; {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
+		</div>
 
 		<div class="row">
 			<div class="col--md7">
 				<div class="cmuFeed__location"> {{ ::feedcontent.contentDisplay.nodeName }}</div>
-				<span class="cmuFeed__userAction">
-					{{ ::feedcontent.contentDisplay.discussionActionString }} - {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
-				</span>
 			</div>
 			<div class="cmuFeed__stats col--md5">
-				<span class="cmuFeed__stat">Views: 324</span>
-				<span class="cmuFeed__stat">Replies: 21</span>
-				<span class="cmuFeed__stat">Kudos: 124</span>
+				<span class="cmuFeed__stat"><span class="ubnt-icon ubnt-icon--eye2"></span>324 views</span>
+				<span class="cmuFeed__stat"><span class="ubnt-icon ubnt-icon--pencil-2"></span>22 replies</span>
+				<span class="cmuFeed__stat">
+				<span class="cmuIcon cmuIcon-cool"></span>124 kudos</span>
 			</div>
 		</div>
 	</a>

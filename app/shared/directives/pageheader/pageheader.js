@@ -29,6 +29,7 @@ function pageHeader() {
         restrict: 'E',
         scope: {
             headerText: '@',
+            subtitleText: '@',
             hideElementSelector: '@'
         }
     };

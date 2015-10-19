@@ -21,7 +21,7 @@
 	// display: inline-block;
 	display: block;
 	// margin-bottom: $cmu-base/2;
-	font-size: $cmu-size-xsmaller;
+	font-size: $size-xsmaller;
 	// border-bottom: $style-line--dark;
 	// border-bottom-width: 2px; // thicker
 
@@ -51,9 +51,9 @@
 	// padding-left: $cmu-base;
 	// border-left: 1px solid $cmu-color-mdgray;
 	
-	border-top: $style-line;
-	border-bottom: $style-line--dark;
-	border-bottom-width: 2px; // thicker
+	border-bottom: $style-line;
+	border-top: $style-line--dark;
+	border-top-width: 2px; // thicker
 
 	a {
 		display: inline-block;
@@ -62,7 +62,7 @@
 		@extend %ease-fast;
 		@extend %style-link--dark;
 		text-transform: uppercase;
-		padding: $cmu-base $cmu-base/2;
+		padding: $cmu-base;
 		line-height: 0;
 		outline: none;
 	}
@@ -89,50 +89,58 @@
 
 // grouped content
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group {
-	margin-right: $cmu-base;
-	background-color: $cmu-color-white;
+	// margin-right: $cmu-base/2;
+	background-color: $cmu-color-ltgray;
 	padding-left: $cmu-base/2;
-	padding-right: $cmu-base/2;
+	padding-right: $cmu-base*3/4;
 }
+	.cmuDiscussionsNavbar__group {
+		// color: $cmu-color-active !important; // temporary
+		border-left: $style-line;
+	}
 
-.cmuDiscussionsNavbar ul.cmuDiscussionsNavbar__group__container {
+.cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container {
 	display: none;
 	// @include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
-	background-color: $cmu-color-ltgray;
-	// margin-left: $cmu-base/2;
+	background-color: $cmu-color-purewhite;
     position: relative;
     left: -4px;
-    top: 1px;
-    padding: $cmu-base/2 0;
+    // top: 1px;
+    // padding: $cmu-base/2 0;
     // padding-left: $cmu-base;
     line-height: 0;
+    border-right: $style-line;
 
-
+    // arrow
     &:before {
     	content: ' ';
 		width: 0; 
 		height: 0; 
 		border-top: 6px solid transparent;
 		border-bottom: 6px solid transparent; 
-		border-left:6px solid $cmu-color-mdgray; 
+		border-left:6px solid $cmu-color-ltgray; 
 	    position: absolute;
 	    top: 10px;
-	    left: -12px;
+	    left: 0px;
     }
 
-	li {
+	.subLink {
+    	display: inline;
 		padding: 0;
 
+		&:first-child a {
+			padding-left: $cmu-base;
+		}
 		&:last-child a {
 			padding-right: $cmu-base*3/4;
 		}
 	}
 	a {
-		padding-left: $cmu-base*3/4;
+		padding-left: $cmu-base/2;
 	}
 }
 
 .cmuDiscussionsNavbar .cmuDiscussionsNavbar__group + .cmuDiscussionsNavbar__group__container {
-	display: inline;
+	display: inline-block;
 }
 

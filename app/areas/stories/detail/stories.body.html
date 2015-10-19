@@ -1,11 +1,17 @@
 
 <div class="row">
-	<div class="cmuStories__title">{{ vm.story.subject || vm.placeholders.subject }}</div>	
+	<h1>
+		{{ vm.story.subject || vm.placeholders.subject }}
+	</h1>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 </div>
 
 <div class="cmuStories__story__controlsTop row" ng-hide="vm.hideStoryControls">
+
+
 	<div class="cmuStories__story__controlsTop--left col--md9 noPadding">
+
+	<!-- 
 		<div class="cmuStories__author--avatar">
 			<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
 		</div>
@@ -14,15 +20,24 @@
 			<community-username user="vm.storyAuthor"></community-username>
 			<span class="cmuStories__postTime">{{ vm.story.message.postDate | timeFromNow }}</span>
 		</div>
-		
+		 -->
+
+
+			<community-user-badge 
+				class="cmuUserbadge--thin cmuUserbadge--thin--open"
+				user="vm.storyAuthor"
+				op-id="messageDisplay.showOp">
+			</community-user-badge>
+
+
 		<button community-permissions denied-behavior="disable" community-permissions ng-if="
 			vm.coordinates.locName || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
 				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
 				vm.story.meta.bandwidth ||
 				(vm.productList && vm.productList.length > 0)
-			" class="button--vote button-white-on-green">
-			{{ vm.discussion.stats | extractKey : 'score' }} kudos
+			" class="button--vote button-green-on-white">
+			{{ vm.discussion.stats | extractKey : 'score' }} 123 kudos
 		</button>
 	</div>
 
@@ -112,8 +127,8 @@
 		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
 			<div class="cmuStories__story__products--title">Products Used</div>
 			<div class="cmuStories__story__products--items">
-				<div class="cmuStories__story__products--item col--md12 noPadding" ng-repeat="product in vm.productList">
-					<div class="cmuStories__story__products--name">{{ product }}</div>
+				<div class="cmuStories__story__products--item col--md12 noPadding" ng-repeat="product in vm.productList track by $index">
+					<div class="cmuStories__story__products--name">{{ vm.getProductName(product) }}</div>
 					<div class="cmuStories__story__products--links">
 						<a href="#">Product Details</a> 
 					</div>

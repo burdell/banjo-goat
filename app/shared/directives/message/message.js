@@ -16,9 +16,9 @@ function communityMessage() {
 	function controller() {	
 		var ctrl = this;
 
-			_.extend(ctrl, {
-				hideVoteButtons: this.hideVoteButtons
-			});
+		_.extend(ctrl, {
+			hideVoteButtons: this.hideVoteButtons
+		});
 		}
 		controller.$inject = [];
 	    

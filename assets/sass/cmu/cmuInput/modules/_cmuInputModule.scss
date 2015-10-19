@@ -94,7 +94,7 @@
 
 		text-transform: uppercase;
 		color: $cmu-color-gray;
-		font-size: remCalc(10px);
+		font-size: $cmu-size-form;
 		cursor: text;
 	}
 }
@@ -137,7 +137,7 @@
 
 			// text-transform: uppercase;
 			color: $cmu-color-dkgray;
-			font-size: remCalc(13px);
+			font-size: $cmu-size-form;
 			cursor: text;
 			// line-height: remCalc(41px);
 		}
@@ -247,7 +247,7 @@
 		// hide the placeholder when not active
 		@include cmu-placeholder {
 			color: $cmu-color-ltgray;
-			font-size: remCalc(13px);
+			font-size: $cmu-size-form;
 			cursor: text;
 		}
 
@@ -279,7 +279,7 @@
 
 			text-transform: uppercase;
 			color: $cmu-color-gray;
-			font-size: remCalc(10px);
+			font-size: $cmu-size-form;
 			cursor: text;
 		}
 
@@ -367,7 +367,7 @@
 		margin-top: -$cmu-base/1.4;
 		margin-left: $cmu-base/4;
 		color: $cmu-color-bodybg;
-		font-size: $cmu-size-xxsmaller;
+		font-size: $size-xxsmaller;
 		z-index: 100;
 		@extend %ease;
 		opacity: 0;
@@ -467,7 +467,7 @@ select {
   border: 1px solid $cmu-threadsort-border-color;
   padding: 0 $cmu-base/2;
   color: $cmu-color-dkgray;
-  font-size: $cmu-size-smaller;
+  font-size: $cmu-size-form;
   @include border-radius(0);
   background-size: 16px 12px;
 

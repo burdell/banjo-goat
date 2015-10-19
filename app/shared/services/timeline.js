@@ -2,7 +2,7 @@
 'use strict';
 
 var _ = require('underscore');
-var moment = require('moment/moment.js');
+var moment = require('moment');
 
 function groupData(dataList, datePropertyFn){
 	_.each(dataList, function(discussion){
@@ -14,7 +14,7 @@ function groupData(dataList, datePropertyFn){
 			month: momentDate.month(),
 			year: momentDate.year()
 		})
-		});
+	});
 
 	var dataByYear = _.groupBy(dataList, function(data){
 		return  data.year;
@@ -31,11 +31,11 @@ function groupData(dataList, datePropertyFn){
 		var dataByMonth = _.groupBy(yearData, function(data){
 			return data.month;
 		});
+
 		_.each(dataByMonth, function(data, month){
 			yearObj.count += data.length
-			yearObj.yearData.push({ month: month, monthData: data });
+			yearObj.yearData.unshift({ month: month, monthData: data });
 		});
-
 		groupedData.push(yearObj);
 	});
 
