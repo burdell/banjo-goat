@@ -52,9 +52,18 @@ var _ = require('underscore');
 			},
 			landingPages: function(){
 				return [
-					{ area: 'Announcements', href: communityRoutes.announcements.landing, description: 'Announcements' },
-					//{ area: 'QA', href: communityRoutes.stories.landing, description: 'Questions & Answers'  },
-					{ area: 'Stories', href: communityRoutes.stories.landing, description: 'Stories'  },
+					{ 
+						area: 'Announcements', 
+						href: communityRoutes.announcements.landing, 
+						description: 'Announcements',
+						callToAction: 'View Announcements' 
+					},
+					{ 
+						area: 'Stories', 
+						href: communityRoutes.stories.landing, 
+						description: 'Stories',
+						callToAction: 'Read Members Stories'  
+					}
 				]
 			},
 			generateDiscussionUrl: function(nodeName, discussionType) {
