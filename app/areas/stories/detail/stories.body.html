@@ -93,11 +93,23 @@
 			</div>
 		</div>
 	</div>
-	<div class="cmuStories__story__info col--md3">
+
+
+
+	
+
+
+
+
+
+	<!-- 
+		Sidebar
+	 -->
+	<div class="cmuStory__sidebar col--md3">
 		<div ng-if="vm.coordinates.locName">
-			<community-map class="cmuStories__story__info--map" map-coordinates="vm.coordinates"></community-map>
-			<div class="cmuStories__story__info--title">Location</div>
-			<div class="cmuStories__story__info--map-location">{{ vm.coordinates.locName }}</div>
+			<community-map class="cmuStory__sidebar__map" map-coordinates="vm.coordinates"></community-map>
+			<!-- <div class="cmuStory__sidebar__title">Location</div> -->
+			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
 		</div>
 		<div ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>
@@ -124,15 +136,15 @@
 			<p>{{ vm.story.meta.bandwidth.value }}</p>
 		</div>
 
-		<div class="cmuStories__story__products" ng-show="vm.productList && vm.productList.length > 0">
-			<div class="cmuStories__story__products--title">Products Used</div>
-			<div class="cmuStories__story__products--items">
-				<div class="cmuStories__story__products--item col--md12 noPadding" ng-repeat="product in vm.productList track by $index">
-					<div class="cmuStories__story__products--name">{{ vm.getProductName(product) }}</div>
-					<div class="cmuStories__story__products--links">
-						<a href="#">Product Details</a> 
+		<div class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">
+			<div class="cmuStory__products--header">Products Used</div>
+			<div ng-repeat="product in vm.productList track by $index">
+				<a class="cmuStory__product col--md12 noPadding" area-link-handler="{{ vm.getProductUrl(product) }}" >
+					<div class="cmuStory__product__icon">
+						<span class="icon {{ vm.getProductIcon(product) }}"></span>
 					</div>
-				</div>
+					<div class="cmuStory__product__name">{{ vm.getProductName(product) }}</div>
+				</a>
 			</div>
 		</div>
 	</div>	

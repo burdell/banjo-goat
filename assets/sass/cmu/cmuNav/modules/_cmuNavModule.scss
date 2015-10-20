@@ -5,7 +5,7 @@ $nav-height: $cmu-nav-height;
 
 %nav-style {
 	text-transform: uppercase;
-	color: $cmu-color-textgray;
+	color: $cmu-color-white;
 	letter-spacing: 0.4px;
 	font-size: $size-xsmaller;
 	vertical-align: top;
@@ -16,13 +16,16 @@ $nav-height: $cmu-nav-height;
 
 	@extend %ease-fast;
 	&:hover {
-		color: $cmu-color-vltblue;
+		color: $cmu-color-white;
+		background-color: $cmu-color-ltblue;
 		@extend %ease-fast;
 	}
 }
 
 %nav-icon-style {
 	@extend %nav-style;
+	padding-left: $cmu-base*0.9;
+	padding-right: $cmu-base*0.9;
 	font-size: $cmu-base;
 	color: $cmu-color-white;
 }
@@ -38,8 +41,8 @@ $nav-height: $cmu-nav-height;
 
 .cmuGloNav {
 	// background-color: $cmu-color-soot;
-	background-color: $cmu-color-dkblue;
-	border-bottom: 1px solid $cmu-color-dkgray;
+	background-color: $cmu-color-menu;
+	// border-bottom: 1px solid $cmu-color-dkgray;
 	z-index: $z-gloNav;
 	position: relative;
 
@@ -91,7 +94,7 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuHome,
 		.cmuGloNav__right,
 		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
-		.cmuGloNav__controlContainer,
+		.cmuGloNav__accountControl,
 		.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang,
 		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
 			display: inline-block;
@@ -105,10 +108,14 @@ $nav-height: $cmu-nav-height;
 	}
 
 	.cmuGloNav__left {
-			@extend %nav-style;
-			// border-left: 1px solid $cmu-color-dkgray;
-			padding-left: 0;
-			color: $cmu-color-white;
+		@extend %nav-style;
+		// border-left: 1px solid $cmu-color-dkgray;
+		padding-left: 0;
+		color: $cmu-color-white;
+		&:hover {
+			color: $cmu-color-ltblue;
+			background-color: transparent;
+		}
 	}
 		.cmuGloNav__logo {;
     		margin-top: -0.7rem;
@@ -140,7 +147,7 @@ $nav-height: $cmu-nav-height;
 
 		// fake active button
 		.cmuGloNav__links {
-			margin-right: $cmu-base;
+			// margin-right: $cmu-base;
 
 			.active {
 				// background-color: $cmu-color-dkgray;
@@ -154,39 +161,50 @@ $nav-height: $cmu-nav-height;
 		.cmuGloNav__link {
 			a { 
 				@extend %nav-style; 
+				padding-left: $cmu-base;
+				padding-right: $cmu-base;
 				color: $cmu-color-white;
 				outline:none;
+
+				&:hover {
+					color: $cmu-color-ltblue;
+					background-color: transparent;
+					@extend %ease-fast;
+				}
 			}
 
 			&:hover {
 				.cmuGloNav__dropItem:after {
 					color: $cmu-color-purewhite;
+					color: $cmu-color-ltblue;
 					@extend %ease-fast;
 				}
 			}
 		}
 		a.cmuGloNav__dropItem {
-			margin-right: $cmu-base;
+			// margin-right: $cmu-base;
 			padding-right: $cmu-base;
-			background-color: $cmu-color-dkgray;
+			// background-color: $cmu-color-dkgray;
 			color: $cmu-color-xmdgray;
 
-			background-color: $cmu-color-blue;
+			// background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 
 			&:hover {
-				background-color: $cmu-color-ltblue;
-				color: $cmu-color-purewhite;
+				// background-color: $cmu-color-ltblue;
+				// color: $cmu-color-purewhite;
+
+				color: $cmu-color-ltblue;
 			}
 
-			&:before {
+			&:after {
 				@extend %ease-fast;
 				font-family: 'ubnt';
 				content: "\e68b";
 				position: relative;
 				margin-left: $cmu-base/2;
 				// margin-right: $cmu-base*2;
-				font-size: $cmu-base/2;
+				font-size: $size-xsmaller;
 				color: $cmu-color-gray;
 				display: inline-block;
 			    border-radius: 50%;
@@ -201,24 +219,38 @@ $nav-height: $cmu-nav-height;
 			    border-color: $cmu-color-white;
 			    border-width: 0;
 				margin-left: 0;
-				margin-right: $cmu-base/4;
+				top: 1px;
+				margin-left: $cmu-base/2;
 				content: "\e6d9";
 			}
 		}
 
-		.cmuGloNav__controlContainer {
-			background-color: $cmu-color-blue;
+
+
+
+
+
+
+
+
+		// 
+		// Account Controls
+		// 
+
+
+		.cmuGloNav__accountControl {
+			// background-color: $cmu-color-blue;
 		}
 
 			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
-				border-right: 1px solid $cmu-color-dkgray;
+				background-color: $cmu-color-blue;
+				border-right: 1px solid $cmu-color-dkblue;
+    			margin-right: -2px;
 			}
 
 
 			.cmuGloNav__cmuAccount {
-
-				// fun!
 
 				.cmuProfile__avatar {
 					&:before {
@@ -239,19 +271,10 @@ $nav-height: $cmu-nav-height;
 					}
 				}
 
-
-				a { 
-					outline:none;
-				}
-				.icon {
-					@extend %nav-icon-style;
-					padding-left: $cmu-base/2;
-					padding-right: $cmu-base/2;
-				}
 				.ubnt-icon--inbox {
 					font-size: 19px;
 					position: relative;
-					top: -1px;
+					top: -3px;
 				}
 
 				.active {
@@ -276,10 +299,16 @@ $nav-height: $cmu-nav-height;
 			}
 
 				.cmuGloNav__notifications, .cmuGloNav__inbox {
+					@extend %nav-icon-style;
+					// padding-left: $cmu-base/4;
+					// padding-right: $cmu-base/2;
 					position: relative;
 				}
 
 				.cmuGloNav__profile {
+					@extend %nav-icon-style;
+					padding-left: $cmu-base/4;
+					padding-right: $cmu-base/4;
 				    cursor: pointer;
 				    
 					a {
@@ -287,7 +316,8 @@ $nav-height: $cmu-nav-height;
 					    vertical-align: top;
 					    line-height: 40px;
 					    padding-right: 4px;
-					    // padding-top: 2px;
+					    top: -10px;
+					    position: relative;
 					}
 				}
 
@@ -325,17 +355,18 @@ $nav-height: $cmu-nav-height;
 	    	content: 'Menu';
 	    	float: left;
 			@extend %nav-style;
+			top: 1px;
 	    }
 
 	    &:after {
      		font-family: 'ubnt';
 	    	display: block;
     		padding: 0.7rem;
+    		padding-top: 0.72rem;
     		padding-left: 0.3rem;
 	    	content: '\e6d9';
 	    	float: left;
 		    position: relative;
-		    top: 1px;
 			@extend %nav-style;
 	    }
 	}
@@ -470,6 +501,28 @@ $nav-height: $cmu-nav-height;
 // FOOTER 
 // 
 
+%nav-style-footer {
+	text-transform: uppercase;
+	color: $cmu-color-white;
+	letter-spacing: 0.4px;
+	font-size: $size-xsmaller;
+	vertical-align: top;
+	padding: $cmu-base*0.7;
+	height: $nav-height;
+	cursor: pointer;
+	line-height: $cmu-base;
+
+	@extend %ease-fast;
+	&:hover {
+		color: $cmu-color-ltblue;
+		@extend %ease-fast;
+		.ubnt-icon:before {
+			color: $cmu-color-ltblue;
+		}
+	}
+}
+
+
 .cmuGloNav--footer {
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
@@ -489,7 +542,7 @@ $nav-height: $cmu-nav-height;
 	li a {
 		cursor: default;
 		display: inline-block;
-		@extend %nav-style;
+		@extend %nav-style-footer;
 		font-size: $size-smaller;
 		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
@@ -503,24 +556,11 @@ $nav-height: $cmu-nav-height;
 
 	}
 
-	span {
+	.cmuGloNav__legal {
 		@extend %type-info;
-		color: $cmu-color-dkgray;
+		color: $cmu-color-ltgray;
 	}
 
-	.ubnt-icon {
-		padding-right: $cmu-base/2;
-	}
-		.ubnt-icon--menu {
-			padding: 0;
-			position: relative;
-			top:1.5px;
-			color: $cmu-color-gray;
-			padding-left: $cmu-base/4;
-			&:before {
-				@extend %ease-fast;
-			}
-		}
 }
 
 // 
@@ -540,21 +580,34 @@ $nav-height: $cmu-nav-height;
 		}
 
 		.ubnt-icon {
+			padding-left: $cmu-base/2;
+			color: $cmu-color-white;
 			margin-left: $cmu-base/2;
-			font-size: $cmu-base/2;
-			color: $cmu-color-gray;
-			display: inline-block;
-		    border-radius: 50%;
-		    	width: 16px;
-		    	height: 16px;
-		    	padding-left: 0.2rem;
-		    border: $style-line--dark;
+			padding-left: 0;
+
+			// font-size: $cmu-base/2;
+			// color: $cmu-color-gray;
+			// display: inline-block;
+		    // border-radius: 50%;
+		    // 	width: 16px;
+		    // 	height: 16px;
+		    // 	padding-left: 0.2rem;
+		    // border: $style-line--dark;
 		}
+			.ubnt-icon--menu {
+				// padding: 0;
+				position: relative;
+				top:0.5px;
+				&:before {
+					@extend %ease-fast;
+				}
+			}
+
 	}
 
 	.cmuGloNav__social--label {
 		cursor: default !important;
-		@extend %nav-style;
+		@extend %nav-style-footer;
 		font-size: $size-smaller;
 		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
@@ -564,7 +617,7 @@ $nav-height: $cmu-nav-height;
 		// margin-bottom: $cmu-base/2;
 
 		&:hover {
-			color: $cmu-color-textgray;
+			color: $cmu-color-purewhite;
 		}
 		// margin-top: $cmu-base*2;
 	}
@@ -580,18 +633,18 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
-			background-color: $cmu-color-gray;
-			color: $cmu-color-black;
+			background-color: rgba($cmu-color-white, 0.8);
+			color: $cmu-color-dkblue;
 
 			display: inline-block;
 		    border-radius: 50%;
 		    	width: 28px;
 		    	height: 28px;
-		    	padding: 0.4rem 0.1rem;
+		    	padding: 0.2rem 0.1rem;
 		}
 		span:hover:before {
 			@extend %ease-fast;
-			background-color: $cmu-color-mdgray;
+			background-color: $cmu-color-white;
 		}
 	}
 
@@ -620,7 +673,7 @@ $nav-height: $cmu-nav-height;
 		    border-radius: 50%;
 		    	width: 45px;
 		    	height: 45px;
-		    	padding: 0.9rem 0.2rem;
+		    	padding: 0.5rem 0.2rem;
 
 		}
 		.ubnt--icon:hover:before {

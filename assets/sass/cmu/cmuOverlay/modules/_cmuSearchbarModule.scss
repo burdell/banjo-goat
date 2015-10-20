@@ -8,6 +8,20 @@
     margin: 0 auto;
     margin-top: $cmu-base;
 
+    .row {
+	    padding-top: 2.5rem;
+	    padding-left: 3rem;
+	    padding-right: 3rem;
+	    padding-bottom: 1rem;
+	    background-color: #00a0df;
+	    position: fixed;
+	    width: 100%;
+	    z-index: $z-gloNav;
+    }
+
+
+
+
     .appIconInput__icon {
     	@extend %size-larger;
 	    padding-right: $cmu-base;
