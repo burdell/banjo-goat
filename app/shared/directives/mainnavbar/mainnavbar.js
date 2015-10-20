@@ -13,6 +13,7 @@ require('directives/dropdown/dropdown.js');
 require('directives/searchbar/searchbar.js');
 require('directives/arealinkhandler/arealinkhandler.js');
 require('directives/pagescroll/pagescroll.js');
+require('directives/classtoggle/classtoggle.js');
 
 var _ = require('underscore');
 
