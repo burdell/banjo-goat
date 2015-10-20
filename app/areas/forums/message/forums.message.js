@@ -61,11 +61,7 @@
 				this.currentReply = null;
 			},
 			replyPosted: function(result){
-				if (ctrl.numberOfPages > 1) {
-					messageThreadFilter.filter({ page: ctrl.numberOfPages });
-				} else {
-					ctrl.messageThread.push(result);
-				}
+				messageThreadFilter.filter({ page: ctrl.numberOfPages });
 			},
 			showTopicReply: function(){
 				ctrl.topicReplyShown = true

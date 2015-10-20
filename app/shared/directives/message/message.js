@@ -16,8 +16,21 @@ function communityMessage() {
 	function controller() {	
 		var ctrl = this;
 
+		var perPage = null;
+
+		if (ctrl.threadFilter) {
+			ctrl.threadFilter.model('per_page');
+		}
+
 		_.extend(ctrl, {
-			hideVoteButtons: this.hideVoteButtons
+			hideVoteButtons: this.hideVoteButtons,
+			getMessagePosition: function(localIndex) {
+				var currentPage = ctrl.threadFilter.model('page') || 1;
+				var total = ctrl.threadFilter.metaData('totalElements');
+				
+				var messageIndex = ((perPage * (currentPage - 1)) + ctrl.localIndex) + 1;
+				return  messageIndex + " of " + total;
+			}
 		});
 		}
 		controller.$inject = [];
@@ -36,7 +49,9 @@ function communityMessage() {
 	        	replyClickFn: '=',
 	        	originalMessage: '=',
 	        	showOp: '=',
-	        	upvoteOnly: '='
+	        	upvoteOnly: '=',
+	        	threadFilter: '=',
+	        	localIndex: '='
 	        }
 	    };
 

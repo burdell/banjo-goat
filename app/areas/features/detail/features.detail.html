@@ -86,7 +86,9 @@
 				message="message"
 				reply-click-fn="vm.showReply"
 				show-op="vm.originalMessage.author.id"
-				upvote-only="true">
+				upvote-only="true"
+				thread-filter="vm.commentFilter"
+				local-index="$index">
 			</community-message>
 		
 			<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">

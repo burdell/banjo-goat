@@ -8994,10 +8994,6 @@ div.cmuOverlay--show {
   margin-left: 2rem;
 }
 
-.cmuMessage__counter:before {
-  counter-increment: messageCtr;
-  content: counter(messageCtr) " of 20 ";
-}
 .cmuMessage__counter:after {
   content: ' | ';
   margin: 0 0.5rem;

@@ -42,6 +42,10 @@ function ForumListController ($stateParams, $state, dataService, forumListFilter
 		},
 		go: function(message){
 			$state.go('forums.message', { messageId: message.id });
+		},
+		getMessageNumber: function(currentListIndex){
+			var page = forumListFilter.model('page') || 1;
+			return currentListIndex * page;
 		}
 	});
 }

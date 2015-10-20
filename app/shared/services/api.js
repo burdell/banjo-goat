@@ -197,7 +197,13 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'features/' + callData.id, callData.payload, callData.verb);
 				},
 				comments: function(messageId, options) {
-					return goToApi(v2Url + 'features/' + messageId + '/comments', options);
+					return goToApi(v2Url + 'features/' + messageId + '/comments', options).then(function(result){
+						if (result.totalElements) {
+							result.totalElements = result.totalElements - 1;
+						}
+						
+						return result;
+					});
 				}
 			},
 			Gamification: {

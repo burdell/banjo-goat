@@ -16,7 +16,9 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 			setInitialData: true,
 			initialData: null,
 			filterContext: null,
-			persistFilterModel: true
+			persistFilterModel: true,
+			saveMeta: false,
+			metaData: {}
 		};
 
 			var realtimeService = null;
@@ -120,6 +122,10 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 						}
 						executeOnFilterFns(result, filterModel);
 						
+						if (options.saveMeta) {
+							options.metaData = _.omit(result, 'content');
+						}
+
 						return result;
 					});
 				},
@@ -135,6 +141,9 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 					if (realtimeService) {
 						realtimeService.resetTimestamp();
 					}
+				},
+				metaData: function(metaValue){
+					return (metaValue ? options.metaData[metaValue] : options.metaData);
 				}
 			};
 		}

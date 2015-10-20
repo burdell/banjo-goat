@@ -57,7 +57,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 							per_page: 20
 						},
 						autoInitModel: false,
-						persistFilterModel: false
+						persistFilterModel: false,
+						saveMeta: true
 					});
 				}]
 			},

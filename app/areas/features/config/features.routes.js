@@ -60,7 +60,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						persistFilterModel: false,
 						constants: {
 							limit: 5
-						}
+						},
+						saveMeta: true
 					});
 				}]
 			}
