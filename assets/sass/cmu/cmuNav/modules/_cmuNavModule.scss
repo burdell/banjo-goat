@@ -94,7 +94,7 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuHome,
 		.cmuGloNav__right,
 		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
-		.cmuGloNav__controlContainer,
+		.cmuGloNav__accountControl,
 		.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang,
 		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
 			display: inline-block;
@@ -108,10 +108,14 @@ $nav-height: $cmu-nav-height;
 	}
 
 	.cmuGloNav__left {
-			@extend %nav-style;
-			// border-left: 1px solid $cmu-color-dkgray;
-			padding-left: 0;
-			color: $cmu-color-white;
+		@extend %nav-style;
+		// border-left: 1px solid $cmu-color-dkgray;
+		padding-left: 0;
+		color: $cmu-color-white;
+		&:hover {
+			color: $cmu-color-ltblue;
+			background-color: transparent;
+		}
 	}
 		.cmuGloNav__logo {;
     		margin-top: -0.7rem;
@@ -172,6 +176,7 @@ $nav-height: $cmu-nav-height;
 			&:hover {
 				.cmuGloNav__dropItem:after {
 					color: $cmu-color-purewhite;
+					color: $cmu-color-ltblue;
 					@extend %ease-fast;
 				}
 			}
@@ -179,18 +184,20 @@ $nav-height: $cmu-nav-height;
 		a.cmuGloNav__dropItem {
 			// margin-right: $cmu-base;
 			padding-right: $cmu-base;
-			background-color: $cmu-color-dkgray;
+			// background-color: $cmu-color-dkgray;
 			color: $cmu-color-xmdgray;
 
-			background-color: $cmu-color-blue;
+			// background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 
 			&:hover {
-				background-color: $cmu-color-ltblue;
-				color: $cmu-color-purewhite;
+				// background-color: $cmu-color-ltblue;
+				// color: $cmu-color-purewhite;
+
+				color: $cmu-color-ltblue;
 			}
 
-			&:before {
+			&:after {
 				@extend %ease-fast;
 				font-family: 'ubnt';
 				content: "\e68b";
@@ -213,26 +220,37 @@ $nav-height: $cmu-nav-height;
 			    border-width: 0;
 				margin-left: 0;
 				top: 1px;
-				margin-right: $cmu-base/2;
+				margin-left: $cmu-base/2;
 				content: "\e6d9";
 			}
 		}
 
-		.cmuGloNav__controlContainer {
-			background-color: $cmu-color-blue;
+
+
+
+
+
+
+
+
+		// 
+		// Account Controls
+		// 
+
+
+		.cmuGloNav__accountControl {
+			// background-color: $cmu-color-blue;
 		}
 
 			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
-				background-color: $cmu-color-dkblue;
+				background-color: $cmu-color-blue;
 				border-right: 1px solid $cmu-color-dkblue;
     			margin-right: -2px;
 			}
 
 
 			.cmuGloNav__cmuAccount {
-
-				// fun!
 
 				.cmuProfile__avatar {
 					&:before {
@@ -562,9 +580,9 @@ $nav-height: $cmu-nav-height;
 		}
 
 		.ubnt-icon {
-			padding-right: $cmu-base/2;
+			padding-left: $cmu-base/2;
 			color: $cmu-color-white;
-			margin-right: $cmu-base/2;
+			margin-left: $cmu-base/2;
 			padding-left: 0;
 
 			// font-size: $cmu-base/2;
@@ -577,7 +595,7 @@ $nav-height: $cmu-nav-height;
 		    // border: $style-line--dark;
 		}
 			.ubnt-icon--menu {
-				padding: 0;
+				// padding: 0;
 				position: relative;
 				top:0.5px;
 				&:before {

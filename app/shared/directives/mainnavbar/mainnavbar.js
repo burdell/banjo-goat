@@ -4,7 +4,7 @@
 require('services/api.js')
 require('services/nodestructure.js');
 require('services/realtime.js');
-require('services/routing.js');;
+require('services/routing.js');
 require('services/currentuser.js');
 
 require('providers/routes.js');
@@ -41,7 +41,7 @@ function mainNavBar() {
 			}
 
 			var navMetaData = [
-				{ display: "Explore", clickFn: toggleDiscussionsMenu, dropItem: true },
+				{ display: "All Topics", clickFn: toggleDiscussionsMenu, dropItem: true },
 				{ display: "Stories", href: "#", href: hrefs.stories },
 				{ display: "Announcements", href: hrefs.announcements }
 			]; 
