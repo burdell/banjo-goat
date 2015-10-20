@@ -10,7 +10,6 @@ function communityUserBadge() {
 
 	var controller = function($scope, userService) {
 		var ctrl = this;
-
 		var displayUser = null;
 		if (this.currentUser) {
 			userService.get().then(function(user){

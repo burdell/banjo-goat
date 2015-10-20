@@ -9625,7 +9625,6 @@ button .icon, .button .icon {
 .cmuUserbadge__avatar:after {
   content: ' ';
   display: block;
-  background: url("http://www.placecage.com/140/100");
   background-position-x: -30px;
   border-radius: 50%;
   background-repeat: no-repeat;
