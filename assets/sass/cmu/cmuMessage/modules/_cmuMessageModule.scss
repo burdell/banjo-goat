@@ -98,6 +98,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 		display: inline-block;
 	// 	}
 	// }
+
 	.cmuMessage__replyTo {
 		display: inline-block;
 		vertical-align: middle;
@@ -156,12 +157,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 
 	.cmuMessage__counter {
-  		
-  		// FPO
-  		&:before {
-			counter-increment: messageCtr;
-			content: counter(messageCtr) " of 20 ";
-  		}
 		&:after {
 			content: ' | ';
 			margin: 0 $cmu-base/2;

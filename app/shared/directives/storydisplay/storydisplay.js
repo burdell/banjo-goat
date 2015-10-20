@@ -6,22 +6,34 @@ var _ = require('underscore');
 require('filters/timefromnow.js');
 require('filters/extractkey.js');
 
+require('providers/defaults.js');
+
+require('services/routing.js');
+
+require('directives/arealinkhandler/arealinkhandler.js');
+
 function storyDisplay() {
 	var link = function(scope, element, attrs) {
 	};
 
-	var controller = function() {
+	var controller = function(routingService, defaults) {
 		var ctrl = this;
-		
+
+		ctrl.storyMedia = ctrl.story.media;
 		var media = _.find(ctrl.storyMedia, function(mediaObject){ 
 			return mediaObject.meta && mediaObject.meta.isCover; 
 		});
-	
-		if (media) {
-			ctrl.coverphoto = media.url;
-		}
+		
+		ctrl.coverphoto = media ? media.url : defaults.noPhoto;
+		
+
+		_.extend(ctrl, {
+			getStoryUrl: function(){
+				return routingService.generateUrl('stories.detail', { nodeId: ctrl.story.node.urlCode, storyId: ctrl.story.id });
+			}
+		});
 	};
-	controller.$inject = [];
+	controller.$inject = ['CommunityRoutingService', 'communityDefaults'];
 
     var directive = {
         link: link,
@@ -33,9 +45,10 @@ function storyDisplay() {
         restrict: 'E',
         scope: {
         	story: '=',
-        	storyMedia: '=',
         	defaultPhotoUrl: '=',
-        	fillWidth: '='
+        	fillWidth: '=',
+        	minimalDisplay: '=',
+        	hidePostingInfo: '='
         }
     };
 

@@ -1,40 +1,68 @@
 
-<div class="cmuStoryItem--featured" ng-click="storydisplay.goStory()" ng-class="{ 'cmuStoryItem' : !storydisplay.fillWidth }">
-	<a ui-sref="stories.detail({ storyId: storydisplay.story.id, nodeId: storydisplay.story.node.urlCode })">
-		<div class="cmuStoryItem__image__container">
-			<div class="cmuStoryItem__image">
-				<img ng-src="{{ storydisplay.coverphoto || storydisplay.defaultPhotoUrl }}">
+<div class="cmuStoryItem--featured" ng-class="{ 'cmuStoryItem' : !storydisplay.fillWidth }">	
+	<!--- NORMAL DISPLAY -->
+	<div ng-if="::!storydisplay.minimalDisplay">
+		<a area-link-handler="{{ storydisplay.getStoryUrl() }}">
+			<div class="cmuStoryItem__image__container">
+				<div class="cmuStoryItem__image">
+					<img ng-src="{{ storydisplay.coverphoto }}">
+				</div>
 			</div>
-		</div>
-		<div class="cmuStoryItem__main" class="col--md3">
-			<div class="cmuStoryItem__subject">{{ ::storydisplay.story.subject }}</div>	
-			<div class="cmuStoryItem__user">
-				<community-username user="storydisplay.story.message.insertUser"></community-username>
-			</div>
+			<div class="cmuStoryItem__main" class="col--md3">
+				<div class="cmuStoryItem__subject">{{ ::storydisplay.story.subject }}</div>	
+				<div class="cmuStoryItem__user" ng-hide="::storydisplay.minimalDisplay">
+					<community-username user="storydisplay.story.message.insertUser"></community-username>
+				</div>
 
-			<div class="cmuStoryItem__date">  
-				{{ ::storydisplay.story.message.postDate | timeFromNow }}
-			</div>
+				<div class="cmuStoryItem__date">  
+					{{ ::storydisplay.story.message.postDate | timeFromNow }}
+				</div>
 
-			<div class="cmuStoryItem__desc">
-				{{ storydisplay.story.node.description }}
-			</div>
+				<div class="cmuStoryItem__desc">
+					{{ storydisplay.story.node.description }}
+				</div>
 
-			<div class="cmuStoryItem__stats">
-				<span class="cmuStoryItem__stat"><span class="ubnt-icon ubnt-icon--eye2"></span>324 views</span>
-				<span class="cmuStoryItem__stat"><span class="ubnt-icon ubnt-icon--pencil-2"></span>22 replies</span>
-				<span class="cmuStoryItem__stat">
-				<span class="cmuIcon cmuIcon-cool"></span>124 kudos</span>
+				<div class="cmuStoryItem__stats" >
+					<span class="cmuStoryItem__stat"><span class="ubnt-icon ubnt-icon--eye2"></span>324 views</span>
+					<span class="cmuStoryItem__stat"><span class="ubnt-icon ubnt-icon--pencil-2"></span>22 replies</span>
+					<span class="cmuStoryItem__stat">
+					<span class="cmuIcon cmuIcon-cool"></span>124 kudos</span>
+				</div>
 			</div>
-		</div>
-		<div class="cmuStoryItem__meta">
-			<!-- <p>{{ storydisplay.story.summary }}</p> -->
-			<span class="cmuStoryItem__views">
-				<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
-			</span>
-			<span class="cmuStoryItem__kudos">
-				<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
-			</span>
-		</div>
-	</a>
+			<div class="cmuStoryItem__meta">
+				<span class="cmuStoryItem__views">
+					<span class="icon ubnt-icon--eye2"></span>{{  storydisplay.story.countViews | number}}
+				</span>
+				<span class="cmuStoryItem__kudos">
+					<span class="icon ubnt-icon--brightness"></span>{{  storydisplay.story.stats | extractKey : 'score' | number}}
+				</span>
+			</div>
+		</a>
+	</div>
+
+	<!--- MINIMAL DISPLAY -->
+	<div ng-if="::storydisplay.minimalDisplay">
+		<a area-link-handler="{{ storydisplay.getStoryUrl() }}">
+			<div class="cmuFeed__story">
+				<div class="cmuFeed__story__img__container" ng-if="storydisplay.coverphoto">
+					<div class="cmuFeed__story__img" style="background-image: url('{{ storydisplay.coverphoto  }}')"></div>
+				</div>
+
+				<div>
+					<div class="cmuFeed__story__subject">{{ storydisplay.story.subject }}</div>
+					<div ng-if="::!storydisplay.hidePostingInfo">
+						<div class="cmuFeed__story__user">
+							<community-username user="storydisplay.story.message.insertUser"></community-username>
+						</div>
+						<div class="cmuFeed__story__date">{{ storydisplay.story.message.postDate | timeFromNow }}</div>
+						<div class="cmuFeed__location">{{ storydisplay.story.node.description }}</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div ng-if="::storydisplay.hidePostingInfo">
+		<a area-link-handler="{{ storydisplay.getStoryUrl() }}">Read Story</a>
+	</div>
 </div>

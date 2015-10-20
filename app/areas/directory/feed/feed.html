@@ -6,9 +6,6 @@
 	<div class="feed-container">
 		<div class="row">
 			<div class="cmuPulse col--md12">
-				<!-- <div class="cmuPulse__label">
-					Live Activity
-				</div> -->
 				<div class="cmuPulse__counter cmuPulse__total col--md3">
 					<div><span class="icon ubnt-icon--pencil-2"></span></div>
 					<div><span class="cmuPulse__count">123,456</span></div>
@@ -62,8 +59,7 @@
 			        </div>
 		        </div>
 
-					<div class="cmuFeed__container container">
-
+				<div class="cmuFeed__container container">
 			        <div class="cmuFeed__stories col--md12 noPadding" ng-show="vm.feedType === 'community'">
 			        
 			        	<div class="cmuFeed__title clearfix">
@@ -77,38 +73,20 @@
 						</div>
 
 						<div class="cmuFeed__storyList clearfix">
-							<a ng-repeat="story in vm.storyData" 
-							   ng-href="{{ vm.generateStoryUrl(story) }}" target="_self">
-								<div class="cmuFeed__story col--md3" >
-									<div class="cmuFeed__story__img__container" ng-if="story.media.length > 0">
-										<div class="cmuFeed__story__img"
-										 style="background-image: url('{{ story.media[0].url }}')"></div>
-									</div>
-									<!-- used for stories w/missing images -->
-									<!-- 
-									<div class="cmuFeed__story__img__container" ng-if="story.media.length == 0">
-										<div class="cmuFeed__story__img"
-										 style="background-image: url('http://www.placecage.com/c/200/300')"></div>
-									</div>
-									-->
-									<div>
-										<div class="cmuFeed__story__subject">{{ story.subject }}</div>
-										<div class="cmuFeed__story__user">
-
-											<community-username user="story.message.insertUser"></community-username>
-											<!-- {{ story.message.insertUser.login }} -->
-										</div>
-										<div class="cmuFeed__story__date">{{ story.message.postDate | timeFromNow }}</div>
-									</div>
-									<div class="cmuFeed__location">{{ story.node.description }}</div>
-								</div>
-							</a>
+							<div ng-repeat="story in vm.storyData" class="col--md3">
+								<story-display
+									story="story"
+									story-media="story.media"
+									minimal-display="true"
+									fill-width="true">
+								</story-display>
+							</div>
 						</div>
 					</div>	
 
-				        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
-				        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
-				        </div>
+			        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
+			        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+			        </div>
 
 			        <div class="cmuFeed__list col--md12">
 			        	<div class="cmuFeed__title  clearfix">
@@ -118,17 +96,16 @@
 				        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
 				        		<community-feed-content content-model="feedItem"></community-feed-content>
 				        	</div>
-				        </div>
-
-				        <div class="cmuFeed__pagerBottom col--md12">
-					        <community-load-more
-								list-model="vm.feedList"
-								load-filter="vm.feedFilter">
-							</community-load-more>
-				        </div>
-
 				    </div>
-				</div>
+
+			        <div class="cmuFeed__pagerBottom col--md12">
+				        <community-load-more
+							list-model="vm.feedList"
+							load-filter="vm.feedFilter">
+						</community-load-more>
+			        </div>
+			    </div>
+			</div>
 
 
 

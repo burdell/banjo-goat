@@ -16,7 +16,8 @@
 	    var directive = {
 	    	link: link,
 	        restrict: 'A',
-	        scope: true
+	        scope: true,
+	        replace: true
 	    };
 	    return directive;
 	}
