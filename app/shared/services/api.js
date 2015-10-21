@@ -135,10 +135,6 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'nodes', { per_page: 140 }).then(function(result) {
 						return result.content;
 					});
-				},
-				message: function(messageData){
-					var callData = getCallType(messageData);
-					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
 				}
 			},
 			Feed: {
@@ -217,6 +213,15 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					formData.append('file', fileData);
 
 					return goToApi(v2Url + 'media', formData, 'POST', true);
+				}
+			},
+			Messages: {
+				message: function(messageData){
+					var callData = getCallType(messageData);
+					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
+				},
+				position: function(messageId){
+					return goToApi(v2Url + 'messages/' + messageId + '/position');
 				}
 			},
 			Stories: {

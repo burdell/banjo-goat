@@ -10,11 +10,7 @@
 			<div class="cmuMessage__header">
 				<div class="row">
 					<div class="col--md6">
-						<div class="cmuMessage__replyTo">
-						UBNT-Matt [1]
-						<!-- {{ ::messageDisplay.originalMessage.subject | htmlUnescape }} -->
-						</div>
-
+						<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply"><a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)">{{ messageDisplay.reply.username }}</a></div>
 						<div class="cmuMessage__counter" ng-if="messageDisplay.threadFilter">
 							{{ messageDisplay.getMessagePosition() }}
 						</div>

@@ -3,9 +3,10 @@
 
 require('services/realtime.js');
 require('services/utils.js');
+require('services/api.js');
 
 var _ = require('underscore');
-var communityFilter = function($location, realtimeServiceWrapper, utils){
+var communityFilter = function($location, communityApi, realtimeServiceWrapper, utils){
 	function Filter(){
 		var options = {
 			filterModel: {},
@@ -65,6 +66,7 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 				set: function(newOptions){
 					var filter = this;	
 					_.extend(options, newOptions);
+
 					if (newOptions.onFilter) {
 						options.onFilterFns.push(newOptions.onFilter);
 
@@ -101,7 +103,7 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 						}
 						filterModel = _.extend(options.filterModel, options.constants);
 					}
-
+					
 					var args = [];
 					if (_.isArray(options.filterArguments)) {
 						args = _.clone(options.filterArguments);
@@ -116,18 +118,34 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 					args.push(filterModel);
 
 					var filterContext = options.filterContext ? options.filterContext : this;
-					return options.filterFn.apply(filterContext, args).then(function(result){
-						if (!oneTime && options.persistFilterModel) {
-							setQueryParams(filterModel);
-						}
-						executeOnFilterFns(result, filterModel);
-						
-						if (options.saveMeta) {
-							options.metaData = _.omit(result, 'content');
-						}
+					var hash = $location.hash();
+					if (!options.targetCommentHash || !hash) {
+						return actualFilterCall();
+					} else {
+						options.targetCommentHash = false;
+						return communityApi.Messages.position($location.hash()).then(function(messagePosition){
+							var targetCommentNumber = Number(messagePosition);
+							if (targetCommentNumber && targetCommentNumber > filterModel.per_page) {
+								filterModel.page = filterModel.per_page % targetCommentNumber;
+							}
+							return actualFilterCall();
+						});
+					}
 
-						return result;
-					});
+					function actualFilterCall() {
+						return options.filterFn.apply(filterContext, args).then(function(result){
+							if (!oneTime && options.persistFilterModel) {
+								setQueryParams(filterModel);
+							}
+							executeOnFilterFns(result, filterModel);
+							
+							if (options.saveMeta) {
+								options.metaData = _.extend(_.omit(result, 'content'), { idList: _.pluck(result.content, 'id') });
+							}
+
+							return result;
+						});	
+					}
 				},
 				model: function(modelValue){
 					return (modelValue ? options.filterModel[modelValue] : options.filterModel);
@@ -159,7 +177,7 @@ var communityFilter = function($location, realtimeServiceWrapper, utils){
 		};
 	};
 	
-	communityFilter.$inject = ['$location', 'CommunityRealtimeService', 'CommunityUtilsService'];
+	communityFilter.$inject = ['$location', 'CommunityApiService', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
 angular.module('community.services')
 	.service('CommunityFilterService', communityFilter);

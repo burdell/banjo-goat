@@ -48,21 +48,21 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				}
 			},
 			resolve: {
-				MessageThreadFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+				MessageThreadFilter: ['$stateParams', '$location', 'CommunityApiService', 'CommunityFilterService', function($stateParams, $location, communityApi, filterService){
 					return filterService.getNewFilter({ 
 						filterFn: communityApi.Forums.comments, 
 						filterArguments: [ $stateParams.messageId ],
 						filterContext: communityApi.Forums,
 						constants: {
-							per_page: 20
+							per_page: 10
 						},
 						autoInitModel: false,
 						persistFilterModel: false,
-						saveMeta: true
+						saveMeta: true,
+						targetCommentHash: true
 					});
 				}]
-			},
-			reloadOnSearch: false
+			}
 		})
 		.state('forums.newtopic', {
 			url: forumRoutes.newtopic,

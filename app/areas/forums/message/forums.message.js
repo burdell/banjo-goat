@@ -39,18 +39,11 @@
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
-		var linkedMessage = $location.hash();
-		if (linkedMessage){
-			$timeout(function(){
-				$anchorScroll();
-			}, 0);
-		}		
-
+		
 		_.extend(ctrl, {
 			currentReply: null,
 			messageReplyText: null,
 			messageThreadFilter: messageThreadFilter,
-			linkedMessageId: Number(linkedMessage),
 			messageIsBeingRepliedTo: function(messageId){
 				return messageId === this.currentReply;
 			},

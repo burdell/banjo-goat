@@ -27,7 +27,7 @@ var _ = require('underscore');
 				qna: 'qna',
 				stories: 'stories'
 			},
-			generateUrl: function(route, data){
+			generateUrl: function(route, data, hash){
 				if (!route) return null;
 
 				var routeList = route.split('.');
@@ -48,6 +48,10 @@ var _ = require('underscore');
 					url = url.replace(':' + key, value);
 				});
 				
+				if (hash) {
+					url += '#' + hash;
+				}
+
 				return url;
 			},
 			landingPages: function(){

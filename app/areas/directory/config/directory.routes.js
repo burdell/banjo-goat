@@ -49,7 +49,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { size: 5 },
+							constants: { size: 10 },
 							realtime: true,
 							autoInitModel: false,
 							persistFilterModel: false
