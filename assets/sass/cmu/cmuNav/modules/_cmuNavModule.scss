@@ -246,7 +246,7 @@ $nav-height: $cmu-nav-height;
 				@extend %nav-icon-style;
 				background-color: $cmu-color-blue;
 				border-right: 1px solid $cmu-color-dkblue;
-    			margin-right: -2px;
+    			margin-right: -4px;
 			}
 
 
@@ -265,7 +265,7 @@ $nav-height: $cmu-nav-height;
 						height: remCalc(28px);
 						width: remCalc(28px);
 
-						background-image: url('http://images1.fanpop.com/images/photos/2200000/Matt-Hardy-matt-hardy-2282840-624-388.jpg');
+						background-color: orange;
 						background-size: cover;
 						background-repeat: no-repeat;
 					}
@@ -379,12 +379,11 @@ $nav-height: $cmu-nav-height;
 		}
 
 	%nav-style--mobile {
-		color: $cmu-color-textgray;
+		color: $cmu-color-white;
 		padding: $cmu-base/2 $cmu-base;
 		border-bottom: $style-line--dark;
 
 		text-transform: uppercase;
-		color: $cmu-color-textgray;
 		letter-spacing: 0.4px;
 		font-size: $size-xsmaller;
 		line-height: $cmu-base*1.5;
@@ -405,8 +404,13 @@ $nav-height: $cmu-nav-height;
 			display: none !important;
 		}
 
-		& > div {
+		a {
 			display: block;
+			&:hover {
+				div {
+					background-color: $cmu-color-blue;
+				}
+			}
 		}
 	}
 
@@ -421,6 +425,7 @@ $nav-height: $cmu-nav-height;
 		.cmuGloNav__mobile__search {
 			@extend %nav-style--mobile;
 			@extend %type-base;
+			background: $cmu-color-blue;
 
 
 			// special search styling
@@ -430,6 +435,10 @@ $nav-height: $cmu-nav-height;
 				}
 				.appIconInput__input {
 					padding-left: $cmu-base;
+				}
+
+				input {
+					border: 0;
 				}
 			}
 			// text-transform: uppercase;
@@ -465,7 +474,21 @@ $nav-height: $cmu-nav-height;
 			border: 0;
 			color: white;
 			font-size: $size-normal;
+			background-color: transparent !important;
+			margin-bottom: $cmu-base/2;
 
+			.cmuProfile__avatar {
+				float: left;
+				&:before {
+					margin: 0;
+				}
+				margin-right: $cmu-base;
+			}
+
+			.cmuGloNav__mobile__user {
+				position: relative;
+				top: 3px;
+			}
 		}
 			.cmuGloNav__mobile__container
 				div.cmuUserbadge__avatar {
@@ -476,13 +499,18 @@ $nav-height: $cmu-nav-height;
 
 			.cmuGloNav__mobile__accountlinks {
 				position: relative;
-				top: $cmu-base * -1;
+				// top: $cmu-base * -1;
+
+				.icon {
+					font-size: $size-large;
+					margin-right: $cmu-base/2;
+				}
 			}
 
 				.cmuGloNav__mobile__accountlink {
 					@extend %nav-style--mobile;
 					display: block;
-					margin-left: 50px;
+					// margin-left: 50px;
 				}
 
 
@@ -503,7 +531,7 @@ $nav-height: $cmu-nav-height;
 
 %nav-style-footer {
 	text-transform: uppercase;
-	color: $cmu-color-white;
+	color: $cmu-color-dkgray;
 	letter-spacing: 0.4px;
 	font-size: $size-xsmaller;
 	vertical-align: top;
@@ -523,7 +551,9 @@ $nav-height: $cmu-nav-height;
 }
 
 
+
 .cmuGloNav--footer {
+	background-color: $cmu-color-white;
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
 
@@ -558,7 +588,7 @@ $nav-height: $cmu-nav-height;
 
 	.cmuGloNav__legal {
 		@extend %type-info;
-		color: $cmu-color-ltgray;
+		color: $cmu-color-dkgray;
 	}
 
 }
@@ -575,13 +605,13 @@ $nav-height: $cmu-nav-height;
 		a:hover {
 			span:before {
 				@extend %ease-fast;
-				color: $cmu-color-white;
+				color: $cmu-color-dkgray;
 			}
 		}
 
 		.ubnt-icon {
 			padding-left: $cmu-base/2;
-			color: $cmu-color-white;
+			color: $cmu-color-ltblue;
 			margin-left: $cmu-base/2;
 			padding-left: 0;
 
@@ -617,7 +647,7 @@ $nav-height: $cmu-nav-height;
 		// margin-bottom: $cmu-base/2;
 
 		&:hover {
-			color: $cmu-color-purewhite;
+			color: $cmu-color-dkgray;
 		}
 		// margin-top: $cmu-base*2;
 	}
@@ -633,8 +663,8 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
-			background-color: rgba($cmu-color-white, 0.8);
-			color: $cmu-color-dkblue;
+			background-color: rgba($cmu-color-gray, 0.2);
+			color: $cmu-color-blue;
 
 			display: inline-block;
 		    border-radius: 50%;
@@ -644,7 +674,8 @@ $nav-height: $cmu-nav-height;
 		}
 		span:hover:before {
 			@extend %ease-fast;
-			background-color: $cmu-color-white;
+			background-color: rgba($cmu-color-gray, 0.3);
+			color: $cmu-color-ltblue;
 		}
 	}
 
@@ -666,7 +697,7 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.8;
-			background-color: $cmu-color-dkgray;
+			background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 			text-align: center;
 			display: inline-block;
@@ -678,7 +709,7 @@ $nav-height: $cmu-nav-height;
 		}
 		.ubnt--icon:hover:before {
 			@extend %ease-fast;
-			background-color: $cmu-color-gray;
+			background-color: $cmu-color-ltblue;
 		}
 	}
 

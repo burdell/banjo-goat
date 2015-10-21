@@ -7,13 +7,14 @@
     max-width: 1200px;
     margin: 0 auto;
     margin-top: $cmu-base;
+    margin-bottom: $cmu-base*5;
 
     .row {
 	    padding-top: 2.5rem;
 	    padding-left: 3rem;
 	    padding-right: 3rem;
 	    padding-bottom: 1rem;
-	    background-color: #00a0df;
+	    background-color: $cmu-color-blue;
 	    position: fixed;
 	    width: 100%;
 	    z-index: $z-gloNav;
@@ -43,7 +44,8 @@
 		padding: $cmu-base*2 $cmu-base;
 
 		// @include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
-		background-color: $cmu-color-mltgray;
+		background-color: $cmu-color-purewhite;
+		border: 0;
 	}
 
 }
