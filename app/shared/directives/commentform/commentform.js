@@ -21,7 +21,7 @@ function commentForm() {
 			submitReply: function(){
 				if (ctrl.comment.body) {
 					ctrl.submittingComment = true;
-					communityApi.Core.message(ctrl.comment).then(function(result){
+					communityApi.Messages.message(ctrl.comment).then(function(result){
 						ctrl.submittingComment = false;
 
 						if (ctrl.commentList) {

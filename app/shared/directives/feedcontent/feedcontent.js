@@ -41,7 +41,8 @@ function feedContent($compile, $templateCache) {
 
 		var contentUrl = function(routeString, dataOptions) {
 			dataOptions = _.extend({ nodeId: contentNode.urlCode }, dataOptions);
-			return routingService.generateUrl(routeString, dataOptions);
+			var hash = contentType === 'comment' ? ctrl.contentModel.data.id : null;
+			return routingService.generateUrl(routeString, dataOptions, hash);
 		}
 
 		var discussionActionTexts = {

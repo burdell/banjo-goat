@@ -56,7 +56,6 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 
 			ctrl.getProductUrl = function(nodeId){
 				var node = nodeService.getNode(Number(nodeId));
-				if (!node) debugger;
 				var route = node.discussionStyle === 'category' ? 'hub' : 'forums.list';
 				return routingService.generateUrl(route, { nodeId: node.urlCode });
 			},

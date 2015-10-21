@@ -61,7 +61,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						constants: {
 							limit: 5
 						},
-						saveMeta: true
+						saveMeta: true,
+						targetCommentHash: true
 					});
 				}]
 			}
