@@ -6626,7 +6626,7 @@ body a:focus {
 }
 
 .community__content, .cmuGloNav__container, .cmuBanner__container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -8004,7 +8004,7 @@ div.cmuOverlay--show {
 
 .cmuMega__content {
   color: #bbbbbd;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .cmuMega__content__container {
