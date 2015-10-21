@@ -67,6 +67,7 @@
 		float: left;
 		margin-right: $cmu-base/2;
 		cursor: pointer;
+		border-radius: 99999px;
 
 		&:after {
 			content: ' ';
@@ -231,7 +232,7 @@
     	}
 
     	.cmuUserbadge__avatar {
-   			padding-left: $cmu-base/2;
+   			// padding-left: $cmu-base/2;
    			
    			// required for thin to align profile image w/ rank and name
 		    vertical-align: top;

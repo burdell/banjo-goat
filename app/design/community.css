@@ -9667,6 +9667,7 @@ button .icon, .button .icon {
   float: left;
   margin-right: 0.5rem;
   cursor: pointer;
+  border-radius: 99999px;
 }
 .cmuUserbadge__avatar:after {
   content: ' ';
@@ -9784,7 +9785,6 @@ button .icon, .button .icon {
   margin-top: 0;
 }
 .cmuUserbadge--thin .cmuUserbadge__avatar {
-  padding-left: 0.5rem;
   vertical-align: top;
   float: left;
 }
