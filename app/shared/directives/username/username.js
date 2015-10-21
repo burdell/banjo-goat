@@ -54,6 +54,9 @@ function communityUsername() {
 		}
 
 		function setProfileHref() {
+			if (!displayUser) {
+				return;
+			}
 			ctrl.userProfileHref = routingService.generateUrl('userprofile', { userId: displayUser.id });
 		}
 
