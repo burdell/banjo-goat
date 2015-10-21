@@ -2,9 +2,7 @@
 	<div class="cmuUserbadge__account">
 
 		<div class="cmuUserbadge__user row">
-
 			<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
-
 			<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
 			
 			<div class="cmuUserbadge__rank">
@@ -16,51 +14,39 @@
 
 	<div class="cmuUserbadge__points">
 		<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>{{ userbadge.displayUser.score }}</span></div>
-		<div class="cmuUserbadge__postCount"><span class="cmuIcon-posts ubnt-icon ubnt-icon--pencil-2"></span><span>123</span></div>
+		<div class="cmuUserbadge__postCount"><span class="cmuIcon-posts ubnt-icon ubnt-icon--pencil-2"></span><span>{{ userbadge.displayUser.postCount }}</span></div>
 	</div>
 
 	<div class="cmuUserbadge__info">
 		<div class="cmuUserbadge__descriptors">
-			<div class="cmuUserbadge__descriptor">Margaritaville, North Korea</div>
+			<div class="cmuUserbadge__descriptor">{{ userbadge.displayUser.locName }}</div>
 			<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate | timeFromNow}}</div>
 		</div>
 	</div>
 
 	<div class="cmuUserbadge__flag">
 		<div class="cmuUserbadge__flag__container">
-
-			
 			<div class="cmuUserbadge__account">
-
 				<div class="cmuUserbadge__user row">
-
 					<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
-
 					<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
-					
 					<div class="cmuUserbadge__rank">
 						{{ userbadge.displayUser.rank.name }}
 					</div>
 				</div>
-
 			</div>
 
 			<div class="cmuUserbadge__points">
 				<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>{{ userbadge.displayUser.score }}</span></div>
-				<div class="cmuUserbadge__postCount"><span class="cmuIcon-posts ubnt-icon ubnt-icon--pencil-2"></span><span>123</span></div>
+				<div class="cmuUserbadge__postCount"><span class="cmuIcon-posts ubnt-icon ubnt-icon--pencil-2"></span><span>{{ userbadge.displayUser.postCount }}</span></div>
 			</div>
 
 			<div class="cmuUserbadge__info">
 				<div class="cmuUserbadge__descriptors">
-					<div class="cmuUserbadge__descriptor">Margaritaville, North Korea</div>
+					<div class="cmuUserbadge__descriptor">{{ userbadge.displayUser.locName }}</div>
 					<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate | timeFromNow}}</div>
 				</div>
 			</div>
-
-
-
-
 		</div>
-
 	</div>
 </div>

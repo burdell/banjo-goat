@@ -1,4 +1,4 @@
 <span class="cmuUsername {{ username.specialUser().userType }}" >
-	<a href="{{ ::username.user.href }}"><span class="cmuUsername__icon {{ username.specialUser().iconClass }}" ng-if="username.specialUser().iconClass"></span><span class="cmuUsername__login">{{ ::username.user.login }}</span>
+	<a area-link-handler="{{ username.userProfileHref }}"><span class="cmuUsername__icon {{ username.specialUser().iconClass }}" ng-if="username.specialUser().iconClass"></span><span class="cmuUsername__login">{{ ::username.user.login }}</span>
 	</a>
 </span>
