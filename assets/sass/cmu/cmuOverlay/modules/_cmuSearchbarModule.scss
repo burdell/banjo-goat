@@ -1,26 +1,26 @@
 
+.cmuSearchbar__metaContainer {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    position: relative;
+    top: $cmu-nav-height;
+}
 
 .cmuSearchbar {
+	// position: fixed;
     @extend %ease-fast;
     display: none; // default is hidden
     overflow: hidden;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: $cmu-base;
     margin-bottom: $cmu-base*5;
+	background-color: $cmu-color-blue;
 
     .row {
-	    padding-top: 2.5rem;
-	    padding-left: 3rem;
-	    padding-right: 3rem;
-	    padding-bottom: 1rem;
-	    background-color: $cmu-color-blue;
-	    position: fixed;
-	    width: 100%;
-	    z-index: $z-gloNav;
+	    padding-top: $cmu-base;
+	    padding-bottom: $cmu-base;
+	    z-index: $z-gloNav--footer;
+	    position: relative;
     }
-
-
 
 
     .appIconInput__icon {

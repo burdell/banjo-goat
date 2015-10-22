@@ -62,7 +62,8 @@
 	display: inline-block;
 	vertical-align: middle;
 
-	padding: $cmu-base/2 $cmu-base/2 $cmu-base/2 0;
+	padding: $cmu-base*3/4;
+	padding-left: 0;
 	overflow: hidden;
 
 	text-transform: uppercase;

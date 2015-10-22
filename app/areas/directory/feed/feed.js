@@ -19,12 +19,12 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 	var ctrl = this;
 	var feedData = {
 		community: {
-			display: 'All Topics',
+			display: 'All Content',
 			param: 'community',
 			dataFn: apiService.Feed.allContent
 		},
 		user: {
-			display: 'My Feed',
+			display: 'My Content',
 			param: 'user',
 			dataFn: apiService.Feed.subscriptions
 		}

@@ -553,7 +553,7 @@ $nav-height: $cmu-nav-height;
 
 
 .cmuGloNav--footer {
-	background-color: $cmu-color-white;
+	background-color: $cmu-color-ltgray;
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
 
@@ -611,7 +611,7 @@ $nav-height: $cmu-nav-height;
 
 		.ubnt-icon {
 			padding-left: $cmu-base/2;
-			color: $cmu-color-ltblue;
+			color: $cmu-color-dkgray;
 			margin-left: $cmu-base/2;
 			padding-left: 0;
 
@@ -627,7 +627,7 @@ $nav-height: $cmu-nav-height;
 			.ubnt-icon--menu {
 				// padding: 0;
 				position: relative;
-				top:0.5px;
+				top:1px;
 				&:before {
 					@extend %ease-fast;
 				}
@@ -663,7 +663,7 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
-			background-color: rgba($cmu-color-gray, 0.2);
+			background-color: rgba($cmu-color-white, 0.8);
 			color: $cmu-color-blue;
 
 			display: inline-block;
@@ -674,8 +674,8 @@ $nav-height: $cmu-nav-height;
 		}
 		span:hover:before {
 			@extend %ease-fast;
-			background-color: rgba($cmu-color-gray, 0.3);
-			color: $cmu-color-ltblue;
+			background-color: rgba($cmu-color-purewhite, 1);
+			color: $cmu-color-vltblue;
 		}
 	}
 

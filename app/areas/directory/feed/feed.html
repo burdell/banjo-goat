@@ -37,7 +37,7 @@
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<div class="cmuThreadlist__ctrl__row row">
 					<div class="col--md8">
-						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Recent Topics</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >Followed Topics</button>
+						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Recent Content</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >Followed Content</button>
 					</div>
 					 <div class="col--md2 noPaddingRight">
 			          	<community-sort 
@@ -59,13 +59,11 @@
 			        </div>
 		        </div>
 
-				<div class="cmuFeed__container container">
+				<div class="cmuFeed__container">
 			        <div class="cmuFeed__stories col--md12 noPadding" ng-show="vm.feedType === 'community'">
 			        
 			        	<div class="cmuFeed__title clearfix">
-			        		<div class="col--md8">
-								<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
-							</div>
+							<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
 						</div>
 
 						<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
@@ -92,13 +90,12 @@
 			        	<div class="cmuFeed__title  clearfix">
 							<h5><span class="cmuFeed__icon all"></span>{{ vm.feedTypeDisplay }}</h5>
 						</div>
-
-				        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
-				        		<community-feed-content content-model="feedItem"></community-feed-content>
-				        	</div>
+			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
+			        		<community-feed-content content-model="feedItem"></community-feed-content>
+			        	</div>
 				    </div>
 
-			        <div class="cmuFeed__pagerBottom col--md12">
+			        <div class="cmuFeed__pagerBottom col--md12 noPaddingLeft noPaddingRight">
 				        <community-load-more
 							list-model="vm.feedList"
 							load-filter="vm.feedFilter">
@@ -107,18 +104,16 @@
 			    </div>
 			</div>
 
+			<!-- sidebar -->
+			<div class="cmuFeed__sidebar col--md3">
 
-
-				<!-- sidebar -->
-				<div class="cmuFeed__sidebar col--md3">
-
-					<div class="cmuFeed__actions">
-						<h5>Links</h5>
-						<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
-					</div>
+				<div class="cmuFeed__actions">
+					<h5>Links</h5>
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+				</div>
 
 				<div class="cmuFeed__announcements">
-					<h5><span class="cmuFeed__icon announcements"></span>Latest Announcements</h5>
+					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
 						<span class="product">airmax</span>{{ announcement.subject }}
 					</a>
@@ -126,7 +121,8 @@
 						<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
 					</div>
 				</div>
-			</div>	
+			</div>
+
 		</div>
 	</div>
 </div>

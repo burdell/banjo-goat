@@ -60,7 +60,7 @@
 
 .cmuFeed {
 	// hide breadcrumbs
-	.cmuBreadcrumbs { 
+	&:not(.cmuHub).cmuBreadcrumbs { 
 		display: none;
 	}
 
@@ -105,7 +105,7 @@
 
 	.cmuFeed__stories {
 		border: $style-line;
-		border-bottom: 0;
+		// border-bottom: 0;
 
 		margin-bottom: $cmu-vertical-rhythm;
 		background-color: $cmu-color-post;
@@ -115,7 +115,15 @@
 	}
 		.cmuFeed__storyList {
 			padding: $cmu-base/2;
-			border-bottom: $style-line;
+			// border-bottom: $style-line;
+
+			&>div:first-child {
+				padding-left: 0;
+			}
+
+			&>div:last-child {
+				padding-left: 0;
+			}
 		}
 		.cmuFeed__story {
 			@extend %style-listItem;
@@ -166,6 +174,11 @@
 			width: 100%;
 			background-repeat: no-repeat;
 			background-size: cover;
+    		background-position: center;
+		}
+
+		.cmuFeed__story__subject {
+			margin-bottom: $cmu-base/2;
 		}
 
 		.cmuFeed__story__user {
@@ -231,7 +244,7 @@
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 38px; // preserve 2 lines
+			    max-height: 36px; // preserve 2 lines
 			}
 			.cmuFeed__stats {
 				text-align: right;

@@ -34,7 +34,7 @@ $cmu-searchbox-disabled-background-color: $cmu-color-bg;
 
 .cmuSearchbox { 
   // padding: $cmu-base 0;
-
+  position: relative;
   @include cmu-placeholder {
     color: red;
     font-weight: 300;
