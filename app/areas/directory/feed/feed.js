@@ -73,6 +73,9 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		ctrl.categorySortOptions = categorySort.concat(bleh);
 	});
 
+	var landingPages = routingService.landingPages();
+	var announcementsLanding = _.where(landingPages, { area: 'Announcements' });
+	
 	var currentFeedType = feedData.community;
 	_.extend(ctrl, {
 		storyData: storyData.content,
@@ -102,7 +105,8 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 
 			initialFeedLoaded = false;
 		},
-		landingPages: routingService.landingPages(),
+		announcementsLanding: announcementsLanding[0],
+		landingPages: landingPages,
 		discussionSortOptions: dataService.DiscussionTypeSort,
 		recentAnnouncements: announcementData.content,
 		generateAnnouncementUrl: function(announcementData){
