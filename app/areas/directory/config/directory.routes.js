@@ -29,7 +29,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			controller: 'Hub as vm',
 			resolve: {
 					StoryData: ['$stateParams', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, communityApi, routingService){
-						return communityApi.Stories.all({ per_page: 3, node_url_code: routingService.generateDiscussionUrl($stateParams.nodeId, 'stories') });
+						return communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 3 });
 					}],
 					DiscussionsFeedFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 
@@ -89,14 +89,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
-								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId },
+								constants: { per_page: 3, author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 3, sortDir: 'ASC', author_id: $stateParams.userId, node_url_code: 'airMax_stories' },
+								constants: { size: 3, author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],

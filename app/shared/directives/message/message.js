@@ -41,16 +41,15 @@ function communityMessage() {
 
 		_.extend(ctrl, {
 			hideVoteButtons: this.hideVoteButtons,
-			getMessagePosition: function(localIndex) {
+			getMessagePosition: function() {
 				var currentPage = ctrl.threadFilter.model('page') || 1;
-				var total = ctrl.threadFilter.metaData('totalElements');
-				
+				var total = ctrl.threadFilter.metaData('totalElements');				
 				var messageIndex = ((perPage * (currentPage - 1)) + ctrl.localIndex) + 1;
 				return  messageIndex + " of " + total;
 			},
 			goToParentMessage: function(parentId) {
 				$location.hash(parentId);
-				
+
 				var shownIds = ctrl.threadFilter.metaData('idList');
 				if (_.indexOf(shownIds, Number(parentId)) < 0) {
 					ctrl.threadFilter
