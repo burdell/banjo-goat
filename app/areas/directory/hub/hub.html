@@ -1,5 +1,5 @@
-<div class="cmuFeed">
-	<community-page-header  hide-element-selector=".hub-container"></community-page-header>
+<div class="cmuFeed cmuHub">
+	<community-page-header hide-element-selector=".hub-container"></community-page-header>
 
 	<div class="hub-container">
 		<div class="row">
@@ -33,61 +33,77 @@
 			</div>
 		</div>
 
-		<div class="row row--comfy">
-			<div class="cmuFeed__container container">
-	        	<div class="cmuFeed__title clearfix row">
-	        		<div class="col--md10">
-						<h5><span class="cmuFeed__icon stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
+
+
+		<div class="row">
+
+			<div class="cmuFeed__main col--md9 noPaddingLeft">
+				<div class="cmuFeed__container">
+		        	<div class="cmuFeed__title clearfix noPaddingLeft">
+		        		<div class="col--md10">
+							<h5><span class="cmuFeed__icon stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
+						</div>
+					</div>
+
+					<div class="cmuFeed__storyList col--md12 noPaddingLeft noPaddingRight">
+						<div class="col--md4" ng-repeat="story in vm.storyList">
+							<story-display 
+								story="story"
+								minimal-display="true"
+								hide-posting-info="false"
+								fill-width="true">
+							</story-display>
+						</div>
+					</div>
+					<div>
+						<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">Read All Stories</a>
 					</div>
 				</div>
 
-				<div class="col--md10">
-					<div class="col--md4" ng-repeat="story in vm.storyList">
-						<story-display 
-							story="story"
-							minimal-display="true"
-							hide-posting-info="true"
-							fill-width="true">
-						</story-display>
-					</div>
-				</div>
-				<div class="col--md2">
-					<div class="cmuDirectory__sidebar__other">
-						<div class="cmuDirectory__sidebar__item" ng-if="vm.forumList.length > 0">
-							<a>{{ vm.nodeDisplay }} Discussions</a>
-							<div ng-repeat="forum in vm.forumList"> 
-								<a ng-href="{{ vm.getForumUrl(forum.urlCode) }}" target="_self">{{ forum.description }}</a>
-							</div>
-						</div>
-						<div class="cmuDirectory__sidebar__item">
-							<a ng-href="{{ vm.discussionUrls.announcements }}" target="_self">View Announcements</a>
-						</div>
-						<div class="cmuDirectory__sidebar__item">
-							<a ng-href="{{ vm.discussionUrls.stories }}" target="_self">Read Members Stories</a>
+				<div class="cmuFeed__container">
+					<div class="cmuFeed__title clearfix noPaddingLeft">
+		        		<div class="col--md12">
+							<h5><span class="cmuFeed__icon all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div>
-				<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">Read All Stories</a>
-			</div>
-		</div>
 
-		<div class="row row--comfy">
-			<div class="cmuFeed__container container">
-				<div class="cmuFeed__title clearfix row">
-	        		<div class="col--md8">
-						<h5><span class="cmuFeed__icon all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
+					<div>
+						<div class="cmuFeed__item__container" ng-repeat="feedItem in vm.discussionsFeed">
+			        		<community-feed-content content-model="feedItem"></community-feed-content>
+			        	</div>
 					</div>
 				</div>
 
-				<div>
-					<div class="cmuFeed__item__container" ng-repeat="feedItem in vm.discussionsFeed">
-		        		<community-feed-content content-model="feedItem"></community-feed-content>
-		        	</div>
-				</div>
 			</div>
-		</div>
+
+			<!-- sidebar -->
+			<div class="cmuFeed__sidebar col--md3">
+
+				<div class="cmuFeed__actions">
+					<h5>{{ vm.nodeDisplay }} Links</h5>
+
+						<a ng-href="{{ vm.getForumUrl(forum.urlCode) }}" target="_self" ng-repeat="forum in vm.forumList"> 
+							{{ forum.description }}
+						</a>
+						<a ng-href="{{ vm.discussionUrls.announcements }}" target="_self">Announcements</a>
+						<a ng-href="{{ vm.discussionUrls.stories }}" target="_self">Stories</a>
+<!-- 
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+ -->
+
+				</div>
+
+				<div class="cmuFeed__announcements">
+					<h5>Latest Announcements</h5>
+					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
+						<span class="product">airmax</span>{{ announcement.subject }}
+					</a>
+					<div class="cmuFeed__sidebar__ctrl">
+						<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
+					</div>
+				</div>
+
+			</div>
 
 		<div class="row">
 			  <community-load-more

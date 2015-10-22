@@ -409,7 +409,9 @@ button, .button {
 .button--stretch {
 	width: 100%;
  }
-
+.button--center {
+	text-align: center;
+ }
 .button--tall {
 	padding-top: $cmu-base/2;
 	padding-bottom: $cmu-base/2;
