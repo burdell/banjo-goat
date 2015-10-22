@@ -7878,7 +7878,7 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuWrapper--overlay .cmuWrapper {
-  height: 100%;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -7987,7 +7987,8 @@ div.cmuOverlay--show {
   display: none;
 }
 .cmuMega.cmuOverlay--show {
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
 }
 
 .cmuMega__shroud {
@@ -8111,7 +8112,6 @@ div.cmuOverlay--show {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  position: relative;
   top: 2.5rem;
 }
 
@@ -8441,9 +8441,10 @@ div.cmuOverlay--show {
   margin-right: 0.25rem;
 }
 
-.cmuFeed:not(.cmuHub).cmuBreadcrumbs {
+.cmuFeed--home .cmuBreadcrumbs {
   display: none;
 }
+
 .cmuFeed .cmuDiscussionsHeader h3, .cmuFeed .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuFeed .cmuDiscussionsHeader .timeline__year__title--text {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -8550,6 +8551,10 @@ div.cmuOverlay--show {
 }
 .cmuFeed__item .cmuFeed__icon:before {
   color: #00a0df;
+}
+
+.cmuFeed__subject {
+  font-weight: 600;
 }
 
 .cmuFeed__itemHeader {

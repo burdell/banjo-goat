@@ -58,11 +58,11 @@
 }
 
 
+// hide breadcrumbs
+.cmuFeed--home .cmuBreadcrumbs { 
+	display: none;
+}
 .cmuFeed {
-	// hide breadcrumbs
-	&:not(.cmuHub).cmuBreadcrumbs { 
-		display: none;
-	}
 
 	.cmuDiscussionsHeader h3 {
 		@extend %h2;
@@ -225,6 +225,10 @@
 				&:before {color: $cmu-color-blue;}
 			}
 		}
+			.cmuFeed__subject {
+				font-weight: 600;
+			}
+			
 			.cmuFeed__itemHeader {
 				height: $cmu-base*1.2;
     			overflow: hidden;

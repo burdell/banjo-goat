@@ -39,7 +39,8 @@
     // overflow: hidden;
 
     &.cmuOverlay--show {
-    	position: absolute;
+    	position: fixed;
+    	z-index: $z-top;
     }
 }
 
