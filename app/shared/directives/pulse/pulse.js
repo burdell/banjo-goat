@@ -9,13 +9,13 @@ var _ = require('underscore');
 
 function pulse() {
 	
-	var controller = function($scope, communityApi, realtimeService) {
+	var controller = function($scope, $stateParams, communityApi, realtimeService) {
 		var ctrl = this;
 
         var realtime = realtimeService.getNew();
 
         realtime.start(function(){
-            communityApi.Core.pulse().then(function(result){
+            communityApi.Core.pulse($stateParams.nodeId).then(function(result){
                 _.extend(ctrl.stats, result);
             })
         }, true);
@@ -33,7 +33,7 @@ function pulse() {
             }
 		});
 	};
-	controller.$inject = ['$scope', 'CommunityApiService', 'CommunityRealtimeService'];
+	controller.$inject = ['$scope', '$stateParams', 'CommunityApiService', 'CommunityRealtimeService'];
 
     var directive = {
         controller: controller,
@@ -43,6 +43,7 @@ function pulse() {
         restrict: 'E',
         replace: true,
         scope: {
+         
         }
     };
 
