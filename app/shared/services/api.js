@@ -136,8 +136,12 @@ var communityApiService = function($http, $q, $timeout, errorService){
 						return result.content;
 					});
 				},
-				pulse: function(nodeId) {
-					return goToApi(v2Url + 'pulse');
+				pulse: function(nodeUrlCode) {
+					if (nodeUrlCode) {
+						return goToApi(v2Url + urlSegments.Node(nodeUrlCode) + 'pulse');
+					} else {
+						return goToApi(v2Url + 'pulse');
+					}
 				}
 			},
 			Feed: {
