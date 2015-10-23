@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
 				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.countVotes }}<span class="cmuFeatures__votes__caption">votes</span></div>
-				<div class="cmuFeatures__votes__status {{ vm.originalMessage.state | lowercase }} ">
+				<div class="cmuFeatures__votes__status {{ vm.getStatusCode() }} ">
 					{{ ::vm.getStatusText(vm.originalMessage) }}
 				</div>
 			</div>
