@@ -9,6 +9,7 @@ require('filters/extractkey.js');
 require('filters/unescape.js');
 
 require('directives/username/username.js');
+require('directives/pulse/pulse.js');
 
 var _ = require('underscore');
 

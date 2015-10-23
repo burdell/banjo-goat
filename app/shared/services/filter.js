@@ -84,10 +84,10 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 					realtimeService = realtimeServiceWrapper.getNew();
 					var filterFn = this.filter;
 					realtimeService.start(function(realtimeModel){
-						//keep any sorts, exclude paging information
-						realtimeModel = _.extend(realtimeModel, options.filterModel, { page: undefined, size: undefined });
-						return filterFn(realtimeModel, null, true);
-					});
+							//keep any sorts, exclude paging information
+							realtimeModel = _.extend(realtimeModel, options.filterModel, { page: undefined, size: undefined });
+							return filterFn(realtimeModel, null, true);
+						});
 				}
 
 				return filter;
@@ -162,6 +162,11 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 			},
 			metaData: function(metaValue){
 				return (metaValue ? options.metaData[metaValue] : options.metaData);
+			},
+			stopRealtime: function(){
+				if (realtimeService) {
+					realtimeService.stop();
+				}
 			}
 		};
 	};

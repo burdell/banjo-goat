@@ -12,6 +12,7 @@ require('shared/directives/pager/pager.js');
 
 require('directives/loadmore/loadmore.js')
 require('directives/classtoggle/classtoggle.js');
+require('directives/pulse/pulse.js');
 
 
 var _ = require('underscore');
@@ -60,6 +61,10 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 				setFeed(result.content);
 			}
 		}
+	});
+
+	$scope.$on('$destroy', function(){
+		feedFilter.stopRealtime();
 	});
 
 	nodeServiceWrapper.get().then(function(nodeService) {
