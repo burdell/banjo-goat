@@ -63,6 +63,47 @@
 
 
 
+// icon representations for discussion types, used as label (profile, feed)
+.cmuIcon__label {
+	font-size: $cmu-base;
+	margin-right: $cmu-base/2;
+	&:before {
+		color: $cmu-color-dkgray;
+	}
+
+	&.all:before {
+		@extend %sidebar-icon;
+		content: '\e63b';
+		text-decoration: none !important;
+	}
+	&.announcements:before {
+		@extend %sidebar-icon;
+		content: '\e710';
+		text-decoration: none !important;
+	}
+	&.forums:before {
+		@extend %sidebar-icon;
+		content: '\e6c0';
+		text-decoration: none !important;
+	}
+	&.stories:before {
+		@extend %sidebar-icon;
+		content: '\e614';
+		text-decoration: none !important;
+	}
+	&.qa:before {
+		@extend %sidebar-icon;
+		content: '\e6ee';
+		text-decoration: none !important;
+	}
+
+	// product tag
+	.product {
+		color: $cmu-color-active;
+		margin-right: $cmu-base/4;
+	}
+}
+
 
 
 .cmuIcon-pin {

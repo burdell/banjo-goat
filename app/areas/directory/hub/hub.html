@@ -8,7 +8,7 @@
 				<div class="cmuFeed__container">
 		        	<div class="cmuFeed__title clearfix noPaddingLeft">
 		        		<div class="col--md10">
-							<h5><span class="cmuFeed__icon stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
+							<h5><span class="cmuIcon__label stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
 						</div>
 					</div>
 
@@ -30,7 +30,7 @@
 				<div class="cmuFeed__container">
 					<div class="cmuFeed__title clearfix noPaddingLeft">
 		        		<div class="col--md12">
-							<h5><span class="cmuFeed__icon all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
+							<h5><span class="cmuIcon__label all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
 						</div>
 					</div>
 
@@ -55,7 +55,7 @@
 						<a ng-href="{{ vm.discussionUrls.announcements }}" target="_self">Announcements</a>
 						<a ng-href="{{ vm.discussionUrls.stories }}" target="_self">Stories</a>
 <!-- 
-					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
  -->
 
 				</div>

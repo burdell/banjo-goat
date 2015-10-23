@@ -15,7 +15,7 @@
 .cmuStoryItem {
 	@extend %ease-fast;
 	margin-bottom: $cmu-base;
-	max-width: 245px;
+	// max-width: 245px;
 
 	// Note on how this works:
 	// this value depends on the maxwidth of the page
@@ -86,6 +86,7 @@
 	}
 		.cmuStoryItem__image__container {
 			overflow: hidden;
+			border: $style-line;
 		}
 
 	// each story item in the grid

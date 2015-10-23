@@ -9,6 +9,13 @@
 // BASE COLOR PALETTE
 // avoid referencing these directly in code
 // 
+
+// 
+// Note on naming
+// 'cmu-' prefix is required in order to not collide with base colors
+// 
+
+
 $cmu-color-vltblue: 	lighten(#13BCFF,30);
 $cmu-color-ltblue: 		#13BCFF;
 $cmu-color-blue: 		#00A0DF;
@@ -69,6 +76,9 @@ $cmu-color-textgray: 	#aeb4b7; 				// this color is on dotcom nav, but is not in
 	
 	// Active text
 	$cmu-color-active: $cmu-color-blue;
+
+	// Used for lighter labels
+	$cmu-color-label: $cmu-color-gray;
 
 	// Links (default - blue, hover to black)
 	$cmu-color-link: $cmu-color-blue;

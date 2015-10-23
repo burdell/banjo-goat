@@ -5,6 +5,78 @@
 // 
 
 
+// 
+// profile page
+// 
+
+
+.cmuProfile__section {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+.cmuProfile__subSection {
+	margin-bottom: $cmu-vertical-rhythm/2;
+	padding: 0;
+}
+
+
+.cmuProfile__title {
+	border-bottom: $style-line;
+	padding: $cmu-base/4 0;
+	h5 {
+		display: inline;
+	}
+}
+
+
+
+
+// sidebar
+
+.cmuProfile__sidebar__label {
+	@extend %type-sidebar-label;
+}
+
+
+
+// main
+
+.cmuProfile__main {
+	padding-left: $cmu-base;
+
+
+	.cmuProfile__section {
+		margin-bottom: $cmu-vertical-rhythm*2;
+	}
+
+}
+
+
+	// stories
+	.cmuProfile__storyList {
+		margin-top: $cmu-vertical-rhythm;
+	}
+
+	.cmuProfile__story {
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	// points table
+	.cmuProfile__table {
+		margin-top: $cmu-vertical-rhythm;
+	}
+
+
+
+
+
+
+
 
 // placeholder avatar
 
