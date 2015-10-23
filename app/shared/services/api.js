@@ -135,6 +135,9 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'nodes', { per_page: 140 }).then(function(result) {
 						return result.content;
 					});
+				},
+				pulse: function(nodeId) {
+					return goToApi(v2Url + 'pulse');
 				}
 			},
 			Feed: {
@@ -150,7 +153,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			Forums: {
 				messages: function(nodeId, data){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', data);
 				},
 				message: function(messageData, mock) {
 					var callData = getCallType(messageData);

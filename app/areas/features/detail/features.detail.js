@@ -34,7 +34,7 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 	_.extend(ctrl, {
 		currentReply: null,
 		getStatusCode: function(feature){
-			return statusTypes[feature.state].code;
+			return statusTypes[featureRequest.state].code;
 		},
 		getStatusText: function(feature){
 			return statusTypes[feature.state].display;

@@ -5,12 +5,12 @@ angular.module('community.features')
 	.factory('FeaturesDataService', function(){
 		return {
 			StatusTypes: {
-				'Fixed': { code: 'fixed', display: 'Fixed' },
-				'New': { code: 'pending', display: 'Pending' },
-				'InProgress': { code: 'inprogress', display: 'In Progress' },
-				'Invalid': { code: 'invalid', display: 'Invalid' },
-				'Unspecified': { code: 'unspecified', display: 'Unspecified' },
-				'WontFix': { code: 'wontfix', display: 'Wont\'t Fix' }
+				'New': { code: 'pending', display: 'New' },
+				'Accepted': { code: 'inprogress', display: 'Accepted' },
+				'Under Consideration': { code: 'unspecified', display: 'Under Consideration' },
+				'Duplicate': { code: 'wontfix', display: 'Duplicate' },
+				'Future Consideration': { code: 'invalid', display: 'Future Consideration' },
+				'Implemented': { code: 'fixed', display: 'Implemented' },
 			},
 			SeverityLevels: {
 				1: { code: 'high', display: 'High' },

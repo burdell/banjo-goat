@@ -30,11 +30,7 @@
 								since: applyTimestamp ? lastTimestamp : undefined
 							};
 							
-							pollFn(callModel).then(function(result){
-								if (callback) {
-									callback(result);
-								}
-							});
+							pollFn(callModel);
 						};
 
 						if (callImmediately) {

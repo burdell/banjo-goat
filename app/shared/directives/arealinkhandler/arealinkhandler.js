@@ -1,9 +1,17 @@
 
 'use strict';
 
-function areaLinkHandler(routingService) {
+require('services/routing.js');
+
+function areaLinkHandler($parse, routingService) {
 	var link = function(scope, element, attrs) {
-		var elementHref = attrs.areaLinkHandler;
+		var elementHref;
+		if (attrs.linkHandlerRoute) {
+			var routeValues = !attrs.routeValues ? null : $parse(attrs.routeValues)();
+			elementHref = routingService.generateUrl(attrs.linkHandlerRoute, routeValues);
+		} else {
+			elementHref = attrs.areaLinkHandler;
+		}	
 		
 		var elementNode = element[0];
 		elementNode.setAttribute('href', elementHref);
@@ -21,7 +29,7 @@ function areaLinkHandler(routingService) {
     };
     return directive;
 }
-areaLinkHandler.$inject = ['CommunityRoutingService'];
+areaLinkHandler.$inject = ['$parse', 'CommunityRoutingService'];
 
 angular.module('community.directives')
 	.directive('areaLinkHandler', areaLinkHandler);
