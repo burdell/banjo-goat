@@ -8477,6 +8477,10 @@ div.cmuOverlay--show {
   border-bottom: 1px solid #bbbbbd;
 }
 
+.cmuFeed__items {
+  margin-bottom: 0.5rem;
+}
+
 .cmuFeed__stories {
   border: 1px solid #bbbbbd;
   margin-bottom: 1rem;
@@ -8490,7 +8494,7 @@ div.cmuOverlay--show {
   padding-left: 0;
 }
 .cmuFeed__storyList > div:last-child {
-  padding-left: 0;
+  padding-right: 0;
 }
 
 .cmuFeed__story:hover .cmuFeed__story__img {
@@ -9145,17 +9149,6 @@ div.cmuOverlay--show {
 }
 .cmuProfile__main .cmuProfile__section {
   margin-bottom: 2rem;
-}
-
-.cmuProfile__storyList {
-  margin-top: 1rem;
-}
-
-.cmuProfile__story:first-child {
-  padding-left: 0;
-}
-.cmuProfile__story:last-child {
-  padding-right: 0;
 }
 
 .cmuProfile__table {
@@ -10755,6 +10748,22 @@ select.cmuSort {
 }
 .cmuFeatureDetails .cmuFeatures__votes__status {
   padding: 0.25rem;
+}
+
+.cmuStoryGrid {
+  margin-top: 1rem;
+  -moz-column-count: 3;
+  -moz-column-gap: 0.5rem;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 0.5rem;
+  column-count: 3;
+  column-gap: 0.5rem;
+}
+
+.cmuStoryGrid__item {
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .cmuStoryItem {

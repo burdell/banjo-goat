@@ -58,6 +58,10 @@
 		border-bottom: $style-line;
 	}
 
+	.cmuFeed__items {
+		margin-bottom: $cmu-base/2;
+	}
+
 	// 
 	// stories
 	// 
@@ -81,7 +85,7 @@
 			}
 
 			&>div:last-child {
-				padding-left: 0;
+				padding-right: 0;
 			}
 		}
 		.cmuFeed__story {

@@ -34,12 +34,20 @@
 						</div>
 					</div>
 
-					<div>
+					<div class="cmuFeed__items">
 						<div class="cmuFeed__item__container" ng-repeat="feedItem in vm.discussionsFeed">
 			        		<community-feed-content content-model="feedItem"></community-feed-content>
 			        	</div>
 					</div>
+
+					<community-load-more
+					list-model="vm.discussionsFeed"
+					load-text="Read More"
+					load-filter="vm.discussionsFeedFilter">
+					</community-load-more>
+
 				</div>
+
 
 			</div>
 
@@ -57,7 +65,6 @@
 <!-- 
 					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
  -->
-
 				</div>
 
 				<div class="cmuFeed__announcements">
@@ -72,11 +79,5 @@
 
 			</div>
 
-		<div class="row">
-			  <community-load-more
-				list-model="vm.discussionsFeed"
-				load-filter="vm.discussionsFeedFilter">
-			</community-load-more>
-		</div>
 	</div>
 </div>
