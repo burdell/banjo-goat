@@ -63,7 +63,7 @@
 			        <div class="cmuFeed__stories col--md12 noPadding" ng-show="vm.feedType === 'community'">
 			        
 			        	<div class="cmuFeed__title clearfix">
-							<h5><span class="cmuFeed__icon stories"></span>Latest Stories</h5>
+							<h5><span class="cmuIcon__label stories"></span>Latest Stories</h5>
 						</div>
 
 						<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
@@ -88,7 +88,7 @@
 
 			        <div class="cmuFeed__list col--md12">
 			        	<div class="cmuFeed__title  clearfix">
-							<h5><span class="cmuFeed__icon all"></span>{{ vm.feedTypeDisplay }}</h5>
+							<h5><span class="cmuIcon__label all"></span>{{ vm.feedTypeDisplay }}</h5>
 						</div>
 			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
 			        		<community-feed-content content-model="feedItem"></community-feed-content>
@@ -109,7 +109,7 @@
 
 				<div class="cmuFeed__actions">
 					<h5>Links</h5>
-					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuFeed__icon {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 				</div>
 
 				<div class="cmuFeed__announcements">

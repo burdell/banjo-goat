@@ -187,6 +187,14 @@ $cmu-base-spacing-unit: $cmu-base;
 			line-height: $size-xxsmaller__lineHeight * 0.6;
 		}
 
+// used in user profile
+// smaller label than the h5 label used in feed
+.type-sidebar-label, %type-sidebar-label {
+	color: $cmu-color-label;
+	text-transform: uppercase;
+	@extend %type-tiny;
+}
+
 
 // 
 // Form typography

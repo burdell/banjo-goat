@@ -12,7 +12,7 @@ $nav-height: $cmu-nav-height;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
 	cursor: pointer;
-	line-height: $cmu-base;
+	// line-height: $cmu-base;
 
 	@extend %ease-fast;
 	&:hover {
@@ -46,6 +46,10 @@ $nav-height: $cmu-nav-height;
 	z-index: $z-gloNav;
 	position: relative;
 
+
+	* {
+		@extend %user-select-none;
+	}
 
 	// fun
 	// background:red;
@@ -635,26 +639,26 @@ $nav-height: $cmu-nav-height;
 
 	}
 
-	.cmuGloNav__social--label {
-		cursor: default !important;
-		@extend %nav-style-footer;
-		font-size: $size-smaller;
-		line-height: $size-smaller__lineHeight;
-		text-transform: inherit;
-		padding: $cmu-base/2;
-		padding-left: 0;
-		padding-bottom: 0;
-		// margin-bottom: $cmu-base/2;
+	// .cmuGloNav__social--label {
+	// 	cursor: default !important;
+	// 	@extend %nav-style-footer;
+	// 	font-size: $size-smaller;
+	// 	line-height: $size-smaller__lineHeight;
+	// 	text-transform: inherit;
+	// 	padding: $cmu-base/2;
+	// 	padding-left: 0;
+	// 	padding-bottom: 0;
+	// 	// margin-bottom: $cmu-base/2;
 
-		&:hover {
-			color: $cmu-color-dkgray;
-		}
-		// margin-top: $cmu-base*2;
-	}
+	// 	&:hover {
+	// 		color: $cmu-color-dkgray;
+	// 	}
+	// 	// margin-top: $cmu-base*2;
+	// }
 
 	.cmuGloNav__social {
 		cursor: default !important;
-    	// margin-left: $cmu-base * 1/4;
+    	margin-top: 2px;
 
     	a {
     		padding: 0 !important;
@@ -663,8 +667,8 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
-			background-color: rgba($cmu-color-white, 0.8);
-			color: $cmu-color-blue;
+			background-color: $cmu-color-gray;
+			color: $cmu-color-ltgray;
 
 			display: inline-block;
 		    border-radius: 50%;
@@ -674,8 +678,8 @@ $nav-height: $cmu-nav-height;
 		}
 		span:hover:before {
 			@extend %ease-fast;
-			background-color: rgba($cmu-color-purewhite, 1);
-			color: $cmu-color-vltblue;
+			background-color: $cmu-color-xdkgray;
+			color: $cmu-color-purewhite !important;
 		}
 	}
 
