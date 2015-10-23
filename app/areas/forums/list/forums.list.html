@@ -212,13 +212,13 @@
               {{  message.topic.countViews | number}}
             </td>
             <td class="cmuThreadList__row__counter" title="comments">
-              {{  message.context.totalMessageCount | number}}
+              {{  message.context.totalMessageCount - 1 | number}}
             </td>
             <td class="cmuThreadList__row__counter" title="kudos">
-              {{  message.score | number}}
+              {{  message.topic.message.scores.kudo | number}}
             </td>
             <td class="cmuThreadList__row__authorLast">
-              <community-username user="message.latestComment.author"></community-username>
+              <community-username user="message.context.lastestMessage.insertUser"></community-username>
             </td>
             <td class="cmuThreadList__row__latestDate">{{ message.topic.lastActivityDate | timeFromNow }}
             </td>

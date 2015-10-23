@@ -56,7 +56,8 @@ function communityMessage() {
 						.set({ targetCommentHash: true });
 				}
 			},
-			reply: reply
+			reply: reply,
+			messageStats: ctrl.message.scores
 		});
 		}
 		controller.$inject = ['$anchorScroll', '$location', '$timeout', 'CommunityApiService', 'CommunityRoutingService'];
