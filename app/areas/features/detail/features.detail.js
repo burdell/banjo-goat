@@ -34,7 +34,7 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 	_.extend(ctrl, {
 		currentReply: null,
 		getStatusCode: function(feature){
-			return statusTypes[feature.state].code;
+			return statusTypes[featureRequest.state].code;
 		},
 		getStatusText: function(feature){
 			return statusTypes[feature.state].display;
@@ -49,11 +49,7 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 			ctrl.featureReplyShown = true;
 		},
 		replyPosted: function(result){
-			if (ctrl.numberOfPages > 1) {
-				featuresCommentFilter.filter({ page: ctrl.numberOfPages });
-			} else {
-				ctrl.commentList.push(result);
-			}
+			featuresCommentFilter.filter({ page: ctrl.numberOfPages });
 		},
 		showReply: function(messageId){
 			ctrl.currentReply = messageId;

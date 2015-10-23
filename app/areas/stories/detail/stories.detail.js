@@ -6,6 +6,9 @@ require('services/breadcrumb.js');
 require('services/filter.js');
 require('services/currentuser.js');
 require('services/nodestructure.js');
+require('services/routing.js');
+
+require('providers/routes.js');
 
 require('directives/commentform/commentform.js');
 require('directives/commentlist/commentlist.js');
@@ -17,7 +20,7 @@ require('filters/sanitize.js');
 
 var _ = require('underscore');
 
-function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults){
+function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults, routingService, routesProvider){
 	var ctrl = this;
 
 	storyThread.comments.content.pop();
@@ -44,7 +47,24 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 			ctrl.getProductName = function(nodeId){
 				var node = nodeService.getNode(Number(nodeId));
 				return node ? node.name : nodeId;
+			},
+
+			ctrl.getProduct = function(nodeId){
+				var node = nodeService.getNode(Number(nodeId));
+				return node;
+			},
+
+			ctrl.getProductUrl = function(nodeId){
+				var node = nodeService.getNode(Number(nodeId));
+				var route = node.discussionStyle === 'category' ? 'hub' : 'forums.list';
+				return routingService.generateUrl(route, { nodeId: node.urlCode });
+			},
+
+			ctrl.getProductIcon = function(nodeId){
+				var node = nodeService.getNode(Number(nodeId));
+				return node.iconClass;
 			}
+						
 		});
 
 		_.extend(ctrl, {
@@ -112,7 +132,9 @@ StoryDetailController.$inject = [
 	'CommunityNodeService',
 	'CurrentUserService',
 	'StoryThread', 
-	'StoryDefaults'
+	'StoryDefaults',
+	'CommunityRoutingService',
+	'communityRoutes',
 ];
 
 angular.module('community.stories')

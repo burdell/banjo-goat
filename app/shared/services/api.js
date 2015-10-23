@@ -136,9 +136,8 @@ var communityApiService = function($http, $q, $timeout, errorService){
 						return result.content;
 					});
 				},
-				message: function(messageData){
-					var callData = getCallType(messageData);
-					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
+				pulse: function(nodeId) {
+					return goToApi(v2Url + 'pulse');
 				}
 			},
 			Feed: {
@@ -154,7 +153,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			Forums: {
 				messages: function(nodeId, data){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', data);
 				},
 				message: function(messageData, mock) {
 					var callData = getCallType(messageData);
@@ -197,7 +196,13 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'features/' + callData.id, callData.payload, callData.verb);
 				},
 				comments: function(messageId, options) {
-					return goToApi(v2Url + 'features/' + messageId + '/comments', options);
+					return goToApi(v2Url + 'features/' + messageId + '/comments', options).then(function(result){
+						if (result.totalElements) {
+							result.totalElements = result.totalElements - 1;
+						}
+						
+						return result;
+					});
 				}
 			},
 			Gamification: {
@@ -211,6 +216,15 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					formData.append('file', fileData);
 
 					return goToApi(v2Url + 'media', formData, 'POST', true);
+				}
+			},
+			Messages: {
+				message: function(messageData){
+					var callData = getCallType(messageData);
+					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
+				},
+				position: function(messageId){
+					return goToApi(v2Url + 'messages/' + messageId + '/position');
 				}
 			},
 			Stories: {

@@ -17,7 +17,6 @@
 		var ctrl = this;
 
 		function setMessageData (result){		
-			console.log(result.content);
 			ctrl.featuresCount = result.totalElements;
 			ctrl.numberOfPages = result.totalPages;
 			ctrl.featuresList = result.content;

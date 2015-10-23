@@ -51,8 +51,8 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			padding: $cmu-base/6 $cmu-base/2;
 			color: $cmu-color-gray;
 			// font-size: $size-xxsmaller;
-			position: absolute; // remove it from flow
-			top: -4px;
+			position: relative; // remove it from flow
+			top: 0px;
 		}
 	}
  

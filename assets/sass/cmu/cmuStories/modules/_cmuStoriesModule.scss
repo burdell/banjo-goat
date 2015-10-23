@@ -15,7 +15,7 @@
 .cmuStoryItem {
 	@extend %ease-fast;
 	margin-bottom: $cmu-base;
-	max-width: 245px;
+	// max-width: 245px;
 
 	// Note on how this works:
 	// this value depends on the maxwidth of the page
@@ -86,6 +86,7 @@
 	}
 		.cmuStoryItem__image__container {
 			overflow: hidden;
+			border: $style-line;
 		}
 
 	// each story item in the grid
@@ -221,7 +222,7 @@
 		}
 
 .cmuStories__story__cover {
-	margin-top: $cmu-base; // separates either title or subtitle
+	// margin-top: $cmu-base; // separates either title or subtitle
 	margin-bottom: $cmu-base;
 	
 	// 'picture frame'
@@ -265,7 +266,7 @@
 // Right Rail Info Box
 // 
 
-.cmuStories__story__info {
+.cmuStory__sidebar {
 	padding-left: $cmu-base;
 
 	& > div {
@@ -278,50 +279,50 @@
 	}
 }
 
-.cmuStories__story__info--map {
+.cmuStory__sidebar__map {
 	margin-bottom: $cmu-base/2;
 }
-	.cmuStories__story__info--map-location {
+	.cmuStory__sidebar__location {
 		margin-bottom: $cmu-base;
 	}
 
-.cmuStories__story__info--title {
+.cmuStory__sidebar__title {
 	// font-weight: 700;
 	color: $cmu-color-gray;
 	font-size: remCalc(10px);
 	text-transform: uppercase;
 }
+
+
+
+
 
 // 
 // Products
 // 
 
-.cmuStories__story__products--title {
-	// font-weight: 700;
-	color: $cmu-color-gray;
-	font-size: remCalc(10px);
-	text-transform: uppercase;
-	margin-bottom: 4px;
+.cmuStory__products {
+
 }
 
-	.cmuStories__story__products--item {
+	.cmuStory__products--header {
+		// font-weight: 700;
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		text-transform: uppercase;
+		margin-bottom: 4px;
+	}
+
+	.cmuStory__product {
 		display: block; 
 		margin-bottom: $cmu-base;
 
 		&:nth-child(1) {
 			padding-left: 0;
 		}
-
-		&:before {
-			content: ' ';
-			display: block;
-			height: 50px;
-			width: 80px;
-			background-color: $cmu-color-ltgray;
-		}
 	}
 
-	.cmuStories__story__products--name {
+	.cmuStory__product__name {
 		margin-top: 4px;
 	}
 

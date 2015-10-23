@@ -13,7 +13,7 @@ $cmu-base-line-height:      $cmu-base*1.2 !default;
 $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
-$cmu-maxwidth:				1200px;	// applied separately on all partials and templates for max-width responsive
+$cmu-maxwidth:				1400px;	// applied separately on all partials and templates for max-width responsive
 $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
@@ -36,7 +36,6 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 
 body {
 	position: relative;
-	background-color: $cmu-color-white;
 	height: 100%;
 	min-height: 100%;
 	color: $cmu-color-body;
@@ -81,6 +80,7 @@ ol, li {
 // base container for all community content
 // min-height is set so the footer doesn't jump up/down on page load
 .community__content {
+	padding-top: $cmu-base*2; // give some room for fixed header
 	position: relative;
 	padding-bottom: $cmu-min-pageHeight;
 	min-height: 100%;
@@ -109,8 +109,13 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 
 
 
-
-
+// prevents double click highlight
+%user-select-none {		
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+	-moz-user-select: none; /* mozilla browsers */
+	-khtml-user-select: none; /* webkit (konqueror) browsers */
+	-ms-user-select: none; /* IE10+ */
+}
 
 
 
@@ -124,6 +129,7 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 // High 700-1000
 $z-top: 1000;	// Top z-index: gives us 10 levels to play with
 $z-gloNav: 900;	// global community menu
+$z-gloNav--drop: 895;	// comm menu dropdown
 $z-overlay: 875;
 $z-gloNav--footer: 850;
 $z-mega: 800;	// mega popover

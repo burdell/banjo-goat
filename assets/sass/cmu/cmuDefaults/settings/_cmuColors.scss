@@ -9,7 +9,15 @@
 // BASE COLOR PALETTE
 // avoid referencing these directly in code
 // 
-$cmu-color-ltblue: 		#1374AB; 				// this is what was in the comp //#13BCFF; < this is the Sketch spec color;
+
+// 
+// Note on naming
+// 'cmu-' prefix is required in order to not collide with base colors
+// 
+
+
+$cmu-color-vltblue: 	lighten(#13BCFF,30);
+$cmu-color-ltblue: 		#13BCFF;
 $cmu-color-blue: 		#00A0DF;
 $cmu-color-dkblue: 		#0074AD;
 $cmu-color-xltblue: 	lighten($cmu-color-blue,50);
@@ -58,7 +66,7 @@ $cmu-color-textgray: 	#aeb4b7; 				// this color is on dotcom nav, but is not in
 	// Lighter Basic color
 	$cmu-color-body--light: $cmu-color-gray;
 
-	$cmu-color-menu: $cmu-color-soot;
+	$cmu-color-menu: $cmu-color-dkblue;
 
 	// Post bg color (slightly grayer for better reading)
 	$cmu-color-post: $cmu-color-mltgray;
@@ -68,6 +76,9 @@ $cmu-color-textgray: 	#aeb4b7; 				// this color is on dotcom nav, but is not in
 	
 	// Active text
 	$cmu-color-active: $cmu-color-blue;
+
+	// Used for lighter labels
+	$cmu-color-label: $cmu-color-gray;
 
 	// Links (default - blue, hover to black)
 	$cmu-color-link: $cmu-color-blue;

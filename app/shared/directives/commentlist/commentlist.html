@@ -5,8 +5,7 @@
 
 	<div class="cmuComments__header" ng-class="{ 'cmuComments__noComments' : commentlist.currentComments.content.length == 0 }">{{ commentlist.getCommentCountText() }} </div>
 	<div class="container">
-		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments.content">
-
+		<div class="cmuComments__row row" ng-repeat="comment in commentlist.currentComments.content" id="{{ comment.id }}">
 			<div class="col--md3">
 				<community-user-badge 
 					class="cmuUserbadge--comment"
@@ -15,7 +14,6 @@
 			</div>
 
 			<div class="cmuComments__body col--md9">
-
 				<div>
 					<span class="cmuComments__date">
 						{{ comment.postDate | timeFromNow }}

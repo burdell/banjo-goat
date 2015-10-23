@@ -28,22 +28,15 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			templateUrl: 'directory/hub/hub.html',
 			controller: 'Hub as vm',
 			resolve: {
-				HubData: ['$stateParams', '$q', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, $q, communityApi, routingService){
-
-					var nodeHasStories = function() {
-						return $stateParams.nodeId.indexOf('airCRM') < 0;
-					};
-
-						var callList = [communityApi.Forums.messages(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { per_page: 4 })];
-						if (nodeHasStories()) {
-							callList.push(communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 4 }))
-						}
-						
-						return $q.all(callList).then(function(result){
-							return {
-								stories: result[1] ? result[1].content : [],
-								announcements: result[0].content
-							}
+					StoryData: ['$stateParams', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, communityApi, routingService){
+						return communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 3 });
+					}],
+					DiscussionsFeedFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.allContent,
+							constants: { nodeUrlCode: $stateParams.nodeId, size: 6 },
+							autoInitModel: false,
+							persistFilterModel: false
 						});
 					}]
 				}
@@ -56,7 +49,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					FeedFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Feed.allContent,
-							constants: { size: 5 },
+							constants: { size: 10 },
 							realtime: true,
 							autoInitModel: false,
 							persistFilterModel: false
@@ -96,14 +89,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
-								constants: { per_page: 3, sortDir: 'ASC', author_id: $stateParams.userId },
+								constants: { per_page: 3, author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 3, sortDir: 'ASC', author_id: $stateParams.userId, node_url_code: 'airMax_stories' },
+								constants: { size: 3, author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],

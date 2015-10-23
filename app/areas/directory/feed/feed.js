@@ -12,6 +12,7 @@ require('shared/directives/pager/pager.js');
 
 require('directives/loadmore/loadmore.js')
 require('directives/classtoggle/classtoggle.js');
+require('directives/pulse/pulse.js');
 
 
 var _ = require('underscore');
@@ -19,12 +20,12 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 	var ctrl = this;
 	var feedData = {
 		community: {
-			display: 'All Topics',
+			display: 'All Content',
 			param: 'community',
 			dataFn: apiService.Feed.allContent
 		},
 		user: {
-			display: 'My Feed',
+			display: 'My Content',
 			param: 'user',
 			dataFn: apiService.Feed.subscriptions
 		}
@@ -62,6 +63,10 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		}
 	});
 
+	$scope.$on('$destroy', function(){
+		feedFilter.stopRealtime();
+	});
+
 	nodeServiceWrapper.get().then(function(nodeService) {
 		var categorySort = [{ value: null, label: 'All Sections', default: true }];
 
@@ -73,6 +78,9 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		ctrl.categorySortOptions = categorySort.concat(bleh);
 	});
 
+	var landingPages = routingService.landingPages();
+	var announcementsLanding = _.where(landingPages, { area: 'Announcements' });
+	
 	var currentFeedType = feedData.community;
 	_.extend(ctrl, {
 		storyData: storyData.content,
@@ -102,7 +110,8 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 
 			initialFeedLoaded = false;
 		},
-		landingPages: routingService.landingPages(),
+		announcementsLanding: announcementsLanding[0],
+		landingPages: landingPages,
 		discussionSortOptions: dataService.DiscussionTypeSort,
 		recentAnnouncements: announcementData.content,
 		generateAnnouncementUrl: function(announcementData){

@@ -5,37 +5,82 @@ $nav-height: $cmu-nav-height;
 
 %nav-style {
 	text-transform: uppercase;
-	color: $cmu-color-textgray;
+	color: $cmu-color-white;
 	letter-spacing: 0.4px;
 	font-size: $size-xsmaller;
 	vertical-align: top;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
 	cursor: pointer;
-	line-height: $cmu-base;
+	// line-height: $cmu-base;
 
 	@extend %ease-fast;
 	&:hover {
 		color: $cmu-color-white;
+		background-color: $cmu-color-ltblue;
 		@extend %ease-fast;
 	}
 }
 
 %nav-icon-style {
 	@extend %nav-style;
+	padding-left: $cmu-base*0.9;
+	padding-right: $cmu-base*0.9;
 	font-size: $cmu-base;
+	color: $cmu-color-white;
 }
 
 
 
-
+// required to position:fix the nav
+.cmuGloNav__metaContainer {
+	position: fixed;
+	width: 100%;
+	z-index: $z-top;
+}
 
 .cmuGloNav {
-	background-color: $cmu-color-soot;
-	border-bottom: 1px solid $cmu-color-dkgray;
+	// background-color: $cmu-color-soot;
+	background-color: $cmu-color-menu;
+	// border-bottom: 1px solid $cmu-color-dkgray;
 	z-index: $z-gloNav;
 	position: relative;
+
+
+	* {
+		@extend %user-select-none;
+	}
+
+	// fun
+	// background:red;
+	// animation:rainbow 5s;
+	// -moz-animation:rainbow 5s infinite; /* Firefox */
+	// -webkit-animation:rainbow 5s infinite; /* Safari and Chrome */
 }
+
+    @-moz-keyframes rainbow /* Firefox */
+    {
+	    0%   {background:red;}
+	    20%  {background:orange;}
+	    40%  {background:yellow;}
+	    60%  {background:green;}
+	    80%  {background:blue;}
+	    100%   {background:red;}
+    }
+
+    @-webkit-keyframes rainbow /* Safari and Chrome */
+    {
+	    0%   {background:red;}
+	    20%  {background:orange;}
+	    40%  {background:yellow;}
+	    60%  {background:green;}
+	    80%  {background:blue;}
+	    100%   {background:red;}
+    }
+
+
+
+
 	.cmuGloNav--header {
 		height: $nav-height;
 
@@ -53,7 +98,8 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuHome,
 		.cmuGloNav__right,
 		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
-		.cmuGloNav__cmuSearch,
+		.cmuGloNav__accountControl,
+		.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang,
 		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
 			display: inline-block;
 			vertical-align: top;
@@ -66,9 +112,14 @@ $nav-height: $cmu-nav-height;
 	}
 
 	.cmuGloNav__left {
-			@extend %nav-style;
-			// border-left: 1px solid $cmu-color-dkgray;
-			padding-left: 0;
+		@extend %nav-style;
+		// border-left: 1px solid $cmu-color-dkgray;
+		padding-left: 0;
+		color: $cmu-color-white;
+		&:hover {
+			color: $cmu-color-ltblue;
+			background-color: transparent;
+		}
 	}
 		.cmuGloNav__logo {;
     		margin-top: -0.7rem;
@@ -91,148 +142,188 @@ $nav-height: $cmu-nav-height;
 		@include respondTo(small-down) {
 			.cmuGloNav__links, 
 			.cmuGloNav__cmuSearch,
+			.cmuGloNav__cmuLang,
 			.cmuGloNav__cmuAccount {
 				display: none;
 			}
 		}
 	}
 
+		// fake active button
 		.cmuGloNav__links {
-			border-right: $style-line--dark;
-		}
-			// fake active button
-			.cmuGloNav__links {
-				.active {
-					// background-color: $cmu-color-dkgray;
-					a { 
-						outline:none;
-						color: $cmu-color-white; 
-						&:hover { color: $cmu-color-white; }
-					}
-				}
-			}
-			.cmuGloNav__link {
-				a { 
-					@extend %nav-style; 
-					outline:none;
-				}
-
-				&:hover {
-					.cmuGloNav__dropItem:after {
-						color: $cmu-color-white;
-						@extend %ease-fast;
-					}
-				}
-			}
-			a.cmuGloNav__dropItem {
-				margin-right: $cmu-base/2;
-				background-color: $cmu-color-dkgray;
-				color: $cmu-color-xmdgray;
-
-				&:hover {
-					color: $cmu-color-white;
-				}
-
-				&:after {
-					@extend %ease-fast;
-					font-family: 'ubnt';
-					content: "\e68b";
-					position: relative;
-					margin-left: $cmu-base/2;
-					// margin-right: $cmu-base*2;
-					font-size: $cmu-base/2;
-					color: $cmu-color-gray;
-					display: inline-block;
-				    border-radius: 50%;
-				    	width: 19px;
-				    	height: 19px;
-				    padding-left: 0.26rem;
-    				line-height: 18px;
-				    border: $style-line--dark;
-				    border-color: $cmu-color-gray;
-				}
-			}
-
-		.cmuGloNav__cmuSearch {
-			@extend %nav-icon-style;
-			border-right: 1px solid $cmu-color-dkgray;
-		}
-
-
-		.cmuGloNav__cmuAccount {
-
-			// fun!
-
-			.cmuProfile__avatar {
-				&:before {
-					content: ' ';
-					display: block;
-					background: #969ba3;
-					border-radius: 50%;
-					margin-top: 5px;
-					margin-right: 0;
-					margin-left: 4px;
-					@extend %ease-fast;
-					height: remCalc(28px);
-					width: remCalc(28px);
-
-					background-image: url('http://images1.fanpop.com/images/photos/2200000/Matt-Hardy-matt-hardy-2282840-624-388.jpg');
-					background-size: cover;
-					background-repeat: no-repeat;
-				}
-			}
-
-
-			a { 
-				outline:none;
-			}
-			.icon {
-				@extend %nav-icon-style;
-				padding-left: $cmu-base/2;
-				padding-right: $cmu-base/2;
-			}
-			.ubnt-icon--inbox {
-				font-size: 19px;
-				position: relative;
-				top: -1px;
-			}
+			// margin-right: $cmu-base;
 
 			.active {
-    			position: relative;
-				background-color: $cmu-color-dkgray;
-				span { color: $cmu-color-white; }
-
-				&:after {
-					content: ' ';
-					display: block;
-					position: absolute;
-					z-index: $z-gloNav;
-					left: 10px;
-					bottom: 0;
-					width: 0; 
-					height: 0; 
-					border-left: 7px solid transparent;
-					border-right: 7px solid transparent;
-					border-bottom: 7px solid $cmu-color-ltgray;
+				// background-color: $cmu-color-dkgray;
+				a { 
+					outline:none;
+					color: $cmu-color-white; 
+					&:hover { color: $cmu-color-white; }
 				}
 			}
 		}
+		.cmuGloNav__link {
+			a { 
+				@extend %nav-style; 
+				padding-left: $cmu-base;
+				padding-right: $cmu-base;
+				color: $cmu-color-white;
+				outline:none;
 
-			.cmuGloNav__notifications, .cmuGloNav__inbox {
-				position: relative;
-			}
-
-			.cmuGloNav__profile {
-			    cursor: pointer;
-			    
-				a {
-				    display: inline-block;
-				    vertical-align: top;
-				    line-height: 40px;
-				    padding-right: 4px;
-				    // padding-top: 2px;
+				&:hover {
+					color: $cmu-color-ltblue;
+					background-color: transparent;
+					@extend %ease-fast;
 				}
 			}
+
+			&:hover {
+				.cmuGloNav__dropItem:after {
+					color: $cmu-color-purewhite;
+					color: $cmu-color-ltblue;
+					@extend %ease-fast;
+				}
+			}
+		}
+		a.cmuGloNav__dropItem {
+			// margin-right: $cmu-base;
+			padding-right: $cmu-base;
+			// background-color: $cmu-color-dkgray;
+			color: $cmu-color-xmdgray;
+
+			// background-color: $cmu-color-blue;
+			color: $cmu-color-white;
+
+			&:hover {
+				// background-color: $cmu-color-ltblue;
+				// color: $cmu-color-purewhite;
+
+				color: $cmu-color-ltblue;
+			}
+
+			&:after {
+				@extend %ease-fast;
+				font-family: 'ubnt';
+				content: "\e68b";
+				position: relative;
+				margin-left: $cmu-base/2;
+				// margin-right: $cmu-base*2;
+				font-size: $size-xsmaller;
+				color: $cmu-color-gray;
+				display: inline-block;
+			    border-radius: 50%;
+			    	// width: 19px;
+			    	// height: 19px;
+			    padding-left: 0.26rem;
+				line-height: 18px;
+			    border: $style-line--dark;
+			    border-color: $cmu-color-gray;
+
+				color: $cmu-color-white;
+			    border-color: $cmu-color-white;
+			    border-width: 0;
+				margin-left: 0;
+				top: 1px;
+				margin-left: $cmu-base/2;
+				content: "\e6d9";
+			}
+		}
+
+
+
+
+
+
+
+
+
+		// 
+		// Account Controls
+		// 
+
+
+		.cmuGloNav__accountControl {
+			// background-color: $cmu-color-blue;
+		}
+
+			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
+				@extend %nav-icon-style;
+				background-color: $cmu-color-blue;
+				border-right: 1px solid $cmu-color-dkblue;
+    			margin-right: -4px;
+			}
+
+
+			.cmuGloNav__cmuAccount {
+
+				.cmuProfile__avatar {
+					&:before {
+						content: ' ';
+						display: block;
+						background: #969ba3;
+						border-radius: 50%;
+						margin-top: 5px;
+						margin-right: 0;
+						margin-left: 4px;
+						@extend %ease-fast;
+						height: remCalc(28px);
+						width: remCalc(28px);
+
+						background-color: orange;
+						background-size: cover;
+						background-repeat: no-repeat;
+					}
+				}
+
+				.ubnt-icon--inbox {
+					font-size: 19px;
+					position: relative;
+					top: -3px;
+				}
+
+				.active {
+	    			position: relative;
+					background-color: $cmu-color-dkgray;
+					span { color: $cmu-color-white; }
+
+					&:after {
+						content: ' ';
+						display: block;
+						position: absolute;
+						z-index: $z-gloNav;
+						left: 10px;
+						bottom: 0;
+						width: 0; 
+						height: 0; 
+						border-left: 7px solid transparent;
+						border-right: 7px solid transparent;
+						border-bottom: 7px solid $cmu-color-ltgray;
+					}
+				}
+			}
+
+				.cmuGloNav__notifications, .cmuGloNav__inbox {
+					@extend %nav-icon-style;
+					// padding-left: $cmu-base/4;
+					// padding-right: $cmu-base/2;
+					position: relative;
+				}
+
+				.cmuGloNav__profile {
+					@extend %nav-icon-style;
+					padding-left: $cmu-base/4;
+					padding-right: $cmu-base/4;
+				    cursor: pointer;
+				    
+					a {
+					    display: inline-block;
+					    vertical-align: top;
+					    line-height: 40px;
+					    padding-right: 4px;
+					    top: -10px;
+					    position: relative;
+					}
+				}
 
 
 
@@ -255,6 +346,7 @@ $nav-height: $cmu-nav-height;
 	@include respondTo(medium-up) {
 		display: none;
 	}
+
 }
 	.cmuGloNav__mobile__btn {
 		float: right;
@@ -267,17 +359,18 @@ $nav-height: $cmu-nav-height;
 	    	content: 'Menu';
 	    	float: left;
 			@extend %nav-style;
+			top: 1px;
 	    }
 
 	    &:after {
      		font-family: 'ubnt';
 	    	display: block;
     		padding: 0.7rem;
+    		padding-top: 0.72rem;
     		padding-left: 0.3rem;
 	    	content: '\e6d9';
 	    	float: left;
 		    position: relative;
-		    top: 1px;
 			@extend %nav-style;
 	    }
 	}
@@ -290,12 +383,11 @@ $nav-height: $cmu-nav-height;
 		}
 
 	%nav-style--mobile {
-		color: $cmu-color-textgray;
+		color: $cmu-color-white;
 		padding: $cmu-base/2 $cmu-base;
 		border-bottom: $style-line--dark;
 
 		text-transform: uppercase;
-		color: $cmu-color-textgray;
 		letter-spacing: 0.4px;
 		font-size: $size-xsmaller;
 		line-height: $cmu-base*1.5;
@@ -316,8 +408,13 @@ $nav-height: $cmu-nav-height;
 			display: none !important;
 		}
 
-		& > div {
+		a {
 			display: block;
+			&:hover {
+				div {
+					background-color: $cmu-color-blue;
+				}
+			}
 		}
 	}
 
@@ -332,22 +429,38 @@ $nav-height: $cmu-nav-height;
 		.cmuGloNav__mobile__search {
 			@extend %nav-style--mobile;
 			@extend %type-base;
-			text-transform: uppercase;
-			font-weight: 300;
-			padding: 0;
+			background: $cmu-color-blue;
 
-			span {
-				padding: $cmu-base *3/4 $cmu-base;
-				@extend %type-base;
-			}
 
-			.ubnt-icon {
-				float: right; 
-				padding-left: $cmu-base*3/2;
-				padding-right: $cmu-base*3/2;
-				border-left: $style-line--dark;
-				font-size: $cmu-base;
+			// special search styling
+			.cmuSearchbox {
+				.appIconInput__icon {
+					padding-right: $cmu-base;
+				}
+				.appIconInput__input {
+					padding-left: $cmu-base;
+				}
+
+				input {
+					border: 0;
+				}
 			}
+			// text-transform: uppercase;
+			// font-weight: 300;
+			// padding: 0;
+
+			// span {
+			// 	padding: $cmu-base *3/4 $cmu-base;
+			// 	@extend %type-base;
+			// }
+
+			// .ubnt-icon {
+			// 	float: right; 
+			// 	padding-left: $cmu-base*3/2;
+			// 	padding-right: $cmu-base*3/2;
+			// 	border-left: $style-line--dark;
+			// 	font-size: $cmu-base;
+			// }
 		}
 
 		.cmuGloNav__mobile__link {
@@ -365,7 +478,21 @@ $nav-height: $cmu-nav-height;
 			border: 0;
 			color: white;
 			font-size: $size-normal;
+			background-color: transparent !important;
+			margin-bottom: $cmu-base/2;
 
+			.cmuProfile__avatar {
+				float: left;
+				&:before {
+					margin: 0;
+				}
+				margin-right: $cmu-base;
+			}
+
+			.cmuGloNav__mobile__user {
+				position: relative;
+				top: 3px;
+			}
 		}
 			.cmuGloNav__mobile__container
 				div.cmuUserbadge__avatar {
@@ -376,13 +503,18 @@ $nav-height: $cmu-nav-height;
 
 			.cmuGloNav__mobile__accountlinks {
 				position: relative;
-				top: $cmu-base * -1;
+				// top: $cmu-base * -1;
+
+				.icon {
+					font-size: $size-large;
+					margin-right: $cmu-base/2;
+				}
 			}
 
 				.cmuGloNav__mobile__accountlink {
 					@extend %nav-style--mobile;
 					display: block;
-					margin-left: 50px;
+					// margin-left: 50px;
 				}
 
 
@@ -401,7 +533,31 @@ $nav-height: $cmu-nav-height;
 // FOOTER 
 // 
 
+%nav-style-footer {
+	text-transform: uppercase;
+	color: $cmu-color-dkgray;
+	letter-spacing: 0.4px;
+	font-size: $size-xsmaller;
+	vertical-align: top;
+	padding: $cmu-base*0.7;
+	height: $nav-height;
+	cursor: pointer;
+	line-height: $cmu-base;
+
+	@extend %ease-fast;
+	&:hover {
+		color: $cmu-color-ltblue;
+		@extend %ease-fast;
+		.ubnt-icon:before {
+			color: $cmu-color-ltblue;
+		}
+	}
+}
+
+
+
 .cmuGloNav--footer {
+	background-color: $cmu-color-ltgray;
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
 
@@ -420,7 +576,7 @@ $nav-height: $cmu-nav-height;
 	li a {
 		cursor: default;
 		display: inline-block;
-		@extend %nav-style;
+		@extend %nav-style-footer;
 		font-size: $size-smaller;
 		line-height: $size-smaller__lineHeight;
 		text-transform: inherit;
@@ -434,24 +590,11 @@ $nav-height: $cmu-nav-height;
 
 	}
 
-	span {
+	.cmuGloNav__legal {
 		@extend %type-info;
 		color: $cmu-color-dkgray;
 	}
 
-	.ubnt-icon {
-		padding-right: $cmu-base/2;
-	}
-		.ubnt-icon--menu {
-			padding: 0;
-			position: relative;
-			top:1.5px;
-			color: $cmu-color-gray;
-			padding-left: $cmu-base/4;
-			&:before {
-				@extend %ease-fast;
-			}
-		}
 }
 
 // 
@@ -466,43 +609,56 @@ $nav-height: $cmu-nav-height;
 		a:hover {
 			span:before {
 				@extend %ease-fast;
-				color: $cmu-color-white;
+				color: $cmu-color-dkgray;
 			}
 		}
 
 		.ubnt-icon {
+			padding-left: $cmu-base/2;
+			color: $cmu-color-dkgray;
 			margin-left: $cmu-base/2;
-			font-size: $cmu-base/2;
-			color: $cmu-color-gray;
-			display: inline-block;
-		    border-radius: 50%;
-		    	width: 16px;
-		    	height: 16px;
-		    	padding-left: 0.2rem;
-		    border: $style-line--dark;
+			padding-left: 0;
+
+			// font-size: $cmu-base/2;
+			// color: $cmu-color-gray;
+			// display: inline-block;
+		    // border-radius: 50%;
+		    // 	width: 16px;
+		    // 	height: 16px;
+		    // 	padding-left: 0.2rem;
+		    // border: $style-line--dark;
 		}
+			.ubnt-icon--menu {
+				// padding: 0;
+				position: relative;
+				top:1px;
+				&:before {
+					@extend %ease-fast;
+				}
+			}
+
 	}
 
-	.cmuGloNav__social--label {
-		cursor: default !important;
-		@extend %nav-style;
-		font-size: $size-smaller;
-		line-height: $size-smaller__lineHeight;
-		text-transform: inherit;
-		padding: $cmu-base/2;
-		padding-left: 0;
-		padding-bottom: 0;
-		// margin-bottom: $cmu-base/2;
+	// .cmuGloNav__social--label {
+	// 	cursor: default !important;
+	// 	@extend %nav-style-footer;
+	// 	font-size: $size-smaller;
+	// 	line-height: $size-smaller__lineHeight;
+	// 	text-transform: inherit;
+	// 	padding: $cmu-base/2;
+	// 	padding-left: 0;
+	// 	padding-bottom: 0;
+	// 	// margin-bottom: $cmu-base/2;
 
-		&:hover {
-			color: $cmu-color-textgray;
-		}
-		// margin-top: $cmu-base*2;
-	}
+	// 	&:hover {
+	// 		color: $cmu-color-dkgray;
+	// 	}
+	// 	// margin-top: $cmu-base*2;
+	// }
 
 	.cmuGloNav__social {
 		cursor: default !important;
-    	// margin-left: $cmu-base * 1/4;
+    	margin-top: 2px;
 
     	a {
     		padding: 0 !important;
@@ -512,17 +668,18 @@ $nav-height: $cmu-nav-height;
 			cursor: pointer;
 			font-size: $cmu-base*1.5;
 			background-color: $cmu-color-gray;
-			color: $cmu-color-black;
+			color: $cmu-color-ltgray;
 
 			display: inline-block;
 		    border-radius: 50%;
 		    	width: 28px;
 		    	height: 28px;
-		    	padding: 0.4rem 0.1rem;
+		    	padding: 0.2rem 0.1rem;
 		}
 		span:hover:before {
 			@extend %ease-fast;
-			background-color: $cmu-color-mdgray;
+			background-color: $cmu-color-xdkgray;
+			color: $cmu-color-purewhite !important;
 		}
 	}
 
@@ -544,19 +701,19 @@ $nav-height: $cmu-nav-height;
 			@extend %ease-fast;
 			cursor: pointer;
 			font-size: $cmu-base*1.8;
-			background-color: $cmu-color-dkgray;
+			background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 			text-align: center;
 			display: inline-block;
 		    border-radius: 50%;
 		    	width: 45px;
 		    	height: 45px;
-		    	padding: 0.9rem 0.2rem;
+		    	padding: 0.5rem 0.2rem;
 
 		}
 		.ubnt--icon:hover:before {
 			@extend %ease-fast;
-			background-color: $cmu-color-gray;
+			background-color: $cmu-color-ltblue;
 		}
 	}
 

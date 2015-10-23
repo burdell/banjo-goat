@@ -21,13 +21,19 @@
 	top: 0;
 }
 
+.cmuMega__container {
+	width: 100%;
+	z-index: $z-top;
+}
+
+
 // general settings; acts as a "blackout"
 .cmuMega {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 1200px;
+    max-width: $cmu-maxwidth;
     margin: 0 auto;
 
     width: 100%;
@@ -37,19 +43,27 @@
 
     display: none; // default is hidden
     // overflow: hidden;
+
+    &.cmuOverlay--show {
+    	// position: fixed;
+    	z-index: $z-top;
+    }
 }
 
 	// background covering
 	// needs to reach the entire height of window
 	// needs to scroll with page
 	.cmuMega__shroud {
-		background-color: rgba($cmu-color-ltblack, 0.968);
+		// background-color: rgba($cmu-color-ltblack, 0.968);
 		top: 0;
 		left: 0;
 		position: fixed;
 		width: 100%;
 		height: 100%;
 		// cursor: pointer;
+
+		// temp
+		background-color: rgba($cmu-color-soot, 0.8);
 	}
 
 	.cmuMega__close {
@@ -64,7 +78,7 @@
 
 		// this prevents the entire row from being clickable
 		display: inline-block;
-		float: right;
+		// float: right;
 
 		@extend %megaTopOffset;
 		@extend %ease-fast;
@@ -96,13 +110,28 @@
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
 		max-width: $cmu-maxwidth;
+		position: fixed;
+		top: 0;
+		overflow: scroll;
+		height: 100%;
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}
+		.cmuMega__content__container {
+			margin-top: $cmu-base*4;
+			margin-bottom: $cmu-base*4;
+			padding: $cmu-base;
+			border: $style-line--dark;
+			background-color: rgba($cmu-color-soot, 0.88);
+		}
 
 	.cmuMega__section {
 		border-top: 1px solid $cmu-color-dkgray;
 		padding: $cmu-base 0;
+
+		&.noBorder {
+			border: 0;
+		}
 	}
 
 		.cmuMega__section__head {
@@ -114,14 +143,43 @@
 		}
 
 		.cmuMega__section__col {
-			a { 
-				letter-spacing: $size-letterspacing-text;
+			display: inline-block; 
+			margin-right: $cmu-base;
+
+			@include respondTo(small-down) {
 				display: block;
+			}
+
+			a { 
+				@extend %ease-fast;
+				letter-spacing: $size-letterspacing-text;
+				// display: block;
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;
 
-				&:hover {
-					color: $cmu-color-blue;
+				// &:hover {
+				// @extend %ease-fast;
+				// 	color: $cmu-color-blue;
+				// }
+			}
+		}
+
+
+		.cmuMega__item {
+			display: inline-block;
+			text-align: center;
+			margin-right: $cmu-base;
+			margin-bottom: $cmu-base*3/2;
+
+			a, a:hover {
+				@extend %ease-fast;
+			}
+
+			&:hover {
+				.cmuMega__icon {
+					background-color: rgba($cmu-color-dkblue,0.68);
+					border-color: $cmu-color-blue;
+					@extend %ease-fast;
 				}
 			}
 		}
@@ -129,18 +187,29 @@
 		.cmuMega__icon {
 			border: 1px solid $cmu-color-dkgray;
 			padding: 0 $cmu-base;
-			margin-right: $cmu-base;
+
 			display: inline-block; 
 			cursor: pointer;
 			@extend %ease-fast;
 
 			height: $cmu-base*2.5;
 			overflow: hidden; // creates phantom padding/margin at the bottom...?
-			margin-bottom: $cmu-base/2;
 
-			&:hover {
-				background-color: $cmu-color-dkgray;
-				@extend %ease-fast;
-			}
 		}
+
+		.cmuMega__desc {
+			color: $cmu-color-gray;
+			font-weight: 300;
+		}
+
+.cmuMega__section__directoryDesc {
+	padding-left: $cmu-base;
+	display: inline-block;
+	color: $cmu-color-dkgray;
+
+	@include respondTo(small-down) {
+		margin: 0;
+		margin-top: $cmu-base;
+	}
+}
 		

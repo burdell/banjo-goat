@@ -1,12 +1,15 @@
-<div class="row row--comfy">
-	<div class="col--md10 noPaddingLeft">
-		<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
-	</div>
-	<div class="col--md2 noPaddingRight">
-          <community-sort 
-          	sort-options="vm.sortOptions" 
-          	sort-filter="vm.storyFilter">
-          </community-sort>
+
+<div class="cmuThreadlist__ctrl">
+	<div class="cmuThreadlist__ctrl__row row">
+		<div class="col--md10 noPaddingLeft">
+			<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
+		</div>
+		<div class="col--md2 noPaddingRight">
+	          <community-sort 
+	          	sort-options="vm.sortOptions" 
+	          	sort-filter="vm.storyFilter">
+	          </community-sort>
+		</div>
 	</div>
 </div>
 
@@ -27,5 +30,6 @@
 <community-load-more
 	list-model="vm.storyList"
 	load-filter="vm.storyFilter"
-	on-load-fn="vm.groupStoryData">
+	on-load-fn="vm.groupStoryData"
+	infinite-scroll="true">
 </community-load-more>

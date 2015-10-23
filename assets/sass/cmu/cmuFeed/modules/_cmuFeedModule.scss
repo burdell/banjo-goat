@@ -16,53 +16,12 @@
 	@extend %font-ubnt;
 }
 
-// icon representations (only within Feed/Hub)
-.cmuFeed__icon {
-	font-size: $cmu-base;
-	margin-right: $cmu-base/2;
-	&:before {
-		color: $cmu-color-dkgray;
-	}
 
-	&.all:before {
-		@extend %sidebar-icon;
-		content: '\e63b';
-		text-decoration: none !important;
-	}
-	&.announcements:before {
-		@extend %sidebar-icon;
-		content: '\e710';
-		text-decoration: none !important;
-	}
-	&.forums:before {
-		@extend %sidebar-icon;
-		content: '\e6c0';
-		text-decoration: none !important;
-	}
-	&.stories:before {
-		@extend %sidebar-icon;
-		content: '\e614';
-		text-decoration: none !important;
-	}
-	&.qa:before {
-		@extend %sidebar-icon;
-		content: '\e6ee';
-		text-decoration: none !important;
-	}
-
-	// product tag
-	.product {
-		color: $cmu-color-active;
-		margin-right: $cmu-base/4;
-	}
+// hide breadcrumbs
+.cmuFeed--home .cmuBreadcrumbs { 
+	display: none;
 }
-
-
 .cmuFeed {
-	// hide breadcrumbs
-	.cmuBreadcrumbs { 
-		display: none;
-	}
 
 	.cmuDiscussionsHeader h3 {
 		@extend %h2;
@@ -105,7 +64,7 @@
 
 	.cmuFeed__stories {
 		border: $style-line;
-		border-bottom: 0;
+		// border-bottom: 0;
 
 		margin-bottom: $cmu-vertical-rhythm;
 		background-color: $cmu-color-post;
@@ -115,7 +74,15 @@
 	}
 		.cmuFeed__storyList {
 			padding: $cmu-base/2;
-			border-bottom: $style-line;
+			// border-bottom: $style-line;
+
+			&>div:first-child {
+				padding-left: 0;
+			}
+
+			&>div:last-child {
+				padding-left: 0;
+			}
 		}
 		.cmuFeed__story {
 			@extend %style-listItem;
@@ -166,6 +133,11 @@
 			width: 100%;
 			background-repeat: no-repeat;
 			background-size: cover;
+    		background-position: center;
+		}
+
+		.cmuFeed__story__subject {
+			margin-bottom: $cmu-base/2;
 		}
 
 		.cmuFeed__story__user {
@@ -208,10 +180,14 @@
 				background-color: $cmu-color-white;
 			}
 
-			.cmuFeed__icon {
+			.cmuIcon__label {
 				&:before {color: $cmu-color-blue;}
 			}
 		}
+			.cmuFeed__subject {
+				font-weight: 600;
+			}
+			
 			.cmuFeed__itemHeader {
 				height: $cmu-base*1.2;
     			overflow: hidden;
@@ -231,7 +207,7 @@
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 38px; // preserve 2 lines
+			    max-height: 36px; // preserve 2 lines
 			}
 			.cmuFeed__stats {
 				text-align: right;
@@ -300,6 +276,9 @@
 
 		.cmuFeed__anno {
 			@extend %cmuRailLink;
+
+				margin-top: $cmu-base/2 !important;
+			
 		}
 
 

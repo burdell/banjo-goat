@@ -67,11 +67,11 @@
 		float: left;
 		margin-right: $cmu-base/2;
 		cursor: pointer;
+		border-radius: 99999px;
 
 		&:after {
 			content: ' ';
 			display:block;
-			background: url('http://www.placecage.com/140/100');
 			// background-position: 10px 10px;
     		background-position-x: -30px;
 			border-radius: 50%;
@@ -232,7 +232,7 @@
     	}
 
     	.cmuUserbadge__avatar {
-   			padding-left: $cmu-base/2;
+   			// padding-left: $cmu-base/2;
    			
    			// required for thin to align profile image w/ rank and name
 		    vertical-align: top;
@@ -292,6 +292,38 @@
 
 	.cmuUserbadge__points, .cmuUserbadge__info {
 		display: none;
+	}
+}
+
+
+// 
+// Hover Flag
+// - hoverable expandable tooltip
+// 
+.cmuUserbadge:hover {
+	.cmuUserbadge__flag {
+		display: block;
+	}
+}
+
+.cmuUserbadge__flag {
+	display: none;
+	position: relative;
+
+	.cmuUserbadge__flag__container {
+		position: absolute;
+		z-index: $z-top;
+		top: -66px;
+		left: -$cmu-base;
+		padding: $cmu-base;
+
+		background-color: $cmu-color-white;
+		border: $style-line;
+
+		.cmuUserbadge__avatar:after {
+			height: 5rem;
+			width: 5rem;
+		}
 	}
 }
 

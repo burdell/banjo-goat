@@ -59,8 +59,10 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterContext: communityApi.Features,
 						persistFilterModel: false,
 						constants: {
-							limit: 5
-						}
+							per_page: 20
+						},
+						saveMeta: true,
+						targetCommentHash: true
 					});
 				}]
 			}

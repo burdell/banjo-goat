@@ -1,139 +1,175 @@
 
 <div>
-  <div class="cmuGloNav cmuGloNav--header">
-    <div class="cmuGloNav__container container">
-    
-      <div class="row">
-        <div class="col--xs12 noPadding">
-          <a area-link-handler="/">
-            <div class="cmuGloNav__left">
-              <div class="cmuGloNav__logo">
-                <span class="icon ubnt-icon--u"></span>
-              </div>
-              <div class="cmuGloNav__cmuHome">
-                Community
-              </div>
-            </div>
-          </a>
 
-          <div class="cmuGloNav__right">
-
-          <!-- mobile menu -->
-            <div class="cmuGloNav__mobile"
-                 community-class-toggle="cmuGloNav__mobile__menu--open" >
-              <div class="cmuGloNav__mobile__btn">
-              </div>
-            </div>
-              <div class="cmuGloNav__mobile__container">
-                  <div class="cmuGloNav__mobile__search">
-                    <span>Search Community</span>
-                    <span class="ubnt-icon ubnt-icon--magnifying-glass"></span>
-                  </div>
-                  <div class="cmuGloNav__mobile__link">
-                    Discussions <span class="ubnt-icon ubnt-icon--menu"></span>
-                  </div>
-                  <!--  <div class="cmuGloNav__mobile__link">
-                    Q&amp;A
-                  </div> -->
-                  <div class="cmuGloNav__mobile__link">
-                    Stories
-                  </div>
-                  <div class="cmuGloNav__mobile__link">
-                    Announcements
-                  </div>
-                  <div class="cmuGloNav__mobile__username">
-                    <community-user-avatar user="userbadge.displayUser"></community-user-avatar>
-                    UBNT_Matt
-                  </div>
-                  <div class="cmuGloNav__mobile__accountlinks">
-                    <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
-                      Notifications
-                    </div>
-                    <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
-                      Inbox
-                    </div>
-                    <div class="cmuGloNav__mobile__accountlink">
-                      Profile
-                    </div>
-                    <div class="cmuGloNav__mobile__accountlink">
-                      Account
-                    </div>
-                    <div class="cmuGloNav__mobile__accountlink">
-                      Log Out
-                    </div>
-                  </div>
+  <div class="cmuGloNav__metaContainer">
+    <div class="cmuGloNav cmuGloNav--header">
+      <div class="cmuGloNav__container container">
+      
+        <div class="row">
+          <div class="col--xs12 noPadding">
+            <a area-link-handler="/">
+              <div class="cmuGloNav__left">
+                <div class="cmuGloNav__logo">
+                  <span class="icon ubnt-icon--u"></span>
                 </div>
-            <ul class="cmuGloNav__links">
-              <li 
-                ng-repeat="navItem in mainnavbar.navList"
-                ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
-                class="cmuGloNav__link">
-                  <span ng-if="navItem.href">
-                    <a href="{{ navItem.href }}" 
-                      target="{{ mainnavbar.target(navItem.href) }}"
-                      ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
-                  </span>
-                  <span ng-if="navItem.clickFn">
-                    <a ng-click="navItem.clickFn()" 
-                      ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
-                  </span>
-              </li>
-            </ul>
-            <div class="cmuGloNav__cmuSearch"
-                 ng-click="$broadcast('searchbar:toggleSearchbar');">
-              <span class="icon ubnt-icon--search-2"></span>
-            </div>
-            <div class="cmuGloNav__cmuAccount">
-              <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
-                <li class="cmuGloNav__notifications"
-                    ng-click="mainnavbar.openDropdown('toggleNotifications')">
-                  <a href="#">
-                     <span class="icon ubnt-icon--bell"></span>
-                  </a>
-                </li>
-                  <community-drop-down
-                    open-event="toggleNotifications"
-                    menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
-                  </community-drop-down>
+                <div class="cmuGloNav__cmuHome">
+                  Community
+                </div>
+              </div>
+            </a>
 
+            <div class="cmuGloNav__right">
 
-                <li class="cmuGloNav__inbox"
-                    ng-class="{ 'active' : mainnavbar.dropdownIsActive(messages)}"
-                    ng-click="mainnavbar.openDropdown('toggleMessages')">
-                      <a href="#">
-                        <span class="icon ubnt-icon--inbox"></span>
-                      </a>
-                </li>
-                    <community-drop-down
-                      open-event="toggleMessages"
-                      menu-template-url="directives/mainnavbar/mainnavbar.messages.html">
-                    </community-drop-down>
-
-
-                <li class="cmuGloNav__profile"
-                    ng-click="mainnavbar.openDropdown('toggleProfile')">
-                    <a>
+            <!-- mobile menu -->
+              <div class="cmuGloNav__mobile"
+                   community-class-toggle="cmuGloNav__mobile__menu--open" >
+                <div class="cmuGloNav__mobile__btn">
+                </div>
+              </div>
+                <div class="cmuGloNav__mobile__container">
+                    <div class="cmuGloNav__mobile__search">
+                      <!-- <span>Search Community</span>
+                      <span class="ubnt-icon ubnt-icon--magnifying-glass"></span> -->
+                      <div class="cmuSearchbox">
+                        <div class="appIconInput appIconInput--right">
+                          <div class="appIconInput__icon icon ubnt-icon--search-2" onclick="console.log('search me!')"></div>
+                          <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
+                          </div>
+                      </div>
+                      
+                    </div>
+                    <a href="#">
+                      <div class="cmuGloNav__mobile__link">
+                        Discussions <span class="ubnt-icon ubnt-icon--menu"></span>
+                      </div>
+                    </a>
+                    <!--  <div class="cmuGloNav__mobile__link">
+                      Q&amp;A
+                    </div> -->
+                    <a href="#">
+                      <div class="cmuGloNav__mobile__link">
+                        Stories
+                      </div>
+                    </a>
+                    <a href="#">
+                      <div class="cmuGloNav__mobile__link">
+                        Announcements
+                      </div>
+                    </a>
+                    <a href="#">
+                      <div class="cmuGloNav__mobile__username">
+                        <!-- <community-user-avatar user="userbadge.displayUser"></community-user-avatar> -->
                         <span class="cmuProfile__avatar"></span>
+                        <span class="cmuGloNav__mobile__user">UBNT_Matt</span>
+                      </div>
+                    </a>
+                    <div class="cmuGloNav__mobile__accountlinks">
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
+                          Notifications
+                        </div>
                       </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
+                          <span class="icon ubnt-icon--inbox"></span>
+                          Inbox
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          Profile
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          Account
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          Log Out
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+              <ul class="cmuGloNav__links">
+                <li 
+                  ng-repeat="navItem in mainnavbar.navList"
+                  ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
+                  class="cmuGloNav__link">
+                    <span ng-if="navItem.href">
+                      <a href="{{ navItem.href }}" 
+                        target="{{ mainnavbar.target(navItem.href) }}"
+                        ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
+                    </span>
+                    <span ng-if="navItem.clickFn">
+                      <a ng-click="navItem.clickFn()" 
+                        ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
+                    </span>
                 </li>
-                    <community-drop-down
-                      open-event="toggleProfile"
-                      menu-template-url="directives/mainnavbar/mainnavbar.profile.html"
-                      template-ctrl="mainnavbar.currentUser">
-                    </community-drop-down>
+              </ul>
 
-              </ul>
-              <ul ng-hide="mainnavbar.isAuthenticated">
-                   <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
-                   <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/register" target="_blank">Register</a></li>
-              </ul>
+              <div class="cmuGloNav__accountControl">
+                <div class="cmuGloNav__cmuSearch"
+                     ng-click="$broadcast('searchbar:toggleSearchbar');">
+                  <span class="icon ubnt-icon--search-2"></span>
+                </div>
+                <!-- <div class="cmuGloNav__cmuLang">
+                  <span class="icon ubnt-icon--world"></span>
+                </div> -->
+                <div class="cmuGloNav__cmuAccount">
+                  <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
+                    <li class="cmuGloNav__notifications"
+                        ng-click="mainnavbar.openDropdown('toggleNotifications')">
+                      <a href="#">
+                         <span class="icon ubnt-icon--bell"></span>
+                      </a>
+                    </li>
+                      <community-drop-down
+                        open-event="toggleNotifications"
+                        menu-template-url="directives/mainnavbar/mainnavbar.notifications.html">
+                      </community-drop-down>
+
+
+                    <li class="cmuGloNav__inbox"
+                        ng-class="{ 'active' : mainnavbar.dropdownIsActive(messages)}"
+                        ng-click="mainnavbar.openDropdown('toggleMessages')">
+                          <a href="#">
+                            <span class="icon ubnt-icon--inbox"></span>
+                          </a>
+                    </li>
+                        <community-drop-down
+                          open-event="toggleMessages"
+                          menu-template-url="directives/mainnavbar/mainnavbar.messages.html">
+                        </community-drop-down>
+
+
+                    <li class="cmuGloNav__profile"
+                        ng-click="mainnavbar.openDropdown('toggleProfile')">
+                        <a>
+                            <span class="cmuProfile__avatar"></span>
+                          </a>
+                    </li>
+                        <community-drop-down
+                          open-event="toggleProfile"
+                          menu-template-url="directives/mainnavbar/mainnavbar.profile.html"
+                          template-ctrl="mainnavbar.currentUser">
+                        </community-drop-down>
+
+                  </ul>
+                  <ul ng-hide="mainnavbar.isAuthenticated">
+                       <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/login" target="_blank">Login</a></li>
+                       <li class="cmuGloNav__link"><a href="https://account-stage.ubnt.com/register" target="_blank">Register</a></li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <community-mega-menu 
     open-event="toggleDiscussions"
     menu-template-url="directives/mainnavbar/mainnavbar.discussions.html"

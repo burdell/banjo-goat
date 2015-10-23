@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
 				<div class="cmuFeatures__votes__count">{{ vm.originalMessage.countVotes }}<span class="cmuFeatures__votes__caption">votes</span></div>
-				<div class="cmuFeatures__votes__status {{ vm.originalMessage.state | lowercase }} ">
+				<div class="cmuFeatures__votes__status {{ vm.getStatusCode() }} ">
 					{{ ::vm.getStatusText(vm.originalMessage) }}
 				</div>
 			</div>
@@ -60,38 +60,14 @@
 
 
 		<div class="cmuThread__firstPost">
-			<div class="cmuUserbadge
-						cmuUserbadge--thin" ng-class="{ 'cmuUserbadge__op' : {{userbadge.opId === userbadge.displayUser.id}} } "  user="messageDisplay.message.author" op-id="messageDisplay.showOp">
-				<div class="cmuUserbadge__account">
-					<div class="cmuUserbadge__user row">
 
-						<div class="cmuUserbadge__avatar ng-isolate-scope" user="userbadge.displayUser">
-							<div class="cmuUserbadge__activity cmuUserbadge__activity--active"></div>
-						</div>
+		
+			<community-user-badge 
+				class="cmuUserbadge--thin"
+				user="vm.originalMessage.message.context.parentAuthor"
+				op-id="messageDisplay.showOp">
+			</community-user-badge>
 
-						<span class="cmuUsername cmuUsername--ubnt" user="userbadge.displayUser" current-user="userbadge.currentUser">
-							<a href="/users/259"><span class="cmuUsername__icon ubnt-icon--u"></span><span class="cmuUsername__login ng-binding">UBNT-Matt</span></a>
-						</span>
-
-						<div class="cmuUserbadge__rank">
-							SuperUser 
-						</div>
-					</div>
-				</div>
-
-
-				<div class="cmuUserbadge__points">
-					<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>152</span></div>
-					<div class="cmuUserbadge__posts">702</div>
-				</div>
-
-				<div class="cmuUserbadge__info">
-					<div class="cmuUserbadge__descriptors">
-						<div class="cmuUserbadge__descriptor">San Francisco, CA</div>
-						<div class="cmuUserbadge__descriptor">Joined 08-07-2008</div>
-					</div>
-				</div>
-			</div>
 
 			<div class="cmuMessage__data">
 				<div class="cmuMessage__counter"></div>
@@ -110,7 +86,9 @@
 				message="message"
 				reply-click-fn="vm.showReply"
 				show-op="vm.originalMessage.author.id"
-				upvote-only="true">
+				upvote-only="true"
+				thread-filter="vm.commentFilter"
+				local-index="$index">
 			</community-message>
 		
 			<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">

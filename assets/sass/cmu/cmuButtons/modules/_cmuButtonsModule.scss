@@ -122,8 +122,8 @@ $cmu-button-color-base: $cmu-color-blue;
 		border-color: $fgColor;
 
 		&:hover {
-			color: $cmu-color-white; // can't use transparent
-			background-color: $fgColor;
+			color: $hoverFgColor; // can't use transparent
+			background-color: $hoverBgColor;
 			border-color: $fgColor;
 		}
 	} @else if $type == 'naked' {
@@ -206,6 +206,9 @@ button, .button, .cmuButton {
 	&.button-gray-on-white {
 		@include cmuButton('outline',$cmu-color-gray);
 	}
+	&.button-blue-on-black {
+		@include cmuButton('outline',$cmu-color-dkblue,$cmu-color-ltblack,$cmu-color-blue,$cmu-color-xdkgray);
+	}
 }
 
 
@@ -218,6 +221,9 @@ button, .button, .cmuButton {
 	}
 	&.button-white-on-black {
 		@include cmuButton('solid',$cmu-color-white,$cmu-color-xdkgray);
+	}
+	&.button-blue-on-black {
+		@include cmuButton('solid',$cmu-color-dkblue,$cmu-color-ltblack);
 	}
 }
 
@@ -403,7 +409,9 @@ button, .button {
 .button--stretch {
 	width: 100%;
  }
-
+.button--center {
+	text-align: center;
+ }
 .button--tall {
 	padding-top: $cmu-base/2;
 	padding-bottom: $cmu-base/2;
