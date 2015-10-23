@@ -7,7 +7,7 @@
 	// JS has been changed; this is now applied to doc.body
 	.cmuWrapper {
 		// height: 300px;
-		height: 100%;
+		// height: 100%;
 		overflow: hidden;
 	}
 	// // height: 300px;
@@ -20,7 +20,7 @@
 div.cmuOverlay--show {
 	display: block;
 	opacity: 1;
-	overflow: scroll;
+	// overflow: scroll;
     height: 100%; // keeps everything in screen
 	@extend %ease-fast;
 	
