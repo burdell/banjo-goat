@@ -7878,14 +7878,12 @@ div.cmuUserbadge__avatar {
 }
 
 .cmuWrapper--overlay .cmuWrapper {
-  height: 300px;
   overflow: hidden;
 }
 
 div.cmuOverlay--show {
   display: block;
   opacity: 1;
-  overflow: scroll;
   height: 100%;
   z-index: 875;
 }
@@ -7974,12 +7972,17 @@ div.cmuOverlay--show {
   top: 0;
 }
 
+.cmuMega__container {
+  width: 100%;
+  z-index: 1000;
+}
+
 .cmuMega {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
@@ -7987,7 +7990,6 @@ div.cmuOverlay--show {
   display: none;
 }
 .cmuMega.cmuOverlay--show {
-  position: fixed;
   z-index: 1000;
 }
 
@@ -8031,6 +8033,10 @@ div.cmuOverlay--show {
 .cmuMega__content {
   color: #bbbbbd;
   max-width: 1400px;
+  position: fixed;
+  top: 0;
+  overflow: scroll;
+  height: 100%;
 }
 
 .cmuMega__content__container {
@@ -8075,7 +8081,7 @@ div.cmuOverlay--show {
   display: inline-block;
   text-align: center;
   margin-right: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .cmuMega__item:hover .cmuMega__icon {
   background-color: rgba(0, 116, 173, 0.68);
