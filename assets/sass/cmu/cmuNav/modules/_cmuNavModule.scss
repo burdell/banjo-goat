@@ -549,7 +549,9 @@ $nav-height: $cmu-nav-height;
 		color: $cmu-color-ltblue;
 		@extend %ease-fast;
 		.ubnt-icon:before {
-			color: $cmu-color-ltblue;
+			@extend %ease-fast;
+			background-color: $cmu-color-xdkgray;
+			color: $cmu-color-purewhite !important;
 		}
 	}
 }
@@ -675,11 +677,6 @@ $nav-height: $cmu-nav-height;
 		    	width: 28px;
 		    	height: 28px;
 		    	padding: 0.2rem 0.1rem;
-		}
-		span:hover:before {
-			@extend %ease-fast;
-			background-color: $cmu-color-xdkgray;
-			color: $cmu-color-purewhite !important;
 		}
 	}
 

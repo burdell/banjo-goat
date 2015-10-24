@@ -110,16 +110,24 @@
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
 		max-width: $cmu-maxwidth;
-		position: fixed;
-		top: 0;
+		margin-bottom: $cmu-base*2;
+		// position: fixed;
+		// top: 0;
 		overflow: scroll;
-		height: 100%;
+
+	    position: fixed;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	    left: 0;
+
+		// height: 100%;
 		// border-bottom: 1px solid $cmu-color-dkgray;
 		// background-color: rgba($cmu-color-ltblack, 0.88);
 	}
 		.cmuMega__content__container {
 			margin-top: $cmu-base*4;
-			margin-bottom: $cmu-base*4;
+			// margin-bottom: $cmu-base*4;
 			padding: $cmu-base;
 			border: $style-line--dark;
 			background-color: rgba($cmu-color-soot, 0.88);

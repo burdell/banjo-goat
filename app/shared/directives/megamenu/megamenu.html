@@ -13,9 +13,11 @@
 		<div class="cmuMega__shroud" ng-click="megamenu.toggleMenu()"></div>
 		<div class="container noPadding">
 			<div class="cmuMega__content row" ng-click="megamenu.toggleMenu()">
-				<div class="cmuMega__content__container clearfix" ng-click="$event.stopPropagation();">
-					<div class="noPadding col--md12" >
-						<div ng-include="megamenu.menuTemplateUrl">
+				<div class="row">
+					<div class="cmuMega__content__container clearfix" ng-click="$event.stopPropagation();">
+						<div class="noPadding col--md12" >
+							<div ng-include="megamenu.menuTemplateUrl">
+							</div>
 						</div>
 					</div>
 				</div>

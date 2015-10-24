@@ -5,11 +5,23 @@
 // this needs to be removed when the overlay is hidden
 .cmuWrapper--overlay {
 	// JS has been changed; this is now applied to doc.body
-	.cmuWrapper {
-		// height: 300px;
-		// height: 100%;
-		overflow: hidden;
-	}
+	overflow-y: hidden;
+	
+	// .cmuWrapper {
+	// 	// height: 300px;
+	// 	// height: 100%;
+	// 	// overflow: hidden;
+	// 	// height: 0;
+	// 	.community__content {
+	// 		height: 0;
+	// 		overflow: hidden;
+
+	// 	}
+	// 	.cmuGloNav--footer {
+	// 		display: none;
+	// 		height: 0;
+	// 	}
+	// }
 	// // height: 300px;
 	// height: 100%;
 	// overflow: hidden;
