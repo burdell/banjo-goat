@@ -246,6 +246,11 @@
 		border-bottom: $style-line;
 	}
 }
+
+	.cmuFeed__sidebar--hub {
+    	padding-top: 1.4rem;
+	}
+
 	.cmuFeed__sidebar__link {
 		@extend %style-ctaLink;
 	}
