@@ -157,8 +157,21 @@ $nav-height: $cmu-nav-height;
 				// background-color: $cmu-color-dkgray;
 				a { 
 					outline:none;
-					color: $cmu-color-white; 
+					color: $cmu-color-vltblue; 
 					&:hover { color: $cmu-color-white; }
+					&:after {
+						content: ' ';
+						display: block;
+
+						width: 0; 
+						height: 0; 
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						
+						border-bottom: 5px solid $cmu-color-white;
+						margin: 0 auto;
+						margin-top: 5px;
+					}
 				}
 			}
 		}
@@ -169,6 +182,7 @@ $nav-height: $cmu-nav-height;
 				padding-right: $cmu-base;
 				color: $cmu-color-white;
 				outline:none;
+				text-align: center;
 
 				&:hover {
 					color: $cmu-color-ltblue;
@@ -548,11 +562,6 @@ $nav-height: $cmu-nav-height;
 	&:hover {
 		color: $cmu-color-ltblue;
 		@extend %ease-fast;
-		.ubnt-icon:before {
-			@extend %ease-fast;
-			background-color: $cmu-color-xdkgray;
-			color: $cmu-color-purewhite !important;
-		}
 	}
 }
 
@@ -611,7 +620,8 @@ $nav-height: $cmu-nav-height;
 		a:hover {
 			span:before {
 				@extend %ease-fast;
-				color: $cmu-color-dkgray;
+				color: $cmu-color-ltblue;
+				background-color: transparent;
 			}
 		}
 
@@ -636,6 +646,8 @@ $nav-height: $cmu-nav-height;
 				top:1px;
 				&:before {
 					@extend %ease-fast;
+					// background-color: transparent;
+					// color: $cmu-color-vltblue;
 				}
 			}
 
@@ -664,6 +676,14 @@ $nav-height: $cmu-nav-height;
 
     	a {
     		padding: 0 !important;
+    		margin-right: $cmu-base/2;
+    		&:hover {
+				.ubnt-icon:before {
+					@extend %ease-fast;
+					background-color: $cmu-color-xdkgray;
+					color: $cmu-color-purewhite;
+				}
+    		}
     	}
 		span:before {
 			@extend %ease-fast;
@@ -688,7 +708,7 @@ $nav-height: $cmu-nav-height;
 	    text-align: center;
 
 	    .cmuHoverflag {
-	    	top: -85px;
+	    	top: -75px;
 	    }
 
 		.ubnt--icon {
