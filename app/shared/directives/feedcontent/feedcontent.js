@@ -8,6 +8,9 @@ require('shared/filters/timefromnow.js');
 require('shared/filters/unformattext.js');
 require('shared/filters/wordcut.js');
 
+
+require('directives/productdiscussiontag/productdiscussiontag.js');
+
 var _ = require('underscore');
 
 function feedContent($compile, $templateCache) {
@@ -121,7 +124,7 @@ function feedContent($compile, $templateCache) {
 			discussionActionString: contentFns.getDiscussionActionString(),
 			postData: contentFns.getPostDate(),
 			contentUrl: contentFns.getContentUrl(),
-			nodeName: ctrl.contentModel.data.node.description
+			nodeId: ctrl.contentModel.data.node.id
 		};
 
 		_.extend(ctrl, {

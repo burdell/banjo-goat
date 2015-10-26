@@ -11,6 +11,7 @@ require('providers/defaults.js');
 require('services/routing.js');
 
 require('directives/arealinkhandler/arealinkhandler.js');
+require('directives/productdiscussiontag/productdiscussiontag.js');
 
 function storyDisplay() {
 	var link = function(scope, element, attrs) {
@@ -23,6 +24,7 @@ function storyDisplay() {
 		var media = _.find(ctrl.storyMedia, function(mediaObject){ 
 			return mediaObject.meta && mediaObject.meta.isCover; 
 		});
+
 		
 		ctrl.coverphoto = media ? media.url : defaults.noPhoto;
 		
@@ -30,7 +32,8 @@ function storyDisplay() {
 		_.extend(ctrl, {
 			getStoryUrl: function(){
 				return routingService.generateUrl('stories.detail', { nodeId: ctrl.story.node.urlCode, storyId: ctrl.story.id });
-			}
+			},
+			nodeId: ctrl.story.node.id
 		});
 	};
 	controller.$inject = ['CommunityRoutingService', 'communityDefaults'];

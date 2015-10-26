@@ -3,22 +3,24 @@
 
 require('services/routing.js');
 
-function areaLinkHandler($parse, routingService) {
+function areaLinkHandler($parse, $timeout, routingService) {
 	var link = function(scope, element, attrs) {
 		var elementHref;
-		if (attrs.linkHandlerRoute) {
-			var routeValues = !attrs.routeValues ? null : $parse(attrs.routeValues)();
-			elementHref = routingService.generateUrl(attrs.linkHandlerRoute, routeValues);
-		} else {
-			elementHref = attrs.areaLinkHandler;
-		}	
-		
-		var elementNode = element[0];
-		elementNode.setAttribute('href', elementHref);
-		
-		if (routingService.getCurrentArea() !== routingService.getArea(elementHref)) {
-			elementNode.setAttribute('target', '_self');
-		}
+		$timeout(function(){
+			if (attrs.linkHandlerRoute) {
+				var routeValues = !attrs.routeValues ? null : $parse(attrs.routeValues)();
+				elementHref = routingService.generateUrl(attrs.linkHandlerRoute, routeValues);
+			} else {
+				elementHref = attrs.areaLinkHandler;
+			}	
+			
+			var elementNode = element[0];
+			elementNode.setAttribute('href', elementHref);
+			
+			if (routingService.getCurrentArea() !== routingService.getArea(elementHref)) {
+				elementNode.setAttribute('target', '_self');
+			}
+		});
 	};
 	
     var directive = {
@@ -29,7 +31,7 @@ function areaLinkHandler($parse, routingService) {
     };
     return directive;
 }
-areaLinkHandler.$inject = ['$parse', 'CommunityRoutingService'];
+areaLinkHandler.$inject = ['$parse', '$timeout', 'CommunityRoutingService'];
 
 angular.module('community.directives')
 	.directive('areaLinkHandler', areaLinkHandler);

@@ -54,7 +54,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterArguments: [ $stateParams.messageId ],
 						filterContext: communityApi.Forums,
 						constants: {
-							per_page: 10
+							per_page: 10,
+							sortDir: 'DESC',
+							sort_field: 'postDate'
 						},
 						autoInitModel: false,
 						persistFilterModel: false,
