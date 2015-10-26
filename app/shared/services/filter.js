@@ -101,7 +101,7 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 					if (filterData) {
 						setFilterModel(filterData, exclude);
 					}
-					filterModel = _.extend({}, options.filterModel, options.constants);
+					filterModel = _.extend(options.filterModel, options.constants);
 				}
 				
 				var args = [];
@@ -125,9 +125,9 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 					options.targetCommentHash = false;
 					return communityApi.Messages.position($location.hash()).then(function(messagePosition){
 						var targetCommentNumber = Number(messagePosition);
-						if (targetCommentNumber && targetCommentNumber > filterModel.per_page) {
-							filterModel.page = filterModel.per_page % targetCommentNumber;
-						}
+						var targetPage = (filterModel.per_page % targetCommentNumber);
+						filterModel.page = targetPage || 1;
+
 						return actualFilterCall();
 					});
 				}
@@ -137,6 +137,7 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 						if (!oneTime && options.persistFilterModel) {
 							setQueryParams(filterModel);
 						}
+
 						executeOnFilterFns(result, filterModel);
 						
 						if (options.saveMeta) {

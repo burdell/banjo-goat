@@ -65,8 +65,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterFn: communityApi.Stories.stories, 
 						filterArguments: [ $stateParams.nodeId ], 
 						constants: {
-							per_page: 30,
-							sortDir: 'DESC'
+							per_page: 30
 						},
 						persistFilterModel: false,
 						autoInitModel: false 
@@ -85,7 +84,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			resolve: {
 				StoryThread: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi) {
-					return communityApi.Stories.thread($stateParams.storyId, { limit: 10, offset: 0 });
+					return communityApi.Stories.thread($stateParams.storyId, { limit: 10, offset: 0, sortDir: 'ASC', sortField: 'postDate' });
 				}],
 				StoryListConfig: function(){
 					return {

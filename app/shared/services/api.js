@@ -119,10 +119,10 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return goToApi(v2Url + 'announcements/' + announcementId);
 				},
 				comments: function(announcementId, commentData){
-					return goToApi(v2Url + 'announcements/' + announcementId + '/comments');
+					return goToApi(v2Url + 'announcements/' + announcementId + '/comments', commentData);
 				},
-				thread: function(announcementId){
-					return $q.all([ this.detail(announcementId), this.comments(announcementId) ]).then(function(result){
+				thread: function(announcementId, options){
+					return $q.all([ this.detail(announcementId), this.comments(announcementId, options) ]).then(function(result){
 						return {
 							originalMessage: result[0],
 							comments: result[1]

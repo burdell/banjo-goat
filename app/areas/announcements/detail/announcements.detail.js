@@ -13,16 +13,21 @@ require('directives/commentform/commentform.js');
 require('filters/unescape.js');
 
 var _ = require('underscore');
-		function AnnouncementListController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
+
+function AnnouncementDetailController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
 		var ctrl = this;
-		
+
+		var originalMessage = announcementDetail.content.shift();
+
+		console.log(originalMessage);
+
 		_.extend(ctrl, {
 			showCommentForm: false,
-			currentAnnouncement: announcementDetail.originalMessage,
-			currentComments: announcementDetail.comments,
+			currentAnnouncement: originalMessage,
+			currentComments: announcementDetail,
 			moreCommentsFilter: filterService.getNewFilter({ 
 				filterFn: communityApi.Announcements.comments, 
-				filterArguments: [ announcementDetail.originalMessage.id ],
+				filterArguments: [ originalMessage.id ],
 				persistFilterModel: false,
 				setInitialData: false
 			})
@@ -33,9 +38,9 @@ var _ = require('underscore');
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 	}
-	AnnouncementListController.$inject = ['$scope', '$state', 'AnnouncementDetail', 'CommunityApiService', 'CommunityBreadcrumbService', 'CommunityFilterService'];
+	AnnouncementDetailController.$inject = ['$scope', '$state', 'AnnouncementDetail', 'CommunityApiService', 'CommunityBreadcrumbService', 'CommunityFilterService'];
 
 angular.module('community.announcements')
-	.controller('AnnouncementDetail', AnnouncementListController);
+	.controller('AnnouncementDetail', AnnouncementDetailController);
 
 

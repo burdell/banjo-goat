@@ -25,7 +25,7 @@ function commentForm() {
 						ctrl.submittingComment = false;
 
 						if (ctrl.commentList) {
-							ctrl.commentList.content.unshift(result);
+							ctrl.commentList.content.push(result);
 						}
 						
 						ctrl.comment.body = null;

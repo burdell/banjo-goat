@@ -50,7 +50,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Announcements.thread($stateParams.announcementId, { limit: 10, offset: 0, sortDir: 'desc' });
+						return communityApi.Announcements.comments($stateParams.announcementId, { limit: 10, offset: 0, sortDir: 'ASC', sortField: 'postDate' });
 					}]
 				}
 			});

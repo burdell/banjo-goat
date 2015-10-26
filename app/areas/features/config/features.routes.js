@@ -59,7 +59,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterContext: communityApi.Features,
 						persistFilterModel: false,
 						constants: {
-							per_page: 20
+							per_page: 20,
+							sortDir: 'ASC',
+							sortField: 'postDate'
 						},
 						saveMeta: true,
 						targetCommentHash: true
