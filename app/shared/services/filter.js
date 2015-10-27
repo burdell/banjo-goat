@@ -118,7 +118,7 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 				args.push(filterModel);
 
 				var filterContext = options.filterContext ? options.filterContext : this;
-				var hash = $location.hash();
+				var hash = Number($location.hash());
 				if (!options.targetCommentHash || !hash) {
 					return actualFilterCall();
 				} else {
