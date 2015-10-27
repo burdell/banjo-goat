@@ -38,7 +38,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			reloadOnSearch: false
 		})
-		.state('stories', {		
+		.state('stories', {	
 			abstract: true,
 			url: storiesRoutes.stories,
 			templateUrl: 'stories/stories.html',
@@ -94,6 +94,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			}
 		})
 		.state('stories.new', {
+			title: 'New Story',
 			url: storiesRoutes.newstory,
 			views: {
 				'mainContent': {

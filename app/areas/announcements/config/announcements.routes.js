@@ -9,6 +9,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
+				title: 'Community Announcements',
 				url: announcementsRoutes.landing,
 				controller: 'AnnouncementsLanding as vm',
 				templateUrl: 'announcements/landing/announcements.landing.html',

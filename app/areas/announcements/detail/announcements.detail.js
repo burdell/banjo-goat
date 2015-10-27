@@ -19,8 +19,6 @@ function AnnouncementDetailController ($scope, $state, announcementDetail, commu
 
 		var originalMessage = announcementDetail.content.shift();
 
-		console.log(originalMessage);
-
 		_.extend(ctrl, {
 			showCommentForm: false,
 			currentAnnouncement: originalMessage,
@@ -33,7 +31,7 @@ function AnnouncementDetailController ($scope, $state, announcementDetail, commu
 			})
 		});
 		
-		breadcrumbService.setCurrentBreadcrumb(ctrl.currentAnnouncement.subject);
+		breadcrumbService.setCurrentBreadcrumb(originalMessage.context.topicSubject);
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
