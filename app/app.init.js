@@ -25,10 +25,13 @@ function initializeApp(areaName) {
         moduleBuilder('community.directives'),
         moduleBuilder('community.filters'),
         moduleBuilder('community.' + areaName)
-    ]).run(['$rootScope', '$state', '$window', require('services/currentuser'), function($rootScope, $state, $window, currentUser){
+    ]).run(['$anchorScroll', '$rootScope', '$state', '$window', require('services/currentuser'), function($anchorScroll, $rootScope, $state, $window, currentUser){
         $rootScope.$on('$stateChangeSuccess', function(){
             $window.scrollTo(0,0);
         });
+
+        $anchorScroll.yOffset = 45;
+
     }]);
 
     //core stuff
