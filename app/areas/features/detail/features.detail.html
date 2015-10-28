@@ -122,13 +122,15 @@
 	</div>
 
 	<div class="row" ng-if="vm.featureReplyShown">
-		<community-comment-form
-			reply-button-text="Post Reply" 
-			replying-button-text="Posting Reply..." 
-			parent-message="vm.originalMessage.message"
-			toggle-attribute="vm.featureReplyShown"
-			on-success-fn="vm.replyPosted">
-		</community-comment-form>
+		<div id="featureReply">
+			<community-comment-form
+				reply-button-text="Post Reply" 
+				replying-button-text="Posting Reply..." 
+				parent-message="vm.originalMessage.message"
+				toggle-attribute="vm.featureReplyShown"
+				on-success-fn="vm.replyPosted">
+			</community-comment-form>
+		</div>
 	</div>
 
 </div>

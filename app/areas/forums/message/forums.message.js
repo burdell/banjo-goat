@@ -3,14 +3,11 @@
 
 	var _ = require('underscore');
 
-	require('services/api.js');
-	require('services/breadcrumb.js');
-
 	require('directives/pager/pager.js');
 	require('directives/commentform/commentform.js');
 	require('directives/message/message.js');
 
-	var forumMessageController = function($anchorScroll, $location, $scope, $stateParams, $timeout, communityApi, breadcrumbService, messageThreadFilter){
+	var forumMessageController = function($scope, $stateParams, communityApi, breadcrumbService, scrollService, messageThreadFilter){
 		var ctrl = this;
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
 		var setReplyMessage = _.once(function(message){
@@ -58,18 +55,17 @@
 			},
 			showTopicReply: function(){
 				ctrl.topicReplyShown = true
+				scrollService.scroll('topicReply');
 			}
 		});
 
 	};
 	forumMessageController.$inject = [
-		'$anchorScroll',
-		'$location',
 		'$scope',
 		'$stateParams',
-		'$timeout',
-		'CommunityApiService',
-		'CommunityBreadcrumbService', 
+		require('services/api.js'),
+		require('services/breadcrumb.js'),
+		require('services/scroll.js'),
 		'MessageThreadFilter'
 	];
 

@@ -23,7 +23,7 @@ var _ = require('underscore');
 function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults, routingService, routesProvider){
 	var ctrl = this;
 
-	storyThread.comments.content.pop();
+	storyThread.comments.content.shift();
 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;

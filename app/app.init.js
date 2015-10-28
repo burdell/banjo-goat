@@ -25,10 +25,19 @@ function initializeApp(areaName) {
         moduleBuilder('community.directives'),
         moduleBuilder('community.filters'),
         moduleBuilder('community.' + areaName)
-    ]).run(['$rootScope', '$state', '$window', require('services/currentuser'), function($rootScope, $state, $window, currentUser){
-        $rootScope.$on('$stateChangeSuccess', function(){
+    ]).run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper){
+        $rootScope.$on('$stateChangeStart', function(event, newState, stateParams){
             $window.scrollTo(0,0);
+
+            nodeServiceWrapper.get().then(function(nodeService){
+                var nodeId = stateParams.nodeId || -1;
+                var title = newState.title ? $interpolate(newState.title)(stateParams) : nodeService.getNode(nodeId).description;
+                titleService.setTitle(title, true);
+            });
         });
+
+        $anchorScroll.yOffset = 45;
+
     }]);
 
     //core stuff

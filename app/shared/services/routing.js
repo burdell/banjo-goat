@@ -87,5 +87,8 @@ var _ = require('underscore');
 };
 routingService.$inject = ['$location', 'communityRoutes'];
 
+var serviceName = 'CommunityRoutingService';
 angular.module('community.services')
-	.service('CommunityRoutingService', routingService);
+	.service(serviceName, routingService);
+	
+module.exports = serviceName;

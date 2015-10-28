@@ -1,9 +1,7 @@
 
 'use strict';
-require('services/nodestructure.js');
-require('services/routing.js');
 
-var breadcrumbService = function(nodeServiceWrapper, routingService){
+var breadcrumbService = function(nodeServiceWrapper, pageTitleService, routingService){
 	var nodeServiceHolder = null;
 
 		function setNodeUrl(node) {
@@ -79,6 +77,7 @@ var breadcrumbService = function(nodeServiceWrapper, routingService){
 					name: subnodeName,
 					parent: currentBreadcrumb
 				};
+				pageTitleService.setSubtitle(subnodeName);
 			}
 			
 			setCrumb();
@@ -92,7 +91,10 @@ var breadcrumbService = function(nodeServiceWrapper, routingService){
 		}
 	};
 };
-breadcrumbService.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
+breadcrumbService.$inject = [require('services/nodestructure.js'), require('services/pagetitle.js'), require('services/routing.js')];
 
+var serviceName = 'CommunityBreadcrumbService';
 angular.module('community.services')
-	.service('CommunityBreadcrumbService', breadcrumbService);
+	.service(serviceName, breadcrumbService);
+module.exports = serviceName;
+

@@ -9,10 +9,6 @@
 		var controller = function($rootScope, $scope, utils) {
 			var ctrl = this;
 
-			$scope.$on('dropdown:' + ctrl.openEvent, function(){
-				ctrl.toggleMenu();
-			});
-
 			$scope.$on('$stateChangeStart', function(){
 				ctrl.isOpen = false;
 			});
@@ -23,7 +19,7 @@
 
 			_.extend(ctrl, {
 				isOpen: false,
-				toggleMenu: function(){
+				toggle: function(){
 					if(!ctrl.isOpen) {
 						$scope.$emit('rootScope:closeAllDropdowns');
 					}
@@ -43,7 +39,9 @@
 	        scope: {
 	        	openEvent: '@',
 	        	menuTemplateUrl: '@',
-	        	templateCtrl: '='
+	        	templateCtrl: '=',
+	        	elementClassname: '@',
+	        	iconClassname: '@'
 	        }
 	    };
 	    return directive;
