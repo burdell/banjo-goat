@@ -107,6 +107,9 @@ $size-h2__lineHeight: $size-largest__lineHeight;
 		font-size: $size-h2;
 		line-height: $size-h2__lineHeight;
 		font-weight: 400;
+
+		margin-top: $cmu-vertical-rhythm*2;
+		margin-bottom: $cmu-vertical-rhythm;
 	}
 
 $size-h3: $size-larger;

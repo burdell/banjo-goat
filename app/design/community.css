@@ -6715,10 +6715,12 @@ h1 {
   font-weight: 300;
 }
 
-h2, .cmuFeed .cmuDiscussionsHeader h3, .cmuFeed .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuFeed .cmuDiscussionsHeader .timeline__year__title--text {
+h2 {
   font-size: 1.5rem;
   line-height: 2.0625rem;
   font-weight: 400;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 h3, .timeline__year__title .timeline__year__title--text, .cmuSearchbar .cmuSearchbox input, .cmuComments__header, .cmuFeatures__votes__count {
@@ -8337,6 +8339,30 @@ div.cmuOverlay--show {
   display: inline-block;
 }
 
+.cmuPulse--sidebar {
+  margin: 0;
+}
+.cmuPulse--sidebar .cmuPulse {
+  position: relative;
+  border: 0;
+  margin: 0;
+}
+@media only screen and (max-width: 800px) {
+  .cmuPulse--sidebar .cmuPulse {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1041px) {
+  .cmuPulse--sidebar .cmuPulse {
+    padding: 0;
+  }
+}
+.cmuPulse--sidebar .col--md3 {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0;
+}
+
 .cmuDirectory {
   color: #474b52;
 }
@@ -8499,11 +8525,6 @@ div.cmuOverlay--show {
   display: none;
 }
 
-.cmuFeed .cmuDiscussionsHeader h3, .cmuFeed .cmuDiscussionsHeader .timeline__year__title .timeline__year__title--text, .timeline__year__title .cmuFeed .cmuDiscussionsHeader .timeline__year__title--text {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
 .cmuFeed__main {
   padding-right: 1rem;
 }
@@ -8656,9 +8677,10 @@ div.cmuOverlay--show {
   padding-top: 1.4rem;
 }
 
-.cmuFeed__actions {
+.cmuFeed__sidebar__item {
   margin-bottom: 1rem;
 }
+
 .cmuFeed__actions a {
   display: block;
   padding: 0.25rem 0;
@@ -8734,6 +8756,9 @@ div.cmuOverlay--show {
 }
 .cmuBreadcrumbs li a:hover {
   color: #00a0df;
+}
+.cmuBreadcrumbs li:last-child:after {
+  display: none;
 }
 .cmuBreadcrumbs .cmuBreadcrumbs__last {
   color: #474b52;

@@ -2,7 +2,6 @@
 	<community-page-header hide-element-selector=".hub-container"></community-page-header>
 
 	<div class="hub-container">
-		<community-pulse></community-pulse>
 		<div class="row">
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<div class="cmuFeed__container">
@@ -54,7 +53,12 @@
 			<!-- sidebar -->
 			<div class="cmuFeed__sidebar cmuFeed__sidebar--hub col--md3">
 
-				<div class="cmuFeed__actions">
+				<div class="cmuFeed__pulse cmuFeed__sidebar__item">
+					<h5>{{ vm.nodeDisplay }} Links</h5>
+					<community-pulse class="cmuPulse--sidebar"></community-pulse>
+				</div>
+
+				<div class="cmuFeed__actions cmuFeed__sidebar__item">
 					<h5>{{ vm.nodeDisplay }} Links</h5>
 
 						<a ng-href="{{ vm.getForumUrl(forum.urlCode) }}" target="_self" ng-repeat="forum in vm.forumList"> 
@@ -67,7 +71,7 @@
  -->
 				</div>
 
-				<div class="cmuFeed__announcements">
+				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
 						<span class="product">airmax</span>{{ announcement.subject }}
