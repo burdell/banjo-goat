@@ -10439,6 +10439,9 @@ select.cmuSort {
 .cmuTextEditor {
   cursor: text;
 }
+.cmuTextEditor .CodeMirror, .cmuTextEditor .CodeMirror-scroll {
+  min-height: 200px;
+}
 .cmuTextEditor::-webkit-input-placeholder {
   color: black;
 }

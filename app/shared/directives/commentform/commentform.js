@@ -8,7 +8,7 @@ var _ = require('underscore');
 
 function commentForm() {
 	var controller = function(communityApi) {
-		var ctrl = this;
+		var ctrl = this;	
 
 		var parentMessage = ctrl.parentMessage;
 		_.extend(ctrl, {
@@ -63,7 +63,7 @@ function commentForm() {
         	parentMessage: '=',
         	commentList: '=',
         	replyButtonText: '@',
-        	fullEditor: "=",
+        	minimalEditor: "=",
         	onSuccessFn: '=',
         	topicId: '='
         }
