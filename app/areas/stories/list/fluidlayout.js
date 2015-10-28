@@ -35,9 +35,10 @@ function gridList($timeout) {
 			});
 		}
 		init(false, {
-			itemSelector: '.cmuStoryItem',
+			itemSelector: '.cmuStoryGrid__item',
 			gutter: 14,
-			animationDuration: 0
+			columnWidth: '.cmuStoryGrid__item',
+			isAnimated: false
 		});
 
 		scope.$on('communityGridList:redraw', function(){

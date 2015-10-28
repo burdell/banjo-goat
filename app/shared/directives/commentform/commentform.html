@@ -1,7 +1,7 @@
 
 <div>
 	<div class="row row--comfy">
-			<community-text-editor ng-model="commentform.comment.body" minimal-editor="true"></community-text-editor>
+			<community-text-editor ng-model="commentform.comment.body" minimal-editor="{{ commentform.minimalEditor }}"></community-text-editor>
 	</div>
 	<div class="row">
 		<div ng-show="!commentform.submittingComment">

@@ -13,3 +13,4 @@ npm-debug.log
 config/config.js
 src/scripts/templates.js
 Gem*
+app/design/community.vendor.css

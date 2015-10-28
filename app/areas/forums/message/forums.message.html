@@ -14,7 +14,7 @@
         	<span community-permissions>
 	        	<button class="button--solid button--padded button-blue-white" ng-click="vm.showTopicReply()">Reply</button>
 				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
-	        	<button class="button--ghost button--padded button-blue-white" ng-click="vm.showTopicReply()">Subscribe</button>
+	        	<button class="button--ghost button--padded button-blue-white">Subscribe</button>
 			</span>
 		</div>
 
@@ -76,13 +76,15 @@
 		</div>
 	</div>
 	<div class="row" ng-if="vm.topicReplyShown">
-		<community-comment-form
-			reply-button-text="Post Reply" 
-			replying-button-text="Posting Reply..." 
-			parent-message="vm.topicReplyMessage"
-			toggle-attribute="vm.topicReplyShown"
-			on-success-fn="vm.replyPosted">
-		</community-comment-form>
+		<div id="topicReply">
+			<community-comment-form
+				reply-button-text="Post Reply" 
+				replying-button-text="Posting Reply..." 
+				parent-message="vm.topicReplyMessage"
+				toggle-attribute="vm.topicReplyShown"
+				on-success-fn="vm.replyPosted">
+			</community-comment-form>
+		</div>
 	</div>
 </div>
 

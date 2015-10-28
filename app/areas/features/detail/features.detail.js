@@ -1,9 +1,6 @@
 
 'use strict';
 
-require('services/breadcrumb.js');
-require('services/nodestructure.js');
-
 require('filters/sanitize.js');
 
 require('directives/message/message.js');
@@ -12,7 +9,7 @@ require('directives/commentform/commentform.js');
 
 var _ = require('underscore');
 
-function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper, featuresCommentFilter, featuresData, featuresDetail){
+function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServiceWrapper, scrollService, featuresCommentFilter, featuresData, featuresDetail){
 	var ctrl = this;
 	var featureRequest = featuresDetail;
 	
@@ -47,12 +44,10 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 		commentFilter: featuresCommentFilter,
 		showFeatureReply: function(){
 			ctrl.featureReplyShown = true;
+			scrollService.scroll('featureReply');
 		},
 		replyPosted: function(result){
 			featuresCommentFilter.filter({ page: ctrl.numberOfPages });
-		},
-		showReply: function(messageId){
-			ctrl.currentReply = messageId;
 		},
 		messageIsBeingRepliedTo: function(messageId){
 			return messageId === this.currentReply;
@@ -67,7 +62,16 @@ function featuresDetailController ($scope, breadcrumbService, nodeServiceWrapper
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
 }
-featuresDetailController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityNodeService', 'FeaturesCommentFilter', 'FeaturesDataService', 'FeaturesDetail'];
+featuresDetailController.$inject = [
+	'$scope', 
+	'$timeout',
+	require('services/breadcrumb.js'), 
+	require('services/nodestructure.js'), 
+	require('services/scroll.js'),
+	'FeaturesCommentFilter', 
+	'FeaturesDataService', 
+	'FeaturesDetail'
+];
 
 angular.module('community.features')
 	.controller('FeaturesDetail', featuresDetailController);

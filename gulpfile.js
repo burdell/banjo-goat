@@ -33,6 +33,10 @@ var jsAppFileName = 'community.app.js';
 var sources = {
     index: 'app/index.html',
 	sass: ['assets/**/*.scss'],
+    vendorCss: [
+        'node_modules/simplemde/dist/simplemde.min.css', 
+        'node_modules/angular-ui-select/select.min.css'
+    ],
 	partials: [
 		'app/areas/**/*.html',
         'app/shared/**/*.html',
@@ -63,7 +67,7 @@ function areaPath(areaName, prodBuild) {
 }
 
 gulp.task('clean', function(){
-    del([ './dist/', './app/design/community.css' ]);
+    del([ './dist/', './app/design/community.css', './app/design/community.vendor.css', './app/design/community.css.map' ]);
 });
 
 
@@ -194,7 +198,13 @@ function getAreaTemplates(areaName) {
 /***** 
         STYLE TASKS 
                         ******/
-gulp.task('compile-stylesheets', function(){
+gulp.task('vendor-stylesheets', function(){
+    return gulp.src(sources.vendorCss)
+        .pipe($.concat('community.vendor.css'))
+        .pipe(gulp.dest('app/design/'))
+    });
+
+gulp.task('compile-stylesheets', ['vendor-stylesheets'], function(){
     return gulp.src(sources.sass)
         .pipe($.compass({
            css: 'app/design',

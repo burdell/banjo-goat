@@ -53,18 +53,18 @@
 
 
 	// stories
-	.cmuProfile__storyList {
-		margin-top: $cmu-vertical-rhythm;
-	}
+	// .cmuProfile__storyList {
+	// 	// margin-top: $cmu-vertical-rhythm;
+	// }
 
-	.cmuProfile__story {
-		&:first-child {
-			padding-left: 0;
-		}
-		&:last-child {
-			padding-right: 0;
-		}
-	}
+	// .cmuProfile__story {
+	// 	&:first-child {
+	// 		padding-left: 0;
+	// 	}
+	// 	&:last-child {
+	// 		padding-right: 0;
+	// 	}
+	// }
 
 	// points table
 	.cmuProfile__table {

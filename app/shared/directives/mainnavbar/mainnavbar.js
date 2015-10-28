@@ -33,7 +33,7 @@ function mainNavBar() {
 
 			var toggleDiscussionsMenu = function(){
 				$scope.$broadcast('megamenu:toggleDiscussions');
-				$anchorScroll("#pageTop");
+				// $anchorScroll("#pageTop");
 			}
 
 			var checkNotifications = function(notifcationData, updates){
