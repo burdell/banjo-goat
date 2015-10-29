@@ -58,19 +58,6 @@
 					<community-pulse class="cmuPulse--sidebar"></community-pulse>
 				</div>
 
-				<div class="cmuFeed__actions cmuFeed__sidebar__item">
-					<h5>{{ vm.nodeDisplay }} Links</h5>
-
-						<a ng-href="{{ vm.getForumUrl(forum.urlCode) }}" target="_self" ng-repeat="forum in vm.forumList"> 
-							{{ forum.description }}
-						</a>
-						<a ng-href="{{ vm.discussionUrls.announcements }}" target="_self">Announcements</a>
-						<a ng-href="{{ vm.discussionUrls.stories }}" target="_self">Stories</a>
-<!-- 
-					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
- -->
-				</div>
-
 				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
