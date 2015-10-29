@@ -16,29 +16,34 @@
 	}
 }
 
-.timeline__year {
-	border: $style-line;
-	border-bottom: 0;
+.timeline__container {
+	// border: $style-line;
+	// border-bottom: 0;
+	margin-bottom: $cmu-vertical-rhythm;
 
-	&:last-child {
-		border-bottom: $style-line;
-	}
+	// &:last-child {
+	// 	border-bottom: $style-line;
+	// }
 }
 
-.timeline__year__title {
+.timeline__title {
+	@extend %user-select-none;
+	
 	position: relative;
 	cursor: pointer;
     background-color: $cmu-color-purewhite;
-    $padding: $cmu-base/4;
+    // $padding: $cmu-base/4;
+	border: $style-line;
     @extend %ease-fast;
 
-	.timeline__year__title--text {
-		@extend h3;
-		padding: $padding $cmu-base/2;
-		padding-bottom: 1px; 
-    	line-height: $cmu-base*2;
+	.timeline__title--text {
+		font-size: $size-large;
+		// padding: $padding $cmu-base/2;
+		// padding-bottom: 1px; 
+		height: $cmu-base*2;
+    	line-height: $cmu-base*2 - remCalc(2px);
 	}
-	span {
+	.timeline__title--count {
 		font-weight: 300;
 		font-size: $size-normal;
 		&:before { content: '(' }
@@ -47,36 +52,46 @@
 
 	&:hover {
 		background: $cmu-color-threadlist-hover;
+		// border: 1px solid transparent;
 		@extend %ease-fast;
 	}
 	// Open / Closed indicator
 	// default is closed
-	&:after {
+	&:before {
+		@extend %font-ubnt;
 		@extend %ease-fast;
-		@extend h4;
 		display: inline-block;
-		content: '+';
-		color: $cmu-color-active;
+		content: '\e6cd';
+		background-color: $cmu-color-ltmdgray;
 
-		position: absolute;
-		right: 0;
-		float: right;
-		height: $cmu-base*2 + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
-		width: $cmu-base*2 + $padding*2; // 31px;
+		// position: absolute;
+		// right: 0;
+
+		margin-right: $cmu-base/2;
+		float: left;
+		height: $cmu-base*2; // + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
+		width: $cmu-base*2; // + $padding*2; // 31px;
 		top: 0;
-		line-height: $cmu-base*2 + $padding*2; //31px;;
+		line-height: $cmu-base*2.1; // + $padding*2; //31px;;
 		text-align: center;
-		// background-color: white;
 
 	}
 	&.open {
-		border-bottom: $style-line--thick;
+		// border-bottom: $style-line--thick;
+		background-color: $cmu-color-vltblue;
+		// border: 1px solid transparent;
+		border-color: $cmu-color-white;
 
-		&:after {
+		* {
+			color: $cmu-color-black;
+		}
+
+		&:before {
+			@extend %font-ubnt;
 			display: inline-block;
-			content: '\2013';
-    		box-shadow: 0px 0px 5px 1px $cmu-color-ltgray inset;
-			// color: $cmu-color-dkgray;
+			content: '\e6d0';
+			background-color: $cmu-color-blue;
+			color: $cmu-color-white;
 		}
 	}
 }

@@ -34,6 +34,8 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 	min-height: 100%;
 }
 
+
+
 body {
 	position: relative;
 	height: 100%;
@@ -45,6 +47,8 @@ body {
 	a:focus {
 		outline: none;
 	}
+
+
 }
 	.wrapper {
 		background-color: $cmu-color-white;

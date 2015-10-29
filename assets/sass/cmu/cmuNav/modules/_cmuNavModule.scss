@@ -28,6 +28,9 @@ $nav-height: $cmu-nav-height;
 	padding-right: $cmu-base*0.9;
 	font-size: $cmu-base;
 	color: $cmu-color-white;
+	width: $cmu-base*3;
+	// margin-left: -4px;
+	margin-right: -4px;
 }
 
 
@@ -41,10 +44,8 @@ $nav-height: $cmu-nav-height;
 
 .cmuGloNav {
 	background-color: $cmu-color-menu;
-	border-bottom: 1px solid $cmu-color-ltblue;
 	z-index: $z-gloNav;
 	position: relative;
-	@include box-shadow(0, 0, 5px, $cmu-color-black);
 
 
 	* {
@@ -83,6 +84,8 @@ $nav-height: $cmu-nav-height;
 
 	.cmuGloNav--header {
 		height: $nav-height;
+		border-bottom: 1px solid $cmu-color-vdkblue;
+		@include box-shadow(0, 0, 5px, $cmu-color-black);
 
 		ul {
 			margin-bottom: 0;
@@ -114,7 +117,7 @@ $nav-height: $cmu-nav-height;
 	.cmuGloNav__left {
 		@extend %nav-style;
 		// border-left: 1px solid $cmu-color-dkgray;
-		padding-left: 0;
+		// padding-left: 0;
 		color: $cmu-color-white;
 		&:hover {
 			color: $cmu-color-ltblue;
@@ -154,24 +157,24 @@ $nav-height: $cmu-nav-height;
 			// margin-right: $cmu-base;
 
 			.active {
-				// background-color: $cmu-color-dkgray;
+				background-color: $cmu-color-vdkblue;
 				a { 
 					outline:none;
 					color: $cmu-color-vltblue; 
 					&:hover { color: $cmu-color-white; }
-					&:after {
-						content: ' ';
-						display: block;
+				// 	&:after {
+				// 		content: ' ';
+				// 		display: block;
 
-						width: 0; 
-						height: 0; 
-						border-left: 5px solid transparent;
-						border-right: 5px solid transparent;
+				// 		width: 0; 
+				// 		height: 0; 
+				// 		border-left: 5px solid transparent;
+				// 		border-right: 5px solid transparent;
 						
-						border-bottom: 5px solid $cmu-color-white;
-						margin: 0 auto;
-						margin-top: 5px;
-					}
+				// 		border-bottom: 5px solid $cmu-color-white;
+				// 		margin: 0 auto;
+				// 		margin-top: 5px;
+				// 	}
 				}
 			}
 		}
@@ -263,13 +266,32 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
 				background-color: $cmu-color-blue;
-				border-right: 1px solid $cmu-color-dkblue;
-    			margin-right: -4px;
+				// border-right: 1px solid $cmu-color-dkblue;
 			}
 
 
 			.cmuGloNav__cmuAccount {
 
+				.active {
+	    			position: relative;
+					background-color: $cmu-color-blue;
+					span { color: $cmu-color-white; }
+
+					// &:after {
+					// 	content: ' ';
+					// 	display: block;
+					// 	position: absolute;
+					// 	z-index: $z-gloNav;
+					// 	left: $cmu-base;
+					// 	bottom: 0;
+					// 	width: 0; 
+					// 	height: 0; 
+					// 	border-left: 7px solid transparent;
+					// 	border-right: 7px solid transparent;
+					// 	border-bottom: 7px solid $cmu-color-ltgray;
+					// }
+				}
+				
 				.cmuProfile__avatar {
 					&:before {
 						content: ' ';
@@ -278,7 +300,7 @@ $nav-height: $cmu-nav-height;
 						border-radius: 50%;
 						margin-top: 5px;
 						margin-right: 0;
-						margin-left: 4px;
+						// margin-left: 4px;
 						@extend %ease-fast;
 						height: remCalc(28px);
 						width: remCalc(28px);
@@ -295,25 +317,6 @@ $nav-height: $cmu-nav-height;
 					top: -3px;
 				}
 
-				.active {
-	    			position: relative;
-					background-color: $cmu-color-dkgray;
-					span { color: $cmu-color-white; }
-
-					&:after {
-						content: ' ';
-						display: block;
-						position: absolute;
-						z-index: $z-gloNav;
-						left: 10px;
-						bottom: 0;
-						width: 0; 
-						height: 0; 
-						border-left: 7px solid transparent;
-						border-right: 7px solid transparent;
-						border-bottom: 7px solid $cmu-color-ltgray;
-					}
-				}
 			}
 
 				.cmuGloNav__notifications, .cmuGloNav__inbox {
@@ -327,20 +330,22 @@ $nav-height: $cmu-nav-height;
 					@extend %nav-icon-style;
 					padding-left: $cmu-base/4;
 					padding-right: $cmu-base/4;
-					padding-right: 0;
+					text-align: center;
+					// margin-left: -4px;
+					// padding-right: 0;
 				    cursor: pointer;
 				    
 					a {
 					    display: inline-block;
 					    vertical-align: top;
 					    line-height: 40px;
-					    // padding-right: 4px;
+					    padding-right: 4px;
 					    top: -10px;
 					    position: relative;
 					}
 
 					&:hover {
-						background-color: transparent;
+						// background-color: transparent;
 					}
 				}
 

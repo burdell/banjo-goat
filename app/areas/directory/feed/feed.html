@@ -43,6 +43,11 @@
 		        			<span class="ubnt-icon ubnt-icon--pointer-down"></span>
 						</div>
 
+
+						<div class="timeline__title" ng-class="{open: timeline.showYear(yearData.year)}" community-class-toggle="cmuFeed__close--closed"><div class="timeline__title--text"> <h5><span class="cmuIcon__label stories"></span>Latest Stories</h5></div>
+						</div>
+						
+
 						<div class="cmuFeed__storyList clearfix">
 							<div ng-repeat="story in vm.storyData" class="col--md3">
 								<story-display
