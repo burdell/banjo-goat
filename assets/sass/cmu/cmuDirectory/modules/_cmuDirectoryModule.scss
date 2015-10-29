@@ -100,7 +100,10 @@
 			.cmuDirectory__content__tablecell {
 				display: table-cell;
 	    		vertical-align: middle;
-	    		width: 80%;
+	    		width: 70%;
+				@include respondTo(xsmall-down) {
+					width: 100%;
+				}
 			}
 
 		.cmuDirectory__content__title {
@@ -132,9 +135,14 @@
 		float: right;
 		cursor: default;
 
+		@include respondTo(xsmall-down) {
+			display: none;
+		}
+
 		div {
 			display: inline-block;
 			padding-right: $cmu-base;
+			margin: 3px 0;
 		}
 	}
 		.cmuDirectory__users {
@@ -149,6 +157,10 @@
 			text-transform: uppercase;
     		vertical-align: middle;
 			margin-right: $cmu-base/4;
+
+			@include respondTo(small-down) {
+				font-size: $size-larger;
+			}
 		}
 
 		.cmuDirectory__label {
@@ -158,8 +170,14 @@
 			color: $cmu-color-gray;
 			text-transform: uppercase;
     		vertical-align: middle;
-			width: $cmu-base;
+			// width: $cmu-base;
+
 			margin-right: $cmu-base;
+
+			@include respondTo(small-down) {
+			    width: $cmu-base*2;
+			    line-height: $size-xxsmaller__lineHeight;
+			}
 		}
 
 

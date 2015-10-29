@@ -43,6 +43,10 @@
 			color: $cmu-color-link--dark;
 			&:hover { color: $cmu-color-link--dark_hover; }
 		}
+
+		&:last-child:after {
+			display: none;
+		}
 	}
 
 	// current crumb isn't clickable, so is grayed out

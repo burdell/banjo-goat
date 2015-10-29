@@ -452,7 +452,7 @@ button, .button {
 	&:hover {
 		@extend %ease-fast;
 		color: $cmu-color-dkgray;
-		background-color: $cmu-color-xmdgray;
+		background-color: $cmu-color-ltmdgray;
 	}
 
 	&:first-child {

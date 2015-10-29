@@ -24,9 +24,9 @@
 .cmuFeed {
 
 	.cmuDiscussionsHeader h3 {
-		@extend %h2;
-		margin-top: $cmu-vertical-rhythm*2;
-		margin-bottom: $cmu-vertical-rhythm;
+		// @extend %h2;
+		// margin-top: $cmu-vertical-rhythm*2;
+		// margin-bottom: $cmu-vertical-rhythm;
 	}
 
 }
@@ -255,10 +255,11 @@
 		@extend %style-ctaLink;
 	}
 
-	.cmuFeed__actions {
+	.cmuFeed__sidebar__item {
 		margin-bottom: $cmu-vertical-rhythm;
-
-
+	}
+	
+	.cmuFeed__actions {
 		a {
 			display: block;
 			padding: $cmu-base/4 0;
@@ -285,9 +286,7 @@
 
 		.cmuFeed__anno {
 			@extend %cmuRailLink;
-
-				margin-top: $cmu-base/2 !important;
-			
+			margin-top: $cmu-base/2 !important;
 		}
 
 

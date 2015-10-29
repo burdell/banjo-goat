@@ -13,6 +13,14 @@ $style-line: 1px solid $cmu-color-line;
 
 
 // 
+// Standardized border radius
+// 
+%border-radius {
+	border-radius: 4px;
+}
+
+
+// 
 // Text Styles
 // 
 
@@ -120,6 +128,18 @@ $style-line: 1px solid $cmu-color-line;
 	border: $style-line;
 	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
 	background-color: $cmu-color-ltgray;
+
+	// redesign (#95)
+	background-color: $cmu-color-purewhite;
+	color: $cmu-color-blue;
+	@extend %border-radius;
+	@extend %ease-fast;
+
+	&:hover{
+		@extend %ease-fast;
+		background-color: $cmu-color-ltgray;
+		color: $cmu-color-dkblue;
+	}
 }
 	.style-tag--noLine, %style-tag--noLine {
 		@extend %style-tag;
