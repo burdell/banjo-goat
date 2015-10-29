@@ -128,9 +128,11 @@ function feedContent($compile, $templateCache) {
 		};
 
 		_.extend(ctrl, {
-			contentDisplay: contentDisplay
+			contentDisplay: contentDisplay,
+			isUnread: function(){
+				return !ctrl.contentModel.context.lastReadDate;
+			}
 		});
-
 	};
 	controller.$inject = ['CommunityDataService', 'CommunityRoutingService'];
 

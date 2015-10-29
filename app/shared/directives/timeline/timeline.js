@@ -43,7 +43,10 @@ function communityTimeline() {
 					return this.hrefFn(data);
 				},
 				go: function(data) {
-					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.node.urlCode });
+					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.topic.node.urlCode });
+				},
+				isUnread: function(data){
+					return !data.context.lastReadDate;
 				}
 			});
 		};

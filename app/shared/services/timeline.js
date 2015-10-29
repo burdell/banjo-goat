@@ -38,7 +38,7 @@ function groupData(dataList, datePropertyFn){
 		});
 		groupedData.push(yearObj);
 	});
-
+	
 	return _.sortBy(groupedData, function(data){
 		return -(data.year);
 	});

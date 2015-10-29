@@ -96,8 +96,7 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		},
 		setFeedType: function(feedType) {
 			ctrl.feedType = feedType;
-
-
+			
 			var feedDataObject = feedData[feedType];
 			ctrl.feedTypeDisplay = feedDataObject.display;
 			
@@ -115,7 +114,7 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		discussionSortOptions: dataService.DiscussionTypeSort,
 		recentAnnouncements: announcementData.content,
 		generateAnnouncementUrl: function(announcementData){
-			return routingService.generateUrl('announcements.detail', { nodeId: announcementData.node.urlCode, announcementId: announcementData.id });
+			return routingService.generateUrl('announcements.detail', { nodeId: announcementData.topic.node.urlCode, announcementId: announcementData.id });
 		},
 		generateStoryUrl: function(storyData){
 			if (!storyData) return "";
@@ -123,7 +122,6 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 			return routingService.generateUrl('stories.detail', { nodeId: storyData.node.urlCode, storyId: storyData.id });
 		}
 	});
-
 	ctrl.setFeedType(currentFeedType.param);
 };
 feedController.$inject = [

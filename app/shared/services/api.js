@@ -110,10 +110,10 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		var service = {
 			Announcements: {
 				all: function(options){
-					return goToApi(v2Url + 'announcements/', options);
+					return goToApi(v2Url + 'announcements/threads', options);
 				},
 				announcements: function(nodeId, options) {
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 				},
 				detail: function(announcementId){
 					return goToApi(v2Url + 'announcements/' + announcementId);
@@ -184,7 +184,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			Features: {
 				features: function(nodeId, options){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
+					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 				},
 				thread: function(messageId, data){
 					return $q.all([ this.message(messageId), this.comments(messageId, data) ])

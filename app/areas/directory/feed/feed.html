@@ -88,7 +88,7 @@
 				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
-						<span class="product"></span>{{ announcement.subject }}
+						<span class="product"></span>{{ announcement.topic.subject }}
 					</a>
 					<div class="cmuFeed__sidebar__ctrl">
 						<a class="cmuFeed__sidebar__link" area-link-handler="{{ ::vm.announcementsLanding.href }}">All Announcements</a>
