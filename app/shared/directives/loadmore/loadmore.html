@@ -3,8 +3,16 @@
 		<div ng-show="!loadmore.isLoading && loadmore.listMetadata.hasMore && !loadmore.infiniteScroll">
 			<a class="button button--stretch button--center button--large button--solid" ng-click="loadmore.load()">Show More</a>
 		</div>
+
+
 		<div ng-show="loadmore.isLoading">
-			<h6 class="alignCenter">Loading...</h6>
+
+			<div class="cmuLoader__container cmuLoader__container--bar">
+				<div class="cmuLoader cmuLoader">
+					<span></span>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </div>
