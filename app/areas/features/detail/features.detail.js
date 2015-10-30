@@ -15,7 +15,7 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 	
 	function setCommentData (result){
 		ctrl.commentList = result.content;
-		ctrl.commentList.pop()
+		ctrl.commentList.shift()
 
 		ctrl.numberOfPages = result.totalPages;
 	}
