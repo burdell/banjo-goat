@@ -1,7 +1,6 @@
 
 'use strict';
 
-require('services/api.js');
 require('directives/texteditor/texteditor.js');
 
 var _ = require('underscore');
@@ -50,7 +49,7 @@ function commentForm() {
 			replyingText: ctrl.replyingButtonText || 'Submitting Comment'
 		});
 	};
-	controller.$inject = ['CommunityApiService'];
+	controller.$inject = [require('services/api.js')];
 
     var directive = {
         controller: controller,

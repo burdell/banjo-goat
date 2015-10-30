@@ -184,6 +184,8 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 	
 	communityFilter.$inject = ['$location', 'CommunityApiService', 'CommunityRealtimeService', 'CommunityUtilsService'];
 
+var serviceName = 'CommunityFilterService';
 angular.module('community.services')
-	.service('CommunityFilterService', communityFilter);
+	.service(serviceName, communityFilter);
+module.exports = serviceName;
 	

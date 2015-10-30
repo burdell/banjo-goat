@@ -44,5 +44,7 @@
 	}
 };
 
+var providerName = 'communityRoutes';
 angular.module('community.providers')
-	.provider('communityRoutes', routesProvider);
+	.provider(providerName, routesProvider);
+module.exports = providerName;
