@@ -210,7 +210,7 @@
 		</span>
 	</div>
 
-	<div class="row" ng-show="vm.showCommentForm">
+	<div class="row" ng-if="vm.showCommentForm">
 		<community-comment-form 
 			minimal-editor="true"
 			toggle-attribute="vm.showCommentForm"

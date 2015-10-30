@@ -4,7 +4,7 @@
 	<div class="hub-container">
 		<div class="row">
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
-				<div class="cmuFeed__container">
+				<div class="cmuFeed__container" ng-if="vm.storyList.length > 0">
 		        	<div class="cmuFeed__title clearfix noPaddingLeft">
 		        		<div class="col--md10">
 							<h5><span class="cmuIcon__label stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
@@ -40,9 +40,9 @@
 					</div>
 
 					<community-load-more
-					list-model="vm.discussionsFeed"
-					load-text="Read More"
-					load-filter="vm.discussionsFeedFilter">
+						list-model="vm.discussionsFeed"
+						load-text="Read More"
+						load-filter="vm.discussionsFeedFilter">
 					</community-load-more>
 
 				</div>

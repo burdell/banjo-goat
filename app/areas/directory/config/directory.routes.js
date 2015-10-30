@@ -58,8 +58,13 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					AnnouncementsData: ['CommunityApiService', function(communityApi){
 						return communityApi.Announcements.all({ per_page: 5, sort: 'postDate' });
 					}],
-					StoryData: ['CommunityApiService', function(communityApi){
-						return communityApi.Stories.all({ per_page: 4, sortField: 'postDate' });
+					StoryFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService) {
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Stories.search,
+							constants: { per_page: 4 },
+							autoInitModel: false,
+							persistFilterModel: false
+						});
 					}]
 				}
 			})
@@ -96,7 +101,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 3, author_id: $stateParams.userId },
+								constants: { size: 3, author_id: $stateParams.userId, topics: false },
 								persistFilterModel: false
 							});
 					}],

@@ -1,11 +1,6 @@
 
 'use strict';
 
-require('shared/services/api.js');
-require('shared/services/data.js');
-require('shared/services/nodestructure.js');
-require('shared/services/routing.js');
-
 require('shared/directives/feedcontent/feedcontent.js');
 require('shared/directives/sorter/sorter.js');
 require('shared/directives/pager/pager.js');
@@ -16,7 +11,7 @@ require('directives/pulse/pulse.js');
 
 
 var _ = require('underscore');
-var feedController = function($scope, announcementData, storyData, apiService, dataService, nodeServiceWrapper, routingService, feedFilter){
+var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, routingService, feedFilter){
 	var ctrl = this;
 	var feedData = {
 		community: {
@@ -63,6 +58,12 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		}
 	});
 
+	storyFilter.set({
+		onFilter: function(result) {
+			ctrl.storyData = result.content;
+		}
+	})
+
 	$scope.$on('$destroy', function(){
 		feedFilter.stopRealtime();
 	});
@@ -74,8 +75,56 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 		var bleh = _.map(discussionTypes, function(discussionType) {
 			return { value: discussionType.urlCode, label: discussionType.description }
 		});
-
 		ctrl.categorySortOptions = categorySort.concat(bleh);
+
+		ctrl.setDiscussionStyleList = function(nodeUrlCode){
+			var node = null;
+			var feedFilterModel = feedFilter.model();
+			if (nodeUrlCode) {
+				node = nodeService.getNode(feedFilterModel.nodeUrlCode);
+			}
+
+			var showDiscussionTypes = []
+
+			if (!node) {
+				//ALL DISCUSSION TYPES SHOWN \o/
+				ctrl.discussionSortOptions = dataService.DiscussionTypeSort;
+			} else {
+
+				//discussion types for individual node
+				var nodeDiscussionStyles = _.pluck(node.children, 'discussionStyle');
+				var discussionTypes = [];
+
+				_.each(dataService.DiscussionTypeSort, function(sortOption){
+					if (!sortOption.value || _.indexOf(nodeDiscussionStyles, sortOption.value) >= 0) {
+						discussionTypes.push(sortOption);
+					}
+				});
+				ctrl.discussionSortOptions = discussionTypes;
+			}
+			
+			ctrl.checkStoryData();
+		}
+
+		ctrl.checkStoryData = function(node){
+			var feedFilterModel = feedFilter.model();
+			var discussionStyle = feedFilterModel.style;
+			var nodeUrlCode = feedFilterModel.nodeUrlCode;
+
+			if (nodeUrlCode && !node) {
+				node = nodeService.getNode(nodeUrlCode);
+			}
+
+			var currentDiscussionStyles = _.pluck(ctrl.discussionSortOptions, 'value');
+			var hasStories =  !node || discussionStyle === 'stories' || (!discussionStyle &&  _.indexOf(currentDiscussionStyles, 'stories') >= 0);
+			if (hasStories) {
+				ctrl.showStoryData = true;
+				var nodeUrlCode = node ? routingService.generateDiscussionUrl(feedFilterModel.nodeUrlCode, 'stories') : null;
+				storyFilter.filter({ nodeUrlCode: nodeUrlCode });
+			} else {
+				ctrl.showStoryData = false;
+			}
+		}
 	});
 
 	var landingPages = routingService.landingPages();
@@ -83,7 +132,6 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 	
 	var currentFeedType = feedData.community;
 	_.extend(ctrl, {
-		storyData: storyData.content,
 		feedFilter: feedFilter,
 		setFeedUpdates: function(){
 			updateFeed();
@@ -120,18 +168,19 @@ var feedController = function($scope, announcementData, storyData, apiService, d
 			if (!storyData) return "";
 
 			return routingService.generateUrl('stories.detail', { nodeId: storyData.node.urlCode, storyId: storyData.id });
-		}
+		},
+		showStoryData: true
 	});
 	ctrl.setFeedType(currentFeedType.param);
 };
 feedController.$inject = [
 	'$scope', 
 	'AnnouncementsData',
-	'StoryData',
-	'CommunityApiService',
-	'CommunityDataService', 
-	'CommunityNodeService', 
-	'CommunityRoutingService', 
+	'StoryFilter',
+	require('shared/services/api.js'),
+	require('shared/services/data.js'), 
+	require('shared/services/nodestructure.js'), 
+	require('shared/services/routing.js'), 
 	'FeedFilter'
 ];
 

@@ -4,9 +4,9 @@
 var dataService = function(){
 	return {
 		MessageSort: [
-			{ value: 'recent', label: 'Recent Activity', default: true  },
-			{ value: 'postdate', label: 'Post Date'  },
-			{ value: 'popular', label: 'Views'  }
+			{ value: 'postDate', label: 'Post Date', default: true },
+		    { value: 'lastActivityDate', label: 'Recent Activity' },
+			{ value: 'countViews', label: 'Views' }
 		],
 		SearchConfig: {
 			delay: 300

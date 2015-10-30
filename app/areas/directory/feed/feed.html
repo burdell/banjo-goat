@@ -18,7 +18,8 @@
 			          		sort-filter="vm.feedFilter" 
 			          		sort-exclude="page" 
 			          		class="community__sort"
-			          		sort-param="nodeUrlCode">
+			          		sort-param="nodeUrlCode",
+			          		on-sort-fn="vm.setDiscussionStyleList">
 			          	</community-sort>
 			        </div>
 					<div class="col--md2">
@@ -27,13 +28,14 @@
 					  	sort-filter="vm.feedFilter" 
 					  	sort-exclude="page" 
 					  	class="community__sort"
-					  	sort-param="style">
+					  	sort-param="style"
+					  	on-sort-fn="vm.checkStoryData">
 					  </community-sort>
 			        </div>
 		        </div>
 
 				<div class="cmuFeed__container">
-			        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding" ng-show="vm.feedType === 'community'">
+			        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
 
 						<div class="cmuCollapser__header open" community-class-toggle="open">
 							<div class="cmuFeed__title"> 
@@ -81,7 +83,6 @@
 
 			<!-- sidebar -->
 			<div class="cmuFeed__sidebar col--md3">
-
 				<div class="cmuFeed__actions cmuFeed__sidebar__item">
 					<h5>Links</h5>
 					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
