@@ -5,11 +5,6 @@
 
 	<div class="cmuTextEditor__help" ng-if="texteditor.minimalEditor">
 		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink"><a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help</a></span>
-<!-- 
-		<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
-			<span class="ubnt-icon ubnt-icon--pointer-down"></span>
-		</div> -->
-
 		<div ng-show="texteditor.formattingHelpShown">
 			<div ng-include="'directives/texteditor/texteditor.formattinghelp.html'"></div>
 		</div>
