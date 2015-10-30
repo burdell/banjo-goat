@@ -1,7 +1,9 @@
 
 
 $cmu-forum-size-thread: $size-normal;
-$cmu-forum-size-numerical: $size-xsmaller;
+$cmu-forum-size-numerical: $size-smaller; // $size-xsmaller;
+$cmu-forum-size-author: $size-smaller; // $size-xsmaller;
+
 
 $cmu-forum-size-counterWidth: 5%;
 $cmu-forum-size-maxWidth: 100px;
@@ -51,11 +53,17 @@ $cmu-forum-size-maxWidth--author: 100px;
 }
 
 %cmuThreadList__column--authorLast {
-	width: 12%;
+	width: 4%;
 	padding-right: $cmu-base/2;
 	max-width: $cmu-forum-size-maxWidth--author;
-	font-size: $size-xsmaller;
+	font-size: $cmu-forum-size-author; //$size-xsmaller;
 	white-space: nowrap;
+
+	// user avatar sizing
+	& > .cmuUserbadge__avatar {
+	    width: $size-avatar--small;
+	    height: $size-avatar--small;
+	}
 
 	// author links disabled so entire row can link to message
 	a, a:hover {
@@ -80,9 +88,15 @@ $cmu-forum-size-maxWidth--author: 100px;
 		// padding-right: $cmu-base/2;
 	// }
 }
+
+
+// 
+// Date Columns
+// 
+
 %cmuThreadList__column--latestDate {
 	// padding-left: $cmu-base/2;
-	width: 85px;
+	width: 12%;
   	min-width: 80px;
 	text-align: left;
 }
@@ -169,6 +183,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 	border-bottom: $style-line;
 	padding-top: $cmu-vertical-rhythm/2;
 	padding-bottom: $cmu-vertical-rhythm/2;
+    line-height: $cmu-base*2.5;
 
 	@extend %style-listItem;
 	display: table-row;
@@ -196,12 +211,12 @@ $cmu-forum-size-maxWidth--author: 100px;
 		padding: $cmu-base/4 $cmu-base/2;
 		position: relative; //important for icon placement
 
-		a {
-			color: $cmu-color-black;
-			&:hover {
-				color: $cmu-color-active; 
-			}
-		}
+		// a {
+		// 	color: $cmu-color-black;
+		// 	&:hover {
+		// 		color: $cmu-color-active; 
+		// 	}
+		// }
 	}
 
 	.cmuThreadList__row__author {
@@ -229,7 +244,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 		@extend %cmuThreadList__column--latestDate;
 		padding-right: $cmu-base/2;
 		line-height: 1rem;
-		color: $cmu-color-dkgray;
+		// color: $cmu-color-dkgray;
 		font-size:  $cmu-forum-size-numerical;
 	}
 	.cmuThreadList__row__createdDate {
@@ -257,7 +272,7 @@ $cmu-forum-size-maxWidth--author: 100px;
 		@extend %ease-fast;
 		.icon:before {
 		@extend %ease-fast;
-			color: $cmu-color-blue;
+			color: $cmu-color-active;
 		}
 	}
 }

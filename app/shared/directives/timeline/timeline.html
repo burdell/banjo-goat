@@ -1,8 +1,8 @@
 
 <div class="cmuTimeline" >
 
-	<div class="timeline__year" ng-repeat="yearData in timeline.timelineData">
-		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
+	<div class="timeline__container " ng-repeat="yearData in timeline.timelineData">
+		<div class="timeline__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__title--text">{{ yearData.year }} <span class="timeline__title--count">{{ yearData.count }}</span></div>
 		</div>
 		
 		<!-- remove cmuTimeline__showheader to hide table headers (benefits lists w/ 10 or fewer) -->
@@ -15,7 +15,7 @@
 				<table>
 
 			        <thead>
-			          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }}</th>
+			          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }} {{ yearData.year }}</th>
 			          <th class="cmuThreadlist__thead--author">Author</th>
 			          <th class="cmuThreadlist__thead--createdDate">Created</th>
 			          <th class="cmuThreadlist__thead--counter
@@ -29,11 +29,36 @@
 					<tbody>
 			          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
 			          	<td class="cmuThreadList__row__topic">
+<!-- <<<<<<< HEAD
+			          		{{ data.subject }}
+			          		<span class="cmuTag">{{ data.node.description }}</span>
+			          	</td>
+			            <td class="cmuThreadList__row__author">
+			              <community-user-avatar user="data.message.insertUser"></community-user-avatar>
+=======
 			          		{{ data.topic.subject }}
 			          		<span ng-if="timeline.isUnread(data)">*</span>
 			          	</td>
 			            <td class="cmuThreadList__row__author">
 			              <community-username user="data.topic.message.insertUser"></community-username>
+>>>>>>> 1049d6cc22e3ac6a3686735ebbeff03e797326f2
+ -->
+
+
+
+			          		{{ data.topic.subject }}
+			          		<span ng-if="timeline.isUnread(data)">*</span>
+			          		<span class="cmuTag">{{ data.topic.node.description }}</span>
+			          	</td>
+			            <td class="cmuThreadList__row__author">
+			              <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
+<!-- =======
+			          		{{ data.topic.subject }}
+			          		<span ng-if="timeline.isUnread(data)">*</span>
+			          	</td>
+			            <td class="cmuThreadList__row__author">
+			              <community-username user="data.topic.message.insertUser"></community-username>
+>>>>>>> 1049d6cc22e3ac6a3686735ebbeff03e797326f2 -->
 			            </td>
 			            <td class="cmuThreadList__row__createdDate">{{ data.topic.message.postDate | timeFromNow }}
 			            </td>

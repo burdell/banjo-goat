@@ -16,11 +16,11 @@
 // 
 
 // BLUES
+$cmu-color-vdkblue: 	#025d8a;	// masha addition
 $cmu-color-dkblue: 		#0074AD;	// official
 $cmu-color-blue: 		#00A0DF; 	// ubiquiti blue
 $cmu-color-ltblue: 		#13BCFF;	// official
-$cmu-color-vltblue: 	lighten(#13BCFF,30);
-
+$cmu-color-vltblue: 	#ace7ff;	// unofficial; used for blue highlights
 
 // OTHER
 $cmu-color-yellow:		#d5c819;
@@ -32,12 +32,11 @@ $cmu-color-red: 		#FF3516;
 $cmu-color-orange: 		#ffaa00;
 $cmu-color-dkorange:	#F09300;
 
-
 // GRAYS			// used on global nav bg
 $cmu-color-black: 		#000;
-$cmu-color-ltblack: 	#17191D;
-$cmu-color-xdkgray: 	#242931;
 $cmu-color-dkgray: 		#474B52;
+$cmu-color-ltblack: 	$cmu-color-dkgray; // #17191D;
+$cmu-color-xdkgray: 	$cmu-color-dkgray; // #242931;
 $cmu-color-gray: 		#969BA3;
 $cmu-color-mdgray: 		#BBBBBD;
 $cmu-color-ltmdgray: 	#DADADA; 				// need slightly lighter version of mdgray; this one isn't in spec
@@ -60,7 +59,7 @@ $cmu-color-purewhite: 	#FFF;
 
 	// Basic
 	// $cmu-color-body: $cmu-color-ltblack;
-	$cmu-color-body: $cmu-color-ltblack;
+	$cmu-color-body: $cmu-color-dkgray; // $cmu-color-ltblack;
 	// Lighter Basic color
 	$cmu-color-body--light: $cmu-color-gray;
 
@@ -108,7 +107,7 @@ $cmu-color-bg: $cmu-color-ltgray;
 // DOODADS
 // 
 
-$cmu-color-line: $cmu-color-mdgray;
+$cmu-color-line: $cmu-color-ltmdgray; // make lighter $cmu-color-mdgray;
 	$cmu-color-line--light: $cmu-color-ltgray;
 	$cmu-color-line--dark: $cmu-color-dkgray;
 

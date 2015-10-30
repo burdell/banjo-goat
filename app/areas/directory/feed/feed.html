@@ -1,6 +1,6 @@
 
 <div class="cmuFeed cmuFeed--home">
-	<community-page-header header-text="Community News" hide-element-selector=".feed-container"></community-page-header>
+	<community-page-header header-text="Community Feed" hide-element-selector=".feed-container"></community-page-header>
 
 	<!-- pulse row -->
 	<div class="feed-container">
@@ -44,6 +44,11 @@
 						<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
 		        			<span class="ubnt-icon ubnt-icon--pointer-down"></span>
 						</div>
+
+
+						<div class="timeline__title" ng-class="{open: timeline.showYear(yearData.year)}" community-class-toggle="cmuFeed__close--closed"><div class="timeline__title--text"> <h5><span class="cmuIcon__label stories"></span>Latest Stories</h5></div>
+						</div>
+						
 
 						<div class="cmuFeed__storyList clearfix">
 							<div ng-repeat="story in vm.storyData" class="col--md3">

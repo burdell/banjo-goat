@@ -7,6 +7,7 @@ require('directives/pager/pager.js');
 require('directives/sorter/sorter.js');
 require('directives/pagescroll/pagescroll.js');
 require('directives/username/username.js');
+require('directives/useravatar/useravatar.js');
 require('directives/searchbox/searchbox.js');
 require('directives/tooltip/tooltip.js');
 

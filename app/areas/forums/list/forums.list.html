@@ -205,7 +205,9 @@
             </td>
             <td class="cmuThreadList__row__author">
               <!-- <a ui-sref="user">{{ ::message.author.login }}</a> -->
-              <community-username user="message.topic.message.insertUser"></community-username>
+              <!-- <span class="cmuFakeAvatar"></span> -->
+              <!-- <community-username user="message.topic.message.insertUser"></community-username> -->
+              <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
             </td>
             <td class="cmuThreadList__row__createdDate">{{ ::message.topic.message.postDate | timeFromNow }}
             </td>
@@ -219,7 +221,10 @@
               {{  message.topic.message.scores.kudo | number}}
             </td>
             <td class="cmuThreadList__row__authorLast">
-              <community-username user="message.context.lastestMessage.insertUser"></community-username>
+
+              <!-- <span class="cmuFakeAvatar"></span> -->
+              <!-- <community-username user="message.context.lastestMessage.insertUser"></community-username> -->
+              <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
             </td>
             <td class="cmuThreadList__row__latestDate">{{ message.topic.lastActivityDate | timeFromNow }}
             </td>
