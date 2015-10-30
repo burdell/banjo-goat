@@ -28,6 +28,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			templateUrl: 'directory/hub/hub.html',
 			controller: 'Hub as vm',
 			resolve: {
+					AnnouncementsData: ['$stateParams', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, communityApi, routingService){
+						return communityApi.Announcements.announcements(routingService.generateDiscussionUrl($stateParams.nodeId, 'announcements'), { per_page: 5 });
+					}],
 					StoryData: ['$stateParams', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, communityApi, routingService){
 						return communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 4 });
 					}],
