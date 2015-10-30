@@ -27,7 +27,7 @@ function initializeApp(areaName) {
         moduleBuilder('community.' + areaName)
     ]).run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper){
         $rootScope.$on('$stateChangeStart', function(event, newState, stateParams){
-         //   $window.scrollTo(0,0);
+            $window.scrollTo(0,0);
 
             nodeServiceWrapper.get().then(function(nodeService){
                 var nodeId = stateParams.nodeId || -1;
@@ -36,7 +36,7 @@ function initializeApp(areaName) {
             });
         });
 
-       // $anchorScroll.yOffset = 45;
+        $anchorScroll.yOffset = 45;
 
     }]);
 
