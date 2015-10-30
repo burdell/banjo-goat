@@ -1,11 +1,17 @@
+
 <div class="cmuFeed cmuFeed--hub">
 	<community-page-header hide-element-selector=".hub-container"></community-page-header>
 
 	<div class="hub-container">
+
 		<div class="row">
+
+			<!-- main -->
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
+
+				<!-- story feed -->
 				<div class="cmuFeed__container" ng-if="vm.storyList.length > 0">
-		        	<div class="cmuFeed__title clearfix noPaddingLeft">
+		        	<div class="cmuFeed__title clearfix">
 		        		<div class="col--md10">
 							<h5><span class="cmuIcon__label stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
 						</div>
@@ -26,8 +32,9 @@
 					</div>
 				</div>
 
+				<!-- activity feed -->
 				<div class="cmuFeed__container">
-					<div class="cmuFeed__title clearfix noPaddingLeft">
+					<div class="cmuFeed__title clearfix">
 		        		<div class="col--md12">
 							<h5><span class="cmuIcon__label all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
 						</div>

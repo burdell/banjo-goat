@@ -73,11 +73,11 @@
 	// 
 
 	.cmuFeed__stories {
-		border: $style-line;
+		// border: $style-line;
 		// border-bottom: 0;
 
 		margin-bottom: $cmu-vertical-rhythm;
-		background-color: $cmu-color-post;
+		background-color: $cmu-color-post--light;
 		// padding-top: $cmu-base/2;
 		// padding-bottom: $cmu-base/2;
 
@@ -104,6 +104,7 @@
 		.cmuFeed__story {
 			@extend %style-listItem;
 			&:hover {
+				background: transparent;
 				.cmuFeed__story__img {
 					@extend %ease-fast;
 				    -moz-transform: scale(1.2);
@@ -173,7 +174,7 @@
 
 	.cmuFeed__list {
 		padding: 0;
-		background-color: $cmu-color-post;
+		// background-color: $cmu-color-post;
 		border: $style-line;
 		border-bottom: 0;
 	}

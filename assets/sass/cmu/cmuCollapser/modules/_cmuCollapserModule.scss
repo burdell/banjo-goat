@@ -28,6 +28,10 @@
     // $padding: $cmu-base/4;
     @extend %ease-slow;
 
+	& > div {
+		margin-left: $cmu-base*2; // give some room for the containing div
+	}
+	
 	// Open / Closed indicator
 	// default is closed
 	&:before {
@@ -74,6 +78,7 @@
 			background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 		}
+
 	}
 }
 	div.cmuCollapser__content {

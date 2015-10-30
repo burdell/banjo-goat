@@ -8276,6 +8276,9 @@ div.cmuOverlay--show {
   cursor: pointer;
   background-color: white;
 }
+.cmuCollapser__header > div {
+  margin-left: 2rem;
+}
 .cmuCollapser__header:before {
   -moz-transition: max-height 360ms, opacity 360ms;
   -o-transition: max-height 360ms, opacity 360ms;
@@ -8637,9 +8640,8 @@ div.cmuCollapser__content {
 }
 
 .cmuFeed__stories {
-  border: 1px solid #dadada;
   margin-bottom: 1rem;
-  background-color: #f3f3f3;
+  background-color: white;
 }
 .cmuFeed__stories .cmuFeed__title {
   border: 0;
@@ -8655,6 +8657,9 @@ div.cmuCollapser__content {
   padding-right: 0;
 }
 
+.cmuFeed__story:hover {
+  background: transparent;
+}
 .cmuFeed__story:hover .cmuFeed__story__img {
   -moz-transform: scale(1.2);
   -webkit-transform: scale(1.2);
@@ -8700,7 +8705,6 @@ div.cmuCollapser__content {
 
 .cmuFeed__list {
   padding: 0;
-  background-color: #f3f3f3;
   border: 1px solid #dadada;
   border-bottom: 0;
 }
