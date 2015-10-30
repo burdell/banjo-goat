@@ -192,6 +192,7 @@
           <tr class="cmuThreadList__row" ng-repeat="message in vm.messageList" ng-click="vm.go(message)">
             <td class="cmuThreadList__row__topic">
               {{ ::message.topic.subject | htmlUnescape }}
+              <span ng-if="vm.isUnread(message)">*</span>
               <div 
                 class="cmuTooltip cmuThreadList__tooltip"
                 community-tooltip
