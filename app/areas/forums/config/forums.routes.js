@@ -32,7 +32,11 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterFn: communityApi.Forums.messages, 
 						filterArguments: [ $stateParams.nodeId ], 
 						constants: {
-							per_page: 30
+							per_page: 30,
+							sortDir: 'DESC'
+						},
+						filterModel: {
+							sortField: 'lastActivityDate'
 						} 
 					});
 				}]

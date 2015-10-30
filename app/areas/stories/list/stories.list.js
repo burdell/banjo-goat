@@ -16,6 +16,16 @@ function StoriesListController ($scope, storyFilter, breadcrumbService, dataServ
 	var ctrl = this;
 	var intitialList = storyFilter.initialData();
 
+	storyFilter.set({
+		onFilter: function(result){
+			var page = storyFilter.model('page');
+			if (!page) {
+				ctrl.storyList.content = [];
+			}
+			ctrl.groupStoryData(result.content);
+		}
+	})
+
 	var isStoriesLanding = $state.current.name === 'storiesLanding';
 
 	_.extend(ctrl, {

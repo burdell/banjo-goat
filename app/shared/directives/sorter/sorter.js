@@ -1,6 +1,8 @@
 
 'use strict';
 
+var _ = require('underscore');
+
 function communitySort() {
 	var link = function(scope, element, attrs) {
 	};
@@ -8,12 +10,22 @@ function communitySort() {
 	var controller = function() {
 		var ctrl = this;
 
-		var sortParam = ctrl.sortParam || 'sort';
+		var sortParam = ctrl.sortParam || 'sortField';
+
+		var modelValues = null;
+		if (ctrl.modelValue) {
+			modelValues = _.indexBy(ctrl.sortOptions, 'value');
+		}
 
 		ctrl.sortValue = ctrl.sortFilter.model(sortParam);
 		ctrl.sort = function(){
-			var sortModel = {};
-			sortModel[sortParam] = ctrl.sortValue;
+			var sortModel;
+			if (modelValues) {
+				sortModel = modelValues[ctrl.sortValue].model 
+			} else {
+				sortModel = {};
+				sortModel[sortParam] = ctrl.sortValue;	
+			}
 			ctrl.sortFilter.filter(sortModel, ctrl.sortExclude);
 
 			if (ctrl.onSortFn) {
@@ -35,7 +47,8 @@ function communitySort() {
         	'sortOptions': '=',
         	'sortFilter': '=',
         	'sortExclude': '@',
-        	'sortParam': '@'
+        	'sortParam': '@',
+        	'modelValue': '='
         }
     };
 

@@ -21,6 +21,16 @@ function communityloadMore($window) {
 		var ctrl = this;
 		
 		var pageNumber = 1;
+
+		var modelFn = this.loadFilter.model;
+		this.loadFilter.set({ 
+			onFilter: function(result) {
+				if (result) {
+					pageNumber = modelFn('page') || 1;
+					ctrl.listMetadata.hasMore = !(pageNumber === result.totalPages);
+				}
+			}
+		});
 		
 		_.extend(ctrl, {
 			load: function(){
@@ -29,16 +39,15 @@ function communityloadMore($window) {
 				this.loadFilter.filter({
 					page: pageNumber + 1
 				}).then(function(result) {
-					pageNumber += 1;
-					
-					if (ctrl.onLoadFn) {
-						ctrl.onLoadFn(result.content);
-					} else {
-						ctrl.listModel = ctrl.listModel.concat(result.content);
+					if (!ctrl.noLoadFn) {
+						if (ctrl.onLoadFn) {
+							ctrl.onLoadFn(result.content);
+						} else {
+							ctrl.listModel = ctrl.listModel.concat(result.content);
+						}
 					}
 					
 					ctrl.isLoading = false;
-					ctrl.listMetadata.hasMore = !(pageNumber === result.totalPages);
 				});
 			},
 			listMetadata: {
@@ -61,7 +70,8 @@ function communityloadMore($window) {
         	loadText: '@',
         	loadFilter: '=',
         	infiniteScroll: '=',
-        	onLoadFn: '='
+        	onLoadFn: '=',
+        	noLoadFn: '='
         }
     };
 
