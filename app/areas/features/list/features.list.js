@@ -67,33 +67,11 @@
 				return statusTypes[feature.topic.state].display;
 			},
 			filterTypes: [
-				{
-					param: 'request',
-					defaultOption: { display: 'All Request Types', value: null, selected: true }, 
-					filterList: [
-						{ display: 'Alpha', value: 'alpha', selected: false },
-						{ display: 'Beta', value: 'beta', selected: false },
-						{ display: 'General', value: 'general', selected: false }
-					],
-				},
 				{ 
 					param: 'status', 
 					filterList: makeFilterList(featuresData.StatusTypes),
 					defaultOption: { display: 'All Status Types', value: null, selected: true }, 
 
-				},
-				{ 
-					param: 'severity', 
-					filterList: makeFilterList(featuresData.SeverityLevels), 
-					defaultOption: { display: 'All Severity Levels', value: null, selected: true }, 
-				},
-				{
-					param: 'attachment',
-					filterList: [
-						{ display: 'Photo', value: 'photo' },
-						{ display: 'Video', value: 'video' }
-					],
-					defaultOption: { display: 'All Attachments', value: null, selected: true } 
 				}
 			],
 			showNewPost: false,
