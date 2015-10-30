@@ -1,16 +1,21 @@
 
 <div class="cmuTimeline" >
 
-	<div class="timeline__container " ng-repeat="yearData in timeline.timelineData">
-		<div class="timeline__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__title--text">{{ yearData.year }} <span class="timeline__title--count">{{ yearData.count }}</span></div>
+	<div class="timeline__container cmuCollapser__container" ng-repeat="yearData in timeline.timelineData">
+		<div class="timeline__title cmuCollapser__header" ng-class='{open:$first || openAll()}' 
+		community-class-toggle="open">
+			<div class="timeline__title__text cmuCollapser__header__text">{{ yearData.year }} 
+				<span class="timeline__title__count">{{ yearData.count }}</span>
+			</div>
 		</div>
 		
 		<!-- remove cmuTimeline__showheader to hide table headers (benefits lists w/ 10 or fewer) -->
 		<div class="cmuTimeline__list 
 					cmuThreadlist__list
 					cmuTimeline__showheader
-					" 
-					ng-show="timeline.showYear(yearData.year)">
+					cmuCollapser__content
+					"
+					>
 			<div class="cmuTimeline__month" ng-repeat="monthData in yearData.yearData">
 				<table>
 
@@ -29,36 +34,12 @@
 					<tbody>
 			          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
 			          	<td class="cmuThreadList__row__topic">
-<!-- <<<<<<< HEAD
-			          		{{ data.subject }}
-			          		<span class="cmuTag">{{ data.node.description }}</span>
-			          	</td>
-			            <td class="cmuThreadList__row__author">
-			              <community-user-avatar user="data.message.insertUser"></community-user-avatar>
-=======
-			          		{{ data.topic.subject }}
-			          		<span ng-if="timeline.isUnread(data)">*</span>
-			          	</td>
-			            <td class="cmuThreadList__row__author">
-			              <community-username user="data.topic.message.insertUser"></community-username>
->>>>>>> 1049d6cc22e3ac6a3686735ebbeff03e797326f2
- -->
-
-
-
 			          		{{ data.topic.subject }}
 			          		<span ng-if="timeline.isUnread(data)">*</span>
 			          		<span class="cmuTag">{{ data.topic.node.description }}</span>
 			          	</td>
 			            <td class="cmuThreadList__row__author">
 			              <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
-<!-- =======
-			          		{{ data.topic.subject }}
-			          		<span ng-if="timeline.isUnread(data)">*</span>
-			          	</td>
-			            <td class="cmuThreadList__row__author">
-			              <community-username user="data.topic.message.insertUser"></community-username>
->>>>>>> 1049d6cc22e3ac6a3686735ebbeff03e797326f2 -->
 			            </td>
 			            <td class="cmuThreadList__row__createdDate">{{ data.topic.message.postDate | timeFromNow }}
 			            </td>

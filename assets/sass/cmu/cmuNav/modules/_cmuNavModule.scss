@@ -600,11 +600,13 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	padding: $cmu-base 0;
 
 	position: absolute;
+	// position: relative;
 	width: 100%;
 	bottom: 0;
 	
-	@include respondTo(medium-up) {
+	@include respondTo(xsmall-down) {
 		// padding: $cmu-base $cmu-base*4;
+		// position: relative;
 	}
 
 	li {
