@@ -10659,6 +10659,11 @@ select.cmuSort {
   margin-bottom: 12rem;
 }
 
+.cmuLoader__container--bar {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .cmuLoader {
   position: relative;
   margin: 0 auto;
@@ -10667,6 +10672,8 @@ select.cmuSort {
   width: 80px;
   height: 80px;
   border-radius: 999px;
+  background-color: #fafafa;
+  z-index: 2;
 }
 
 .cmuLoader span {
