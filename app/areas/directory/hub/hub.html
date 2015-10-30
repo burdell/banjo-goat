@@ -61,10 +61,10 @@
 				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
-						<span class="product">airmax</span>{{ announcement.subject }}
+						<span class="product"></span>{{ announcement.topic.subject }}
 					</a>
 					<div class="cmuFeed__sidebar__ctrl">
-						<a class="cmuFeed__sidebar__link" href="#">All Announcements</a>
+						<a class="cmuFeed__sidebar__link" ng-href="{{ vm.productAnnouncementsUrl }}" target="_self">All Announcements</a>
 					</div>
 				</div>
 

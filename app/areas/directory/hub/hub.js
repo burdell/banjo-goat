@@ -9,7 +9,7 @@ require('directives/pulse/pulse.js');
 
 var _ = require('underscore');
 
-var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routingService, discussionsFeedFilter, storyData){
+var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routingService, discussionsFeedFilter, storyData, announcementsData){
 	var ctrl = this;
 
 	var nodeUrl = null;
@@ -26,8 +26,14 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		ctrl.forumList = _.where(currentNode.children, { discussionStyle: 'forums' });
 
 		var productStoriesNode = routingService.generateDiscussionUrl(nodeUrl, 'stories');
-		ctrl.productStoriesUrl = routingService.generateUrl('stories.list', { nodeId: productStoriesNode });		
+		ctrl.productStoriesUrl = routingService.generateUrl('stories.list', { nodeId: productStoriesNode });	
+
+		var productAnnouncementsNode = routingService.generateDiscussionUrl(nodeUrl, 'announcements');
+		ctrl.productAnnouncementsUrl = routingService.generateUrl('announcements.list', { nodeId: productAnnouncementsNode });	
+
 	});
+
+	debugger;
 
 	var forumOrder = ['Alpha', 'Beta', 'Public'];
 	_.extend(ctrl, {
@@ -40,7 +46,8 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		landingPages: routingService.landingPages(),
 		getForumUrl: function(forumUrlCode){
 			return routingService.generateUrl('forums.list', { nodeId: forumUrlCode });
-		}
+		},
+		recentAnnouncements: announcementsData.content
 	});
 };
 hubController.$inject = [
@@ -50,7 +57,8 @@ hubController.$inject = [
 	require('services/nodestructure.js'), 
 	require('services/routing.js'), 
 	'DiscussionsFeedFilter', 
-	'StoryData'
+	'StoryData',
+	'AnnouncementsData'
 ];
 
 angular.module('community.directory')
