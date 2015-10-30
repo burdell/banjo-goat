@@ -1,0 +1,95 @@
+
+// 
+// COLLAPSER
+// 
+
+
+// Collapse container module
+
+// Examples in Announcements Thread List and Feed
+// open and close dropdown container
+
+
+.cmuCollapser {
+
+}
+
+.cmuCollapser__container {
+	margin-bottom: $cmu-vertical-rhythm;
+    @extend %ease-slow;
+}
+
+.cmuCollapser__header {
+	@extend %user-select-none;
+	
+	position: relative;
+	cursor: pointer;
+    background-color: $cmu-color-purewhite;
+    // $padding: $cmu-base/4;
+    @extend %ease-slow;
+
+	// Open / Closed indicator
+	// default is closed
+	&:before {
+		@extend %font-ubnt;
+    	@include transition(max-height 360ms, opacity 360ms);
+		display: inline-block;
+		content: '\e6cd';
+		background-color: $cmu-color-ltmdgray;
+
+		// position: absolute;
+		// right: 0;
+
+		margin-right: $cmu-base/2;
+		float: left;
+		height: $cmu-base*2; // + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
+		width: $cmu-base*2; // + $padding*2; // 31px;
+		top: 0;
+		line-height: $cmu-base*2.1; // + $padding*2; //31px;;
+		text-align: center;
+
+	}
+
+    &.open + .cmuCollapser__content {
+    	max-height: 4000px; // height and auto both don't work with animation
+		opacity: 1;
+    	@include transition(max-height 360ms, opacity 360ms);
+    }
+
+	&.open {
+		background-color: $cmu-color-vltblue;
+
+		* {
+			color: $cmu-color-black;
+		}
+
+		&:hover {
+			background-color: $cmu-color-ltblue;
+		}
+
+		&:before {
+			@extend %font-ubnt;
+			display: inline-block;
+			content: '\e6d0';
+			background-color: $cmu-color-blue;
+			color: $cmu-color-white;
+		}
+	}
+}
+	div.cmuCollapser__content {
+		@extend %ease-slow;
+    	@include transition(max-height 360ms, opacity 360ms);
+
+		display: block;
+		// line-height:0;
+		max-height: 0; // height doesn't work with animation
+		opacity: 0;
+		// padding: 0;
+		// margin: 0;
+		overflow: hidden;
+	}
+
+	// not required; used for announcements
+	.cmuCollapser__header {
+	}
+

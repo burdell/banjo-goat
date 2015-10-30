@@ -13,6 +13,14 @@ $style-line: 1px solid $cmu-color-line;
 
 
 // 
+// Standardized border radius
+// 
+%border-radius {
+	border-radius: 4px;
+}
+
+
+// 
 // Text Styles
 // 
 
@@ -85,7 +93,7 @@ $style-line: 1px solid $cmu-color-line;
 	// background-color: $cmu-color-ltgray;
 
 	&:hover {
-		// background: $cmu-color-threadlist-hover;
+		background: $cmu-color-threadlist-hover;
 		cursor: pointer;
 		.cmuThreadList__row__topic {
 			color: $cmu-color-link--dark_hover;
@@ -113,13 +121,30 @@ $style-line: 1px solid $cmu-color-line;
 	margin-bottom: $cmu-base/4;
 }
 
-.style-tag, %style-tag {
+
+// 
+// Product Description Tags (e.g. 'airMax' on each feed item)
+// 
+
+.style-tag, %style-tag, .cmuTag {
 	display: inline-block;
 	@extend %size-xxsmaller;
 	color: $cmu-color-dkgray;
 	border: $style-line;
 	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
 	background-color: $cmu-color-ltgray;
+
+	// redesign (#95)
+	background-color: $cmu-color-purewhite;
+	color: $cmu-color-blue;
+	@extend %border-radius;
+	@extend %ease-fast;
+
+	&:hover{
+		@extend %ease-fast;
+		background-color: $cmu-color-ltgray;
+		color: $cmu-color-dkblue;
+	}
 }
 	.style-tag--noLine, %style-tag--noLine {
 		@extend %style-tag;
@@ -240,5 +265,27 @@ $style-line: 1px solid $cmu-color-line;
 		    position: relative;
 		    top: 8px;
 		}
+	}
+}
+
+
+
+
+
+
+// placeholder avatar, use with <span>
+
+.cmuFakeAvatar {
+	&:before {
+		content: ' ';
+		display: block;
+		background: #969ba3;
+		border-radius: 50%;
+		margin-top: 5px;
+		margin-right: 0;
+		margin-left: 4px;
+		@extend %ease-fast;
+		height: $size-avatar--small;
+		width: $size-avatar--small;
 	}
 }

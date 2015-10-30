@@ -2,6 +2,7 @@
 
 // New Primary+Secondary Nav
 $nav-height: $cmu-nav-height;
+$nav-border: 1px solid $cmu-color-dkblue;
 
 %nav-style {
 	text-transform: uppercase;
@@ -12,12 +13,14 @@ $nav-height: $cmu-nav-height;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
 	cursor: pointer;
+	border-bottom: 1px solid $cmu-color-dkblue;
 	// line-height: $cmu-base;
 
 	@extend %ease-fast;
 	&:hover {
 		color: $cmu-color-white;
 		background-color: $cmu-color-ltblue;
+		border-bottom: $nav-border;
 		@extend %ease-fast;
 	}
 }
@@ -28,6 +31,9 @@ $nav-height: $cmu-nav-height;
 	padding-right: $cmu-base*0.9;
 	font-size: $cmu-base;
 	color: $cmu-color-white;
+	width: $cmu-base*3;
+	// margin-left: -4px;
+	margin-right: -4px;
 }
 
 
@@ -40,9 +46,7 @@ $nav-height: $cmu-nav-height;
 }
 
 .cmuGloNav {
-	// background-color: $cmu-color-soot;
 	background-color: $cmu-color-menu;
-	// border-bottom: 1px solid $cmu-color-dkgray;
 	z-index: $z-gloNav;
 	position: relative;
 
@@ -83,6 +87,8 @@ $nav-height: $cmu-nav-height;
 
 	.cmuGloNav--header {
 		height: $nav-height;
+		border-bottom: $nav-border;
+		@include box-shadow(0, 0, 5px, $cmu-color-black);
 
 		ul {
 			margin-bottom: 0;
@@ -114,11 +120,21 @@ $nav-height: $cmu-nav-height;
 	.cmuGloNav__left {
 		@extend %nav-style;
 		// border-left: 1px solid $cmu-color-dkgray;
-		padding-left: 0;
+		// padding-left: 0;
 		color: $cmu-color-white;
 		&:hover {
 			color: $cmu-color-ltblue;
 			background-color: transparent;
+		}
+
+		&.active {
+			background-color: $cmu-color-vdkblue;
+			* { 
+				outline:none;
+				color: $cmu-color-vltblue; 
+				@extend %ease-fast;
+				&:hover { color: $cmu-color-white; @extend %ease-fast; }
+			}
 		}
 	}
 		.cmuGloNav__logo {;
@@ -154,11 +170,25 @@ $nav-height: $cmu-nav-height;
 			// margin-right: $cmu-base;
 
 			.active {
-				// background-color: $cmu-color-dkgray;
+				background-color: $cmu-color-vdkblue;
+
 				a { 
 					outline:none;
-					color: $cmu-color-white; 
+					color: $cmu-color-vltblue; 
 					&:hover { color: $cmu-color-white; }
+				// 	&:after {
+				// 		content: ' ';
+				// 		display: block;
+
+				// 		width: 0; 
+				// 		height: 0; 
+				// 		border-left: 5px solid transparent;
+				// 		border-right: 5px solid transparent;
+						
+				// 		border-bottom: 5px solid $cmu-color-white;
+				// 		margin: 0 auto;
+				// 		margin-top: 5px;
+				// 	}
 				}
 			}
 		}
@@ -169,10 +199,12 @@ $nav-height: $cmu-nav-height;
 				padding-right: $cmu-base;
 				color: $cmu-color-white;
 				outline:none;
+				text-align: center;
 
 				&:hover {
 					color: $cmu-color-ltblue;
 					background-color: transparent;
+					border-bottom: $nav-border;
 					@extend %ease-fast;
 				}
 			}
@@ -189,7 +221,7 @@ $nav-height: $cmu-nav-height;
 			// margin-right: $cmu-base;
 			padding-right: $cmu-base;
 			// background-color: $cmu-color-dkgray;
-			color: $cmu-color-xmdgray;
+			color: $cmu-color-ltmdgray;
 
 			// background-color: $cmu-color-blue;
 			color: $cmu-color-white;
@@ -249,13 +281,34 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
 				background-color: $cmu-color-blue;
-				border-right: 1px solid $cmu-color-dkblue;
-    			margin-right: -4px;
+				border-bottom: $nav-border;
+				// border-right: 1px solid $cmu-color-dkblue;
 			}
 
 
 			.cmuGloNav__cmuAccount {
 
+				.active {
+	    			position: relative;
+					background-color: $cmu-color-blue;
+
+					span { color: $cmu-color-white; }
+
+					// &:after {
+					// 	content: ' ';
+					// 	display: block;
+					// 	position: absolute;
+					// 	z-index: $z-gloNav;
+					// 	left: $cmu-base;
+					// 	bottom: 0;
+					// 	width: 0; 
+					// 	height: 0; 
+					// 	border-left: 7px solid transparent;
+					// 	border-right: 7px solid transparent;
+					// 	border-bottom: 7px solid $cmu-color-ltgray;
+					// }
+				}
+				
 				.cmuProfile__avatar {
 					&:before {
 						content: ' ';
@@ -264,7 +317,7 @@ $nav-height: $cmu-nav-height;
 						border-radius: 50%;
 						margin-top: 5px;
 						margin-right: 0;
-						margin-left: 4px;
+						// margin-left: 4px;
 						@extend %ease-fast;
 						height: remCalc(28px);
 						width: remCalc(28px);
@@ -281,25 +334,6 @@ $nav-height: $cmu-nav-height;
 					top: -3px;
 				}
 
-				.active {
-	    			position: relative;
-					background-color: $cmu-color-dkgray;
-					span { color: $cmu-color-white; }
-
-					&:after {
-						content: ' ';
-						display: block;
-						position: absolute;
-						z-index: $z-gloNav;
-						left: 10px;
-						bottom: 0;
-						width: 0; 
-						height: 0; 
-						border-left: 7px solid transparent;
-						border-right: 7px solid transparent;
-						border-bottom: 7px solid $cmu-color-ltgray;
-					}
-				}
 			}
 
 				.cmuGloNav__notifications, .cmuGloNav__inbox {
@@ -313,6 +347,9 @@ $nav-height: $cmu-nav-height;
 					@extend %nav-icon-style;
 					padding-left: $cmu-base/4;
 					padding-right: $cmu-base/4;
+					text-align: center;
+					// margin-left: -4px;
+					// padding-right: 0;
 				    cursor: pointer;
 				    
 					a {
@@ -322,6 +359,10 @@ $nav-height: $cmu-nav-height;
 					    padding-right: 4px;
 					    top: -10px;
 					    position: relative;
+					}
+
+					&:hover {
+						// background-color: transparent;
 					}
 				}
 
@@ -548,9 +589,6 @@ $nav-height: $cmu-nav-height;
 	&:hover {
 		color: $cmu-color-ltblue;
 		@extend %ease-fast;
-		.ubnt-icon:before {
-			color: $cmu-color-ltblue;
-		}
 	}
 }
 
@@ -562,11 +600,13 @@ $nav-height: $cmu-nav-height;
 	padding: $cmu-base 0;
 
 	position: absolute;
+	// position: relative;
 	width: 100%;
 	bottom: 0;
 	
-	@include respondTo(medium-up) {
-		padding: $cmu-base $cmu-base*4;
+	@include respondTo(xsmall-down) {
+		// padding: $cmu-base $cmu-base*4;
+		// position: relative;
 	}
 
 	li {
@@ -609,7 +649,8 @@ $nav-height: $cmu-nav-height;
 		a:hover {
 			span:before {
 				@extend %ease-fast;
-				color: $cmu-color-dkgray;
+				color: $cmu-color-ltblue;
+				background-color: transparent;
 			}
 		}
 
@@ -634,6 +675,8 @@ $nav-height: $cmu-nav-height;
 				top:1px;
 				&:before {
 					@extend %ease-fast;
+					// background-color: transparent;
+					// color: $cmu-color-vltblue;
 				}
 			}
 
@@ -662,6 +705,14 @@ $nav-height: $cmu-nav-height;
 
     	a {
     		padding: 0 !important;
+    		margin-right: $cmu-base/2;
+    		&:hover {
+				.ubnt-icon:before {
+					@extend %ease-fast;
+					background-color: $cmu-color-xdkgray;
+					color: $cmu-color-purewhite;
+				}
+    		}
     	}
 		span:before {
 			@extend %ease-fast;
@@ -676,11 +727,6 @@ $nav-height: $cmu-nav-height;
 		    	height: 28px;
 		    	padding: 0.2rem 0.1rem;
 		}
-		span:hover:before {
-			@extend %ease-fast;
-			background-color: $cmu-color-xdkgray;
-			color: $cmu-color-purewhite !important;
-		}
 	}
 
 	.cmuGloNav__top {
@@ -691,7 +737,7 @@ $nav-height: $cmu-nav-height;
 	    text-align: center;
 
 	    .cmuHoverflag {
-	    	top: -85px;
+	    	top: -80px;
 	    }
 
 		.ubnt--icon {

@@ -11,6 +11,10 @@
 .cmuTextEditor {
 	cursor: text;
 
+  .CodeMirror, .CodeMirror-scroll {
+      min-height: 200px;
+  }
+
   .cmuTextEditor__textarea {
     @extend .cmuInput;
   }

@@ -4,7 +4,9 @@
 			<li ng-repeat="breadcrumb in breadcrumbs.breadcrumbList()" itemtype="http://data-vocabulary.org/Breadcrumb">
 			 	<span><a area-link-handler="{{ breadcrumb.href }}" itemprop="url"><span itemprop="title">{{ breadcrumb.name }}</span></a></span>
 			</li>
-			<span class="cmuBreadcrumbs__last" itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
+			<li>
+				<span class="cmuBreadcrumbs__last" itemprop="title">{{ breadcrumbs.currentBreadcrumb() }}</span>
+			</li>
 		</ul>
 	</div>
 </div>

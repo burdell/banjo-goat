@@ -23,8 +23,6 @@
 
       <div class="col--md8 noPaddingLeft">
         <div class="cmuThreadlist__postCount">Showing {{ vm.messageList.length | number }} out of {{ vm.messageCount | number}} threads
-        <!-- </div> -->
-        <!-- <div class="forumThreadCount__message">Showing page ## out of 178 pages for {{ ::vm.currentNode.name }} -->
         </div>
       </div>
 
@@ -33,20 +31,16 @@
             <community-search 
               search-filter="vm.forumListFilter" 
               placeholder="Filter Topics"
-              exclude="limit, offset">
+              exclude="page">
            </community-search>
         </div>
       </div>
 
       <div class="col--md2 noPaddingRight">
-        <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="limit, offset"></community-sort>
+        <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="page"></community-sort>
       </div>
     </div>
-
   </div>
-
-
-
 
 
   <div class="cmuThreadlist__list">
@@ -65,133 +59,10 @@
           <th class="cmuThreadlist__thead--authorLast">Latest Reply</th>
           <th class="cmuThreadlist__thead--latestDate">Latest Date</th>
         </thead>
-
-
-        <!-- 
-
-          FPO PLACEHOLDER CONTENT
-
-         -->
-<!-- 
-                        <tbody class="cmuThreadlist__pinnedList">
-                          <tr class="cmuThreadList__row
-                                      cmuThreadList__row--locked
-                                      cmuThreadList__row--pinned cmuThreadList__row--active">
-                            <td class="cmuThreadList__row__topic">
-                              <a>FPO pinned subject unread, locked, active</a>
-                            </td>
-                            <td class="cmuThreadList__row__author">
-                              <a ui-sref="user">author</a>
-                            </td>
-                            <td class="cmuThreadList__row__createdDate">
-                              12-20-2010
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__authorLast">
-                              <a>author</a>
-                            </td>
-                            <td class="cmuThreadList__row__latestDate">12-20-2010
-                            </td>
-                          </tr>
-                          <tr class="cmuThreadList__row
-                                      cmuThreadList__row--pinned 
-                                      cmuThreadList__row--read
-                                      cmuThreadList__row--locked
-                                      ">
-                            <td class="cmuThreadList__row__topic">
-                              <a>FPO pinned subject read locked</a>
-                            </td>
-                            <td class="cmuThreadList__row__author">
-                              <a ui-sref="user">author</a>
-                            </td>
-                            <td class="cmuThreadList__row__createdDate">
-                              12-20-2010
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__counter">
-                              123
-                            </td>
-                            <td class="cmuThreadList__row__authorLast">
-                              <a>author</a>
-                            </td>
-                            <td class="cmuThreadList__row__latestDate">12-20-2010
-                            </td>
-                          </tr>
-                        </tbody>
-
-
-        <tbody>
-          <tr class="cmuThreadList__row
-                     cmuThreadList__row--read">
-            <td class="cmuThreadList__row__topic">
-              <a>FPO Read subject</a>
-            </td>
-            <td class="cmuThreadList__row__author">
-              <a ui-sref="user">author</a>
-            </td>
-            <td class="cmuThreadList__row__createdDate">
-              12-20-2010
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__authorLast">
-              <a>author</a>
-            </td>
-            <td class="cmuThreadList__row__latestDate">12-20-2010
-            </td>
-          </tr>
-          <tr class="cmuThreadList__row
-                    cmuThreadList__row--read">
-            <td class="cmuThreadList__row__topic">
-              <a>FPO Read subject 2</a>
-            </td>
-            <td class="cmuThreadList__row__author">
-              <a ui-sref="user">author</a>
-            </td>
-            <td class="cmuThreadList__row__createdDate">
-              12-20-2010
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__counter">
-              123
-            </td>
-            <td class="cmuThreadList__row__authorLast">
-              <a>author</a>
-            </td>
-            <td class="cmuThreadList__row__latestDate">12-20-2010
-            </td>
-          </tr>
- -->
-
-
           <tr class="cmuThreadList__row" ng-repeat="message in vm.messageList" ng-click="vm.go(message)">
             <td class="cmuThreadList__row__topic">
               {{ ::message.topic.subject | htmlUnescape }}
+              <span ng-if="vm.isUnread(message)">*</span>
               <div 
                 class="cmuTooltip cmuThreadList__tooltip"
                 community-tooltip
@@ -203,8 +74,7 @@
               ><span class="icon ubnt-icon--eye2"</div>
             </td>
             <td class="cmuThreadList__row__author">
-              <!-- <a ui-sref="user">{{ ::message.author.login }}</a> -->
-              <community-username user="message.topic.message.insertUser"></community-username>
+              <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
             </td>
             <td class="cmuThreadList__row__createdDate">{{ ::message.topic.message.postDate | timeFromNow }}
             </td>
@@ -218,7 +88,7 @@
               {{  message.topic.message.scores.kudo | number}}
             </td>
             <td class="cmuThreadList__row__authorLast">
-              <community-username user="message.context.lastestMessage.insertUser"></community-username>
+              <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
             </td>
             <td class="cmuThreadList__row__latestDate">{{ message.topic.lastActivityDate | timeFromNow }}
             </td>

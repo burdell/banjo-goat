@@ -27,7 +27,7 @@ function communityMessage() {
 		var linkedMessage = $location.hash();
 		if (linkedMessage && Number(linkedMessage) === ctrl.message.id) {
 			$timeout(function(){
-				$anchorScroll();
+				//$anchorScroll();
 			}, 0);
 		}
 

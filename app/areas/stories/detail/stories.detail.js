@@ -1,20 +1,10 @@
 
 'use strict';
 
-require('services/api.js');
-require('services/breadcrumb.js');
-require('services/filter.js');
-require('services/currentuser.js');
-require('services/nodestructure.js');
-require('services/routing.js');
-
-require('providers/routes.js');
-
 require('directives/commentform/commentform.js');
 require('directives/commentlist/commentlist.js');
 require('directives/username/username.js');
 require('directives/map/map.js');
-
 
 require('filters/sanitize.js');
 
@@ -23,7 +13,7 @@ var _ = require('underscore');
 function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults, routingService, routesProvider){
 	var ctrl = this;
 
-	storyThread.comments.content.pop();
+	storyThread.comments.content.shift();
 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;
@@ -126,15 +116,15 @@ StoryDetailController.$inject = [
 	'$anchorScroll',
 	'$location',
 	'$scope', 
-	'CommunityApiService', 
-	'CommunityBreadcrumbService',  
-	'CommunityFilterService', 
-	'CommunityNodeService',
-	'CurrentUserService',
+	require('services/api.js'), 
+	require('services/breadcrumb.js'),  
+	require('services/filter.js'), 
+	require('services/nodestructure.js'),
+	require('services/currentuser.js'),
 	'StoryThread', 
 	'StoryDefaults',
-	'CommunityRoutingService',
-	'communityRoutes',
+	require('services/routing.js'),
+	require('providers/routes.js')
 ];
 
 angular.module('community.stories')

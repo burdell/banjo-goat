@@ -107,7 +107,7 @@
 		<div class="cmuFeatures__threadlist__row row" ng-repeat="feature in vm.featuresList">
 			<div class="cmuFeatures__threadlist__content col--md12 noPadding">
 				<div class="cmuFeatures__votes col--md2">
-					<div class="cmuFeatures__votes__count">{{ feature.countVotes | number }}</div>
+					<div class="cmuFeatures__votes__count">{{ feature.topic.countVotes | number }}</div>
 					 <div class="cmuFeatures__votes__caption">votes</div>
 					<div class="cmuFeatures__votes__status {{ ::vm.getStatusCode(feature) }}">
 						{{ ::vm.getStatusText(feature) }}
@@ -116,28 +116,23 @@
 
 				<div class="cmuFeatures__threadlist__body col--md10">
 					<span class="cmuFeatures__threadlist__body__title">
-						<a ui-sref="features.detail({ featureRequestId: feature.id })">{{ ::feature.subject }}</a>
+						<a ui-sref="features.detail({ featureRequestId: feature.id })">{{ ::feature.topic.subject }}</a>
+						<span ng-if="vm.isUnread(feature)">*</span>
 					</span>
 					
 					<div class="cmuInlineInfo row noPadding">
 						<div class="col--md9">
-							<community-username user="feature.message.insertUser"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | "><span>Posted </span>{{ ::feature.message.postDate | timeFromNow }}</span>
+							<community-username user="feature.message.insertUser"></community-username><span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" | "><span>Posted </span>{{ ::feature.topic.message.postDate | timeFromNow }}</span>
 						</div>
 					</div>
 
-					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.message.body | unformatText | wordCut:20 }}</div>
+					<div class="cmuFeatures__threadlist__body__content">{{ ::feature.topic.message.body | unformatText | wordCut:20 }}</div>
 
 					<div class="cmuThread__stats">
 						<div class="row">
-							<div class="col--md8">
-								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">{{ feature.message.node.description }}</span></div>
-								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.1.1.1</span></div>
-								<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">ABC123</span></div>
-							</div>
-
 							<div class="cmuInlineInfo alignRight col--md4">
-								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.countViews | number }} views</span>
-								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.discussion.stats | extractKey : 'comments' | number }} replies</span>
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.topic.countViews | number }} views</span>
+								<span class="cmuInlineInfo__data cmuFeatures__threadlist__date" data-divider=" |">{{ feature.context.totalMessageCount - 1 | number }} replies</span>
 							</div>
 						</div>
 					</div>

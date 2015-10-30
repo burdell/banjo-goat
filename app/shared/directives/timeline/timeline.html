@@ -1,21 +1,26 @@
 
 <div class="cmuTimeline" >
 
-	<div class="timeline__year" ng-repeat="yearData in timeline.timelineData">
-		<div class="timeline__year__title" ng-class="{open: timeline.showYear(yearData.year)}" ng-click="timeline.yearClicked(yearData.year)"><div class="timeline__year__title--text">{{ yearData.year }} <span class="timeline__year__title--count">{{ yearData.count }}</span></div>
+	<div class="timeline__container cmuCollapser__container" ng-repeat="yearData in timeline.timelineData">
+		<div class="timeline__title cmuCollapser__header" ng-class='{open:$first || openAll()}' 
+		community-class-toggle="open">
+			<div class="timeline__title__text cmuCollapser__header__text">{{ yearData.year }} 
+				<span class="timeline__title__count">{{ yearData.count }}</span>
+			</div>
 		</div>
 		
 		<!-- remove cmuTimeline__showheader to hide table headers (benefits lists w/ 10 or fewer) -->
 		<div class="cmuTimeline__list 
 					cmuThreadlist__list
 					cmuTimeline__showheader
-					" 
-					ng-show="timeline.showYear(yearData.year)">
+					cmuCollapser__content
+					"
+					>
 			<div class="cmuTimeline__month" ng-repeat="monthData in yearData.yearData">
 				<table>
 
 			        <thead>
-			          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }}</th>
+			          <th class="cmuThreadlist__thead--topic">{{ monthData.month | monthDisplay }} {{ yearData.year }}</th>
 			          <th class="cmuThreadlist__thead--author">Author</th>
 			          <th class="cmuThreadlist__thead--createdDate">Created</th>
 			          <th class="cmuThreadlist__thead--counter
@@ -29,22 +34,23 @@
 					<tbody>
 			          <tr class="cmuTimeline__row cmuThreadList__row" ng-repeat="data in monthData.monthData" ng-click="timeline.go(data)">
 			          	<td class="cmuThreadList__row__topic">
-			          		{{ data.subject }}
+			          		{{ data.topic.subject }}
+			          		<span ng-if="timeline.isUnread(data)">*</span>
+			          		<span class="cmuTag">{{ data.topic.node.description }}</span>
 			          	</td>
 			            <td class="cmuThreadList__row__author">
-			              <community-username user="data.message.insertUser"></community-username>
+			              <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
 			            </td>
-			            <td class="cmuThreadList__row__createdDate">{{ data.message.postDate | timeFromNow }}
+			            <td class="cmuThreadList__row__createdDate">{{ data.topic.message.postDate | timeFromNow }}
 			            </td>
 			            <td class="cmuThreadList__row__counter cmuThreadList__row__counter--views" title="views">
-			              {{  data.countViews | number}}
+			              {{  data.topic.countViews | number}}
 			            </td>
 			            <td class="cmuThreadList__row__counter" title="comments">
-			              <!-- {{  ( data.discussion.stats | extractKey : 'comments') - 1  | number}} -->
-			              123
+			              {{ data.context.totalMessageCount - 1 | number }}
 			            </td>
 			            <td class="cmuThreadList__row__counter" title="kudos">
-			              {{  data.discussion.stats | extractKey : 'score'  | number}}
+			              {{  data.topic.message.scores.kudo | number }}
 			            </td>
 			          </tr>
 					</tbody>

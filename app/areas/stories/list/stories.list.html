@@ -7,7 +7,8 @@
 		<div class="col--md2 noPaddingRight">
 	          <community-sort 
 	          	sort-options="vm.sortOptions" 
-	          	sort-filter="vm.storyFilter">
+	          	sort-filter="vm.storyFilter"
+	          	sort-exclude="page">
 	          </community-sort>
 		</div>
 	</div>
@@ -15,21 +16,25 @@
 
 <div class="row">
 	<div class="col--md12 noPadding" community-grid-list>
-		<div ng-repeat="story in vm.storyList.content">
-			<div>
-				<story-display 
-					story="story"
-					story-media="story.media"
-					default-photo-url="vm.defaultPhoto">
-				</story-display>
+
+		<div class="cmuStoryGrid">
+			<div class="cmuStoryGrid__item" ng-repeat="story in vm.storyList.content">
+				<div>
+					<story-display 
+						story="story"
+						story-media="story.media"
+						default-photo-url="vm.defaultPhoto">
+					</story-display>
+				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 
 <community-load-more
 	list-model="vm.storyList"
 	load-filter="vm.storyFilter"
-	on-load-fn="vm.groupStoryData"
+	no-load-fn="true"
 	infinite-scroll="true">
 </community-load-more>

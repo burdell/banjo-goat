@@ -207,7 +207,7 @@ button, .button, .cmuButton {
 		@include cmuButton('outline',$cmu-color-gray);
 	}
 	&.button-blue-on-black {
-		@include cmuButton('outline',$cmu-color-dkblue,$cmu-color-ltblack,$cmu-color-blue,$cmu-color-xdkgray);
+		@include cmuButton('outline',$cmu-color-dkblue,$cmu-color-black,$cmu-color-blue,$cmu-color-black);
 	}
 }
 
@@ -452,7 +452,7 @@ button, .button {
 	&:hover {
 		@extend %ease-fast;
 		color: $cmu-color-dkgray;
-		background-color: $cmu-color-xmdgray;
+		background-color: $cmu-color-ltmdgray;
 	}
 
 	&:first-child {

@@ -3,14 +3,11 @@
 
 var _ = require('underscore');
 
-require('services/nodestructure.js');
-require('services/api.js');
-require('services/data.js');
-
 require('directives/pager/pager.js');
 require('directives/sorter/sorter.js');
 require('directives/pagescroll/pagescroll.js');
 require('directives/username/username.js');
+require('directives/useravatar/useravatar.js');
 require('directives/searchbox/searchbox.js');
 require('directives/tooltip/tooltip.js');
 
@@ -18,7 +15,7 @@ require('filters/unescape.js');
 require('filters/timefromnow.js');
 require('filters/extractkey.js');
 
-function ForumListController ($stateParams, $state, dataService, forumListFilter, nodeService, communityApiService){
+function ForumListController ($stateParams, $state, dataService, nodeService, communityApiService, forumListFilter){
 	var controller = this;
 
 	function setMessageData (result){
@@ -46,16 +43,19 @@ function ForumListController ($stateParams, $state, dataService, forumListFilter
 		getMessageNumber: function(currentListIndex){
 			var page = forumListFilter.model('page') || 1;
 			return currentListIndex * page;
+		},
+		isUnread: function(forumThread){
+			return !forumThread.context.lastReadDate;
 		}
 	});
 }
 ForumListController.$inject = [
 	'$stateParams', 
 	'$state',
-	'CommunityDataService', 
-	'ForumListFilter', 
-	'CommunityNodeService', 
-	'CommunityApiService'
+	require('services/data.js'), 
+	require('services/nodestructure.js'), 
+	require('services/api.js'),
+	'ForumListFilter'
 ];
 
 angular.module('community.forums')

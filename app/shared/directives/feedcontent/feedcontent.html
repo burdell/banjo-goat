@@ -5,6 +5,7 @@
 			<span class="cmuIcon__label icon {{ ::feedcontent.contentDisplay.iconClass }}"></span>
 			<span class="cmuFeed__subject">
 				{{ ::feedcontent.contentDisplay.subject }}
+				<span ng-if="feedcontent.isUnread()">*</span>
 			</span>
 		</div>
 		<div class="cmuFeed__content">
@@ -17,7 +18,7 @@
 
 		<div class="row">
 			<div class="col--md7">
-				<div class="cmuFeed__location"> {{ ::feedcontent.contentDisplay.nodeName }}</div>
+				<product-discussion-tag node-id="feedcontent.contentDisplay.nodeId"></product-discussion-tag>
 			</div>
 			<div class="cmuFeed__stats col--md5">
 				<span class="cmuFeed__stat"><span class="ubnt-icon ubnt-icon--eye2"></span>324 views</span>

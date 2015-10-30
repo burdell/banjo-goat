@@ -1,14 +1,13 @@
 
 'use strict';
 
-require('services/api.js');
 require('directives/texteditor/texteditor.js');
 
 var _ = require('underscore');
 
 function commentForm() {
 	var controller = function(communityApi) {
-		var ctrl = this;
+		var ctrl = this;	
 
 		var parentMessage = ctrl.parentMessage;
 		_.extend(ctrl, {
@@ -25,7 +24,7 @@ function commentForm() {
 						ctrl.submittingComment = false;
 
 						if (ctrl.commentList) {
-							ctrl.commentList.content.unshift(result);
+							ctrl.commentList.content.push(result);
 						}
 						
 						ctrl.comment.body = null;
@@ -50,7 +49,7 @@ function commentForm() {
 			replyingText: ctrl.replyingButtonText || 'Submitting Comment'
 		});
 	};
-	controller.$inject = ['CommunityApiService'];
+	controller.$inject = [require('services/api.js')];
 
     var directive = {
         controller: controller,
@@ -63,7 +62,7 @@ function commentForm() {
         	parentMessage: '=',
         	commentList: '=',
         	replyButtonText: '@',
-        	fullEditor: "=",
+        	minimalEditor: "=",
         	onSuccessFn: '=',
         	topicId: '='
         }

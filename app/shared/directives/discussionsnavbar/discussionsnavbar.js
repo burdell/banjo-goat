@@ -59,6 +59,9 @@ function discussionsNavBar() {
 				}]
 			})
 
+				
+			var SUBLIST_ORDER = ['Public', 'Beta', 'Alpha'];
+
 			_.each(standardNavLinks, function(searchObj, displayName){
 				var navNodeList = _.filter(siblingNodeList, function(node){
 					return node.discussionStyle === searchObj.discussionType;
@@ -76,12 +79,19 @@ function discussionsNavBar() {
 					});
 				} else if (navNodeCount > 1) {
 				 	var subLinkList = [];
-				 	_.each(navNodeList, function(subLink){
+				 	_.each(navNodeList, function(subLink, index, list){
 				 		subLinkList.push({
 				 			display: subLink.name, 
 				 			href: routingService.generateUrl(searchObj.route, { nodeId: subLink.urlCode }),
 				 			active: subLink.urlCode === currentNodeSlug
-						})
+						});
+				 		
+				 		if (index === list.length - 1) {
+				 			subLinkList = _.sortBy(subLinkList, function(subLink){
+				 				return _.indexOf(SUBLIST_ORDER, subLink.display);
+				 			});
+				 		}
+
 				 	});
 
 					ctrl.navLinks.push({

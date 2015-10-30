@@ -32,8 +32,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterFn: communityApi.Forums.messages, 
 						filterArguments: [ $stateParams.nodeId ], 
 						constants: {
-							per_page: 30
-						} 
+							per_page: 30,
+							sortDir: 'DESC'
+						}
 					});
 				}]
 			},
@@ -54,7 +55,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterArguments: [ $stateParams.messageId ],
 						filterContext: communityApi.Forums,
 						constants: {
-							per_page: 10
+							per_page: 10,
+							sortDir: 'ASC',
+							sortField: 'postDate'
 						},
 						autoInitModel: false,
 						persistFilterModel: false,

@@ -17,6 +17,7 @@ $cmu-maxwidth:				1400px;	// applied separately on all partials and templates fo
 $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
+$cmu-min-pageHeight--m:		$cmu-base*35;
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -32,7 +33,10 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 
 .cmuWrapper {
 	min-height: 100%;
+    @extend %ease-slow;
 }
+
+
 
 body {
 	position: relative;
@@ -40,21 +44,31 @@ body {
 	min-height: 100%;
 	color: $cmu-color-body;
 	line-height: inherit;
-	background-color: $cmu-color-menu;
+	background-color: $cmu-color-ltgray;
+    @extend %ease-slow;
 
 	a:focus {
 		outline: none;
 	}
+
+
 }
 	.wrapper {
 		background-color: $cmu-color-white;
-	    // padding-bottom: $cmu-min-pageHeight;
+	 //    padding-bottom: $cmu-min-pageHeight;
+
+		// @include respondTo(xsmall-down) {
+	 //    	padding-bottom: $cmu-min-pageHeight--m;
+		// }
+
 	    min-height: 100%;
 	    position: relative;
+    	@extend %ease-slow;
 	}
 
 #main-content {
 	margin-bottom: $cmu-base;
+    @extend %ease-slow;
 }
 
 %cmu-maxwidth {
@@ -83,8 +97,15 @@ ol, li {
 	padding-top: $cmu-base*2; // give some room for fixed header
 	position: relative;
 	padding-bottom: $cmu-min-pageHeight;
+
+		@include respondTo(xsmall-down) {
+	    	padding-bottom: $cmu-min-pageHeight--m;
+		}
+		
+
 	min-height: 100%;
 	@extend %cmu-maxwidth;
+    @extend %ease-slow;
 }
 
 // Various things

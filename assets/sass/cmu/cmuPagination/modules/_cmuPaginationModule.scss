@@ -112,7 +112,7 @@ $cmu-pagination-width: $cmu-base*2;
 	@extend %ease-fast;
 
 	&:hover:not(.disabled) {
-		// background-color: $cmu-color-xmdgray;
+		// background-color: $cmu-color-ltmdgray;
 		cursor: pointer;
 		@extend %ease-fast;
 		color: $cmu-color-blue;
@@ -219,7 +219,7 @@ $cmu-pagination-width: $cmu-base*2;
 		}
 
 		&:hover:not(.active) {
-			background-color: $cmu-color-xmdgray;
+			background-color: $cmu-color-ltmdgray;
 		}
 	}
 
@@ -253,7 +253,7 @@ $cmu-pagination-width: $cmu-base*2;
 	}
 
 	&:hover:not(.active) {
-		background-color: $cmu-color-xmdgray;
+		background-color: $cmu-color-ltmdgray;
 	}
 }
 
@@ -275,7 +275,7 @@ $cmu-pagination-width: $cmu-base*2;
 	}
 
 	&.enabled:hover {
-		background-color: $cmu-color-xmdgray;
+		background-color: $cmu-color-ltmdgray;
 		cursor: pointer;
 	}
 }

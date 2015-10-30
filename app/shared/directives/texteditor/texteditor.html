@@ -1,29 +1,10 @@
 <div class="cmuTextEditor">
-	<div ng-show="!texteditor.previewShown">
-		<textarea 
-			class="cmuTextEditor__textarea"
-			placeholder="{{ ::texteditor.placeholder }}"
-			style="width: 100%; max-width: 100%; height: {{ ::texteditor.editorHeight }}px;"
-			ng-model="texteditor.typedText"
-			ng-keyup="texteditor.saveText(texteditor.typedText)">
-		</textarea>
-	</div>
-
-	<div ng-bind-html="texteditor.ngModel" ng-show="texteditor.previewShown" style="min-height: {{ ::texteditor.editorHeight }}px"></div>
-
 	<div>
-		<span ng-show="!texteditor.hidePreviewLink && !texteditor.previewShown"><a ng-click="texteditor.previewShown = true">Show Preview</a>&nbsp;</span>
-		<span ng-show="texteditor.previewShown"><a ng-click="texteditor.previewShown = false">Show Editor</a>&nbsp;</span>
+		<textarea class="texteditor__editor"></textarea>
 	</div>
 
-
-	<div class="cmuTextEditor__help">
-		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink"><a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help banana</a></span>
-
-		<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
-			<span class="ubnt-icon ubnt-icon--pointer-down"></span>
-		</div>
-
+	<div class="cmuTextEditor__help" ng-if="texteditor.minimalEditor">
+		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink"><a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help</a></span>
 		<div ng-show="texteditor.formattingHelpShown">
 			<div ng-include="'directives/texteditor/texteditor.formattinghelp.html'"></div>
 		</div>

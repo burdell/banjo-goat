@@ -9,6 +9,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 		var announcementsRoutes = routesProvider.routes.announcements;
 		$stateProvider
 			.state('announcementsLanding', {
+				title: 'Community Announcements',
 				url: announcementsRoutes.landing,
 				controller: 'AnnouncementsLanding as vm',
 				templateUrl: 'announcements/landing/announcements.landing.html',
@@ -50,7 +51,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				},
 				resolve: {
 					AnnouncementDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
-						return communityApi.Announcements.thread($stateParams.announcementId, { limit: 10, offset: 0 });
+						return communityApi.Announcements.comments($stateParams.announcementId, { limit: 10, offset: 0, sortDir: 'ASC', sortField: 'postDate' });
 					}]
 				}
 			});

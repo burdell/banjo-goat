@@ -84,16 +84,16 @@
 
 					<!-- stories -->
 
-			        <div class="cmuProfile__stories cmuProfile__section">
+			        <div class="cmuProfile__stories">
 			        
 			        	<div class="cmuProfile__title clearfix">
 							<h5><span class="cmuIcon__label stories"></span></h5>
 							<h5 ng-pluralize count="vm.totalStories" when="{ '0': 'No stories', 'one': '1 story', 'other': '{} stories' }"></h5>
 						</div>
 
-						<div class="cmuProfile__storyList clearfix">
-							<div class="cmuProfile__subSection col--md12">
-								<div class="cmuProfile__story col--md4" ng-repeat="story in vm.storyList">
+						<div class="cmuProfile__section clearfix">
+							<div class="cmuStoryGrid">
+								<div class="cmuProfile__story cmuStoryGrid__item" ng-repeat="story in vm.storyList">
 									<story-display 
 										story="story"
 										story-media="story.media"
@@ -104,7 +104,7 @@
 								</div>
 							</div>
 							<div class="cmuProfile__subSection col--md12">
-								<button class="button--stretch button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">Show More</button>
+								<button class="button--stretch button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">More Stories</button>
 							</div>
 						</div>
 					</div>	
@@ -124,7 +124,7 @@
 				        </div>
 
 						<div class="cmuProfile__subSection col--md12">
-			        		<button class="button--stretch button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">Show More</button>
+			        		<button class="button--stretch button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">More Activities</button>
 						</div>
 
 				  	</div>

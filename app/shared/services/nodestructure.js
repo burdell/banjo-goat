@@ -138,6 +138,8 @@
 	};
 	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityIconService', 'CommunityInitializeService', 'CommunityRoutingService'];
 
+	var serviceName = 'CommunityNodeService';
 	angular.module('community.services')
-		.service('CommunityNodeService', nodeStructure);
+		.service(serviceName, nodeStructure);
+	module.exports = serviceName;
 

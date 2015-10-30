@@ -19,12 +19,12 @@
     background: rgba($cmu-color, $opacity);
 }
 
-@mixin ease($speed){
-    -webkit-transition: all $speed ease;
-    -moz-transition: all $speed ease;
-    -ms-transition: all $speed ease;
-    -o-transition: all $speed ease;
-    transition: all $speed ease;
+@mixin ease($speed, $elem:all){
+    -webkit-transition: $elem $speed ease;
+    -moz-transition: $elem $speed ease;
+    -ms-transition: $elem $speed ease;
+    -o-transition: $elem $speed ease;
+    transition: $elem $speed ease;
 }
 
 %ease{@include ease(230ms);}
@@ -46,6 +46,40 @@
     transition: all $speed ease-out 0;
 }
 
+// http://codepen.io/sawmac/pen/cayhK
+// @include transition(background-color 1s .5s, color 2s);
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;
@@ -57,3 +91,27 @@
     box-shadow: $top $left $blur $color;
   }
 }
+
+
+// http://codepen.io/HugoGiraudel/pen/KFDuB
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+

@@ -52,14 +52,14 @@
 
 			<community-user-badge 
 				class="cmuUserbadge--thin"
-				user="vm.currentAnnouncement.message.context.parentAuthor"
+				user="vm.currentAnnouncement.insertUser"
 				op-id="messageDisplay.showOp">
 			</community-user-badge>
 
 
 			<div class="cmuMessage__data">
-				<div class="cmuMessage__date">{{ vm.currentAnnouncement.message.postDate | exactTimeFromNow }}</div>
-				<div class="cmuMessage__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate">Edited {{ vm.currentAnnouncement.message.editDate | exactTimeFromNow }}</div>
+				<div class="cmuMessage__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }}</div>
+				<div class="cmuMessage__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate">Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</div>
 			</div>
 
 			<div class="">
@@ -210,8 +210,9 @@
 		</span>
 	</div>
 
-	<div class="row" ng-show="vm.showCommentForm">
+	<div class="row" ng-if="vm.showCommentForm">
 		<community-comment-form 
+			minimal-editor="true"
 			toggle-attribute="vm.showCommentForm"
 			parent-message="vm.currentAnnouncement"
 			comment-list="vm.currentComments">

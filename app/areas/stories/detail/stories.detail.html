@@ -16,11 +16,12 @@
 		</span>
 	</div>
 
-	<div class="cmuStories__commentForm" ng-show="vm.replyInProgress" id="comment">
+	<div class="cmuStories__commentForm" ng-if="vm.replyInProgress" id="comment">
 		<community-comment-form 
 			toggle-attribute="vm.replyInProgress"
 			parent-message="vm.story"
-			comment-list="vm.comments">
+			comment-list="vm.comments"
+			minimal-editor="true">
 		</community-comment-form>
 	</div>
 
