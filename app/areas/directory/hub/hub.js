@@ -33,7 +33,6 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 
 	});
 
-	debugger;
 
 	var forumOrder = ['Alpha', 'Beta', 'Public'];
 	_.extend(ctrl, {
