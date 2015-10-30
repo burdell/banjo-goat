@@ -19,31 +19,24 @@
 .timeline__container {
 	// border: $style-line;
 	// border-bottom: 0;
-	margin-bottom: $cmu-vertical-rhythm;
 
 	// &:last-child {
 	// 	border-bottom: $style-line;
 	// }
 }
 
-.timeline__title {
-	@extend %user-select-none;
-	
-	position: relative;
-	cursor: pointer;
-    background-color: $cmu-color-purewhite;
-    // $padding: $cmu-base/4;
-	border: $style-line;
-    @extend %ease-fast;
 
-	.timeline__title--text {
+.timeline__title {
+	border: $style-line;
+	height: $cmu-base*2 + remCalc(2px); // border adds another 2px
+ 
+	.timeline__title__text {
 		font-size: $size-large;
-		// padding: $padding $cmu-base/2;
-		// padding-bottom: 1px; 
 		height: $cmu-base*2;
-    	line-height: $cmu-base*2 - remCalc(2px);
+		line-height: $cmu-base*2 - remCalc(2px);
 	}
-	.timeline__title--count {
+
+	.timeline__title__count {
 		font-weight: 300;
 		font-size: $size-normal;
 		&:before { content: '(' }
@@ -55,48 +48,10 @@
 		// border: 1px solid transparent;
 		@extend %ease-fast;
 	}
-	// Open / Closed indicator
-	// default is closed
-	&:before {
-		@extend %font-ubnt;
-		@extend %ease-fast;
-		display: inline-block;
-		content: '\e6cd';
-		background-color: $cmu-color-ltmdgray;
-
-		// position: absolute;
-		// right: 0;
-
-		margin-right: $cmu-base/2;
-		float: left;
-		height: $cmu-base*2; // + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
-		width: $cmu-base*2; // + $padding*2; // 31px;
-		top: 0;
-		line-height: $cmu-base*2.1; // + $padding*2; //31px;;
-		text-align: center;
-
-	}
 	&.open {
 		// border-bottom: $style-line--thick;
-		background-color: $cmu-color-vltblue;
 		// border: 1px solid transparent;
 		border-color: $cmu-color-white;
-
-		* {
-			color: $cmu-color-black;
-		}
-
-		&:hover {
-			background-color: $cmu-color-ltblue;
-		}
-
-		&:before {
-			@extend %font-ubnt;
-			display: inline-block;
-			content: '\e6d0';
-			background-color: $cmu-color-blue;
-			color: $cmu-color-white;
-		}
 	}
 }
 

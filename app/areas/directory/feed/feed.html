@@ -33,32 +33,29 @@
 		        </div>
 
 				<div class="cmuFeed__container">
-			        <div class="cmuFeed__stories col--md12 noPadding" ng-show="vm.feedType === 'community'">
-			        
-			        	<div class="cmuFeed__title clearfix">
-							<h5><span class="cmuIcon__label stories"></span>Latest Stories</h5>
-						</div>
+			        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding" ng-show="vm.feedType === 'community'">
 
-						<div class="cmuFeed__close col--md4 noPadding" community-class-toggle="cmuFeed__close--closed">
-		        			<span class="ubnt-icon ubnt-icon--pointer-down"></span>
-						</div>
-
-
-						<div class="timeline__title" ng-class="{open: timeline.showYear(yearData.year)}" community-class-toggle="cmuFeed__close--closed"><div class="timeline__title--text"> <h5><span class="cmuIcon__label stories"></span>Latest Stories</h5></div>
-						</div>
-						
-
-						<div class="cmuFeed__storyList clearfix">
-							<div ng-repeat="story in vm.storyData" class="col--md3">
-								<story-display
-									story="story"
-									story-media="story.media"
-									minimal-display="true"
-									fill-width="true">
-								</story-display>
+						<div class="cmuCollapser__header open" community-class-toggle="open">
+							<div class="cmuFeed__title"> 
+								<h5><span class="cmuIcon__label stories"></span>Latest Stories</h5>
 							</div>
 						</div>
-					</div>	
+						
+						<div class="cmuFeed__storyList cmuCollapser__content clearfix">
+							<div class="cmuFeed__storyList__stories row">
+								<div ng-repeat="story in vm.storyData" class="col--md3">
+									<story-display
+										story="story"
+										story-media="story.media"
+										minimal-display="true"
+										fill-width="true">
+									</story-display>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 
 			        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
 			        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
