@@ -29,7 +29,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			controller: 'Hub as vm',
 			resolve: {
 					StoryData: ['$stateParams', 'CommunityApiService', 'CommunityRoutingService', function($stateParams, communityApi, routingService){
-						return communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 3 });
+						return communityApi.Stories.stories(routingService.generateDiscussionUrl($stateParams.nodeId, 'stories'), { per_page: 4 });
 					}],
 					DiscussionsFeedFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
 						return filterService.getNewFilter({ 

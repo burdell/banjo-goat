@@ -37,6 +37,12 @@ var _ = require('underscore');
 					var areaName = routeList[0];
 					var areaRoutes = routeList.length === 1 ? communityRoutes : communityRoutes[areaName];
 					
+					//ugh. 
+					var isLandingRoute = routeList.length === 2 && routeList[1] === 'landing';
+					if (isLandingRoute) {
+						routeList.shift();
+					}
+
 					if (areaRoutes) {
 						_.each(routeList, function(route){
 							url += areaRoutes[route];

@@ -125,7 +125,7 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 					options.targetCommentHash = false;
 					return communityApi.Messages.position($location.hash()).then(function(messagePosition){
 						var targetCommentNumber = Number(messagePosition);
-						var targetPage = targetCommentNumber % filterModel.per_page;
+						var targetPage = Math.floor(targetCommentNumber / filterModel.per_page) + 1;
 						filterModel.page = targetPage || 1;
 
 						return actualFilterCall();

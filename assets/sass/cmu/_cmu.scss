@@ -17,6 +17,7 @@
 @import "cmuOverlay/index";				// Includes dropdown, modal, and mega screen-takeover popover menu (discussions, settings, new post, etc.) 
 // @import "cmuDropdown/index";			// similar to mega screen, except dropdown variation
 @import "cmuBanner/index"; 				// announcement banner
+@import "cmuCollapser/index"; 			// collapsble container component used for announcements, feed and elsewhere
 @import "cmuPulse/index"; 				// pulse component and variations
 @import "cmuDirectory/index"; 			// directory page styles minus modules
 @import "cmuSidebar/index";				// helper styles for the sidebar; each discussion style will also have own styles

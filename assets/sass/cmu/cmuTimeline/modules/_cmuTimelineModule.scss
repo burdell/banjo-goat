@@ -86,6 +86,10 @@
 			color: $cmu-color-black;
 		}
 
+		&:hover {
+			background-color: $cmu-color-ltblue;
+		}
+
 		&:before {
 			@extend %font-ubnt;
 			display: inline-block;

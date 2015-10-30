@@ -31,6 +31,7 @@
 			return newList;
 		}
 
+
 		function filterRequests() {
 				var filterModel = {
 					request: null,
@@ -60,10 +61,10 @@
 			messageSortOptions: dataService.MessageSort,
 			featuresListFilter: featuresListFilter,
 			getStatusCode: function(feature){
-				return statusTypes[feature.state].code;
+				return statusTypes[feature.topic.state].code;
 			},
 			getStatusText: function(feature){
-				return statusTypes[feature.state].display;
+				return statusTypes[feature.topic.state].display;
 			},
 			filterTypes: [
 				{
@@ -126,6 +127,9 @@
 				}
 
 				filterRequests();
+			},
+			isUnread: function(featureData){
+				return !featureData.context.lastReadDate;
 			}
 		});
 

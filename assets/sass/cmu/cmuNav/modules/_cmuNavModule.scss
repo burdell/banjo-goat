@@ -2,6 +2,7 @@
 
 // New Primary+Secondary Nav
 $nav-height: $cmu-nav-height;
+$nav-border: 1px solid $cmu-color-dkblue;
 
 %nav-style {
 	text-transform: uppercase;
@@ -12,12 +13,14 @@ $nav-height: $cmu-nav-height;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
 	cursor: pointer;
+	border-bottom: 1px solid $cmu-color-dkblue;
 	// line-height: $cmu-base;
 
 	@extend %ease-fast;
 	&:hover {
 		color: $cmu-color-white;
 		background-color: $cmu-color-ltblue;
+		border-bottom: $nav-border;
 		@extend %ease-fast;
 	}
 }
@@ -84,7 +87,7 @@ $nav-height: $cmu-nav-height;
 
 	.cmuGloNav--header {
 		height: $nav-height;
-		border-bottom: 1px solid $cmu-color-vdkblue;
+		border-bottom: $nav-border;
 		@include box-shadow(0, 0, 5px, $cmu-color-black);
 
 		ul {
@@ -123,6 +126,16 @@ $nav-height: $cmu-nav-height;
 			color: $cmu-color-ltblue;
 			background-color: transparent;
 		}
+
+		&.active {
+			background-color: $cmu-color-vdkblue;
+			* { 
+				outline:none;
+				color: $cmu-color-vltblue; 
+				@extend %ease-fast;
+				&:hover { color: $cmu-color-white; @extend %ease-fast; }
+			}
+		}
 	}
 		.cmuGloNav__logo {;
     		margin-top: -0.7rem;
@@ -158,6 +171,7 @@ $nav-height: $cmu-nav-height;
 
 			.active {
 				background-color: $cmu-color-vdkblue;
+
 				a { 
 					outline:none;
 					color: $cmu-color-vltblue; 
@@ -190,6 +204,7 @@ $nav-height: $cmu-nav-height;
 				&:hover {
 					color: $cmu-color-ltblue;
 					background-color: transparent;
+					border-bottom: $nav-border;
 					@extend %ease-fast;
 				}
 			}
@@ -266,6 +281,7 @@ $nav-height: $cmu-nav-height;
 			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
 				background-color: $cmu-color-blue;
+				border-bottom: $nav-border;
 				// border-right: 1px solid $cmu-color-dkblue;
 			}
 
@@ -275,6 +291,7 @@ $nav-height: $cmu-nav-height;
 				.active {
 	    			position: relative;
 					background-color: $cmu-color-blue;
+
 					span { color: $cmu-color-white; }
 
 					// &:after {

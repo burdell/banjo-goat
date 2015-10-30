@@ -48,15 +48,17 @@
 				<div ng-include="'partials/globalheader.html'"></div>
 				<main-nav-bar></main-nav-bar>
 
-			    <div class="community__content container" ng-controller="BaseCommunityController as vm">
-					<div id='main-content'>
-						<community-error></community-error>
-						<community-loader base-loader="true"></community-loader>
-						
-						<div ui-view ng-hide="vm.showBaseLoader"></div>
+				<div ng-controller="BaseCommunityController as vm">
+				    <div class="community__content container">
+						<div id='main-content'>
+							<community-error></community-error>
+							<community-loader base-loader="true"></community-loader>
+							
+							<div ui-view ng-hide="vm.showBaseLoader"></div>
+						</div>
 					</div>
+					<div ng-include="'partials/globalfooter.html'"></div>
 				</div>
-				<div ng-include="'partials/globalfooter.html'"></div>
 			</div>
 		</div>
 		
