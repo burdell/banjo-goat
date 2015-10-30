@@ -33,24 +33,24 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		return callOptions;
 	}
 
-		function goToApi(url, data, verb, isMedia){
-			var callOptions = getCallOptions(url, data, verb, isMedia);
-			return $http(callOptions).then(
-				function(result){
-					//SUCCESS :D
-					if (result.data.data) {
-						return result.data.data
-					} else {
-						return result.data;
-					}
-				},
-				function(error){
-					//ERROR :(
-					errorService.showErrors(error);
-					return $q.reject();
+	function goToApi(url, data, verb, isMedia){
+		var callOptions = getCallOptions(url, data, verb, isMedia);
+		return $http(callOptions).then(
+			function(result){
+				//SUCCESS :D
+				if (result.data.data) {
+					return result.data.data
+				} else {
+					return result.data;
 				}
-			);
-		}
+			},
+			function(error){
+				//ERROR :(
+				errorService.showErrors(error);
+				return $q.reject();
+			}
+		);
+	}
 
 	function getCallType(callData, params) {
 		var id, payload, verb;
@@ -75,201 +75,216 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		};
 	}
 
-		var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
-		var urlSegments = {
-			Announcement: function(id){
-				return 'announcements/' + this._Message(id);
+	function emptyResponse() {
+		return $q.when({
+			content: []
+		})
+	}
+
+	function hasNoStories(nodeUrlCode){
+		return nodeUrlCode.indexOf('airCRM') >= 0
+	}
+
+	var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
+	var urlSegments = {
+		Announcement: function(id){
+			return 'announcements/' + this._Message(id);
+		},
+		Node: function(id){
+			return 'nodes/id/' + id + '/';
+		},
+		User: function(id) {
+			return 'users/' + id + '/';
+		},
+		Story: function(id) {
+			return 'stories/' + this._Message(id);
+		},
+		Forum: function(id) {
+			return 'forums/'  + this._Message(id);
+		},
+		Feed: function(){
+			return 'feed';
+		},
+		_Message: function(id) {
+			var urlString = 'topics/';
+			if (id) {
+				urlString += id + '/';
+			}
+			return urlString;
+		},
+	};
+
+	// ****** API DEFINITION ******
+	var service = {
+		Announcements: {
+			all: function(options){
+				return goToApi(v2Url + 'announcements/threads', options);
 			},
-			Node: function(id){
-				return 'nodes/id/' + id + '/';
+			announcements: function(nodeId, options) {
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 			},
-			User: function(id) {
-				return 'users/' + id + '/';
+			detail: function(announcementId){
+				return goToApi(v2Url + 'announcements/' + announcementId);
 			},
-			Story: function(id) {
-				return 'stories/' + this._Message(id);
+			comments: function(announcementId, commentData){
+				return goToApi(v2Url + 'announcements/' + announcementId + '/comments', commentData);
 			},
-			Forum: function(id) {
-				return 'forums/'  + this._Message(id);
+			thread: function(announcementId, options){
+				return $q.all([ this.detail(announcementId), this.comments(announcementId, options) ]).then(function(result){
+					return {
+						originalMessage: result[0],
+						comments: result[1]
+					}
+				});
+			}
+		},
+		Core: {
+			nodeStructure: function(){
+				return goToApi(v2Url + 'nodes', { per_page: 140 }).then(function(result) {
+					return result.content;
+				});
 			},
-			Feed: function(){
-				return 'feed';
-			},
-			_Message: function(id) {
-				var urlString = 'topics/';
-				if (id) {
-					urlString += id + '/';
+			pulse: function(nodeUrlCode) {
+				if (nodeUrlCode) {
+					return goToApi(v2Url + urlSegments.Node(nodeUrlCode) + 'pulse');
+				} else {
+					return goToApi(v2Url + 'pulse');
 				}
-				return urlString;
+			}
+		},
+		Feed: {
+			allContent: function(options){
+				return goToApi(v2Url + urlSegments.Feed() + '/content', options);
 			},
-		};
+			notifications: function(options){
+				return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
+			},
+			subscriptions: function(options){
+				return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
+			}
+		},
+		Forums: {
+			messages: function(nodeId, data){
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', data);
+			},
+			message: function(messageData, mock) {
+				var callData = getCallType(messageData);
 
+				var url = v2Url + 'forums/';
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += callData.id;
+				}
 
-
-		// ****** API DEFINITION ******
-		var service = {
-			Announcements: {
-				all: function(options){
-					return goToApi(v2Url + 'announcements/threads', options);
-				},
-				announcements: function(nodeId, options) {
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
-				},
-				detail: function(announcementId){
-					return goToApi(v2Url + 'announcements/' + announcementId);
-				},
-				comments: function(announcementId, commentData){
-					return goToApi(v2Url + 'announcements/' + announcementId + '/comments', commentData);
-				},
-				thread: function(announcementId, options){
-					return $q.all([ this.detail(announcementId), this.comments(announcementId, options) ]).then(function(result){
+				return goToApi(url, callData.payload, callData.verb);
+			},
+			comments: function(messageId, data) {
+				return goToApi(v2Url + 'forums/' + messageId + '/comments', data);
+			},
+			thread: function(messageId, data){
+				return $q.all([ this.message(messageId), this.comments(messageId, data) ])
+					.then(function(result) {
 						return {
 							originalMessage: result[0],
 							comments: result[1]
-						}
+						};
 					});
-				}
+			}
+		},
+		Features: {
+			features: function(nodeId, options){
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 			},
-			Core: {
-				nodeStructure: function(){
-					return goToApi(v2Url + 'nodes', { per_page: 140 }).then(function(result) {
-						return result.content;
+			thread: function(messageId, data){
+				return $q.all([ this.message(messageId), this.comments(messageId, data) ])
+					.then(function(result) {
+						return {
+							originalMessage: result[0],
+							comments: result[1]
+						};
 					});
-				},
-				pulse: function(nodeUrlCode) {
-					if (nodeUrlCode) {
-						return goToApi(v2Url + urlSegments.Node(nodeUrlCode) + 'pulse');
-					} else {
-						return goToApi(v2Url + 'pulse');
+			},
+			message: function(messageData, mock) {
+				var callData = getCallType(messageData);
+				return goToApi(v2Url + 'features/' + callData.id, callData.payload, callData.verb);
+			},
+			comments: function(messageId, options) {
+				return goToApi(v2Url + 'features/' + messageId + '/comments', options).then(function(result){
+					if (result.totalElements) {
+						result.totalElements = result.totalElements - 1;
 					}
-				}
-			},
-			Feed: {
-				allContent: function(options){
-					return goToApi(v2Url + urlSegments.Feed() + '/content', options);
-				},
-				notifications: function(options){
-					return goToApi(v2Url + urlSegments.Feed() + '/notifications', options);
-				},
-				subscriptions: function(options){
-					return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
-				}
-			},
-			Forums: {
-				messages: function(nodeId, data){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', data);
-				},
-				message: function(messageData, mock) {
-					var callData = getCallType(messageData);
+					
+					return result;
+				});
+			}
+		},
+		Gamification: {
+			info: function(){
+				return goToApi(v2Url + 'gamify/info', null, 'GET');
+			}
+		},
+		Media: {
+			upload: function(fileData){
+				var formData = new FormData();
+				formData.append('file', fileData);
 
-					var url = v2Url + 'forums/';
-					if (callData.verb === 'GET' || callData.verb === 'PUT') {
-						url += callData.id;
-					}
-
-					return goToApi(url, callData.payload, callData.verb);
-				},
-				comments: function(messageId, data) {
-					return goToApi(v2Url + 'forums/' + messageId + '/comments', data);
-				},
-				thread: function(messageId, data){
-					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
-						.then(function(result) {
-							return {
-								originalMessage: result[0],
-								comments: result[1]
-							};
-						});
-				}
+				return goToApi(v2Url + 'media', formData, 'POST', true);
+			}
+		},
+		Messages: {
+			message: function(messageData){
+				var callData = getCallType(messageData);
+				return goToApi(v2Url + 'messages', callData.payload, callData.verb);
 			},
-			Features: {
-				features: function(nodeId, options){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
-				},
-				thread: function(messageId, data){
-					return $q.all([ this.message(messageId), this.comments(messageId, data) ])
-						.then(function(result) {
-							return {
-								originalMessage: result[0],
-								comments: result[1]
-							};
-						});
-				},
-				message: function(messageData, mock) {
-					var callData = getCallType(messageData);
-					return goToApi(v2Url + 'features/' + callData.id, callData.payload, callData.verb);
-				},
-				comments: function(messageId, options) {
-					return goToApi(v2Url + 'features/' + messageId + '/comments', options).then(function(result){
-						if (result.totalElements) {
-							result.totalElements = result.totalElements - 1;
-						}
-						
-						return result;
+			position: function(messageId){
+				return goToApi(v2Url + 'messages/' + messageId + '/position');
+			}
+		},
+		Stories: {
+			all: function(options) {
+				return goToApi(v2Url + 'stories', options);
+			},
+			thread: function(storyId, data){
+				return $q.all([ this.story(storyId), this.comments(storyId, data) ])
+					.then(function(result) {
+						return {
+							originalMessage: result[0],
+							comments: result[1]
+						};
 					});
-				}
 			},
-			Gamification: {
-				info: function(){
-					return goToApi(v2Url + 'gamify/info', null, 'GET');
-				}
+			story: function(storyData) {
+				var callData = getCallType(storyData);
+				return goToApi(v2Url + 'stories/' + callData.id, callData.payload, callData.verb);
 			},
-			Media: {
-				upload: function(fileData){
-					var formData = new FormData();
-					formData.append('file', fileData);
+			comments: function(storyData, params) {
+				var callData = getCallType(storyData, params);
 
-					return goToApi(v2Url + 'media', formData, 'POST', true);
-				}
+				var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
+				return goToApi(v2Url + 'stories/' + id + '/comments', callData.payload, callData.verb);
 			},
-			Messages: {
-				message: function(messageData){
-					var callData = getCallType(messageData);
-					return goToApi(v2Url + 'messages', callData.payload, callData.verb);
-				},
-				position: function(messageId){
-					return goToApi(v2Url + 'messages/' + messageId + '/position');
+			stories: function(nodeId, data){
+				if (hasNoStories(nodeId)) {
+					return emptyResponse();
 				}
-			},
-			Stories: {
-				all: function(options) {
-					return goToApi(v2Url + 'stories', options);
-				},
-				thread: function(storyId, data){
-					return $q.all([ this.story(storyId), this.comments(storyId, data) ])
-						.then(function(result) {
-							return {
-								originalMessage: result[0],
-								comments: result[1]
-							};
-						});
-				},
-				story: function(storyData) {
-					var callData = getCallType(storyData);
-					return goToApi(v2Url + 'stories/' + callData.id, callData.payload, callData.verb);
-				},
-				comments: function(storyData, params) {
-					var callData = getCallType(storyData, params);
 
-					var id = callData.verb === "GET" ? callData.id : callData.payload.topicId;
-					return goToApi(v2Url + 'stories/' + id + '/comments', callData.payload, callData.verb);
-				},
-				stories: function(nodeId, data){
-					return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
-				},
-				search: function(options){
-					return goToApi(v2Url + 'stories/search', options, 'GET');
-				}
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
 			},
-			Users: {
-				authentication: function(){
-					return goToApi(v2Url + urlSegments.User('self'));
-				},
-				userData: function(userId){
-					return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
+			search: function(options){
+				if (options.nodeUrlCode && hasNoStories(options.nodeUrlCode)) {
+					return emptyResponse();
 				}
+				return goToApi(v2Url + 'stories/search', options, 'GET');
+			}
+		},
+		Users: {
+			authentication: function(){
+				return goToApi(v2Url + urlSegments.User('self'));
+			},
+			userData: function(userId){
+				return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 			}
 		}
+	}
 
 	return service;
 };
