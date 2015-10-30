@@ -1,10 +1,6 @@
  
 'use strict';
 
-require('services/api.js');
-require('services/nodestructure.js');
-require('services/routing.js');
-
 require('filters/extractkey.js');
 require('filters/unescape.js');
 
@@ -28,7 +24,9 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 			announcements: routingService.generateUrl('announcements.list', { nodeId: nodeUrl + '_announcements' })
 		}
 		ctrl.forumList = _.where(currentNode.children, { discussionStyle: 'forums' });
-		ctrl.productStoriesUrl = routingService.generateUrl('stories.list', { nodeId: nodeUrl });		
+
+		var productStoriesNode = routingService.generateDiscussionUrl(nodeUrl, 'stories');
+		ctrl.productStoriesUrl = routingService.generateUrl('stories.list', { nodeId: productStoriesNode });		
 	});
 
 	var forumOrder = ['Alpha', 'Beta', 'Public'];
@@ -36,13 +34,6 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		discussionsFeed: discussionsFeedFilter.initialData().content,
 		discussionsFeedFilter: discussionsFeedFilter,
 		storyList: storyData.content,
-		getStoryPhoto: function(story) {
-			if (!story) return;
-			var coverPhoto = _.find(story.media, function(mediaObj) {
-				return mediaObj.meta && mediaObj.meta.isCover && mediaObj.meta.isCover.value === "true"; 
-			});
-			return coverPhoto ? coverPhoto.url : 'http://i.imgur.com/TT7XC8m.jpg';
-		},
 		forumOrder: function(forumNode){
 			return _.indexOf(forumOrder, forumNode.name);
 		},
@@ -52,7 +43,15 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		}
 	});
 };
-hubController.$inject = ['$q', '$scope', 'CommunityApiService', 'CommunityNodeService', 'CommunityRoutingService', 'DiscussionsFeedFilter', 'StoryData'];
+hubController.$inject = [
+	'$q', 
+	'$scope', 
+	require('services/api.js'), 
+	require('services/nodestructure.js'), 
+	require('services/routing.js'), 
+	'DiscussionsFeedFilter', 
+	'StoryData'
+];
 
 angular.module('community.directory')
 	.controller('Hub', hubController);

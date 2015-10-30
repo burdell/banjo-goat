@@ -34,10 +34,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						constants: {
 							per_page: 30,
 							sortDir: 'DESC'
-						},
-						filterModel: {
-							sortField: 'lastActivityDate'
-						} 
+						}
 					});
 				}]
 			},
