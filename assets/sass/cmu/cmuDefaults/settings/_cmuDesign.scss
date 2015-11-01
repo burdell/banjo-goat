@@ -120,8 +120,7 @@ $style-line: 1px solid $cmu-color-line;
 // used for the meta user action details on feed
 .style-meta, %style-meta {
 	@extend %size-xsmaller;
-	font-weight: 300;
-	color: $cmu-color-gray;
+	color: $cmu-color-mdgray;
 	margin: $cmu-base/4 0;
 	margin-bottom: $cmu-base/2;
 }
@@ -141,14 +140,18 @@ $style-line: 1px solid $cmu-color-line;
 
 	// redesign (#95)
 	background-color: $cmu-color-purewhite;
-	color: $cmu-color-blue;
-	@extend %border-radius;
+	background-color: transparent;
+	// color: $cmu-color-blue; // too loud
+	color: $cmu-color-dkblue;
+
+	// @extend %border-radius;
 	@extend %ease-fast;
 
 	&:hover{
 		@extend %ease-fast;
-		background-color: $cmu-color-ltgray;
-		color: $cmu-color-dkblue;
+		// background-color: $cmu-color-ltgray;
+		color: $cmu-color-active;
+		border-color: $cmu-color-ltblue;
 	}
 }
 	.style-tag--noLine, %style-tag--noLine {

@@ -449,12 +449,15 @@ button, .button {
 	display: inline-block;
     margin-top: -1px;
     position:relative;
+    z-index: inherit;
 	@extend %ease-fast;
 
 	&:hover {
 		@extend %ease-fast;
 		color: $cmu-color-selected;
-		background-color: $cmu-color-hover--background;
+		border-color: $cmu-color-selected;
+    	z-index: $z-top; // prevents border overlap bug since we only want to show one button's border
+		// background-color: $cmu-color-hover--background;
 	}
 
 	&:first-child {

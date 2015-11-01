@@ -3,35 +3,17 @@
 $loader-large: 80px;
 $loader-large-border: 8px;
 
+$loader-small: 50px;
+$loader-small-border: 5px;
+
 .cmuLoader__container {
 	margin-top: $cmu-base*12;
 	margin-bottom: $cmu-base*12;
 }
 
-	.cmuLoader__container--bar {
+	.cmuLoader__container--short {
 		margin-top: $cmu-base*2;
 		margin-bottom: $cmu-base*2;
-
-		// &:before {
-		// 	content: ' ';
-		// 	display: block;
-		// 	position: relative;
-		// 	top: 60px;
-		// 	width: 140px;
-		// 	height: 40px;
-		// 	background-color: $cmu-color-bodybg;
-		// 	z-index: 1;
-  //   		margin: 0 auto;
-		// }
-
-		// &:after {
-		// 	content: ' ';
-		// 	border-bottom: $style-line;
-		// 	display: block;
-		// 	position: relative;
-		// 	top: -36px;
-		// 	z-index: 0;
-		// }
 	}
 
 	.cmuLoader {
@@ -44,17 +26,72 @@ $loader-large-border: 8px;
 		border-radius: 999px;
 		background-color: $cmu-color-bodybg;
 		z-index:2;
+
+		span {
+			position:absolute;
+			width: $loader-large;
+			height: $loader-large;
+			border: $loader-large-border solid transparent;
+			border-top: $loader-large-border solid $cmu-color-blue;
+			top: -$loader-large-border;
+			left: -$loader-large-border;
+			border-radius:999px;
+		}
 	}
-	.cmuLoader span {
-		position:absolute;
-		width: $loader-large;
-		height: $loader-large;
-		border: $loader-large-border solid transparent;
-		border-top: $loader-large-border solid $cmu-color-blue;
-		top: -$loader-large-border;
-		left: -$loader-large-border;
-		border-radius:999px;
+
+
+	.cmuLoader__container--small {
+		&.cmuLoader__container__bar {
+
+			&:before {
+				// this blocks part of the line from the middle / gives it space
+				content: ' ';
+				display: block;
+				position: relative;
+				top: 60px;
+				width: 140px;
+				height: 40px;
+				background-color: $cmu-color-bodybg;
+				z-index: 1;
+	    		margin: 0 auto;
+			}
+
+			&:after {
+				// the actual border
+				content: ' ';
+				border-bottom: $style-line;
+				display: block;
+				position: relative;
+				top: -26px;
+				z-index: 0;
+			}
+		}
+
+		.cmuLoader {
+			position:relative;
+			margin: 0 auto;
+			animation: rotate 1s infinite linear;
+			border: $loader-small-border solid $cmu-color-vltblue;
+			width: $loader-small;
+			height: $loader-small;
+			border-radius: 999px;
+			background-color: $cmu-color-bodybg;
+			z-index:2;
+
+			span {
+				position:absolute;
+				width: $loader-small;
+				height: $loader-small;
+				border: $loader-small-border solid transparent;
+				border-top: $loader-small-border solid $cmu-color-blue;
+				top: -$loader-small-border;
+				left: -$loader-small-border;
+				border-radius:999px;
+			}
+		}
 	}
+
+
 	@keyframes rotate {
 		0% {transform: rotate(0deg);}
 		100% {transform: rotate(360deg);}

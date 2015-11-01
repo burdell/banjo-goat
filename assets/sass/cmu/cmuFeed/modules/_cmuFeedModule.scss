@@ -174,6 +174,11 @@
 				&:before {color: $cmu-color-blue;}
 			}
 		}
+
+			.cmuFeed__item__container:last-child .cmuFeed__item{
+				border-bottom: 0;
+			}
+
 			.cmuFeed__subject {
 				font-weight: 600;
 			}

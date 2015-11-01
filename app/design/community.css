@@ -6790,10 +6790,6 @@ h6 {
   letter-spacing: 0.2px;
 }
 
-.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag {
-  border-radius: 4px;
-}
-
 .style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuFeed__actions a {
   color: #00a0df;
   cursor: pointer;
@@ -6836,8 +6832,7 @@ h6 {
 }
 
 .style-meta, .cmuFeed__userAction {
-  font-weight: 300;
-  color: #969ba3;
+  color: #bbbbbd;
   margin: 0.25rem 0;
   margin-bottom: 0.5rem;
 }
@@ -6849,11 +6844,12 @@ h6 {
   padding: 0.28125rem 0.5rem;
   background-color: #ebebeb;
   background-color: white;
-  color: #00a0df;
+  background-color: transparent;
+  color: #0074ad;
 }
 .style-tag:hover, .style-tag--noLine:hover, .cmuHoverflag:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover {
-  background-color: #ebebeb;
-  color: #0074ad;
+  color: #00a0df;
+  border-color: #13bcff;
 }
 
 .style-tag--noLine {
@@ -8744,6 +8740,10 @@ div.cmuCollapser__content {
   color: #00a0df;
 }
 
+.cmuFeed__item__container:last-child .cmuFeed__item {
+  border-bottom: 0;
+}
+
 .cmuFeed__subject {
   font-weight: 600;
 }
@@ -9813,6 +9813,7 @@ button .icon, .button .icon {
   display: inline-block;
   margin-top: -1px;
   position: relative;
+  z-index: inherit;
 }
 .button--tab:hover {
   color: default;
@@ -9821,7 +9822,8 @@ button .icon, .button .icon {
 }
 .button--tab:hover {
   color: #00a0df;
-  background-color: #f3f3f3;
+  border-color: #00a0df;
+  z-index: 1000;
 }
 .button--tab:first-child {
   margin-right: -1px;
@@ -10681,7 +10683,7 @@ select.cmuSort {
   margin-bottom: 12rem;
 }
 
-.cmuLoader__container--bar {
+.cmuLoader__container--short {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -10697,7 +10699,6 @@ select.cmuSort {
   background-color: #fafafa;
   z-index: 2;
 }
-
 .cmuLoader span {
   position: absolute;
   width: 80px;
@@ -10706,6 +10707,47 @@ select.cmuSort {
   border-top: 8px solid #00a0df;
   top: -8px;
   left: -8px;
+  border-radius: 999px;
+}
+
+.cmuLoader__container--small.cmuLoader__container__bar:before {
+  content: ' ';
+  display: block;
+  position: relative;
+  top: 60px;
+  width: 140px;
+  height: 40px;
+  background-color: #fafafa;
+  z-index: 1;
+  margin: 0 auto;
+}
+.cmuLoader__container--small.cmuLoader__container__bar:after {
+  content: ' ';
+  border-bottom: 1px solid #dadada;
+  display: block;
+  position: relative;
+  top: -26px;
+  z-index: 0;
+}
+.cmuLoader__container--small .cmuLoader {
+  position: relative;
+  margin: 0 auto;
+  animation: rotate 1s infinite linear;
+  border: 5px solid #ace7ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: #fafafa;
+  z-index: 2;
+}
+.cmuLoader__container--small .cmuLoader span {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 5px solid transparent;
+  border-top: 5px solid #00a0df;
+  top: -5px;
+  left: -5px;
   border-radius: 999px;
 }
 
