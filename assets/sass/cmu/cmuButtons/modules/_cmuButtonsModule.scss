@@ -443,29 +443,51 @@ button, .button {
 
 .button--tab {
 	@include cmuButton('outline',$cmu-color-mdgray,$cmu-color-ltgray);
-	color: $cmu-color-black;
+	color: $cmu-color-unselected;
+	background-color: $cmu-color-unselected--background;
 	margin-left: 0;
 	display: inline-block;
     margin-top: -1px;
+    position:relative;
 	@extend %ease-fast;
 
 	&:hover {
 		@extend %ease-fast;
-		color: $cmu-color-dkgray;
-		background-color: $cmu-color-ltmdgray;
+		color: $cmu-color-selected;
+		background-color: $cmu-color-hover;
 	}
 
 	&:first-child {
 		margin-right: -1px;
 	}
 
+
+	&:before {
+		@extend %ease-fast;
+		content: ' ';
+		display: block;
+		position: absolute;
+		left: 0;
+	    top: -1px;
+	    width: 100%;
+		border-top: 3px solid transparent;
+	}
+
 	&.active {
 		@extend %ease-none;
-		border-top: 3px solid $cmu-color-active;
-		color: $cmu-color-active;
-		background-color: $cmu-color-white;
-		line-height: $cmu-button-lineheight - remCalc(3px) * 2;
-		position:relative;
-		top: 1px;
+		// border-top: 3px solid $cmu-color-selected;
+		color: $cmu-color-selected;
+		background-color: $cmu-color-selected--background;
+		// line-height: $cmu-button-lineheight - remCalc(3px) * 2;
+		// top: 1px;
+
+		&:before {
+			@extend %ease-fast;
+			border-top: 3px solid $cmu-color-selected;
+			position: absolute;
+			left: 0;
+		    top: -1px;
+		    width: 100%;
+		}
 	}
 }

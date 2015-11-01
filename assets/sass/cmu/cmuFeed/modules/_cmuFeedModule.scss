@@ -5,31 +5,36 @@
 // 
 
 
+.cmuFeed {
+
+
+}
+
+
+
+
 // 
 // Common Elements
 // 
 
-// 
-// Homepage Feed
-// 
 %sidebar-icon {
 	@extend %font-ubnt;
 }
 
 
-// hide breadcrumbs
+// hide breadcrumbs only on feed
 .cmuFeed--home .cmuBreadcrumbs { 
 	display: none;
 }
-.cmuFeed {
 
-	.cmuDiscussionsHeader h3 {
-		// @extend %h2;
-		// margin-top: $cmu-vertical-rhythm*2;
-		// margin-bottom: $cmu-vertical-rhythm;
-	}
 
-}
+
+
+
+
+// 
+// Main Feed Area
+// 
 
 .cmuFeed__main {
 	padding-right: $cmu-base;
@@ -40,7 +45,6 @@
 	.cmuFeed__container {
 		padding: 0;
 		padding-top: $cmu-base/2;
-		// border: $style-line;
 	}
 
 	// update button
@@ -48,13 +52,10 @@
 		margin-bottom: $cmu-vertical-rhythm;
 	}
 
-	// location tag
-	.cmuFeed__location {
-		@extend %style-tag;
-	}
-
+	// 
 	.cmuFeed__title {
 		padding: $cmu-base/2 $cmu-base;
+		padding: $cmu-base/2;
 		border-bottom: $style-line;
 		height: $cmu-base*2;
 		* { line-height: $size-xxsmaller__lineHeight }
@@ -64,32 +65,31 @@
 		}
 	}
 
-	.cmuFeed__items {
-		margin-bottom: $cmu-base/2;
-	}
+
+
+
 
 	// 
 	// stories
 	// 
 
 	.cmuFeed__stories {
-		// border: $style-line;
-		// border-bottom: 0;
-
 		margin-bottom: $cmu-vertical-rhythm;
-		background-color: $cmu-color-post--light;
-		// padding-top: $cmu-base/2;
-		// padding-bottom: $cmu-base/2;
+		// background-color: $cmu-color-post--light;
 
+		.cmuCollapser__header {
+			background-color: transparent;
+		}
 
 		.cmuFeed__title {
-			border: 0;
+			// border: 0;
 		}
 
 	}
 		.cmuFeed__storyList {
 			.cmuFeed__storyList__stories {
-				padding: $cmu-base;
+				// padding: $cmu-base;
+				padding-top: $cmu-base;
 
 				&>div:first-child {
 					padding-left: 0;
@@ -99,7 +99,6 @@
 					padding-right: 0;
 				}
 			}
-
 		}
 		.cmuFeed__story {
 			@extend %style-listItem;
@@ -113,29 +112,6 @@
 				}
 			}
 		}
-
-			.cmuFeed__close {
-				text-align: right;
-				cursor: pointer;
-
-				// fpo
-			    position: absolute;
-			    right: 18px;
-			    top: 10px;
-
-			    span:before {
-			    	content: "\e6d0";
-			    }
-			}
-				.cmuFeed__close--closed {
-
-				    span:before {
-				    	content: "\e6cf";
-				    }
-					& ~ .cmuFeed__storyList {
-						display: none;
-					}
-				}
 
 		.cmuFeed__story__img__container {
 			height: $cmu-base*8;
@@ -188,14 +164,15 @@
 		// individual article items
 		.cmuFeed__item {
 			padding: $cmu-base/2 $cmu-base;
+			padding: $cmu-base/2 $cmu-base/2;
 			border-bottom: $style-line;
 			cursor: pointer;
 			overflow: hidden;
 			@extend %style-listItem;
-			background-color: $cmu-color-post;
+			// background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-white;
+				background-color: $cmu-color-purewhite;
 			}
 
 			.cmuIcon__label {
@@ -234,6 +211,12 @@
 					@extend %style-stat;
 					// margin-right: $cmu-base/2;
 				}
+
+			// product description tag
+			.cmuFeed__location {
+				@extend %style-tag;
+			}
+
 
 
 		.cmuFeed__pagerBottom {

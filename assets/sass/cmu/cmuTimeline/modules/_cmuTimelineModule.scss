@@ -43,11 +43,6 @@
 		&:after { content: ')' }
 	}
 
-	&:hover {
-		background: $cmu-color-threadlist-hover;
-		// border: 1px solid transparent;
-		@extend %ease-fast;
-	}
 	&.open {
 		// border-bottom: $style-line--thick;
 		// border: 1px solid transparent;

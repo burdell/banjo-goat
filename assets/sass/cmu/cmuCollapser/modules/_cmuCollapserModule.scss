@@ -31,10 +31,17 @@
 	& > div {
 		margin-left: $cmu-base*2; // give some room for the containing div
 	}
-	
+
+	&:hover {
+		background: $cmu-color-threadlist-hover;
+		// border: 1px solid transparent;
+		@extend %ease-fast;
+	}
+
 	// Open / Closed indicator
 	// default is closed
 	&:before {
+		@extend %ease-fast;
 		@extend %font-ubnt;
     	@include transition(max-height 360ms, opacity 360ms);
 		display: inline-block;
@@ -81,6 +88,27 @@
 
 	}
 }
+
+	// lighter color scheme used in the feed
+	.cmuCollapser__header--light {
+		&.open {
+			background-color: $cmu-color-purewhite;
+
+			&:hover {
+				background-color: $cmu-color-vltblue;
+				&:before {
+					background-color: $cmu-color-ltblue;
+					@extend %ease-fast;
+				}
+			}
+
+			&:before {
+				@extend %ease-fast;
+				background-color: $cmu-color-vltblue;
+			}
+		}
+	}
+
 	div.cmuCollapser__content {
 		@extend %ease-slow;
     	@include transition(max-height 360ms, opacity 360ms);
