@@ -454,7 +454,7 @@ button, .button {
 	&:hover {
 		@extend %ease-fast;
 		color: $cmu-color-selected;
-		background-color: $cmu-color-hover;
+		background-color: $cmu-color-hover--background;
 	}
 
 	&:first-child {

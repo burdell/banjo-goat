@@ -101,10 +101,6 @@ $style-line: 1px solid $cmu-color-line;
 	}
 }
 
-.style-ctaLink, %style-ctaLink {
-	@extend %style-link;
-}
-
 
 // 
 // Doodads
@@ -119,6 +115,15 @@ $style-line: 1px solid $cmu-color-line;
 	@extend %size-xsmaller;
 	color: $cmu-color-gray;
 	margin-bottom: $cmu-base/4;
+}
+
+// used for the meta user action details on feed
+.style-meta, %style-meta {
+	@extend %size-xsmaller;
+	font-weight: 300;
+	color: $cmu-color-gray;
+	margin: $cmu-base/4 0;
+	margin-bottom: $cmu-base/2;
 }
 
 
@@ -179,23 +184,9 @@ $style-line: 1px solid $cmu-color-line;
 // 
 // Right Rail links
 // - feed announcements
-/*
-	right_rail
-		links
-			cmuRailLink - rpt
-
-
-*/
-.cmuRailLink, %cmuRailLink {
+.style-railLink, %style-railLink {
 	@extend %size-normal;
 	margin-bottom: $cmu-vertical-rhythm*3/4;
-	// &:hover {
-	// 	// text-decoration: underline; 
-	// 	a {
-	// 		border-bottom: $style-line;
-	// 	}
-	// }
-
 	display: block;
 	@extend %style-link--dark;
 }

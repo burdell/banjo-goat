@@ -47,11 +47,13 @@
 			        </div>
 
 		        	<!-- story feed -->
-			        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
+			        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding collapseRight collapseSubtle" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
 
 						<div class="cmuCollapser__header cmuCollapser__header--light open" community-class-toggle="open">
 							<div class="cmuFeed__title"> 
-								<h5><span class="cmuIcon__label stories"></span>Latest Stories</h5>
+								<h5>
+								<!-- <span class="cmuIcon__label stories"></span> -->
+								Latest Stories</h5>
 							</div>
 						</div>
 						
@@ -76,7 +78,9 @@
 		        	<!-- activity feed -->
 			        <div class="cmuFeed__container col--md12">
 			        	<div class="cmuFeed__title clearfix">
-							<h5><span class="cmuIcon__label all"></span>{{ vm.feedTypeDisplay }}</h5>
+							<h5>
+							<!-- <span class="cmuIcon__label all"></span> -->
+							{{ vm.feedTypeDisplay }}</h5>
 						</div>
 			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
 			        		<community-feed-content content-model="feedItem"></community-feed-content>
@@ -109,7 +113,7 @@
 				<!-- links -->
 				<div class="cmuFeed__actions cmuFeed__sidebar__item">
 					<h5>Links</h5>
-					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 				</div>
 
 				<!-- hub -->

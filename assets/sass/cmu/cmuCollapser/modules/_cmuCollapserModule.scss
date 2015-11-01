@@ -122,7 +122,52 @@
 		overflow: hidden;
 	}
 
-	// not required; used for announcements
+
+// 
+// Align Right version
+// 
+
+
+.cmuCollapser.collapseRight, .cmuCollapser__container.collapseRight {
 	.cmuCollapser__header {
+		&:before {
+			float: right;
+			margin-right: 0;
+		}
+		& > div {
+			margin-left: 0;
+		}
 	}
+}
+
+// 
+// Subtle dropdown
+// 
+
+.cmuCollapser.collapseSubtle, .cmuCollapser__container.collapseSubtle {
+	.cmuCollapser__header {
+
+		&:hover {
+			background: $cmu-color-hover--background;
+		}
+
+		&:before {
+			background-color: transparent;
+			color: $cmu-color-gray;
+		}
+
+		&.open {
+			&:before {
+				background-color: transparent;
+				color: $cmu-color-active;
+			}
+		}
+	}
+}
+
+
+
+
+
+
 

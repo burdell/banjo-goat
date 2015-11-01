@@ -67,6 +67,11 @@
 .cmuIcon__label {
 	font-size: $cmu-base;
 	margin-right: $cmu-base/2;
+
+	// this helps all icons align with title text
+	position: relative;
+	top: 2px;
+
 	&:before {
 		color: $cmu-color-dkgray;
 	}

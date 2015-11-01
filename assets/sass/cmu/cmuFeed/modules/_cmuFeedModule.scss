@@ -7,7 +7,6 @@
 
 .cmuFeed {
 
-
 }
 
 
@@ -59,10 +58,6 @@
 		border-bottom: $style-line;
 		height: $cmu-base*2;
 		* { line-height: $size-xxsmaller__lineHeight }
-		.cmuIcon__label {
-			position: relative;
-			top: 2px;
-		}
 	}
 
 
@@ -172,7 +167,7 @@
 			// background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-purewhite;
+				background-color: $cmu-color-hover--background;
 			}
 
 			.cmuIcon__label {
@@ -189,10 +184,7 @@
 			}
 
 			.cmuFeed__userAction {
-				@extend %size-xsmaller;
-				color: $cmu-color-mdgray;
-				margin: $cmu-base/4 0;
-				margin-bottom: $cmu-base/2;
+				@extend %style-meta;
 			}
 			.cmuFeed__content {
 				@extend %size-normal;
@@ -202,7 +194,7 @@
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 36px; // preserve 2 lines
+			    max-height: $size-normal__lineHeight * 2; // preserve 2 lines; hard coded
 			}
 			.cmuFeed__stats {
 				text-align: right;
@@ -249,7 +241,7 @@
 	}
 
 	.cmuFeed__sidebar__link {
-		@extend %style-ctaLink;
+		@extend %style-link;
 	}
 
 	.cmuFeed__sidebar__item {
@@ -261,19 +253,14 @@
 			display: block;
 			padding: $cmu-base/4 0;
 			@extend %ease-fast;
-			@extend %style-ctaLink;
+			@extend %style-link;
 
 			// icon color
 			span:before { 
 				@extend %ease-fast;
 				color: $cmu-color-active;
 			}
-			&:hover {
-				span, span:before { 
-					@extend %ease-fast;
-					color: $cmu-color-dkgray;
-				}
-			}
+
 		}
 	}
 
@@ -282,7 +269,7 @@
 	}
 
 		.cmuFeed__anno {
-			@extend %cmuRailLink;
+			@extend %style-railLink;
 			margin-top: $cmu-base/2 !important;
 		}
 

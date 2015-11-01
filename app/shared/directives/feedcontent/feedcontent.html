@@ -13,6 +13,8 @@
 			{{ ::feedcontent.contentDisplay.body | unformatText }}
 		</div>
 		<div class="cmuFeed__userAction">
+			<community-username user="feedcontent.contentDisplay.getUser"></community-username>
+			<!-- {{ feedcontent.contentDisplay }} -->
 			<span>{{ ::feedcontent.contentDisplay.discussionActionString }}</span> &mdash; {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
 		</div>
 
