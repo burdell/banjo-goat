@@ -1,0 +1,58 @@
+<div>
+	<div class="cmuMega__section noBorder col--xs4">
+		<h1>Select A Platform</h1>
+	</div>
+	<div class="col--md8 alignRight">
+		<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
+			<span class="icon ubnt-icon--x"></span>
+		</div>
+	</div>
+	<div class="cmuMega__section noPaddingBottom col--xs12">
+		<div class="cmuMega__section__head col--md12">
+			Service Providers
+		</div>
+
+		<div class="cmuMega__section__col col--md12">
+			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.productCategories.broadband">
+				<a area-link-handler="{{ megamenu.templateCtrl.getProductUrl(product) }}">
+					<div class="cmuMega__icon">
+						<span class="icon {{ product.iconClass }}"></span>
+					</div>
+					<div class="cmuMega__desc">
+						{{ product.name }}
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="cmuMega__section noPaddingBottom col--xs12">
+		<div class="cmuMega__section__head col--md12">
+			Enterprise
+		</div>
+
+		<div class="cmuMega__section__col col--md12">
+			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.productCategories.enterprise">
+				<a area-link-handler="{{ megamenu.templateCtrl.getProductUrl(product) }}">
+					<div class="cmuMega__icon">
+						<span class="icon {{ product.iconClass }}"></span>
+					</div>
+					<div class="cmuMega__desc">
+						{{ product.name }}
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="cmuMega__section noPaddingBottom col--xs12" ng-if="::megamenu.templateCtrl.productCategories.general.length > 0">
+		<div class="cmuMega__section__head col--md12">
+			General
+		</div>
+
+		<div class="col--md12">
+			<div ng-repeat="product in ::megamenu.templateCtrl.productCategories.general" class="cmuMega__section__col">
+				<a area-link-handler="{{ megamenu.templateCtrl.getProductUrl(product) }}">{{ product.name }}</a>
+			</div>
+		</div>
+	</div>
+</div>

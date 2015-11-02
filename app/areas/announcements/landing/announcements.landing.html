@@ -7,8 +7,16 @@
 	<div class="landing-container">
 		<div class="cmuThreadlist__ctrl">
 			<div class="cmuThreadlist__listInfo row">
-				<button community-permissions="" class="button-ghost button-white-blue">Select Platform</button>
-				<button community-permissions="" class="button-ghost button-white-blue">Manage Subscriptions</button>
+				<div class="col--md2">
+					<community-product-navigator 
+						display-text="Select Platform"
+						product-route="announcements.list"
+						discussion-style="announcements">
+					</community-product-navigator>
+				</div>
+				<div class="col--md3">
+					<button community-permissions="" class="button--solid button--padded button-blue-white">Manage Subscriptions</button>
+				</div>				
 			</div>
 		</div>
 

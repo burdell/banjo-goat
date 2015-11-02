@@ -33,6 +33,7 @@ var utils = function($templateCache){
 	
 	utils.$inject = [];
 
+var serviceName = 'CommunityUtilsService';
 angular.module('community.services')
-	.service('CommunityUtilsService', utils);
-
+	.service(serviceName, utils);
+module.exports = serviceName;

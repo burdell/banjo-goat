@@ -82,7 +82,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 	}
 
 	function hasNoStories(nodeUrlCode){
-		return nodeUrlCode.indexOf('airCRM') >= 0
+		return nodeUrlCode === 'comm_stories' || nodeUrlCode.indexOf('airCRM') >= 0
 	}
 
 	var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
