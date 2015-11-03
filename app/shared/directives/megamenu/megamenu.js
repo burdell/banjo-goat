@@ -1,7 +1,6 @@
 
 'use strict';
 
-require('services/utils.js')
 var _ = require('underscore');
 
 function megaMenu() {
@@ -32,7 +31,7 @@ function megaMenu() {
 			}
 		});
 	};
-	controller.$inject = ['$rootScope', '$scope', 'CommunityUtilsService'];
+	controller.$inject = ['$rootScope', '$scope', require('services/utils.js')];
 
     var directive = {
         controller: controller,

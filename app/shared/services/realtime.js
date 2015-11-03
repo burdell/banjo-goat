@@ -61,6 +61,8 @@
 	};
 	realTime.$inject = [];
 
+	var serviceName = 'CommunityRealtimeService';
 	angular.module('community.services')
-		.factory('CommunityRealtimeService', realTime);
+		.factory(serviceName, realTime);
+	module.exports = serviceName;
 

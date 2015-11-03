@@ -1,14 +1,6 @@
 
 'use strict';
 
-require('services/api.js')
-require('services/nodestructure.js');
-require('services/realtime.js');
-require('services/routing.js');
-require('services/currentuser.js');
-
-require('providers/routes.js');
-
 require('directives/dropdown/dropdown.js');
 require('directives/searchbar/searchbar.js');
 require('directives/arealinkhandler/arealinkhandler.js');
@@ -106,12 +98,12 @@ function mainNavBar() {
 			'$scope', 
 			'$state',
 			'$location', 
-			'CommunityApiService',
-			'CommunityNodeService', 
-			'CommunityRealtimeService',
-			'CommunityRoutingService', 
-			'CurrentUserService',
-			'communityRoutes',
+			require('services/api.js'),
+			require('services/nodestructure.js'), 
+			require('services/realtime.js'),
+			require('services/routing.js'), 
+			require('services/currentuser.js'),
+			require('providers/routes.js'),
 			'$anchorScroll'
 		];
 	    
