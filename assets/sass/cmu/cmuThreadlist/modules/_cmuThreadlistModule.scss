@@ -1,37 +1,55 @@
 
 
-$cmu-forum-size-thread: $size-normal;
-$cmu-forum-size-numerical: $size-smaller; // $size-xsmaller;
-$cmu-forum-size-author: $size-smaller; // $size-xsmaller;
+
+$cmu-threadlist-size-thread: $size-normal;
+$cmu-threadlist-size-numerical: $size-smaller; // $size-xsmaller;
+$cmu-threadlist-size-author: $size-smaller; // $size-xsmaller;
+
+$cmu-threadlist-size-counterWidth: 5%;
+$cmu-threadlist-size-maxWidth: 100px;
+$cmu-threadlist-size-maxWidth--author: 100px;
 
 
-$cmu-forum-size-counterWidth: 5%;
-$cmu-forum-size-maxWidth: 100px;
-$cmu-forum-size-maxWidth--author: 100px;
+// left and right edge offset
+$cmu-threadlist-offset: $cmu-base/2;
+
+// padding for each cell
+$cmu-threadlist-padding: $cmu-base*3/4;
+
+// Adjusting Cell Height
+//  - don't only use line-height to adjust cell height, as wrapped threads will look off
+//  - use padding to adjust distance from top and bottom edge
+//  - user avatars need to fit inside the line height
+//     - can't place avatars absolute, as they won't valign properly
+// top/bottom padding for each cell
+$cmu-threadlist-height: $cmu-vertical-rhythm*1/2;
+$cmu-threadlist-lineheight: $cmu-vertical-rhythm*1/2;
+$cmu-threadlist-avatar: remCalc(20px); // hard coded for now 
+
+
+// notes
 
 
 
 // 
-// HEAD
-// 
-
-// 
-// Filters and Dropdowns for threadlist
+// CONTROLS
 // 
 
 // control group for buttons, filters, pagination, etc.
 .cmuThreadlist__ctrl {
 	// border-bottom: 1px solid $cmu-color-ltgray;
-	padding-bottom: $cmu-base/2;
-	margin-bottom: $cmu-base/2;
+	margin-bottom: $cmu-vertical-rhythm;
 }
+	.cmuThreadlist__ctrl--bottom {
+		margin-top: $cmu-vertical-rhythm;
+	}
 
 .cmuThreadlist__ctrl__row {
 	margin-bottom: $cmu-vertical-rhythm/2;
 }
 
 	.cmuThreadlist__postCount {
-		font-size: $cmu-forum-size-thread;
+		font-size: $cmu-threadlist-size-thread;
 		font-weight: 400;
 		line-height: $cmu-base*2;
 
@@ -42,228 +60,186 @@ $cmu-forum-size-maxWidth--author: 100px;
  
 
 //  
-// Threadlist 
-//    
+// THREAD TABLE 
+//   
+.cmuThreadlist__table {
+	@extend %disp--table;
+    width: 100%; // fill the entire grid w the table
+}
+ 
+
 
 // 
-// Define column widths
+// Layout Styles
 // 
-%cmuThreadList__column--topic {
-	width: auto;
-}
 
-%cmuThreadList__column--authorLast {
-	width: 4%;
-	padding-right: $cmu-base/2;
-	max-width: $cmu-forum-size-maxWidth--author;
-	font-size: $cmu-forum-size-author; //$size-xsmaller;
-	white-space: nowrap;
+// Headers
 
-	// user avatar sizing
-	& > .cmuUserbadge__avatar {
-	    width: $size-avatar--small;
-	    height: $size-avatar--small;
-	}
-
-	// author links disabled so entire row can link to message
-	a, a:hover {
-		color: $cmu-color-dkgray;
+.cmuThreadlist__headers {
+	@extend %disp--thead;
+	div {
+		@extend %disp--cell;
+		cursor: default;
+		border-bottom: $style-line;
+		font-weight: 300; 
+		@extend %size-xsmaller;
+		color: $cmu-color-inactive;
 	}
 }
-%cmuThreadList__column--author {
-	@extend %cmuThreadList__column--authorLast;
-	@include respondTo(medium-down) {
-		display: none;
-	}
-	// the column to the right of author must have padding or long names run into each other
-	& + td, & + th {
-		padding-left: $cmu-base/2;
-	}
-}
-%cmuThreadList__column--counter {
-	width: $cmu-forum-size-counterWidth;
-	text-align: left;
 
+
+
+// 
+// Column Styles
+// 
+.cmuThreadlist__body {
+	@extend %disp--tbody;
+
+}
+	// row style
+	// remember that in a table, cells fill out a row
+	// and rows can't be styled; style each cell individually instead
+	.cmuThreadList__row {
+		@extend %disp--tr;
+		position: relative; // important for icon placement
+		@extend %style-listItem;
+
+		// general cell styles in a row
+		& > div {
+			@extend %disp--cell;
+			position: relative;
+			overflow: hidden; 
+			border-bottom: $style-line;
+		    // line-height: $cmu-threadlist-height;
+			padding-top: $cmu-threadlist-height;
+			padding-bottom: $cmu-threadlist-height;
+    		vertical-align: middle;
+		}
+
+		& > div:first-child {
+			padding-left: $cmu-threadlist-offset;
+		}
+		& > div:last-child {
+			padding-right: $cmu-threadlist-offset;
+		}
+
+		// isRead style
+		.isRead div {
+
+		}
+	}
+
+	// Topic
+	.cmuThreadlist__topic {
+		padding-right: $cmu-threadlist-padding;
+	}
+
+	// Preview
+	.cmuThreadlist__preview {
+		padding-left: $cmu-threadlist-offset;
+		padding-right: $cmu-threadlist-offset;
+	}
+
+	// Auhtor Date
+	// - combining author and date
+	// - Created column
+	// - Latest column
+
+	.cmuThreadlist__authorDate {
+		font-size: $cmu-threadlist-size-numerical;
+		min-width: $cmu-base*30/4;
+
+		.cmuThreadlist__avatar {
+			// width: $size-avatar--small;
+			// height: $size-avatar--small;
+			display: inline-block;
+			float: left; 
+			// vertical-align: middle;
+		}
+		.cmuUserbadge__avatar {
+			// @extend .cmuUserbadge__avatar--small;
+			// position: absolute;
+    		// top: $cmu-vertical-rhythm/2;
+    		height: $cmu-threadlist-avatar;
+    		width: $cmu-threadlist-avatar;
+		}
+		.cmuThreadlist__date {
+			display: inline-block;
+			// margin-left: $cmu-base*2.5;
+		}
+	}
+
+
+// Counters (kudos, etc.)
+
+%cmuThreadlist__counter {
+	width: $cmu-threadlist-size-counterWidth;
+	text-align: center;
+	font-size: $cmu-threadlist-size-numerical;
+ 
 	// @include respondTo(medium-down) {
 		// padding-right: $cmu-base/2;
 	// }
 }
 
-
-// 
-// Date Columns
-// 
-
-%cmuThreadList__column--latestDate {
-	// padding-left: $cmu-base/2;
-	width: 12%;
-  	min-width: 80px;
-	text-align: left;
-}
-%cmuThreadList__column--createdDate {
-	@extend %cmuThreadList__column--latestDate;
-	@include respondTo(small-down) {
-		display: none;
+	.cmuThreadlist__counter {
+		@extend %cmuThreadlist__counter;
+		padding-right: $cmu-base/2;
 	}
-}
 
-
-
-
-// 
-// THREAD DESCRIPTORS
-// 
-
-.cmuThreadlist__list thead {
-	border-bottom: $style-line;
-
-	th {
-		// @extend .type-titleThin;
-		font-weight: 300; 
-		@extend %size-xsmaller;
-		color: $cmu-color-mdgray;
-		// text-transform: uppercase;
-		@extend %ease-fast;
-	}
-}
-	.cmuThreadlist__thead--topic {
-		@extend %cmuThreadList__column--topic;
-		text-align: left;
-		padding-left: $cmu-base/2;
-	}
-	.cmuThreadlist__thead--author {
-		@extend %cmuThreadList__column--author;
-		text-align: left;
-	}
-	.cmuThreadlist__thead--createdDate {
-		@extend %cmuThreadList__column--createdDate;
-	}
-	.cmuThreadlist__thead--authorLast {
-		@extend %cmuThreadList__column--authorLast;
-		text-align: left;
-	}
-	.cmuThreadlist__thead--counter {
-		@extend %cmuThreadList__column--counter;
-	}
-		.cmuThreadlist__thead--views {
-			@extend %cmuThreadList__column--counter;
-			width: $cmu-forum-size-counterWidth + 1%;
-			&:after {content: 'Views';}
-			@include respondTo(small-down) {
-				&:after {content: 'V';}
-			}
+		.cmuThreadlist__views {
+			padding-left: $cmu-base/2;
+			// width: $cmu-threadlist-size-counterWidth + 2%;
 		}
-		.cmuThreadlist__thead--replies {
-			&:after {content: 'Replies';}
-			@include respondTo(small-down) {
-				&:after {content: 'R';}
-			}
+		.cmuThreadlist__replies {
 		}
-		.cmuThreadlist__thead--kudos {
-			&:after {content: 'Kudos';}
-			@include respondTo(small-down) {
-				&:after {content: 'K';}
-			}
+		.cmuThreadlist__kudos {
 		}	
-	.cmuThreadlist__thead--latestDate {
-		@extend %cmuThreadList__column--latestDate;
-	}
+
+		// threadlist headers responsive text
+		.cmuThreadlist__headers {
+
+			.cmuThreadlist__views {
+				&:after {content: 'Views';}
+				@include respondTo(small-down) {
+					&:after {content: 'V';}
+				}
+			}
+			.cmuThreadlist__replies {
+				&:after {content: 'Replies';}
+				@include respondTo(small-down) {
+					&:after {content: 'R';}
+				}
+			}
+			.cmuThreadlist__kudos {
+				&:after {content: 'Kudos';}
+				@include respondTo(small-down) {
+					&:after {content: 'K';}
+				}
+			}	
+		}
+
+
 
 
 
 
 
 // 
-// EACH ROW
+// Other
 // 
-.cmuThreadList__row {
-	position: relative; // important for icon placement
-	// @extend %size-community-base;
-	border-top: $style-line;
-	border-bottom: $style-line;
-	padding-top: $cmu-vertical-rhythm/2;
-	padding-bottom: $cmu-vertical-rhythm/2;
-    line-height: $cmu-base*2.5;
-
-	@extend %style-listItem;
-	display: table-row;
-
-	td {
-		overflow: hidden; 
-	}
-
-	.cmuThreadList__tooltip {
-		opacity: 0;
-		@extend %ease-fast;
-	}
-	&:hover .cmuThreadList__tooltip {
-		opacity: 1;
-		@extend %ease-fast;
-	}
-}
-
-	.cmuThreadList__row__topic {
-		// * { font-weight: 400; }
-		height: 100%; //required for eyecon
-		padding-right: $cmu-base*4;
-		// @extend %style-community-mainlink;
-		line-height: $cmu-base;
-		padding: $cmu-base/4 $cmu-base/2;
-		position: relative; //important for icon placement
-
-		// a {
-		// 	color: $cmu-color-black;
-		// 	&:hover {
-		// 		color: $cmu-color-active; 
-		// 	}
-		// }
-	}
-
-	.cmuThreadList__row__author {
-		@extend %cmuThreadList__column--author;
-		line-height: $cmu-base;
-
-	}
-
-	.cmuThreadList__row__authorLast {
-		@extend %cmuThreadList__column--authorLast;
-		line-height: $cmu-base;
-	}
-
-	.cmuThreadList__row__counter {
-		@extend %cmuThreadList__column--counter;
-		padding-right: $cmu-base/2;
-		font-size: $cmu-forum-size-numerical;
-	}
-
-		// .cmuThreadList__row__counter--views {
-		// 	width: $cmu-forum-size-counterWidth;
-		// }
-
-	.cmuThreadList__row__latestDate {
-		@extend %cmuThreadList__column--latestDate;
-		padding-right: $cmu-base/2;
-		line-height: 1rem;
-		// color: $cmu-color-dkgray;
-		font-size:  $cmu-forum-size-numerical;
-	}
-	.cmuThreadList__row__createdDate {
-		@extend .cmuThreadList__row__latestDate;
-		@extend %cmuThreadList__column--createdDate;
-	}
 
 
-
+// Tooltip
 .cmuThreadList__tooltip {
-	// display: inline-block;
-	// float: right;
-	// padding-right: $cmu-base;
+	opacity: 0;
+	@extend %ease-fast;
 
 	display: inline-block;
     float: right;
-    // /* position: absolute; */
     right: 8px;
     height: 100%;
+
 	.icon:before {
 		color: $cmu-color-mdgray;
 		@extend %ease-fast;
@@ -276,68 +252,258 @@ $cmu-forum-size-maxWidth--author: 100px;
 		}
 	}
 }
-
-
-
-// 
-// separate list of pinned threads
-// 
-.cmuThreadlist__pinnedList {
-	border-bottom: $style-line--thick;
-	border-color: $cmu-color-dkgray;
+.cmuThreadList__row:hover .cmuThreadList__tooltip {
+	opacity: 1;
+	@extend %ease-fast;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 
-// Thread Status
 // 
+//			OLD STUFF 
+// 
+// 
+//
 
-	// Pinned Thread
-	.cmuThreadList__row--pinned {
-		.cmuThreadList__row__topic:after {
-			content: ' ';
-			display: inline-block;
-			position: relative;
-				top: 4px;
-			width: $cmu-base*0.8;
-			height: $cmu-base*0.8;
 
-			@extend .cmuIcon-pin;
-	  		background-repeat: no-repeat;
-		}
-	}
 
-	// Active Thread
-	.cmuThreadList__row--active {
-		.cmuThreadList__row__topic > a:before {
-			content: 'ACTIVE';
-			display: inline-block;
-			background-color: $cmu-color-red;
-			padding: $cmu-base/6 $cmu-base/2;
-			margin-right: $cmu-base/2;
-			color: $cmu-color-white;
-			font-size: $size-xxsmaller;
-			line-height: $cmu-base;
-		}
-	}
+// // 
+// // Date Styles
+// // 
+// %cmuThreadList__column--latestDate {
+// 	// padding-left: $cmu-base/2;
+// 	width: 12%;
+//   	min-width: 80px;
+// 	text-align: left;
+// }
+// %cmuThreadList__column--createdDate {
+// 	@extend %cmuThreadList__column--latestDate;
+// 	@include respondTo(small-down) {
+// 		display: none;
+// 	}
+// }
 
-	// Locked Thread
-	.cmuThreadList__row--locked {
-		.cmuThreadList__row__topic > a:after {
-			font-family: 'ubnt';
-			content: '\e78e';
-			display: inline-block;
-			padding: $cmu-base/6 $cmu-base/4;
-			// font-size: $size-xxsmaller;
-		}
-	}
 
-	// Read Thread
-	.cmuThreadList__row--read {
-		a, .cmuThreadList__row__counter { font-weight: 300; }
-		background-color: $cmu-color-ltgray;
-		border-color: darken($cmu-color-ltgray,5);
-	}
+
+
+// // 
+// // THREAD DESCRIPTORS
+// // 
+
+// 	.cmuThreadlist__thead--topic {
+// 		width: auto;
+// 		text-align: left;
+// 		padding-left: $cmu-base/2;
+// 	}
+// 	.cmuThreadlist__thead--author {
+// 		@extend %cmuThreadList__column--author;
+// 		text-align: left;
+// 	}
+// 	.cmuThreadlist__thead--createdDate {
+// 		@extend %cmuThreadList__column--createdDate;
+// 	}
+// 	.cmuThreadlist__thead--authorLast {
+// 		@extend %cmuThreadList__column--authorLast;
+// 		text-align: left;
+// 	}
+
+
+
+
+// // 
+// // EACH ROW
+// // 
+
+// .cmuThreadList__row {
+// 	position: relative; // important for icon placement
+// 	// @extend %size-community-base;
+// 	border-top: $style-line;
+// 	border-bottom: $style-line;
+// 	padding-top: $cmu-vertical-rhythm/2;
+// 	padding-bottom: $cmu-vertical-rhythm/2;
+//     line-height: $cmu-base*2.5;
+
+// 	@extend %style-listItem;
+// 	display: table-row;
+
+// 	.disp--td {
+// 		overflow: hidden; 
+// 	}
+
+// 	.cmuThreadList__tooltip {
+// 		opacity: 0;
+// 		@extend %ease-fast;
+// 	}
+// 	&:hover .cmuThreadList__tooltip {
+// 		opacity: 1;
+// 		@extend %ease-fast;
+// 	}
+// }
+
+// 	.cmuThreadList__row__topic {
+// 		// * { font-weight: 400; }
+// 		height: 100%; //required for eyecon
+// 		padding-right: $cmu-base*4;
+// 		// @extend %style-community-mainlink;
+// 		line-height: $cmu-base;
+// 		padding: $cmu-base/4 $cmu-base/2;
+// 		position: relative; //important for icon placement
+
+// 		// a {
+// 		// 	color: $cmu-color-black;
+// 		// 	&:hover {
+// 		// 		color: $cmu-color-active; 
+// 		// 	}
+// 		// }
+// 	}
+
+// 	.cmuThreadList__row__author {
+// 		@extend %cmuThreadList__column--author;
+// 		line-height: $cmu-base;
+
+// 	}
+
+// 	.cmuThreadList__row__authorLast {
+// 		@extend %cmuThreadList__column--authorLast;
+// 		line-height: $cmu-base;
+// 	}
+
+// 	.cmuThreadList__row__counter {
+// 		@extend %cmuThreadlist__counter;
+// 		padding-right: $cmu-base/2;
+// 		font-size: $cmu-threadlist-size-numerical;
+// 	}
+
+// 		// .cmuThreadList__row__counter--views {
+// 		// 	width: $cmu-threadlist-size-counterWidth;
+// 		// }
+
+// 	.cmuThreadList__row__latestDate {
+// 		@extend %cmuThreadList__column--latestDate;
+// 		padding-right: $cmu-base/2;
+// 		line-height: 1rem;
+// 		// color: $cmu-color-dkgray;
+// 		font-size:  $cmu-threadlist-size-numerical;
+// 	}
+// 	.cmuThreadList__row__createdDate {
+// 		@extend .cmuThreadList__row__latestDate;
+// 		@extend %cmuThreadList__column--createdDate;
+// 	}
+
+
+
+// .cmuThreadList__tooltip {
+// 	// display: inline-block;
+// 	// float: right;
+// 	// padding-right: $cmu-base;
+
+// 	display: inline-block;
+//     float: right;
+//     // /* position: absolute; */
+//     right: 8px;
+//     height: 100%;
+// 	.icon:before {
+// 		color: $cmu-color-mdgray;
+// 		@extend %ease-fast;
+// 	}
+// 	&:hover {
+// 		@extend %ease-fast;
+// 		.icon:before {
+// 		@extend %ease-fast;
+// 			color: $cmu-color-active;
+// 		}
+// 	}
+// }
+
+
+
+// // 
+// // separate list of pinned threads
+// // 
+// .cmuThreadlist__pinnedList {
+// 	border-bottom: $style-line--thick;
+// 	border-color: $cmu-color-dkgray;
+// }
+
+
+
+
+
+
+
+
+
+// // 
+// // Special States
+// // 
+
+// 	// Pinned Thread
+// 	.cmuThreadList__row--pinned {
+// 		.cmuThreadList__row__topic:after {
+// 			content: ' ';
+// 			display: inline-block;
+// 			position: relative;
+// 				top: 4px;
+// 			width: $cmu-base*0.8;
+// 			height: $cmu-base*0.8;
+
+// 			@extend .cmuIcon-pin;
+// 	  		background-repeat: no-repeat;
+// 		}
+// 	}
+
+// 	// Active Thread
+// 	.cmuThreadList__row--active {
+// 		.cmuThreadList__row__topic > a:before {
+// 			content: 'ACTIVE';
+// 			display: inline-block;
+// 			background-color: $cmu-color-red;
+// 			padding: $cmu-base/6 $cmu-base/2;
+// 			margin-right: $cmu-base/2;
+// 			color: $cmu-color-white;
+// 			font-size: $size-xxsmaller;
+// 			line-height: $cmu-base;
+// 		}
+// 	}
+
+// 	// Locked Thread
+// 	.cmuThreadList__row--locked {
+// 		.cmuThreadList__row__topic > a:after {
+// 			font-family: 'ubnt';
+// 			content: '\e78e';
+// 			display: inline-block;
+// 			padding: $cmu-base/6 $cmu-base/4;
+// 			// font-size: $size-xxsmaller;
+// 		}
+// 	}
+
+// 	// Read Thread
+// 	.cmuThreadList__row--read {
+// 		a, .cmuThreadList__row__counter { font-weight: 300; }
+// 		background-color: $cmu-color-ltgray;
+// 		border-color: darken($cmu-color-ltgray,5);
+// 	}
 
 
 

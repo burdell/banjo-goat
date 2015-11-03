@@ -91,7 +91,12 @@
 
 	// lighter color scheme used in the feed
 	.cmuCollapser__header--light {
+		h5 {
+			color: $cmu-color-inactive;
+		}
+
 		&.open {
+			color: $cmu-color-body;
 			background-color: $cmu-color-purewhite;
 
 			&:hover {

@@ -20,6 +20,7 @@ $style-line: 1px solid $cmu-color-line;
 }
 
 
+
 // 
 // Text Styles
 // 
@@ -32,6 +33,7 @@ $style-line: 1px solid $cmu-color-line;
 // Standard Links blue w/ dark hover
 .style-link, %style-link {
 	@extend %ease-fast;
+	@extend %user-select-none;
 	// display: inline-block;
 	color: $cmu-color-link;
 	cursor: pointer;
@@ -133,6 +135,7 @@ $style-line: 1px solid $cmu-color-line;
 .style-tag, %style-tag, .cmuTag {
 	display: inline-block;
 	@extend %size-xxsmaller;
+	// @extend %user-select-none;
 	color: $cmu-color-dkgray;
 	border: $style-line;
 	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;

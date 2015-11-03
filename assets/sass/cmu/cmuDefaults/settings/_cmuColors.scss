@@ -79,6 +79,9 @@ $cmu-color-purewhite: 	#FFF;
 	// Active text
 	$cmu-color-active: $cmu-color-blue;
 
+	// Components that are considered "off" or "inactive" but not disabled
+	$cmu-color-inactive: $cmu-color-gray;
+
 	// Used for lighter labels
 	$cmu-color-label: $cmu-color-gray;
 

@@ -69,20 +69,30 @@
 		cursor: pointer;
 		border-radius: 99999px;
 
-		&:after {
-			content: ' ';
-			display:block;
+		// &:after {
+			// content: ' ';
+			display: inline-block;
 			// background-position: 10px 10px;
-    		background-position-x: -30px;
+    		// background-position-x: -30px;
+    		background-size: cover;
 			border-radius: 50%;
 			background-repeat: no-repeat;
 			width: $size-avatar;
 			height: $size-avatar;
 			@include transition-duration(0.35s);
 			@include transition-timing-function(ease-out);
+		// }
+	}
+		.cmuUserbadge__avatar--small {
+			
+			// &:after {
+			width: $size-avatar--small;
+			height: $size-avatar--small;
+			// }
 		}
 
-	}
+
+
 	.cmuUserbadge__account {
 
 		.cmuUsername {

@@ -137,8 +137,8 @@ function feedContent($compile, $templateCache) {
 
 		_.extend(ctrl, {
 			contentDisplay: contentDisplay,
-			isUnread: function(){
-				return !ctrl.contentModel.context.lastReadDate;
+			isRead: function(){
+				return !!ctrl.contentModel.context.lastReadDate; //returns true if lastreaddate exists
 			}
 		});
 	};

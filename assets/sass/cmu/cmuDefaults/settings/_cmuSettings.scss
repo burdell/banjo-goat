@@ -164,3 +164,17 @@ $z-mega: 800;	// mega popover
 
 
 
+// 
+// Converting HTML tables to CSS tables
+// 
+%disp--table     		{ display: table; }
+%disp--tr        		{ display: table-row }
+%disp--thead     		{ display: table-header-group }
+%disp--tbody     		{ display: table-row-group }
+%disp--tfoot     		{ display: table-footer-group }
+%disp--col       		{ display: table-column }
+%disp--colgroup  		{ display: table-column-group }
+%disp--cell, %disp--td, %disp--th    { display: table-cell }
+%disp--caption   		{ display: table-caption }
+
+

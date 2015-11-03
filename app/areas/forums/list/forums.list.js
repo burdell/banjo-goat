@@ -44,8 +44,8 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 			var page = forumListFilter.model('page') || 1;
 			return currentListIndex * page;
 		},
-		isUnread: function(forumThread){
-			return !forumThread.context.lastReadDate;
+		isRead: function(forumThread){
+			return !!forumThread.context.lastReadDate;
 		}
 	});
 }
