@@ -106,7 +106,12 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-darken: rgba(0,0,0,0.3); 					// used for button onhover states
 
 	// Thread lists
-	$cmu-color-threadlist-hover: $cmu-color-hover--background; 			// used when hovering over a row in a list
+	$cmu-color-threadlist-hover: $cmu-color-active;
+	$cmu-color-threadlist-hover--background: $cmu-color-ltgray; 			// used when hovering over a row in a list
+	$cmu-color-unread: $cmu-color-black;
+	$cmu-color-isRead: $cmu-color-gray;
+	$cmu-color-isRead--background: $cmu-color-xltgray;
+
 
 // 
 // ENVIRONMENT

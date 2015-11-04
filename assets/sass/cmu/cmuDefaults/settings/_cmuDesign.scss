@@ -90,17 +90,15 @@ $style-line: 1px solid $cmu-color-line;
 // - background: 	light (depends on context, and isn't set by this module)
 .style-listItem, %style-listItem {
 	@extend %size-normal;
-	@extend %style-link--dark;
+	// @extend %style-link--dark;
 	@extend %ease-fast;
 	// background-color: $cmu-color-ltgray;
 
 	&:hover {
-		background: $cmu-color-threadlist-hover;
+		background-color: $cmu-color-threadlist-hover--background;
 		cursor: pointer;
-		.cmuThreadList__row__topic {
-			color: $cmu-color-link--dark_hover;
-		}
 	}
+
 }
 
 

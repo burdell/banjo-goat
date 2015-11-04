@@ -310,7 +310,7 @@
 // Hover Flag
 // - hoverable expandable tooltip
 // 
-.cmuUserbadge:hover {
+.cmuUserbadge--showFlag:hover {
 	.cmuUserbadge__flag {
 		display: block;
 	}
@@ -323,8 +323,9 @@
 	.cmuUserbadge__flag__container {
 		position: absolute;
 		z-index: $z-top;
-		top: -66px;
-		left: -$cmu-base;
+		bottom: $cmu-base*2;
+	    width: $cmu-base*20;
+	    right: -$cmu-base;
 		padding: $cmu-base;
 
 		background-color: $cmu-color-white;
@@ -336,4 +337,30 @@
 		}
 	}
 }
+
+// 
+// Avatar-only display of user badge
+// (only shows user-avatar, can be paired with userbadge__flag)
+//
+.cmuUserbadge--showUser .cmuUserbadge__main {
+	.cmuUsername,
+	.cmuUserbadge__points,
+	.cmuUserbadge__info
+	{
+		display: none;
+	}
+
+	.cmuUserbadge__account {
+		padding: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
 

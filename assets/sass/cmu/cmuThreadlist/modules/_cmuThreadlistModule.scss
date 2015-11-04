@@ -102,6 +102,14 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	.cmuThreadList__row {
 		@extend %disp--tr;
 		position: relative; // important for icon placement
+		
+		// isRead styles are designed separately
+		&.isRead {
+			// background-color: $cmu-color-isRead--background;
+			// color: $cmu-color-red;
+		}
+
+		// defines thread item hover colors
 		@extend %style-listItem;
 
 		// general cell styles in a row
@@ -116,6 +124,14 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
     		vertical-align: middle;
 		}
 
+		// unread post
+		color: $cmu-color-green;
+		&:hover {
+			color: $cmu-color-threadlist-hover;
+			background-color: $cmu-color-threadlist-hover--background;
+		}
+
+
 		& > div:first-child {
 			padding-left: $cmu-threadlist-offset;
 		}
@@ -123,10 +139,6 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 			padding-right: $cmu-threadlist-offset;
 		}
 
-		// isRead style
-		.isRead div {
-
-		}
 	}
 
 	// Topic
@@ -146,15 +158,20 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	// - Latest column
 
 	.cmuThreadlist__authorDate {
+		overflow: visible !important;
 		font-size: $cmu-threadlist-size-numerical;
 		min-width: $cmu-base*30/4;
 
 		.cmuThreadlist__avatar {
 			// width: $size-avatar--small;
 			// height: $size-avatar--small;
-			display: inline-block;
+			// display: inline-block;
 			float: left; 
 			// vertical-align: middle;
+		}
+		.cmuUserbadge {
+			display: inline;
+		// 	float: left; 
 		}
 		.cmuUserbadge__avatar {
 			// @extend .cmuUserbadge__avatar--small;

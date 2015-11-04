@@ -65,52 +65,13 @@
             ng-class="{'isRead':vm.isRead(message)}"
             >
 
-            <div class="cmuThreadlist__topic">
-              {{ ::message.topic.subject | htmlUnescape }}
-              <span ng-if="vm.isRead(message)">*</span>
-            </div>
-
-            <div class="cmuThreadlist__preview">
-              <span 
-                class="cmuTooltip cmuThreadList__tooltip"
-                community-tooltip
-                data-id-field="{{ ::message.id }}" 
-                ajax-populate="vm.getMessageData" 
-                tooltip-template="forums/list/forums.list.messagetooltip.html"
-                local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-                empty-text="This post only contains images or video."
-              ><span class="icon ubnt-icon--eye2"></span></span>
-            </div>
-
-            <div class="cmuThreadlist__created cmuThreadlist__authorDate">
-              <div class="cmuThreadlist__avatar"> 
-                <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
-              </div>
-              
-              <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
-              </div>
-            </div>
-
-            <div class="cmuThreadlist__counter cmuThreadlist__views">
-              {{  message.topic.countViews | number}}
-            </div>
-            <div class="cmuThreadlist__counter cmuThreadlist__replies">
-              {{  message.context.totalMessageCount - 1 | number}}
-            </div>
-            <div class="cmuThreadlist__counter cmuThreadlist__kudos">
-              {{  message.topic.message.scores.kudo | number}}
-            </div>
-            <div class="cmuThreadlist__latest cmuThreadlist__authorDate">
-              <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
-              <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
-              </span>
-            </div>
-
-<!-- 
-          <div class="cmuThreadList__row__topic disp--td">
+          <div class="cmuThreadlist__topic">
             {{ ::message.topic.subject | htmlUnescape }}
-            <span ng-if="vm.isUnread(message)">*</span>
-            <div 
+            <span ng-if="vm.isRead(message)">*</span>
+          </div>
+
+          <div class="cmuThreadlist__preview">
+            <span 
               class="cmuTooltip cmuThreadList__tooltip"
               community-tooltip
               data-id-field="{{ ::message.id }}" 
@@ -118,36 +79,42 @@
               tooltip-template="forums/list/forums.list.messagetooltip.html"
               local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
               empty-text="This post only contains images or video."
-            ><span class="icon ubnt-icon--eye2"></span></div>
+            ><span class="icon ubnt-icon--eye2"></span></span>
           </div>
-          <div class="cmuThreadList__row__author disp--td">
-            <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+
+          <div class="cmuThreadlist__created cmuThreadlist__authorDate">
+            <div class="cmuThreadlist__avatar"> 
+              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--showUser" user="message.topic.message.insertUser"></community-user-badge>
+            </div>
+            
+            <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
+            </div>
           </div>
-          <div class="cmuThreadList__row__createdDate disp--td">{{ ::message.topic.message.postDate | timeFromNow }}
-          </div>
-          <div class="cmuThreadList__row__counter cmuThreadList__row__counter--views disp--td" title="views">
+
+          <div class="cmuThreadlist__counter cmuThreadlist__views">
             {{  message.topic.countViews | number}}
           </div>
-          <div class="cmuThreadList__row__counter disp--td" title="comments">
+          <div class="cmuThreadlist__counter cmuThreadlist__replies">
             {{  message.context.totalMessageCount - 1 | number}}
           </div>
-          <div class="cmuThreadList__row__counter disp--td" title="kudos">
+          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
             {{  message.topic.message.scores.kudo | number}}
           </div>
-          <div class="cmuThreadList__row__authorLast disp--td">
-            <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+          <div class="cmuThreadlist__latest cmuThreadlist__authorDate">
+            <div class="cmuThreadlist__avatar"> 
+              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--showUser" user="message.context.lastestMessage.insertUser"></community-user-badge>
+            </div>
+            <div class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
+            </div>
           </div>
-          <div class="cmuThreadList__row__latestDate disp--td">{{ message.topic.lastActivityDate | timeFromNow }}
-          </div>
- -->
-
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 
 
   <div class="cmuThreadlist__ctrl cmuThreadlist__ctrl--bottom row">
-    <div class="cmuThreadlist__ctrl__row col--md12">
+    <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
         <div class="col--md8 noPaddingLeft">
           <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions>Create a Topic</button>
         </div>
