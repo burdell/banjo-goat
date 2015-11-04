@@ -22,6 +22,10 @@
 				toggle: function(){
 					if(!ctrl.isOpen) {
 						$scope.$emit('rootScope:closeAllDropdowns');
+
+						if (ctrl.onOpenFn) {
+							ctrl.onOpenFn();
+						}
 					}
 
 					ctrl.isOpen = !ctrl.isOpen;
@@ -41,7 +45,8 @@
 	        	menuTemplateUrl: '@',
 	        	templateCtrl: '=',
 	        	elementClassname: '@',
-	        	iconClassname: '@'
+	        	iconClassname: '@',
+	        	onOpenFn: '='
 	        }
 	    };
 	    return directive;

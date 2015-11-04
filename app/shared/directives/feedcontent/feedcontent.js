@@ -62,7 +62,6 @@ function feedContent($compile, $templateCache) {
 			},
 			announcements: {
 				topic: function(contentData){
-					// return contentUser.login + " posted an announcement"; 
 					return " posted an announcement"; 
 				},
 				comment: function(contentData){
@@ -75,7 +74,6 @@ function feedContent($compile, $templateCache) {
 			},
 			stories: {
 				topic: function(contentData){
-					// return contentUser.login + " posted a story"; 
 					return " posted a story"; 
 				},
 				comment: function(){
@@ -87,14 +85,13 @@ function feedContent($compile, $templateCache) {
 			},
 			forums: {
 				topic: function(){
-					// return contentUser.login + " posted a topic"; 
 					return " posted a topic"; 
 				},
 				comment: function(){
 					return commentText();
 				},
 				url: function(){
-					return contentUrl('forums.message', { messageId: urlId });
+					return contentUrl('forums.detail', { messageId: urlId });
 				}
 			}
 		}
@@ -145,7 +142,6 @@ function feedContent($compile, $templateCache) {
 	controller.$inject = ['CommunityDataService', 'CommunityRoutingService'];
 
     var directive = {
-       // link: link,
         controller: controller,
         controllerAs: 'feedcontent',
         templateUrl: 'directives/feedcontent/feedcontent.html',
