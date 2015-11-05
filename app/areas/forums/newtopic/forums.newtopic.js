@@ -32,7 +32,7 @@ var forumNewTopicController = function($scope, $state, communityApi, breadcrumbS
 		submitTopic: function() {
 			communityApi.Forums.message(this.newTopic).then(function(result){
 				var submittedMessage = result;
-				$state.go('forums.message', { messageId: submittedMessage.id });
+				$state.go('forums.detail', { messageId: submittedMessage.id });
 			});
 		},
 		newTopic: {

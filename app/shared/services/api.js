@@ -161,6 +161,9 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			subscriptions: function(options){
 				return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
+			},
+			count: function(type, options){
+				return goToApi(v2Url + urlSegments.Feed() + '/' + type + '/count', options);
 			}
 		},
 		Forums: {

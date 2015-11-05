@@ -110,7 +110,9 @@
                       <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.notifications.html"
                         element-classname="cmuGloNav__notifications"
-                        icon-classname="icon ubnt-icon--bell">
+                        icon-classname="icon ubnt-icon--bell"
+                        template-ctrl="mainnavbar.notifications"
+                        on-open-fn="mainnavbar.notifications.getData">
                       </community-drop-down>
 
                       <community-drop-down

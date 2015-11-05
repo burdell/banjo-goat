@@ -32,13 +32,13 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 		currentNode: nodeService.CurrentNode,
 		getMessageData: communityApiService.Forums.message,
 		getMessageUrl: function(messageId){
-			return $state.href('forums.message', { messageId: messageId });
+			return $state.href('forums.detail', { messageId: messageId });
 		},
 		startNewTopic: function(){
 			$state.go('forums.newtopic');
 		},
 		go: function(message){
-			$state.go('forums.message', { messageId: message.id });
+			$state.go('forums.detail', { messageId: message.id });
 		},
 		getMessageNumber: function(currentListIndex){
 			var page = forumListFilter.model('page') || 1;

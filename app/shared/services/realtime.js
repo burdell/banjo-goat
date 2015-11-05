@@ -12,29 +12,40 @@
 			var lastResultTotal = null;
 			var lastTimestamp = getTimestamp();
 			
+			var formatString = 'YYYY-MM-DDTHH:mm:ss';
 			function getTimestamp(){
 				return moment.utc().format('YYYY-MM-DDTHH:mm:ss');
 			}
 
 			return  {
-				start: function(pollFn, callImmediately, callback) {
+				start: function(pollFn, callImmediately, callback, initial) {
 					if (!poll) {
-						var poller = function(applyTimestamp){
+						var poller = function(applyTimestamp, initialData){
 							if (_.isUndefined(applyTimestamp)) {
 								applyTimestamp = true;
 							}
 
+							var since = undefined;
+							if (applyTimestamp) {
+								since = lastTimestamp
+							} else if (initialData && initialData.since) {
+								since = moment.utc(initialData.since).format(formatString);
+							}
+							
 							var callModel = {
 								page: undefined,
-								size: undefined,
-								since: applyTimestamp ? lastTimestamp : undefined
+								size: (initialData && initialData.size) || undefined,
+								since: since
 							};
-							
-							pollFn(callModel);
+
+							var pollPromise = pollFn(callModel);
+							if (callback) {
+								pollPromise.then(callback)
+							}
 						};
 
 						if (callImmediately) {
-							poller(false);
+							poller(false, initial);
 						}
 
 						poll = setInterval(poller, defaultInterval);
@@ -56,7 +67,7 @@
 		return {
 			getNew: function(){
 				return new RealTimeService();
-			}
+			},
 		}
 	};
 	realTime.$inject = [];

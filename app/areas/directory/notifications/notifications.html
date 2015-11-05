@@ -1,0 +1,29 @@
+<div>
+ 	<community-page-header 
+		header-text="My Alerts"
+		hide-element-selector=".notifications-container">
+	</community-page-header>
+
+	<div class="notifications-container">
+		<div class="row row--comfy" ng-repeat="notification in vm.notificationList">
+			<a area-link-handler="{{ vm.getUrl(notification) }}">
+				<div class="col--md10">
+					<community-user-avatar user="notification.message.context.parentAuthor"></community-user-avatar>
+					<community-username user="notification.message.context.parentAuthor"></community-username>
+					<span class="cmuNotifications__dropdown__action">{{ vm.getActionString(notification) }}</span>
+					<span class="cmuNotifications__dropdown__link">{{ notification.message.context.topicSubject | unformatText }}</span>
+				</div>
+				<div class="col--md2">
+					{{ notification.time | timeFromNow }}
+				</div>
+			</a>
+		</div>
+		<div>	
+			<community-pager 
+				number-of-pages="vm.totalPages" 
+				pager-fn="vm.notificationsFilter"
+				front-biased="true">
+			</community-pager>
+		</div>
+	</div>
+</div>

@@ -2,40 +2,51 @@
 'use strict';
 
 	var routesProvider = function(){
+
+		var detailIds = {
+			announcements: 'announcementId',
+			features: 'featureRequestId',
+			forums: 'messageId',
+			stories: 'storyId',
+			user: 'userId'
+		};
+
 		var routeData = {
 			announcements: {
 			    announcements: '/announcements/:nodeId/',
 			    list: 'list',
-			    detail: ':announcementId',
-			    landing: '/announcements/'
+			    detail: ':' + detailIds.announcements,
+			    landing: '/announcements/',
 			},
 			features: {
 				features: '/features/:nodeId/',
 				list: 'list',
-				detail: ':featureRequestId'
+				detail: ':' + detailIds.features
 			},
 			forums: {
 			    forums: '/forums/:nodeId/',
 			    list: 'list',
-			    message: 'message/:messageId',
+			    detail: 'message/:' + detailIds.forums,
 			    newtopic: 'newtopic' 
 			},
 			stories: {
 				landing: '/stories/',
 				stories: '/stories/:nodeId/',
 				list: 'list',
-				detail: ':storyId',
+				detail: ':' + detailIds.stories,
 				newstory: 'new'
 			},
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',
 			feed: '/',
-			userprofile: '/user/:userId/',
+			notifications: '/alerts',
+			userprofile: '/user/:' + detailIds.user,
 			utils: {
 				intRoute: function(route) {
 					return '{' + route.replace(':', '') + ':int}'
 				}
-			}
+			},
+			detailIds: detailIds
 		};
 
 	this.routes = routeData;
