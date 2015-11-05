@@ -47,13 +47,14 @@
 .cmuDiscussionsNavbar {
 	cursor: default;
 	// margin-bottom: $cmu-vertical-rhythm;
-	// display: inline-block; // nor necessary and introduces problems with empty navs (ex: directory)
+	// display: inline-block; // not necessary and introduces problems with empty navs (ex: directory)
 	// padding-left: $cmu-base;
 	// border-left: 1px solid $cmu-color-mdgray;
 	
 	border-bottom: $style-line;
 	border-top: $style-line--dark;
 	border-top-width: 2px; // thicker
+
 
 	a {
 		display: inline-block;
@@ -93,22 +94,15 @@
 	background-color: $cmu-color-purewhite;
 	padding-left: $cmu-base/2;
 	padding-right: $cmu-base*3/4;
+	border-left: $style-line;
 }
-	.cmuDiscussionsNavbar__group {
-		// color: $cmu-color-active !important; // temporary
-		border-left: $style-line;
-	}
 
 .cmuDiscussionsNavbar div.cmuDiscussionsNavbar__group__container {
 	display: none;
-	// @include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
 	background-color: $cmu-color-ltgray;
 	color: $cmu-color-gray;
     position: relative;
     left: -4px;
-    // top: 1px;
-    // padding: $cmu-base/2 0;
-    // padding-left: $cmu-base;
     line-height: 0;
     border-right: $style-line;
 

@@ -306,19 +306,27 @@
 }
 
 
+
 // 
 // Hover Flag
 // - hoverable expandable tooltip
 // 
 .cmuUserbadge--showFlag:hover {
+	@extend %ease-fast;
 	.cmuUserbadge__flag {
+	@extend %ease-fast;
 		display: block;
+		opacity: 1;
+	    -webkit-animation-duration: 0.5s;
+	    -webkit-animation-name: fadeInFromNone;
 	}
 }
 
 .cmuUserbadge__flag {
 	display: none;
 	position: relative;
+	opacity: 0;
+	@extend %ease-fast;
 
 	.cmuUserbadge__flag__container {
 		position: absolute;
@@ -329,7 +337,10 @@
 		padding: $cmu-base;
 
 		background-color: $cmu-color-white;
-		border: $style-line;
+		border: $style-line--medium;
+		border-color: $cmu-color-gray;
+
+		@extend %style-shadow--light;
 
 		.cmuUserbadge__avatar:after {
 			height: 5rem;

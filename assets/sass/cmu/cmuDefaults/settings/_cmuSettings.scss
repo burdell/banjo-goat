@@ -161,7 +161,13 @@ $z-mega: 800;	// mega popover
 // Low 0-400
 
 
-
+// 
+// Animation speeds
+// (also used by the ease mixins)
+// 
+$speed-slow: 320ms;
+$speed-medium: 230ms;
+$speed-fast: 180ms;
 
 
 // 

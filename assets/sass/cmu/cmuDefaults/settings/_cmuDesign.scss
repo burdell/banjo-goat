@@ -7,6 +7,7 @@
 $style-line: 1px solid $cmu-color-line;
 	$style-line--light: 1px solid $cmu-color-line--light;
 	$style-line--dark: 1px solid $cmu-color-line--dark;
+	$style-line--medium: 2px solid $cmu-color-dkgray;
 	$style-line--thick: 3px solid $cmu-color-dkgray;
 	$style-line--xthick: 6px solid $cmu-color-dkgray;
 
@@ -90,7 +91,7 @@ $style-line: 1px solid $cmu-color-line;
 // - background: 	light (depends on context, and isn't set by this module)
 .style-listItem, %style-listItem {
 	@extend %size-normal;
-	// @extend %style-link--dark;
+	@extend %style-link--dark;
 	@extend %ease-fast;
 	// background-color: $cmu-color-ltgray;
 
@@ -98,7 +99,6 @@ $style-line: 1px solid $cmu-color-line;
 		background-color: $cmu-color-threadlist-hover--background;
 		cursor: pointer;
 	}
-
 }
 
 
@@ -196,6 +196,17 @@ $style-line: 1px solid $cmu-color-line;
 }
 
 
+// 
+// Shadows
+// 
+
+// base dropshadow for hover elements
+%style-shadow {
+	@include box-shadow(0px, 0px, $cmu-base/2, $cmu-color-dkgray);
+}
+%style-shadow--light {
+	@include box-shadow(0px, 0px, $cmu-base, $cmu-color-gray);
+}
 
 // 
 // Hover Flag
@@ -212,9 +223,12 @@ $style-line: 1px solid $cmu-color-line;
 	text-align: center; // center aligns content with the flag, but may affect content
 	@extend %ease-fast;
 
+	&:hover:before {
+		color: $cmu-color-white;
+	}
+
 	&:before {
 		opacity: 0;
-		position: relative;
 		content: attr(data-tooltip);
 		display: block;
 		@extend %style-tag;
@@ -224,6 +238,9 @@ $style-line: 1px solid $cmu-color-line;
 		background-color: $cmu-color-dkgray;
 		// border-color: $cmu-color-white;
 		color: $cmu-color-white;
+
+		position: absolute;
+		bottom: 10px; // height of arrow
 	}
 
 	&:after {
@@ -236,7 +253,14 @@ $style-line: 1px solid $cmu-color-line;
 		border-top: 10px solid $cmu-color-ltblack;
 		border: 0;
 		@extend %ease-fast;
-	    position: relative;
+
+	    position: absolute;
+	    bottom: 0px;
+
+		&:hover {
+			color: red;
+			background: green;
+		}
 	}
 
 	&.cmuHoverflag--right {
@@ -257,7 +281,7 @@ $style-line: 1px solid $cmu-color-line;
 			border-right: 10px solid transparent;
 			border-top: 10px solid $cmu-color-dkgray;
 			@extend %ease-fast;
-		    position: relative;
+		    position: absolute;
 		    top: 8px;
 		}
 	}
@@ -284,3 +308,8 @@ $style-line: 1px solid $cmu-color-line;
 		width: $size-avatar--small;
 	}
 }
+
+
+
+
+

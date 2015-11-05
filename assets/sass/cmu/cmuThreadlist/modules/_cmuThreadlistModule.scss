@@ -105,8 +105,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		
 		// isRead styles are designed separately
 		&.isRead {
-			// background-color: $cmu-color-isRead--background;
-			// color: $cmu-color-red;
+			background-color: $cmu-color-isRead--background;
+			color: $cmu-color-isRead;
 		}
 
 		// defines thread item hover colors
@@ -125,7 +125,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		}
 
 		// unread post
-		color: $cmu-color-green;
+		color: $cmu-color-black;
 		&:hover {
 			color: $cmu-color-threadlist-hover;
 			background-color: $cmu-color-threadlist-hover--background;

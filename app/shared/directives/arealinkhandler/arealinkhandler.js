@@ -5,7 +5,10 @@ require('services/routing.js');
 
 function areaLinkHandler($parse, $timeout, routingService) {
 	var link = function(scope, element, attrs) {
-		var elementHref;
+		var elementHref = "#";
+		var elementNode = element[0];
+		elementNode.setAttribute('href', elementHref);
+		
 		$timeout(function(){
 			if (attrs.linkHandlerRoute) {
 				var routeValues = !attrs.routeValues ? null : $parse(attrs.routeValues)();

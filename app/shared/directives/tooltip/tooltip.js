@@ -18,28 +18,36 @@ function communityTooltip() {
 			position: 'top-right',
 			interactiveTolerance: '550',
 			onlyOne: 'true',
-			theme: 'cmuTooltipster',
 			interactive: false,
 			updateAnimation: false,
+			theme: scope.tooltip.tooltipClass,
 			functionBefore: function(origin, continueTooltip) {
 				continueTooltip();
 
-				if (origin.data('ajax') !== 'cached') {
-					scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-						var content = result.message;
+				if (typeof(scope.tooltip.textData) == 'undefined') {
 
-						var tooltipText = $('<div>' + content.body + '</div>').text();
-						if (tooltipText === "") {
-							tooltipText = "<strong>" + scope.tooltip.emptyText + "</strong>";
-						}
+					if (origin.data('ajax') !== 'cached') {
+						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
+							var content = result.message;
 
-						var tooltipData = _.extend(content, {
-							text: tooltipText
+							var tooltipText = $('<div>' + content.body + '</div>').text();
+							if (tooltipText === "") {
+								tooltipText = "<strong>" + scope.tooltip.emptyText + "</strong>";
+							}
+
+							var tooltipData = _.extend(content, {
+								text: tooltipText
+							});
+
+							var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
+							origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
 						});
-						var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
-						origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
-					});
+					}
+
+				} else if (typeof(scope.tooltip.textData) !== 'undefined') {
+					origin.tooltipster('content', "<div class='banana'>"+scope.tooltip.textData+"</div>").data('ajax', 'cached');
 				}
+
 			}
 		});
 	};
@@ -69,6 +77,9 @@ function communityTooltip() {
         	emptyText: '@',
         	idField: '@',
         	localData: '=',
+        	contentData: '@',
+        	textData: '@',
+        	tooltipClass: '@',
         	tooltipTemplateName: '@tooltipTemplate'
         }
     };

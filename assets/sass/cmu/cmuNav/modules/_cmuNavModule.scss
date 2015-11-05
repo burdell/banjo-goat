@@ -729,15 +729,15 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		}
 	}
 
-	.cmuGloNav__top {
+	.cmuGloNav__backtotop {
 	    position: fixed;
 	    opacity: 0.7;
-	    bottom: 0;
+	    bottom: $cmu-base/2;
 	    right: 1.5rem;
 	    text-align: center;
 
 	    .cmuHoverflag {
-	    	top: -80px;
+	    	bottom: 50px;
 	    }
 
 		.ubnt--icon {

@@ -1,14 +1,31 @@
 <div class="cmuGloNav cmuGloNav--footer" >
   <div class="cmuGloNav__container container">
 
-    <span class="cmuGloNav__top cmuHoverflag__trigger">
-      <span class="ubnt--icon ubnt-icon--pointer-up" page-scroll></span>
-      <span class="cmuHoverflag cmuHoverflag--top" 
-            data-tooltip="Back to Top"
-            data-textalign="left"
-            ></span>
+    <span class="cmuGloNav__backtotop">
+      <span class="ubnt--icon ubnt-icon--pointer-up" page-scroll>
+
+        <span 
+          community-tooltip
+          class="cmuTooltip cmuThreadList__tooltip"
+          tooltip-template="forums/list/forums.list.messagetooltip.html"
+          text-data="this is a test"
+        >
+          bananas
+        </span>
+
+      </span>
+      <!-- <span class="cmuHoverflag cmuHoverflag--top" data-tooltip="Back to Top" data-textalign="left"></span> -->
+
+            <!-- <span 
+              class="cmuTooltip cmuThreadList__tooltip"
+              community-tooltip
+              tooltip-template="forums/list/forums.list.messagetooltip.html"
+              text-data="this is a test"
+            >
+              <span class="icon ubnt-icon--eye2"></span>
+            </span> -->
     </span>
-    
+
     <div class="row">
       <div class="col--md11 noPadding">
         <div class="cmuGloNav__community col--sm3 noPaddingLeft">
@@ -44,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="cmuGloNav__legal row col--md12">
+    <div class="cmuGloNav__legal row col--md6">
       <span>&copy; 2015 Ubiquiti Networks. All Rights Reserved.</span>
     </div>
 
