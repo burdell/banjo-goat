@@ -87,15 +87,15 @@ function mainNavBar() {
 			ctrl.templateData.discussionTypes = nodeService.DiscussionTypes;
 		});
 
-		_.extend(ctrl, {
-			navList: navMetaData,
-			target: function(itemHref){
+		 _.extend(ctrl, {
+		 	navList: navMetaData,
+		 	target: function(itemHref){
 				//kind of hacky, but dont have access to currentNode at this point :(
 				var currentPath = $location.path();
 				return (currentPath.indexOf(itemHref) < 0 ? "_self" : "");
 			},
-			isAuthenticated: false,
-			isActive: function(navHref) {
+		 	isAuthenticated: false,
+		 	isActive: function(navHref) {
 				var active = false;
 				var currentState = $state.current.name;
 
@@ -124,8 +124,8 @@ function mainNavBar() {
 			notifications: {
 				list: [],
 				newDataCount: 0,
-				getActionString(notification) {
-					return notificationService.getActionString(notification);
+				getActionString: function(notification) {
+				 	return notificationService.getActionString(notification);
 				},
 				loading: false,
 				getData: function(){
@@ -142,7 +142,7 @@ function mainNavBar() {
 					return generateContentUrl(data);
 				}
 			}
-		});			
+		 });			
 	}
 	controller.$inject = [
 		'$scope', 
