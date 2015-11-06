@@ -17,6 +17,7 @@
 .cmuCollapser__container {
 	margin-bottom: $cmu-vertical-rhythm;
     @extend %ease-slow;
+	overflow: hidden;
 }
 
 .cmuCollapser__header {
@@ -28,9 +29,20 @@
     // $padding: $cmu-base/4;
     @extend %ease-slow;
 
+	& > div {
+		margin-left: $cmu-base*2; // give some room for the containing div
+	}
+
+	&:hover {
+		background: $cmu-color-ltblue;
+		// border: 1px solid transparent;
+		@extend %ease-fast;
+	}
+
 	// Open / Closed indicator
 	// default is closed
 	&:before {
+		@extend %ease-fast;
 		@extend %font-ubnt;
     	@include transition(max-height 360ms, opacity 360ms);
 		display: inline-block;
@@ -74,8 +86,35 @@
 			background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 		}
+
 	}
 }
+
+	// lighter color scheme used in the feed
+	.cmuCollapser__header--light {
+		h5 {
+			color: $cmu-color-inactive;
+		}
+
+		&.open {
+			color: $cmu-color-body;
+			background-color: $cmu-color-purewhite;
+
+			&:hover {
+				background-color: $cmu-color-vltblue;
+				&:before {
+					background-color: $cmu-color-ltblue;
+					@extend %ease-fast;
+				}
+			}
+
+			&:before {
+				@extend %ease-fast;
+				background-color: $cmu-color-vltblue;
+			}
+		}
+	}
+
 	div.cmuCollapser__content {
 		@extend %ease-slow;
     	@include transition(max-height 360ms, opacity 360ms);
@@ -86,10 +125,54 @@
 		opacity: 0;
 		// padding: 0;
 		// margin: 0;
-		overflow: hidden;
 	}
 
-	// not required; used for announcements
+
+// 
+// Align Right version
+// 
+
+
+.cmuCollapser.collapseRight, .cmuCollapser__container.collapseRight {
 	.cmuCollapser__header {
+		&:before {
+			float: right;
+			margin-right: 0;
+		}
+		& > div {
+			margin-left: 0;
+		}
 	}
+}
+
+// 
+// Subtle dropdown
+// 
+
+.cmuCollapser.collapseSubtle, .cmuCollapser__container.collapseSubtle {
+	.cmuCollapser__header {
+
+		&:hover {
+			background: $cmu-color-hover--background;
+		}
+
+		&:before {
+			background-color: transparent;
+			color: $cmu-color-gray;
+		}
+
+		&.open {
+			&:before {
+				background-color: transparent;
+				color: $cmu-color-active;
+			}
+		}
+	}
+}
+
+
+
+
+
+
 

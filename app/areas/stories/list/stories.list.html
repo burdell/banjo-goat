@@ -3,6 +3,13 @@
 	<div class="cmuThreadlist__ctrl__row row">
 		<div class="col--md10 noPaddingLeft">
 			<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
+			<div ng-if="vm.hideNewStoryButton">
+				<community-product-navigator 
+					display-text="Share A Story"
+					product-route="stories.newstory"
+					discussion-style="stories">
+				</community-product-navigator>
+			</div>
 		</div>
 		<div class="col--md2 noPaddingRight">
 	          <community-sort 

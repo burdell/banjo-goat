@@ -1,13 +1,12 @@
 
 'use strict';
 
-require('services/icon.js');
-
 var _ = require('underscore');
 
 var products = function($q, nodeService){
 	return {
 		_productList: null,
+		_productsByCategory: null,
 		getProductList: function(){
 			var service = this;
 
@@ -18,7 +17,8 @@ var products = function($q, nodeService){
 						return { 
 							href: product.href, 
 							id: product.id, 
-							name: product.name 
+							name: product.name,
+
 						};
 					});
 
@@ -30,8 +30,10 @@ var products = function($q, nodeService){
 		}
 	};
 };
-products.$inject = ['$q', 'CommunityNodeService', 'CommunityIconService'];
+products.$inject = ['$q', require('services/nodestructure.js')];
 
+var serviceName = 'CommunityProductService';
 angular.module('community.services')
-	.service('CommunityProductService', products);
+	.service(serviceName, products);
+module.exports = serviceName;
 

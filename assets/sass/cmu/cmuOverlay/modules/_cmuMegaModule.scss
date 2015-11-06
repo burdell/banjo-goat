@@ -46,6 +46,10 @@
     	// position: fixed;
     	z-index: $z-top;
     }
+
+    * {
+    	@extend %user-select-none;
+    }
 }
 
 	// background covering
@@ -162,11 +166,12 @@
 				// display: block;
 				color: $cmu-color-white;
 				padding-bottom: $cmu-base/2;
+				font-weight: 300;
 
-				// &:hover {
-				// @extend %ease-fast;
-				// 	color: $cmu-color-blue;
-				// }
+				&:hover {
+					@extend %ease-fast;
+					color: $cmu-color-blue;
+				}
 			}
 		}
 

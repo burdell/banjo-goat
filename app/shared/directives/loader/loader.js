@@ -25,7 +25,7 @@ function loader() {
 	var controller = function($scope, loaderService) {
 		var ctrl = this;
         var showLoader = false;
-        if (!ctrl.baseLoader) {
+        if (!ctrl.showWhen && !ctrl.baseLoader) {
             $scope.$on('$stateChangeStart', function(){
                 ctrl.hideElement();
                 showLoader = true;
@@ -41,6 +41,8 @@ function loader() {
             showLoader: function(){
                 if (ctrl.baseLoader) {
                     return loaderService.showBaseLoader;
+                } else if (ctrl.showWhen) {
+                    return ctrl.showWhen;
                 } else {
                     return showLoader;
                 }

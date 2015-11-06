@@ -12,7 +12,10 @@ var timeFromNow = function(){
 			return postDate.format('YYYY-MM-DD');
 		}
 
-		return postDate.fromNow() + ", " + postDate.format('hh:mm a');
+		// return postDate.fromNow() + ", " + postDate.format('hh:mm a');
+
+		// only return days, without time stamp
+		return postDate.fromNow();
 	};
 };
 

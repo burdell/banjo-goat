@@ -82,7 +82,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 	}
 
 	function hasNoStories(nodeUrlCode){
-		return nodeUrlCode.indexOf('airCRM') >= 0
+		return nodeUrlCode === 'comm_stories' || nodeUrlCode.indexOf('airCRM') >= 0
 	}
 
 	var v2Url = 'https://comm2-stage-api.ubnt.com/2/';
@@ -161,6 +161,9 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			subscriptions: function(options){
 				return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
+			},
+			count: function(type, options){
+				return goToApi(v2Url + urlSegments.Feed() + '/' + type + '/count', options);
 			}
 		},
 		Forums: {

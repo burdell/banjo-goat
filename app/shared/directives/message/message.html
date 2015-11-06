@@ -1,48 +1,69 @@
 <div id="{{ messageDisplay.message.id }}">
 	<div class="cmuMessage__container">
 		
-		<community-user-badge 
+		<community-user-badge
 			user="messageDisplay.message.insertUser"
 			op-id="messageDisplay.showOp">
 		</community-user-badge>
 
 		<div class="cmuMessage__body" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == messageDisplay.message.id }">
-			<div class="cmuMessage__header">
+
+			<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply">
+				<a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)"><span class="cmuMessage__replyTo__user">{{ messageDisplay.reply.username }}</span></a>
+			</div>
+
+			<div class="cmuMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
+			</div>
+
+			<!-- message controls -->
+			<div class="cmuMessage__controls">
 				<div class="row">
 					<div class="col--md6">
-						<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply"><a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)">{{ messageDisplay.reply.username }}</a></div>
 						<div class="cmuMessage__counter" ng-if="messageDisplay.threadFilter">
 							{{ messageDisplay.getMessagePosition() }}
 						</div>
 						<div class="cmuMessage__date">{{ messageDisplay.message.postDate | exactTimeFromNow }}</div>
 					</div>
 					<div class="col--md6 alignRight">
-						<div class="forumThreadMessage__controls"> 
-							<div class="forumThreadMessage__controls--reply noPadding">
+						<div class="cmuMessage__controls"> 
+							<div class="cmuMessage__reply noPadding">
 								<span community-permissions denied-behavior="disable">
-									<button class="button--vote button--thin button--compound-naked">
+									<span class="cmuMessage__flag cmuHoverflag__trigger">
+										<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
+
+										<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Flag this post" data-textalign="left"></div>
+									</span>
+
+
+
+									<div class="button button--vote button--thin button--compound-naked">
 										123 kudos
-									</button>
-									<button class="button--vote button--thin button--compound-naked ">
+									</div>
+									<div class="button button--vote button--thin button--compound-naked ">
 										<span class="icon ubnt-icon--tools"></span> Helpful
-									</button>
+									</div>
 								</span>
 								
-								<button 
+								<div 
 									community-permissions
-									class="button--solid button--thin button-white-on-blue" 
+									class="button button--solid button--thin button-white-on-blue" 
 									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
 										Reply
-								</button>
+								</div>
+
+<!-- 
+								<div 
+									class="button button--solid button--thin button-white-on-blue" 
+									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
+										Edit
+								</div>
+								 -->
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 
-			<div class="cmuMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
-			</div>
 		</div>
 	</div>
 </div>

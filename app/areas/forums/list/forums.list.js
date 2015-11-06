@@ -32,20 +32,20 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 		currentNode: nodeService.CurrentNode,
 		getMessageData: communityApiService.Forums.message,
 		getMessageUrl: function(messageId){
-			return $state.href('forums.message', { messageId: messageId });
+			return $state.href('forums.detail', { messageId: '3413' });
 		},
 		startNewTopic: function(){
 			$state.go('forums.newtopic');
 		},
 		go: function(message){
-			$state.go('forums.message', { messageId: message.id });
+			$state.go('forums.detail', { messageId: message.id });
 		},
 		getMessageNumber: function(currentListIndex){
 			var page = forumListFilter.model('page') || 1;
 			return currentListIndex * page;
 		},
-		isUnread: function(forumThread){
-			return !forumThread.context.lastReadDate;
+		isRead: function(forumThread){
+			return !!forumThread.context.lastReadDate;
 		}
 	});
 }

@@ -38,7 +38,7 @@
 				if (_.indexOf(include, node.id) >= 0 || (node.discussionStyle === 'category' && _.indexOf(exclude, node.id)) < 0) {
 					var discussionCategory = node.meta.org;
 					var discussionCategoryList = discussionTypes[discussionCategory];
-
+					
 					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise' || (discussionCategory === 'general')) {
 						if (!discussionCategoryList) {
 							discussionTypes[discussionCategory] = []
@@ -51,10 +51,16 @@
 				//populate children of category nodes
 				if (!nodeStructureService.NodeStructure && node.parentId) {
 					var parentNode = nodeStructureService.getNode(node.parentId);
-					if (parentNode && node.discussionStyle !== 'qa' && node.discussionStyle !== 'bugs') {
+					if (!parentNode.discussionStyles) {
+						parentNode.discussionStyles = {};
+					}
+
+					var childDiscussionStyle = node.discussionStyle;
+					if (parentNode && childDiscussionStyle !== 'qa' && childDiscussionStyle !== 'bugs') {
 						if (!parentNode.children) {
 							parentNode.children = [];
 						}
+						parentNode.discussionStyles[childDiscussionStyle] = true;
 						parentNode.children.push(node);
 					}
 				}

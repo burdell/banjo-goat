@@ -62,9 +62,10 @@ function feedContent($compile, $templateCache) {
 			},
 			announcements: {
 				topic: function(contentData){
-					return contentUser.login + " posted an announcement"; 
+					return " posted an announcement"; 
 				},
 				comment: function(contentData){
+					return " replied to an announcement"; 
 					return contentUser.login + " replied to an announcement"; 
 				},
 				url: function(){
@@ -73,7 +74,7 @@ function feedContent($compile, $templateCache) {
 			},
 			stories: {
 				topic: function(contentData){
-					return contentUser.login + " posted a story"; 
+					return " posted a story"; 
 				},
 				comment: function(){
 					return commentText();
@@ -84,13 +85,13 @@ function feedContent($compile, $templateCache) {
 			},
 			forums: {
 				topic: function(){
-					return contentUser.login + " posted a topic"; 
+					return " posted a topic"; 
 				},
 				comment: function(){
 					return commentText();
 				},
 				url: function(){
-					return contentUrl('forums.message', { messageId: urlId });
+					return contentUrl('forums.detail', { messageId: urlId });
 				}
 			}
 		}
@@ -103,6 +104,9 @@ function feedContent($compile, $templateCache) {
 			getDiscussionActionString: function() {
 				var model = ctrl.contentModel;
 				return discussionActionTexts[model.discussionStyle][model.type]();
+			}, 
+			getUser: function() {
+				return contentUser;
 			},
 			getPostDate: function(){
 				if (contentType === 'topic') {
@@ -122,6 +126,7 @@ function feedContent($compile, $templateCache) {
 			body: contentType === 'topic' ? ctrl.contentModel.data.message.body : ctrl.contentModel.data.body,
 			iconClass: contentFns.getDiscussionIconClass(),
 			discussionActionString: contentFns.getDiscussionActionString(),
+			getUser: contentFns.getUser(),
 			postData: contentFns.getPostDate(),
 			contentUrl: contentFns.getContentUrl(),
 			nodeId: ctrl.contentModel.data.node.id
@@ -129,15 +134,14 @@ function feedContent($compile, $templateCache) {
 
 		_.extend(ctrl, {
 			contentDisplay: contentDisplay,
-			isUnread: function(){
-				return !ctrl.contentModel.context.lastReadDate;
+			isRead: function(){
+				return !!ctrl.contentModel.context.lastReadDate; //returns true if lastreaddate exists
 			}
 		});
 	};
 	controller.$inject = ['CommunityDataService', 'CommunityRoutingService'];
 
     var directive = {
-       // link: link,
         controller: controller,
         controllerAs: 'feedcontent',
         templateUrl: 'directives/feedcontent/feedcontent.html',

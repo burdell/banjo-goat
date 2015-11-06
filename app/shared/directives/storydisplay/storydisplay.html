@@ -1,7 +1,16 @@
 
 <div class="cmuStoryItem--featured" ng-class="{ 'cmuStoryItem' : !storydisplay.fillWidth }">	
+
+
+	<!-- 
+		story display for feeds (story grid uses a different template)
+	 -->
+
+
+
 	<!--- NORMAL DISPLAY -->
 	<div ng-if="::!storydisplay.minimalDisplay">
+		<!-- storydisplay.html :: NORMAL DISPLAY -->
 		<a area-link-handler="{{ storydisplay.getStoryUrl() }}">
 			<div class="cmuStoryItem__image__container">
 				<div class="cmuStoryItem__image">
@@ -42,6 +51,7 @@
 
 	<!--- MINIMAL DISPLAY -->
 	<div ng-if="::storydisplay.minimalDisplay">
+		<!-- storydisplay.html :: MINIMAL DISPLAY -- appears in feed and hub -->
 		<a area-link-handler="{{ storydisplay.getStoryUrl() }}">
 			<div class="cmuFeed__story">
 				<div class="cmuFeed__story__img__container" ng-if="storydisplay.coverphoto">

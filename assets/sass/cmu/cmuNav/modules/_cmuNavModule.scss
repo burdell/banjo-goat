@@ -348,7 +348,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					padding-left: $cmu-base/4;
 					padding-right: $cmu-base/4;
 					text-align: center;
-					// margin-left: -4px;
+					margin-right: 0px;
 					// padding-right: 0;
 				    cursor: pointer;
 				    
@@ -356,7 +356,6 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					    display: inline-block;
 					    vertical-align: top;
 					    line-height: 40px;
-					    padding-right: 4px;
 					    top: -10px;
 					    position: relative;
 					}
@@ -598,6 +597,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	background-color: $cmu-color-ltgray;
 	z-index: $z-gloNav--footer;
 	padding: $cmu-base 0;
+	padding-bottom: $cmu-base*2;
 
 	position: absolute;
 	// position: relative;
@@ -729,16 +729,17 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		}
 	}
 
-	.cmuGloNav__top {
+	.cmuGloNav__backtotop {
 	    position: fixed;
+	    display:inline-block;
 	    opacity: 0.7;
-	    bottom: 0;
+	    bottom: $cmu-base;
 	    right: 1.5rem;
 	    text-align: center;
 
-	    .cmuHoverflag {
-	    	top: -80px;
-	    }
+	    // .cmuHoverflag {
+	    // 	bottom: 50px;
+	    // }
 
 		.ubnt--icon {
 			display: inline-block;
@@ -754,12 +755,45 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		    border-radius: 50%;
 		    	width: 45px;
 		    	height: 45px;
-		    	padding: 0.5rem 0.2rem;
+		    	padding: 0.45rem 0rem;
 
 		}
 		.ubnt--icon:hover:before {
 			@extend %ease-fast;
 			background-color: $cmu-color-ltblue;
+		}
+
+		// different bc this is a fixed pos item
+		.cmuHoverflag {
+		    // position: absolute;
+		    // left: -50%;
+		    // right: -50%;
+
+		    // left: inherit;
+		    // right: inherit;
+
+		    &:before {
+    			// transform: translate(-50%, -259990%);
+    			left: 50%;
+    			transform: translate(-50%, 0%);
+    			top: -80px; // hard coded bc of fixed position underlying element
+		    }
+		    &:after {
+		    	top: -60px;
+		    }
+		}
+		.cmuHoverflag--top {
+			// &:before {
+			//     position: fixed;
+			//     right: 14px;
+			//     bottom: 75px;
+			// }
+			// &:after {
+			//     position: fixed;
+			//     top: inherit;
+			//     bottom: 65px;
+			//     right: 36px;
+			// }
 		}
 	}
 

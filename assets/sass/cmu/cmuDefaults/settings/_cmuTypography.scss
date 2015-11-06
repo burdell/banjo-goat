@@ -58,7 +58,7 @@ $size-large__lineHeight: remCalc(24px);
 
 // 13px is used for body / standard paragraph text
 $size-normal: remCalc(13px);
-$size-normal__lineHeight: 1.1rem;
+$size-normal__lineHeight: 1.25rem;
 %size-normal { font-size: $size-normal; line-height: $size-normal__lineHeight;}
 
 // used for status messages, "et cetera messages" 
@@ -109,8 +109,8 @@ $size-h2__lineHeight: $size-largest__lineHeight;
 		line-height: $size-h2__lineHeight;
 		font-weight: 400;
 
-		margin-top: $cmu-vertical-rhythm*2;
-		margin-bottom: $cmu-vertical-rhythm;
+		margin-top: $cmu-vertical-rhythm;
+		margin-bottom: $cmu-vertical-rhythm/2;
 	}
 
 $size-h3: $size-larger;
@@ -206,6 +206,12 @@ $cmu-base-spacing-unit: $cmu-base;
 // 
 $cmu-size-form: $size-normal;
 $cmu-input-font-size: $size-normal;
+
+
+// 
+// Arrow Sizing
+// 
+$size-arrow: $cmu-base/2;
 
 
 

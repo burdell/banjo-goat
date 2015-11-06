@@ -10,17 +10,21 @@ $tooltip-width: $cmu-base*20;
 
 .cmuTooltipster {
 	// @extend %style-border-medium-blue;
-	border: $style-line--thick;
+	border: $style-line--medium;
 	border-color: $cmu-color-blue;
 	background: $cmu-color-white; 
 	min-height: $cmu-base*2;
 	max-height: $tooltip-height;
-  	width: 	$tooltip-width !important; // base tooltipster tends to override this
+  	max-width: 	$tooltip-width; // base tooltipster tends to override this
   	// min-width: 	$tooltip-width !important; // base tooltipster tends to override this
 
 	overflow: hidden;
 	@extend %ease-fast; 
+	margin-left: $cmu-base/2 + remCalc(1px);
+
+	@extend %style-shadow;
 }
+
 
 /* Use this next selector to style things like font-size and line-height: */
 .cmuTooltipster .tooltipster-content {
@@ -28,6 +32,19 @@ $tooltip-width: $cmu-base*20;
 	overflow: hidden;
 	padding: $cmu-base;
 	@extend %ease-fast; 
+}
+
+
+.cmuTooltipster--inline {
+	@extend .cmuTooltipster;
+	display: inline;
+	min-height: $cmu-base;
+	right: 10px;
+
+	.tooltipster-content {
+		display: inline;
+		padding: $cmu-base/4 $cmu-base/2;
+	}
 }
 
 .tooltip__message__text {
@@ -55,6 +72,11 @@ $tooltip-width: $cmu-base*20;
 
 
 
+
+
+.tooltip-banana {
+	font-size:20px;
+}
 
 
 

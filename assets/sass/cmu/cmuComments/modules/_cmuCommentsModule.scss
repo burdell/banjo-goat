@@ -71,29 +71,11 @@
 	}
 
 	.cmuComments__flag {
-		text-align: right;
+		@extend %style-flag;
 		float: right;
-		margin-right: $cmu-base/2;
-
-		.cmuIcon-flag {
-			cursor: pointer;
-		    border: $style-line;
-		    display: inline-block;
-		    width: 25px;
-		    height: 25px;
-		    border-radius: 50%;
-			opacity: 0; @extend %ease-fast;
-
-			&:hover {
-				opacity: 1 !important;
-				border-color: $cmu-color-blue;
-			}
-		}
 	}
 		.cmuComments__row:hover {
-			.cmuIcon-flag {
-				opacity: 0.465; @extend %ease-fast;
-			}
+			@extend %style-flag--hover;
 		}
 
 

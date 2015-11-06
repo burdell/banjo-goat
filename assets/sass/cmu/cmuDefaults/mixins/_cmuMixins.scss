@@ -19,6 +19,57 @@
     background: rgba($cmu-color, $opacity);
 }
 
+
+
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+
+// http://codepen.io/HugoGiraudel/pen/KFDuB
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
+
+
+
+// 
+// ANIMATIONS
+// CSS3 animations are also set in cmuDesign
+// 
+
+$speed-slow: 320ms;
+$speed-medium: 230ms;
+$speed-fast: 180ms;
+
 @mixin ease($speed, $elem:all){
     -webkit-transition: $elem $speed ease;
     -moz-transition: $elem $speed ease;
@@ -27,9 +78,10 @@
     transition: $elem $speed ease;
 }
 
-%ease{@include ease(230ms);}
-%ease-fast{@include ease(180ms);}
-%ease-slow{@include ease(320ms);}
+
+%ease{@include ease($speed-medium);}
+%ease-fast{@include ease($speed-fast);}
+%ease-slow{@include ease($speed-slow);}
 %ease-none{
     -webkit-transition: initial;
     -moz-transition: initial;
@@ -80,38 +132,30 @@
 }
 
 
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
-    -moz-box-shadow:inset $top $left $blur $color;
-    box-shadow:inset $top $left $blur $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-    -moz-box-shadow: $top $left $blur $color;
-    box-shadow: $top $left $blur $color;
-  }
+
+// animation speeds are set in the mixins
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display:none; 
+        opacity: 0;
+    }
+
+    1% {
+        display: block ; 
+        opacity: 0;
+    }
+
+    100% {
+        display: block ; 
+        opacity: 1;
+    }
 }
 
 
-// http://codepen.io/HugoGiraudel/pen/KFDuB
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
-  &::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
-  }
 
-  &::-webkit-scrollbar-thumb {
-      background: $foreground-color;
-  }
 
-  &::-webkit-scrollbar-track {
-      background: $background-color;
-  }
 
-  // For Internet Explorer
-  body {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-  }
-}
+
+
+
 

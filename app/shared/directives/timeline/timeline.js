@@ -5,6 +5,8 @@ require('shared/services/timeline.js');
 require('shared/filters/monthdisplay.js');
 require('shared/filters/extractkey.js');
 require('shared/filters/timefromnow.js');
+require('directives/username/username.js');
+require('directives/useravatar/useravatar.js');
 
 var _ = require('underscore');
 
@@ -12,8 +14,9 @@ function communityTimeline() {
 	var link = function(scope, element, attrs) {
 	};
 
-		var controller = function($state, timelineService) {
+		var controller = function($state, timelineService, routingService) {
 			var ctrl =  this;
+			var announcementNodeId = $state.params.nodeId;
 			
 			var shown = {
 				month: null,
@@ -39,18 +42,22 @@ function communityTimeline() {
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
 				},
+				getMessageUrl: function(data){
+					return $state.href('announcements.detail', { announcementId: data.id });
+					// return routingService.generateUrl('announcements.detail', { nodeId: data.urlCode, announcementId: data.id });
+				},
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);
 				},
 				go: function(data) {
 					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.topic.node.urlCode });
 				},
-				isUnread: function(data){
-					return !data.context.lastReadDate;
+				isRead: function(data){
+					return !!data.context.lastReadDate;
 				}
 			});
 		};
-		controller.$inject = ['$state', 'CommunityTimelineService'];
+		controller.$inject = ['$state', 'CommunityTimelineService', 'CommunityRoutingService'];
 
     var directive = {
         link: link,

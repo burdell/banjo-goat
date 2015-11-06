@@ -1,8 +1,7 @@
 
 	'use strict';
 
-	require('services/breadcrumb.js');
-	require('services/routing.js');
+	require('directives/productnavigator/productnavigator.js');
 
 	var _ = require('underscore');
 
@@ -24,7 +23,7 @@
 			}
 		});
 	};
-	landingController.$inject = ['$scope', 'AllAnnouncementsList', 'CommunityBreadcrumbService', 'CommunityRoutingService'];
+	landingController.$inject = ['$scope', 'AllAnnouncementsList', require('services/breadcrumb.js'), require('services/routing.js')];
 
 	angular.module('community.announcements')
 		.controller('AnnouncementsLanding', landingController);

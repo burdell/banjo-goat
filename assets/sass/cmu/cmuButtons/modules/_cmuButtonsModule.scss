@@ -179,51 +179,60 @@ button, .button, .cmuButton {
 // GHOST Buttons
 // thick outline w/ transparent background
 .button--ghost {
-	@include cmuButton('ghost',$cmu-button-color-base);
+	$mode: 'ghost';
+	@include cmuButton($mode,$cmu-button-color-base);
 
 	&.button-green-on-white {
-		@include cmuButton('ghost',$cmu-color-green);
+		@include cmuButton($mode,$cmu-color-green);
 	}
 	&.button-black-on-white {
-		@include cmuButton('ghost',$cmu-color-xdkgray);
+		@include cmuButton($mode,$cmu-color-xdkgray);
 	}
 	&.button-gray-on-white {
-		@include cmuButton('ghost',$cmu-color-mdgray);
+		@include cmuButton($mode,$cmu-color-mdgray);
+	}
+	&.button-ltgray-on-white {
+		@include cmuButton($mode,$cmu-color-ltgray);
 	}
 }
 
 // OUTLINE Buttons
 // thin outline w/ transparent background
 .button--outline {
-	@include cmuButton('outline',$cmu-button-color-base);
+	$mode: 'outline';
+	@include cmuButton($mode,$cmu-button-color-base);
 
 	&.button-green-on-white {
-		@include cmuButton('outline',$cmu-color-green);
+		@include cmuButton($mode,$cmu-color-green);
 	}
 	&.button-black-on-white {
-		@include cmuButton('outline',$cmu-color-xdkgray);
+		@include cmuButton($mode,$cmu-color-xdkgray);
 	}
 	&.button-gray-on-white {
-		@include cmuButton('outline',$cmu-color-gray);
+		@include cmuButton($mode,$cmu-color-gray);
+	}
+	&.button-ltgray-on-white {
+		@include cmuButton($mode,$cmu-color-mdgray);
 	}
 	&.button-blue-on-black {
-		@include cmuButton('outline',$cmu-color-dkblue,$cmu-color-black,$cmu-color-blue,$cmu-color-black);
+		@include cmuButton($mode,$cmu-color-dkblue,$cmu-color-black,$cmu-color-blue,$cmu-color-black);
 	}
 }
 
 
 // SOLID Buttons
 .button--solid {
-	@include cmuButton('solid',$cmu-color-white,$cmu-color-blue);
+	$mode: 'solid';
+	@include cmuButton($mode,$cmu-color-white,$cmu-color-blue);
 
 	&.button-white-on-green {
-		@include cmuButton('solid',$cmu-color-white,$cmu-color-green);
+		@include cmuButton($mode,$cmu-color-white,$cmu-color-green);
 	}
 	&.button-white-on-black {
-		@include cmuButton('solid',$cmu-color-white,$cmu-color-xdkgray);
+		@include cmuButton($mode,$cmu-color-white,$cmu-color-xdkgray);
 	}
 	&.button-blue-on-black {
-		@include cmuButton('solid',$cmu-color-dkblue,$cmu-color-ltblack);
+		@include cmuButton($mode,$cmu-color-dkblue,$cmu-color-ltblack);
 	}
 }
 
@@ -233,16 +242,17 @@ button, .button, .cmuButton {
 // default: placed left
 
 .button--naked {
+	$mode: 'naked';
 	text-align: left;
 	&.button--naked--right {
 		text-align: right;
 		padding-right: 0;
 	}
 
-	@include cmuButton('naked',$cmu-color-blue,$cmu-color-white,$cmu-color-black);
+	@include cmuButton($mode,$cmu-color-blue,$cmu-color-white,$cmu-color-black);
 
 	&.button-black-on-white {
-		@include cmuButton('naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+		@include cmuButton($mode,$cmu-color-black,$cmu-color-white,$cmu-color-blue);
 	}
 	// &.button-white-on-black {
 	// 	@include cmuButton('naked',$cmu-color-white,$cmu-color-black);
@@ -254,7 +264,8 @@ button, .button, .cmuButton {
 // these have an ACTIVE state / class which can be turned on or off
 // (default is off)
 .button--compound {
-	@include cmuButton('compound',$cmu-color-white,$cmu-color-blue);
+	$mode: 'compound';
+	@include cmuButton($mode,$cmu-color-white,$cmu-color-blue);
 
 	// border: $cmu-style-button-borderwidth solid $cmu-color-blue;
 	// @extend %ease-fast;
@@ -287,7 +298,7 @@ button, .button, .cmuButton {
 	}
 
 	&.button-green-on-white {
-		@include cmuButton('compound',$cmu-color-white,$cmu-color-green);
+		@include cmuButton($mode,$cmu-color-white,$cmu-color-green);
 	}
 
 }
@@ -295,12 +306,13 @@ button, .button, .cmuButton {
 // COMPOUND NAKED
 // similar to COMPOUND, these don't have any of the chrome, bg and outlines
 .button--compound-naked {
+	$mode: 'compound-naked';
 
 	text-align: left;
-	@include cmuButton('compound-naked',$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
+	@include cmuButton($mode,$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
 
 	&.button-black-on-white {
-		@include cmuButton('compound-naked',$cmu-color-black,$cmu-color-white,$cmu-color-blue);
+		@include cmuButton($mode,$cmu-color-black,$cmu-color-white,$cmu-color-blue);
 	}
 }
 
@@ -443,29 +455,54 @@ button, .button {
 
 .button--tab {
 	@include cmuButton('outline',$cmu-color-mdgray,$cmu-color-ltgray);
-	color: $cmu-color-black;
+	color: $cmu-color-unselected;
+	background-color: $cmu-color-unselected--background;
 	margin-left: 0;
 	display: inline-block;
     margin-top: -1px;
+    position:relative;
+    z-index: inherit;
 	@extend %ease-fast;
 
 	&:hover {
 		@extend %ease-fast;
-		color: $cmu-color-dkgray;
-		background-color: $cmu-color-ltmdgray;
+		color: $cmu-color-selected;
+		border-color: $cmu-color-selected;
+    	z-index: $z-top; // prevents border overlap bug since we only want to show one button's border
+		// background-color: $cmu-color-hover--background;
 	}
 
 	&:first-child {
 		margin-right: -1px;
 	}
 
+
+	&:before {
+		@extend %ease-fast;
+		content: ' ';
+		display: block;
+		position: absolute;
+		left: 0;
+	    top: -1px;
+	    width: 100%;
+		border-top: 3px solid transparent;
+	}
+
 	&.active {
 		@extend %ease-none;
-		border-top: 3px solid $cmu-color-active;
-		color: $cmu-color-active;
-		background-color: $cmu-color-white;
-		line-height: $cmu-button-lineheight - remCalc(3px) * 2;
-		position:relative;
-		top: 1px;
+		// border-top: 3px solid $cmu-color-selected;
+		color: $cmu-color-selected;
+		background-color: $cmu-color-selected--background;
+		// line-height: $cmu-button-lineheight - remCalc(3px) * 2;
+		// top: 1px;
+
+		&:before {
+			@extend %ease-fast;
+			border-top: 3px solid $cmu-color-selected;
+			position: absolute;
+			left: 0;
+		    top: -1px;
+		    width: 100%;
+		}
 	}
 }

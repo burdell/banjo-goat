@@ -14,7 +14,7 @@ function communityTextEditor($timeout, routingService) {
 
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
-			autofocus: true,
+			autofocus: (editorCtrl.autoFocus || _.isUndefined(editorCtrl.autofocus)) ? true : false,
 			status: false,
 			hideIcons: ['side-by-side', 'fullscreen', 'guide']
 		};
@@ -60,7 +60,8 @@ function communityTextEditor($timeout, routingService) {
         	height: '=editorHeight',
         	minimalEditor: '@',
         	placeholder: '@',
-        	hidePreviewLink: '@'
+        	hidePreviewLink: '@',
+        	autofocus: '='
         }
     };
 

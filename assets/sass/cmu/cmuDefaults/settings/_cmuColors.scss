@@ -66,13 +66,21 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-menu: $cmu-color-dkblue;
 
 	// Post bg color (slightly grayer for better reading)
-	$cmu-color-post: $cmu-color-xltgray;
+	$cmu-color-post--light: $cmu-color-purewhite;
+	$cmu-color-post: $cmu-color-white;
 	
 	// Title for subjects, headlines, etc.
 	$cmu-color-title: $cmu-color-dkgray;			// lighter color since titles are larger
 	
+	// Default hover background color
+	$cmu-color-hover: $cmu-color-xltgray;
+	$cmu-color-hover--background: $cmu-color-xltgray;
+
 	// Active text
 	$cmu-color-active: $cmu-color-blue;
+
+	// Components that are considered "off" or "inactive" but not disabled
+	$cmu-color-inactive: $cmu-color-gray;
 
 	// Used for lighter labels
 	$cmu-color-label: $cmu-color-gray;
@@ -87,14 +95,23 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-link--dark_hover: $cmu-color-link;
 	$cmu-color-link--dark_active: $cmu-color-link_active;
 
-	// 
+	// Tabs and buttons
+	$cmu-color-selected: $cmu-color-active;
+	$cmu-color-selected--background: $cmu-color-purewhite;
+	$cmu-color-unselected: $cmu-color-gray;
+	$cmu-color-unselected--background: transparent;
 
 	// Forms, Input, Search, etc.
 	$cmu-color-placeholder: $cmu-color-ltmdgray; 			// used as hint color for inputs
 	$cmu-color-darken: rgba(0,0,0,0.3); 					// used for button onhover states
 
 	// Thread lists
-	$cmu-color-threadlist-hover: $cmu-color-xltgray; 		// used when hovering over a row in a list
+	$cmu-color-threadlist-hover: $cmu-color-active;
+	$cmu-color-threadlist-hover--background: $cmu-color-ltgray; 			// used when hovering over a row in a list
+	$cmu-color-unread: $cmu-color-black;
+	$cmu-color-isRead: $cmu-color-gray;
+	$cmu-color-isRead--background: $cmu-color-xltgray;
+
 
 // 
 // ENVIRONMENT

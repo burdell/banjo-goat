@@ -5,31 +5,35 @@
 // 
 
 
+.cmuFeed {
+
+}
+
+
+
+
 // 
 // Common Elements
 // 
 
-// 
-// Homepage Feed
-// 
 %sidebar-icon {
 	@extend %font-ubnt;
 }
 
 
-// hide breadcrumbs
+// hide breadcrumbs only on feed
 .cmuFeed--home .cmuBreadcrumbs { 
 	display: none;
 }
-.cmuFeed {
 
-	.cmuDiscussionsHeader h3 {
-		// @extend %h2;
-		// margin-top: $cmu-vertical-rhythm*2;
-		// margin-bottom: $cmu-vertical-rhythm;
-	}
 
-}
+
+
+
+
+// 
+// Main Feed Area
+// 
 
 .cmuFeed__main {
 	padding-right: $cmu-base;
@@ -40,7 +44,6 @@
 	.cmuFeed__container {
 		padding: 0;
 		padding-top: $cmu-base/2;
-		// border: $style-line;
 	}
 
 	// update button
@@ -48,48 +51,40 @@
 		margin-bottom: $cmu-vertical-rhythm;
 	}
 
-	// location tag
-	.cmuFeed__location {
-		@extend %style-tag;
-	}
-
+	// 
 	.cmuFeed__title {
 		padding: $cmu-base/2 $cmu-base;
+		padding: $cmu-base/2;
 		border-bottom: $style-line;
 		height: $cmu-base*2;
 		* { line-height: $size-xxsmaller__lineHeight }
-		.cmuIcon__label {
-			position: relative;
-			top: 2px;
-		}
 	}
 
-	.cmuFeed__items {
-		margin-bottom: $cmu-base/2;
-	}
+
+
+
 
 	// 
 	// stories
 	// 
 
 	.cmuFeed__stories {
-		border: $style-line;
-		// border-bottom: 0;
-
 		margin-bottom: $cmu-vertical-rhythm;
-		background-color: $cmu-color-post;
-		// padding-top: $cmu-base/2;
-		// padding-bottom: $cmu-base/2;
+		// background-color: $cmu-color-post--light;
 
+		.cmuCollapser__header {
+			background-color: transparent;
+		}
 
 		.cmuFeed__title {
-			border: 0;
+			// border: 0;
 		}
 
 	}
 		.cmuFeed__storyList {
 			.cmuFeed__storyList__stories {
-				padding: $cmu-base;
+				// padding: $cmu-base;
+				padding-top: $cmu-base;
 
 				&>div:first-child {
 					padding-left: 0;
@@ -99,11 +94,11 @@
 					padding-right: 0;
 				}
 			}
-
 		}
 		.cmuFeed__story {
 			@extend %style-listItem;
 			&:hover {
+				background: transparent;
 				.cmuFeed__story__img {
 					@extend %ease-fast;
 				    -moz-transform: scale(1.2);
@@ -112,29 +107,6 @@
 				}
 			}
 		}
-
-			.cmuFeed__close {
-				text-align: right;
-				cursor: pointer;
-
-				// fpo
-			    position: absolute;
-			    right: 18px;
-			    top: 10px;
-
-			    span:before {
-			    	content: "\e6d0";
-			    }
-			}
-				.cmuFeed__close--closed {
-
-				    span:before {
-				    	content: "\e6cf";
-				    }
-					& ~ .cmuFeed__storyList {
-						display: none;
-					}
-				}
 
 		.cmuFeed__story__img__container {
 			height: $cmu-base*8;
@@ -173,7 +145,7 @@
 
 	.cmuFeed__list {
 		padding: 0;
-		background-color: $cmu-color-post;
+		// background-color: $cmu-color-post;
 		border: $style-line;
 		border-bottom: 0;
 	}
@@ -187,20 +159,40 @@
 		// individual article items
 		.cmuFeed__item {
 			padding: $cmu-base/2 $cmu-base;
+			padding: $cmu-base/2 $cmu-base/2;
 			border-bottom: $style-line;
 			cursor: pointer;
 			overflow: hidden;
 			@extend %style-listItem;
-			background-color: $cmu-color-post;
+			// background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-white;
+				color: $cmu-color-threadlist-hover;
+				background-color: $cmu-color-threadlist-hover--background;
 			}
 
 			.cmuIcon__label {
 				&:before {color: $cmu-color-blue;}
 			}
+
+			// isRead styles are designed separately
+			&.isRead {
+				background-color: $cmu-color-isRead--background;
+				color: $cmu-color-isRead;
+				.cmuFeed__content {
+					color: $cmu-color-isRead;
+				}
+				&:hover {
+					color: $cmu-color-threadlist-hover ;
+					background-color: $cmu-color-threadlist-hover--background;
+				}
+			}
 		}
+
+			.cmuFeed__item__container:last-child .cmuFeed__item{
+				border-bottom: 0;
+			}
+
 			.cmuFeed__subject {
 				font-weight: 600;
 			}
@@ -211,10 +203,7 @@
 			}
 
 			.cmuFeed__userAction {
-				@extend %size-xsmaller;
-				color: $cmu-color-mdgray;
-				margin: $cmu-base/4 0;
-				margin-bottom: $cmu-base/2;
+				@extend %style-meta;
 			}
 			.cmuFeed__content {
 				@extend %size-normal;
@@ -224,7 +213,7 @@
 			    /* white-space: nowrap; */
 			    overflow: hidden;
 			    max-height: $cmu-base*3; // show a partial 3rd line?
-			    max-height: 36px; // preserve 2 lines
+			    max-height: $size-normal__lineHeight * 2; // preserve 2 lines; hard coded
 			}
 			.cmuFeed__stats {
 				text-align: right;
@@ -233,6 +222,12 @@
 					@extend %style-stat;
 					// margin-right: $cmu-base/2;
 				}
+
+			// product description tag
+			.cmuFeed__location {
+				@extend %style-tag;
+			}
+
 
 
 		.cmuFeed__pagerBottom {
@@ -265,7 +260,7 @@
 	}
 
 	.cmuFeed__sidebar__link {
-		@extend %style-ctaLink;
+		@extend %style-link;
 	}
 
 	.cmuFeed__sidebar__item {
@@ -277,19 +272,14 @@
 			display: block;
 			padding: $cmu-base/4 0;
 			@extend %ease-fast;
-			@extend %style-ctaLink;
+			@extend %style-link;
 
 			// icon color
 			span:before { 
 				@extend %ease-fast;
 				color: $cmu-color-active;
 			}
-			&:hover {
-				span, span:before { 
-					@extend %ease-fast;
-					color: $cmu-color-dkgray;
-				}
-			}
+
 		}
 	}
 
@@ -298,7 +288,7 @@
 	}
 
 		.cmuFeed__anno {
-			@extend %cmuRailLink;
+			@extend %style-railLink;
 			margin-top: $cmu-base/2 !important;
 		}
 

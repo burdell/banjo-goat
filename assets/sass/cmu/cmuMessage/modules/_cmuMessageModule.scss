@@ -23,10 +23,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 }
 
 .cmuMessage__container {
-	border: $style-line--dark; 
+	border: $style-line; 
 	margin-bottom: $cmu-vertical-rhythm/2;
 	display: table;
 	width: 100%; // may not work as parent needs width declaration
+
+	// the avatar area will be given this color, as it doesn't have its own block
+	background: $cmu-color-xltgray;
 	// @extend .style-copy;
 	// border-top: 0px;
 	// &:first-of-type {
@@ -43,20 +46,8 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			opacity: 1;
 		}
 	}
-
-	&:hover {
-		.forumThreadMessage__controls {
-			opacity: 1; 
-			@extend %ease-fast;
-		}
-	}
 }
 
-
-	.forumThreadMessage__controls {
-		// opacity: 0.15; 
-		@extend %ease-fast;
-	}
 
 	// don't fade userbadge
 	.cmuUserbadge {
@@ -67,18 +58,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .cmuMessage__body {
 	display: table-cell;
-	vertical-align: top;
+	// vertical-align: top;
 	width: 80%;
 
-	border-left: $style-line--dark; 
-	padding: $cmu-base;
-	padding-top: $cmu-base/2;
+	border-left: $style-line; 
+	padding: $cmu-base/2 $cmu-base;
 	background-color: $cmu-color-post;
 }
 
-.cmuMessage__header {
-	@extend %type-info;
-}
 	
 	// add "Re:" to replies
 	// .forumThreadMessage:nth-child(n+2) {
@@ -99,20 +86,11 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 	}
 	// }
 
-	.cmuMessage__replyTo {
-		display: inline-block;
-		vertical-align: middle;
-		color: $cmu-color-blue;
-		&:before {
-			content: 'Re: ';
-			color: $cmu-color-gray;
-		}
-		&:after {
-			content: ' | ';
-			color: $cmu-color-gray;
-			margin: 0 $cmu-base/2;
-		}
-	}
+
+
+
+
+
 	.cmuMessage__counter {
 		display: inline-block;
 		vertical-align: middle;
@@ -163,15 +141,74 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
 
-.cmuMessage__controls--reply {
-	text-align: right;
+
+
+
+
+
+// 
+// COMPONTENTS AND CONTROLS
+// 
+
+
+
+
+
+
+
+
+// 
+// ReplyTo Component
+// "in reply to userX"
+// 
+.cmuMessage__replyTo {
+	display: inline-block;
+	vertical-align: middle;
+	@extend %type-info;
+
+	&:before {
+		content: 'In reply to ';
+		color: $cmu-color-gray;
+	}
+	// &:after {
+	// 	content: ' | ';
+	// 	color: $cmu-color-gray;
+	// 	margin: 0 $cmu-base/2;
+	// }
 }
+	.cmuMessage__replyTo__user {
+		@extend %style-link;
+	}
+
+
+
+
+
+
+
+
+
+// 
+// Message Controls
+// 
+
+.cmuMessage__controls {
+	@extend %type-info;
+}
+
+	.cmuMessage__flag {
+		@extend %style-flag;
+	}
+		.cmuMessage__body:hover {
+			@extend %style-flag--hover;
+		}
+
+	.cmuMessage__reply {
+		text-align: right;
+	}
 
 // bottom row of controls of the thread
 
-.forumThreadMessage__main__bottomControls {
-	margin-bottom: $cmu-vertical-rhythm;
-}
 
 
 
@@ -211,8 +248,34 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 
+// Formatting the content within each message
+// 
+
+
+
 .cmuMessage__content {
 
+
+	// 
+	// used especially for announcements
+	// 
 	.highlight {
 		background: $cmu-color-ltgray;
 	    padding: $cmu-base;
@@ -224,6 +287,17 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	    border-left: $style-line--xthick;
 	    border-color: $cmu-color-blue;
 	}
+
+
+
+
+
+
+
+	// 
+	// markdown and migrated posts styling
+	// 
+
 
 	li {
 		list-style-position: inside;

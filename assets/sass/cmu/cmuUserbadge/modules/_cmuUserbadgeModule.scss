@@ -69,20 +69,30 @@
 		cursor: pointer;
 		border-radius: 99999px;
 
-		&:after {
-			content: ' ';
-			display:block;
+		// &:after {
+			// content: ' ';
+			display: inline-block;
 			// background-position: 10px 10px;
-    		background-position-x: -30px;
+    		// background-position-x: -30px;
+    		background-size: cover;
 			border-radius: 50%;
 			background-repeat: no-repeat;
 			width: $size-avatar;
 			height: $size-avatar;
 			@include transition-duration(0.35s);
 			@include transition-timing-function(ease-out);
+		// }
+	}
+		.cmuUserbadge__avatar--small {
+			
+			// &:after {
+			width: $size-avatar--small;
+			height: $size-avatar--small;
+			// }
 		}
 
-	}
+
+
 	.cmuUserbadge__account {
 
 		.cmuUsername {
@@ -296,34 +306,127 @@
 }
 
 
+
 // 
 // Hover Flag
 // - hoverable expandable tooltip
 // 
-.cmuUserbadge:hover {
+.cmuUserbadge--showFlag:hover {
+	@extend %ease-fast;
 	.cmuUserbadge__flag {
+	@extend %ease-fast;
 		display: block;
+		opacity: 1;
+	    -webkit-animation-duration: 0.5s;
+	    -webkit-animation-name: fadeInFromNone;
 	}
 }
 
 .cmuUserbadge__flag {
 	display: none;
 	position: relative;
+	opacity: 0;
+	@extend %ease-fast;
 
 	.cmuUserbadge__flag__container {
 		position: absolute;
 		z-index: $z-top;
-		top: -66px;
-		left: -$cmu-base;
-		padding: $cmu-base;
+		bottom: $cmu-base*2;
+	    width: auto;
+		padding: $cmu-base/2;
 
-		background-color: $cmu-color-white;
-		border: $style-line;
+		$flag-bg: $cmu-color-white;
+		background-color: $flag-bg;
+		border: $style-line--medium;
+		border-color: $cmu-color-gray;
 
+		@extend %style-center;
+		top: inherit;
+		left: $size-arrow/2;
+
+		// border triangle
+		&:before {
+			content: '';
+
+			border-left: $size-arrow solid transparent;
+			border-right: $size-arrow solid transparent;
+			border-top: $size-arrow solid $cmu-color-gray;
+			@extend %ease-fast;
+
+			display: inline;
+		    position: absolute;
+
+		    width: $size-arrow;
+    		bottom: -$size-arrow;
+		    left: 50%;
+		    transform: translateX(-$size-arrow/2);
+		}
+
+		// masking triangle
+		&:after {
+			content: '';
+
+			border-left: $size-arrow solid transparent;
+			border-right: $size-arrow solid transparent;
+			border-top: $size-arrow solid $flag-bg;
+			@extend %ease-fast;
+
+			display: inline;
+		    position: absolute;
+
+		    width: $size-arrow;
+    		bottom: -4px;
+		    left: 50%;
+		    transform: translateX(-$size-arrow/2);
+		}
+
+
+
+		@extend %style-shadow--light;
+
+		.cmuUserbadge__account {
+    		padding: 0 $cmu-base/2;
+		}
+		.cmuUserbadge__user {
+    		white-space: nowrap;
+    		margin: 0;
+		}
+		.cmuUserbadge__avatar {
+			float: none;
+			position: relative;
+			top: 4px;
+			margin-right: 0.25rem;
+		}
 		.cmuUserbadge__avatar:after {
 			height: 5rem;
 			width: 5rem;
 		}
 	}
 }
+
+// 
+// Avatar-only display of user badge
+// (only shows user-avatar, can be paired with userbadge__flag)
+//
+.cmuUserbadge--showUser .cmuUserbadge__main {
+	.cmuUsername,
+	.cmuUserbadge__points,
+	.cmuUserbadge__info
+	{
+		display: none;
+	}
+
+	.cmuUserbadge__account {
+		padding: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
 

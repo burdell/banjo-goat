@@ -40,8 +40,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			reloadOnSearch: false
 		})
-		.state('forums.message', {
-			url: forumRoutes.message,
+		.state('forums.detail', {
+			url: forumRoutes.detail,
 			views: {
 				'mainContent': {
 					templateUrl: 'forums/message/forums.message.html',

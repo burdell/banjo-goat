@@ -112,6 +112,21 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						return communityApi.Gamification.info();
 					}]
 				}			
+			})
+			.state('notifications', {
+				url: routes.notifications,
+				templateUrl: 'directory/notifications/notifications.html',
+				controller: 'Notifications as vm',
+				resolve: {
+					NotificationsFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.notifications,
+							constants: { size: 20 },
+							autoInitModel: false,
+							persistFilterModel: false
+						});
+					}]
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
