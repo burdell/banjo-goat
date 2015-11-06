@@ -16,6 +16,7 @@ function communityTooltip() {
 			contentAsHtml: true,
 			content: 'Loading...',
 			position: 'top-right',
+			position: scope.tooltip.position,
 			interactiveTolerance: '550',
 			onlyOne: 'true',
 			interactive: false,
@@ -45,7 +46,7 @@ function communityTooltip() {
 					}
 
 				} else if (typeof(scope.tooltip.textData) !== 'undefined') {
-					origin.tooltipster('content', "<div class='banana'>"+scope.tooltip.textData+"</div>").data('ajax', 'cached');
+					origin.tooltipster('content', scope.tooltip.textData).data('ajax', 'cached');
 				}
 
 			}
@@ -80,6 +81,7 @@ function communityTooltip() {
         	contentData: '@',
         	textData: '@',
         	tooltipClass: '@',
+        	position: '@',
         	tooltipTemplateName: '@tooltipTemplate'
         }
     };

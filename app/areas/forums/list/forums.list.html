@@ -56,8 +56,6 @@
         <div class="cmuThreadlist__authorDate">Latest</div>
       </div>
 
-
-
       <div class="cmuThreadlist__body">
         <a class="cmuThreadList__row" 
             area-link-handler="{{ vm.getMessageUrl(message.id) }}"
@@ -67,7 +65,10 @@
 
           <div class="cmuThreadlist__topic">
             {{ ::message.topic.subject | htmlUnescape }}
-            <span ng-if="vm.isRead(message)">*</span>
+
+              {{message.id}}
+
+            <!-- <span ng-if="vm.isRead(message)">*</span> -->
           </div>
 
           <div class="cmuThreadlist__preview">
@@ -79,10 +80,9 @@
               tooltip-template="forums/list/forums.list.messagetooltip.html"
               local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
               empty-text="This post only contains images or video."
-              tooltip-class="cmuTooltipster--green"
+              tooltip-class="cmuTooltipster"
+              position="top-right"
             ><span class="icon ubnt-icon--eye2"></span>
-
-
             </span>
           </div>
 
@@ -113,6 +113,8 @@
           </div>
         </a>
       </div>
+      <!-- end body -->
+
     </div>
   </div>
 

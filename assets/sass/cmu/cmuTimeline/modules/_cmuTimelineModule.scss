@@ -16,7 +16,12 @@
 	}
 }
 
+	.cmuTimeline__list {
+		// overflow: visible !important;
+	}
+
 .timeline__container {
+	overflow: hidden;
 	// border: $style-line;
 	// border-bottom: 0;
 
@@ -47,8 +52,19 @@
 		// border-bottom: $style-line--thick;
 		// border: 1px solid transparent;
 		border-color: $cmu-color-white;
+    	// margin-bottom: $cmu-vertical-rhythm;
 	}
 }
+
+
+	.cmuThreadlist__table {
+		padding: $cmu-base 0;
+	}
+
+
+
+
+
 
 .cmuTimeline__month {
 	table {

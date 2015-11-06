@@ -32,7 +32,7 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 		currentNode: nodeService.CurrentNode,
 		getMessageData: communityApiService.Forums.message,
 		getMessageUrl: function(messageId){
-			return $state.href('forums.detail', { messageId: messageId });
+			return $state.href('forums.detail', { messageId: '3413' });
 		},
 		startNewTopic: function(){
 			$state.go('forums.newtopic');

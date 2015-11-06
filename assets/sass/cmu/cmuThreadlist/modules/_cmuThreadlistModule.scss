@@ -132,9 +132,10 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		}
 
 
-		& > div:first-child {
-			padding-left: $cmu-threadlist-offset;
-		}
+		// & > div:first-child {
+		// .cmuThreadlist__topic {
+		// 	padding-left: $cmu-threadlist-offset;
+		// }
 		& > div:last-child {
 			padding-right: $cmu-threadlist-offset;
 		}
@@ -143,6 +144,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 
 	// Topic
 	.cmuThreadlist__topic {
+		padding-left: $cmu-threadlist-offset;
 		padding-right: $cmu-threadlist-padding;
 	}
 
@@ -160,7 +162,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	.cmuThreadlist__authorDate {
 		overflow: visible !important;
 		font-size: $cmu-threadlist-size-numerical;
-		min-width: $cmu-base*30/4;
+		// min-width: $cmu-base*30/4;
+		width: $cmu-base*7;
 
 		.cmuThreadlist__avatar {
 			// width: $size-avatar--small;
@@ -205,12 +208,13 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	}
 
 		.cmuThreadlist__views {
-			padding-left: $cmu-base/2;
+			// padding-left: $cmu-base/2;
 			// width: $cmu-threadlist-size-counterWidth + 2%;
 		}
 		.cmuThreadlist__replies {
 		}
 		.cmuThreadlist__kudos {
+			padding-right: $cmu-base;
 		}	
 
 		// threadlist headers responsive text

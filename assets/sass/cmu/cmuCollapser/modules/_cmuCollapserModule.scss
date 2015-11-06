@@ -17,6 +17,7 @@
 .cmuCollapser__container {
 	margin-bottom: $cmu-vertical-rhythm;
     @extend %ease-slow;
+	overflow: hidden;
 }
 
 .cmuCollapser__header {
@@ -33,7 +34,7 @@
 	}
 
 	&:hover {
-		background: $cmu-color-threadlist-hover;
+		background: $cmu-color-ltblue;
 		// border: 1px solid transparent;
 		@extend %ease-fast;
 	}
@@ -124,7 +125,6 @@
 		opacity: 0;
 		// padding: 0;
 		// margin: 0;
-		overflow: hidden;
 	}
 
 

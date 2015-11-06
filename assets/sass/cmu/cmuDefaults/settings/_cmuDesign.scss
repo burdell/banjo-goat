@@ -12,6 +12,17 @@ $style-line: 1px solid $cmu-color-line;
 	$style-line--xthick: 6px solid $cmu-color-dkgray;
 
 
+// 
+// center an absolute object like a flag
+// 
+
+%style-center {
+	// http://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element
+	top: 50%;
+	left: 50%;
+	// centers based on width
+	transform: translateX(-50%);
+}
 
 // 
 // Standardized border radius
@@ -239,28 +250,23 @@ $style-line: 1px solid $cmu-color-line;
 		// border-color: $cmu-color-white;
 		color: $cmu-color-white;
 
-		position: absolute;
+		position: relative;
 		bottom: 10px; // height of arrow
 	}
 
 	&:after {
-		opacity: 0;
-		content: '';
-		width: 0; 
-		height: 0; 
-		border-left: 10px solid transparent;
-		border-right: 10px solid transparent;
-		border-top: 10px solid $cmu-color-ltblack;
-		border: 0;
-		@extend %ease-fast;
+		// opacity: 0;
+		// content: '';
+		// width: 0; 
+		// height: 0; 
+		// border-left: 10px solid transparent;
+		// border-right: 10px solid transparent;
+		// border-top: 10px solid $cmu-color-ltblack;
+		// border: 0;
+		// @extend %ease-fast;
 
-	    position: absolute;
-	    bottom: 0px;
-
-		&:hover {
-			color: red;
-			background: green;
-		}
+	 //    position: absolute;
+	 //    bottom: 0px;
 	}
 
 	&.cmuHoverflag--right {

@@ -327,21 +327,77 @@
 	position: relative;
 	opacity: 0;
 	@extend %ease-fast;
+	$triangle-size: 10px;
 
 	.cmuUserbadge__flag__container {
 		position: absolute;
 		z-index: $z-top;
 		bottom: $cmu-base*2;
-	    width: $cmu-base*20;
-	    right: -$cmu-base;
-		padding: $cmu-base;
+	    width: auto;
+		padding: $cmu-base/2;
 
-		background-color: $cmu-color-white;
+		$flag-bg: $cmu-color-white;
+		background-color: $flag-bg;
 		border: $style-line--medium;
 		border-color: $cmu-color-gray;
 
+		@extend %style-center;
+		top: inherit;
+		left: $triangle-size/2;
+
+		// border triangle
+		&:before {
+			content: '';
+
+			border-left: $triangle-size solid transparent;
+			border-right: $triangle-size solid transparent;
+			border-top: $triangle-size solid $cmu-color-gray;
+			@extend %ease-fast;
+
+			display: inline;
+		    position: absolute;
+
+		    width: $triangle-size;
+    		bottom: -$triangle-size;
+		    left: 50%;
+		    transform: translateX(-$triangle-size/2);
+		}
+
+		// masking triangle
+		&:after {
+			content: '';
+
+			border-left: $triangle-size solid transparent;
+			border-right: $triangle-size solid transparent;
+			border-top: $triangle-size solid $flag-bg;
+			@extend %ease-fast;
+
+			display: inline;
+		    position: absolute;
+
+		    width: $triangle-size;
+    		bottom: -7px;
+		    left: 50%;
+		    transform: translateX(-$triangle-size/2);
+		}
+
+
+
 		@extend %style-shadow--light;
 
+		.cmuUserbadge__account {
+    		padding: 0 $cmu-base/2;
+		}
+		.cmuUserbadge__user {
+    		white-space: nowrap;
+    		margin: 0;
+		}
+		.cmuUserbadge__avatar {
+			float: none;
+			position: relative;
+			top: 4px;
+			margin-right: 0.25rem;
+		}
 		.cmuUserbadge__avatar:after {
 			height: 5rem;
 			width: 5rem;
