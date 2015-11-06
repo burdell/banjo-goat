@@ -22,7 +22,7 @@
 		<div class="cmuUserbadge__info">
 			<div class="cmuUserbadge__descriptors">
 				<div class="cmuUserbadge__descriptor">{{ userbadge.displayUser.locName }}</div>
-				<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate }}</div>
+				<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate | timeFromNow }}</div>
 			</div>
 		</div>
 	</div>

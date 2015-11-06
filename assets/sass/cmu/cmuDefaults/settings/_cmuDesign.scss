@@ -33,10 +33,6 @@ $style-line: 1px solid $cmu-color-line;
 
 
 
-// 
-// Text Styles
-// 
-
 
 // 
 // Basic Link Styles
@@ -155,6 +151,7 @@ $style-line: 1px solid $cmu-color-line;
 	background-color: transparent;
 	// color: $cmu-color-blue; // too loud
 	color: $cmu-color-dkblue;
+	color: $cmu-color-body;
 
 	// @extend %border-radius;
 	@extend %ease-fast;
@@ -173,11 +170,12 @@ $style-line: 1px solid $cmu-color-line;
 	}
 
 .style-stat, %style-stat {
+	$stat-padding: 4.5px $cmu-base/2;
 	display: inline-block;
 	@extend %size-xxsmaller;
 	color: $cmu-color-dkgray;
-	padding: 3.5px $cmu-base/2;
-	border: 0;
+	margin-right: $cmu-base/4;
+	border: $style-line;
 
 	.ubnt-icon {
 		margin-right: $cmu-base/4;
@@ -190,10 +188,55 @@ $style-line: 1px solid $cmu-color-line;
 		position:relative;
 		top: -2px;
 	}
+
+	.cmuFeed__stat__num {
+		display: inline-block;
+		border-right: $style-line;
+		padding: $stat-padding;
+		font-weight: 600;
+	}
+	.cmuFeed__stat__title {
+		display: inline-block;
+		padding: $stat-padding;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
 
+// 
+// Flag for marking posts as spam, etc.
+// - in comments and messages
+// 
 
+.style-flag, %style-flag {
+	text-align: right;
+	margin-right: $cmu-base/2;
+
+	.cmuIcon-flag {
+		cursor: pointer;
+	    border: $style-line;
+	    display: inline-block;
+	    width: 25px;
+	    height: 25px;
+	    border-radius: 50%;
+		opacity: 0; @extend %ease-fast;
+
+		&:hover {
+			opacity: 1 !important;
+			border-color: $cmu-color-blue;
+		}
+	}
+}
+
+// hover effect of the parent container
+.style-flag--hover, %style-flag--hover {
+	.cmuIcon-flag {
+		opacity: 0.465; @extend %ease-fast;
+	}
+}
 
 
 // 
@@ -221,17 +264,36 @@ $style-line: 1px solid $cmu-color-line;
 
 // 
 // Hover Flag
+// - tooltip and userbadges
 // - default is bottom
 // 
-.cmuHoverflag__trigger:hover {
-	.cmuHoverflag:before, .cmuHoverflag:after {
-		opacity: 1;
+
+// in the parent container; the hover triggers the appearance of the flag
+.cmuHoverflag__trigger {
+	position: relative; // helps position the flag
+
+	&:hover {
+		.cmuHoverflag:before, .cmuHoverflag:after {
+			opacity: 1;
+		}
 	}
 }
 
 .cmuHoverflag, %cmuHoverflag {
-	position: relative;
+	display: inline-block;
+	// position: relative;
 	text-align: center; // center aligns content with the flag, but may affect content
+	position: absolute;
+	// left: 50%;
+ //    top: 0%;
+ //    transform: translate(-50%, -90%);
+
+ 	// center the hover flag container
+    left: 0;
+    right: 0;
+    // top: 0%;
+    // transform: translate(-0%, -90%);
+
 	@extend %ease-fast;
 
 	&:hover:before {
@@ -241,7 +303,7 @@ $style-line: 1px solid $cmu-color-line;
 	&:before {
 		opacity: 0;
 		content: attr(data-tooltip);
-		display: block;
+		display: inline-block;
 		@extend %style-tag;
 		@extend %ease-fast;
 
@@ -249,24 +311,38 @@ $style-line: 1px solid $cmu-color-line;
 		background-color: $cmu-color-dkgray;
 		// border-color: $cmu-color-white;
 		color: $cmu-color-white;
+    	white-space: nowrap;
 
-		position: relative;
-		bottom: 10px; // height of arrow
+		// position: relative;
+  //   	left: -100%;
+
+    	position: absolute;
+    	left: -100%;
+    	transform: translate(0,-100%);
+    	top: -$size-arrow;
 	}
 
 	&:after {
-		// opacity: 0;
-		// content: '';
-		// width: 0; 
-		// height: 0; 
-		// border-left: 10px solid transparent;
-		// border-right: 10px solid transparent;
-		// border-top: 10px solid $cmu-color-ltblack;
-		// border: 0;
-		// @extend %ease-fast;
+		// arrow 
+		// defined using the compass directions
 
-	 //    position: absolute;
-	 //    bottom: 0px;
+		opacity: 0;
+		content: '';
+		width: 0; 
+		height: 0; 
+
+		@extend %ease-fast;
+	    // position: relative;
+
+	    // top arrow is default
+	    position: absolute;
+	    left: 50%;
+    	transform: translate(-50%,0);
+
+    	border-left: $size-arrow solid transparent;
+		border-right: $size-arrow solid transparent;
+		border-top: $size-arrow solid $cmu-color-dkgray;
+	    top: -$size-arrow;
 	}
 
 	&.cmuHoverflag--right {
@@ -278,18 +354,12 @@ $style-line: 1px solid $cmu-color-line;
 	}
 
 	&.cmuHoverflag--top {
-		&:after {
-			opacity: 0;
-			content: '';
-			width: 0; 
-			height: 0; 
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;
-			border-top: 10px solid $cmu-color-dkgray;
-			@extend %ease-fast;
-		    position: absolute;
-		    top: 8px;
-		}
+		// &:after {
+		// 	border-left: $size-arrow solid transparent;
+		// 	border-right: $size-arrow solid transparent;
+		// 	border-top: $size-arrow solid $cmu-color-dkgray;
+		//     top: $size-arrow - remCalc(2px);
+		// }
 	}
 }
 

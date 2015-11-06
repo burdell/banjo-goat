@@ -21,7 +21,7 @@
 		    <div class="cmuThreadlist__table"> 
 
 		      <div class="cmuThreadlist__headers">
-		        <div class="cmuThreadlist__topic">Topic</div>
+		        <div class="cmuThreadlist__topic">{{ monthData.month | monthDisplay }} {{ yearData.year }}</div>
 		        <div class="cmuThreadlist__authorDate">Created</div>
 		        <div class="cmuThreadlist__counter cmuThreadlist__views"></div>
 		        <div class="cmuThreadlist__counter cmuThreadlist__replies"></div>
@@ -37,7 +37,8 @@
 		            >
 
 		          <div class="cmuThreadlist__topic">
-		          	{{ data.topic.subject | htmlUnescape }}
+		          	<span class="cmuThreadlist__topic__title">{{ data.topic.subject | htmlUnescape }}</span> 
+			        <span class="cmuTag">{{ data.topic.node.description }}</span>
 		            <!-- <span ng-if="timeline.isRead(data)">*</span> -->
 		          </div>
 

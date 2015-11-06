@@ -167,11 +167,25 @@
 			// background-color: $cmu-color-post;
 
 			&:hover {
-				background-color: $cmu-color-hover--background;
+				color: $cmu-color-threadlist-hover;
+				background-color: $cmu-color-threadlist-hover--background;
 			}
 
 			.cmuIcon__label {
 				&:before {color: $cmu-color-blue;}
+			}
+
+			// isRead styles are designed separately
+			&.isRead {
+				background-color: $cmu-color-isRead--background;
+				color: $cmu-color-isRead;
+				.cmuFeed__content {
+					color: $cmu-color-isRead;
+				}
+				&:hover {
+					color: $cmu-color-threadlist-hover ;
+					background-color: $cmu-color-threadlist-hover--background;
+				}
 			}
 		}
 

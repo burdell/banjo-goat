@@ -14,8 +14,9 @@ function communityTimeline() {
 	var link = function(scope, element, attrs) {
 	};
 
-		var controller = function($state, timelineService) {
+		var controller = function($state, timelineService, routingService) {
 			var ctrl =  this;
+			var announcementNodeId = $state.params.nodeId;
 			
 			var shown = {
 				month: null,
@@ -43,6 +44,7 @@ function communityTimeline() {
 				},
 				getMessageUrl: function(data){
 					return $state.href('announcements.detail', { announcementId: data.id });
+					// return routingService.generateUrl('announcements.detail', { nodeId: data.urlCode, announcementId: data.id });
 				},
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);
@@ -55,7 +57,7 @@ function communityTimeline() {
 				}
 			});
 		};
-		controller.$inject = ['$state', 'CommunityTimelineService'];
+		controller.$inject = ['$state', 'CommunityTimelineService', 'CommunityRoutingService'];
 
     var directive = {
         link: link,

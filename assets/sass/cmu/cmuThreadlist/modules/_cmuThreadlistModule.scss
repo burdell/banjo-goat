@@ -147,6 +147,9 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		padding-left: $cmu-threadlist-offset;
 		padding-right: $cmu-threadlist-padding;
 	}
+		.cmuThreadlist__topic__title {
+			padding-right: $cmu-base/2;
+		}
 
 	// Preview
 	.cmuThreadlist__preview {

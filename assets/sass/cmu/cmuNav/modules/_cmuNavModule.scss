@@ -763,18 +763,37 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			background-color: $cmu-color-ltblue;
 		}
 
+		// different bc this is a fixed pos item
+		.cmuHoverflag {
+		    // position: absolute;
+		    // left: -50%;
+		    // right: -50%;
+
+		    // left: inherit;
+		    // right: inherit;
+
+		    &:before {
+    			// transform: translate(-50%, -259990%);
+    			left: 50%;
+    			transform: translate(-50%, 0%);
+    			top: -80px; // hard coded bc of fixed position underlying element
+		    }
+		    &:after {
+		    	top: -60px;
+		    }
+		}
 		.cmuHoverflag--top {
-			&:before {
-			    position: fixed;
-			    right: 14px;
-			    bottom: 75px;
-			}
-			&:after {
-			    position: fixed;
-			    top: inherit;
-			    bottom: 65px;
-			    right: 36px;
-			}
+			// &:before {
+			//     position: fixed;
+			//     right: 14px;
+			//     bottom: 75px;
+			// }
+			// &:after {
+			//     position: fixed;
+			//     top: inherit;
+			//     bottom: 65px;
+			//     right: 36px;
+			// }
 		}
 	}
 
