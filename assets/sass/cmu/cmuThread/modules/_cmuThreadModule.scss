@@ -21,7 +21,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 // Subject
 .cmuThread__subject h3 {
-	// margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm;
 	line-height: $cmu-base*2;
 }
 
@@ -91,7 +91,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 // pagination and filter area
 .cmuThread__controls {
-	margin-bottom: $cmu-vertical-rhythm/2;
+	margin-bottom: $cmu-vertical-rhythm;
 }
 	.cmuThread__controls--bottom {
 		margin-bottom: $cmu-vertical-rhythm*2;

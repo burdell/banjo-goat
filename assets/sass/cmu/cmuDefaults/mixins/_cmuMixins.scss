@@ -133,6 +133,13 @@ $speed-fast: 180ms;
 
 
 
+
+
+
+// 
+// CSS3 ANIMATIONS
+// 
+
 // animation speeds are set in the mixins
 @-webkit-keyframes fadeInFromNone {
     0% {
@@ -151,7 +158,31 @@ $speed-fast: 180ms;
     }
 }
 
+@-webkit-keyframes fadeOutToNone {
+    0% {
+        display: block ; 
+        opacity: 1;
+    }
 
+    1% {
+        display: none ; 
+        opacity: 1;
+    }
+
+    100% {
+        display:none; 
+        opacity: 0;
+    }
+}
+
+
+@mixin cmuAnimate($effect, $speed) {
+  -webkit-animation-name: fadeInFromNone;
+  animation-name: fadeInFromNone;
+
+  -webkit-animation-duration: $speed;
+  animation-duration: $speed;
+}
 
 
 

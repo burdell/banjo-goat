@@ -84,6 +84,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		font-weight: 300; 
 		@extend %size-xsmaller;
 		color: $cmu-color-inactive;
+		padding-bottom: $cmu-base/4;
 	}
 }
 

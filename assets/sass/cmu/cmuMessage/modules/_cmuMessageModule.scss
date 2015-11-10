@@ -138,6 +138,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		&:after {
 			content: ' | ';
 			margin: 0 $cmu-base/2;
+			color: $cmu-color-ltmdgray;
 		}
 	}
 
@@ -192,10 +193,18 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // Message Controls
 // 
 
-.cmuMessage__controls {
+.cmuMessage__meta {
 	@extend %type-info;
 }
+	// meta info (msg count, date)
+	.cmuMessage__counter, .cmuMessage__date {
+		color: $cmu-color-subtle;
+	}
 
+
+
+
+	// controls
 	.cmuMessage__flag {
 		@extend %style-flag;
 	}
@@ -204,8 +213,15 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 
 	.cmuMessage__reply {
+		@extend %height-slim;
 		text-align: right;
+
+		.cmuPermissions {
+			margin-left: $cmu-base/2;
+		}
 	}
+
+
 
 // bottom row of controls of the thread
 
@@ -352,6 +368,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			padding: 0;
 		}
 	}
+
+
+	// lithium signatures come through as
+	// UserSignature lia-message-signature
+
+	// how should lithium anchors be handled?
+	// a 
+
 }
 
 

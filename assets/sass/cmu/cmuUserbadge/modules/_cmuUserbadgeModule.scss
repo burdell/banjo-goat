@@ -99,6 +99,8 @@
 			@extend %type-base;
 			line-height: $cmu-base * 3/4;
 			margin-top: $cmu-base/4;
+    		min-width: 100px;
+
 		}
 
 		// icons have more lineheight
@@ -116,6 +118,10 @@
 	word-wrap: break-word;
 	padding: 0 $cmu-base;
 	padding-bottom: $cmu-base;
+
+	.cmuUserbadge__descriptor__title {
+		font-weight: 300;
+	}
 
 	// description tag
 	div {
@@ -141,48 +147,36 @@
 	@extend %type-info;
     vertical-align: top;
 	display: block;
+	// display: inline-block;
     // line-height: 0.75rem; // looks weird when no ubnt logo on username, but might cause problems
 	text-align: left;
+	font-weight: 300;
 }
 
 
 .cmuUserbadge__points {
 	display: inline-block;
-    // border: 1px solid $cmu-color-xltgray;
-    // padding-left: $cmu-base;
     padding-right: $cmu-base;
 	margin: 0 $cmu-base/2;
-	margin-bottom: $cmu-base/4;
+	margin-bottom: $cmu-base/2;
     @extend %type-info;
 }
-	.cmuUserbadge__kudos, .cmuUserbadge__postCount {
-		// padding: $cmu-base/8 $cmu-base/4;
-		padding-left: $cmu-base/2;
-		display: inline-block;
+	.cmuUserbadge__stat {
+		margin-left: $cmu-base/2;
+		display: block;
+		// @extend %style-stat;
 
-		.cmuIcon-kudos, .cmuIcon-posts {
-			padding-right: $cmu-base/4;
-
-		}
-		&:after {
-			content: ' kudos';
-			font-weight: 300;
-		}
-	}
-	.cmuUserbadge__postCount {
-		&:after {
-			content: ' posts';
-		}
+		margin-top: $cmu-base/2;
 	}
 
-	.cmuUserbadge__posts {
-		display: inline-block;
-		padding-left: $cmu-base/2;
-		&:after {
-			content: ' posts';
-			font-weight: 300;
-		}
+	.cmuUserbadge__stat__num {
+		// @extend %style-stat-num;
 	}
+	.cmuUserbadge__stat__title {
+		font-weight: 300;
+		// @extend %style-stat-title;
+	}
+
 
 // 
 // TAGS
@@ -230,12 +224,16 @@
     border-bottom: $style-line;
     border-right: $style-line;
 
+    .cmuUserbadge__main {
+    	margin-top: 3px;
+    }
 
     .cmuUserbadge__account {
     	display: inline-block;
     	padding: 0;
-		padding-right: $cmu-base*4;
-		white-space: nowrap;
+		// padding-right: $cmu-base*2;
+    	max-width: 210px;
+		// white-space: nowrap;
     }
     	.cmuUsername {
     		margin-top: 0;
@@ -252,7 +250,7 @@
     .cmuUserbadge__points {
     	display: inline-block;
     	vertical-align: top;
-		// margin-top: -3px;
+    	// margin-top: 2px;
 
     	div {
     		display: block;
@@ -260,6 +258,9 @@
 			// padding: 2px 8px;
     	}
     }
+    	.cmuUserbadge__stat {
+    		margin-top: 0;
+    	}
 
 		.cmuUserbadge__posts {
 			padding-left: 0;
@@ -275,6 +276,7 @@
 
     .cmuUserbadge__descriptors {
     	padding: 0;
+    	// margin-top: 2px;
     }
 
 }
@@ -289,6 +291,12 @@
 			margin-bottom: 0;
 		}
 	}
+
+
+
+
+
+
 
 
 
@@ -307,23 +315,33 @@
 
 
 
+
+
+
+
+
+
 // 
 // Hover Flag
 // - hoverable expandable tooltip
 // 
+.cmuUserbadge--showFlag {
+	// @include cmuAnimate(fadeInFromNone, $speed-medium);
+}
 .cmuUserbadge--showFlag:hover {
 	@extend %ease-fast;
+
 	.cmuUserbadge__flag {
-	@extend %ease-fast;
-		display: block;
+		@extend %ease-fast;
+		// display: block;
+		visibility: inherit;
 		opacity: 1;
-	    -webkit-animation-duration: 0.5s;
-	    -webkit-animation-name: fadeInFromNone;
+		// @include cmuAnimate(fadeInFromNone, $speed-medium);
 	}
 }
 
 .cmuUserbadge__flag {
-	display: none;
+	visibility: hidden;
 	position: relative;
 	opacity: 0;
 	@extend %ease-fast;

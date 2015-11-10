@@ -16,48 +16,44 @@
 			</div>
 
 			<!-- message controls -->
-			<div class="cmuMessage__controls">
+			<div class="cmuMessage__footer">
 				<div class="row">
 					<div class="col--md6">
-						<div class="cmuMessage__counter" ng-if="messageDisplay.threadFilter">
-							{{ messageDisplay.getMessagePosition() }}
+						<div class="cmuMessage__meta">
+							<div class="cmuMessage__counter" ng-if="messageDisplay.threadFilter">
+								{{ messageDisplay.getMessagePosition() }}
+							</div>
+							<div class="cmuMessage__date">{{ messageDisplay.message.postDate | exactTimeFromNow }}</div>
 						</div>
-						<div class="cmuMessage__date">{{ messageDisplay.message.postDate | exactTimeFromNow }}</div>
 					</div>
 					<div class="col--md6 alignRight">
 						<div class="cmuMessage__controls"> 
 							<div class="cmuMessage__reply noPadding">
-								<span community-permissions denied-behavior="disable">
-									<span class="cmuMessage__flag cmuHoverflag__trigger">
+								<span community-permissions denied-behavior="disable" class="cmuPermissions">
+									<div class="cmuMessage__flag cmuHoverflag__trigger">
 										<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
 
 										<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Flag this post" data-textalign="left"></div>
-									</span>
-
-
-
-									<div class="button button--vote button--thin button--compound-naked">
-										123 kudos
 									</div>
-									<div class="button button--vote button--thin button--compound-naked ">
-										<span class="icon ubnt-icon--tools"></span> Helpful
+
+									<div class="button button--vote button--vote--kudo button--thin button--lowercase" community-class-toggle="button--voted">
+										<div class="button--vote--points">123</div>
+										<div class="button--vote--action">Kudos</div>
+									</div>
+
+									<div class="button button--vote button--thin button--lowercase" community-class-toggle="button--voted button--lowercase">
+										<div class="button--vote--points">123</div>
+										<div class="button--vote--action">Thanks</div>
 									</div>
 								</span>
 								
-								<div 
+								<span 
 									community-permissions
-									class="button button--solid button--thin button-white-on-blue" 
+									class="button button--solid button--thin button--lowercase button-white-on-blue cmuPermissions" 
 									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
 										Reply
-								</div>
+								</span>
 
-<!-- 
-								<div 
-									class="button button--solid button--thin button-white-on-blue" 
-									ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
-										Edit
-								</div>
-								 -->
 							</div>
 						</div>
 					</div>
