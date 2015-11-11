@@ -35,7 +35,8 @@ var sources = {
 	sass: ['assets/**/*.scss'],
     vendorCss: [
         'node_modules/simplemde/dist/simplemde.min.css', 
-        'node_modules/angular-ui-select/select.min.css'
+        'node_modules/angular-ui-select/select.min.css',
+        'node_modules/angular-pikaday/node_modules/∂¬pikaday/css/pikaday.css'
     ],
 	partials: [
 		'app/areas/**/*.html',

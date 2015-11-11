@@ -7,6 +7,7 @@ require('shared/filters/extractkey.js');
 require('shared/filters/timefromnow.js');
 require('directives/username/username.js');
 require('directives/useravatar/useravatar.js');
+require('directives/productdiscussiontag/productdiscussiontag.js');
 
 var _ = require('underscore');
 
@@ -41,10 +42,6 @@ function communityTimeline() {
 				},
 				showMonth: function(month, year) {
 					return shown.year === year && shown.month === month;
-				},
-				getMessageUrl: function(data){
-					return $state.href('announcements.detail', { announcementId: data.id });
-					// return routingService.generateUrl('announcements.detail', { nodeId: data.urlCode, announcementId: data.id });
 				},
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);

@@ -4,6 +4,7 @@ require('angular');
 require('angular-ui-router');
 require('angular-ui-select/select.js');
 require('angular-sanitize');
+require('pikaday-angular');
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
 
@@ -11,7 +12,8 @@ function initializeApp(areaName) {
     var baseTag = document.createElement('base');
     baseTag.setAttribute('href', '/');
     document.head.appendChild(baseTag);
-    
+    document.cookie = "COMM_AUTH=3";
+
     var moduleBuilder = require('modulebuilder');
 
     angular.module('communityApp', [
@@ -20,6 +22,7 @@ function initializeApp(areaName) {
         'ngSanitize',
         //'ng-sortable',
         'community.templates',
+        'pikaday',
         moduleBuilder('community.providers'),
         moduleBuilder('community.services'),
         moduleBuilder('community.directives'),

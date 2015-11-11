@@ -1,7 +1,7 @@
 
 	'use strict';
 
-	require('services/utils.js');
+	require('directives/keypress/enter.js');
 
 	var _ = require('underscore');
 	var $ = require('jquery');
@@ -17,7 +17,7 @@
 			}
 		};
 
-		var controller = function($rootScope, $scope, utils) {
+		var controller = function($location, $rootScope, $scope, $state, routingService, utils) {
 			var ctrl = this;
 
 			$scope.$on('searchbar:' + ctrl.openEvent, function(){
@@ -44,10 +44,21 @@
 					if (ctrl.isOpen) {
 						ctrl.focus();
 					}
+				},
+				search: function(){
+					var currentArea = routingService.getCurrentArea();
+					var searchModel = { q: ctrl.searchText };
+					
+					if (currentArea === 'directory') {
+						$location.search(searchModel);
+						$state.go('searchpage', searchModel);
+					} else {
+						window.location = (routingService.generateUrl('searchpage', null, searchModel ));
+					}
 				}
 			});
 		};
-		controller.$inject = ['$rootScope', '$scope', 'CommunityUtilsService'];
+		controller.$inject = ['$location', '$rootScope', '$scope', '$state', require('services/routing.js'), require('services/utils.js')];
 
 	    var directive = {
 	    	link: link,

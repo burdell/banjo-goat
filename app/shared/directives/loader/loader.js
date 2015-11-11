@@ -10,7 +10,6 @@ function loader() {
      var link = function(scope, element, attrs){
         if (!scope.loader.baseLoader) {
             var attributeSelector = scope.loader.hideElementSelector || 'div[ui-view="mainContent"]';
-
             scope.loader.showElement = function(){
                 $(attributeSelector).show();
             };

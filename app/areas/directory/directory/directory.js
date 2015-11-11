@@ -16,11 +16,7 @@ var directoryController = function($scope, breadcrumbService, routingService, no
 	breadcrumbService.setCurrentBreadcrumb('Directory');
 	
 	var discussionTypes = nodeService.DiscussionTypes;		
-	var directoryList = [
-		{ header: 'Community', list: discussionTypes.general },
-		{ header: 'Broadband', list: discussionTypes.broadband },
-		{ header: 'Enterprise', list: discussionTypes.enterprise }
-	];
+	var directoryList = nodeService.getProductTypeList();
 
 	var discussionNodeOrder = ['Alpha', 'Beta', 'Public', 'stories', 'qa', 'announcements', 'features', 'bugs'];
 

@@ -101,12 +101,12 @@
               </ul>
 
               <div class="cmuGloNav__accountControl">
-                <div class="cmuGloNav__cmuSearch"
+                <div ng-hide="mainnavbar.hideSearch()" class="cmuGloNav__cmuSearch"
                      ng-click="$broadcast('searchbar:toggleSearchbar');">
                   <span class="icon ubnt-icon--search-2"></span>
                 </div>
                 <div class="cmuGloNav__cmuAccount">
-                  <ul class="" ng-hide="true" ng-show="mainnavbar.isAuthenticated">
+                  <ul ng-show="mainnavbar.isAuthenticated">
                       <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.notifications.html"
                         element-classname="cmuGloNav__notifications"

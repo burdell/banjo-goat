@@ -1,0 +1,181 @@
+<div>
+ 	<community-page-header 
+ 		header-text="Search"
+		hide-element-selector=".searchpage-container">
+	</community-page-header>
+
+	<div class="searchpage-container">
+		<div class="row row--comfy">
+			<div class="col--md12 noPadding">
+				<div>
+					<div class="cmuSearchbox">
+						<div class="appIconInput appIconInput--right">
+							<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
+							<input 
+								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+								placeholder="Search Community" 
+								type="text" 
+								ng-model="vm.searchText"
+								community-enter="vm.search()">
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    	<div class="row">
+	    	<div class="col--md3">
+	    		<div>
+	    			<community-datepicker 
+	    				placeholder="From Date"
+	    				ng-model="vm.filterOptions.postDate.min"
+	    				on-change="vm.search()">
+	    			</community-datepicker> 
+	    			<spam> - </spam>
+	    			<community-datepicker 
+	    				placeholder="To Date"
+	    				ng-model="vm.filterOptions.postDate.max"
+	    				on-change="vm.search()">
+	    			</community-datepicker> 
+	    		</div>
+
+	    		<!-- DISCUSSION TYPE FILTER -->
+	    		<div>	
+    				<div class="cmuInput__checkbox cmuInput--default">
+						<label>
+							<input 
+								type="checkbox" 
+								name="vm.discussionTypeFilters[]"
+								value="{{ vm.filterOptions.discussionStyles.defaultOption.value }}" 
+								ng-model="vm.filterOptions.discussionStyles.defaultOption.selected" 
+								ng-change="vm.defaultChanged(vm.filterOptions.discussionStyles)"
+								ng-checked="vm.filterOptions.discussionStyles.defaultOption.selected" />
+								<span>{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
+						</label>
+					</div>
+
+    				<div ng-repeat="filter in vm.filterOptions.discussionStyles.list" class="cmuInputGroup">
+    					<div class="cmuInput__checkbox">
+	    					<label>
+	    						<input 
+	    							type="checkbox" 
+									name="vm.discussionTypeFilters[]"
+									value="{{ filter.value }}" 
+									ng-model="filter.selected" 
+									ng-change="vm.filterChanged(vm.filterOptions.discussionStyles, filter)" />
+	    						<span>{{ filter.display }}</span>
+	    					</label>
+    					</div>
+    					<div ng-if="filter.subfilters" style="padding-left: 10px;">
+    						<div ng-repeat="subfilter in filter.subfilters.list" class="cmuInputGroup">
+    							<div class="cmuInput__checkbox">
+									<label>
+										<input 
+											ng-disabled="!filter.selected"
+											type="checkbox" 
+											name="vm.discussionTypeFilters[]"
+											value="{{ subfilter.value }}" 
+											ng-model="subfilter.selected" 
+											ng-change="vm.filterChanged(filter.subfilters)"
+											ng-checked="subfilter.selected" />
+											<span>{{ subfilter.display }}</span>
+									</label>
+								</div>
+    						</div>
+    					</div>
+    				</div>
+	    		</div>
+
+	    		<!-- PRODUCT FILTER -->
+	    		<div>
+	    			<div class="cmuInput__checkbox cmuInput--default">
+						<label>
+							<input 
+								type="checkbox" 
+								name="vm.selectedFilters[]"
+								value="{{ vm.filterOptions.productTypes.defaultOption.value }}" 
+								ng-model="vm.filterOptions.productTypes.defaultOption.selected" 
+								ng-change="vm.allProductsDefaultChanged()"
+								ng-checked="vm.filterOptions.productTypes.defaultOption.selected" />
+								<span>{{ vm.filterOptions.productTypes.defaultOption.display }}</span>
+						</label>
+					</div>
+
+	    			<div ng-repeat="product in vm.filterOptions.productTypes.list">
+	    				<div class="cmuInput__checkbox cmuInput--default">
+							<label>
+								<input 
+									type="checkbox" 
+									name="vm.selectedFilters[]"
+									value="{{ product.defaultOption.value }}" 
+									ng-model="product.defaultOption.selected" 
+									ng-change="vm.defaultChanged(product)"
+									ng-checked="product.defaultOption.selected" />
+									<span>{{ product.defaultOption.display }}</span>
+							</label>
+						</div>
+	    				<div ng-repeat="filter in product.list | orderBy:'display'" class="cmuInputGroup">
+	    						<div class="cmuInput__checkbox">
+			    					<label>
+			    						<input type="checkbox" 
+											name="vm.selectedFilters[]" 
+											value="{{ filter.value }}" 
+											ng-model="filter.selected" 
+											ng-change="vm.filterChanged(product)"  />
+			    						<span>{{ filter.display }}</span>
+			    					</label>
+		    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+
+	    	<div class="col--md9">
+	    		<community-loader show-when="vm.searchInProgress"></community-loader>
+	    		<div ng-hide="vm.searchInProgress">
+	    			<div>
+	    				<div class="">
+							<div class="cmuFeed__storyList__stories">
+								<div ng-repeat="story in vm.storySearchResults" class="col--md3">
+									<story-display
+										story="story"
+										story-media="story.media"
+										minimal-display="true"
+										fill-width="true">
+									</story-display>
+								</div>
+							</div>
+						</div>
+	    			</div>
+
+		    		<div ng-show="vm.searchResults.length > 0">
+		    			<div class="cmuThreadlist__postCount">
+			    			Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for: <strong>{{ vm.searchTextDisplay }}</strong>
+			    		</div>
+			    		<div class="cmuFeed__item__container"ng-repeat="result in vm.searchResults">
+				    		<div class="row row--comfy">
+				    			<div>
+				    				<a area-link-handler="{{ vm.getUrl(result) }}">{{ result.subject }}</a>
+				    				<h6>{{ result.postDate | timeFromNow }}</h6>
+				    			</div>
+				    			<div>{{ result.body | unformatText }}</div>
+								<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
+				    		</div>
+				    	</div>
+				    	<div>
+			    		  <community-pager 
+				            number-of-pages="vm.totalPages" 
+				            pager-fn="vm.searchFilter"
+				            front-biased="true">
+				          </community-pager>
+				    	</div>
+			    	</div>
+			    	<div ng-show="vm.searchResults.length === 0">
+			    		<h4 ng-show="vm.searchTextDisplay">No results for {{ vm.searchTextDisplay }}</h4>
+			    		<h4 ng-show="!vm.searchTextDisplay">Enter a Search term and get started!</h4>
+			    	</div>
+		    	</div>
+	    	</div>
+    	</div>
+	</div>
+</div>

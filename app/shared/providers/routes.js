@@ -41,6 +41,7 @@
 			feed: '/',
 			notifications: '/alerts',
 			userprofile: '/user/:' + detailIds.user,
+			searchpage: '/search',
 			utils: {
 				intRoute: function(route) {
 					return '{' + route.replace(':', '') + ':int}'

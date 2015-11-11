@@ -5,7 +5,7 @@
 	<div class="cmuUserbadge__main">
 		<div class="cmuUserbadge__account">
 			<div class="cmuUserbadge__user">
-				<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
+				<a area-link-handler="{{ userbadge.profileUrl }}"><community-user-avatar user="userbadge.displayUser"></community-user-avatar></a>
 				<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
 				
 				<div class="cmuUserbadge__rank">
@@ -13,19 +13,7 @@
 				</div>
 			</div>
 		</div>
-<!-- 
-			<div class="cmuFeed__stats col--md5">
-				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">views</span> 
-				</div>
-				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">replies</span> 
-				</div>
-				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">kudos</span> 
-				</div>
-			</div>
- -->
+
 		<div class="cmuUserbadge__points">
 			<div class="cmuUserbadge__kudos cmuUserbadge__stat" title="Kudos">
 				<span class="cmuUserbadge__stat__num">{{ userbadge.displayUser.score }}</span> <span class="cmuUserbadge__stat__title">kudos</span> 
@@ -57,18 +45,6 @@
 					</div> -->
 				</div>
 			</div>
-<!-- 
-			<div class="cmuUserbadge__points">
-				<div class="cmuUserbadge__kudos" title="Kudos"><span class="cmuIcon-kudos cmuIcon--inline"></span><span>{{ userbadge.displayUser.score }}</span></div>
-				<div class="cmuUserbadge__postCount"><span class="cmuIcon-posts ubnt-icon ubnt-icon--pencil-2"></span><span>{{ userbadge.displayUser.postCount }}</span></div>
-			</div>
-
-			<div class="cmuUserbadge__info">
-				<div class="cmuUserbadge__descriptors">
-					<div class="cmuUserbadge__descriptor">{{ userbadge.displayUser.locName }}</div>
-					<div class="cmuUserbadge__descriptor">Joined {{ userbadge.displayUser.registrationDate }}</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 </div>
