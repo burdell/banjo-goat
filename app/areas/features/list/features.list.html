@@ -1,26 +1,4 @@
 <div class="cmuFeatures__threadlist cmuThreadlist">
-	<div class="row row--comfy" ng-show="vm.showNewPost">
-		<div>
-			<div class="row">
-				<div class="col--md9">
-					<input placeholder="Feauture Title" ng-model="vm.newFeature.subject" style="width: 100%;" />
-					<community-text-editor height="500" ng-model="vm.newFeature.body"></community-text-editor>
-				</div>
-
-				<div class="col--md3">
-					<span class="cmuBanner__close icon ubnt-icon--x col--md1" ng-click="vm.cancelSubmit()"></span>
-				</div>
-			</div>
-
-			<div class="row">
-				<button class="button-square button-white-blue" ng-click="vm.cancelSubmit()">Cancel</button>
-				<button class="button--solid button--padded" ng-click="vm.submitFeature()">Submit</button>
-			</div>
-		</div>
-	</div>
-
-
-
 	<!-- sidebar -->
 	<div class="row">
 		<div class="cmuFeatures__sidebar cmuSidebar col--md3">
@@ -79,7 +57,7 @@
 
     		<div class="cmuThreadlist__ctrl__row row">
 				<div class="col--md4 " community-permissions>
-					<button class="button--solid button--stretch" ng-hide="vm.showNewPost" ng-click="vm.showNewPost = true">Request a Feature</button>
+					<button class="button--solid button--stretch" ng-hide="vm.showNewPost" ng-click="vm.newFeature()">Request a Feature</button>
 				</div>
 
 				<div class="col--md4 col--mdOffset4 noPadding">

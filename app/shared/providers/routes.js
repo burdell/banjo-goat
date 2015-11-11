@@ -17,11 +17,13 @@
 			    list: 'list',
 			    detail: ':' + detailIds.announcements,
 			    landing: '/announcements/',
+			    newtopic: 'newtopic'
 			},
 			features: {
 				features: '/features/:nodeId/',
 				list: 'list',
-				detail: ':' + detailIds.features
+				detail: ':' + detailIds.features,
+				newtopic: 'newtopic'
 			},
 			forums: {
 			    forums: '/forums/:nodeId/',

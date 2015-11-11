@@ -1,8 +1,14 @@
 
-<div class="row">
-	<community-timeline 
-		href-fn="vm.getAnnouncementUrl"
-		timeline-model="vm.announcementList" 
-		date-attribute="topic.message.postDate">
-	</community-timeline>
+<div>
+	<div class="row row--comfy">
+		<button community-permissions class="button--solid button--padded button-blue-white" ng-click="vm.createAnnouncement()">Post an Announcement</button>
+	</div>
+
+	<div class="row">
+		<community-timeline 
+			href-fn="vm.getAnnouncementUrl"
+			timeline-model="vm.announcementList" 
+			date-attribute="topic.message.postDate">
+		</community-timeline>
+	</div>
 </div>

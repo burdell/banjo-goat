@@ -247,6 +247,17 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			}
 		},
 		Messages: {
+			topic: function(discussionStyle, data){
+				var callData = getCallType(data);
+
+
+				var url = v2Url + discussionStyle;
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += '/' + callData.id;
+				}
+				return goToApi(url, callData.payload, callData.verb);
+
+			},
 			message: function(messageData){
 				var callData = getCallType(messageData);
 				return goToApi(v2Url + 'messages', callData.payload, callData.verb);

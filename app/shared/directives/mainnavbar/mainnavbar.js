@@ -11,6 +11,7 @@ require('filters/unformattext.js');
 require('filters/wordcut.js');
 
 require('services/notifications.js');
+require('services/currentuser');
 
 var _ = require('underscore');
 
@@ -154,7 +155,7 @@ function mainNavBar() {
 		require('services/nodestructure.js'), 
 		require('services/realtime.js'),
 		require('services/routing.js'), 
-		require('services/currentuser.js'),
+		'CurrentUserService',
 		require('providers/routes.js'),
 		'CommunityNotificationsService'
 	];

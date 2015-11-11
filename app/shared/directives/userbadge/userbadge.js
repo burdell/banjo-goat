@@ -16,14 +16,14 @@ function communityUserBadge() {
 
 		function setUserData(user) {
 			_.extend(ctrl, {
-				displayUser: ctrl.user,
+				displayUser: user,
 				profileUrl: routingService.generateUrl('userprofile', { userId: user.id })
 			});
 		}
 
 		if (this.currentUser) {
-			userService.get().then(function(user){
-				setUserData(user);
+			userService.get().then(function(result){
+				setUserData(result.user);
 			});
 		} else {
 			setUserData(ctrl.user);

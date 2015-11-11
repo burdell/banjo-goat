@@ -1,7 +1,6 @@
 
 'use strict';
 
-require('providers/routes.js');
 var _ = require('underscore');
 
 	var routingService = function($location, communityRoutes){
@@ -18,6 +17,9 @@ var _ = require('underscore');
 					areaName = 'directory';
 				}
 				return areaName;
+			},
+			getDetailId: function(areaName) {
+				return communityRoutes.detailIds[areaName];
 			},
 			areaSlugs: {
 				announcements: 'announcements',
@@ -104,7 +106,7 @@ var _ = require('underscore');
 		}
 	};
 };
-routingService.$inject = ['$location', 'communityRoutes'];
+routingService.$inject = ['$location', require('providers/routes.js')];
 
 var serviceName = 'CommunityRoutingService';
 angular.module('community.services')

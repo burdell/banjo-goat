@@ -6,6 +6,8 @@ app('features');
 
 
 //area files
+require('shared/pages/newtopic/newtopic.js')('features');
+
 require('features/config/features.data.js');
 require('features/detail/features.detail.js');
 require('features/list/features.list.js');
