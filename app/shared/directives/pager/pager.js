@@ -85,6 +85,10 @@ function communityFilter($timeout) {
 	  		},
 	  		pageRange: function(){
 				//first page is hard-coded, therefore start from 2
+				if (!pagerInfo.numberOfPages) {
+					return;
+				}
+
 				return _.range(2, pagerInfo.numberOfPages + 1);
 			}
 	  	});
@@ -250,7 +254,9 @@ function communityFilter($timeout) {
 
 		var pageData = ctrl.pageBased ? { page: defaultPage } : { limit: defaultLimit, offset: defaultOffset };
 
-		function syncPagerToFilter(){
+		function syncPagerToFilter(result){
+			ctrl.info.numberOfPages = result.totalPages;
+
 			if (ctrl.pageBased) {
 				var page = filterer.model('page');
 				if (!page && page !== 0) {

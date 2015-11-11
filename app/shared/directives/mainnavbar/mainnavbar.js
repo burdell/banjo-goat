@@ -53,7 +53,6 @@ function mainNavBar() {
 				apiService.Feed[type]({ size: 7 }).then(function(result) {
 					dataType.list = result.content;
 					dataType.loading = false;
-					debugger;
 					dataType.newDataCount = 0;
 					pollers[type].resetTimestamp();
 				});
@@ -141,6 +140,9 @@ function mainNavBar() {
 			 	getUrl: function(data) {
 					return generateContentUrl(data);
 				}
+			},
+			hideSearch: function(){
+				return $state.current.name === 'searchpage';
 			}
 		 });			
 	}

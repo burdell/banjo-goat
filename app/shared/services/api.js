@@ -150,6 +150,19 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				} else {
 					return goToApi(v2Url + 'pulse');
 				}
+			},
+			search: function(type, filterModel){
+				if (!filterModel.q) {
+					return emptyResponse();
+				}
+
+				var searchUrl = v2Url + 'search/' + type
+				var page = filterModel.page;
+				if (page) {
+					searchUrl += '?page=' + page;
+				}
+
+				return goToApi(searchUrl, filterModel, 'POST');
 			}
 		},
 		Feed: {

@@ -10,4 +10,5 @@ require('directory/feed/feed.js');
 require('directory/hub/hub.js');
 require('directory/user/userprofile.js');
 require('directory/notifications/notifications.js');
+require('directory/searchpage/searchpage.js');
 require('directory/config/directory.routes.js');

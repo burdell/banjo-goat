@@ -127,6 +127,22 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						});
 					}]
 				}
+			})
+			.state('searchpage', {
+				url: routes.searchpage + '?q',
+				templateUrl: 'directory/searchpage/searchpage.html',
+				controller: 'SearchPage as vm',
+				reloadOnSearch: false,
+				resolve: {
+					SearchFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Core.search,
+							filterArguments: ['messages'],
+							constants: { per_page: 20 },
+							persistFilterModel: false
+						});
+					}]
+				}
 			});
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

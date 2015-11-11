@@ -60,6 +60,7 @@
     "marked": "0.3.x",
     "masonry-layout": "3.3.x",
     "moment": "2.x.x",
+    "pikaday-angular": "^2.0.0",
     "simplemde": "^1.8.0",
     "tooltipster": "1.x.x",
     "underscore": "1.8.x",
