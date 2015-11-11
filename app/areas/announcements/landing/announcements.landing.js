@@ -18,8 +18,7 @@
 		_.extend(ctrl, {
 			announcementList: announcementData,
 			generateAnnouncementUrl: function(announcementData){
-				var nodeId = routingService.generateDiscussionUrl(announcementData.product, 'announcements');
-				return routingService.generateUrl('announcements.detail', { nodeId: nodeId, announcementId: announcementData.id });
+				return routingService.generateUrl('announcements.detail', { nodeId: announcementData.topic.node.urlCode, announcementId: announcementData.id });
 			}
 		});
 	};
