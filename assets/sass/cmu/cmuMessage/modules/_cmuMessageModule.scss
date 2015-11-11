@@ -58,12 +58,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .cmuMessage__body {
 	display: table-cell;
-	// vertical-align: top;
+	vertical-align: top;
 	width: 80%;
 
 	border-left: $style-line; 
 	padding: $cmu-base/2 $cmu-base;
 	background-color: $cmu-color-post;
+
+	position: relative;
 }
 
 	
@@ -98,7 +100,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	
 .cmuMessage__content {
 	margin-top: $cmu-base/2;
-	margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm*3;
 	min-height: $cmu-thread-message-height;
 
 	font-size: $size-normal;
@@ -194,9 +196,23 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // Message Controls
 // 
 
+.cmuMessage__footer {
+    position: absolute;
+    bottom: $cmu-base*3/4;
+    padding-right: $cmu-base*2;
+    width: 100%;
+}
+
 .cmuMessage__meta {
 	@extend %type-info;
+	line-height: $size-large__lineHeight;
+    display: inline-block;
+    float: left;
 }
+	.cmuMessage__controls {
+		display: inline-block;
+		float: right;
+	}
 	// meta info (msg count, date)
 	.cmuMessage__counter, .cmuMessage__date {
 		color: $cmu-color-subtle;
@@ -205,9 +221,16 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 
+
 	// controls
 	.cmuMessage__flag {
 		@extend %style-flag;
+		position: relative;
+		top: -2px;
+
+		.cmuHoverflag {
+			top: 0;
+		}
 	}
 		.cmuMessage__body:hover {
 			@extend %style-flag--hover;

@@ -15,7 +15,7 @@ function communityCommentList() {
 			getCommentCountText: function(){
 				var contentLength = ctrl.currentComments.content.length;
 				if (!contentLength) {
-					return 'No comments';
+					return 'No comments yet.';
 				} else if (contentLength === 1) {
 					return '1 comment';
 				} else {

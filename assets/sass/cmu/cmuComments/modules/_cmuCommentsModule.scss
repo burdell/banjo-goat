@@ -11,14 +11,22 @@
 
 .cmuComments__header {
 	@extend %h3;
-	padding-bottom: $cmu-base/2;
-	border-bottom: $style-line--thick;
+	// padding-bottom: $cmu-base/2;
+	// border-bottom: $style-line--thick;
+
+	padding-bottom: $cmu-base/2 $cmu-base;
+    padding: 0.5rem 1rem;
+    background-color: $cmu-color-post--dark;
 }
 
 .cmuComments__row {
 	margin-bottom: $cmu-vertical-rhythm/2;
 	padding-bottom: $cmu-base/2;
 	border-bottom: $style-line;
+
+	&:last-child {
+		border-bottom: 0;
+	}
 
 
 	// background-color: $cmu-color-ltgray;
@@ -30,7 +38,7 @@
     // border-bottom: 1px solid #ccc;
     display: inline-block;
     float: left;
-    background: #f0f0f0;
+    // background: #f0f0f0;
     // margin-right: $cmu-base;
     margin-top: $cmu-base/4;
     margin-bottom: $cmu-base/2;

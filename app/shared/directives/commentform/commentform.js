@@ -58,13 +58,14 @@ function commentForm() {
         bindToController: true,
         restrict: 'E',
         scope: {
+        	headerTitle: '@',
         	toggleAttribute: '=',
         	parentMessage: '=',
         	commentList: '=',
         	replyButtonText: '@',
         	minimalEditor: "=",
         	onSuccessFn: '=',
-        	topicId: '='
+        	topicId: '=',
         }
     };
     return directive;

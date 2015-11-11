@@ -13,7 +13,6 @@
 							<span class="cmuThread__subject__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate"> | Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
 						</div>
 
-
 					</div>
 				</div>
 
@@ -37,14 +36,8 @@
 				user="vm.currentAnnouncement.insertUser"
 				op-id="messageDisplay.showOp">
 			</community-user-badge>
-<!-- 
-			<div class="cmuMessage__data">
-				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
-					<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
-				</div>
-			</div>
- -->
-			<div class="announcementThread__post">
+
+			<div class="announcementThread__post cmuThread__post">
 
 				<div class="cmuMessage__content" ng-bind-html="vm.currentAnnouncement.body | sanitize">
 				</div>
@@ -67,27 +60,10 @@
 
 		</div>
 	</div>
-<!-- 
-	<div class="row cmuThread__controls cmuThread__controls--bottom">
-		<span community-permissions>
 
-    		<div ng-click="vm.showCommentForm = true" class="button button--solid">Add Comment</div>
-    		
-			<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
-				<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
-			</div>
-		</span>
-	</div>
- -->
 	<div class="row">
-		<!-- <community-comment-form 
-			minimal-editor="true"
-			toggle-attribute="vm.showCommentForm"
-			parent-message="vm.currentAnnouncement"
-			comment-list="vm.currentComments">
-		</community-comment-form> -->
-
-		<community-comment-form 
+		<community-comment-form
+			header-title="Post a new comment"
 			minimal-editor="true"
 			toggle-attribute="true"
 			parent-message="vm.currentAnnouncement"
@@ -95,18 +71,9 @@
 		</community-comment-form>
 	</div>
 		
-	<!-- 
-		END COMMUNITY-ANNOUNCEMENT POST MOCKUP
-	 -->
-	 
 	<community-comment-list
 		current-comments="vm.currentComments"
 		comment-filter="vm.moreCommentsFilter">
 	</community-comment-list>
 	
 </div>
-
-	
-<!-- 
-	END COMMUNITY-ANNOUNCEMENT POST MOCKUP
- -->

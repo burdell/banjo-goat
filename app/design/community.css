@@ -6637,6 +6637,10 @@ tr:last-child td {
   min-height: 100%;
 }
 
+html {
+  overflow: auto !important;
+}
+
 body {
   position: relative;
   height: 100%;
@@ -9271,10 +9275,12 @@ div.cmuCollapser__content {
 
 .cmuMessage__body {
   display: table-cell;
+  vertical-align: top;
   width: 80%;
   border-left: 1px solid #dadada;
   padding: 0.5rem 1rem;
   background-color: #fafafa;
+  position: relative;
 }
 
 .cmuMessage__counter {
@@ -9284,7 +9290,7 @@ div.cmuCollapser__content {
 
 .cmuMessage__content {
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   min-height: 3rem;
   font-size: 0.8125rem;
   line-height: 1.25rem;
@@ -9331,8 +9337,34 @@ div.cmuCollapser__content {
   color: #969ba3;
 }
 
+.cmuMessage__footer {
+  position: absolute;
+  bottom: 0.75rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+.cmuMessage__meta {
+  line-height: 1.5rem;
+  display: inline-block;
+  float: left;
+}
+
+.cmuMessage__controls {
+  display: inline-block;
+  float: right;
+}
+
 .cmuMessage__counter, .cmuMessage__date {
   color: #969ba3;
+}
+
+.cmuMessage__flag {
+  position: relative;
+  top: -2px;
+}
+.cmuMessage__flag .cmuHoverflag {
+  top: 0;
 }
 
 .cmuMessage__reply {
@@ -9757,7 +9789,7 @@ button .icon, .button .icon {
 .button--vote .button--vote--points {
   display: inline-block;
   background-color: transparent;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem;
   color: #474b52;
 }
 .button--vote .button--vote--action {
@@ -9805,7 +9837,7 @@ button .icon, .button .icon {
 .button--vote.button--vote--kudo .button--vote--points {
   display: inline-block;
   background-color: transparent;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem;
   color: #474b52;
 }
 .button--vote.button--vote--kudo .button--vote--action {
@@ -9845,6 +9877,9 @@ button .icon, .button .icon {
 }
 .button--vote.button--thin {
   line-height: 0.4rem;
+}
+.button--vote.button--thin .button--vote--points {
+  padding: 0.5rem 0.25rem;
 }
 
 .button--wide {
@@ -10042,8 +10077,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__stat {
   margin-left: 0.5rem;
-  display: block;
-  margin-top: 0.5rem;
+  display: inline-block;
 }
 
 .cmuUserbadge__stat__title {
@@ -10068,7 +10102,6 @@ button .icon, .button .icon {
 .cmuUserbadge--thin {
   display: inline-block;
   opacity: 1;
-  margin-bottom: 1rem;
   position: relative;
   top: -1rem;
   left: -1rem;
@@ -10076,8 +10109,6 @@ button .icon, .button .icon {
   padding-bottom: 0;
   padding-right: 2rem;
   padding-top: 0.75rem;
-  border-bottom: 1px solid #dadada;
-  border-right: 1px solid #dadada;
 }
 .cmuUserbadge--thin .cmuUserbadge__main {
   margin-top: 3px;
@@ -10097,6 +10128,7 @@ button .icon, .button .icon {
 .cmuUserbadge--thin .cmuUserbadge__points {
   display: inline-block;
   vertical-align: top;
+  margin-top: 2px;
 }
 .cmuUserbadge--thin .cmuUserbadge__points div {
   display: block;
@@ -10114,6 +10146,7 @@ button .icon, .button .icon {
 .cmuUserbadge--thin .cmuUserbadge__info {
   display: inline-block;
   vertical-align: top;
+  margin-top: 2px;
 }
 .cmuUserbadge--thin .cmuUserbadge__descriptors {
   padding: 0;
@@ -10135,6 +10168,10 @@ button .icon, .button .icon {
 }
 .cmuUserbadge--comment .cmuUserbadge__points, .cmuUserbadge--comment .cmuUserbadge__info {
   display: none;
+}
+.cmuUserbadge--comment .cmuUserbadge__account {
+  padding: 0;
+  padding-left: 1rem;
 }
 
 .cmuUserbadge--showFlag:hover .cmuUserbadge__flag {
@@ -10211,8 +10248,9 @@ button .icon, .button .icon {
 }
 
 .cmuComments__header {
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid #474b52;
+  padding-bottom: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f3f3f3;
 }
 
 .cmuComments__row {
@@ -10220,12 +10258,14 @@ button .icon, .button .icon {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #dadada;
 }
+.cmuComments__row:last-child {
+  border-bottom: 0;
+}
 
 .cmuComments__user {
   padding-bottom: 0.25rem;
   display: inline-block;
   float: left;
-  background: #f0f0f0;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
   width: 25%;
@@ -10726,9 +10766,6 @@ select.cmuSort {
   height: auto;
 }
 
-.cmuTextEditor {
-  cursor: text;
-}
 .cmuTextEditor::-webkit-input-placeholder {
   color: black;
 }
@@ -10749,10 +10786,12 @@ select.cmuSort {
 .cmuTextEditor .editor-toolbar {
   border-radius: 0;
   padding-left: 5px;
+  cursor: default;
+}
+.cmuTextEditor .editor-toolbar a {
+  border: 0;
 }
 .cmuTextEditor .editor-toolbar a:hover {
-  border: 0;
-  border-color: #0074ad !important;
   color: #0074ad !important;
 }
 
@@ -10764,8 +10803,6 @@ select.cmuSort {
 
 .cmuTextEditor--minimal .CodeMirror, .cmuTextEditor--minimal .CodeMirror-scroll {
   min-height: 60px;
-  max-height: 60px;
-  height: 60px;
 }
 .cmuTextEditor--minimal .editor-toolbar:after, .cmuTextEditor--minimal .editor-toolbar:before {
   display: none;
@@ -10780,6 +10817,24 @@ select.cmuSort {
 
 .cmuTextEditor--formContainer {
   margin-bottom: 1rem;
+}
+
+.cmuTextEditor--comments h5 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cmuTextEditor__preview {
+  margin-bottom: 0.5rem;
+  border: 1px solid #dadada;
+  padding: 1rem;
+  padding-top: 0.5rem;
+}
+.cmuTextEditor__preview:before {
+  content: 'Live Preview';
+  display: block;
+  padding-bottom: 0.5rem;
+  color: #969ba3;
 }
 
 .cmuTimeline thead {

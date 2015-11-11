@@ -16,8 +16,10 @@ function communityTextEditor($timeout, routingService) {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: (editorCtrl.autoFocus || _.isUndefined(editorCtrl.autofocus)) ? true : false,
 			status: false,
-			hideIcons: ['side-by-side', 'fullscreen', 'guide'],
-			// initialValue: 'Enter your message'
+			hideIcons: ['side-by-side','fullscreen', 'guide'],
+		    renderingConfig: {
+		        // singleLineBreaks: true
+		    },
 
 		};
 

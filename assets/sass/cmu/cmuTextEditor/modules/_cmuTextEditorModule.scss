@@ -8,11 +8,11 @@
 // go to that discussion type
 
 
-$editor-height--large: 200px;
+$editor-height--large: 240px;
 $editor-height--minimal: 60px;
 
 .cmuTextEditor {
-	cursor: text;
+	// cursor: text;
 
 
 	iframe html{
@@ -33,11 +33,12 @@ $editor-height--minimal: 60px;
     .editor-toolbar {
         border-radius: 0;
         padding-left: 5px;
-
-        a:hover {
+        cursor: default;
+        a {
             border: 0;
-            border-color: $cmu-color-dkblue !important;
-            color: $cmu-color-dkblue !important;
+            &:hover {
+                color: $cmu-color-dkblue !important;
+            }
         }
     }
 }
@@ -61,8 +62,8 @@ $editor-height--minimal: 60px;
     .cmuTextEditor--minimal {
         .CodeMirror, .CodeMirror-scroll {
             min-height: $editor-height--minimal;
-            max-height: $editor-height--minimal;
-            height: $editor-height--minimal;
+            // max-height: $editor-height--minimal;
+            // height: $editor-height--minimal;
         }
 
         // these add padding to the toolbar
@@ -85,6 +86,37 @@ $editor-height--minimal: 60px;
 // this element resides in the CommentForm and other containers, instead of the texteditor directly
 .cmuTextEditor--formContainer {
     margin-bottom: $cmu-vertical-rhythm;
+}
+
+
+
+// 
+// Comment-specific
+// 
+.cmuTextEditor--comments {
+    h5 {
+        margin-top: $cmu-vertical-rhythm;
+        margin-bottom: $cmu-vertical-rhythm/2;
+    }
+}
+
+
+// 
+// Setting up live preview
+// 
+
+.cmuTextEditor__preview {
+    margin-bottom: $cmu-vertical-rhythm/2;
+    border: $style-line;
+    padding: $cmu-base;
+    padding-top: $cmu-base/2;
+
+    &:before {
+        content:'Live Preview';
+        display: block;
+        padding-bottom: $cmu-base/2;
+        color: $cmu-color-gray
+    }
 }
 
 

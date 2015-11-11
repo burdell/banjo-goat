@@ -73,7 +73,7 @@ $cmu-button-color-base: $cmu-color-blue;
 			// color: $bgColor;
 			// background-color: $fgColor;
 			background-color: transparent; // this part is always white 
-			padding: $cmu-base/2 $cmu-base/4;
+			padding: $cmu-base/2;
 			color: $cmu-color-body;
 			@extend %ease-fast;
 		}
@@ -369,6 +369,10 @@ button, .button {
 
 	&.button--thin {
     	line-height: 0.4rem;
+
+		.button--vote--points {
+			padding: $cmu-base/2 $cmu-base/4;
+		}
 	}
 
 }

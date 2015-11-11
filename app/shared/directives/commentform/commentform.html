@@ -2,7 +2,7 @@
 <div class="cmuTextEditor--formContainer cmuTextEditor--comments row">
 
 	<div class="col--md12">
-	<h3>Post a new comment</h3>
+		<h5>{{ commentform.headerTitle }}</h5>
 	</div>
 
 	<div class="col--md12">
@@ -11,6 +11,8 @@
 				ng-model="commentform.comment.body" 
 				minimal-editor="{{ commentform.minimalEditor }}">
 			</community-text-editor>
+
+			<div class="cmuTextEditor__preview" ng-bind-html="commentform.comment.body | sanitize"></div>
 	</div>
 
 	<div class="col--md12">
@@ -18,16 +20,9 @@
 			<div 
 				class="button button--solid"
 				ng-click="commentform.submitReply()">
-					Submit Comment
+					Post Comment
 			</div>
-<!-- 
-			<div 
-				class="button button--naked" 
-				ng-click="commentform.cancelReply()">
-					Cancel
-			</div> -->
 		</div>
-
 
 		<div ng-show="commentform.submittingComment">
 			<button class="cmuInput--waiting button--padded" disabled>Submitting Your Comment...</button>
