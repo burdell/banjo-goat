@@ -119,6 +119,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 	.cmuMessage__data {
+		margin-top: 1rem;
 		&, * { 
 			// display: inline-block;
 			text-align: right;

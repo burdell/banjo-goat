@@ -27,6 +27,18 @@ $style-line: 1px solid $cmu-color-line;
 
 
 // 
+// Width-limited content
+// - works better for non-forum content like announcements and stories
+// - these tend to be too wide
+// - good with comments, not so much with forum-style replies
+// 
+%style-longform {
+	max-width: $cmu-maxwidth--longform;
+    // margin: 0 auto; // centered-ness is annoying; keep it left-aligned
+}
+
+
+// 
 // center an absolute object like a flag
 // 
 

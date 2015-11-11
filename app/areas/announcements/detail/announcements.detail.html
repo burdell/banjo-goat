@@ -8,12 +8,11 @@
 					<div class="row">
 
 						<div class="col--md12">
-							<h3>{{ vm.currentAnnouncement.context.topicSubject | htmlUnescape}}</h3>
+							<h3>{{ vm.currentAnnouncement.context.topicSubject | htmlUnescape}}</h3> 
+							<div class="cmuThread__subject__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }} </div>
+							<span class="cmuThread__subject__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate"> | Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
 						</div>
 
-						<div class="col--md2 alignRight"> 
-							<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.moreCommentsFilter" sort-exclude="limit, offset"></community-sort>
-						</div>
 
 					</div>
 				</div>
@@ -31,38 +30,21 @@
 			</div>
 		</div>
 
-<!-- 
-		<div class="row cmuThread__controls">
-			<span community-permissions>
-				<div class="col--md2">
-	        		<button class="button--solid button--stretch">Add Comment</button>
-	        	</div>
-				<div class="col--md2">
-					<button class="button--vote button--compound-naked" disabled="">
-						123 kudos
-					</button>
-				</div>
-			</span>
-		</div>
- -->
-
-
-		<div class="cmuThread__firstPost">
-
+		<div class="cmuThread__firstPost clearfix">
 
 			<community-user-badge 
 				class="cmuUserbadge--thin"
 				user="vm.currentAnnouncement.insertUser"
 				op-id="messageDisplay.showOp">
 			</community-user-badge>
-
+<!-- 
 			<div class="cmuMessage__data">
-				<div class="cmuMessage__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }}</div>
-				<div class="cmuMessage__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate">Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</div>
+				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+					<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
+				</div>
 			</div>
-
+ -->
 			<div class="announcementThread__post">
-
 
 				<div class="cmuMessage__content" ng-bind-html="vm.currentAnnouncement.body | sanitize">
 				</div>
@@ -75,9 +57,17 @@
 				</div>
 
 			</div>
+
+
+			<div class="cmuMessage__data">
+				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+					<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
-
+<!-- 
 	<div class="row cmuThread__controls cmuThread__controls--bottom">
 		<span community-permissions>
 
@@ -88,11 +78,18 @@
 			</div>
 		</span>
 	</div>
-
-	<div class="row" ng-if="vm.showCommentForm">
-		<community-comment-form 
+ -->
+	<div class="row">
+		<!-- <community-comment-form 
 			minimal-editor="true"
 			toggle-attribute="vm.showCommentForm"
+			parent-message="vm.currentAnnouncement"
+			comment-list="vm.currentComments">
+		</community-comment-form> -->
+
+		<community-comment-form 
+			minimal-editor="true"
+			toggle-attribute="true"
 			parent-message="vm.currentAnnouncement"
 			comment-list="vm.currentComments">
 		</community-comment-form>

@@ -16,13 +16,15 @@ function communityTextEditor($timeout, routingService) {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: (editorCtrl.autoFocus || _.isUndefined(editorCtrl.autofocus)) ? true : false,
 			status: false,
-			hideIcons: ['side-by-side', 'fullscreen', 'guide']
+			hideIcons: ['side-by-side', 'fullscreen', 'guide'],
+			// initialValue: 'Enter your message'
+
 		};
 
 		var isMinimal = !!editorCtrl.minimalEditor;
 		if (isMinimal) {
 			_.extend(editorOptions, {
-				toolbar: false
+				// toolbar: false
 			})
 		}
 

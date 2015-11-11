@@ -32,6 +32,8 @@
 
 
 .cmuAnnouncementsDetails {
+	@extend %style-longform;
+
 	.cmuUserbadge__op:before {
 		display: none;
 	}

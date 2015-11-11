@@ -14,6 +14,7 @@ $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1400px;	// applied separately on all partials and templates for max-width responsive
+$cmu-maxwidth--longform:	1000px; // centered longform content for readability
 $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;

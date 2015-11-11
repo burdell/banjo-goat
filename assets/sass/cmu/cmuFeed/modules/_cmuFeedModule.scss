@@ -22,6 +22,9 @@
 
 
 // hide breadcrumbs only on feed
+.cmuFeed--home {
+	margin-top: $cmu-base*2;
+}
 .cmuFeed--home .cmuBreadcrumbs { 
 	display: none;
 }

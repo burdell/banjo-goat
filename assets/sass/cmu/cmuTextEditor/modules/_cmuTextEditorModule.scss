@@ -8,16 +8,12 @@
 // go to that discussion type
 
 
+$editor-height--large: 200px;
+$editor-height--minimal: 60px;
+
 .cmuTextEditor {
 	cursor: text;
 
-  .CodeMirror, .CodeMirror-scroll {
-      min-height: 200px;
-  }
-
-  .cmuTextEditor__textarea {
-    @extend .cmuInput;
-  }
 
 	iframe html{
 		  // does nothing:  content_css.css affects the interior of the editor
@@ -33,4 +29,62 @@
    		@extend %font-lato;
    		margin-left: 4px;
    	}
+
+    .editor-toolbar {
+        border-radius: 0;
+        padding-left: 5px;
+
+        a:hover {
+            border: 0;
+            border-color: $cmu-color-dkblue !important;
+            color: $cmu-color-dkblue !important;
+        }
+    }
 }
+
+    .CodeMirror, .CodeMirror-scroll {
+        min-height: 200px;
+        border-radius: 0;
+        border-color: $cmu-color-active;
+
+    }
+
+
+
+
+
+
+    .cmuTextEditor__textarea {
+        @extend .cmuInput;
+    }
+
+    .cmuTextEditor--minimal {
+        .CodeMirror, .CodeMirror-scroll {
+            min-height: $editor-height--minimal;
+            max-height: $editor-height--minimal;
+            height: $editor-height--minimal;
+        }
+
+        // these add padding to the toolbar
+        .editor-toolbar:after, .editor-toolbar:before {
+            display: none; 
+        }
+
+        .editor-toolbar {
+            a { 
+                border: 0
+            }
+            a:hover {
+                border: 0;
+                color: $cmu-color-dkblue !important;
+            }
+        }
+    }
+
+
+// this element resides in the CommentForm and other containers, instead of the texteditor directly
+.cmuTextEditor--formContainer {
+    margin-bottom: $cmu-vertical-rhythm;
+}
+
+

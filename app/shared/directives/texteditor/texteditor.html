@@ -3,8 +3,10 @@
 		<textarea class="texteditor__editor"></textarea>
 	</div>
 
-	<div class="cmuTextEditor__help" ng-if="texteditor.minimalEditor">
-		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink"><a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help</a></span>
+	<div class="cmuTextEditor__help" ng-if="!texteditor.minimalEditor">
+		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink">
+			<a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help</a>
+		</span>
 		<div ng-show="texteditor.formattingHelpShown">
 			<div ng-include="'directives/texteditor/texteditor.formattinghelp.html'"></div>
 		</div>
