@@ -10,6 +10,8 @@
 // open and close dropdown container
 
 
+$collapser-lineheight: $cmu-base*2.1;
+
 .cmuCollapser {
 
 }
@@ -57,7 +59,7 @@
 		height: $cmu-base*2; // + $padding*2 - 0.05rem; // additional rem for shadow to not hit bottom
 		width: $cmu-base*2; // + $padding*2; // 31px;
 		top: 0;
-		line-height: $cmu-base*2.1; // + $padding*2; //31px;;
+		line-height: $collapser-lineheight; // + $padding*2; //31px;;
 		text-align: center;
 
 	}
@@ -90,6 +92,14 @@
 
 	}
 }
+	// barebones title area
+	.cmuCollapser__header__title {
+	    padding: $cmu-base/2;
+	    height: $cmu-base*2;
+	    h5 {
+	    	line-height: $cmu-base;
+	    }
+	}
 
 	// lighter color scheme used in the feed
 	.cmuCollapser__header--light {
@@ -153,6 +163,7 @@
 
 .cmuCollapser.collapseSubtle, .cmuCollapser__container.collapseSubtle {
 	.cmuCollapser__header {
+		background-color: transparent;
 
 		&:hover {
 			background: $cmu-color-hover--background;

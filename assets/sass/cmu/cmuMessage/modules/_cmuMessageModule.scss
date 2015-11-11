@@ -169,6 +169,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	display: inline-block;
 	vertical-align: middle;
 	@extend %type-info;
+	font-weight: 600;
 
 	&:before {
 		content: 'In reply to ';
@@ -180,9 +181,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 	margin: 0 $cmu-base/2;
 	// }
 }
-	.cmuMessage__replyTo__user {
-		@extend %style-link;
-	}
 
 
 

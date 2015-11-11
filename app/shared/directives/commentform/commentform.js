@@ -63,6 +63,7 @@ function commentForm() {
         	parentMessage: '=',
         	commentList: '=',
         	replyButtonText: '@',
+        	replyingButtonText: '@',
         	minimalEditor: "=",
         	onSuccessFn: '=',
         	topicId: '=',

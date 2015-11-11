@@ -90,10 +90,7 @@ $editor-height--minimal: 60px;
 
 
 
-// 
-// Comment-specific
-// 
-.cmuTextEditor--comments {
+.cmuTextEditor__title {
     h5 {
         margin-top: $cmu-vertical-rhythm;
         margin-bottom: $cmu-vertical-rhythm/2;
@@ -120,3 +117,36 @@ $editor-height--minimal: 60px;
 }
 
 
+// 
+// Help area
+// 
+.cmuTextEditor__help {
+    margin-top: $cmu-base/2;
+
+    .markhelp {
+        padding: $cmu-base/2;
+    }
+
+    .md {
+        margin-top: $cmu-base;
+    }
+
+    .md-header {
+        // style="background-color: #ffff99; text-align: center"
+        td {
+            padding: $cmu-base/2 0;
+            border-bottom: $style-line;
+            @extend %h5;
+        }
+    }
+    td {
+        padding: $cmu-base/2 0;
+        border-bottom: $style-line--light;
+    }
+
+
+    // special styles for formatting
+    ul {
+        margin-bottom: 0;
+    }
+}

@@ -116,6 +116,19 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-left: $size-badgewidth-min;
 	margin-bottom: $cmu-base;
 	margin-top: $cmu-base;
+	
+    width: 70%;
+    float: right;
 }
+
+	.cmuThread__reply__to {
+		margin-bottom: $cmu-base/4;
+		@extend %h5;
+	}
+
+	.cmuThread__replyTo__user {
+		// @extend %style-link;
+	}
+
 
 

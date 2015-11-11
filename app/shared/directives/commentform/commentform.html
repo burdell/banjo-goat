@@ -1,7 +1,7 @@
 
 <div class="cmuTextEditor--formContainer cmuTextEditor--comments row">
 
-	<div class="col--md12">
+	<div class="cmuTextEditor__title col--md12" ng-if="{ commentform.headerTitle }}">
 		<h5>{{ commentform.headerTitle }}</h5>
 	</div>
 
@@ -20,12 +20,14 @@
 			<div 
 				class="button button--solid"
 				ng-click="commentform.submitReply()">
-					Post Comment
+					{{ commentform.replyButtonText }}
 			</div>
 		</div>
 
 		<div ng-show="commentform.submittingComment">
-			<button class="cmuInput--waiting button--padded" disabled>Submitting Your Comment...</button>
+			<div class="button cmuInput--waiting button--padded" disabled>
+					{{ commentform.replyButtonText }}
+			</div>
 		</div>
 	</div>
 </div>
