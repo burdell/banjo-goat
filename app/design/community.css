@@ -9267,7 +9267,7 @@ div.cmuCollapser__content {
   margin-left: 11rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-  width: 70%;
+  max-width: cmu-maxwidth--reply;
   float: right;
 }
 
@@ -10811,6 +10811,9 @@ select.cmuSort {
 }
 .cmuTextEditor .editor-toolbar a:hover {
   color: #0074ad !important;
+}
+.cmuTextEditor .cmuCollapser__container {
+  margin: 0;
 }
 
 .CodeMirror, .CodeMirror-scroll {

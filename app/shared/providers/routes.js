@@ -41,7 +41,7 @@
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',
 			feed: '/',
-			notifications: '/alerts',
+			notifications: '/notifications',
 			userprofile: '/user/:' + detailIds.user,
 			searchpage: '/search',
 			utils: {
