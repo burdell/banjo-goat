@@ -1,12 +1,13 @@
 
 <div class="cmuTextEditor--formContainer cmuTextEditor--comments row">
 
-	<div class="cmuTextEditor__title col--md12" ng-if="{ commentform.headerTitle }}">
+	<div class="cmuTextEditor__title col--md12" ng-if="commentform.headerTitle">
 		<h5>{{ commentform.headerTitle }}</h5>
 	</div>
 
 	<div class="col--md12">
 			<community-text-editor 
+				autofocus="false"
 				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}" 
 				ng-model="commentform.comment.body" 
 				minimal-editor="{{ commentform.minimalEditor }}">
