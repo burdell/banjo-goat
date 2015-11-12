@@ -41,6 +41,10 @@ $editor-height--minimal: 60px;
             }
         }
     }
+
+    .cmuCollapser__container {
+        margin: 0;
+    }
 }
 
     .CodeMirror, .CodeMirror-scroll {

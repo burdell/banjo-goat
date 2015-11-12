@@ -29,7 +29,7 @@ var notificationsController = function($scope, breadcrumbService, notificationsS
 		}
 	});
 
-	breadcrumbService.setCurrentBreadcrumb('My Alerts');
+	breadcrumbService.setCurrentBreadcrumb('My Notifications');
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});

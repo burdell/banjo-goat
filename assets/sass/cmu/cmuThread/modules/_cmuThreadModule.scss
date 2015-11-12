@@ -117,7 +117,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-bottom: $cmu-base;
 	margin-top: $cmu-base;
 	
-    width: 70%;
+    max-width: cmu-maxwidth--reply;
     float: right;
 }
 

@@ -13,7 +13,7 @@ var _ = require('underscore');
 			},
 			getArea: function(url) {
 				var areaName = url.split('/')[1];
-				if (areaName === '' || areaName === 'user' || areaName === 'alerts' || areaName === 'search' ) {
+				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' ) {
 					areaName = 'directory';
 				}
 				return areaName;

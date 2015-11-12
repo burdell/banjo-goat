@@ -207,6 +207,7 @@ $stat-padding: 4.5px $cmu-base/2;
 	&:last-child {
 		margin-right: 0;
 	}
+
 }
 	%style-stat-num, .style-stat-num {
 		display: inline-block;
@@ -217,6 +218,35 @@ $stat-padding: 4.5px $cmu-base/2;
 	%style-stat-title, .style-stat-title {
 		display: inline-block;
 		padding: $stat-padding;
+	}
+
+	// if styles are nested in the html
+	.style-stat, %style-stat {
+		.style-stat-num {
+			@extend %style-stat-num;
+		}
+		.style-stat-title {
+			@extend %style-stat-title;
+		}
+	}
+
+	// for tight areas like story grid
+	.style-stat--tight, %style-stat--tight {
+		$stat-padding-tight: 4.5px $cmu-base/4;
+		@extend %style-stat;
+		margin-top: $cmu-base/4;
+
+		.style-stat-num {
+			@extend %style-stat-num;
+			padding: $stat-padding-tight;
+			padding-right: $cmu-base/8;
+			border-right: 0;
+		}
+		.style-stat-title {
+			@extend %style-stat-title;
+			padding: $stat-padding-tight;
+			padding-left: 0;
+		}
 	}
 
 

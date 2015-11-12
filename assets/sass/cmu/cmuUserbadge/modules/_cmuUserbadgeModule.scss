@@ -98,7 +98,7 @@
 		.cmuUsername {
 			@extend %type-base;
 			line-height: $cmu-base * 3/4;
-			margin-top: $cmu-base/4;
+			margin-top: $cmu-base/2;
     		min-width: 100px;
 
 		}
@@ -120,7 +120,7 @@
 	padding-bottom: $cmu-base;
 
 	.cmuUserbadge__descriptor__title {
-		font-weight: 300;
+		// font-weight: 300;
 	}
 
 	// description tag
@@ -139,6 +139,10 @@
 
 	.cmuUserbadge__user {
 		margin-bottom: $cmu-base/2;
+
+		.cmuUsername__login {
+			font-weight: 600;
+		}
 	}
 
 
@@ -150,7 +154,7 @@
 	// display: inline-block;
     // line-height: 0.75rem; // looks weird when no ubnt logo on username, but might cause problems
 	text-align: left;
-	font-weight: 300;
+	// font-weight: 300;
 }
 
 
@@ -172,9 +176,10 @@
 
 	.cmuUserbadge__stat__num {
 		// @extend %style-stat-num;
+		font-weight: 600;
 	}
 	.cmuUserbadge__stat__title {
-		font-weight: 300;
+		// font-weight: 300;
 		// @extend %style-stat-title;
 	}
 
