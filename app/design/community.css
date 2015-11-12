@@ -6767,7 +6767,7 @@ body {
   line-height: 1rem;
 }
 
-.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-stat, .cmuFeed__stat, .cmuStoryItem__stat, .cmuComments__date {
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-stat, .style-stat--tight, .cmuStoryItem__stat, .cmuFeed__stat, .cmuComments__date {
   font-size: 0.625rem;
   line-height: 0.8125rem;
 }
@@ -6929,26 +6929,39 @@ h6 {
   background-color: transparent;
 }
 
-.style-stat, .cmuFeed__stat, .cmuStoryItem__stat {
+.style-stat, .style-stat--tight, .cmuStoryItem__stat, .cmuFeed__stat {
   display: inline-block;
   color: #474b52;
   margin-right: 0.25rem;
   border: 1px solid #dadada;
 }
-.style-stat:last-child, .cmuFeed__stat:last-child, .cmuStoryItem__stat:last-child {
+.style-stat:last-child, .style-stat--tight:last-child, .cmuStoryItem__stat:last-child, .cmuFeed__stat:last-child {
   margin-right: 0;
 }
 
-.cmuFeed__stat__num, .style-stat-num {
+.style-stat .style-stat-num, .style-stat--tight .style-stat-num, .cmuStoryItem__stat .style-stat-num, .cmuFeed__stat .style-stat-num, .cmuFeed__stat__num, .style-stat-num {
   display: inline-block;
   border-right: 1px solid #dadada;
   padding: 4.5px 0.5rem;
   font-weight: 600;
 }
 
-.cmuFeed__stat__title, .style-stat-title {
+.style-stat .style-stat-title, .style-stat--tight .style-stat-title, .cmuStoryItem__stat .style-stat-title, .cmuFeed__stat .style-stat-title, .cmuFeed__stat__title, .style-stat-title {
   display: inline-block;
   padding: 4.5px 0.5rem;
+}
+
+.style-stat--tight, .cmuStoryItem__stat {
+  margin-top: 0.25rem;
+}
+.style-stat--tight .style-stat-num, .cmuStoryItem__stat .style-stat-num {
+  padding: 4.5px 0.25rem;
+  padding-right: 0.125rem;
+  border-right: 0;
+}
+.style-stat--tight .style-stat-title, .cmuStoryItem__stat .style-stat-title {
+  padding: 4.5px 0.25rem;
+  padding-left: 0;
 }
 
 .style-flag, .cmuMessage__flag, .cmuComments__flag {
@@ -7579,6 +7592,7 @@ pre {
   color: #fafafa;
   width: 3rem;
   margin-right: -4px;
+  text-align: center;
 }
 
 .cmuGloNav__metaContainer {
@@ -10056,7 +10070,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__account .cmuUsername {
   line-height: 0.75rem;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   min-width: 100px;
 }
 .cmuUserbadge__account .cmuUsername__icon {
@@ -10068,9 +10082,6 @@ button .icon, .button .icon {
   padding: 0 1rem;
   padding-bottom: 1rem;
 }
-.cmuUserbadge__descriptors .cmuUserbadge__descriptor__title {
-  font-weight: 300;
-}
 .cmuUserbadge__descriptors div {
   text-transform: capitalize;
 }
@@ -10078,12 +10089,14 @@ button .icon, .button .icon {
 .cmuUserbadge__user {
   margin-bottom: 0.5rem;
 }
+.cmuUserbadge__user .cmuUsername__login {
+  font-weight: 600;
+}
 
 .cmuUserbadge__rank {
   vertical-align: top;
   display: block;
   text-align: left;
-  font-weight: 300;
 }
 
 .cmuUserbadge__points {
@@ -10098,8 +10111,8 @@ button .icon, .button .icon {
   display: inline-block;
 }
 
-.cmuUserbadge__stat__title {
-  font-weight: 300;
+.cmuUserbadge__stat__num {
+  font-weight: 600;
 }
 
 .cmuUserbadge__status__op:before {
@@ -11206,8 +11219,18 @@ select.cmuSort {
   }
 }
 
+.cmuStoryItem {
+  -webkit-box-shadow: 0 0 8px #ebebeb;
+  -moz-box-shadow: 0 0 8px #ebebeb;
+  box-shadow: 0 0 8px #ebebeb;
+}
+.cmuStoryItem:hover {
+  -webkit-box-shadow: 0 0 12px #dadada;
+  -moz-box-shadow: 0 0 12px #dadada;
+  box-shadow: 0 0 12px #dadada;
+}
 .cmuStoryItem:hover img {
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
 .cmuStoryItem__featured {
@@ -11250,7 +11273,6 @@ select.cmuSort {
   padding: 0.5rem;
   border: 1px solid #dadada;
   border-top: 0;
-  border-bottom: 0;
 }
 
 .cmuStoryItem__subject {
@@ -11258,19 +11280,6 @@ select.cmuSort {
 }
 .cmuStoryItem__subject:hover {
   color: #00a0df;
-}
-
-.cmuStoryItem__meta {
-  padding: 0.5rem;
-  background-color: #ebebeb;
-  border: 1px solid #dadada;
-  border-top: 0;
-}
-.cmuStoryItem__meta .icon {
-  margin-right: 0.5rem;
-}
-.cmuStoryItem__meta > span {
-  margin-right: 0.5rem;
 }
 
 .cmuStoryDetail h1 {
