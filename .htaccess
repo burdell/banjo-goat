@@ -1,4 +1,4 @@
-AddDefaultCharset utf-8 
+AddDefaultCharset utf-8
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -15,8 +15,7 @@ AddDefaultCharset utf-8
 
     RewriteRule ^([\w]+)/js/(.+)$     $1/js/$2
     RewriteRule ^([\w]+)/css/(.+)$    $1/css/$2
-    RewriteRule ^([\w]+)/.*/(list/?|[0-9]+)$   $1/index.html
-    RewriteRule ^directory/\w+/$   directory/index.html
-    RewriteRule ^user/\d+/$   directory/index.html
+    RewriteRule ^([\w]+)/.*/(list/?|[0-9]+|new|newtopic)$   $1/index.html
+    RewriteRule ^(directory/\w+/|user/\d+|search|inbox/.*)$   directory/index.html
     RewriteRule ^/?$   directory/index.html
 </IfModule>
