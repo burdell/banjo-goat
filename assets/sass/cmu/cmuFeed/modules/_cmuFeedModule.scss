@@ -104,9 +104,7 @@
 				background: transparent;
 				.cmuFeed__story__img {
 					@extend %ease-fast;
-				    -moz-transform: scale(1.2);
-				    -webkit-transform: scale(1.2);
-				    transform: scale(1.2);
+					@include transform($scale-rate-img);
 				}
 			}
 		}

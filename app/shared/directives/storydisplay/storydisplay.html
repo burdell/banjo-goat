@@ -33,16 +33,12 @@
 
 				<div class="cmuStoryItem__stats" >
 					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">324</span> <span class="style-stat-title">views</span> 
+						<span class="style-stat-num">{{ storydisplay.story.countViews | number}} </span> <span class="style-stat-title">views</span> 
 					</div>
 					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">324</span> <span class="style-stat-title">replies</span> 
-					</div>
-					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">324</span> <span class="style-stat-title">kudos</span> 
+						<span class="style-stat-num">{{  storydisplay.story.stats | extractKey : 'score' | number}}</span> <span class="style-stat-title">kudos</span> 
 					</div>
 				</div>
-
 			</div>
 		</a>
 	</div>

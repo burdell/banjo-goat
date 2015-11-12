@@ -66,7 +66,7 @@
 
 	&:hover {
 		@extend %ease-fast;
-		@include box-shadow(0, 0, 12px, $cmu-color-ltmdgray );
+		@include box-shadow(0, 0, 16px, $cmu-color-ltmdgray );
 
 		// position: relative;
 		// top: -3px;
@@ -74,7 +74,7 @@
 
 		img {
 			@extend %ease-fast;
-		    transform: scale(1.05);
+			@include transform($scale-rate-img);
 			@extend %ease-fast;
 		}
 	}
@@ -135,6 +135,7 @@
 
 	.cmuStoryItem__subject {
 		display: inline-block;
+		font-weight: 600;
 
 		&:hover {
 			color: $cmu-color-blue;

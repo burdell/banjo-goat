@@ -59,6 +59,13 @@
 
 
 
+// for img hover effects
+@mixin transform($speed) {
+  -moz-transform: scale($speed);
+  -webkit-transform: scale($speed);
+  transform: scale($speed);
+}
+
 
 
 // 

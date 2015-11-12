@@ -168,6 +168,9 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		font-size: $cmu-threadlist-size-numerical;
 		// min-width: $cmu-base*30/4;
 		width: $cmu-base*7;
+		white-space: nowrap;
+		// white-space: nowrap;
+		// * { overflow: hidden; } // date or usernames might be really long
 
 		.cmuThreadlist__avatar {
 			// width: $size-avatar--small;
@@ -188,7 +191,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
     		width: $cmu-threadlist-avatar;
 		}
 		.cmuThreadlist__date {
-			display: inline-block;
+			overflow: hidden;
+			// display: inline-block;
 			// margin-left: $cmu-base*2.5;
 		}
 	}
