@@ -7,10 +7,10 @@
 
 	<div class="col--md12">
 			<community-text-editor 
-				autofocus="false"
 				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}" 
 				ng-model="commentform.comment.body" 
-				minimal-editor="{{ commentform.minimalEditor }}">
+				minimal-editor="{{ commentform.minimalEditor }}"
+				autofocus="commentform.autofocus">
 			</community-text-editor>
 
 			<div class="cmuTextEditor__preview" ng-bind-html="commentform.comment.body | sanitize"></div>
