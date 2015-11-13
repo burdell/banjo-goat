@@ -4,8 +4,6 @@
 require('filters/sanitize.js');
 require('filters/timefromnow.js');
 
-require('services/routing.js');
-
 require('directives/userbadge/userbadge.js');
 
 var _ = require('underscore');
@@ -15,7 +13,7 @@ function communityMessage() {
 	    
 	}
 
-	function controller($anchorScroll, $location, $timeout,  routingService) {	
+	function controller($anchorScroll, $location, $timeout, scrollService) {	
 		var ctrl = this;
 		
 		var perPage = null;
@@ -26,9 +24,7 @@ function communityMessage() {
 
 		var linkedMessage = $location.hash();
 		if (linkedMessage && Number(linkedMessage) === ctrl.message.id) {
-			$timeout(function(){
-				//$anchorScroll();
-			}, 0);
+			scrollService.scroll();
 		}
 
 		var reply = null;
@@ -54,13 +50,15 @@ function communityMessage() {
 				if (_.indexOf(shownIds, Number(parentId)) < 0) {
 					ctrl.threadFilter
 						.set({ targetCommentHash: true });
+				} else {
+					scrollService.scroll();
 				}
 			},
 			reply: reply,
 			messageStats: ctrl.message.scores
 		});
 		}
-		controller.$inject = ['$anchorScroll', '$location', '$timeout', 'CommunityApiService', 'CommunityRoutingService'];
+		controller.$inject = ['$anchorScroll', '$location', '$timeout', require('services/scroll.js')];
 	    
 	    var directive = {
 	        link: link,

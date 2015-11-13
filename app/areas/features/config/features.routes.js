@@ -67,8 +67,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterArguments: [ $stateParams.featureRequestId ],
 						filterContext: communityApi.Features,
 						persistFilterModel: false,
+						autoInitModel: false,
 						constants: {
-							per_page: 20,
+							per_page: 10,
 							sortDir: 'ASC',
 							sortField: 'postDate'
 						},

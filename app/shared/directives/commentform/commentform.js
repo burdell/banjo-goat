@@ -45,8 +45,7 @@ function commentForm() {
 				parentId: parentMessage.id,
 				topicId: parentMessage.topicId || parentMessage.id
 			},
-			replyText: ctrl.replyButtonText || 'Submit Comment',
-			replyingText: ctrl.replyingButtonText || 'Submitting Comment'
+			replyButtonText: ctrl.replyButtonText || 'Submit Comment'
 		});
 	};
 	controller.$inject = [require('services/api.js')];

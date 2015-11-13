@@ -44,7 +44,9 @@ function feedContent($compile, $templateCache) {
 
 		var contentUrl = function(routeString, dataOptions) {
 			dataOptions = _.extend({ nodeId: contentNode.urlCode }, dataOptions);
-			var hash = contentType === 'comment' ? ctrl.contentModel.data.id : null;
+		
+			var firstUnread = ctrl.contentModel.context.firstUnreadMessageId;
+			var hash = firstUnread && firstUnread !== ctrl.contentModel.data.id ? firstUnread : null;
 			return routingService.generateUrl(routeString, dataOptions, hash);
 		}
 
@@ -117,7 +119,7 @@ function feedContent($compile, $templateCache) {
 			},
 			getContentUrl: function(){
 				var model = ctrl.contentModel;
-				return discussionActionTexts[model.discussionStyle].url()
+				return discussionActionTexts[model.discussionStyle].url(model.context)
 			}
 		};
 

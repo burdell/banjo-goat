@@ -19,18 +19,12 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		nodeUrl = currentNode.urlCode;
 
 		ctrl.nodeDisplay = currentNode.description;
-		ctrl.discussionUrls = {
-			stories: routingService.generateUrl('stories.list', { nodeId: nodeUrl + '_stories' }),
-			announcements: routingService.generateUrl('announcements.list', { nodeId: nodeUrl + '_announcements' })
-		}
-		ctrl.forumList = _.where(currentNode.children, { discussionStyle: 'forums' });
-
+		
 		var productStoriesNode = routingService.generateDiscussionUrl(nodeUrl, 'stories');
 		ctrl.productStoriesUrl = routingService.generateUrl('stories.list', { nodeId: productStoriesNode });	
 
 		var productAnnouncementsNode = routingService.generateDiscussionUrl(nodeUrl, 'announcements');
 		ctrl.productAnnouncementsUrl = routingService.generateUrl('announcements.list', { nodeId: productAnnouncementsNode });	
-
 	});
 
 
@@ -39,12 +33,8 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 		discussionsFeed: discussionsFeedFilter.initialData().content,
 		discussionsFeedFilter: discussionsFeedFilter,
 		storyList: storyData.content,
-		forumOrder: function(forumNode){
-			return _.indexOf(forumOrder, forumNode.name);
-		},
-		landingPages: routingService.landingPages(),
-		getForumUrl: function(forumUrlCode){
-			return routingService.generateUrl('forums.list', { nodeId: forumUrlCode });
+		generateAnnouncementUrl: function(announcement){
+			return routingService.generateUrl('announcements.detail', { nodeId: nodeUrl, announcementId: announcement.id });
 		},
 		recentAnnouncements: announcementsData.content
 	});

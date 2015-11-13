@@ -15,8 +15,9 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 	
 	function setCommentData (result){
 		ctrl.commentList = result.content;
-		ctrl.commentList.shift()
-
+		if (result.first) {
+			ctrl.commentList.shift();
+		}
 		ctrl.numberOfPages = result.totalPages;
 	}
 	featuresCommentFilter.set({ onFilter: setCommentData });
@@ -48,6 +49,7 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 		},
 		replyPosted: function(result){
 			featuresCommentFilter.filter({ page: ctrl.numberOfPages });
+			scrollService.scroll(result.id);
 		},
 		messageIsBeingRepliedTo: function(messageId){
 			return messageId === this.currentReply;
