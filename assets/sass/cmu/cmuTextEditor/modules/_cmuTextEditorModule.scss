@@ -45,6 +45,10 @@ $editor-height--minimal: 60px;
     .cmuCollapser__container {
         margin: 0;
     }
+        .cmuCollapser__header__title {
+            padding: $cmu-base/2 $cmu-base;
+            padding-left: 0;
+        }
 }
 
     .CodeMirror, .CodeMirror-scroll {
@@ -126,26 +130,35 @@ $editor-height--minimal: 60px;
 // 
 .cmuTextEditor__help {
     margin-top: $cmu-base/2;
+    max-width: $cmu-maxwidth--post;
 
     .markhelp {
-        padding: $cmu-base/2;
+        padding: $cmu-base;
+        &>p { margin-left: $cmu-base*3/2}
     }
 
     .md {
         margin-top: $cmu-base;
+        margin-left: $cmu-base;
     }
 
     .md-header {
         // style="background-color: #ffff99; text-align: center"
         td {
-            padding: $cmu-base/2 0;
             border-bottom: $style-line;
             @extend %h5;
         }
     }
+
+    tr:nth-child(2n) {
+        // background-color: red;
+    }
+
     td {
         padding: $cmu-base/2 0;
+        padding-left: $cmu-base/2;
         border-bottom: $style-line--light;
+        vertical-align: top;
     }
 
 

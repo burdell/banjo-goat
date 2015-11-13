@@ -109,19 +109,19 @@ $size-h2__lineHeight: $size-largest__lineHeight;
 		line-height: $size-h2__lineHeight;
 		font-weight: 400;
 
-		margin-top: $cmu-vertical-rhythm;
-		margin-bottom: $cmu-vertical-rhythm/2;
+		// margin-top: $cmu-vertical-rhythm;
+		// margin-bottom: $cmu-vertical-rhythm/2;
 	}
 
-$size-h3: $size-larger;
+$size-h3: $size-largest;
 $size-h3__lineHeight: $size-larger__lineHeight;
 	h3, %h3 {
 		font-size: $size-h3;
 		line-height: $size-h3__lineHeight;
 		font-weight: 600;
 		color: $cmu-color-dkgray;
-		margin-top: $cmu-vertical-rhythm;
-		margin-bottom: $cmu-vertical-rhythm;
+		// margin-top: $cmu-vertical-rhythm;
+		// margin-bottom: $cmu-vertical-rhythm;
 	}
 
 $size-h4: $size-larger;

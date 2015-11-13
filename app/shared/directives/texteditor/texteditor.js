@@ -12,9 +12,11 @@ function communityTextEditor($timeout, routingService) {
 		
 		var editorCtrl = scope.texteditor;
 
+		var isAutofocus = (editorCtrl.autofocus == "true");
+
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
-			autofocus: (editorCtrl.autoFocus || _.isUndefined(editorCtrl.autofocus)) ? true : false,
+			autofocus: isAutofocus,
 			status: false,
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
 		    renderingConfig: {
@@ -23,10 +25,10 @@ function communityTextEditor($timeout, routingService) {
 
 		};
 
-		var isMinimal = !!editorCtrl.minimalEditor;
+		var isMinimal = (editorCtrl.minimalEditor == "true"); // unfancy but works
 		if (isMinimal) {
 			_.extend(editorOptions, {
-				// toolbar: false
+				toolbar: false
 			})
 		}
 
@@ -66,7 +68,7 @@ function communityTextEditor($timeout, routingService) {
         	minimalEditor: '@',
         	placeholder: '@',
         	hidePreviewLink: '@',
-        	autofocus: '='
+        	autofocus: '@' // note that autofocus causes the browser to scroll to the textbox
         }
     };
 

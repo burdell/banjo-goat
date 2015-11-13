@@ -370,7 +370,7 @@
 
 		$flag-bg: $cmu-color-white;
 		background-color: $flag-bg;
-		border: $style-line--medium;
+		border: $style-line;
 		border-color: $cmu-color-gray;
 
 		@extend %style-center;
@@ -381,9 +381,7 @@
 		&:before {
 			content: '';
 
-			border-left: $size-arrow solid transparent;
-			border-right: $size-arrow solid transparent;
-			border-top: $size-arrow solid $cmu-color-gray;
+			@include triangle(bottom, $cmu-color-gray, $size-arrow);
 			@extend %ease-fast;
 
 			display: inline;
@@ -399,16 +397,14 @@
 		&:after {
 			content: '';
 
-			border-left: $size-arrow solid transparent;
-			border-right: $size-arrow solid transparent;
-			border-top: $size-arrow solid $flag-bg;
+			@include triangle(bottom, $flag-bg, $size-arrow);
 			@extend %ease-fast;
 
 			display: inline;
 		    position: absolute;
 
 		    width: $size-arrow;
-    		bottom: -4px;
+    		bottom: -6px;
 		    left: 50%;
 		    transform: translateX(-$size-arrow/2);
 		}

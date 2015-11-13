@@ -22,7 +22,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // Subject
 .cmuThread__subject h3 {
 	margin-top: $cmu-vertical-rhythm;
-	margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm*2;
 	line-height: $cmu-base*2;
 }
 	// in announcements, the date is part of the title
@@ -113,12 +113,26 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // 
 
 .cmuThread__reply {
+	z-index: $z-overlay;
+	position: relative;
+	top: -$cmu-base/2;
+
 	margin-left: $size-badgewidth-min;
 	margin-bottom: $cmu-base;
-	margin-top: $cmu-base;
-	
-    max-width: cmu-maxwidth--reply;
     float: right;
+
+    background: $cmu-color-xltgray;
+    padding: $cmu-vertical-rhythm;
+    padding-bottom: 0;
+
+    &:before {
+    	content: ' ';
+    	@include triangle(top, $cmu-color-ltgray, $size-arrow);
+		position: absolute;    	
+	    right: $cmu-base*2;
+	    top: -$cmu-base/2;
+
+    }
 }
 
 	.cmuThread__reply__to {

@@ -1,11 +1,11 @@
 <div class="markhelp">
-    <p>We use a slightly-customized version of Markdown for formatting. Here are the basics:</p>
+    <p>We use a slightly-customized version of Markdown for formatting:</p>
 
     <table class="md">
         <tbody>
             <tr class="md-header" >
-                <td>You type</td>
-                <td>You see</td>
+                <td>Markdown</td>
+                <td>Result</td>
             </tr>
             <tr>
                 <td>*italics*</td>
@@ -50,14 +50,30 @@
                 </td>
             </tr>
             <tr>
-                <td>Lines surrounded by ``` are treated like code:
+                <td>Horizontal rules
+                    <br>
+                    <br>***
+                </td>
+                <td>
+                    <br>
+                    <br><hr>
+                </td>
+            </tr>
+            <tr>
+                <td>Surround lines of code with ```
                     <br>
                     <br><span>```
                     <br>if 1 * 2 &lt; 3:
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;print "hello, world!"
                     <br>```
                     <br>
-                    <br>Single lines of code can also be written as ` inline code `
+                    <br>Or use ` print "hello" ` for inline code
+                </td>
+                <td>Surround lines of code with ```
+                    <br>
+                    <br><pre><code>if 1 * 2 &lt; 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;print "hello, world!"</code></pre>
+                    <br>
+                    <br>Or use <code>print "hello"</code> for inline code
                 </td>
             </tr>
             <tr>

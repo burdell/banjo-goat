@@ -67,6 +67,7 @@ function commentForm() {
         	minimalEditor: "=",
         	onSuccessFn: '=',
         	topicId: '=',
+        	autofocus: '@'
         }
     };
     return directive;

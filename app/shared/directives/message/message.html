@@ -12,7 +12,7 @@
 				<a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)"><span class="cmuMessage__replyTo__user">{{ messageDisplay.reply.username }}</span></a>
 			</div>
 
-			<div class="cmuMessage__content" ng-bind-html="messageDisplay.message.body | sanitize">
+			<div class="cmuMessage__content cmuContent" ng-bind-html="messageDisplay.message.body | sanitize">
 			</div>
 
 			<!-- message controls -->

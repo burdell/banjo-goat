@@ -6,14 +6,14 @@
 	</div>
 
 	<div class="col--md12">
-			<community-text-editor 
-				autofocus="false"
+			<community-text-editor
+				autofocus="{{ commentform.autofocus }}"
 				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}" 
 				ng-model="commentform.comment.body" 
 				minimal-editor="{{ commentform.minimalEditor }}">
 			</community-text-editor>
 
-			<div class="cmuTextEditor__preview" ng-bind-html="commentform.comment.body | sanitize"></div>
+			<div class="cmuTextEditor__preview cmuContent" ng-bind-html="commentform.comment.body | sanitize"></div>
 	</div>
 
 	<div class="col--md12">
