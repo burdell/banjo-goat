@@ -10,19 +10,6 @@
 
 
 	<div class="cmuStories__story__controlsTop--left col--md9 noPadding">
-
-	<!-- 
-		<div class="cmuStories__author--avatar">
-			<community-user-avatar user="vm.storyAuthor"></community-user-avatar>
-		</div>
-		<div class="cmuStories__author--info">
-			<span>by</span>
-			<community-username user="vm.storyAuthor"></community-username>
-			<span class="cmuStories__postTime">{{ vm.story.message.postDate | timeFromNow }}</span>
-		</div>
-		 -->
-
-
 			<community-user-badge 
 				class="cmuUserbadge--thin cmuUserbadge--thin--open"
 				user="vm.storyAuthor"
@@ -68,8 +55,6 @@
 		<div class="cmuStories__story__cover">
 			<div class="cmuStories__story__cover--img">
 				<img ng-src="{{ vm.cover.url || vm.placeholders.coverPhotoUrl }}">
-				
-				<!-- <div ng-style="{'background-image':'url('+vm.cover.url+')'}"></div> -->
 			</div>
 			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
@@ -93,14 +78,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-	
-
-
-
-
 
 	<!-- 
 		Sidebar

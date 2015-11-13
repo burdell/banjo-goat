@@ -6899,6 +6899,7 @@ h6 {
 
 .style-date, .cmuFeed__story__date, .cmuStoryItem__date {
   color: #969ba3;
+  margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
 
@@ -8858,9 +8859,9 @@ div.cmuCollapser__content {
   background: transparent;
 }
 .cmuFeed__story:hover .cmuFeed__story__img {
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .cmuFeed__story__img__container {
@@ -9122,6 +9123,7 @@ div.cmuCollapser__content {
   overflow: visible !important;
   font-size: 0.75rem;
   width: 7rem;
+  white-space: nowrap;
 }
 .cmuThreadlist__authorDate .cmuThreadlist__avatar {
   float: left;
@@ -9134,7 +9136,7 @@ div.cmuCollapser__content {
   width: 1.25rem;
 }
 .cmuThreadlist__authorDate .cmuThreadlist__date {
-  display: inline-block;
+  overflow: hidden;
 }
 
 .cmuThreadlist__counter {
@@ -11225,11 +11227,13 @@ select.cmuSort {
   box-shadow: 0 0 8px #ebebeb;
 }
 .cmuStoryItem:hover {
-  -webkit-box-shadow: 0 0 12px #dadada;
-  -moz-box-shadow: 0 0 12px #dadada;
-  box-shadow: 0 0 12px #dadada;
+  -webkit-box-shadow: 0 0 16px #dadada;
+  -moz-box-shadow: 0 0 16px #dadada;
+  box-shadow: 0 0 16px #dadada;
 }
 .cmuStoryItem:hover img {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
 
@@ -11277,6 +11281,7 @@ select.cmuSort {
 
 .cmuStoryItem__subject {
   display: inline-block;
+  font-weight: 600;
 }
 .cmuStoryItem__subject:hover {
   color: #00a0df;

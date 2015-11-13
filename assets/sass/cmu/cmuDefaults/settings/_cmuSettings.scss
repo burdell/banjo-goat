@@ -25,6 +25,8 @@ $cmu-min-pageHeight--m:		$cmu-base*35;
 $cmu-height: $cmu-base*2;	// base height of objects is 32px
 $cmu-height--slim: $cmu-base*3/2;	// base height of slim objects (in threads) is 24px
 	
+$scale-rate-img: 1.05;		// rate of scaling transform for image hovr
+
 /**
  * These are private variables that should not be reassigned, overridden, or
  * modified. They are for use internally by the framework.

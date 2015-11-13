@@ -147,6 +147,7 @@ $style-line: 1px solid $cmu-color-line;
 .style-date, %style-date {
 	@extend %size-xsmaller;
 	color: $cmu-color-gray;
+	margin-top: $cmu-base/4;
 	margin-bottom: $cmu-base/4;
 }
 

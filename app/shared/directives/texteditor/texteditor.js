@@ -19,8 +19,7 @@ function communityTextEditor($timeout, routingService) {
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
 		    renderingConfig: {
 		        singleLineBreaks: true
-		    },
-
+		    }
 		};
 
 		var isMinimal = !!editorCtrl.minimalEditor;

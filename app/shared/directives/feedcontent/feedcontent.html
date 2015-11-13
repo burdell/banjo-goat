@@ -5,7 +5,6 @@
 			<span class="cmuIcon__label icon {{ ::feedcontent.contentDisplay.iconClass }}"></span>
 			<span class="cmuFeed__subject">
 				{{ ::feedcontent.contentDisplay.subject }}
-				<!-- <span ng-if="feedcontent.isRead()">(read)</span> -->
 			</span>
 		</div>
 		<div class="cmuFeed__content">
@@ -22,13 +21,13 @@
 			</div>
 			<div class="cmuFeed__stats col--md5">
 				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">views</span> 
+					<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.data.countViews }}</span> <span class="cmuFeed__stat__title">views</span> 
 				</div>
 				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">replies</span> 
+					<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">replies</span> 
 				</div>
 				<div class="cmuFeed__stat">
-					<span class="cmuFeed__stat__num">324</span> <span class="cmuFeed__stat__title">kudos</span> 
+					<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.message.scores || 0 }}</span> <span class="cmuFeed__stat__title">kudos</span> 
 				</div>
 			</div>
 		</div>
