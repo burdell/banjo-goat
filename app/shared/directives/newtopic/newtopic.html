@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="row row--comfy" ng-cloak>
+    <div class="col--md2">
+      <community-user-badge current-user="true"></community-user-badge>
+    </div>
+    <div class="col--md10">
+      <div class="row">
+        <div class="col--md12 cmuSearchbox">
+          <div class="appIconInput appIconInput--left">
+            <div class="appIconInput__icon icon ubnt-icon--pencil-2"></div>
+            <input class="appIconInput__input" placeholder="{{ newtopic.titleText }}..." type="text" ng-model="newtopic.newTopic.subject">
+          </div>
+        </div>
+      </div>
+      <div class="row row--comfy">
+        <community-text-editor 
+          ng-model="newtopic.newTopic.body"
+          editor-height="300">
+        </community-text-editor>
+      </div>
+      <div class="row row--comfy">  
+        <div ng-show="!newtopic.submittingTopic">
+          <button 
+            class="button-square button-white-blue" 
+            ng-click="newtopic.cancelTopic()">
+              Cancel
+          </button>
+          <button 
+            class="button-full button-blue-white"
+            ng-click="newtopic.submitTopic()">
+              {{ newtopic.actionButtonText }}
+          </button>
+        </div>
+        <div ng-show="newtopic.submittingTopic">
+          <button class="cmuInput--waiting button--padded" disabled>{{ newtopic.feedbackButtonText }}...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

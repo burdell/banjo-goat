@@ -120,6 +120,8 @@ $size-h3__lineHeight: $size-larger__lineHeight;
 		line-height: $size-h3__lineHeight;
 		font-weight: 600;
 		color: $cmu-color-dkgray;
+		margin-top: $cmu-vertical-rhythm;
+		margin-bottom: $cmu-vertical-rhythm;
 	}
 
 $size-h4: $size-larger;

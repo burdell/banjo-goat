@@ -1,8 +1,6 @@
 
 'use strict';
 
-require('shared/services/api.js');
-
 var initialize = function($q, communityApi, currentUser){
 	var _initFn = null;
 
@@ -31,7 +29,9 @@ var initialize = function($q, communityApi, currentUser){
 		}
 	};
 };
-initialize.$inject = ['$q', 'CommunityApiService' ];
+initialize.$inject = ['$q', require('shared/services/api.js')];
 
+var serviceName = 'CommunityInitializeService';
 angular.module('community.services')
-	.service('CommunityInitializeService', initialize);
+	.service(serviceName, initialize);
+module.exports = serviceName;

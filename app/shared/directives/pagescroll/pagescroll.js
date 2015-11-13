@@ -6,6 +6,7 @@ var _ = require('underscore');
 function pageScroll() {
 	var link = function(scope, element, attrs){
 		element.on('click', function(){
+			console.log('pagescroll click')
 			scope.pagescroll.scrollPage();
 		});	
 	};

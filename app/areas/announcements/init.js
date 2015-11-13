@@ -8,6 +8,8 @@ app('announcements');
 require('shared/directives/timeline/timeline.js');
 
 //area files
+require('shared/pages/newtopic/newtopic.js')('announcements');
+
 require('announcements/list/announcements.list.js');
 require('announcements/detail/announcements.detail.js');
 require('announcements/landing/announcements.landing.js');

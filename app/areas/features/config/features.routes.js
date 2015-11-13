@@ -17,6 +17,15 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			url: featureRoutes.features,
 			templateUrl: 'features/features.html'
 		})
+		.state('features.newtopic', {
+			url: featureRoutes.newtopic,
+			views: {
+				'mainContent': {
+					templateUrl: 'pages/newtopic/newtopic.html',
+					controller: 'NewTopic as vm'
+				}
+			}
+		})
 		.state('features.list', {
 			url: featureRoutes.list + '?offset&sort&request&status&severity&attachments', 
 			views: {
@@ -58,8 +67,9 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						filterArguments: [ $stateParams.featureRequestId ],
 						filterContext: communityApi.Features,
 						persistFilterModel: false,
+						autoInitModel: false,
 						constants: {
-							per_page: 20,
+							per_page: 10,
 							sortDir: 'ASC',
 							sortField: 'postDate'
 						},
@@ -68,16 +78,6 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					});
 				}]
 			}
-		})
-		.state('features.newfeature', {
-			url: featureRoutes.newfeature,
-			views: {
-				'mainContent': {
-					templateUrl: 'features/newfeature/features.newfeature.html',
-					contrller: 'NewFeature as vm'
-				}
-			}
-
 		})
 	};
 	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];

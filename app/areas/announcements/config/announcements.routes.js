@@ -24,6 +24,15 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				abstract: true,
 				templateUrl: 'announcements/announcements.html',
 			})
+			.state('announcements.newtopic', {
+				url: announcementsRoutes.newtopic,
+				views: {
+					'mainContent': {
+						templateUrl: 'pages/newtopic/newtopic.html',
+						controller: 'NewTopic as vm'
+					}
+				}
+			})
 			.state('announcements.list', {
 				url: 'list',
 				templateUrl: 'announcements/list/announcements.list.html',

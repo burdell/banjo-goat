@@ -1,13 +1,9 @@
 	'use strict';
 
-	require('services/icon.js');
-	require('services/initialize.js');
-	require('services/routing.js');
-
 	var _ = require('underscore');
 
 	
-	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService){
+	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService, routesProvider){
 		var nodeStructureService;
 		var nodesById = {};
 		var nodesByUrl = {};
@@ -115,6 +111,27 @@
 			parent: function(childNodeId) {
 				var childNode = this.getNode(childNodeId);
 				return childNode && childNode.id !== -1 ? this.getNode(childNode.parentId) : null;
+			},
+			generateNodeDetailUrl: function(nodeId, topicId, messageId){
+				var node = this.getNode(nodeId);
+				var route = node.discussionStyle + '.detail';
+
+				var discussionStyle = node.discussionStyle;
+				var detailId = routesProvider.detailIds[discussionStyle];
+
+				var routeDetails = {
+					nodeId: node.urlCode
+				};
+				routeDetails[routesProvider.detailIds[discussionStyle]] = topicId;
+				
+				return routingService.generateUrl(discussionStyle + '.detail', routeDetails, messageId);
+			},
+			getProductTypeList: function(){
+				return [
+					{ header: 'Community', list: this.DiscussionTypes.general },
+					{ header: 'Service Providers', list: this.DiscussionTypes.broadband },
+					{ header: 'Enterprise', list: this.DiscussionTypes.enterprise }
+				];
 			}
 		};
 
@@ -142,7 +159,7 @@
 			}
 		}
 	};
-	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', 'CommunityIconService', 'CommunityInitializeService', 'CommunityRoutingService'];
+	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', require('services/icon.js'), require('services/initialize.js'), require('services/routing.js'), require('providers/routes.js')];
 
 	var serviceName = 'CommunityNodeService';
 	angular.module('community.services')

@@ -58,12 +58,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .cmuMessage__body {
 	display: table-cell;
-	// vertical-align: top;
+	vertical-align: top;
 	width: 80%;
 
 	border-left: $style-line; 
 	padding: $cmu-base/2 $cmu-base;
 	background-color: $cmu-color-post;
+
+	position: relative;
 }
 
 	
@@ -98,7 +100,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	
 .cmuMessage__content {
 	margin-top: $cmu-base/2;
-	margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm*3;
 	min-height: $cmu-thread-message-height;
 
 	font-size: $size-normal;
@@ -119,6 +121,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 	.cmuMessage__data {
+		margin-top: 1rem;
 		&, * { 
 			// display: inline-block;
 			text-align: right;
@@ -138,6 +141,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		&:after {
 			content: ' | ';
 			margin: 0 $cmu-base/2;
+			color: $cmu-color-ltmdgray;
 		}
 	}
 
@@ -165,6 +169,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	display: inline-block;
 	vertical-align: middle;
 	@extend %type-info;
+	font-weight: 600;
 
 	&:before {
 		content: 'In reply to ';
@@ -176,9 +181,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 	margin: 0 $cmu-base/2;
 	// }
 }
-	.cmuMessage__replyTo__user {
-		@extend %style-link;
-	}
 
 
 
@@ -192,20 +194,56 @@ $cmu-thread-message-height:	$cmu-base * 3;
 // Message Controls
 // 
 
-.cmuMessage__controls {
-	@extend %type-info;
+.cmuMessage__footer {
+    position: absolute;
+    bottom: $cmu-base*3/4;
+    padding-right: $cmu-base*2;
+    width: 100%;
 }
 
+.cmuMessage__meta {
+	@extend %type-info;
+	line-height: $size-large__lineHeight;
+    display: inline-block;
+    float: left;
+}
+	.cmuMessage__controls {
+		display: inline-block;
+		float: right;
+	}
+	// meta info (msg count, date)
+	.cmuMessage__counter, .cmuMessage__date {
+		color: $cmu-color-subtle;
+	}
+
+
+
+
+
+	// controls
 	.cmuMessage__flag {
 		@extend %style-flag;
+		position: relative;
+		top: -2px;
+
+		.cmuHoverflag {
+			top: 0;
+		}
 	}
 		.cmuMessage__body:hover {
 			@extend %style-flag--hover;
 		}
 
 	.cmuMessage__reply {
+		@extend %height-slim;
 		text-align: right;
+
+		.cmuPermissions {
+			margin-left: $cmu-base/2;
+		}
 	}
+
+
 
 // bottom row of controls of the thread
 
@@ -352,6 +390,14 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			padding: 0;
 		}
 	}
+
+
+	// lithium signatures come through as
+	// UserSignature lia-message-signature
+
+	// how should lithium anchors be handled?
+	// a 
+
 }
 
 

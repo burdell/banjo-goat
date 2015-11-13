@@ -1,23 +1,34 @@
 
-<div>
-	<div class="row row--comfy">
-			<community-text-editor ng-model="commentform.comment.body" minimal-editor="{{ commentform.minimalEditor }}"></community-text-editor>
+<div class="cmuTextEditor--formContainer cmuTextEditor--comments row">
+
+	<div class="cmuTextEditor__title col--md12" ng-if="commentform.headerTitle">
+		<h5>{{ commentform.headerTitle }}</h5>
 	</div>
-	<div class="row">
+
+	<div class="col--md12">
+			<community-text-editor 
+				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}" 
+				ng-model="commentform.comment.body" 
+				minimal-editor="{{ commentform.minimalEditor }}"
+				autofocus="commentform.autofocus">
+			</community-text-editor>
+
+			<div class="cmuTextEditor__preview" ng-bind-html="commentform.comment.body | sanitize"></div>
+	</div>
+
+	<div class="col--md12">
 		<div ng-show="!commentform.submittingComment">
-			<button 
-				class="button-ghost button-white-blue" 
-				ng-click="commentform.cancelReply()">
-					Cancel
-			</button>
-			<button 
-				class="button-ghost button-white-blue"
+			<div 
+				class="button button--solid"
 				ng-click="commentform.submitReply()">
-					Submit Comment
-			</button>
+					{{ commentform.replyButtonText }}
+			</div>
 		</div>
+
 		<div ng-show="commentform.submittingComment">
-			<button class="cmuInput--waiting button--padded" disabled>Submitting Your Comment...</button>
+			<div class="button cmuInput--waiting button--padded" disabled>
+					{{ commentform.replyButtonText }}
+			</div>
 		</div>
 	</div>
 </div>

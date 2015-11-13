@@ -66,6 +66,7 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-menu: $cmu-color-dkblue;
 
 	// Post bg color (slightly grayer for better reading)
+	$cmu-color-post--dark: $cmu-color-xltgray;
 	$cmu-color-post--light: $cmu-color-purewhite;
 	$cmu-color-post: $cmu-color-white;
 	
@@ -78,6 +79,9 @@ $cmu-color-purewhite: 	#FFF;
 
 	// Active text
 	$cmu-color-active: $cmu-color-blue;
+
+	// subtle text for subtitles, post footer etc.
+	$cmu-color-subtle: $cmu-color-gray;
 
 	// Components that are considered "off" or "inactive" but not disabled
 	$cmu-color-inactive: $cmu-color-gray;
@@ -109,9 +113,12 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-threadlist-hover: $cmu-color-active;
 	$cmu-color-threadlist-hover--background: $cmu-color-ltgray; 			// used when hovering over a row in a list
 	$cmu-color-unread: $cmu-color-black;
-	$cmu-color-isRead: $cmu-color-gray;
+	$cmu-color-isRead: $cmu-color-dkgray;
 	$cmu-color-isRead--background: $cmu-color-xltgray;
 
+	// custom scroll bar
+	$cmu-color-scrollFg: $cmu-color-black;
+	$cmu-color-scrollBg: $cmu-color-dkgray;
 
 // 
 // ENVIRONMENT

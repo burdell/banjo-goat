@@ -21,9 +21,15 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 // Subject
 .cmuThread__subject h3 {
-	// margin-bottom: $cmu-vertical-rhythm;
+	margin-top: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm;
 	line-height: $cmu-base*2;
 }
+	// in announcements, the date is part of the title
+	.cmuThread__subject__date {
+		margin-top: -$cmu-vertical-rhythm;
+		margin-bottom: $cmu-vertical-rhythm;
+	}
 
 	// Active Thread
 	.cmuThread__subject--active {
@@ -91,7 +97,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 // pagination and filter area
 .cmuThread__controls {
-	margin-bottom: $cmu-vertical-rhythm/2;
+	margin-bottom: $cmu-vertical-rhythm;
 }
 	.cmuThread__controls--bottom {
 		margin-bottom: $cmu-vertical-rhythm*2;
@@ -110,6 +116,19 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-left: $size-badgewidth-min;
 	margin-bottom: $cmu-base;
 	margin-top: $cmu-base;
+	
+    max-width: cmu-maxwidth--reply;
+    float: right;
 }
+
+	.cmuThread__reply__to {
+		margin-bottom: $cmu-base/4;
+		@extend %h5;
+	}
+
+	.cmuThread__replyTo__user {
+		// @extend %style-link;
+	}
+
 
 

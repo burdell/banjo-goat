@@ -22,6 +22,9 @@
 
 
 // hide breadcrumbs only on feed
+.cmuFeed--home {
+	margin-top: $cmu-base*2;
+}
 .cmuFeed--home .cmuBreadcrumbs { 
 	display: none;
 }
@@ -57,7 +60,7 @@
 		padding: $cmu-base/2;
 		border-bottom: $style-line;
 		height: $cmu-base*2;
-		* { line-height: $size-xxsmaller__lineHeight }
+		* { line-height: $cmu-base }
 	}
 
 
@@ -101,9 +104,7 @@
 				background: transparent;
 				.cmuFeed__story__img {
 					@extend %ease-fast;
-				    -moz-transform: scale(1.2);
-				    -webkit-transform: scale(1.2);
-				    transform: scale(1.2);
+					@include transform($scale-rate-img);
 				}
 			}
 		}
@@ -222,6 +223,12 @@
 					@extend %style-stat;
 					// margin-right: $cmu-base/2;
 				}
+					.cmuFeed__stat__num {
+						@extend %style-stat-num;
+					}
+					.cmuFeed__stat__title {
+						@extend %style-stat-title;
+					}
 
 			// product description tag
 			.cmuFeed__location {
@@ -232,6 +239,7 @@
 
 		.cmuFeed__pagerBottom {
 			padding: $cmu-base/2 $cmu-base;
+			padding-top: $cmu-base;
 		}
 
 

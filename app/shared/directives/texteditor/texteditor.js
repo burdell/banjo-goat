@@ -16,13 +16,16 @@ function communityTextEditor($timeout, routingService) {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: (editorCtrl.autoFocus || _.isUndefined(editorCtrl.autofocus)) ? true : false,
 			status: false,
-			hideIcons: ['side-by-side', 'fullscreen', 'guide']
+			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
+		    renderingConfig: {
+		        singleLineBreaks: true
+		    }
 		};
 
 		var isMinimal = !!editorCtrl.minimalEditor;
 		if (isMinimal) {
 			_.extend(editorOptions, {
-				toolbar: false
+				// toolbar: false
 			})
 		}
 
@@ -41,7 +44,8 @@ function communityTextEditor($timeout, routingService) {
 			editorId: 'community-editor-' + $scope.$id,
 			editorHeight: ctrl.height | '150',
 			markdownOptions: {
-				sanitize: true
+				sanitize: true,
+				breaks: true
 			}
 		});
 

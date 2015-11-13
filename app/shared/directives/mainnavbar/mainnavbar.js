@@ -11,6 +11,7 @@ require('filters/unformattext.js');
 require('filters/wordcut.js');
 
 require('services/notifications.js');
+require('services/currentuser');
 
 var _ = require('underscore');
 
@@ -53,7 +54,6 @@ function mainNavBar() {
 				apiService.Feed[type]({ size: 7 }).then(function(result) {
 					dataType.list = result.content;
 					dataType.loading = false;
-					debugger;
 					dataType.newDataCount = 0;
 					pollers[type].resetTimestamp();
 				});
@@ -141,6 +141,9 @@ function mainNavBar() {
 			 	getUrl: function(data) {
 					return generateContentUrl(data);
 				}
+			},
+			hideSearch: function(){
+				return $state.current.name === 'searchpage';
 			}
 		 });			
 	}
@@ -152,7 +155,7 @@ function mainNavBar() {
 		require('services/nodestructure.js'), 
 		require('services/realtime.js'),
 		require('services/routing.js'), 
-		require('services/currentuser.js'),
+		'CurrentUserService',
 		require('providers/routes.js'),
 		'CommunityNotificationsService'
 	];

@@ -8,8 +8,13 @@
 					<div>
 						<div class="cmuSearchbox">
 							<div class="appIconInput appIconInput--right">
-								<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
-								<input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
+								<div ng-click="searchbar.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
+								<input 
+									class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+									placeholder="Search Community" 
+									type="text" 
+									ng-model="searchbar.searchText"
+									community-enter="searchbar.search()">
 						    </div>
 						</div>
 					</div>

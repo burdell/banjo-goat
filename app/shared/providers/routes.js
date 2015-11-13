@@ -17,11 +17,13 @@
 			    list: 'list',
 			    detail: ':' + detailIds.announcements,
 			    landing: '/announcements/',
+			    newtopic: 'newtopic'
 			},
 			features: {
 				features: '/features/:nodeId/',
 				list: 'list',
-				detail: ':' + detailIds.features
+				detail: ':' + detailIds.features,
+				newtopic: 'newtopic'
 			},
 			forums: {
 			    forums: '/forums/:nodeId/',
@@ -39,8 +41,9 @@
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',
 			feed: '/',
-			notifications: '/alerts',
+			notifications: '/notifications',
 			userprofile: '/user/:' + detailIds.user,
+			searchpage: '/search',
 			utils: {
 				intRoute: function(route) {
 					return '{' + route.replace(':', '') + ':int}'

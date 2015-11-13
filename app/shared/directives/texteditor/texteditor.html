@@ -3,12 +3,20 @@
 		<textarea class="texteditor__editor"></textarea>
 	</div>
 
-	<div class="cmuTextEditor__help" ng-if="texteditor.minimalEditor">
-		<span class="style-ctaLink" ng-if="!texteditor.hideFormattingHelperLink"><a ng-click="texteditor.formattingHelpShown = !texteditor.formattingHelpShown">Formatting Help</a></span>
-		<div ng-show="texteditor.formattingHelpShown">
-			<div ng-include="'directives/texteditor/texteditor.formattinghelp.html'"></div>
-		</div>
+	<div class="cmuTextEditor__help clearfix">
 
+		<div class="cmuCollapser__container collapseRight collapseSubtle">
+
+			<div class="cmuCollapser__header cmuCollapser__header--light" community-class-toggle="open">
+				<div class="cmuCollapser__header__title"> 
+					<h5>Formatting Help</h5>
+				</div>
+			</div>
+			
+			<div class="cmuFeed__storyList cmuCollapser__content clearfix">
+				<div ng-include="'directives/texteditor/texteditor.formattinghelp.html'"></div>
+			</div>
+		</div>
 	</div>
 </div>
 

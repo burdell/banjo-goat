@@ -8,16 +8,12 @@
 // go to that discussion type
 
 
+$editor-height--large: 240px;
+$editor-height--minimal: 60px;
+
 .cmuTextEditor {
-	cursor: text;
+	// cursor: text;
 
-  .CodeMirror, .CodeMirror-scroll {
-      min-height: 200px;
-  }
-
-  .cmuTextEditor__textarea {
-    @extend .cmuInput;
-  }
 
 	iframe html{
 		  // does nothing:  content_css.css affects the interior of the editor
@@ -33,4 +29,128 @@
    		@extend %font-lato;
    		margin-left: 4px;
    	}
+
+    .editor-toolbar {
+        border-radius: 0;
+        padding-left: 5px;
+        cursor: default;
+        a {
+            border: 0;
+            &:hover {
+                color: $cmu-color-dkblue !important;
+            }
+        }
+    }
+
+    .cmuCollapser__container {
+        margin: 0;
+    }
+}
+
+    .CodeMirror, .CodeMirror-scroll {
+        min-height: 200px;
+        border-radius: 0;
+        border-color: $cmu-color-active;
+
+    }
+
+
+
+
+
+
+    .cmuTextEditor__textarea {
+        @extend .cmuInput;
+    }
+
+    .cmuTextEditor--minimal {
+        .CodeMirror, .CodeMirror-scroll {
+            min-height: $editor-height--minimal;
+            // max-height: $editor-height--minimal;
+            // height: $editor-height--minimal;
+        }
+
+        // these add padding to the toolbar
+        .editor-toolbar:after, .editor-toolbar:before {
+            display: none; 
+        }
+
+        .editor-toolbar {
+            a { 
+                border: 0
+            }
+            a:hover {
+                border: 0;
+                color: $cmu-color-dkblue !important;
+            }
+        }
+    }
+
+
+// this element resides in the CommentForm and other containers, instead of the texteditor directly
+.cmuTextEditor--formContainer {
+    margin-bottom: $cmu-vertical-rhythm;
+}
+
+
+
+.cmuTextEditor__title {
+    h5 {
+        margin-top: $cmu-vertical-rhythm;
+        margin-bottom: $cmu-vertical-rhythm/2;
+    }
+}
+
+
+// 
+// Setting up live preview
+// 
+
+.cmuTextEditor__preview {
+    margin-bottom: $cmu-vertical-rhythm/2;
+    border: $style-line;
+    padding: $cmu-base;
+    padding-top: $cmu-base/2;
+
+    &:before {
+        content:'Live Preview';
+        display: block;
+        padding-bottom: $cmu-base/2;
+        color: $cmu-color-gray
+    }
+}
+
+
+// 
+// Help area
+// 
+.cmuTextEditor__help {
+    margin-top: $cmu-base/2;
+
+    .markhelp {
+        padding: $cmu-base/2;
+    }
+
+    .md {
+        margin-top: $cmu-base;
+    }
+
+    .md-header {
+        // style="background-color: #ffff99; text-align: center"
+        td {
+            padding: $cmu-base/2 0;
+            border-bottom: $style-line;
+            @extend %h5;
+        }
+    }
+    td {
+        padding: $cmu-base/2 0;
+        border-bottom: $style-line--light;
+    }
+
+
+    // special styles for formatting
+    ul {
+        margin-bottom: 0;
+    }
 }

@@ -1,7 +1,6 @@
 
 'use strict';
 
-require('providers/routes.js');
 var _ = require('underscore');
 
 	var routingService = function($location, communityRoutes){
@@ -14,10 +13,13 @@ var _ = require('underscore');
 			},
 			getArea: function(url) {
 				var areaName = url.split('/')[1];
-				if (areaName === '' || areaName === 'user' || areaName === 'alerts' ) {
+				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' ) {
 					areaName = 'directory';
 				}
 				return areaName;
+			},
+			getDetailId: function(areaName) {
+				return communityRoutes.detailIds[areaName];
 			},
 			areaSlugs: {
 				announcements: 'announcements',
@@ -27,7 +29,7 @@ var _ = require('underscore');
 				qna: 'qna',
 				stories: 'stories'
 			},
-			generateUrl: function(route, data, hash){
+			generateUrl: function(route, data, params){
 				if (!route) return null;
 
 				var routeList = route.split('.');
@@ -54,8 +56,21 @@ var _ = require('underscore');
 					url = url.replace(':' + key, value);
 				});
 				
-				if (hash) {
-					url += '#' + hash;
+				if (params) {
+					if (_.isObject(params)) {
+						//object params is query params
+						var numberOfParams = _.keys(params).length;
+						url += '?'
+						_.each(params, function(param, key, index){
+							url += key + '=' + param;
+							if (index < numberOfParams) {
+								url += '&';
+							} 
+						});
+					} else { 
+						//string...params is hash
+						url += '#' + params;
+					}
 				}
 
 				return url;
@@ -91,7 +106,7 @@ var _ = require('underscore');
 		}
 	};
 };
-routingService.$inject = ['$location', 'communityRoutes'];
+routingService.$inject = ['$location', require('providers/routes.js')];
 
 var serviceName = 'CommunityRoutingService';
 angular.module('community.services')

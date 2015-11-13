@@ -11,19 +11,39 @@
 
 .cmuComments__header {
 	@extend %h3;
-	padding-bottom: $cmu-base/2;
-	border-bottom: $style-line--thick;
+	// padding-bottom: $cmu-base/2;
+	// border-bottom: $style-line--thick;
+
+	padding-bottom: $cmu-base/2 $cmu-base;
+    padding: 0.5rem 1rem;
+    background-color: $cmu-color-post--dark;
 }
 
 .cmuComments__row {
-	margin-bottom: 0.2rem;
+	margin-bottom: $cmu-vertical-rhythm/2;
+	padding-bottom: $cmu-base/2;
+	border-bottom: $style-line;
 
-	padding: $cmu-base/2 0;
-	background-color: $cmu-color-ltgray;
+	&:last-child {
+		border-bottom: 0;
+	}
+
+
+	// background-color: $cmu-color-ltgray;
 }
 
 .cmuComments__user {
-	padding-top: 2px;
+	padding-bottom: $cmu-base/4;
+
+    // border-bottom: 1px solid #ccc;
+    display: inline-block;
+    float: left;
+    // background: #f0f0f0;
+    // margin-right: $cmu-base;
+    margin-top: $cmu-base/4;
+    margin-bottom: $cmu-base/2;
+
+    width: 25%;
 }
 
 	.cmuComments__user--avatar {
@@ -55,6 +75,11 @@
 .cmuComments__body {
 	font-size: $size-normal;
 	line-height: $size-normal__lineHeight;
+	background-color: $cmu-color-white;
+	padding-left: $cmu-base;
+
+    width: 75%;
+    float: left;
 }
 
 

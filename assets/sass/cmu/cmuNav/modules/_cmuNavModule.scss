@@ -34,6 +34,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	width: $cmu-base*3;
 	// margin-left: -4px;
 	margin-right: -4px;
+	text-align: center;
 }
 
 
@@ -779,7 +780,9 @@ $nav-border: 1px solid $cmu-color-dkblue;
     			top: -80px; // hard coded bc of fixed position underlying element
 		    }
 		    &:after {
-		    	top: -60px;
+		    	top: -58px;
+			    left: 50%;
+		    	transform: translate(-50%,0);
 		    }
 		}
 		.cmuHoverflag--top {

@@ -71,8 +71,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			url: forumRoutes.newtopic,
 			views: {
 				'mainContent': {
-					templateUrl: 'forums/newtopic/forums.newtopic.html',
-					controller: 'NewForumTopic as vm'
+					templateUrl: 'pages/newtopic/newtopic.html',
+					controller: 'NewTopic as vm'
 				}
 			}
 		});

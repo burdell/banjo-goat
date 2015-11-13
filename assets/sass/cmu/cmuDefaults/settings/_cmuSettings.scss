@@ -14,6 +14,9 @@ $cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1400px;	// applied separately on all partials and templates for max-width responsive
+$cmu-maxwidth--longform:	1000px; // centered longform content for readability
+$cmu-maxwidth--post:		640px;	// widest post width for readability // might not be used
+$cmu-maxwidth--reply:		240px;	// for inline post replies
 $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
@@ -21,6 +24,8 @@ $cmu-min-pageHeight--m:		$cmu-base*35;
 
 $cmu-height: $cmu-base*2;	// base height of objects is 32px
 $cmu-height--slim: $cmu-base*3/2;	// base height of slim objects (in threads) is 24px
+	
+$scale-rate-img: 1.05;		// rate of scaling transform for image hovr
 
 /**
  * These are private variables that should not be reassigned, overridden, or
@@ -40,6 +45,11 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 }
 
 
+html {
+	// important to override simplemde's setting overflow to hidden for preview pages
+	// either override it here, or reset the fullscreen function in the js
+	overflow: auto !important;
+}
 
 body {
 	position: relative;

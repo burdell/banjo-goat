@@ -55,41 +55,84 @@ $cmu-button-color-base: $cmu-color-blue;
 			border-color: darken($bgColor, 10);
 		}
 
-	} @else if $type == 'compound' {
-		background-color: $bgColor;
+	} @else if $type == 'vote' {
+		// base text is body color
+		// foreground color: text
+		// background color: action and border
+		background-color: transparent; // button itself is transparent
+
+		color: $fgColor;
+		// background-color: $bgColor;
 		border-color: $bgColor;
-		border-color: $cmu-color-white;
-		// border-left-color: $bgColor;
+		border-width: 1px;
+    	line-height: 0.9rem; // these are always 1px borders
+		padding: 0;
 		
-		.button--compound--data {
-			color: $bgColor;
-			background-color: $fgColor;
+		.button--vote--points {
+			display: inline-block;
+			// color: $bgColor;
+			// background-color: $fgColor;
+			background-color: transparent; // this part is always white 
+			padding: $cmu-base/2;
+			color: $cmu-color-body;
+			@extend %ease-fast;
 		}
-		.button--compound--action {
-			background: $bgColor;
-			color: $fgColor;
+		.button--vote--action {
+			display: inline-block;
+			background-color: $bgColor;
+			// color: $fgColor;
+			padding: $cmu-base/2;
+			color: $cmu-color-body;
+			@extend %ease-fast;
 		}
 
 
 		&:hover {
-			border-color: $bgColor;
-			.button--compound--data {
-				// color: $fgColor; // can't use transparent
-				// background-color: $bgColor !important;
+			border-color: $hoverBgColor;
+			.button--vote--points {
+				@extend %ease-fast;
+				color: $hoverFgColor;
+			}
+			.button--vote--action {
+				// using the hover color here is too drastic and doesn't add interaction on click
+				@extend %ease-fast;
+				color: $cmu-color-white;
+				background-color: $hoverBgColor;
+				// use a darker background instead
+				// background-color: lighten($bgColor, 5%);
+			}
+		}
+		// on click, make exciting
+		&:active {
+			.button--vote--action {
+				// using the hover color here is too drastic and doesn't add interaction on click
+				@extend %ease-fast;
+				// color: $hoverBgColor;
+				background-color: lighten($hoverBgColor, 30%);
+				// use a darker background instead
+				// background-color: lighten($bgColor, 5%);
 			}
 		}
 
-	} @else if $type == 'compound-naked' {
-		$bgColor: transparent;
+		// voted (same as hover)
+		&.button--voted {
+			border-color: $hoverBgColor;
+			.button--vote--points {
+				@extend %ease-fast;
+				color: $hoverFgColor;
+			}
+			.button--vote--action {
+				@extend %ease-fast;
+				color: $cmu-color-white;
+				background-color: $hoverBgColor;
+			}
 
-		color: $fgColor;
-		background-color: $bgColor;
-		border-color: $bgColor;
 
-		&:hover {
-			color: $hoverFgColor; // can't use transparent
-			background-color: $bgColor;
-			border-color: $hoverFgColor;
+			&:hover {
+				.button--vote--action {
+					background-color: darken($hoverBgColor, 8%);
+				}
+			}
 		}
 
 	} @else if $type == 'ghost' {
@@ -260,63 +303,6 @@ button, .button, .cmuButton {
 }
 
 
-// COMPOUND Buttons
-// these have an ACTIVE state / class which can be turned on or off
-// (default is off)
-.button--compound {
-	$mode: 'compound';
-	@include cmuButton($mode,$cmu-color-white,$cmu-color-blue);
-
-	// border: $cmu-style-button-borderwidth solid $cmu-color-blue;
-	// @extend %ease-fast;
-	&:hover {
-		// @extend %ease-fast;
-
-		.button--compound--data {
-			padding: 0 $cmu-base/2 !important;
-		}
-
-		.button--compound--action {
-			display: inherit;
-		}
-	}
-	padding: 0;
-	div { display: inline-block;}
-
-	.button--compound--data {
-		padding: 0 $cmu-base/2;
-		padding-left: 0;
-		@extend %ease-fast;
-		.icon {margin-right: 0;}
-	}
-
-	.button--compound--action {
-		padding: 0 $cmu-base/2;
-		display: none;
-		// specialty icons
-		// .icon {margin-right: 0;}
-	}
-
-	&.button-green-on-white {
-		@include cmuButton($mode,$cmu-color-white,$cmu-color-green);
-	}
-
-}
-
-// COMPOUND NAKED
-// similar to COMPOUND, these don't have any of the chrome, bg and outlines
-.button--compound-naked {
-	$mode: 'compound-naked';
-
-	text-align: left;
-	@include cmuButton($mode,$cmu-color-blue,$cmu-color-white,$cmu-color-blue);
-
-	&.button-black-on-white {
-		@include cmuButton($mode,$cmu-color-black,$cmu-color-white,$cmu-color-blue);
-	}
-}
-
-
 
 // 
 // SPECIAL STYLES
@@ -360,58 +346,35 @@ button, .button {
 .button--vote {
 	text-align: left;
 
-	@include cmuButton('outline',$cmu-color-gray,$cmu-color-white,$cmu-color-gray);
+	@include cmuButton('vote',$cmu-color-body, $cmu-color-line, $cmu-color-blue, $cmu-color-blue);
 
-	padding-top: 0;
-	padding-bottom: 0;
-	padding-right: 0;
-
-	position: relative;
-	top: -1px;
-
-	&:after {
-		// font-family: "ubnt";
-		content: '+';
-		color: white; 
-		padding: 1px $cmu-base*3/4;
-		margin-left: $cmu-base;
-		// margin-right: -1px;
-		background-color: $cmu-color-gray;
-		float: right;
-
-	}
-		// thin vote buttons
-		&.button--thin:after {
-			padding: 1px remCalc(8px);
-		}
-
-	&:hover {
-		&:after {
-			font-family: "lato";
-			content: '+1';
-			// padding: 9px 8.5px;
-		}
-	}
-		// thin vote buttons
-		&.button--thin:hover:after {
-			padding: 1px remCalc(5px);
-		}
+	// active state
+	// this is super distracting
+	// (users can take an action)
+	// .button--vote--action {
+	// 	&:after {
+	// 		content: 'S';
+	// 	}
+	// }
 
 
-	&.button-green-on-white {
-		@include cmuButton('outline',$cmu-color-green,$cmu-color-white,$cmu-color-gray);
-		
-		padding-top: 0;
-		padding-bottom: 0;
-		padding-right: 0;
-
-		position: relative;
-		top: -1px;
+	// kudos are green
+	&.button--vote--kudo {
+		@include cmuButton('vote',$cmu-color-body, $cmu-color-line, $cmu-color-green, $cmu-color-green);
 		
 		&:after {
 			background-color: $cmu-color-green;
 		}
 	}
+
+	&.button--thin {
+    	line-height: 0.4rem;
+
+		.button--vote--points {
+			padding: $cmu-base/2 $cmu-base/4;
+		}
+	}
+
 }
 
 .button--wide {
@@ -428,6 +391,10 @@ button, .button {
 	padding-top: $cmu-base/2;
 	padding-bottom: $cmu-base/2;
  }
+ .button--lowercase {
+ 	text-transform: lowercase;
+ }
+
 
 
 // handling icons inside buttons

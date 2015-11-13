@@ -13,7 +13,7 @@
 	
 	var _ = require('underscore');
 
-	function featuresListController ($stateParams, dataService, featuresData, featuresListFilter){
+	function featuresListController ($stateParams, $state, dataService, featuresData, featuresListFilter){
 		var ctrl = this;
 
 		function setMessageData (result){		
@@ -74,17 +74,6 @@
 
 				}
 			],
-			showNewPost: false,
-			newFeature: {
-				subject: null,
-				body: null
-			},
-			cancelSubmit: function(){
-				ctrl.showNewPost = false;
-			},
-			submitFeature: function(){
-				console.log(ctrl.newFeature);
-			},
 			filterChanged: function(filterType) {
 				var filterList = filterType.filterList;
 				var filtersSelected = _.some(_.pluck(filterList, 'selected'));
@@ -108,6 +97,9 @@
 			},
 			isUnread: function(featureData){
 				return !featureData.context.lastReadDate;
+			},
+			newFeature: function(){
+				$state.go('features.newtopic');
 			}
 		});
 
@@ -130,7 +122,7 @@
 			}
 		});
 	}
-	featuresListController.$inject = ['$stateParams', 'CommunityDataService', 'FeaturesDataService', 'FeaturesListFilter'];
+	featuresListController.$inject = ['$stateParams', '$state', 'CommunityDataService', 'FeaturesDataService', 'FeaturesListFilter'];
 
 	angular.module('community.features')
 		.controller('FeaturesList', featuresListController);

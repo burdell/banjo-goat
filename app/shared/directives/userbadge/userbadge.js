@@ -1,25 +1,35 @@
 
 'use strict';
 
-require('directives/username/username.js');
+var _ = require('underscore');
+
+require('directives/arealinkhandler/arealinkhandler.js');
 require('directives/useravatar/useravatar.js');
 
 function communityUserBadge() {
 	var link = function(scope, element, attrs) {			
 	};
 
-	var controller = function($scope, userService) {
+	var controller = function($scope, userService, routingService) {
 		var ctrl = this;
 		var displayUser = null;
+
+		function setUserData(user) {
+			_.extend(ctrl, {
+				displayUser: user,
+				profileUrl: routingService.generateUrl('userprofile', { userId: user.id })
+			});
+		}
+
 		if (this.currentUser) {
-			userService.get().then(function(user){
-				ctrl.displayUser = user.user;
+			userService.get().then(function(result){
+				setUserData(result.user);
 			});
 		} else {
-			ctrl.displayUser = ctrl.user
+			setUserData(ctrl.user);
 		}
 	};
-	controller.$inject = ['$scope', 'CurrentUserService'];
+	controller.$inject = ['$scope', require('services/currentuser.js'), require('services/routing.js')];
 
     var directive = {
         link: link,

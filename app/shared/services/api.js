@@ -150,6 +150,19 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				} else {
 					return goToApi(v2Url + 'pulse');
 				}
+			},
+			search: function(type, filterModel){
+				if (!filterModel.q) {
+					return emptyResponse();
+				}
+
+				var searchUrl = v2Url + 'search/' + type
+				var page = filterModel.page;
+				if (page) {
+					searchUrl += '?page=' + page;
+				}
+
+				return goToApi(searchUrl, filterModel, 'POST');
 			}
 		},
 		Feed: {
@@ -234,6 +247,17 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			}
 		},
 		Messages: {
+			topic: function(discussionStyle, data){
+				var callData = getCallType(data);
+
+
+				var url = v2Url + discussionStyle;
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += '/' + callData.id;
+				}
+				return goToApi(url, callData.payload, callData.verb);
+
+			},
 			message: function(messageData){
 				var callData = getCallType(messageData);
 				return goToApi(v2Url + 'messages', callData.payload, callData.verb);

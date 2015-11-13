@@ -120,7 +120,7 @@
 	    left: 0;
 
 
-	@include scrollbars($cmu-base, $cmu-color-dkgray);
+	@include scrollbars($cmu-base, $cmu-color-scrollFg, $cmu-color-scrollBg);
 
 		// height: 100%;
 		// border-bottom: 1px solid $cmu-color-dkgray;

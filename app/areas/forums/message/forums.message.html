@@ -1,8 +1,11 @@
 
-
+<!-- 
 <div class="cmuThread__subject
 	        cmuThread__subject--locked
 	        cmuThread__subject--active">
+	         -->
+
+<div class="cmuThread__subject">
 	<div class="row">
 		<h3>{{ ::vm.originalMessageSubject | htmlUnescape }}</h3>
 	</div>
@@ -13,7 +16,7 @@
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
 	        	<button class="button--solid button--padded button-blue-white" ng-click="vm.showTopicReply()">Reply</button>
-	        	<button class="button--ghost button--padded button-blue-white">Subscribe</button>
+	        	<button class="button--ghost button-blue-white">Subscribe</button>
 				<button class="button--outline button-ltgray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
 			</span>
 		</div>
@@ -44,8 +47,9 @@
 		<!-- reply -->
 		<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
 				<div class="col--md12 noPadding">
-					<div class="cmuThread__reply__to">Reply to <span>{{ ::message.insertUser.login }}</span></div>
+					<div class="cmuThread__reply__to">Reply to <span class="cmuThread__replyTo__user">{{ ::message.insertUser.login }}</span></div>
 					<community-comment-form
+						minimal-editor="true"
 						reply-button-text="Post Reply" 
 						replying-button-text="Posting Reply..." 
 						parent-message="message"
@@ -63,10 +67,10 @@
 			cmuThread__controls--bottom">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
-        	<span community-permissions>
+        	<!-- <span community-permissions>
 	        	<button class="button--solid button-blue-white" ng-click="vm.showTopicReply()">Post Reply</button>
 				<button class="button--outline button-gray-on-white">Options <span class="button--icon icon ubnt-icon--pointer-down"></button>
-			</span>
+			</span> -->
 		</div>
 		<div class="col--md4 noPaddingRight">
 			<community-pager 

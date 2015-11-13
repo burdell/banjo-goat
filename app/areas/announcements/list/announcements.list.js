@@ -12,6 +12,9 @@
 			announcementList: announcements,
 			getAnnouncementUrl: function(announcementData) {
 				return routingService.generateUrl('announcements.detail', { nodeId: announcementNodeId, announcementId: announcementData.id });
+			},
+			createAnnouncement: function(){
+				$state.go('announcements.newtopic');
 			}
 		});
 	};
