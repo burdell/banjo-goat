@@ -9,7 +9,12 @@
 
 	var forumMessageController = function($scope, $stateParams, communityApi, breadcrumbService, scrollService, messageThreadFilter){
 		var ctrl = this;
+		
 		var setMessageBreadcrumb = _.once(_.bind(breadcrumbService.setCurrentBreadcrumb, breadcrumbService));
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
+		
 		var setReplyMessage = _.once(function(message){
 			ctrl.topicReplyMessage = {
 				id: message.id,
@@ -30,13 +35,7 @@
 			setReplyMessage(ctrl.originalMessage);
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
-
-		
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
-
-		
+	
 		_.extend(ctrl, {
 			currentReply: null,
 			messageReplyText: null,
@@ -52,6 +51,7 @@
 			},
 			replyPosted: function(result){
 				messageThreadFilter.filter({ page: ctrl.numberOfPages });
+				scrollService.scroll(result.id);
 			},
 			showTopicReply: function(){
 				ctrl.topicReplyShown = true

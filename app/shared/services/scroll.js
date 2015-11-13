@@ -4,7 +4,10 @@
 var scrollService = function($anchorScroll, $location, $timeout){
 	return {
 		scroll: function(scrollHash){
-			$location.hash(scrollHash);
+			if (scrollHash) {
+				$location.hash(scrollHash);
+			}
+
 			$timeout(function(){
 				$anchorScroll();
 			}, 0);
