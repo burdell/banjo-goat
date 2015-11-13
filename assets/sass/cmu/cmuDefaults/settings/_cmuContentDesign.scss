@@ -1,0 +1,131 @@
+
+// 
+// Content Formatting the content within each message
+// - Content formatting is -slightly different- than the site formatting
+// - This keeps it separate
+// 
+
+
+
+.cmuContent {
+
+
+	// users like to add empty paragraphs that lithium doesn't strip out
+	// we need to deal with it in code, so this is temporary
+	p {
+		margin-bottom: $size-normal__lineHeight;
+		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+	}
+
+
+	a {
+		@extend %style-link;
+	}
+
+
+
+	// 
+	// Doodads
+	// 
+
+	pre {
+		padding: $cmu-base/2 $cmu-base*2;
+		background-color: $cmu-color-xltgray;
+	}
+
+	code {
+		background-color: $cmu-color-xltgray;
+		padding: 0 $cmu-base/2;
+	}
+
+	hr {
+		border: 0; // without this it has a weird edge
+		border-bottom: $style-line;
+	}
+
+
+	// not sure about x-browser support
+	// br is notoriously weird
+	// users like adding in line breaks, so make these as high as a line
+	br {
+		content: " ";
+		display: block; 
+		margin-bottom: $cmu-base/2;
+
+		// HTML might leak through multiple line breaks; hide these
+		&+br {
+			display: none;
+		}
+	}
+  
+
+	// 
+	// used especially for announcements
+	// 
+	.highlight {
+		background: $cmu-color-ltgray;
+	    padding: $cmu-base;
+	    // margin-left: -$cmu-base;
+	    // margin-right: -$cmu-base;
+	    margin-top: $cmu-base/2;
+	    margin-bottom: $cmu-base/2;
+
+	    border-left: $style-line--xthick;
+	    border-color: $cmu-color-blue;
+	}
+
+	// 
+	// markdown and migrated posts styling
+	// 
+
+
+	li {
+		list-style-position: inside;
+	}
+
+	blockquote {  
+
+		// border width is unfortunately set into the html?
+		border-left: $style-line--thick;
+		border-left-color: $cmu-color-blue;
+		padding: $cmu-base/2 $cmu-base;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		// these tend to appear in the migrated html
+		hr {
+			display: none;
+		}
+
+		// some quotes are tables nested in block quotes
+		// but other times they aren't in tables.
+		table {
+			// border-color: transparent;
+  			// padding: $cmu-base/2 $cmu-base/4;
+  			// border-left: $cmu-line-thick $cmu-color-blue solid;
+  			// background-color: $cmu-color-ltgray; 
+  			display: block;
+			// border: 1px solid $cmu-color-gray;
+			// border-left-width: 3px;
+			// padding: $cmu-base/2 $cmu-base;
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+		td {
+			border: 0;
+			// padding: 0 $cmu-base;
+			padding: 0;
+		}
+	}
+
+
+	// lithium signatures come through as
+	// UserSignature lia-message-signature
+
+	// how should lithium anchors be handled?
+	// a 
+
+}

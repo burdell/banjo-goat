@@ -33,7 +33,7 @@
 
 <div class="cmuThread__container row">
 	<div class="col--md12 noPadding" ng-repeat="message in vm.messageThread" handle-image-error>
-		<community-message 
+		<community-message
 			class="cmuMessage 
 				   cmuMessage--sidebyside"
 			message="message"
@@ -45,10 +45,11 @@
 		</community-message>
 
 		<!-- reply -->
-		<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
+		<div class="cmuThread__reply container" ng-if="vm.messageIsBeingRepliedTo(message.id)">
 				<div class="col--md12 noPadding">
 					<div class="cmuThread__reply__to">Reply to <span class="cmuThread__replyTo__user">{{ ::message.insertUser.login }}</span></div>
 					<community-comment-form
+						autofocus="true"
 						minimal-editor="true"
 						reply-button-text="Post Reply" 
 						replying-button-text="Posting Reply..." 
@@ -82,6 +83,7 @@
 	<div class="row" ng-if="vm.topicReplyShown">
 		<div id="topicReply">
 			<community-comment-form
+				autofocus="true"
 				reply-button-text="Post Reply" 
 				replying-button-text="Posting Reply..." 
 				parent-message="vm.topicReplyMessage"

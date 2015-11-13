@@ -375,10 +375,8 @@ $stat-padding: 4.5px $cmu-base/2;
     	// this works better
     	left: 0%;
     	transform: translate(25%, 0);
-
-    	border-left: $size-arrow solid transparent;
-		border-right: $size-arrow solid transparent;
-		border-top: $size-arrow solid $cmu-color-dkgray;
+    	
+		@include triangle(bottom, $cmu-color-dkgray, $size-arrow);
 	    top: -$size-arrow - remCalc(4px);
 	}
 

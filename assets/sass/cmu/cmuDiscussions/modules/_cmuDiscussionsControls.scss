@@ -2,7 +2,7 @@
 
 
 .cmuDiscussionsControls {
-	margin-top: $cmu-base/2;
+	margin-top: $cmu-base;
 	margin-bottom: $cmu-base;
 	display: block;
 
@@ -17,6 +17,10 @@
 // 
 
 .cmuDiscussionsHeader {
+
+	h2 {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
 	// float: left;
 	// display: inline-block;
 	display: block;
