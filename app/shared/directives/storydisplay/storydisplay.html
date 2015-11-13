@@ -26,11 +26,8 @@
 				<div class="cmuStoryItem__date">  
 					{{ ::storydisplay.story.message.postDate | timeFromNow }}
 				</div>
-
-				<div class="cmuStoryItem__desc">
-					{{ storydisplay.story.node.description }}
-				</div>
-
+				<product-discussion-tag node-id="storydisplay.nodeId"></product-discussion-tag>
+				
 				<div class="cmuStoryItem__stats" >
 					<div class="cmuStoryItem__stat">
 						<span class="style-stat-num">{{ storydisplay.story.countViews | number}} </span> <span class="style-stat-title">views</span> 
