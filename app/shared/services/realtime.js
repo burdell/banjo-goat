@@ -30,6 +30,7 @@
 								since = lastTimestamp
 							} else if (initialData && initialData.since) {
 								since = moment.utc(initialData.since).format(formatString);
+								lastTimestamp = since;
 							}
 							
 							var callModel = {
