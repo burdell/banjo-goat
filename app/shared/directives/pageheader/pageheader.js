@@ -13,9 +13,9 @@ var _ = require('underscore');
 function pageHeader() {
 	var controller = function(loaderService) {
 		var ctrl = this;
-
         loaderService.showBaseLoader = false;
 		_.extend(ctrl, {
+            
 		});
 	};
 	controller.$inject = ['CommunityLoaderService'];
@@ -30,7 +30,8 @@ function pageHeader() {
         scope: {
             headerText: '@',
             subtitleText: '@',
-            hideElementSelector: '@'
+            hideElementSelector: '@',
+            excludeState: '@'
         }
     };
     return directive;

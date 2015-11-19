@@ -13,7 +13,7 @@ var _ = require('underscore');
 			},
 			getArea: function(url) {
 				var areaName = url.split('/')[1];
-				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' ) {
+				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' || areaName === 'inbox' ) {
 					areaName = 'directory';
 				}
 				return areaName;
@@ -37,7 +37,9 @@ var _ = require('underscore');
 				var url = "";
 				if (routeList.length > 0) {
 					var areaName = routeList[0];
-					var areaRoutes = routeList.length === 1 ? communityRoutes : communityRoutes[areaName];
+
+					var routeTester = communityRoutes[areaName];
+					var areaRoutes = _.isString(routeTester) ? communityRoutes : routeTester;
 					
 					//ugh. 
 					var isLandingRoute = routeList.length === 2 && routeList[1] === 'landing';

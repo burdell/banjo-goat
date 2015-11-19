@@ -48,7 +48,6 @@
 			<label for="{{ ::vm.placeholders.location }}">{{ ::vm.placeholders.location }}</label>
 		</div>
 		<div class="cmuStoriesNew__form--products cmuInputContainer">
-			<!-- <input class="appIconInput__input" ng-model="vm.story.productsUsed" placeholder="{{ ::vm.placeholders.productsUsed }}" /> -->
 			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList">
 			    <ui-select-match placeholder="Click to add" >{{ $item.name }}</ui-select-match>
 			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.id as product in vm.productData | filter: { name: $select.search }">

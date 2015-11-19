@@ -16,7 +16,7 @@
 			$rootScope.$on('rootScope:closeAllDropdowns', function(){
 				ctrl.isOpen = false;
 			});
-
+			
 			_.extend(ctrl, {
 				isOpen: false,
 				toggle: function(){

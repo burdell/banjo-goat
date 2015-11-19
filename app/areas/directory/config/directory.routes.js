@@ -143,7 +143,52 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						});
 					}]
 				}
-			});
+			})
+			.state('inbox', {
+				url: routes.inbox.inbox,
+				templateUrl: 'directory/inbox/inbox.html',
+				controller: 'InboxController as vm',
+				resolve: {
+					InboxMessageFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.inbox,
+							constants: { per_page: 20 },
+							autoInitModel: false,
+							persistFilterModel: false
+						});
+					}]
+				}
+			})
+			.state('inbox.newtopic', {
+				url: routes.inbox.newtopic,
+				views: {
+					'mainContent': {
+						templateUrl: 'directory/inbox/newmessage/inbox.newmessage.html',
+						controller: 'NewMessageController as vm'
+					}
+				}
+			})
+			.state('inbox.detail', {
+				url: routes.inbox.detail,
+				templateUrl: 'directory/inbox/detail/inbox.detail.html',
+				views: {
+					'mainContent': {
+						templateUrl: 'directory/inbox/detail/inbox.detail.html',
+						controller: 'InboxMessageController as vm'
+					}
+				},
+				resolve: {
+					InboxThreadFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Feed.inboxMessage,
+							constants: { per_page: 20 },
+							filterArguments: [ $stateParams.messageId ],
+							autoInitModel: false,
+							persistFilterModel: false
+						});
+					}]
+				}
+			})
 		};
 		config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 		

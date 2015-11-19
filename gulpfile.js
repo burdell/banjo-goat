@@ -192,7 +192,7 @@ function getSharedTemplates(){
 }
 
 function getAreaTemplates(areaName) {
-     return gulp.src(['app/areas/' + areaName + '/**/*.html', '!app/index.html'])
+     return gulp.src(['app/areas/' + areaName + '/**/**/*.html', '!app/index.html'])
             .pipe($.ngHtml2js({ moduleName: "community.templates", prefix: areaName + '/' }))
 }
 

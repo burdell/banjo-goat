@@ -23,7 +23,8 @@ var notificationService = function(routingService, routesProvider){
 			};
 			routeDetails[routesProvider.detailIds[discussionStyle]] = content.message.id;
 			return routingService.generateUrl(discussionStyle + '.detail', routeDetails);
-		}
+		},
+		newDataCount: 0
 	}
 };
 notificationService.$inject = [require('services/routing.js'), 'communityRoutes'];

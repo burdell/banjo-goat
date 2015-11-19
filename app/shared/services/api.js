@@ -176,7 +176,22 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				return goToApi(v2Url + urlSegments.Feed() + '/subscriptions', options);
 			},
 			count: function(type, options){
-				return goToApi(v2Url + urlSegments.Feed() + '/' + type + '/count', options);
+				var countUrl = type === 'notifications' ? (urlSegments.Feed() + '/notifications') : 'inbox'; 
+				return goToApi(v2Url + countUrl + '/count', options);
+			},
+			inbox: function(options){
+				return goToApi(v2Url + 'inbox', options);
+			},
+			inboxMessage: function(messageData, options) {
+				var callData = getCallType(messageData, options);
+				var url = v2Url + 'inbox';
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += '/' + callData.id;
+				}
+				return goToApi(url, callData.payload, callData.verb).then(function(result){
+					result.totalPages = result.messages.totalPages;
+					return result;
+				});
 			}
 		},
 		Forums: {
@@ -248,6 +263,10 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		},
 		Messages: {
 			topic: function(discussionStyle, data){
+				if (discussionStyle === 'directory') {
+					return this.Feed.inboxMessage(data);
+				}
+
 				var callData = getCallType(data);
 
 
@@ -309,6 +328,9 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			userData: function(userId){
 				return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
+			},
+			search: function(q) {
+				return goToApi(v2Url + 'users/search', { q: q });
 			}
 		}
 	}

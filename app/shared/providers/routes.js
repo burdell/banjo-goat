@@ -8,7 +8,8 @@
 			features: 'featureRequestId',
 			forums: 'messageId',
 			stories: 'storyId',
-			user: 'userId'
+			user: 'userId',
+			inbox: 'messageId'
 		};
 
 		var routeData = {
@@ -37,6 +38,11 @@
 				list: 'list',
 				detail: ':' + detailIds.stories,
 				newstory: 'new'
+			},
+			inbox: {
+				inbox: '/inbox',
+				detail: '/:' + detailIds.inbox,
+				newtopic: '/new'
 			},
 			directory: '/directory/',
 			hub: '/directory/:nodeId/',

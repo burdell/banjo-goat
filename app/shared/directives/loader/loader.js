@@ -25,9 +25,11 @@ function loader() {
 		var ctrl = this;
         var showLoader = false;
         if (!ctrl.showWhen && !ctrl.baseLoader) {
-            $scope.$on('$stateChangeStart', function(){
-                ctrl.hideElement();
-                showLoader = true;
+            $scope.$on('$stateChangeStart', function(options, targetState){
+                if (ctrl.excludeState !== targetState.name) {
+                    ctrl.hideElement();
+                    showLoader = true;
+                }  
             })
 
             $scope.$on('$stateChangeSuccess', function(){
@@ -61,7 +63,8 @@ function loader() {
         scope: {
         	showWhen: '=',
             baseLoader: '=',
-            hideElementSelector: '@'
+            hideElementSelector: '@',
+            excludeState: '@'
         }
     };
     return directive;

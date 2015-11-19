@@ -37,10 +37,20 @@ function communityTextEditor($timeout, routingService) {
 			ngModel.$setViewValue(markedDownText);
 			editorCtrl.ngModel = markedDownText;
 		});
+
+		scope.texteditor.clearEditor = function(){
+			editorInstance.value('');
+		}
 	};
 
 	var controller = function($scope) {
 		var ctrl = this;
+
+		$scope.$watch(function(){ return ctrl.ngModel; }, function(value){
+			if (!value) {
+				ctrl.clearEditor();
+			}
+		}, true);
 
 		_.extend(ctrl, {
 			editorId: 'community-editor-' + $scope.$id,
@@ -63,6 +73,7 @@ function communityTextEditor($timeout, routingService) {
         bindToController: true,
         restrict: 'E',
         scope: {
+        	ngModel: '=',
         	height: '=editorHeight',
         	minimalEditor: '@',
         	placeholder: '@',

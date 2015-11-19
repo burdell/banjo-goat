@@ -12,11 +12,12 @@ require('filters/wordcut.js');
 
 require('services/notifications.js');
 require('services/currentuser');
+require('services/inbox.js');
 
 var _ = require('underscore');
 
 function mainNavBar() {
-	function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService) {
+	function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService, inboxService) {
 		
 		var ctrl = this;
 		var hrefs = {
@@ -38,11 +39,21 @@ function mainNavBar() {
 		/*** NOTIFICATIONS / MESSAGE STUFF ***/
 		var pollers = {
 			notifications: null,
-			messages: null
+			inbox: null
 		};
 
+		var services = {
+			notifications: notificationService,
+			inbox: inboxService
+		};
+
+		var limitVariable = {
+			notifications: 'size',
+			inbox: 'per_page'
+		}
+
 		function resetDisplayCount(type) {
-			ctrl[type].newDataCount = 0;
+			services[type].newDataCount = 0;
 		};
 
 		function getData(type){
@@ -50,12 +61,13 @@ function mainNavBar() {
 
 			if (dataType.list.length === 0 || dataType.newDataCount) {
 				dataType.loading = true;
-				
-				apiService.Feed[type]({ size: 7 }).then(function(result) {
+				var model = {};
+				model[limitVariable[type]] = 7;
+				apiService.Feed[type](model).then(function(result) {
 					dataType.list = result.content;
 					dataType.loading = false;
-					dataType.newDataCount = 0;
 					pollers[type].resetTimestamp();
+					services[type].newDataCount = 0;
 				});
 			}
 		}
@@ -77,8 +89,18 @@ function mainNavBar() {
 				pollers.notifications.start(
 					function(model){ return apiService.Feed.count('notifications', model); }, 
 					true, 
-					function(result){ ctrl.notifications.newDataCount = result; }, 
+					function(result){ notificationService.newDataCount = result; }, 
 					{ since: userObj.user.lastCheckedNotifications }
+				);
+				
+				pollers.inbox = realtimeService.getNew();
+				pollers.inbox.start(
+					function(model){ return apiService.Feed.count('inbox', model); }, 
+					true, 
+					function(result){ 
+						inboxService.newDataCount = result; 
+					}, 
+					{ since: userObj.user.lastCheckedInbox }
 				);
 			}
 		});
@@ -123,7 +145,9 @@ function mainNavBar() {
 			},
 			notifications: {
 				list: [],
-				newDataCount: 0,
+				newDataCount: function(){
+					notificationService.newDataCount;
+				},
 				getActionString: function(notification) {
 				 	return notificationService.getActionString(notification);
 				},
@@ -135,11 +159,19 @@ function mainNavBar() {
 					return notificationService.generateNotificationUrl(data);
 				}
 			},
-			messages: {
+			inbox: {
 				list: [],
-			 	newDataCount: 0,
+			 	newDataCount: function(){
+			 		return inboxService.newDataCount;
+			 	},
 			 	getUrl: function(data) {
-					return generateContentUrl(data);
+			 		return routingService.generateUrl('inbox.detail', { messageId: data.topic.id });
+				},
+				getData: function(){
+					getData('inbox');
+				},
+				getRecipientString: function(recipientData){
+					return inboxService.getRecipientString(recipientData);
 				}
 			},
 			hideSearch: function(){
@@ -157,7 +189,8 @@ function mainNavBar() {
 		require('services/routing.js'), 
 		'CurrentUserService',
 		require('providers/routes.js'),
-		'CommunityNotificationsService'
+		'CommunityNotificationsService',
+		'CommunityInboxService'
 	];
     
     var directive = {
