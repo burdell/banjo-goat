@@ -154,7 +154,8 @@
 	}
 
 	.cmuStoryItem__stat {
-		@extend %style-stat--tight;
+		margin-top: $cmu-base/4;
+		@extend %style-stat;
 	}
 
 

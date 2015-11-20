@@ -242,7 +242,9 @@ $stat-padding: 4.5px $cmu-base/2;
 	}
 
 	// for tight areas like story grid
-	.style-stat--tight, %style-stat--tight {
+	// story grid doesn't use this anymore, could delete
+	// .style-stat--tight, 
+	%style-stat--tight {
 		$stat-padding-tight: 4.5px $cmu-base/4;
 		@extend %style-stat;
 		margin-top: $cmu-base/4;

@@ -6772,7 +6772,7 @@ body {
   line-height: 1rem;
 }
 
-.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-stat, .style-stat--tight, .cmuStoryItem__stat, .cmuFeed__stat, .cmuComments__date {
+.style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-stat, .cmuFeed__stat, .cmuStoryItem__stat, .cmuComments__date {
   font-size: 0.625rem;
   line-height: 0.8125rem;
 }
@@ -6933,39 +6933,26 @@ h6 {
   background-color: transparent;
 }
 
-.style-stat, .style-stat--tight, .cmuStoryItem__stat, .cmuFeed__stat {
+.style-stat, .cmuFeed__stat, .cmuStoryItem__stat {
   display: inline-block;
   color: #474b52;
   margin-right: 0.25rem;
   border: 1px solid #dadada;
 }
-.style-stat:last-child, .style-stat--tight:last-child, .cmuStoryItem__stat:last-child, .cmuFeed__stat:last-child {
+.style-stat:last-child, .cmuFeed__stat:last-child, .cmuStoryItem__stat:last-child {
   margin-right: 0;
 }
 
-.style-stat .style-stat-num, .style-stat--tight .style-stat-num, .cmuStoryItem__stat .style-stat-num, .cmuFeed__stat .style-stat-num, .cmuFeed__stat__num, .style-stat-num {
+.style-stat .style-stat-num, .cmuFeed__stat .style-stat-num, .cmuStoryItem__stat .style-stat-num, .cmuFeed__stat__num, .style-stat-num {
   display: inline-block;
   border-right: 1px solid #dadada;
   padding: 4.5px 0.5rem;
   font-weight: 600;
 }
 
-.style-stat .style-stat-title, .style-stat--tight .style-stat-title, .cmuStoryItem__stat .style-stat-title, .cmuFeed__stat .style-stat-title, .cmuFeed__stat__title, .style-stat-title {
+.style-stat .style-stat-title, .cmuFeed__stat .style-stat-title, .cmuStoryItem__stat .style-stat-title, .cmuFeed__stat__title, .style-stat-title {
   display: inline-block;
   padding: 4.5px 0.5rem;
-}
-
-.style-stat--tight, .cmuStoryItem__stat {
-  margin-top: 0.25rem;
-}
-.style-stat--tight .style-stat-num, .cmuStoryItem__stat .style-stat-num {
-  padding: 4.5px 0.25rem;
-  padding-right: 0.125rem;
-  border-right: 0;
-}
-.style-stat--tight .style-stat-title, .cmuStoryItem__stat .style-stat-title {
-  padding: 4.5px 0.25rem;
-  padding-left: 0;
 }
 
 .style-flag, .cmuMessage__flag, .cmuComments__flag {
@@ -11150,6 +11137,9 @@ select.cmuSort {
 .cmuContent li, .cmuComments__body__content li {
   list-style-position: inside;
 }
+.cmuContent ul ul, .cmuContent ul ol, .cmuContent ol ul, .cmuContent ol ol, .cmuComments__body__content ul ul, .cmuComments__body__content ul ol, .cmuComments__body__content ol ul, .cmuComments__body__content ol ol {
+  margin-left: 1rem;
+}
 .cmuContent blockquote, .cmuComments__body__content blockquote {
   border-left: 3px solid #474b52;
   border-left-color: #00a0df;
@@ -11433,6 +11423,10 @@ select.cmuSort {
 }
 .cmuStoryItem__subject:hover {
   color: #00a0df;
+}
+
+.cmuStoryItem__stat {
+  margin-top: 0.25rem;
 }
 
 .cmuStoryDetail h1 {

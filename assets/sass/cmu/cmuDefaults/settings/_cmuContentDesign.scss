@@ -87,6 +87,13 @@
 		list-style-position: inside;
 	}
 
+
+	ul, ol {
+		ul, ol {
+			margin-left: $cmu-base; // indented lists
+		}
+	}
+
 	blockquote {  
 
 		// border width is unfortunately set into the html?
