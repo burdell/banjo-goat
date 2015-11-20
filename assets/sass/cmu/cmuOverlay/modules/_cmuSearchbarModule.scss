@@ -12,7 +12,7 @@
     @extend %ease-fast;
     display: none; // default is hidden
     overflow: hidden;
-    margin-bottom: $cmu-base*5;
+    // margin-bottom: $cmu-base*5;
 	background-color: $cmu-color-blue;
 
     .row {

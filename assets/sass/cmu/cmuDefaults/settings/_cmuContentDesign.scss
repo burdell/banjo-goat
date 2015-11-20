@@ -31,6 +31,10 @@
 	pre {
 		padding: $cmu-base/2 $cmu-base*2;
 		background-color: $cmu-color-xltgray;
+
+		code {
+			padding: 0; // causes an indent in inported code
+		}
 	}
 
 	code {

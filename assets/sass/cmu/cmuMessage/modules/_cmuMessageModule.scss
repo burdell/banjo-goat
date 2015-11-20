@@ -172,6 +172,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	font-weight: 600;
 
 	&:before {
+		font-weight: 400;
 		content: 'In reply to ';
 		color: $cmu-color-gray;
 	}

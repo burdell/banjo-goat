@@ -8370,7 +8370,6 @@ div.cmuOverlay--show {
 .cmuSearchbar {
   display: none;
   overflow: hidden;
-  margin-bottom: 5rem;
   background-color: #00a0df;
 }
 .cmuSearchbar .row {
@@ -9214,6 +9213,10 @@ div.cmuCollapser__content {
   margin-bottom: 2rem;
 }
 
+.cmuThread__container {
+  margin-bottom: 0.5rem;
+}
+
 .cmuThread__firstPost {
   position: relative;
   padding: 1rem;
@@ -9290,7 +9293,7 @@ div.cmuCollapser__content {
 }
 
 .cmuThread__controls--bottom {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .cmuThread__reply {
@@ -9397,6 +9400,7 @@ div.cmuCollapser__content {
   font-weight: 600;
 }
 .cmuMessage__replyTo:before {
+  font-weight: 400;
   content: 'In reply to ';
   color: #969ba3;
 }
@@ -9803,10 +9807,10 @@ button .icon, .button .icon {
 .button--vote {
   text-align: left;
   color: #474b52;
-  background-color: #dadada;
+  background-color: #ebebeb;
   background-color: transparent;
   color: #474b52;
-  border-color: #dadada;
+  border-color: #ebebeb;
   border-width: 1px;
   line-height: 0.9rem;
   padding: 0;
@@ -9819,7 +9823,7 @@ button .icon, .button .icon {
 }
 .button--vote .button--vote--action {
   display: inline-block;
-  background-color: #dadada;
+  background-color: #ebebeb;
   padding: 0.5rem;
   color: #474b52;
 }
@@ -9851,10 +9855,10 @@ button .icon, .button .icon {
 }
 .button--vote.button--vote--kudo {
   color: #474b52;
-  background-color: #dadada;
+  background-color: #ebebeb;
   background-color: transparent;
   color: #474b52;
-  border-color: #dadada;
+  border-color: #ebebeb;
   border-width: 1px;
   line-height: 0.9rem;
   padding: 0;
@@ -9867,7 +9871,7 @@ button .icon, .button .icon {
 }
 .button--vote.button--vote--kudo .button--vote--action {
   display: inline-block;
-  background-color: #dadada;
+  background-color: #ebebeb;
   padding: 0.5rem;
   color: #474b52;
 }
@@ -11115,6 +11119,9 @@ select.cmuSort {
 .cmuContent pre, .cmuComments__body__content pre {
   padding: 0.5rem 2rem;
   background-color: #f3f3f3;
+}
+.cmuContent pre code, .cmuComments__body__content pre code {
+  padding: 0;
 }
 .cmuContent code, .cmuComments__body__content code {
   background-color: #f3f3f3;

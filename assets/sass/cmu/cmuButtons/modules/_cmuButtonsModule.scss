@@ -346,7 +346,7 @@ button, .button {
 .button--vote {
 	text-align: left;
 
-	@include cmuButton('vote',$cmu-color-body, $cmu-color-line, $cmu-color-blue, $cmu-color-blue);
+	@include cmuButton('vote',$cmu-color-body, $cmu-color-ltgray, $cmu-color-blue, $cmu-color-blue);
 
 	// active state
 	// this is super distracting
@@ -360,7 +360,7 @@ button, .button {
 
 	// kudos are green
 	&.button--vote--kudo {
-		@include cmuButton('vote',$cmu-color-body, $cmu-color-line, $cmu-color-green, $cmu-color-green);
+		@include cmuButton('vote',$cmu-color-body, $cmu-color-ltgray, $cmu-color-green, $cmu-color-green);
 		
 		&:after {
 			background-color: $cmu-color-green;

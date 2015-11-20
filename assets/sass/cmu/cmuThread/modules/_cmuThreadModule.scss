@@ -10,6 +10,10 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-bottom: $cmu-base*2;
 }
 
+.cmuThread__container {
+	margin-bottom: $cmu-vertical-rhythm/2;
+}
+
 .cmuThread__firstPost {
     position: relative;
 	padding: $cmu-base;
@@ -100,7 +104,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-bottom: $cmu-vertical-rhythm;
 }
 	.cmuThread__controls--bottom {
-		margin-bottom: $cmu-vertical-rhythm*2;
+		margin-bottom: $cmu-vertical-rhythm;
 	}
 
 
