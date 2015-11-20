@@ -34,7 +34,6 @@
                           <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
                           </div>
                       </div>
-                      
                     </div>
 
                      <span ng-repeat="navItem in mainnavbar.navList" >
@@ -118,7 +117,9 @@
                       <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.messages.html"
                         element-classname="cmuGloNav__inbox"
-                        icon-classname="icon ubnt-icon--inbox">
+                        template-ctrl="mainnavbar.inbox"
+                        icon-classname="icon ubnt-icon--inbox"
+                        on-open-fn="mainnavbar.inbox.getData">>
                       </community-drop-down>
 
                       <community-drop-down

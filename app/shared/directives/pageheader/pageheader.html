@@ -6,5 +6,9 @@
 		<discussions-nav-bar></discussions-nav-bar>
 	</div>
 
-	<community-loader hide-element-selector="{{ pageheader.hideElementSelector }}"></community-loader>
+	<community-loader 
+		hide-element-selector="{{ pageheader.hideElementSelector }}"
+		exclude-state="{{ pageheader.excludeState }}">
+	</community-loader>
+	
 </div> 

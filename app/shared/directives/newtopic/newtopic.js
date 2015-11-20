@@ -6,6 +6,8 @@ var _ = require('underscore');
 require('directives/userbadge/userbadge.js');
 require('directives/texteditor/texteditor.js');
 
+require('services/products.js')
+
 function newTopic() {
 	function controller($state, communityApi, nodeStructure, routingService) {	
 		var ctrl = this;
@@ -37,10 +39,23 @@ function newTopic() {
 				action: 'Submit Feature Request', 
 				feedback: 'Submitting Your Feature Request',
 				title: 'Give your Feature Request a title' 
+			},
+			directory: {
+				action: 'Submit New Message',
+				feedback: 'Submitting Your Message',
+				title: 'Give your message a title'
 			}
 		};
 
+		var areaConfig = {
+			directory: {
+				userSearch: true,
+				noCancel: true
+			}
+		}
+
 		var currentAreaTexts = texts[currentArea];
+		var submitFunction = this.submitFunction
 
 		_.extend(ctrl, {
 			cancelTopic: function() {
@@ -48,7 +63,12 @@ function newTopic() {
 			},
 			submitTopic: function() {
 				ctrl.submittingTopic = true;
-				communityApi.Messages.topic(currentArea, this.newTopic).then(function(result){
+
+				if (currentArea.directory) {
+					this.newTopic.recipientIds.push(3);	
+				}
+
+				communityApi.Messages.topic.apply(communityApi, [currentArea, this.newTopic]).then(function(result){
 					var detailId = routingService.getDetailId(currentArea);
 					var routeData = {};
 					routeData[detailId] = result.id;
@@ -72,6 +92,23 @@ function newTopic() {
 		if (currentArea !== 'forums') {
 			_.extend(ctrl.newTopic, { meta: {} });	
 		}
+
+		if (currentArea === 'directory') {
+			_.extend(ctrl, {
+				config: areaConfig.directory,
+				searchedUsers: [],
+				searchUsers: function(searchTerm){
+					if (searchTerm && searchTerm.length > 1) {
+						communityApi.Users.search(searchTerm).then(function(result){
+							ctrl.searchedUsers = _.filter(result.content, function(user){
+								return _.indexOf(ctrl.newTopic.recipients, user.id) < 0;
+							})
+						});
+					}
+				}
+			});
+			_.extend(ctrl.newTopic, { recipientIds: [] })
+		}
 	}
 	controller.$inject = [	
 		'$state', 
@@ -88,7 +125,7 @@ function newTopic() {
 	        bindToController: true,
 	        replace: true,
 	        scope: {
-	        	
+	        	submitFunction: '@'
 	        }
 	    };
 

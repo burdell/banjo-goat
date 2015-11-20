@@ -8,7 +8,6 @@
 		<community-pulse></community-pulse>
 
 		<div class="row">
-
 			<!-- main -->
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 
@@ -82,7 +81,7 @@
 							<!-- <span class="cmuIcon__label all"></span> -->
 							{{ vm.feedTypeDisplay }}</h5>
 						</div>
-			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList">
+			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList.content">
 			        		<community-feed-content content-model="feedItem"></community-feed-content>
 			        	</div>
 				    </div>
@@ -96,15 +95,6 @@
 			        </div>
 			    </div>
 			</div>
-
-
-
-
-
-
-
-
-
 
 
 			<!-- sidebar -->

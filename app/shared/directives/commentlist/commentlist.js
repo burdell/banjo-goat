@@ -11,7 +11,7 @@ function communityCommentList() {
 	function controller() {	
 		var ctrl = this;
 		_.extend(ctrl, {
-			commentList: this.currentComments.content,
+			commentList: this.currentComments,
 			getCommentCountText: function(){
 				var contentLength = ctrl.currentComments.content.length;
 				if (!contentLength) {

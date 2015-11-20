@@ -1,7 +1,7 @@
 <span>
 	 <li class="{{ dropdown.elementClassname }}" ng-click="dropdown.toggle()" ng-class="{ 'active' : dropdown.isOpen }">
       <a>
-         <span class="{{ dropdown.iconClassname }}"><span ng-if="dropdown.templateCtrl.newDataCount">{{ dropdown.templateCtrl.newDataCount }}</span></span>
+         <span class="{{ dropdown.iconClassname }}"><span ng-if="dropdown.templateCtrl.newDataCount()">{{ dropdown.templateCtrl.newDataCount() }}</span></span>
       </a>
     </li>
 

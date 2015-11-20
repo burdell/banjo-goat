@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="row row--comfy" ng-cloak>
+    <div class="col--md12">
+      <div class="row">
+        <div class="col--md12 cmuSearchbox">
+         <div>
+             <ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.newTopic.recipientIds">
+                <ui-select-match placeholder="Click to search users" >{{ $item.login }}</ui-select-match>
+                <ui-select-choices 
+                  refresh="vm.searchUsers($select.search)"
+                  refresh-delay="2" 
+                  class="cmuInputSelector--choices" 
+                  repeat="user.id as user in vm.searchedUsers | filter: { login: $select.search }">
+                    <li ng-bind-html="user.login | highlight: $select.search"></li>
+                </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="appIconInput appIconInput--left">
+            <div class="appIconInput__icon icon ubnt-icon--pencil-2"></div>
+            <input class="appIconInput__input" placeholder="Give you message a title..." type="text" ng-model="vm.newTopic.subject">
+          </div>
+        </div>
+      </div>
+      <div class="row row--comfy">
+        <community-text-editor 
+          ng-model="vm.newTopic.body"
+          editor-height="300">
+        </community-text-editor>
+      </div>
+      <div class="row row--comfy">  
+        <div ng-show="!vm.submittingTopic">
+          <button 
+            class="button-full button-blue-white"
+            ng-click="vm.submitTopic()">
+              Send Message
+          </button>
+        </div>
+        <div ng-show="vm.submittingTopic">
+          <button class="cmuInput--waiting button--padded" disabled>Sending Your Message...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

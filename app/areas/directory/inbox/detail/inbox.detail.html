@@ -1,0 +1,44 @@
+<div>
+	<div class="row row--comfy">
+		<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>
+	</div>
+
+	<div class="row row--comfy">
+		<div class="col--md9">
+			<h2>{{ vm.originalMessage.subject }}</h2>
+			<div>
+				<span>with {{ vm.recipientString }}</span>
+			</div>
+		</div>
+		<div class="col--md3">
+			<h6>{{ vm.originalMessage.postDate | timeFromNow }}</h6>
+		</div>
+	</div>
+
+	<div class="row row--comfy">
+		<div ng-repeat="message in vm.messageList.content" class="row row--comfy">
+			<div class="col--md2">
+				<community-user-badge 
+					class="cmuUserbadge--comment"
+					user="message.insertUser">
+				</community-user-badge>
+			</div>
+			<div class="col--md10">
+				<span class="cmuComments__date">
+					{{ message.postDate | timeFromNow }}
+				</span>
+				<div ng-bind-html="message.body | sanitize"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<community-text-editor ng-model="vm.newMessage.body"></community-text-editor>
+		<div ng-show="!vm.submittingReply">
+			<button ng-click="vm.postNewMessage()">Reply</button>
+		</div>
+		 <div ng-show="vm.submittingReply">
+          <button class="cmuInput--waiting button--padded" disabled>Sending Your Reply...</button>
+        </div>
+	</div>
+</div>

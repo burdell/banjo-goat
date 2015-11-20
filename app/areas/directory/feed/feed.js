@@ -9,7 +9,6 @@ require('directives/loadmore/loadmore.js')
 require('directives/classtoggle/classtoggle.js');
 require('directives/pulse/pulse.js');
 
-
 var _ = require('underscore');
 var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, routingService, feedFilter){
 	var ctrl = this;
@@ -53,7 +52,7 @@ var feedController = function($scope, announcementData, storyFilter, apiService,
 			if (updates && updates.content.length > 0) {
 				feedUpdates = updates.content;
 			} else if (result && !feedFilter.model('page')) {
-				setFeed(result.content);
+				setFeed(result);
 			}
 		}
 	});

@@ -1,0 +1,51 @@
+
+<div>
+	<community-page-header header-text="My Messages" exclude-state="inbox.detail" hide-element-selector=".inbox-container"></community-page-header>
+
+	<div class="inbox-container">
+		<div class="row row--comfy">
+			<div class="col--md2">
+				<a area-link-handler link-handler-route="inbox.newtopic"><button>New Message</button></a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col--md4">
+				<div>	
+					 <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.checkNewMessages()">
+			        	<button class="button--solid button--stretch" ng-click="vm.refreshMessages()">New Messages <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+			        </div>
+					<div ng-repeat="message in vm.messageList.content">
+						<a ui-sref="inbox.detail({ messageId: message.topic.id })">
+							<div class="row row--comfy">
+								<div class="row">
+									<div class="col--md9">
+										<h4>{{ vm.getRecipientString(message.recipients) }}</h4>
+									</div>
+									<div class="col--md3">
+										<h6>{{ message.topic.postDate | timeFromNow }}</h6>
+									</div>
+								</div>
+
+								<div>
+									<h5>{{ message.topic.subject }}</h5>
+									<p>{{ message.topic.body | unformatText | wordCut:20 }}</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<community-load-more list-model="vm.messageList" load-filter="vm.messageFilter"></community-load-more>
+				</div>
+			</div>
+
+			<div class="col--md8">
+				<div ng-show="vm.showDetailLoader">
+					<div ng-include="'partials/loader.html'"></div>
+				</div>
+				<div ng-show="!vm.showDetailLoader">
+					<div ui-view="mainContent" autoscroll="false"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

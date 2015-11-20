@@ -10,7 +10,7 @@ function communityloadMore($window) {
 			var windowEl = $(window);
 			var documentEl = $(document);
 			windowEl.bind('scroll', function() {
-				if(scope.loadmore.listMetadata.hasMore && !scope.loadmore.isLoading && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
+				if(scope.loadmore.listMetadata.hasMore && (windowEl.scrollTop() == documentEl.height() - windowEl.height())){
 					scope.loadmore.load();
 				}
 			});
@@ -21,7 +21,6 @@ function communityloadMore($window) {
 		var ctrl = this;
 		
 		var pageNumber = 1;
-
 		var modelFn = this.loadFilter.model;
 		this.loadFilter.set({ 
 			onFilter: function(result) {
@@ -31,7 +30,7 @@ function communityloadMore($window) {
 				}
 			}
 		});
-		
+
 		_.extend(ctrl, {
 			load: function(){
 				ctrl.isLoading = true;
@@ -43,7 +42,7 @@ function communityloadMore($window) {
 						if (ctrl.onLoadFn) {
 							ctrl.onLoadFn(result.content);
 						} else {
-							ctrl.listModel = ctrl.listModel.concat(result.content);
+							ctrl.listModel.content = ctrl.listModel.content.concat(result.content);
 						}
 					}
 					

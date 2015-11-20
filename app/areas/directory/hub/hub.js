@@ -30,7 +30,7 @@ var hubController = function($q, $scope, communityApi, nodeServiceWrapper, routi
 
 	var forumOrder = ['Alpha', 'Beta', 'Public'];
 	_.extend(ctrl, {
-		discussionsFeed: discussionsFeedFilter.initialData().content,
+		discussionsFeed: discussionsFeedFilter.initialData(),
 		discussionsFeedFilter: discussionsFeedFilter,
 		storyList: storyData.content,
 		generateAnnouncementUrl: function(announcement){
