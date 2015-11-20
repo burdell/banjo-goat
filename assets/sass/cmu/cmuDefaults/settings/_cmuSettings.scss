@@ -197,3 +197,13 @@ $speed-fast: 180ms;
 %disp--caption   		{ display: table-caption }
 
 
+
+
+// 
+// Base Overrides
+// 
+
+abbr[title],
+dfn[title] {
+  cursor: default;
+}

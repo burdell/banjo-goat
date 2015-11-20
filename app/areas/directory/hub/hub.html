@@ -28,7 +28,7 @@
 						</div>
 					</div>
 					<div>
-						<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">Read All Stories</a>
+						<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">All Stories</a>
 					</div>
 				</div>
 
@@ -55,13 +55,13 @@
 			</div>
 
 			<!-- sidebar -->
-			<div class="cmuFeed__sidebar cmuFeed__sidebar--hub col--md3">
-				<div class="cmuFeed__pulse cmuFeed__sidebar__item">
+			<div class="cmuFeed__sidebar cmuFeed__hub col--md3">
+				<div class="cmuFeed__pulse cmuSidebar__container">
 					<h5>{{ vm.nodeDisplay }} Pulse</h5>
 					<community-pulse class="cmuPulse--sidebar"></community-pulse>
 				</div>
 
-				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
+				<div class="cmuFeed__announcements cmuSidebar__container">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
 						<span class="product"></span>{{ announcement.topic.subject }}

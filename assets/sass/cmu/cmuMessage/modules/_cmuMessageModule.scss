@@ -180,6 +180,10 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	// 	color: $cmu-color-gray;
 	// 	margin: 0 $cmu-base/2;
 	// }
+
+	a {
+		@extend %style-link;
+	}
 }
 
 

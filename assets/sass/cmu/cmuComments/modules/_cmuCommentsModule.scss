@@ -67,9 +67,10 @@
 			color: $cmu-color-gray;
 		}
 
-		.cmuComments__body-content {
+		.cmuComments__body__content {
 			margin-right: $cmu-base;
     		padding-bottom: $cmu-base/2;
+    		@extend %cmuContent;
 		}
 
 .cmuComments__body {

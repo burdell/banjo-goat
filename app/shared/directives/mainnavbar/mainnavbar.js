@@ -30,7 +30,7 @@ function mainNavBar() {
 		};
 
 		var navMetaData = [
-			{ display: "All Topics", clickFn: toggleDiscussionsMenu, dropItem: true },
+			{ display: "Topics", clickFn: toggleDiscussionsMenu, dropItem: true },
 			{ display: "Stories", href: "#", href: hrefs.stories },
 			{ display: "Announcements", href: hrefs.announcements }
 		]; 

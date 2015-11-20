@@ -85,7 +85,8 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		return nodeUrlCode === 'comm_stories' || nodeUrlCode.indexOf('airCRM') >= 0
 	}
 
-	var v2Url = 'https://comm2-dev-api.ubnt.com/2/';
+	var v2Url = 'https://comm2-dev-api.ubnt.com/2/'; // original
+	var v2Url = 'http://localhost:8080/2/'; // local java
 	var urlSegments = {
 		Announcement: function(id){
 			return 'announcements/' + this._Message(id);

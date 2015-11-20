@@ -1,47 +1,52 @@
-<div>
+<div class="cmuSearchpage cmuThreadlist">
  	<community-page-header 
  		header-text="Search"
-		hide-element-selector=".searchpage-container">
+		hide-element-selector=".cmuSearchpage__container">
 	</community-page-header>
 
-	<div class="searchpage-container">
-		<div class="row row--comfy">
+	<div class="cmuSearchpage__container">
+
+		<div class="cmuSearchpage__searchbar row">
 			<div class="col--md12 noPadding">
-				<div>
-					<div class="cmuSearchbox">
-						<div class="appIconInput appIconInput--right">
-							<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
-							<input 
-								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-								placeholder="Search Community" 
-								type="text" 
-								ng-model="vm.searchText"
-								community-enter="vm.search()">
-					    </div>
-					</div>
+				<div class="cmuSearchbox cmuSearchbox--page">
+					<div class="appIconInput appIconInput--right">
+						<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
+						<input 
+							class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+							placeholder="Type here to search" 
+							type="text" 
+							ng-model="vm.searchText"
+							community-enter="vm.search()">
+				    </div>
 				</div>
 			</div>
 		</div>
+		<!-- end searchbar -->
 		
-    	<div class="row">
-	    	<div class="col--md3">
-	    		<div>
+    	<div class="cmuSearchpage__content row">
+
+    		<!-- sidebar - hide when no query -->
+	    	<div class="cmuSearchpage__sidebar cmuSidebar col--md3" ng-show="vm.searchTextDisplay">
+
+	    		<div class="cmuSidebar__container">
 	    			<community-datepicker 
+	    				class="cmuInput"
 	    				placeholder="From Date"
 	    				ng-model="vm.filterOptions.postDate.min"
 	    				on-change="vm.search()">
-	    			</community-datepicker> 
-	    			<spam> - </spam>
+	    			</community-datepicker>
 	    			<community-datepicker 
+	    				class="cmuInput"
 	    				placeholder="To Date"
 	    				ng-model="vm.filterOptions.postDate.max"
 	    				on-change="vm.search()">
 	    			</community-datepicker> 
 	    		</div>
 
-	    		<!-- DISCUSSION TYPE FILTER -->
-	    		<div>	
-    				<div class="cmuInput__checkbox cmuInput--default">
+	    			<!-- Discussion Styles filter -->
+	    		<div class="cmuInputGroup">	
+
+    				<div class="cmuInputGroup__first cmuInput__checkbox cmuInput--default">
 						<label>
 							<input 
 								type="checkbox" 
@@ -53,8 +58,7 @@
 								<span>{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
 						</label>
 					</div>
-
-    				<div ng-repeat="filter in vm.filterOptions.discussionStyles.list" class="cmuInputGroup">
+    				<div class="cmuInputGroup__checkbox" ng-repeat="filter in vm.filterOptions.discussionStyles.list">
     					<div class="cmuInput__checkbox">
 	    					<label>
 	    						<input 
@@ -63,11 +67,11 @@
 									value="{{ filter.value }}" 
 									ng-model="filter.selected" 
 									ng-change="vm.filterChanged(vm.filterOptions.discussionStyles, filter)" />
-	    						<span>{{ filter.display }}</span>
+	    						<span>Apples {{ filter.display }}</span>
 	    					</label>
     					</div>
-    					<div ng-if="filter.subfilters" style="padding-left: 10px;">
-    						<div ng-repeat="subfilter in filter.subfilters.list" class="cmuInputGroup">
+    					<div class="cmuInputGroup__sublevel" ng-if="filter.subfilters">
+    						<div ng-repeat="subfilter in filter.subfilters.list" >
     							<div class="cmuInput__checkbox">
 									<label>
 										<input 
@@ -85,9 +89,14 @@
     					</div>
     				</div>
 	    		</div>
+	    		<!-- end discussion type -->
+
+
 
 	    		<!-- PRODUCT FILTER -->
-	    		<div>
+	    		<!-- <div>
+
+	    			"Products" label might not be necessary
 	    			<div class="cmuInput__checkbox cmuInput--default">
 						<label>
 							<input 
@@ -99,9 +108,9 @@
 								ng-checked="vm.filterOptions.productTypes.defaultOption.selected" />
 								<span>{{ vm.filterOptions.productTypes.defaultOption.display }}</span>
 						</label>
-					</div>
+					</div> -->
 
-	    			<div ng-repeat="product in vm.filterOptions.productTypes.list">
+	    			<div class="cmuInputGroup" ng-repeat="product in vm.filterOptions.productTypes.list">
 	    				<div class="cmuInput__checkbox cmuInput--default">
 							<label>
 								<input 
@@ -114,7 +123,7 @@
 									<span>{{ product.defaultOption.display }}</span>
 							</label>
 						</div>
-	    				<div ng-repeat="filter in product.list | orderBy:'display'" class="cmuInputGroup">
+	    				<div ng-repeat="filter in product.list | orderBy:'display'" >
 	    						<div class="cmuInput__checkbox">
 			    					<label>
 			    						<input type="checkbox" 
@@ -127,12 +136,24 @@
 		    					</div>
 	    				</div>
 	    			</div>
-	    		</div>
-	    	</div>
+	    			<!-- end inputgroups -->
 
-	    	<div class="col--md9">
+	    		<!-- </div> -->
+	    	</div>
+	    	<!-- end sidebar -->
+
+
+
+
+
+
+	    	<div class="cmuSearchpage__main col--md9">
 	    		<community-loader show-when="vm.searchInProgress"></community-loader>
+
 	    		<div ng-hide="vm.searchInProgress">
+	    		<!-- 
+	    			We won't be showing stories in this fashion.
+	    			Adds a lot of complexity
 	    			<div>
 	    				<div class="">
 							<div class="cmuFeed__storyList__stories">
@@ -147,22 +168,26 @@
 							</div>
 						</div>
 	    			</div>
-
+                -->
 		    		<div ng-show="vm.searchResults.length > 0">
-		    			<div class="cmuThreadlist__postCount">
+		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md12">
 			    			Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for: <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
-			    		<div class="cmuFeed__item__container"ng-repeat="result in vm.searchResults">
-				    		<div class="row row--comfy">
-				    			<div>
-				    				<a area-link-handler="{{ vm.getUrl(result) }}">{{ result.subject }}</a>
-				    				<h6>{{ result.postDate | timeFromNow }}</h6>
-				    			</div>
-				    			<div>{{ result.body | unformatText }}</div>
-								<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
-				    		</div>
-				    	</div>
-				    	<div>
+
+			    		<div class="cmuThreadlist__body">
+				    		<a class="cmuThreadlist__row"
+				    			 ng-repeat="result in vm.searchResults"
+				    			 area-link-handler="{{ vm.getUrl(result) }}">
+				    			 <div class="cmuSearchpage__item">
+				    				<div class="cmuSearchpage__item__subject">{{ result.subject }}</div>
+					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:140 }}</div>
+				    				<div class="cmuSearchpage__item__date">Posted on {{ result.postDate | timeFromNow }}</div>
+									<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
+								</div>
+					    	</a>
+					    </div>
+
+					    <div class="cmuThreadlist__ctrl--bottom">
 			    		  <community-pager 
 				            number-of-pages="vm.totalPages" 
 				            pager-fn="vm.searchFilter"
@@ -170,12 +195,21 @@
 				          </community-pager>
 				    	</div>
 			    	</div>
-			    	<div ng-show="vm.searchResults.length === 0">
-			    		<h4 ng-show="vm.searchTextDisplay">No results for {{ vm.searchTextDisplay }}</h4>
-			    		<h4 ng-show="!vm.searchTextDisplay">Enter a Search term and get started!</h4>
+
+			    	<div class="cmuThreadlist__messagebox" ng-show="vm.searchResults.length === 0">
+
+			    		<!-- if nothing found -->
+			    		<div class="cmuSearchpage__noResults" ng-show="vm.searchTextDisplay">
+			    			<span class="text">No results found for </span>
+			    			<span class="query">{{ vm.searchTextDisplay }}</span>
+			    		</div>
+
 			    	</div>
 		    	</div>
+
 	    	</div>
+	    	<!-- end main -->
+
     	</div>
 	</div>
 </div>

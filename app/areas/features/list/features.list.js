@@ -31,7 +31,6 @@
 			return newList;
 		}
 
-
 		function filterRequests() {
 				var filterModel = {
 					request: null,
@@ -70,7 +69,7 @@
 				{ 
 					param: 'status', 
 					filterList: makeFilterList(featuresData.StatusTypes),
-					defaultOption: { display: 'All Status Types', value: null, selected: true }, 
+					defaultOption: { display: 'Status Types', value: null, selected: true }, 
 
 				}
 			],

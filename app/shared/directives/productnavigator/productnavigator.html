@@ -3,6 +3,7 @@
     <button ng-click="productnavigator.toggleMenu()" class="button--solid button--padded button-blue-white">{{ productnavigator.buttonDisplayText }}</button>  
 
     <community-mega-menu 
+    	display-text="{{ productnavigator.buttonDisplayText }}"
 	    open-event="toggleProductNavigator"
 	    menu-template-url="directives/productnavigator/productnavigator.menu.html"
 	    template-ctrl="productnavigator.templateData">

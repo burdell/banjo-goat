@@ -25,7 +25,7 @@ $cmu-searchbox-glowing-effect-fade-time: 0.45s !default;
 
 $cmu-searchbox-font-color: $cmu-color-body;
 $cmu-searchbox-background-color: $cmu-color-purewhite;
-$cmu-searchbox-focus-background-color: $cmu-primary-background-color;
+$cmu-searchbox-focus-background-color: $cmu-color-purewhite;
 $cmu-searchbox-border-color: $cmu-color-line;
 $cmu-searchbox-focus-border-color: $cmu-primary-link-color;
 $cmu-searchbox-disabled-background-color: $cmu-color-bg;
@@ -44,35 +44,79 @@ $cmu-searchbox-disabled-background-color: $cmu-color-bg;
 }
 
 
-.cmuSearchbox input {
-    color: $cmu-searchbox-font-color;
-    background-color: $cmu-searchbox-background-color;
-    font-family: $cmu-searchbox-font-family;
-    margin-bottom: $cmu-base-spacing-unit;
-    height: double($cmu-base-spacing-unit);
+.cmuSearchbox {
 
-    &:focus,
-    &:active {
-        outline-color: transparent;
-        outline-style: none;
+    input {
+        color: $cmu-searchbox-font-color;
+        background-color: $cmu-searchbox-background-color;
+        font-family: $cmu-searchbox-font-family;
+        margin-bottom: $cmu-base-spacing-unit;
+        height: double($cmu-base-spacing-unit);
+
+        &:focus,
+        &:active {
+            outline-color: transparent;
+            outline-style: none;
+        }
+
+        border: 1px solid $cmu-searchbox-border-color;
+        display: block;
+        font-size: $cmu-searchbox-font-size;
+        margin: 0 0 $cmu-searchbox-form-spacing 0;
+        // padding: $cmu-searchbox-form-spacing / 2;
+        width: 100%;
+
+        // Basic focus styles
+        &:focus {
+            background: $cmu-searchbox-focus-background-color;
+            border-color: $cmu-searchbox-focus-border-color;
+        }
+
+        // Disabled background input background color
+        &[disabled] { 
+            background-color: $cmu-searchbox-disabled-background-color; 
+        }
     }
+}
 
-    border: 1px solid $cmu-searchbox-border-color;
-    display: block;
-    font-size: $cmu-searchbox-font-size;
-    margin: 0 0 $cmu-searchbox-form-spacing 0;
-    // padding: $cmu-searchbox-form-spacing / 2;
-    width: 100%;
 
-    // Basic focus styles
-    &:focus {
-        background: $cmu-searchbox-focus-background-color;
-        border-color: $cmu-searchbox-focus-border-color;
+.cmuSearchbox.cmuSearchbox--large, %cmuSearchbox--large {
+
+    .appIconInput__icon {
+        @extend %size-larger;
+        padding-right: $cmu-base;
+        padding-top: $cmu-base;
+        pointer-events: auto;
+        cursor: pointer;
+        @extend %ease-fast;
+
+        &:hover {
+            color: $cmu-color-active;
+            @extend %ease-fast;
+        }
     }
+    input {
+        @extend %h3;
+        color: $cmu-color-black;
+        padding: $cmu-base*2 $cmu-base;
 
-    // Disabled background input background color
-    &[disabled] { 
-        background-color: $cmu-searchbox-disabled-background-color; 
+        // @include box-shadow(0, 0, $cmu-base, $cmu-color-mdgray, $inset: true);
+        background-color: $cmu-color-purewhite;
+
+        &:focus {
+            background: $cmu-searchbox-focus-background-color;
+            border-color: $cmu-searchbox-focus-border-color;
+        }
+    }
+}
+
+
+.cmuSearchbox.cmuSearchbox--page {
+    @extend %cmuSearchbox--large;
+
+    input {
+        @extend %h3;
+        border: $style-line; 
     }
 }
 

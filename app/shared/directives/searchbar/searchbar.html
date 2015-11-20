@@ -1,24 +1,24 @@
 
-<div class="cmuSearchbar__metaContainer">
+<div class="cmuSearchbar__container">
 	<div ng-class="{ 'cmuOverlay--show' : searchbar.isOpen }" class="cmuSearchbar">
 
 		<div class="cmuGloNav__container container">
 			<div class="row">
-				<div class="col--md12 noPadding">
-					<div>
-						<div class="cmuSearchbox">
-							<div class="appIconInput appIconInput--right">
-								<div ng-click="searchbar.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
-								<input 
-									class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-									placeholder="Search Community" 
-									type="text" 
-									ng-model="searchbar.searchText"
-									community-enter="searchbar.search()">
-						    </div>
-						</div>
+
+				<div class="col--md12">
+					<div class="cmuSearchbox cmuSearchbox--large">
+						<div class="appIconInput appIconInput--right">
+							<div ng-click="searchbar.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
+							<input 
+								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+								placeholder="Search Community" 
+								type="text" 
+								ng-model="searchbar.searchText"
+								community-enter="searchbar.search()">
+					    </div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>

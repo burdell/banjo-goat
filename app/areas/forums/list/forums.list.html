@@ -57,7 +57,7 @@
       </div>
 
       <div class="cmuThreadlist__body">
-        <a class="cmuThreadList__row" 
+        <a class="cmuThreadlist__row" 
             area-link-handler="{{ vm.getMessageUrl(message.id) }}"
             ng-repeat="message in vm.messageList"
             ng-class="{'isRead':vm.isRead(message)}"
@@ -73,7 +73,7 @@
 
           <div class="cmuThreadlist__preview">
             <span 
-              class="cmuTooltip cmuThreadList__tooltip"
+              class="cmuTooltip cmuThreadlist__tooltip"
               community-tooltip
               data-id-field="{{ ::message.id }}" 
               ajax-populate="vm.getMessageData" 

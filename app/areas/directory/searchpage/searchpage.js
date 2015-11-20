@@ -6,6 +6,7 @@ require('directives/pager/pager.js');
 require('directives/keypress/enter.js');
 require('directives/datepicker/datepicker.js');
 require('directives/storydisplay/storydisplay.js');
+require('directives/pagescroll/pagescroll.js');
 
 require('filters/unformattext.js');
 require('filters/timefromnow.js');
@@ -23,7 +24,7 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		var productTypes = nodeService.getProductTypeList();
 		_.each(productTypes, function(productType){
 			_.extend(productType, {
-				defaultOption: { display: 'All ' + productType.header, value: null, selected: true },
+				defaultOption: { display: '' + productType.header, value: null, selected: true },
 				list: _.map(productType.list, function(product){
 					return { value: product.id, display: product.name, selected: false,  }
 				}),
@@ -31,7 +32,7 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		});
 
 		ctrl.filterOptions.productTypes = { 
-			defaultOption: { display: 'All Products', value: null },
+			defaultOption: { display: 'Products', value: null },
 			param: 'nodeRanges',
 			list: productTypes,
 			getValue: function(filterModel){
@@ -101,7 +102,7 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		searchFilter: searchFilter,
 		filterOptions: {
 			discussionStyles: {
-				defaultOption: { display: 'All Discussion Styles', value: null, selected: true },
+				defaultOption: { display: 'Discussion Styles', value: null, selected: true },
 				param: 'discussionStyles',
 				list: [
 					{ display: 'Announcements', value: 'announcements' },

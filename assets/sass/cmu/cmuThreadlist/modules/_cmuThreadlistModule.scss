@@ -23,7 +23,7 @@ $cmu-threadlist-padding: $cmu-base*3/4;
 //     - can't place avatars absolute, as they won't valign properly
 // top/bottom padding for each cell
 $cmu-threadlist-height: $cmu-vertical-rhythm*1/2;
-$cmu-threadlist-lineheight: $cmu-vertical-rhythm*1/2;
+$cmu-threadlist-lineheight: $size-large__lineHeight;
 $cmu-threadlist-avatar: remCalc(20px); // hard coded for now 
 
 
@@ -97,10 +97,11 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	@extend %disp--tbody;
 
 }
+
 	// row style
 	// remember that in a table, cells fill out a row
 	// and rows can't be styled; style each cell individually instead
-	.cmuThreadList__row {
+	.cmuThreadlist__row {
 		@extend %disp--tr;
 		position: relative; // important for icon placement
 		
@@ -149,7 +150,9 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		padding-right: $cmu-threadlist-padding;
 	}
 		.cmuThreadlist__topic__title {
+			line-height: $cmu-threadlist-lineheight;
 			padding-right: $cmu-base/2;
+			float: left; // useful for placing product tags inline
 		}
 
 	// Preview
@@ -260,7 +263,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 
 
 // Tooltip
-.cmuThreadList__tooltip {
+.cmuThreadlist__tooltip {
 	opacity: 0;
 	@extend %ease-fast;
 
@@ -281,189 +284,26 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		}
 	}
 }
-.cmuThreadList__row:hover .cmuThreadList__tooltip {
+.cmuThreadlist__row:hover .cmuThreadlist__tooltip {
 	opacity: 1;
 	@extend %ease-fast;
 }
 
 
 
+// occurs in search for no results
+// might occur with other messages like no messages
+.cmuThreadlist__messagebox {
+	padding: $cmu-base*2;
+	text-align: center;
+	border-top: $style-line;
+	border-bottom: $style-line;
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 
-// 
-//			OLD STUFF 
-// 
-// 
-//
-
-
-
-// // 
-// // Date Styles
-// // 
-// %cmuThreadList__column--latestDate {
-// 	// padding-left: $cmu-base/2;
-// 	width: 12%;
-//   	min-width: 80px;
-// 	text-align: left;
-// }
-// %cmuThreadList__column--createdDate {
-// 	@extend %cmuThreadList__column--latestDate;
-// 	@include respondTo(small-down) {
-// 		display: none;
-// 	}
-// }
-
-
-
-
-// // 
-// // THREAD DESCRIPTORS
-// // 
-
-// 	.cmuThreadlist__thead--topic {
-// 		width: auto;
-// 		text-align: left;
-// 		padding-left: $cmu-base/2;
-// 	}
-// 	.cmuThreadlist__thead--author {
-// 		@extend %cmuThreadList__column--author;
-// 		text-align: left;
-// 	}
-// 	.cmuThreadlist__thead--createdDate {
-// 		@extend %cmuThreadList__column--createdDate;
-// 	}
-// 	.cmuThreadlist__thead--authorLast {
-// 		@extend %cmuThreadList__column--authorLast;
-// 		text-align: left;
-// 	}
-
-
-
-
-// // 
-// // EACH ROW
-// // 
-
-// .cmuThreadList__row {
-// 	position: relative; // important for icon placement
-// 	// @extend %size-community-base;
-// 	border-top: $style-line;
-// 	border-bottom: $style-line;
-// 	padding-top: $cmu-vertical-rhythm/2;
-// 	padding-bottom: $cmu-vertical-rhythm/2;
-//     line-height: $cmu-base*2.5;
-
-// 	@extend %style-listItem;
-// 	display: table-row;
-
-// 	.disp--td {
-// 		overflow: hidden; 
-// 	}
-
-// 	.cmuThreadList__tooltip {
-// 		opacity: 0;
-// 		@extend %ease-fast;
-// 	}
-// 	&:hover .cmuThreadList__tooltip {
-// 		opacity: 1;
-// 		@extend %ease-fast;
-// 	}
-// }
-
-// 	.cmuThreadList__row__topic {
-// 		// * { font-weight: 400; }
-// 		height: 100%; //required for eyecon
-// 		padding-right: $cmu-base*4;
-// 		// @extend %style-community-mainlink;
-// 		line-height: $cmu-base;
-// 		padding: $cmu-base/4 $cmu-base/2;
-// 		position: relative; //important for icon placement
-
-// 		// a {
-// 		// 	color: $cmu-color-black;
-// 		// 	&:hover {
-// 		// 		color: $cmu-color-active; 
-// 		// 	}
-// 		// }
-// 	}
-
-// 	.cmuThreadList__row__author {
-// 		@extend %cmuThreadList__column--author;
-// 		line-height: $cmu-base;
-
-// 	}
-
-// 	.cmuThreadList__row__authorLast {
-// 		@extend %cmuThreadList__column--authorLast;
-// 		line-height: $cmu-base;
-// 	}
-
-// 	.cmuThreadList__row__counter {
-// 		@extend %cmuThreadlist__counter;
-// 		padding-right: $cmu-base/2;
-// 		font-size: $cmu-threadlist-size-numerical;
-// 	}
-
-// 		// .cmuThreadList__row__counter--views {
-// 		// 	width: $cmu-threadlist-size-counterWidth;
-// 		// }
-
-// 	.cmuThreadList__row__latestDate {
-// 		@extend %cmuThreadList__column--latestDate;
-// 		padding-right: $cmu-base/2;
-// 		line-height: 1rem;
-// 		// color: $cmu-color-dkgray;
-// 		font-size:  $cmu-threadlist-size-numerical;
-// 	}
-// 	.cmuThreadList__row__createdDate {
-// 		@extend .cmuThreadList__row__latestDate;
-// 		@extend %cmuThreadList__column--createdDate;
-// 	}
-
-
-
-// .cmuThreadList__tooltip {
-// 	// display: inline-block;
-// 	// float: right;
-// 	// padding-right: $cmu-base;
-
-// 	display: inline-block;
-//     float: right;
-//     // /* position: absolute; */
-//     right: 8px;
-//     height: 100%;
-// 	.icon:before {
-// 		color: $cmu-color-mdgray;
-// 		@extend %ease-fast;
-// 	}
-// 	&:hover {
-// 		@extend %ease-fast;
-// 		.icon:before {
-// 		@extend %ease-fast;
-// 			color: $cmu-color-active;
-// 		}
-// 	}
-// }
 
 
 
@@ -479,17 +319,13 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 
 
 
-
-
-
-
 // // 
 // // Special States
 // // 
 
 // 	// Pinned Thread
-// 	.cmuThreadList__row--pinned {
-// 		.cmuThreadList__row__topic:after {
+// 	.cmuThreadlist__row--pinned {
+// 		.cmuThreadlist__row__topic:after {
 // 			content: ' ';
 // 			display: inline-block;
 // 			position: relative;
@@ -503,8 +339,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 // 	}
 
 // 	// Active Thread
-// 	.cmuThreadList__row--active {
-// 		.cmuThreadList__row__topic > a:before {
+// 	.cmuThreadlist__row--active {
+// 		.cmuThreadlist__row__topic > a:before {
 // 			content: 'ACTIVE';
 // 			display: inline-block;
 // 			background-color: $cmu-color-red;
@@ -517,8 +353,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 // 	}
 
 // 	// Locked Thread
-// 	.cmuThreadList__row--locked {
-// 		.cmuThreadList__row__topic > a:after {
+// 	.cmuThreadlist__row--locked {
+// 		.cmuThreadlist__row__topic > a:after {
 // 			font-family: 'ubnt';
 // 			content: '\e78e';
 // 			display: inline-block;
@@ -528,8 +364,8 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 // 	}
 
 // 	// Read Thread
-// 	.cmuThreadList__row--read {
-// 		a, .cmuThreadList__row__counter { font-weight: 300; }
+// 	.cmuThreadlist__row--read {
+// 		a, .cmuThreadlist__row__counter { font-weight: 300; }
 // 		background-color: $cmu-color-ltgray;
 // 		border-color: darken($cmu-color-ltgray,5);
 // 	}

@@ -57,6 +57,12 @@ $style-line: 1px solid $cmu-color-line;
 	border-radius: 4px;
 }
 
+%style-container {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+	%style-container--half {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
 
 
 
@@ -106,7 +112,7 @@ $style-line: 1px solid $cmu-color-line;
 
 
 // List Item
-// NOTE: many of these use .cmuThreadList__row, which uses on-click instead of <a> tags
+// NOTE: many of these use .cmuThreadlist__row, which uses on-click instead of <a> tags
 // 		 - the design is identical but implemented differently (__topic)
 // - story list
 // - forum thread list
@@ -179,6 +185,10 @@ $style-line: 1px solid $cmu-color-line;
 	// color: $cmu-color-blue; // too loud
 	color: $cmu-color-dkblue;
 	color: $cmu-color-body;
+
+	cursor: pointer;
+
+	white-space: nowrap; // prevents wrapping on long titles; will just go to next line
 
 	// @extend %border-radius;
 	@extend %ease-fast;
@@ -423,6 +433,14 @@ $stat-padding: 4.5px $cmu-base/2;
 }
 
 
+.floatLeft {
+	float: left !important;
+}
+
+.floatRight {
+	float: right !important;
+	text-align: right;
+}
 
 
 

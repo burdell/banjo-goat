@@ -1,11 +1,21 @@
 
 // community input fields
 
-// surround <input>s in these for positioning
 
-// groups together form elements
+$input-off-color-bg: $cmu-color-purewhite;
+$input-disabled-color: $cmu-color-disabled;
+
+
+
+// surround <input>s in these for positioning
+// groups together form elements and creates padding
 .cmuInputGroup {
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-vertical-rhythm;
+
+	// "sublevel" – nested 
+	.cmuInputGroup__sublevel {
+		padding-left: $cmu-base;
+	}
 }
 
 
@@ -14,8 +24,8 @@
 }
 
 
-.cmuInput {
-	border: 1px solid $cmu-color-gray;
+%cmuInput {
+	border: $style-line;
 	margin-bottom: $cmu-base/2;
 	padding: $cmu-base/2;
 	background-color: $cmu-color-purewhite;
@@ -32,6 +42,12 @@
 		background-color: $cmu-color-white;
 	}
 }	
+	input.cmuInput {
+		@extend %cmuInput;
+	}
+	.cmuInput input {
+		@extend %cmuInput;
+	}
 
 	.cmuInput--wide {
 		width: 100%;
@@ -328,6 +344,9 @@
 // 
 
 .cmuInput__checkbox {
+	&, * { 
+		@extend %user-select-none;
+	}
 
 	/* hide default checkbox */
 	input[type="checkbox"] {
@@ -335,6 +354,7 @@
 		appearance: none;
 		display: relative;
 		cursor: pointer; 
+		@extend %user-select-none;
 	}
 
 	/* custom checkbox placeholder */
@@ -342,12 +362,11 @@
 		content: ' ';
 		display: block;
 		position: relative;
-		// left: 0;
 		top: $cmu-base/4 - remCalc(1px);
 		width: $cmu-base;
 		height: $cmu-base;
 		border: 1px solid $cmu-color-line--light;
-		background-color: $cmu-color-bodybg;
+		background-color: $input-off-color-bg;
 		margin-right: $cmu-base/4;
 		cursor: pointer; 
 	}
@@ -374,17 +393,16 @@
 	}
 
 		// disabled
+		input[type="checkbox"][disabled] { 
+			// opacity: 0;
+			display: none;
+		}
+
 		input[type="checkbox"][disabled]:after {
 			@extend %ease;
 			opacity: 0;
-			background-color: $cmu-color-bg;
+			background-color: $input-disabled-color;
 		}
-
-		// disabled label style
-		input[type="checkbox"][disabled] + span {
-			background-color: $cmu-color-bg;
-		}
-
 
 		// checked checkbox container
 		input[type="checkbox"]:checked:before {
@@ -404,8 +422,8 @@
 
 		// label style
 		input[type="checkbox"] + span {
-			color: $cmu-color-title;
 			cursor: pointer;
+			@extend %user-select-none;
 
 			&:hover {
 				color: $cmu-color-active;
@@ -421,6 +439,15 @@
 		input[type="checkbox"]:not(:checked) + span {
 			color: $cmu-color-title;
 		}
+
+		// disabled label style (has to be after not checked style)
+		input[type="checkbox"][disabled] + span {
+			color: $input-disabled-color;
+			padding-left: $cmu-base;
+			display: none;
+			@include cmuAnimate (fadeInFromNone, $speed-slow);
+		}
+
 
 			// (special) group default checkbox not-checked label style
 			// .cmuInput--default label input[type="checkbox"]:not(:checked) + span {
@@ -556,56 +583,4 @@ select:disabled {
 //   @include single-transition(background-color, 0.2s, linear);
 // }
 
-// /*------------------------------------*\
-//     #CHECKBOX BUTTON
-// \*------------------------------------*/
 
-// /* Base for label styling */
-// input[type="checkbox"]:not(:checked) + label,
-// input[type="checkbox"]:checked + label {
-//   position: relative;
-//   padding-left: 25px; //#TODO Spacing
-//   cursor: pointer;
-// }
-
-// /* checkbox aspect */
-// input[type="checkbox"]:not(:checked) + label:before,
-// input[type="checkbox"]:checked + label:before {
-//   content: '';
-//   position: absolute;
-//   left: 0;
-//   top: 2px;
-//   width: 20px;
-//   height: 20px;
-//   border: 1px solid $cmu-checkbox-border-color;
-//   background: #fff;
-//   @include border-radius(1px);
-// }
-
-// /* checked mark aspect */
-// input[type="checkbox"]:not(:checked) + label:after,
-// input[type="checkbox"]:checked + label:after {
-//   content: '✔';
-//   position: absolute;
-//   top: 0;
-//   left: 4px;
-//   color: $cmu-checkbox-check-color;
-//   font-size: 0.875rem;
-//   @include transition(all .2s);
-// }
-
-// /* checked mark aspect changes */
-// input[type="checkbox"]:not(:checked) + label:after {
-//   opacity: 0;
-//   transform: scale(0);
-// }
-// input[type="checkbox"]:checked + label:after {
-//   opacity: 1;
-//   transform: scale(1);
-// }
-
-// /* accessibility */
-// input[type="checkbox"]:checked:focus + label:before,
-// input[type="checkbox"]:not(:checked):focus + label:before {
-//   border: 1px dotted $cmu-checkbox-check-color;
-// }

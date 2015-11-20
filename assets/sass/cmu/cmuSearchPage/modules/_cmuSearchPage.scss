@@ -1,0 +1,78 @@
+
+// 
+// SEARCH PAGE
+// 
+// This sheet handles the Searchpage itself.
+// 
+// note that Search is a bit split up:
+// - search input bar is in cmuOverlays  
+// - the actualy search input is part of the cmuInput group
+// 
+
+
+.cmuSearchpage {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+.cmuSearchpage__searchbar {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+.cmuSearchpage__sidebar {
+	.cmuSidebar__container {
+		margin-bottom: $cmu-base/2;
+	}
+}
+
+.cmuSearchpage__content {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+// "show ##"
+.cmuSearchpage__ctrl {
+	// border-bottom: $style-line;
+	// padding-bottom: $cmu-vertical-rhythm/2;
+	margin-top: $cmu-vertical-rhythm/2;
+	padding: 0 $cmu-base/2;
+}
+
+.cmuSearchpage__noResults {
+	@extend %h4; 
+	.query {
+		font-weight: 600;
+		display: inline-block;
+	}
+}
+
+.cmuSearchpage .cmuThreadlist__row {
+
+	&:first-child {
+		.cmuSearchpage__item {
+			border-top: $style-line;
+		}
+	}
+	.cmuSearchpage__item {
+		@extend .cmuThreadlist__topic;
+	}
+		.cmuSearchpage__item__subject {
+			// font-size: $size-large;
+			// line-height: $size-large__lineHeight;
+			padding-bottom: $cmu-base/2;
+			font-weight: bold;
+		}
+		.cmuSearchpage__item__content {
+			color: $cmu-color-body;
+			max-height: $cmu-base*6;
+			padding-bottom: $cmu-base/2;
+			overflow: hidden;
+		}
+
+		.cmuSearchpage__item__date {
+			@extend %style-meta;
+		}
+}
+
+
+
+
+

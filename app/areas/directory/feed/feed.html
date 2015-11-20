@@ -111,13 +111,13 @@
 			<div class="cmuFeed__sidebar col--md3">
 
 				<!-- links -->
-				<div class="cmuFeed__actions cmuFeed__sidebar__item">
+				<div class="cmuFeed__actions cmuSidebar__container">
 					<h5>Links</h5>
 					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 				</div>
 
 				<!-- hub -->
-				<div class="cmuFeed__announcements cmuFeed__sidebar__item">
+				<div class="cmuFeed__announcements cmuSidebar__container">
 					<h5>Latest Announcements</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
 						<span class="product"></span>{{ announcement.topic.subject }}
