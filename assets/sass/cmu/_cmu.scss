@@ -38,7 +38,7 @@
 @import "cmuComments/index";			// Comments area 
 @import "cmuViewingCounter/index";		// "5 others are viewing" 
 @import "cmuInput/index";				// NOTE: Generic Form fields and inputs. inputs with icons are different: cmuAppIconInputs 
-@import "cmuSearchpage/index";			// depends on input and overlay
+@import "cmuSearchPage/index";			// depends on input and overlay
 @import "cmuSort/index";				// Sort select dropdown used for lists, etc.
 @import "cmuImageMissing/index";		// works with 'handleimageerror.js' to replace missing images
 @import "cmuTextEditor/index";			// long form text editor, story body and comments editor (tinyMCE)
