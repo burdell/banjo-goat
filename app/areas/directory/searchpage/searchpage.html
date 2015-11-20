@@ -67,7 +67,7 @@
 									value="{{ filter.value }}" 
 									ng-model="filter.selected" 
 									ng-change="vm.filterChanged(vm.filterOptions.discussionStyles, filter)" />
-	    						<span>Apples {{ filter.display }}</span>
+	    						<span>{{ filter.display }}</span>
 	    					</label>
     					</div>
     					<div class="cmuInputGroup__sublevel" ng-if="filter.subfilters">
