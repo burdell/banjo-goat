@@ -6,6 +6,7 @@ app('features');
 
 
 //area files
+require('shared/pages/newtopic/editmessage.js')('features');
 require('shared/pages/newtopic/newtopic.js')('features');
 
 require('features/config/features.data.js');

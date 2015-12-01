@@ -17,7 +17,6 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 	};
 
 	var storiesRoutes = routesProvider.routes.stories;
-
 	$stateProvider
 		.state('storiesLanding', {
 			url: storiesRoutes.landing,
@@ -74,6 +73,20 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			reloadOnSearch: false
 		})
+		.state('stories.edit', {
+			url: storiesRoutes.edit,
+			views: {
+				'mainContent': {
+					templateUrl: 'stories/newstory/stories.newstory.html',
+					controller: 'NewStory as vm'
+				}
+			},
+			resolve: {
+				StoryDetail: ['CommunityApiService', '$stateParams', function(communityApi, $stateParams){
+					return communityApi.Stories.story(Number($stateParams.storyId));
+				}]
+			}
+		})
 		.state('stories.detail', {
 			url:  routesProvider.routes.utils.intRoute(storiesRoutes.detail), 
 			views: {
@@ -99,6 +112,11 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				'mainContent': {
 					templateUrl: 'stories/newstory/stories.newstory.html',
 					controller: 'NewStory as vm'
+				}
+			},
+			resolve: {
+				StoryDetail: function(){
+					return {};
 				}
 			}
 		})

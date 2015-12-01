@@ -1,10 +1,6 @@
 
 'use strict';
 
-require('services/filter.js');
-require('services/api.js');
-require('services/breadcrumb.js');
-
 require('directives/message/message.js');
 require('directives/commentlist/commentlist.js');
 require('directives/arealinkhandler/arealinkhandler.js');
@@ -14,10 +10,27 @@ require('filters/unescape.js');
 
 var _ = require('underscore');
 
-function AnnouncementDetailController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService){
+function AnnouncementDetailController ($scope, $state, announcementDetail, communityApi, breadcrumbService, filterService, permissionsService, routingService, nodeServiceWrapper){
 		var ctrl = this;
 
 		var originalMessage = announcementDetail.content.shift();
+
+		permissionsService.canEdit(originalMessage.insertUser.id).then(function(canEdit){
+			ctrl.canEdit = canEdit;
+			if (canEdit) {
+				var currentArea = routingService.getCurrentArea();
+				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
+					nodeId: $state.params.nodeId, 
+					id: originalMessage.id,
+					messageType: 'topic'
+				});
+			}
+		});
+
+		nodeServiceWrapper.get().then(function(nodeService){
+			var parentNode = nodeService.getNode(originalMessage.node.parentId);
+			ctrl.productName = parentNode.name;
+		});
 
 		_.extend(ctrl, {
 			showCommentForm: false,
@@ -28,7 +41,8 @@ function AnnouncementDetailController ($scope, $state, announcementDetail, commu
 				filterArguments: [ originalMessage.id ],
 				persistFilterModel: false,
 				setInitialData: false
-			})
+			}),
+			isEdited: originalMessage.editDate && (originalMessage.postDate != originalMessage.editDate)
 		});
 		
 		breadcrumbService.setCurrentBreadcrumb(originalMessage.context.topicSubject);
@@ -36,7 +50,17 @@ function AnnouncementDetailController ($scope, $state, announcementDetail, commu
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 	}
-	AnnouncementDetailController.$inject = ['$scope', '$state', 'AnnouncementDetail', 'CommunityApiService', 'CommunityBreadcrumbService', 'CommunityFilterService'];
+	AnnouncementDetailController.$inject = [
+		'$scope', 
+		'$state', 
+		'AnnouncementDetail', 
+		require('services/api.js'), 
+		require('services/breadcrumb.js'), 
+		require('services/filter.js'),
+		require('services/permissions.js'),
+		require('services/routing.js'),
+		require('services/nodestructure.js')
+	];
 
 angular.module('community.announcements')
 	.controller('AnnouncementDetail', AnnouncementDetailController);

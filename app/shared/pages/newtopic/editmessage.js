@@ -6,50 +6,16 @@ function creatNewTopicPage(areaName) {
 	require('directives/userbadge/userbadge.js');
 	require('directives/texteditor/texteditor.js');
 
-	require('services/products.js')
-
-	var newTopicController = function($scope, $state, $templateCache, breadcrumbService, communityApi, nodeStructure, routingService){
+	var editMessageController = function($scope, $state, $templateCache, breadcrumbService, communityApi, routingService, messageDetail){
 		var ctrl = this;
-		breadcrumbService.setCurrentBreadcrumb('New Announcement');
+		breadcrumbService.setCurrentBreadcrumb(messageDetail.subject || messageDetail.context.topicSubject);
+
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
 		});
 
 		var currentNode = null;
 		var currentArea = routingService.getCurrentArea();
-
-
-		nodeStructure.get().then(function(nodeService){
-			currentNode = nodeService.getNode($state.params.nodeId);
-			if (currentNode) {
-				ctrl.newTopic.nodeId = currentNode.id;
-			}
-		});
-
-		
-		var texts = {
-			announcements: { 
-				action: 'Post Announcement', 
-				feedback: 'Posting Your Announcement',
-				title: 'Give your Announcement a title' 
-			},
-			forums: { 
-				action: 'Post Topic', 
-				feedback: 'Posting Your Topic',
-				title: 'Give your Topic a title' 
-
-			},
-			features: { 
-				action: 'Submit Feature Request', 
-				feedback: 'Submitting Your Feature Request',
-				title: 'Give your Feature Request a title' 
-			},
-			directory: {
-				action: 'Submit New Message',
-				feedback: 'Submitting Your Message',
-				title: 'Give your message a title'
-			}
-		};
 
 		var areaConfig = {
 			directory: {
@@ -64,22 +30,41 @@ function creatNewTopicPage(areaName) {
 			features: baseAreaTemplates + 'features.html'
 		}
 
-		var currentAreaTexts = texts[currentArea];
+
 		var submitFunction = this.submitFunction;
+
+		var editType = $state.params.messageType;
+		var topicId = messageDetail.topicId || messageDetail.message.topicId
 
 		function getNewTopicModel(){
 			var baseModel = {
-			    'body': '',
-			    'nodeId': null,
-			    'subject': ''
+			    id: messageDetail.id,
+				body: messageDetail.body || messageDetail.message.body, 
+				nodeId: messageDetail.node.id,
+				subject: messageDetail.subject,
+				topicId: topicId,
+				parentId: messageDetail.parentId
 			};
+
+			if (currentArea !== 'forums') {
+				baseModel.meta = {};
+			}
+
+			if (currentArea === 'features') {
+				baseModel.state = messageDetail.state;
+			}
 
 			return baseModel;
 		}
 
 		_.extend(ctrl, {
 			cancelTopic: function() {
-				$state.go(currentArea + '.list');
+				var stateOptions = {
+					nodeId: $state.params.nodeId
+				}
+
+				stateOptions[routingService.getDetailId(currentArea)] = topicId;
+				$state.go(currentArea + '.detail', stateOptions);
 			},
 			submitTopic: function() {
 				ctrl.submittingTopic = true;
@@ -90,40 +75,42 @@ function creatNewTopicPage(areaName) {
 				} else {
 					messagePromise = communityApi.Messages.topic.apply(communityApi, [currentArea, this.newTopic]);
 				}
- 				
+ 
 				messagePromise.then(function(result){
 					var detailId = routingService.getDetailId(currentArea);
 					var routeData = {};
-					routeData[detailId] = result.id;
+					routeData[detailId] = topicId;
 
-					$state.go(currentArea + '.detail', routeData);
+					var toParams = null;
+					if (result.id !== topicId) {
+						toParams = { targetHash: result.id };
+					}
+
+					$state.go(currentArea + '.detail', routeData, toParams);
 				}).finally(function(){
 					ctrl.submittingTopic = false;
 				});
 			},
 			newTopic: getNewTopicModel(),
-			actionButtonText: currentAreaTexts.action,
-			feedbackButtonText: currentAreaTexts.feedback,
-			titleText: currentAreaTexts.title,
+			actionButtonText: 'Submit Changes',
+			feedbackButtonText: 'Submitting your changes',
+			titleText: 'Title',
+			editType: editType,
 			moreFieldsPartial: areaTemplates[currentArea]
 		});
-
-		if (currentArea !== 'forums') {
-			_.extend(ctrl.newTopic, { meta: {} });	
-		}
 	};
-	newTopicController.$inject = [
+	editMessageController.$inject = [
 		'$scope', 
 		'$state', 
 		'$templateCache',
 		require('services/breadcrumb.js'),
 		require('services/api.js'), 
-		require('services/nodestructure.js'),
-		require('services/routing.js')
+		require('services/routing.js'),
+		'MessageDetail'
 	];
 
 	angular.module('community.' + areaName)
-		.controller('NewTopic', newTopicController);
+		.controller('EditMessage', editMessageController);
 
 
 }

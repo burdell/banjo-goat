@@ -85,32 +85,31 @@
 	<div class="cmuStory__sidebar col--md3">
 		<div ng-if="vm.coordinates.locName">
 			<community-map class="cmuStory__sidebar__map" map-coordinates="vm.coordinates"></community-map>
-			<!-- <div class="cmuStory__sidebar__title">Location</div> -->
 			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
 		</div>
 		<div ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>
-			<p>{{ vm.story.meta.projectRole.value }}</p>
+			<p>{{ vm.story.meta.projectRole }}</p>
 		</div>
 		<div ng-if="vm.story.meta.finishDate">
 			<label>Finish Date</label>
-			<p>{{ vm.story.meta.finishDate.value | date }}</p>
+			<p>{{ vm.story.meta.finishDate | date }}</p>
 		</div>
 		<div ng-if="vm.story.meta.numberOfUsers">
 			<label>Users in Networks</label>
-			<p>{{ vm.story.meta.numberOfUsers.value | number }}</p>
+			<p>{{ vm.story.meta.numberOfUsers | number }}</p>
 		</div>
 		<div ng-if="vm.story.meta.budgetAmount">
 			<label>Budget</label>
-			<p>{{ vm.story.meta.budgetAmount.value | currency }}</p>
+			<p>{{ vm.story.meta.budgetAmount | currency }}</p>
 		</div>
 		<div ng-if="vm.story.meta.dataRequirement">
 			<label>Data Requirement</label>
-			<p>{{ vm.story.meta.dataRequirement.value }}</p>
+			<p>{{ vm.story.meta.dataRequirement }}</p>
 		</div>
 		<div ng-if="vm.story.meta.bandwidth">
 			<label>Bandwidth</label>
-			<p>{{ vm.story.meta.bandwidth.value }}</p>
+			<p>{{ vm.story.meta.bandwidth }}</p>
 		</div>
 
 		<div class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">

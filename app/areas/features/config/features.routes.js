@@ -11,21 +11,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 	$locationProvider.html5Mode(true);
 
 	var featureRoutes = routesProvider.routes.features;
+	var standardRoutes = routesProvider.routes.standardRoutes;
 	$stateProvider
 		.state('features', {
 			abstract: true,
 			url: featureRoutes.features,
 			templateUrl: 'features/features.html'
 		})
-		.state('features.newtopic', {
-			url: featureRoutes.newtopic,
-			views: {
-				'mainContent': {
-					templateUrl: 'pages/newtopic/newtopic.html',
-					controller: 'NewTopic as vm'
-				}
-			}
-		})
+		.state('features.newtopic', standardRoutes.newTopic())
 		.state('features.list', {
 			url: featureRoutes.list + '?offset&sort&request&status&severity&attachments', 
 			views: {
@@ -47,6 +40,18 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			reloadOnSearch: false
 		})
+		.state('features.edit', standardRoutes.newTopic({
+			url: featureRoutes.edit,
+			resolve: {
+				MessageDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
+					if ($stateParams.messageType === 'comment') {
+						return communityApi.Messages.message(Number($stateParams.id));
+					} else {
+						return communityApi.Features.message(Number($stateParams.id));
+					}
+				}]
+			}
+		}, true))
 		.state('features.detail', {
 			url: featureRoutes.detail,
 			views: {

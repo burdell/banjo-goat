@@ -46,8 +46,6 @@
 
 
 		<div class="cmuThread__firstPost">
-
-		
 			<community-user-badge 
 				class="cmuUserbadge--thin"
 				user="vm.originalMessage.message.context.parentAuthor"
@@ -57,11 +55,22 @@
 
 			<div class="cmuMessage__data">
 				<div class="cmuMessage__counter"></div>
-				<div class="cmuMessage__date">{{ vm.originalMessage.message.postDate | exactTimeFromNow }}</div>
+				<div class="cmuMessage__date">
+					{{ vm.originalMessage.message.postDate | exactTimeFromNow }}
+					<span ng-if="vm.isEdited">| edited {{ vm.originalMessage.message.editDate | exactTimeFromNow }}</span>
+				</div>
 			</div>
 
 			<div class="cmuMessage__content cmuContent row">
 				<div class="col--md12" ng-bind-html="vm.originalMessage.message.body | sanitize"></div>
+				<div class="cmuMessage__data">
+					<div ng-if="vm.canEdit" class="cmuMessage__flag cmuHoverflag__trigger">
+						<a area-link-handler="{{ vm.editUrl }}">
+							<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
+							<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this feature request" data-textalign="left"></div>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

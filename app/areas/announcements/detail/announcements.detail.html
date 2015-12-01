@@ -10,7 +10,7 @@
 						<div class="col--md12">
 							<h3>{{ vm.currentAnnouncement.context.topicSubject | htmlUnescape}}</h3> 
 							<div class="cmuThread__subject__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }} </div>
-							<span class="cmuThread__subject__date-edited" ng-if="vm.currentAnnouncement.message.postDate != vm.currentAnnouncement.message.editDate"> | Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
+							<span class="cmuThread__subject__date-edited" ng-if="vm.isEdited"> | Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
 						</div>
 
 					</div>
@@ -19,9 +19,18 @@
 				<div class="cmuThread__stats">
 					<div class="row">
 						<div class="col--md12">
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Product:</span><span class="cmuThread__stat__status">UniFi{{ ::vm.productName }}</span></div>
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Version:</span><span class="cmuThread__stat__status">1.2.3.4{{ ::vm.getMetaValue('versionNumber') }}</span></div>
-							<div class="cmuThread__stat"><span class="cmuThread__stat__desc">Issue #</span><span class="cmuThread__stat__status">123{{ ::vm.getMetaValue('issueId') }}</span></div>
+							<div class="cmuThread__stat">
+								<span class="cmuThread__stat__desc">Product:</span>
+								<span class="cmuThread__stat__status">{{ ::vm.productName }}</span>
+							</div>
+							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.versionNumber">
+								<span class="cmuThread__stat__desc">Version:</span>
+								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.versionNumber }}</span>
+							</div>
+							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.productModel">
+								<span class="cmuThread__stat__desc">Model:</span>
+								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.productModel }}</span>
+							</div>
 						</div>
 					</div>
 					
@@ -53,6 +62,13 @@
 
 
 			<div class="cmuMessage__data">
+				<div ng-if="vm.canEdit" class="cmuMessage__flag cmuHoverflag__trigger">
+					<a area-link-handler="{{ vm.editUrl }}">
+						<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
+						<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
+					</a>
+				</div>
+
 				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
 					<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
 				</div>

@@ -1,16 +1,6 @@
 
 <div class="cmuStoriesNew row">
-<!-- 
-	<div class="cmuStoriesNew__title">
-		Share a Story, {{ vm.currentUserLogin }}!
-	</div>
-	 -->
 	<div class="cmuStoriesNew__form col--md4">
-	<!-- 
-		<div class="cmuStoriesNew__form--intro">
-			Add some details:
-		</div>
- -->
 		<div class="cmuStoriesNew__title">
 			Share a Story, {{ vm.currentUserLogin }}
 		</div>
@@ -191,10 +181,10 @@
 
 		<div class="cmuStoriesNew__form--publish">
 			<div ng-hide="vm.isPublishing">
-				<button class="button--solid button--tall button--stretch button--padded" ng-click="vm.postStory()">Publish</button>
+				<button class="button--solid button--tall button--stretch button--padded" ng-click="vm.postStory()">{{ ::vm.buttonTexts.publish }}</button>
 			</div>
 			<div ng-show="vm.isPublishing">
-				<button class="cmuInput--waiting button--tall button--stretch button--padded" disabled>Publishing Your Story...</button>
+				<button class="cmuInput--waiting button--tall button--stretch button--padded" disabled>{{ ::vm.buttonTexts.publishing }}...</button>
 			</div>
 		</div>
 	</div>

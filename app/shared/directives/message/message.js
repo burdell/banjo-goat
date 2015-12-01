@@ -5,17 +5,14 @@ require('filters/sanitize.js');
 require('filters/timefromnow.js');
 
 require('directives/userbadge/userbadge.js');
+require('services/permissions.js');
 
 var _ = require('underscore');
 
 function communityMessage() {
-	function link(scope, element, attrs) {
-	    
-	}
-
-	function controller($anchorScroll, $location, $timeout, scrollService) {	
+	function controller($anchorScroll, $location, $timeout, $stateParams, permissionsService, routingService, scrollService) {	
 		var ctrl = this;
-		
+
 		var perPage = null;
 
 		if (ctrl.threadFilter) {
@@ -34,6 +31,19 @@ function communityMessage() {
 				username: ctrl.message.context.parentAuthor.login
 			};	
 		}
+
+		permissionsService.canEdit(ctrl.message.insertUser.id).then(function(canEdit){
+			ctrl.canEditMessage = canEdit;
+			if (canEdit) {
+				var currentArea = routingService.getCurrentArea();
+				var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';
+				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
+					nodeId: $stateParams.nodeId, 
+					id: ctrl.message.id,
+					messageType: messageType
+				});
+			}
+		});
 
 		_.extend(ctrl, {
 			hideVoteButtons: this.hideVoteButtons,
@@ -55,13 +65,21 @@ function communityMessage() {
 				}
 			},
 			reply: reply,
-			messageStats: ctrl.message.scores
+			messageStats: ctrl.message.scores,
+			isEdited: ctrl.message.editDate && (ctrl.message.postDate != ctrl.message.editDate)
 		});
 		}
-		controller.$inject = ['$anchorScroll', '$location', '$timeout', require('services/scroll.js')];
+		controller.$inject = [
+			'$anchorScroll', 
+			'$location', 
+			'$timeout', 
+			'$stateParams',
+			'CommunityPermissionsService', 
+			require('services/routing.js'), 
+			require('services/scroll.js')
+		];
 	    
 	    var directive = {
-	        link: link,
 	        controller: controller,
 	        templateUrl: 'directives/message/message.html',
 	        restrict: 'E',

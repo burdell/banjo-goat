@@ -21,14 +21,23 @@
 					<div class="cmuMessage__counter" ng-if="messageDisplay.threadFilter">
 						{{ messageDisplay.getMessagePosition() }}
 					</div>
-					<div class="cmuMessage__date">{{ messageDisplay.message.postDate | exactTimeFromNow }}</div>
+					<div class="cmuMessage__date">
+						{{ messageDisplay.message.postDate | exactTimeFromNow }}
+						<span ng-if="messageDisplay.isEdited"> | edited {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
+					</div>
 				</div>
 				<div class="cmuMessage__controls"> 
 					<div class="cmuMessage__reply noPadding">
 						<span community-permissions denied-behavior="disable" class="cmuPermissions">
+							<div ng-if="messageDisplay.canEditMessage" class="cmuMessage__flag cmuHoverflag__trigger">
+								<a area-link-handler="{{ messageDisplay.editUrl }}">
+									<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
+									<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this post" data-textalign="left"></div>
+								</a>
+							</div>
+
 							<div class="cmuMessage__flag cmuHoverflag__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
-
 								<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Flag this post" data-textalign="left"></div>
 							</div>
 

@@ -9,7 +9,7 @@ require('directives/commentform/commentform.js');
 
 var _ = require('underscore');
 
-function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServiceWrapper, scrollService, featuresCommentFilter, featuresData, featuresDetail){
+function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServiceWrapper, scrollService, permissionsService, routingService, featuresCommentFilter, featuresData, featuresDetail){
 	var ctrl = this;
 	var featureRequest = featuresDetail;
 	
@@ -27,6 +27,17 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 		ctrl.productName = productNode.name;
 	});
 
+	permissionsService.canEdit(featureRequest.message.insertUser.id).then(function(canEdit){
+		ctrl.canEdit = canEdit;
+		if (canEdit) {
+			var currentArea = routingService.getCurrentArea();
+			ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
+				nodeId: featureRequest.node.urlCode, 
+				id: featureRequest.id,
+				messageType: 'topic'
+			});
+		}
+	});
 
 	var statusTypes = featuresData.StatusTypes;
 	_.extend(ctrl, {
@@ -56,7 +67,8 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 		},
 		showReply: function(messageId){
 			ctrl.currentReply = messageId;
-		}
+		},
+		isEdited: featureRequest.message.editDate && (featureRequest.message.postDate != featureRequest.message.editDate)
 	});
 
 	breadcrumbService.setCurrentBreadcrumb(featureRequest.subject);
@@ -70,6 +82,8 @@ featuresDetailController.$inject = [
 	require('services/breadcrumb.js'), 
 	require('services/nodestructure.js'), 
 	require('services/scroll.js'),
+	require('services/permissions.js'),
+	require('services/routing.js'),
 	'FeaturesCommentFilter', 
 	'FeaturesDataService', 
 	'FeaturesDetail'

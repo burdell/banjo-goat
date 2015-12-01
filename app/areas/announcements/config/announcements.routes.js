@@ -7,6 +7,8 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 		$locationProvider.html5Mode(true);
 		
 		var announcementsRoutes = routesProvider.routes.announcements;
+		var standardRoutes = routesProvider.routes.standardRoutes;
+
 		$stateProvider
 			.state('announcementsLanding', {
 				title: 'Community Announcements',
@@ -24,15 +26,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				abstract: true,
 				templateUrl: 'announcements/announcements.html',
 			})
-			.state('announcements.newtopic', {
-				url: announcementsRoutes.newtopic,
-				views: {
-					'mainContent': {
-						templateUrl: 'pages/newtopic/newtopic.html',
-						controller: 'NewTopic as vm'
-					}
-				}
-			})
+			.state('announcements.newtopic', standardRoutes.newTopic())
 			.state('announcements.list', {
 				url: 'list',
 				templateUrl: 'announcements/list/announcements.list.html',
@@ -50,6 +44,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					}]
 				}
 			})
+			.state('announcements.edit', standardRoutes.newTopic({
+				url: announcementsRoutes.edit,
+				resolve: {
+					MessageDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
+						return communityApi.Announcements.detail(Number($stateParams.id));
+					}]
+				}
+			}, true))
 			.state('announcements.detail', {
 				url: announcementsRoutes.detail, 
 				views: {

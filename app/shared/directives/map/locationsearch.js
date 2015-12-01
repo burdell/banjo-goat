@@ -7,6 +7,12 @@ mapsLoader.LIBRARIES = ['places'];
 
 function communityLocationSearch() {
 	var link = function(scope, element, attrs) {	
+		var ctrlModel = scope.locationsearch;
+
+		if (ctrlModel.locationModel.locName) {
+			element[0].value = ctrlModel.locationModel.locName;
+		}
+
 		var autocomplete = null;
 		mapsLoader.load(function(google){
 			autocomplete = new google.maps.places.Autocomplete(element[0], { types: ['(regions)'] });
@@ -16,7 +22,7 @@ function communityLocationSearch() {
 		function onPlaceChanged(){
 			var placeData = autocomplete.getPlace();
 			scope.$apply(function(){
-				scope.locationsearch.locationModel = {
+				ctrlModel.locationModel = {
 					locName: placeData.formatted_address,
 					locLat: placeData.geometry.location.lat(),
 					locLon: placeData.geometry.location.lng()
@@ -27,7 +33,7 @@ function communityLocationSearch() {
 		$(element).keyup(function(){
 			if (!this.value) {
 				scope.$apply(function(){
-					scope.locationsearch.locationModel = null;
+					ctrlModel.locationModel = null;
 				});
 			}
 		});

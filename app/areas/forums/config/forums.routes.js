@@ -11,6 +11,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 	$locationProvider.html5Mode(true);
 
 	var forumRoutes = routesProvider.routes.forums;
+	var standardRoutes = routesProvider.routes.standardRoutes;
 	$stateProvider
 		.state('forums', {
 			abstract: true,
@@ -40,6 +41,18 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			reloadOnSearch: false
 		})
+		.state('forums.edit', standardRoutes.newTopic({
+			url: forumRoutes.edit,
+			resolve: {
+				MessageDetail: ['$stateParams', 'CommunityApiService', function($stateParams, communityApi){
+					if ($stateParams.messageType === 'comment') {
+						return communityApi.Messages.message(Number($stateParams.id));
+					} else {
+						return communityApi.Forums.message(Number($stateParams.id));
+					}
+				}]
+			}
+		}, true))
 		.state('forums.detail', {
 			url: forumRoutes.detail,
 			views: {
@@ -67,15 +80,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				}]
 			}
 		})
-		.state('forums.newtopic', {
-			url: forumRoutes.newtopic,
-			views: {
-				'mainContent': {
-					templateUrl: 'pages/newtopic/newtopic.html',
-					controller: 'NewTopic as vm'
-				}
-			}
-		});
+		.state('forums.newtopic', standardRoutes.newTopic());
 	};
 	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
 	

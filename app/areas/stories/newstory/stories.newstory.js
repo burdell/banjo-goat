@@ -1,13 +1,6 @@
 
 'use strict';
 
-require('services/api.js');
-require('services/breadcrumb.js');
-require('services/media.js');
-require('services/nodestructure.js');
-require('services/products.js');
-require('services/currentuser.js');
-
 require('directives/username/username.js');
 require('directives/map/map.js');
 require('directives/map/locationsearch.js');
@@ -19,16 +12,24 @@ require('directives/texteditor/texteditor.js');
 
 var _ = require('underscore');
 
-function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults){
-	breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
+function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults, storyDetail){
+	var ctrl = this;
 
+	breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
 
-	var ctrl = this;
-
 	var mediaList = [];
+	if (storyDetail.media) {
+		_.each(storyDetail.media, function(media){
+			mediaList.push(media);
+			if (media.meta && media.meta.isCover) {
+				ctrl.cover = media;
+			}
+		});
+	}
+
 	var updateMediaList = function(data){
 		if (data.type === 'image' && mediaList.length === 0) {
 			ctrl.setCoverPhoto(data);
@@ -53,6 +54,12 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		}
 	});
 
+	var isEdit = $state.current.name === 'stories.edit';
+	var buttonTexts = {
+		publish: !isEdit ? 'Publish' : 'Update',
+		publishing: !isEdit ? 'Publishing your Story' : 'Updating your Story'
+	};
+
 	_.extend(ctrl, {
 		hideStoryControls: true,
 		titleCharacterLimit: 140,
@@ -67,34 +74,27 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		},
 		storyAuthor: currentUser,
 		story: {
+			id: storyDetail.id || null,
 			nodeId: null,
 			media: mediaList,
-			summary: "",
-			meta: {}
+			summary: storyDetail.summary || '',
+			meta: storyDetail.meta || {},
+			subject:  storyDetail.subject || '',
 		},
 		coordinates: {
-			locLat: null,
-			locLon: null,
-			locDisplay: ''
+			locLat: storyDetail.locLat || null,
+			locLon: storyDetail.locLon || null,
+			locName: storyDetail.locName || ''
 		},
 		setMetaField: function(fieldName){
 			var metaStoryFields = ctrl.story.meta;
-			if (!metaStoryFields[fieldName]) {
-				metaStoryFields[fieldName] = {
-					key: fieldName,
-					value: null
-				};
-			}
-
-			metaStoryFields[fieldName].value = ctrl.metaValues[fieldName];
+			metaStoryFields[fieldName] = ctrl.metaValues[fieldName];
 		},
-		metaValues: {
-
-		},
+		metaValues: storyDetail.meta || {},
 		discussion: {
-		    "subject": "",
-		    "body": ""
+		    "body": (storyDetail.message && storyDetail.message.body) || ''
 	    },
+	    productList: storyDetail.productsUsed || [],
 	    productData: [],
 		addPhoto: _.bind(function(result){
 			var fileData = result;
@@ -139,6 +139,12 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		postStory: function(){
 			ctrl.isPublishing = true;
 			var story = _.extend(ctrl.discussion, ctrl.story, ctrl.coordinates, { productsUsed: ctrl.productList });
+
+			//PUT model has string meta field
+			if (story.id) {
+				story.meta = JSON.stringify(story.meta);
+			}			
+			
 			communityApi.Stories.story(story).then(
 				function(result){
 					$state.go('stories.detail', { storyId: result.id });		
@@ -150,19 +156,21 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		},		
 		sortConfig: {
 			handle: '.cmuStoriesNew__form--uploadItem--downup'
-		}
+		},
+		buttonTexts: buttonTexts
 	});
 }
 NewStoryController.$inject = [
 	'$scope', 
 	'$state',
-	'CommunityApiService',
-	'CommunityBreadcrumbService', 
-	'CommunityMediaService',
-	'CommunityNodeService',
-	'CommunityProductService',
-	'CurrentUserService', 
-	'StoryDefaults'
+	require('services/api.js'),
+	require('services/breadcrumb.js'), 
+	require('services/media.js'),
+	require('services/nodestructure.js'),
+	require('services/products.js'),
+	require('services/currentuser.js'), 
+	'StoryDefaults',
+	'StoryDetail'
 ];
 
 angular.module('community.stories')

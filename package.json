@@ -62,6 +62,7 @@
     "moment": "2.x.x",
     "pikaday-angular": "^2.0.0",
     "simplemde": "^1.8.0",
+    "to-markdown": "^2.0.1",
     "tooltipster": "1.x.x",
     "typeahead": "^0.2.0",
     "typeahead.js-browserify": "^1.0.7",

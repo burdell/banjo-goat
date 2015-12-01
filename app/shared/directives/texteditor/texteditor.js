@@ -5,6 +5,7 @@ var _ = require('underscore');
 var SimpleMDE = require('simplemde');
 var $ = require('jquery');
 var marked = require('marked');
+var toMarkdown = require('to-markdown');
 
 function communityTextEditor($timeout, routingService) {
 	var link = function(scope, element, attrs, ngModel) {
@@ -38,8 +39,17 @@ function communityTextEditor($timeout, routingService) {
 			editorCtrl.ngModel = markedDownText;
 		});
 
-		scope.texteditor.clearEditor = function(){
-			editorInstance.value('');
+		scope.texteditor.setValue = function(value){
+			if (!value) {
+				value = '';
+			}
+			editorInstance.value(value);
+		}
+
+		var initialValue = editorCtrl.ngModel;
+		if (initialValue) {
+			var markedDownValue = toMarkdown(initialValue);
+			editorCtrl.setValue(markedDownValue);
 		}
 	};
 
@@ -48,7 +58,7 @@ function communityTextEditor($timeout, routingService) {
 
 		$scope.$watch(function(){ return ctrl.ngModel; }, function(value){
 			if (!value) {
-				ctrl.clearEditor();
+				ctrl.setValue();
 			}
 		}, true);
 

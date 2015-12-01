@@ -57,7 +57,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 
 			//POST
 			if (_.isObject(callData)) {
-				verb = 'POST';
+				verb = callData.id ? 'PUT' : 'POST';
 				payload = callData;
 				id = callData.id ? callData.id : '';
 			}
@@ -86,7 +86,6 @@ var communityApiService = function($http, $q, $timeout, errorService){
 	}
 
 	var v2Url = 'https://comm2-dev-api.ubnt.com/2/'; // original
-	var v2Url = 'http://localhost:8080/2/'; // local java
 	var urlSegments = {
 		Announcement: function(id){
 			return 'announcements/' + this._Message(id);
@@ -264,12 +263,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		},
 		Messages: {
 			topic: function(discussionStyle, data){
-				if (discussionStyle === 'directory') {
-					return this.Feed.inboxMessage(data);
-				}
-
 				var callData = getCallType(data);
-
 
 				var url = v2Url + discussionStyle;
 				if (callData.verb === 'GET' || callData.verb === 'PUT') {
@@ -280,7 +274,11 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			message: function(messageData){
 				var callData = getCallType(messageData);
-				return goToApi(v2Url + 'messages', callData.payload, callData.verb);
+				var url = v2Url + 'messages';
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += '/' + callData.id;
+				}
+				return goToApi(url, callData.payload, callData.verb);
 			},
 			position: function(messageId){
 				return goToApi(v2Url + 'messages/' + messageId + '/position');
@@ -301,7 +299,12 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			},
 			story: function(storyData) {
 				var callData = getCallType(storyData);
-				return goToApi(v2Url + 'stories/' + callData.id, callData.payload, callData.verb);
+
+				var url = v2Url + 'stories'
+				if (callData.verb === 'GET' || callData.verb === 'PUT') {
+					url += '/' + callData.id;
+				}
+				return goToApi(url, callData.payload, callData.verb);
 			},
 			comments: function(storyData, params) {
 				var callData = getCallType(storyData, params);

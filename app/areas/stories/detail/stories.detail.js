@@ -10,7 +10,7 @@ require('filters/sanitize.js');
 
 var _ = require('underscore');
 
-function StoryDetailController ($anchorScroll, $location, $scope, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults, routingService, routesProvider){
+function StoryDetailController ($anchorScroll, $location, $scope, $state, communityApi, breadcrumbService, filterService, nodeServiceWrapper, currentUserService, storyThread, storyDefaults, routingService, routesProvider, permissionsService){
 	var ctrl = this;
 
 	storyThread.comments.content.shift();
@@ -56,6 +56,17 @@ function StoryDetailController ($anchorScroll, $location, $scope, communityApi, 
 			}
 						
 		});
+
+		permissionsService.canEdit(story.message.insertUser.id).then(function(canEdit){
+			ctrl.canEdit = canEdit;
+			if (canEdit) {
+				ctrl.editUrl = routingService.generateUrl('stories.edit', { 
+					nodeId: story.node.urlCode, 
+					storyId: story.id
+				});
+			}
+		});
+
 
 		_.extend(ctrl, {
 			story: story,
@@ -116,6 +127,7 @@ StoryDetailController.$inject = [
 	'$anchorScroll',
 	'$location',
 	'$scope', 
+	'$state',
 	require('services/api.js'), 
 	require('services/breadcrumb.js'),  
 	require('services/filter.js'), 
@@ -124,7 +136,8 @@ StoryDetailController.$inject = [
 	'StoryThread', 
 	'StoryDefaults',
 	require('services/routing.js'),
-	require('providers/routes.js')
+	require('providers/routes.js'),
+	require('services/permissions.js')
 ];
 
 angular.module('community.stories')

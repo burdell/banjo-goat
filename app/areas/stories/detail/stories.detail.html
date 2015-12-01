@@ -1,12 +1,14 @@
 <div class="cmuStoryDetail row">
-	<div class="cmuStoryDetail__container col--md12" ng-include="'stories/detail/stories.body.html'"></div>
-	<!-- <div class="row row--comfy">
-		<button community-permissions class="button-ghost button--thin button-white-blue" ng-click="vm.toggleCommentForm()">Add Comment</button>
-		
-		<button community-permissions denied-behavior="disable" class="button--vote button-white-on-green">
-			{{ vm.story.stats | extractKey : 'score' }} kudos
-		</button>
-	</div> -->
+	<div class="cmuStoryDetail__container col--md12">
+		<div ng-if="vm.canEdit">
+			<a area-link-handler="{{ vm.editUrl }}">
+				<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
+				<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
+			</a>
+		</div>
+
+		<div ng-include="'stories/detail/stories.body.html'"></div>
+	</div>
 	<div class="cmuThread__controls cmuThread__controls--bottom">
 		<span community-permissions="">
 			<button class="button--vote button-green-on-white button--compound-naked" disabled="">
