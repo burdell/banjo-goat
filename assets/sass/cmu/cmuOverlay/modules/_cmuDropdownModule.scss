@@ -12,15 +12,18 @@
 .cmuDropdown {
     position: absolute;
     top: $cmu-nav-height;
-    right: 0;
+    right: -$cmu-base;
     z-index: $z-overlay;
     display: none; // default is hidden
     @extend %ease-fast;
 
     overflow: hidden;
     /* margin-top: 30px; */
-    padding: $cmu-base*2;
-    margin-right: -$cmu-base*2;
+    padding: 0;
+    padding-right: $cmu-base;
+    padding-bottom: $cmu-base;
+
+    // margin-right: -$cmu-base*2;
     padding-top: 0;
 
     // * {
@@ -32,6 +35,11 @@
         cursor: pointer;
     }
 }
+    // force the button to be square
+    .cmuDropdown--span {
+        display: inline-block;
+        width: $cmu-nav-height;
+    }
     .cmuDropdown__container {
         box-shadow: 0px 0px 24px $cmu-color-gray;
     }
@@ -73,21 +81,29 @@
 
     .cmuDropdown__content {
         cursor: pointer;
+        background-color: $cmu-color-bodybg;
 
         li {
             @extend %size-xsmaller;
-            padding: $cmu-base/2 $cmu-base/2;
-            border: $style-line;
-            border-bottom: 0;
+            display: block;
             border-color: $cmu-color-ltgray;
+            list-style-type: none;
             &:first-child {
                 border-top: 0;
             }
 
-            &:hover {
+            @extend %style-link;
+            a {
+                display: block;
+                padding: $cmu-base/2 $cmu-base/2;
+                // border: $style-line;
+                border-bottom: 0;
+            }
+            a:hover {
                 background-color: $cmu-color-ltgray;
                 cursor: pointer;
-                @extend %ease-fast;
+                text-decoration: none;
+                // @extend %ease-fast;
             }
 
             // avatar

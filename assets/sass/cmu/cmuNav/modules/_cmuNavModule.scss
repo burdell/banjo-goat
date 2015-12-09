@@ -27,15 +27,25 @@ $nav-border: 1px solid $cmu-color-dkblue;
 
 %nav-icon-style {
 	@extend %nav-style;
-	padding-left: $cmu-base*0.9;
-	padding-right: $cmu-base*0.9;
+	// padding-left: $cmu-base*0.5;
+	// padding-right: $cmu-base*0.5;
 	font-size: $cmu-base;
 	color: $cmu-color-white;
-	width: $cmu-base*3;
+	width: $nav-height; //$cmu-base*3;
 	// margin-left: -4px;
-	margin-right: -4px;
+	// margin-right: -4px;
 	text-align: center;
 }
+
+// dropdown arrow
+%dropdownArrow {
+    content: ' ';
+    @include triangle(top, $cmu-color-white, $size-arrow*3/4);
+    position: relative;
+    bottom: 15px;
+    @extend %ease-fast;
+}
+
 
 
 
@@ -107,7 +117,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
 		.cmuGloNav__accountControl,
 		.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang,
-		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
+		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul span > li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
 			display: inline-block;
 			vertical-align: top;
 		}
@@ -154,6 +164,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		// float: right;
 		position: absolute;
 		right: 0;
+		// margin-right: $cmu-base;
 
 		// hide for mobile
 		@include respondTo(small-down) {
@@ -279,22 +290,45 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			// background-color: $cmu-color-blue;
 		}
 
-			.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang {
+			.cmuGloNav__cmuSearch {
 				@extend %nav-icon-style;
 				background-color: $cmu-color-blue;
 				border-bottom: $nav-border;
-				// border-right: 1px solid $cmu-color-dkblue;
+			}
+			.cmuGloNav__cmuLang {
+				@extend %nav-icon-style;
+				border-bottom: $nav-border;
+				&.active {
+					background-color: $cmu-color-blue;
+					span { 
+						color: white;
+					}
+
+    				&:after {
+						@extend %dropdownArrow;
+					}
+				}
 			}
 
 
 			.cmuGloNav__cmuAccount {
 
+				span { 
+					// display: inline-block;
+					// width: $cmu-nav-height;
+				}
+
 				.active {
 	    			position: relative;
 					background-color: $cmu-color-blue;
 
-					span { color: $cmu-color-white; }
+					span {
+						color: $cmu-color-white; 
+					}
 
+    				&:after {
+						@extend %dropdownArrow;
+					}
 					// &:after {
 					// 	content: ' ';
 					// 	display: block;
@@ -309,7 +343,14 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					// 	border-bottom: 7px solid $cmu-color-ltgray;
 					// }
 				}
+				.cmuGloNav__profile.active:after {
+					content: ' ';
+					position: absolute;
+   					right: 14px;
+   					bottom: -1px;
+				}
 				
+				// temp placeholder
 				.cmuProfile__avatar {
 					&:before {
 						content: ' ';
@@ -352,6 +393,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					margin-right: 0px;
 					// padding-right: 0;
 				    cursor: pointer;
+				    width: $cmu-nav-height;
 				    
 					a {
 					    display: inline-block;
@@ -361,9 +403,10 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					    position: relative;
 					}
 
-					&:hover {
-						// background-color: transparent;
+					&:hover, &.active {
+						background-color: transparent;
 					}
+
 				}
 
 

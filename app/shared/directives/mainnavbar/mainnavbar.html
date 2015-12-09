@@ -20,68 +20,73 @@
 
             <div class="cmuGloNav__right">
 
-            <!-- mobile menu -->
+              <!-- mobile menu -->
               <div class="cmuGloNav__mobile"
                    community-class-toggle="cmuGloNav__mobile__menu--open" >
                 <div class="cmuGloNav__mobile__btn">
                 </div>
               </div>
-                <div class="cmuGloNav__mobile__container">
-                    <div class="cmuGloNav__mobile__search">
-                      <div class="cmuSearchbox">
-                        <div class="appIconInput appIconInput--right">
-                          <div class="appIconInput__icon icon ubnt-icon--search-2" onclick="console.log('search me!')"></div>
-                          <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
-                          </div>
+              <div class="cmuGloNav__mobile__container">
+                <div class="cmuGloNav__mobile__search">
+                  <div class="cmuSearchbox">
+                    <div class="appIconInput appIconInput--right">
+                      <div class="appIconInput__icon icon ubnt-icon--search-2" onclick="console.log('search me!')"></div>
+                      <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
                       </div>
-                    </div>
-
-                     <span ng-repeat="navItem in mainnavbar.navList" >
-                        <a ng-if="navItem.href" href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">
-                          <div class="cmuGloNav__mobile__link">{{ navItem.display }}</div>
-                        </a>
-                        <a ng-if="navItem.clickFn" ng-click="navItem.clickFn()">
-                          <div class="cmuGloNav__mobile__link" ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</div>
-                        </a>
-                    </span>
-
-                    <a href="#">
-                      <div class="cmuGloNav__mobile__username">
-                        <!-- <community-user-avatar user="userbadge.displayUser"></community-user-avatar> -->
-                        <span class="cmuFakeAvatar"></span>
-                        <span class="cmuGloNav__mobile__user">{{ mainnavbar.currentUser.login }}</span>
-                      </div>
-                    </a>
-
-                    <div class="cmuGloNav__mobile__accountlinks">
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
-                          Notifications
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
-                          <span class="icon ubnt-icon--inbox"></span>
-                          Inbox
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">Profile</a>
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          Account
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          Log Out
-                        </div>
-                      </a>
-                    </div>
                   </div>
+                </div>
+
+                 <span ng-repeat="navItem in mainnavbar.navList" >
+                    <a ng-if="navItem.href" href="{{ navItem.href }}" target="{{ mainnavbar.target(navItem.href) }}">
+                      <div class="cmuGloNav__mobile__link">{{ navItem.display }}</div>
+                    </a>
+                    <a ng-if="navItem.clickFn" ng-click="navItem.clickFn()">
+                      <div class="cmuGloNav__mobile__link" ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</div>
+                    </a>
+                </span>
+
+                <a href="#">
+                  <div class="cmuGloNav__mobile__username">
+                    <!-- <community-user-avatar user="userbadge.displayUser"></community-user-avatar> -->
+                    <span class="cmuFakeAvatar"></span>
+                    <span class="cmuGloNav__mobile__user">{{ mainnavbar.currentUser.login }}</span>
+                  </div>
+                </a>
+
+                <div class="cmuGloNav__mobile__accountlinks">
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
+                      Notifications
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
+                      <span class="icon ubnt-icon--inbox"></span>
+                      Inbox
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">Profile</a>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      Account
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      Log Out
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+
+              <!-- regular menu -->
+
+              <!-- links -->
               <ul class="cmuGloNav__links">
                 <li 
                   ng-repeat="navItem in mainnavbar.navList"
@@ -97,14 +102,19 @@
                         ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
                     </span>
                 </li>
-              </ul>
+              </ul><div class="cmuGloNav__accountControl">
 
-              <div class="cmuGloNav__accountControl">
+              <!-- menu buttons - note how <div>s start on the same line, to prevent the browser from adding extra padding for inline elements-->
                 <div ng-hide="mainnavbar.hideSearch()" class="cmuGloNav__cmuSearch"
                      ng-click="$broadcast('searchbar:toggleSearchbar');">
                   <span class="icon ubnt-icon--search-2"></span>
-                </div>
-                <div class="cmuGloNav__cmuAccount">
+                </div><community-drop-down
+                        menu-template-url="directives/mainnavbar/mainnavbar.language.html"
+                        template-ctrl="mainnavbar.currentUser"
+                        element-classname="cmuGloNav__cmuLang"
+                        icon-classname="icon ubnt-icon--world">
+                      </community-drop-down><div 
+                  class="cmuGloNav__cmuAccount">
                   <ul ng-show="mainnavbar.isAuthenticated">
                       <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.notifications.html"
@@ -112,23 +122,18 @@
                         icon-classname="icon ubnt-icon--bell"
                         template-ctrl="mainnavbar.notifications"
                         on-open-fn="mainnavbar.notifications.getData">
-                      </community-drop-down>
-
-                      <community-drop-down
+                      </community-drop-down><community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.messages.html"
                         element-classname="cmuGloNav__inbox"
                         template-ctrl="mainnavbar.inbox"
                         icon-classname="icon ubnt-icon--inbox"
-                        on-open-fn="mainnavbar.inbox.getData">>
-                      </community-drop-down>
-
-                      <community-drop-down
+                        on-open-fn="mainnavbar.inbox.getData">
+                      </community-drop-down><community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.profile.html"
                         template-ctrl="mainnavbar.currentUser"
                         element-classname="cmuGloNav__profile"
                         icon-classname="cmuProfile__avatar">
                       </community-drop-down>
-
                   </ul>
                   <ul ng-hide="mainnavbar.isAuthenticated">
                        <li class="cmuGloNav__link"><a href="https://account.ubnt.com/login?redirect=https://comm2-stage.ubnt.com/" target="_blank">Login</a></li>
@@ -151,5 +156,5 @@
 
   <community-search-bar
     open-event="toggleSearchbar">
-  </community-searchbar>
+  </community-search-bar>
 </div>

@@ -51,14 +51,16 @@
 	// not sure about x-browser support
 	// br is notoriously weird
 	// users like adding in line breaks, so make these as high as a line
+	// the problem with making these as high as a line is the markdown is not wysiwyg anymore
 	br {
 		content: " ";
 		display: block; 
-		margin-bottom: $cmu-base/2;
+		// margin-bottom: $cmu-base/4;
+		margin-bottom: 0;
 
 		// HTML might leak through multiple line breaks; hide these
 		&+br {
-			display: none;
+			// display: none;
 		}
 	}
   

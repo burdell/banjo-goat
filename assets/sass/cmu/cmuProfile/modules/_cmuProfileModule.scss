@@ -87,7 +87,12 @@
 
 .cmuProfile__dropdown__content {
 	background-color: $cmu-color-purewhite;
-
+	ul { 
+		display: block;
+	}
+	li {
+		display: block;
+	}
 	li:hover {
 		a {
 			text-decoration: underline;

@@ -1,5 +1,5 @@
 <div class="col--md6 col--mdOffset6 noPaddingRight">
-	<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
+	<!-- <community-user-avatar user="userbadge.displayUser"></community-user-avatar> -->
 	<div class="cmuProfile__dropdown__container cmuDropdown__container">
 		<div class="cmuProfile__dropdown__header cmuDropdown__header clearfix">
 			<div class="cmuDropdown__headline">{{ dropdown.templateCtrl.login }}</div>
@@ -7,13 +7,13 @@
 
 		<div class="cmuProfile__dropdown__content cmuDropdown__content clearfix">
 			<ul>
-				<li class="col--md12">
+				<li>
 					<a ng-href="{{ dropdown.templateCtrl.profileUrl }}" target="{{ dropdown.templateCtrl.profileUrlTarget }}">User Profile</a>
 				</li>
-				<li class="col--md12">
+				<li>
 					<a>Account Settings</a>
 				</li>
-				<li class="col--md12">
+				<li>
 					<a>Support</a>
 				</li>
 			</ul>
