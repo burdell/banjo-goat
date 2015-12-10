@@ -1,0 +1,54 @@
+
+
+// 
+// Select dropdown that uses the dropdown template instead of <select>
+// - used by Actions and anything with links instead of a form
+// 
+
+// testing using custom dropdown select for actions
+.cmuInput__selectDropdown {
+    line-height: $cmu-base*2 - remCalc(2px);
+    list-style-type: none;
+    border: $style-line;
+    background-color: $cmu-color-purewhite;
+    cursor: pointer;
+    padding: 0 $cmu-base/2;
+    @extend %ease-fast;
+
+    &:hover {
+    	border-color: $cmu-color-active;
+    	@extend %ease-fast;
+    }
+
+    &:before {
+    	@extend %font-ubnt;
+    	content: '\e6d0';
+    	color: $cmu-color-gray;
+    	float: right;
+    	margin-right: $cmu-base/4;
+    }
+
+    &.active {
+    	border-color: $cmu-color-active;
+    	&:after {
+		    @include triangle(top, $cmu-color-ltgray, $size-arrow*3/4);
+		    position: relative;
+		    bottom: -10px;
+    	}
+    }
+
+}
+	.cmuInput__selectDropdown__container {
+		margin-left: $cmu-base/2;
+
+		 span.cmuDropdown--span {
+			display: block;
+			float: left;
+			width: 100%;
+			position: relative;
+		}
+	}
+
+	.cmuInput__selectDropdown__container .cmuDropdown {
+	    left: -$cmu-base*3.5;
+	}

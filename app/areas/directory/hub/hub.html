@@ -10,33 +10,37 @@
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 
 				<!-- story feed -->
-				<div class="cmuFeed__container" ng-if="vm.storyList.length > 0">
+				<div class="cmuFeed__container col--md12" ng-if="vm.storyList.length > 0">
 		        	<div class="cmuFeed__title clearfix">
 		        		<div class="col--md10">
-							<h5><span class="cmuIcon__label stories"></span>Popular {{ vm.nodeDisplay }} Stories</h5>
+							<h5>Latest {{ vm.nodeDisplay }} Stories</h5>
 						</div>
+
+						<div class="col--md2 alignRight">
+							<a class="style-link" ng-href="{{ vm.productStoriesUrl }}" target="_self">Read All Stories</a>
+						</div>
+
 					</div>
 
 					<div class="cmuFeed__storyList col--md12 noPaddingLeft noPaddingRight">
-						<div class="col--md3" ng-repeat="story in vm.storyList">
-							<story-display 
-								story="story"
-								minimal-display="true"
-								hide-posting-info="false"
-								fill-width="true">
-							</story-display>
+						<div class="cmuFeed__storyList__stories clearfix">
+							<div class="col--md3" ng-repeat="story in vm.storyList">
+								<story-display 
+									story="story"
+									minimal-display="true"
+									hide-posting-info="false"
+									fill-width="true">
+								</story-display>
+							</div>
 						</div>
-					</div>
-					<div>
-						<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">All Stories</a>
 					</div>
 				</div>
 
 				<!-- activity feed -->
-				<div class="cmuFeed__container">
+				<div class="cmuFeed__container col--md12">
 					<div class="cmuFeed__title clearfix">
 		        		<div class="col--md12">
-							<h5><span class="cmuIcon__label all"></span>Popular {{ vm.nodeDisplay }} Discussions</h5>
+							<h5>Latest {{ vm.nodeDisplay }} Discussions</h5>
 						</div>
 					</div>
 
@@ -47,6 +51,7 @@
 					</div>
 
 					<community-load-more
+						class="cmuFeed__pagerBottom col--md12 noPaddingLeft noPaddingRight"
 						list-model="vm.discussionsFeed"
 						load-text="Read More"
 						load-filter="vm.discussionsFeedFilter">

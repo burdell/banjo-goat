@@ -1,0 +1,63 @@
+
+// 
+// Input Selector
+// e.g. Story product selector, tag selector
+// overwrites a lot of imported css from "select2.css"
+// 
+
+.cmuInputSelector {
+	background-color: $cmu-color-purewhite !important;
+	@extend %ease-fast;
+
+	.select2-choices {
+		background-color: $cmu-color-purewhite !important;
+		background-image: none !important;
+		@extend %ease-fast;
+
+		padding-top: $cmu-base*1.5  !important;
+		padding-bottom: 0.2rem !important;
+	}
+
+		.select2-search-field {
+			// width: 100% !important;
+		}
+
+	.select2-input {
+		// width: 500px !important;
+		padding-left: $cmu-base/2 !important;
+		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+		font-size: 13px !important;
+		color: $cmu-color-black !important;
+		background-color: $cmu-color-ltgray !important;
+
+		@include cmu-placeholder {
+			color: $cmu-color-black;
+
+			// text-transform: uppercase;
+			color: $cmu-color-dkgray;
+			font-size: $cmu-size-form;
+			cursor: text;
+			// line-height: remCalc(41px);
+		}
+
+		&:focus {
+			@include cmu-placeholder {
+				color: $cmu-color-mdgray;
+			}
+		}
+	}
+
+	.select2-choices {
+  		box-shadow: none !important;
+  	}
+	.select2-drop {
+  		top: 100% !important;
+  		margin-top: 6px;
+  		border-radius: 0 !important;
+  		border-top: 1px solid  $cmu-color-blue;
+  		box-shadow: none !important;
+	}
+	.select2-result-single {
+		margin-bottom: 0 !important;
+	}
+}

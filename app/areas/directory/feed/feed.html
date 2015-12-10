@@ -13,10 +13,10 @@
 
 				<!-- filter & sort controls -->
 				<div class="cmuThreadlist__ctrl__row row">
-					<div class="col--md8">
+					<div class="col--md7">
 						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Recent Content</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >Followed Content</button>
 					</div>
-					 <div class="col--md2 noPaddingRight">
+					 <div class="col--md3 noPaddingRight">
 			          	<community-sort 
 			          		sort-options="vm.categorySortOptions" 
 			          		sort-filter="vm.feedFilter" 
@@ -57,7 +57,7 @@
 						</div>
 						
 						<div class="cmuFeed__storyList cmuCollapser__content clearfix">
-							<div class="cmuFeed__storyList__stories">
+							<div class="cmuFeed__storyList__stories clearfix">
 								<div ng-repeat="story in vm.storyData" class="col--md3">
 									<story-display
 										story="story"

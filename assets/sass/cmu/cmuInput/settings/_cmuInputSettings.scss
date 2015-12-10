@@ -1,0 +1,95 @@
+
+// We use this to set the base for lots of form spacing and positioning styles
+$cmu-searchbox-form-spacing: remCalc($cmu-base) !default;
+
+// We use these to style the labels in different ways
+$cmu-searchbox-font-family: inherit !default;
+$cmu-searchbox-font-size: $cmu-input-font-size;
+$cmu-searchbox-border-radius: 0 !default;
+$cmu-searchbox-box-shadow: none;
+
+// We use this to style the glowing effect of inputs when focused
+$cmu-searchbox-glowing-effect-fade-time: 0.45s !default;
+
+
+
+// 
+// COLORS
+// 
+
+$cmu-searchbox-font-color: $cmu-color-body;
+$cmu-searchbox-background-color: $cmu-color-purewhite;
+$cmu-searchbox-focus-background-color: $cmu-color-purewhite;
+$cmu-searchbox-border-color: $cmu-color-line;
+$cmu-searchbox-focus-border-color: $cmu-primary-link-color;
+$cmu-searchbox-disabled-background-color: $cmu-color-bg;
+
+
+
+// community input fields
+
+
+$input-off-color-bg: $cmu-color-purewhite;
+$input-disabled-color: $cmu-color-disabled;
+
+
+
+
+// 
+// Non-specific Input Styles
+// 
+
+// surround <input>s in these for positioning
+// groups together form elements and creates padding
+.cmuInputGroup {
+	margin-bottom: $cmu-vertical-rhythm;
+
+	// "sublevel" – nested 
+	.cmuInputGroup__sublevel {
+		padding-left: $cmu-base;
+	}
+}
+
+
+
+// input contianers contain inputs and labels (e.g. story)
+.cmuInputContainer {
+	position: relative;
+}
+
+
+// generalized input
+%cmuInput {
+	border: $style-line;
+	margin-bottom: $cmu-base/2;
+	padding: $cmu-base/2;
+	background-color: $cmu-color-purewhite;
+
+	@extend %ease-fast;
+
+	@include cmu-placeholder {
+		color: $cmu-color-black;
+	}
+
+	&:focus {
+		border: 1px solid $cmu-color-blue;
+		outline: 0;
+		background-color: $cmu-color-white;
+	}
+}	
+	input.cmuInput {
+		@extend %cmuInput;
+	}
+	.cmuInput input {
+		@extend %cmuInput;
+	}
+
+	.cmuInput--wide {
+		width: 100%;
+	}
+
+
+
+
+
+

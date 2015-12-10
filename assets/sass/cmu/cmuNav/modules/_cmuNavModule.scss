@@ -101,9 +101,6 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		border-bottom: $nav-border;
 		@include box-shadow(0, 0, 5px, $cmu-color-black);
 
-		ul {
-			margin-bottom: 0;
-		}
 		.row {
 			display: block;
 		}

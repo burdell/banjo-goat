@@ -3,6 +3,7 @@
 
 require('filters/sanitize.js');
 require('filters/timefromnow.js');
+require('shared/directives/sorter/sorter.js');
 
 require('directives/userbadge/userbadge.js');
 require('services/permissions.js');

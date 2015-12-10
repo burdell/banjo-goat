@@ -21,6 +21,7 @@ $size-badgewidth-min:		$cmu-base*11;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
 $cmu-min-pageHeight--m:		$cmu-base*35;
+$cmu-dropdown-width:		$cmu-base*15;
 
 $cmu-height: $cmu-base*2;	// base height of objects is 32px
 $cmu-height--slim: $cmu-base*3/2;	// base height of slim objects (in threads) is 24px

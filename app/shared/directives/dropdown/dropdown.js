@@ -46,6 +46,7 @@
 	        	templateCtrl: '=',
 	        	elementClassname: '@',
 	        	iconClassname: '@',
+	        	label: '@',
 	        	onOpenFn: '='
 	        }
 	    };

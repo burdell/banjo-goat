@@ -1,0 +1,142 @@
+_cmuInputUploadModule.scss
+
+
+// 
+// File Input / Upload
+// 
+
+// hide the standard interface
+.cmuInputFile--label input[type="file"] {
+    position: fixed;
+    top: -10000px;
+}
+
+// define our own similar to solid buttons
+.cmuInputFile--label {
+	@extend .cmuButton;
+	@extend .button--solid;
+	cursor: pointer; 
+    display: inline-block;
+    margin: $cmu-base/2 0;
+    padding: $cmu-base/6 $cmu-base;
+    @extend %ease-fast;
+
+    // might do these later
+    &:hover {}
+    &:active {}
+    &:invalid + span {}
+    &:valid + span {}
+}
+
+	.cmuInputFile--uploading {
+		@extend .cmuButton;
+		@extend .button--outline;
+			@include cmuButton('outline',$cmu-color-gray);
+	
+		cursor: wait;
+    	display: inline-block;
+	    margin: $cmu-base/2 0 !important;
+	    padding: $cmu-base/3 $cmu-base;
+	}
+
+
+
+
+
+// 
+// URL File Upload Input
+// 
+.cmuInputUrl {
+	width: 100%;
+	position: relative;
+}
+
+	.cmuInputUrl--input {
+		width: 100%;
+		float: left;
+		@extend %ease-fast;
+
+	    // margin: $cmu-base/2 0;
+	    // margin-top: 0;
+	    margin-bottom: -1px;
+		padding: $cmu-base/2;
+		// @extend %cmuInput--stacked--expanded;
+
+		// slightly higher padding to give more air
+		padding-top: 1.8rem;
+		padding-bottom: 0.8rem;
+
+		border: 1px solid $cmu-color-gray;
+
+		// hide the placeholder when not active
+		@include cmu-placeholder {
+			color: $cmu-color-ltgray;
+			font-size: $cmu-size-form;
+			cursor: text;
+		}
+
+		// show placeholder and expand when active and filled in
+		// edit: maybe don't show/hide for this one for prominence
+		&:focus, &:valid { 
+			@extend %ease-fast;
+			// @extend %cmuInput--stacked--expanded;
+
+			&+label+.cmuInputUrl--button {
+				border-color: $cmu-color-blue !important;
+			}
+		}
+
+		&:focus {
+			outline: 0;
+			border: 1px solid $cmu-color-blue;
+
+			@include cmu-placeholder {
+				color: $cmu-color-ltgray;
+			}
+		}
+
+		// infield label
+		&+label {
+			position: absolute;
+			top: 8px;
+			left: 9px;
+
+			text-transform: uppercase;
+			color: $cmu-color-gray;
+			font-size: $cmu-size-form;
+			cursor: text;
+		}
+
+		// upload button non-active state
+		&+label+.cmuInputUrl--button {
+			@extend .cmuButton;
+			@extend .button--ghost;
+			cursor: default; 
+		    display: inline-block;
+		    margin: $cmu-base/2 0;
+		    margin-top: 0;
+		    padding: $cmu-base/12 $cmu-base/2;
+		    width: 100%;
+			text-align: left;
+			// background-color: $cmu-color-ltmdgray;
+			// color: $cmu-color-purewhite;
+			border-color: $cmu-color-gray;
+			border-width: 1px;
+			border-top: 0;
+
+			&:hover {
+				background-color: $cmu-color-ltmdgray;
+				color: $cmu-color-blue;
+				border-color: $cmu-color-gray;
+			}
+		}
+
+		// upload button active state 
+		&:valid { 
+			&+label+.cmuInputUrl--button {
+				@extend .button--solid;
+				cursor: pointer;
+			}
+		}
+
+	}

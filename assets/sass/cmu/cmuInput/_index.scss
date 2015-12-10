@@ -1,4 +1,11 @@
 
-@import 'settings/cmuInputSettings';
-@import 'modules/cmuInputModule';
-@import 'modules/cmuSearchboxModule';
+@import 'settings/cmuInputSettings';			// general reusable settings - colors, lines, etc. 
+@import 'modules/cmuInputModule';				// single line entry field with label
+@import 'modules/cmuInputSelectorModule';		// single line entry field with suggestions / tags (e.g. story)
+@import 'modules/cmuSearchboxModule';			// in-page searchbox+filter input (e.g. keyword filter in feature requests)
+@import 'modules/cmuInputCheckboxModule';		// Fancy checkbox groups used for filters, search, etc.
+@import 'modules/cmuInputSelectModule';			// <Select> dropdown (For filters, forms, system/browser-based)
+@import 'modules/cmuInputSelectDropdownModule';	// Select box that uses the dropdown template (used for Actions)
+
+
+

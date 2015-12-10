@@ -60,7 +60,7 @@
 		padding: $cmu-base/2;
 		border-bottom: $style-line;
 		height: $cmu-base*2;
-		* { line-height: $cmu-base }
+		* { @extend %h5 }
 	}
 
 
@@ -265,7 +265,7 @@
 }
 
 	.cmuFeed__hub {
-    	padding-top: 1.4rem;
+    	padding-top: $cmu-base;
 	}
 
 	.cmuFeed__sidebar__link {

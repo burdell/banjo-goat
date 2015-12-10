@@ -100,7 +100,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	
 .cmuMessage__content {
 	margin-top: $cmu-base/2;
-	margin-bottom: $cmu-vertical-rhythm*3;
+	margin-bottom: $cmu-vertical-rhythm;
 	min-height: $cmu-thread-message-height;
 
 	font-size: $size-normal;
@@ -110,12 +110,15 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .cmuMessage__signature {
 	border: $style-line;
-	padding: $cmu-base*2;
+	padding: $cmu-base/2;
 	padding-top: $cmu-base/4;
 	@extend %size-xsmaller;
-	margin-bottom: $cmu-base/2;
+	margin-bottom: $cmu-vertical-rhythm*3;
 
-	max-height: $cmu-base*3; 
+	max-height: $cmu-base*5; 
+    // word-wrap: break-word;
+    word-break: break-word;
+
 	overflow: hidden;
 }
 

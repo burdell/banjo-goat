@@ -207,7 +207,7 @@ button, .button, .cmuButton {
 	cursor: pointer !important;
 
 	// space them out if next to each other
-	&+& {
+	&+&, &+select {
 		margin-left: $cmu-base/2;
 	}
 }

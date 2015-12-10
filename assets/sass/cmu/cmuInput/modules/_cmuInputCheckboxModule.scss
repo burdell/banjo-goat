@@ -1,0 +1,141 @@
+
+// 
+// Checkboxes and Radio
+// 
+
+
+// in inputgroups, this acts like the default "all checkboxes" option
+.cmuInput__checkbox--default {
+	// border-bottom: 1px solid $cmu-color-ltgray;
+	// padding-bottom: $cmu-base/2;
+	// margin-bottom: $cmu-base/2;
+
+	// most sites actually hide this guy, since it's implied 
+	input {
+		display: none;
+	}
+	span {
+		font-weight: 600;
+		color: $cmu-color-ltblack !important;
+	}
+
+	// shift input boxes to denote hierarchy better
+	& ~ .cmuInput__checkbox {
+		// removed since we now just hide this
+		// margin-left: $cmu-base/2;
+	}
+}
+
+.cmuInput__checkbox {
+	&, * { 
+		@extend %user-select-none;
+	}
+
+	/* hide default checkbox */
+	input[type="checkbox"] {
+		-webkit-appearance: none;
+		appearance: none;
+		display: relative;
+		cursor: pointer; 
+		@extend %user-select-none;
+	}
+
+	/* custom checkbox placeholder */
+	input[type="checkbox"]:before {
+		content: ' ';
+		display: block;
+		position: relative;
+		top: $cmu-base/4 - remCalc(1px);
+		width: $cmu-base;
+		height: $cmu-base;
+		border: 1px solid $cmu-color-line--light;
+		background-color: $input-off-color-bg;
+		margin-right: $cmu-base/4;
+		cursor: pointer; 
+	}
+
+	/* accessibility / focus outline color */
+	input[type="checkbox"]:focus {
+		outline: 0;
+	}
+	input[type="checkbox"]:focus:before {
+		border-color: $cmu-color-active;
+	}
+
+	/* checkmark base style */
+	input[type="checkbox"]:after {
+		content: '✔';
+		position: absolute;
+		margin-top: -$cmu-base/1.4;
+		margin-left: $cmu-base/4;
+		color: $cmu-color-bodybg;
+		font-size: $size-xxsmaller;
+		z-index: 100;
+		@extend %ease;
+		opacity: 0;
+	}
+
+		// disabled
+		input[type="checkbox"][disabled] { 
+			// opacity: 0;
+			display: none;
+		}
+
+		input[type="checkbox"][disabled]:after {
+			@extend %ease;
+			opacity: 0;
+			background-color: $input-disabled-color;
+		}
+
+		// checked checkbox container
+		input[type="checkbox"]:checked:before {
+			background-color: $cmu-color-active;
+			border-color: $cmu-color-active;
+		}
+
+		// checked checkmark
+		input[type="checkbox"]:checked:after {
+			@extend %ease;
+			opacity: 1;
+		}
+			// (special) group default checkbox not-checked label style
+			.cmuInput__checkbox input[type="checkbox"] + span {
+				// color: $cmu-color-red;
+			}
+
+		// label style
+		input[type="checkbox"] + span {
+			cursor: pointer;
+			@extend %user-select-none;
+
+			&:hover {
+				color: $cmu-color-active;
+			}
+		}
+
+		// checked label style
+		input[type="checkbox"]:checked + span {
+			color: $cmu-color-active;
+		}
+
+		// not checked label
+		input[type="checkbox"]:not(:checked) + span {
+			color: $cmu-color-title;
+		}
+
+		// disabled label style (has to be after not checked style)
+		input[type="checkbox"][disabled] + span {
+			color: $input-disabled-color;
+			padding-left: $cmu-base;
+			display: none;
+			@include cmuAnimate (fadeInFromNone, $speed-slow);
+		}
+
+
+			// (special) group default checkbox not-checked label style
+			// .cmuInput__checkbox--default label input[type="checkbox"]:not(:checked) + span {
+			// 	color: $cmu-color-red;
+			// }
+
+}
+
