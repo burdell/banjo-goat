@@ -1,44 +1,74 @@
 
 <div class="row">
-	<h1>
+	<h3>
 		{{ vm.story.subject || vm.placeholders.subject }}
-	</h1>	
+		<span ng-if="vm.canEdit">
+			<a area-link-handler="{{ vm.editUrl }}">
+				<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
+				<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
+			</a>
+		</span>
+	</h3>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 </div>
 
 <div class="cmuStories__story__controlsTop row" ng-hide="vm.hideStoryControls">
 
 
-	<div class="cmuStories__story__controlsTop--left col--md9 noPadding">
-			<community-user-badge 
-				class="cmuUserbadge--thin cmuUserbadge--thin--open"
-				user="vm.storyAuthor"
-				op-id="messageDisplay.showOp">
-			</community-user-badge>
+	<div class="cmuStories__story__controlsTop--left col--md12 noPadding">
+		<community-user-badge 
+			class="cmuUserbadge--thin cmuUserbadge--thin--open"
+			user="vm.storyAuthor"
+			op-id="messageDisplay.showOp">
+		</community-user-badge>
 
-
-		<button community-permissions denied-behavior="disable" community-permissions ng-if="
+<!-- 
+		<button 
+			community-permissions 
+			denied-behavior="disable" 
+			community-permissions ng-if="
 			vm.coordinates.locName || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
 				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
 				vm.story.meta.bandwidth ||
 				(vm.productList && vm.productList.length > 0)
-			" class="button--vote button-green-on-white">
-			{{ vm.discussion.stats | extractKey : 'score' }} 123 kudos
+			" 
+			class="button button--vote button--vote--kudo"
+			community-class-toggle="button--voted">
+				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
+		</button>
+		 -->
+	</div>
+	<div>
+		<button 
+			community-permissions 
+			denied-behavior="disable" 
+			community-permissions
+			class="button button--vote button--vote--kudo"
+			community-class-toggle="button--voted">
+				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
 		</button>
 	</div>
-
-	<div community-permissions denied-behavior="disable" class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding">
-		<button ng-hide="
+<!-- 
+	<div 
+		class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding"
+		ng-hide="
 			vm.coordinates.locName || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
 				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
 				vm.story.meta.bandwidth ||
 				(vm.productList && vm.productList.length > 0)
-			" class="button--vote button-white-on-green">
-			{{ vm.discussion.stats | extractKey : 'score' }} kudos
+			" >
+		<button 
+			community-permissions 
+			denied-behavior="disable"
+			class="button button--vote button--vote--kudo"
+			community-class-toggle="button--voted"
+			>
+			<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
 		</button>
 	</div>
+	 -->
 </div>
 
 <div class="cmuStories__story__body row">
@@ -59,7 +89,7 @@
 			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
-		<div class="cmuStories__story__body" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
+		<div class="cmuStories__story__body__content" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
 
 		<div class="cmuStories__story__imageContainer" ng-class="vm.story.media.length > 2 ? 'break-columns' : '' ">
 			<div class="cmuStories__story__mediaItem" ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
@@ -82,46 +112,68 @@
 	<!-- 
 		Sidebar
 	 -->
-	<div class="cmuStory__sidebar col--md3">
-		<div ng-if="vm.coordinates.locName">
+	<div 
+		class="cmuStory__sidebar col--md3"
+		ng-if="
+			vm.coordinates.locName || vm.story.meta.projectRole ||  
+				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
+				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
+				vm.story.meta.bandwidth ||
+				(vm.productList && vm.productList.length > 0)
+			" 
+		>
+		<div class="cmuStory__sidebar__item" ng-if="vm.coordinates.locName">
+			<div class="cmuStory__sidebar__title">Story Location</div>
 			<community-map class="cmuStory__sidebar__map" map-coordinates="vm.coordinates"></community-map>
 			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
 		</div>
-		<div ng-if="vm.story.meta.projectRole">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.projectRole">
 		 	<label>Project Role</label>
 			<p>{{ vm.story.meta.projectRole }}</p>
 		</div>
-		<div ng-if="vm.story.meta.finishDate">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.finishDate">
 			<label>Finish Date</label>
 			<p>{{ vm.story.meta.finishDate | date }}</p>
 		</div>
-		<div ng-if="vm.story.meta.numberOfUsers">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.numberOfUsers">
 			<label>Users in Networks</label>
 			<p>{{ vm.story.meta.numberOfUsers | number }}</p>
 		</div>
-		<div ng-if="vm.story.meta.budgetAmount">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.budgetAmount">
 			<label>Budget</label>
 			<p>{{ vm.story.meta.budgetAmount | currency }}</p>
 		</div>
-		<div ng-if="vm.story.meta.dataRequirement">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.dataRequirement">
 			<label>Data Requirement</label>
 			<p>{{ vm.story.meta.dataRequirement }}</p>
 		</div>
-		<div ng-if="vm.story.meta.bandwidth">
+		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.bandwidth">
 			<label>Bandwidth</label>
 			<p>{{ vm.story.meta.bandwidth }}</p>
 		</div>
 
-		<div class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">
+		<div class="cmuStory__sidebar__item clearfix" class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">
 			<div class="cmuStory__products--header">Products Used</div>
 			<div ng-repeat="product in vm.productList track by $index">
-				<a class="cmuStory__product col--md12 noPadding" area-link-handler="{{ vm.getProductUrl(product) }}" >
-					<div class="cmuStory__product__icon">
+				<a class="cmuStory__product style-tag" area-link-handler="{{ vm.getProductUrl(product) }}" >
+					<!-- <div class="cmuStory__product__icon">
 						<span class="icon {{ vm.getProductIcon(product) }}"></span>
-					</div>
+					</div> -->
 					<div class="cmuStory__product__name">{{ vm.getProductName(product) }}</div>
 				</a>
 			</div>
 		</div>
-	</div>	
+	</div>
+
+
+	<div 
+		class="cmuStories__story__body__bottom"
+		ng-class="{'col--md9':
+			vm.coordinates.locName || vm.story.meta.projectRole ||  
+				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
+				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
+				vm.story.meta.bandwidth ||
+				(vm.productList && vm.productList.length > 0)
+			}">
+	</div>
 </div>

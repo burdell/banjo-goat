@@ -172,6 +172,7 @@ $style-line: 1px solid $cmu-color-line;
 
 .style-tag, %style-tag, .cmuTag {
 	display: inline-block;
+	position: relative;
 	@extend %size-xxsmaller;
 	// @extend %user-select-none;
 	color: $cmu-color-dkgray;
@@ -187,6 +188,8 @@ $style-line: 1px solid $cmu-color-line;
 	color: $cmu-color-body;
 
 	cursor: pointer;
+	max-width: 100%;
+	overflow: hidden;
 
 	white-space: nowrap; // prevents wrapping on long titles; will just go to next line
 
@@ -204,6 +207,11 @@ $style-line: 1px solid $cmu-color-line;
 		@extend %style-tag;
 		border: 0;
 		background-color: transparent;
+	}
+
+	// used as the partial; too small for own scss file
+	.cmuProductTag {
+		line-height: 0;
 	}
 
 
@@ -355,6 +363,7 @@ $stat-padding: 4.5px $cmu-base/2;
 
 		content: attr(data-tooltip);
 		@extend %style-tag;
+		max-width: initial;
 		@extend %ease-fast;
 
 		border: 0;

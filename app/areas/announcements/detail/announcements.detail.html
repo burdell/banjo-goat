@@ -9,8 +9,9 @@
 
 						<div class="col--md12">
 							<h3>{{ vm.currentAnnouncement.context.topicSubject | htmlUnescape}}</h3> 
-							<div class="cmuThread__subject__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }} </div>
-							<span class="cmuThread__subject__date-edited" ng-if="vm.isEdited"> | Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
+							<div class="cmuThread__subject__date">{{ vm.currentAnnouncement.postDate | exactTimeFromNow }} <span class="cmuThread__subject__date--edited" ng-if="vm.isEdited">Edited {{ vm.currentAnnouncement.editDate | exactTimeFromNow }}</span>
+							</div>
+							
 						</div>
 
 					</div>

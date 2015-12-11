@@ -31,9 +31,13 @@ $cmu-thread-message-height:	$cmu-base * 3;
 }
 	// in announcements, the date is part of the title
 	.cmuThread__subject__date {
-		margin-top: -$cmu-vertical-rhythm;
+		margin-top: -$cmu-vertical-rhythm*3/2;
 		margin-bottom: $cmu-vertical-rhythm;
 	}
+		.cmuThread__subject__date--edited {
+			margin-left: $cmu-base/2;
+			color: $cmu-color-inactive;
+		}
 
 	// Active Thread
 	.cmuThread__subject--active {

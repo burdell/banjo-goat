@@ -6673,7 +6673,7 @@ ol, li {
 }
 
 .community__content {
-  padding-top: 2rem;
+  padding-top: 3rem;
   position: relative;
   padding-bottom: 20rem;
   min-height: 100%;
@@ -6696,7 +6696,7 @@ ol, li {
   display: none;
 }
 
-.style-link, .cmuDropdown__content li, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuMessage__replyTo a, .cmuContent a, .cmuComments__body__content a, .cmuGloNav *, .cmuMega *, .cmuCollapser__header, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
+.style-link, .cmuDropdown__content li, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuFeed__actions a, .cmuMessage__replyTo a, .cmuContent a, .cmuComments__body__content a, .cmuGloNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
@@ -6753,11 +6753,11 @@ body {
 }
 
 .cmuSearchbox.cmuSearchbox--large .appIconInput__icon, .cmuSearchbar .appIconInput__icon, .cmuSearchbox.cmuSearchbox--page .appIconInput__icon {
-  font-size: 1.1875rem;
+  font-size: 1.3125rem;
   line-height: 2.25rem;
 }
 
-.cmuFeatures__threadlist__body__title a, .cmuStories__summary {
+.cmuFeatures__threadlist__body__title a {
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -6788,9 +6788,9 @@ h1 {
   font-weight: 300;
 }
 
-h2 {
-  font-size: 1.5rem;
-  line-height: 2.0625rem;
+h2, .cmuStories__summary {
+  font-size: 1.3125rem;
+  line-height: 2.25rem;
   font-weight: 400;
 }
 
@@ -6802,7 +6802,7 @@ h3, .cmuComments__header, .cmuSearchbox.cmuSearchbox--large input, .cmuSearchbar
 }
 
 h4, .cmuSearchpage__noResults {
-  font-size: 1.1875rem;
+  font-size: 1.3125rem;
   line-height: 2.25rem;
   font-weight: 300;
   color: #474b52;
@@ -6917,6 +6917,7 @@ h6 {
 
 .style-tag, .style-tag--noLine, .cmuHoverflag:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag {
   display: inline-block;
+  position: relative;
   color: #474b52;
   border: 1px solid #dadada;
   padding: 0.28125rem 0.5rem;
@@ -6926,6 +6927,8 @@ h6 {
   color: #0074ad;
   color: #474b52;
   cursor: pointer;
+  max-width: 100%;
+  overflow: hidden;
   white-space: nowrap;
 }
 .style-tag:hover, .style-tag--noLine:hover, .cmuHoverflag:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover {
@@ -6936,6 +6939,10 @@ h6 {
 .style-tag--noLine {
   border: 0;
   background-color: transparent;
+}
+
+.cmuProductTag {
+  line-height: 0;
 }
 
 .style-stat, .cmuFeed__stat, .cmuStoryItem__stat {
@@ -7017,6 +7024,7 @@ h6 {
   opacity: 0;
   visibility: hidden;
   content: attr(data-tooltip);
+  max-width: initial;
   border: 0;
   background-color: #474b52;
   color: #fafafa;
@@ -8472,7 +8480,7 @@ div.cmuOverlay--show {
   -webkit-transition: max-height 360ms, opacity 360ms;
   transition: max-height 360ms, opacity 360ms;
   display: inline-block;
-  content: '\e6cd';
+  content: '\e6ce';
   background-color: #dadada;
   margin-right: 0.5rem;
   float: left;
@@ -8546,6 +8554,10 @@ div.cmuCollapser__content {
 .cmuCollapser.collapseRight .cmuCollapser__header:before, .cmuCollapser__container.collapseRight .cmuCollapser__header:before {
   float: right;
   margin-right: 0;
+  content: '\e6cf';
+}
+.cmuCollapser.collapseRight .cmuCollapser__header.open:before, .cmuCollapser__container.collapseRight .cmuCollapser__header.open:before {
+  content: '\e6d0';
 }
 .cmuCollapser.collapseRight .cmuCollapser__header > div, .cmuCollapser__container.collapseRight .cmuCollapser__header > div {
   margin-left: 0;
@@ -8818,7 +8830,7 @@ div.cmuCollapser__content {
 }
 @media only screen and (max-width: 800px) {
   .cmuDirectory__count {
-    font-size: 1.1875rem;
+    font-size: 1.3125rem;
   }
 }
 
@@ -8972,6 +8984,7 @@ div.cmuCollapser__content {
 .cmuFeed__content {
   color: #474b52;
   margin: 0.25rem 0;
+  margin-bottom: 1rem;
   /* white-space: nowrap; */
   overflow: hidden;
   max-height: 3rem;
@@ -9264,8 +9277,13 @@ div.cmuCollapser__content {
 }
 
 .cmuThread__subject__date {
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   margin-bottom: 1rem;
+}
+
+.cmuThread__subject__date--edited {
+  margin-left: 0.5rem;
+  color: #969ba3;
 }
 
 .cmuThread__subject--active h3:before {
@@ -10206,6 +10224,7 @@ button .icon, .button .icon {
 }
 .cmuUserbadge--thin .cmuUserbadge__posts {
   padding-left: 0;
+  margin-top: 1px;
 }
 .cmuUserbadge--thin .cmuUserbadge__posts:after {
   padding-left: 3px;
@@ -10321,8 +10340,8 @@ button .icon, .button .icon {
 }
 
 .cmuComments__header {
-  padding-bottom: 0.5rem 1rem;
   padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
   background-color: #f3f3f3;
 }
 
@@ -11373,7 +11392,7 @@ select.cmuSort {
   border-radius: 100%;
   color: white;
   background-color: #3cccac;
-  font-size: 1.1875rem;
+  font-size: 1.3125rem;
 }
 
 .cmuStoryItem__image {
@@ -11413,14 +11432,16 @@ select.cmuSort {
 .cmuStoryDetail h1 {
   margin-top: 0.5rem;
 }
-
-.cmuStoryDetail__container {
-  padding: 1rem;
-  border: 1px solid #dadada;
+.cmuStoryDetail h3 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 2rem;
 }
 
 .cmuStories__summary {
-  color: #474b52;
+  color: #969ba3;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
 }
 
 .cmuStories__story__controlsTop {
@@ -11428,9 +11449,14 @@ select.cmuSort {
   margin-bottom: 0.5rem;
 }
 
-.cmuStories__story__controlsTop--left button {
+.cmuStories__story__controlsTop--left,
+.cmuStories__story__controlsTop--right {
+  margin-bottom: 1rem;
+}
+.cmuStories__story__controlsTop--left button,
+.cmuStories__story__controlsTop--right button {
   float: right;
-  margin-top: 4px;
+  margin-top: 0.5rem;
 }
 
 .cmuStories__author--avatar {
@@ -11494,51 +11520,6 @@ select.cmuSort {
   font-style: italic;
 }
 
-.cmuStory__sidebar {
-  padding-left: 1rem;
-}
-.cmuStory__sidebar > div {
-  margin-bottom: 1rem;
-}
-.cmuStory__sidebar label {
-  color: #969ba3;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-}
-
-.cmuStory__sidebar__map {
-  margin-bottom: 0.5rem;
-}
-
-.cmuStory__sidebar__location {
-  margin-bottom: 1rem;
-}
-
-.cmuStory__sidebar__title {
-  color: #969ba3;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-}
-
-.cmuStory__products--header {
-  color: #969ba3;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.cmuStory__product {
-  display: block;
-  margin-bottom: 1rem;
-}
-.cmuStory__product:nth-child(1) {
-  padding-left: 0;
-}
-
-.cmuStory__product__name {
-  margin-top: 4px;
-}
-
 .cmuStories__story__body {
   margin-bottom: 1rem;
 }
@@ -11555,11 +11536,53 @@ select.cmuSort {
   margin-left: 1rem;
 }
 
+.cmuStories__story__body__bottom {
+  border-bottom: 1px solid #dadada;
+}
+
 .cmuStories__story__imageContainer {
   margin-bottom: 1rem;
 }
 .cmuStories__story__imageContainer .cmuStories__story__mediaItem__caption {
   margin-bottom: 1rem;
+}
+
+.cmuStory__sidebar {
+  padding-left: 1rem;
+}
+.cmuStory__sidebar > div {
+  margin-bottom: 1rem;
+}
+.cmuStory__sidebar label {
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}
+
+.cmuStory__sidebar__item {
+  margin-bottom: 0.5rem;
+}
+
+.cmuStory__sidebar__map {
+  margin-bottom: 0.5rem;
+}
+
+.cmuStory__sidebar__location {
+  margin-bottom: 1rem;
+}
+
+.cmuStory__sidebar__title {
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.cmuStory__products--header {
+  color: #969ba3;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .cmuStoriesNew__title, .cmuStoriesNew__form--title {

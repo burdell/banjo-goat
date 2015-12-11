@@ -180,32 +180,42 @@
 		margin-top: $cmu-vertical-rhythm/2;
 		// margin-bottom: $cmu-vertical-rhythm/2;
 	}
+
+	h3 {
+		margin-top: $cmu-vertical-rhythm;
+		margin-bottom: $cmu-vertical-rhythm*2;
+		line-height: $cmu-vertical-rhythm*2;
+	}
 }
 
 .cmuStoryDetail__container {
-	padding: $cmu-base;
-	border: $style-line;
+	// padding: $cmu-base;
+	// border: $style-line;
 }
 
-.cmuStories__summary {
-	@extend %size-large;
-  	color: $cmu-color-dkgray;
-}
+	.cmuStories__summary {
+		@extend %h2;
+	  	color: $cmu-color-gray;
+
+		margin-top: -$cmu-vertical-rhythm*3/2;
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
 
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;
 	margin-bottom: $cmu-base/2;
 
-	
-	// adjust usernames 
-	.cmuUsername {
-		// margin-left: $cmu-base/4;
-	}
 }
-	.cmuStories__story__controlsTop--left {
+	.cmuStories__story__controlsTop--left,
+	.cmuStories__story__controlsTop--right {
+		// padding: $cmu-base;
+		// border: $style-line--light;
+		margin-bottom: $cmu-vertical-rhythm;
+
 		button {
 			float: right;
-			margin-top: 4px;
+			margin-top: $cmu-base/2;
 		}
 	}
 
@@ -283,73 +293,11 @@
 	}
 }
 
-// 
-// Right Rail Info Box
-// 
 
-.cmuStory__sidebar {
-	padding-left: $cmu-base;
-
-	& > div {
-		margin-bottom: $cmu-base;
-	}
-	label {
-		color: $cmu-color-gray;
-		font-size: remCalc(10px);
-		text-transform: uppercase;
-	}
-}
-
-.cmuStory__sidebar__map {
-	margin-bottom: $cmu-base/2;
-}
-	.cmuStory__sidebar__location {
-		margin-bottom: $cmu-base;
-	}
-
-.cmuStory__sidebar__title {
-	// font-weight: 700;
-	color: $cmu-color-gray;
-	font-size: remCalc(10px);
-	text-transform: uppercase;
-}
-
-
-
-
-
-// 
-// Products
-// 
-
-.cmuStory__products {
-
-}
-
-	.cmuStory__products--header {
-		// font-weight: 700;
-		color: $cmu-color-gray;
-		font-size: remCalc(10px);
-		text-transform: uppercase;
-		margin-bottom: 4px;
-	}
-
-	.cmuStory__product {
-		display: block; 
-		margin-bottom: $cmu-base;
-
-		&:nth-child(1) {
-			padding-left: 0;
-		}
-	}
-
-	.cmuStory__product__name {
-		margin-top: 4px;
-	}
 
 // main body text
 .cmuStories__story__body {
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-vertical-rhythm;
 
 	p {
 		margin-bottom: $cmu-base;
@@ -368,6 +316,10 @@
 		}
 	}
 }
+	.cmuStories__story__body__bottom {
+		// padding: $cmu-vertical-rhythm 0;
+		border-bottom: $style-line;
+	}
 
 
 // images
@@ -407,6 +359,79 @@
 
 	}
 }
+
+
+
+
+
+
+// 
+// Right Rail Info Box
+// 
+
+.cmuStory__sidebar {
+	padding-left: $cmu-base;
+
+	& > div {
+		margin-bottom: $cmu-base;
+	}
+	label {
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		text-transform: uppercase;
+	}
+}
+
+	.cmuStory__sidebar__item {
+		// border-bottom: $style-line--light;
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
+
+	.cmuStory__sidebar__map {
+		margin-bottom: $cmu-base/2;
+	}
+		.cmuStory__sidebar__location {
+			margin-bottom: $cmu-base;
+		}
+
+	.cmuStory__sidebar__title {
+		// font-weight: 700;
+		color: $cmu-color-gray;
+		font-size: remCalc(10px);
+		text-transform: uppercase;
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
+
+
+	// 
+	// Products
+	// 
+
+	.cmuStory__products {
+
+	}
+
+		.cmuStory__products--header {
+			// font-weight: 700;
+			color: $cmu-color-gray;
+			font-size: remCalc(10px);
+			text-transform: uppercase;
+			margin-bottom: $cmu-vertical-rhythm/2;
+		}
+
+		// .cmuStory__product {
+		// 	display: block; 
+		// 	margin-bottom: $cmu-base;
+
+		// 	&:nth-child(1) {
+		// 		padding-left: 0;
+		// 	}
+		// }
+
+		// .cmuStory__product__name {
+		// 	margin-top: 4px;
+		// }
+
 
 
 

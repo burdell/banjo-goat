@@ -1,29 +1,37 @@
 <div class="cmuStoryDetail row">
 	<div class="cmuStoryDetail__container col--md12">
-		<div ng-if="vm.canEdit">
-			<a area-link-handler="{{ vm.editUrl }}">
+		<!-- <div ng-if="vm.canEdit"> -->
+			<!-- <a area-link-handler="{{ vm.editUrl }}">
 				<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
 				<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
-			</a>
-		</div>
+			</a> -->
+		<!-- </div> -->
 
 		<div ng-include="'stories/detail/stories.body.html'"></div>
 	</div>
 	<div class="cmuThread__controls cmuThread__controls--bottom">
-		<span community-permissions="">
-			<button class="button--vote button-green-on-white button--compound-naked" disabled="">
-				123 kudos
-			</button>
-    		<button ng-click="vm.replyInProgress = true" class="button--solid">Add Comment</button>
-		</span>
+		<button 
+			community-permissions 
+			denied-behavior="disable" 
+			community-permissions
+			class="button button--vote button--vote--kudo"
+			community-class-toggle="button--voted">
+				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
+		</button>
 	</div>
 
-	<div class="cmuStories__commentForm" ng-if="vm.replyInProgress" id="comment">
-		<community-comment-form 
-			toggle-attribute="vm.replyInProgress"
+	<div class="cmuStories__commentForm" id="comment">
+		<community-comment-form
+			autofocus="false"
+			header-title="Post a new comment"
+			minimal-editor="true"
+			toggle-attribute="true"
 			parent-message="vm.story"
 			comment-list="vm.comments"
-			minimal-editor="true">
+			reply-button-text="Post Comment" 
+			replying-button-text="Posting Comment..."
+			autofocus="false" 
+		>
 		</community-comment-form>
 	</div>
 
@@ -33,4 +41,5 @@
 			comment-filter="vm.moreCommentsFilter">
 		</community-comment-list>
 	</div>
+
 </div>

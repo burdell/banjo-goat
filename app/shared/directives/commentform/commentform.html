@@ -14,7 +14,7 @@
 				autofocus="commentform.autofocus">
 			</community-text-editor>
 
-			<div class="cmuTextEditor__preview cmuContent" ng-bind-html="commentform.comment.body | sanitize"></div>
+			<div class="cmuTextEditor__preview cmuContent" ng-if="commentform.comment.body" ng-bind-html="commentform.comment.body | sanitize"></div>
 	</div>
 
 	<div class="col--md12">

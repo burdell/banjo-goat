@@ -36,6 +36,8 @@ $cmu-button-color-base: $cmu-color-blue;
 
 @mixin cmuButton($type, $fgColor: $cmu-button-color-base, $bgColor:default, $hoverFgColor:default, $hoverBgColor:default) {
 
+	@extend %user-select-none;
+
 	color: $fgColor;
 	background-color: $bgColor;
 	// bgcolor is just defaulted to the background color

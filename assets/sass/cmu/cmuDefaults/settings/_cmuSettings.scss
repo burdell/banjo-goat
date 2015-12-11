@@ -108,7 +108,7 @@ ol, li {
 // base container for all community content
 // min-height is set so the footer doesn't jump up/down on page load
 .community__content {
-	padding-top: $cmu-base*2; // give some room for fixed header
+	padding-top: $cmu-base*3; // give some room for fixed header
 	position: relative;
 	padding-bottom: $cmu-min-pageHeight;
 

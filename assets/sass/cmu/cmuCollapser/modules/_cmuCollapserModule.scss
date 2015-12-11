@@ -48,7 +48,8 @@ $collapser-lineheight: $cmu-base*2.1;
 		@extend %font-ubnt;
     	@include transition(max-height 360ms, opacity 360ms);
 		display: inline-block;
-		content: '\e6cd';
+		// content: '\e6cd'; // arrow up for closed
+		content: '\e6ce'; // arrow right for closed
 		background-color: $cmu-color-ltmdgray;
 
 		// position: absolute;
@@ -150,6 +151,12 @@ $collapser-lineheight: $cmu-base*2.1;
 		&:before {
 			float: right;
 			margin-right: 0;
+			content: '\e6cf'; // arrow points left for closed
+		}
+		&.open {
+			&:before {
+				content: '\e6d0'; // arrow points left for closed
+			}
 		}
 		& > div {
 			margin-left: 0;
