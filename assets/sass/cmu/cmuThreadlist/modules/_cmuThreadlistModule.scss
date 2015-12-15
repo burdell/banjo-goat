@@ -267,10 +267,11 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	opacity: 0;
 	@extend %ease-fast;
 
-	display: inline-block;
-    float: right;
-    right: 8px;
-    height: 100%;
+	// display: inline-block;
+	// position: relative;
+ //    float: right;
+    // right: 8px;
+    // height: 100%;
 
 	.icon:before {
 		color: $cmu-color-mdgray;

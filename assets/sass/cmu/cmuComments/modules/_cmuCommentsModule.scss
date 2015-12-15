@@ -97,12 +97,11 @@
 	}
 
 	.cmuComments__flag {
-		@extend %style-flag;
 		float: right;
 	}
-		.cmuComments__row:hover {
-			@extend %style-flag--hover;
-		}
+	.cmuComments__row:hover {
+		@extend %cmuIcon-action--halfOpacity;
+	}
 
 
 

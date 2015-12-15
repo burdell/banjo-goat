@@ -290,6 +290,10 @@
     	// margin-top: 2px;
     }
 
+    .cmuUsername__icon {
+    	line-height: 0;
+    }
+
 }
 	.cmuUserbadge--thin--open {
 		margin: 0;
@@ -319,6 +323,10 @@
 
 	min-width: inherit; // 176px min width
 
+	.cmuUsername {
+		margin-top: 0;
+	}
+	
 	.cmuUserbadge__points, .cmuUserbadge__info {
 		display: none;
 	}

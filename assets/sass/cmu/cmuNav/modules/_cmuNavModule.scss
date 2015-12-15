@@ -775,10 +775,10 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	    display:inline-block;
 	    opacity: 0.7;
 	    bottom: $cmu-base;
-	    right: 1.5rem;
+	    right: $cmu-base*2;
 	    text-align: center;
 
-	    // .cmuHoverflag {
+	    // .cmuTooltip {
 	    // 	bottom: 50px;
 	    // }
 
@@ -805,7 +805,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		}
 
 		// different bc this is a fixed pos item
-		.cmuHoverflag {
+		.cmuTooltip {
 		    // position: absolute;
 		    // left: -50%;
 		    // right: -50%;
@@ -825,7 +825,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		    	transform: translate(-50%,0);
 		    }
 		}
-		.cmuHoverflag--top {
+		.cmuTooltip--top {
 			// &:before {
 			//     position: fixed;
 			//     right: 14px;

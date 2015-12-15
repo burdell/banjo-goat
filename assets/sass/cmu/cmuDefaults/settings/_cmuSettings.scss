@@ -49,7 +49,7 @@ $cmu-base-micro-unit:       $cmu-base-line-height/6 !default;
 html {
 	// important to override simplemde's setting overflow to hidden for preview pages
 	// either override it here, or reset the fullscreen function in the js
-	overflow: auto !important;
+	// overflow: auto !important;
 }
 
 body {

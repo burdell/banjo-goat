@@ -179,6 +179,93 @@
 
 
 
+
+// 
+// Action icons
+// - usually smaller icons that only appear on hover
+// - signifies a UI interactive element
+// - ex: 
+//    - Flag for marking posts as spam, etc.
+//    - Edit post
+// 
+.cmuIcon-action, %cmuIcon-action {
+	text-align: right;
+	margin-right: $cmu-base/2;
+
+	.cmuIcon-action__icon {
+		cursor: pointer;
+	    border: $style-line;
+	    display: inline-block;
+	    width: $cmu-height--slim;
+	    height: $cmu-height--slim;
+	    border-radius: 50%;
+		@extend %ease-fast;
+
+		// hide action icons for desktop so they only appear on hover
+		// remember to trigger half opacity when user hovers over the row
+	    @include respondTo(medium-up) {
+			opacity: 0; 
+	    }
+
+		&:hover {
+			opacity: 1 !important;
+			border-color: $cmu-color-blue;
+		}
+	}
+	// move the tooltip above the icon
+	.cmuTooltip {
+		bottom: $cmu-base * 3/2;
+
+		&:before {
+		    left: $cmu-height--slim/2;
+		    /* right: 0; */
+		    transform: translate(-50%, -100%);
+		}
+	}
+	.ubnt--icon {
+		position: relative;
+		top: 3px;
+		left: -4px;
+	}
+}
+
+	// hover effect of the parent container
+	.cmuIcon-action--halfOpacity, %cmuIcon-action--halfOpacity {
+		.cmuIcon-action__icon {
+			opacity: 0.465; @extend %ease-fast;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // cmuIcon
 // <svg xmlns="http://www.w3.org/2000/svg" viewBox="-292 384 26 26"><circle fill="#474B52" cx="-279" cy="397" r="13"/><path fill="#FFF" d="M-277.4 402.5l.3-2.4 5-6.5-3.6-3.5-6.6 5-2.4.3 3 3-4.4 5 .6.6 5-4.5 3 3z"/></svg>
 

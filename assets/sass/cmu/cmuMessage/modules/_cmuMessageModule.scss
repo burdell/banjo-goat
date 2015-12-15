@@ -229,17 +229,21 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 
 	// controls
-	.cmuMessage__flag {
-		@extend %style-flag;
+	.cmuMessage__actions {
+		@extend %cmuIcon-action;
 		position: relative;
 		top: -2px;
+		margin-right: 0;
+		&:last-of-type {
+			margin-right: $cmu-base/2;
+		}
 
-		.cmuHoverflag {
+		.cmuTooltip {
 			top: 0;
 		}
 	}
 		.cmuMessage__body:hover {
-			@extend %style-flag--hover;
+			@extend %cmuIcon-action--halfOpacity;
 		}
 
 	.cmuMessage__reply {

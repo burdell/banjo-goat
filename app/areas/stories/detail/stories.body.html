@@ -5,11 +5,16 @@
 		<span ng-if="vm.canEdit">
 			<a area-link-handler="{{ vm.editUrl }}">
 				<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
-				<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
+				<div class="cmuTooltip  cmuTooltip--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
 			</a>
 		</span>
 	</h3>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
+
+	<div class="col--md12 noPadding">
+		<div class="cmuThread__subject__date">{{ vm.story.message.postDate | exactTimeFromNow }} <span class="cmuThread__subject__date--edited" ng-if="vm.isEdited">Edited {{ vm.story.message.editDate | exactTimeFromNow }}</span>
+		</div>
+	</div>
 </div>
 
 <div class="cmuStories__story__controlsTop row" ng-hide="vm.hideStoryControls">
