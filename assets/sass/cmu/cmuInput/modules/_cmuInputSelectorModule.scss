@@ -35,7 +35,7 @@
 
 			// text-transform: uppercase;
 			color: $cmu-color-dkgray;
-			font-size: $cmu-size-form;
+			font-size: $size-input-hint;
 			cursor: text;
 			// line-height: remCalc(41px);
 		}
@@ -59,5 +59,16 @@
 	}
 	.select2-result-single {
 		margin-bottom: 0 !important;
+	}
+
+	// background results
+	.select2-search-choice {
+		// background: $cmu-color-ltblue !important;
+		// color: $cmu-color-white !important;
+		// font-size: $size-smaller;
+		border-radius: 0 !important;
+		background: $cmu-color-white !important;
+		color: $cmu-color-dkgray !important;
+		font-size: $size-smaller !important;
 	}
 }

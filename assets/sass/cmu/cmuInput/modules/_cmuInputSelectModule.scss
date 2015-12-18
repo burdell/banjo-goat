@@ -38,7 +38,7 @@ select {
   border: 1px solid $cmu-threadsort-border-color;
   padding: 0 $cmu-base/2;
   color: $cmu-color-dkgray;
-  font-size: $cmu-size-form;
+  font-size: $size-form-input;
   @include border-radius(0);
   background-size: 16px 12px;
 

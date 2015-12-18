@@ -1,5 +1,5 @@
 <div class="">
-	<div class="cmuNotifications__dropdown__container cmuDropdown__container">
+	<div class="cmuNotifications__dropdown__container">
 		<div class="cmuNotifications__dropdown__header cmuDropdown__header clearfix">
 			<div class="cmuDropdown__headline">Notifications<span></span></div>
 			<community-loader show-when="dropdown.templateCtrl.loading"></community-loader> 
@@ -7,24 +7,24 @@
 
 		<div class="cmuNotifications__dropdown__content cmuDropdown__content clearfix" ng-hide="dropdown.templateCtrl.loading">
 			<ul class="col--md12 noPadding">
-				<li class="clearfix" ng-repeat="notification in dropdown.templateCtrl.list">
-					<a area-link-handler="{{ dropdown.templateCtrl.getUrl(notification) }}">
+				<li ng-repeat="notification in dropdown.templateCtrl.list">
+					<a class="clearfix" area-link-handler="{{ dropdown.templateCtrl.getUrl(notification) }}">
 						<div class="col--md12">
 							<div class="col--md1 noPadding"><span class="cmuProfile__avatar"></span></div>
 							<div class="col--md10 noPadding"> 
 								<span class="cmuNotifications__dropdown__user">{{ notification.message.context.parentAuthor.login }}</span>
 								<span class="cmuNotifications__dropdown__action">{{ dropdown.templateCtrl.getActionString(notification) }}</span>
 								<span class="cmuNotifications__dropdown__link">{{ notification.message.context.topicSubject | unformatText }}</span>
+								<div class="cmuNotifications__dropdown__date">{{ notification.time | timeFromNow }}</div>
 							</div>
 						</div>
-						<div class="cmuNotifications__dropdown__date noPadding col--md10 col--mdOffset1">{{ notification.time | timeFromNow }}</div>
 					</a>
 				</li>
 			</ul>
 		</div>
 
 		<div class="cmuNotifications__dropdown__footer cmuDropdown__footer clearfix">
-			<div class="col--md4 noPadding"><a area-link-handler link-handler-route="notifications">Read All Notifications</a></div>
+			<div class="col--md4 noPadding"><a area-link-handler link-handler-route="notifications">All Notifications</a></div>
 			<div class="col--md5 col--mdOffset3 alignRight noPadding"><a>Notification Settings</a></div>
 		</div>
 	</div>

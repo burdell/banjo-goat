@@ -10,9 +10,18 @@
 
 // general settings; acts as a "blackout"
 .cmuDropdown {
+    // position to the right edge of button
+    // note that absolute doesn't let you calc height
     position: absolute;
-    top: $cmu-nav-height;
     right: -$cmu-base;
+
+    // this lets you calc height, but position is to the edge of container
+    // position: fixed;
+    // right: $cmu-base*4.5;
+    // right: calc(16px);
+    // height: 100%;
+
+    top: $cmu-nav-height;
     z-index: $z-overlay;
     display: none; // default is hidden
     @extend %ease-fast;
@@ -42,6 +51,9 @@
         position: relative;
     }
     .cmuDropdown__container {
+        height: calc(90% - #{$cmu-base * 2});
+        overflow: auto;
+
         margin: $cmu-base;
         margin-top: 0;
         box-shadow: 0px 0px 24px $cmu-color-gray;
@@ -89,29 +101,32 @@
 
         ul {
             margin-bottom: 0;
+            max-height: $cmu-dropdown-maxHeight;
+            overflow-y: scroll;
+        }
+
+        li {
+            display: block;
         }
         
-        li {
+        a {
             @extend %size-smaller;
             display: block;
             border-color: $cmu-color-ltgray;
             list-style-type: none;
+            cursor: pointer;
+
             &:first-child {
                 border-top: 0;
             }
 
-            @extend %style-link;
-            a {
-                display: block;
-                padding: $cmu-base/2 $cmu-base/2;
-                // border: $style-line;
-                border-bottom: 0;
-            }
-            a:hover {
-                background-color: $cmu-color-ltgray;
-                cursor: pointer;
-                text-decoration: none;
-                // @extend %ease-fast;
+            @extend %style-link--dark;
+
+            padding: $cmu-base/2 $cmu-base/2;
+            border-bottom: 0;
+
+            &:hover {
+                background-color: $cmu-color-hover;
             }
 
             // avatar
@@ -127,6 +142,30 @@
         padding: $cmu-base/4 $cmu-base/2;
         text-transform: capitalize;
         @extend %size-xsmaller;
+    }
+
+
+    .cmuDropdown__count {
+        position: absolute;
+        font-size: $size-notification;
+
+        padding: 2px 4px;
+        background: rgba($cmu-color-dkorange, 1);
+        border-radius: 25%;
+        right: -4px;
+        top: -2px;
+        @include box-shadow(0,2px,2px, rgba($cmu-color-dkgray,0.4));
+        font-weight: bold;
+
+        span {
+            text-shadow: 0 -1px 0 rgba($cmu-color-black, .4);
+        }
+    }
+
+    // this class introduced as a parent of the actual dropdown
+    // since it's controlled by the calling element
+    .cmuDropdown--wide .cmuDropdown--show, .cmuDropdown--wide.cmuDropdown--show {
+        width: $cmu-dropdown-width--wide;
     }
 
 

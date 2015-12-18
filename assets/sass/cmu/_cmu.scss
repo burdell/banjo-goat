@@ -27,7 +27,7 @@
 @import "cmuThreadlist/index";			// generalized thread list - applies to ALL discussion styles
 @import "cmuThread/index";				// generalized thread - used by forum etc., announcement thread, etc.
 @import "cmuMessage/index";				// generalized message; contains styles for ALL discussion types (sidebyside [forums] and inline [announcements])
-@import "cmuPrivateMessage/index";		// for PMs and PM drropdowns
+@import "cmuInbox/index";		// for PMs and PM drropdowns
 @import "cmuProfile/index";				// user profile, avatar, etc. but not userbadge
 @import "cmuNotifications/index";		// for Notifications and Notifications drropdowns
 // @import "cmuForm/index";				// CMUINPUT REPLACES THESE | FOR NOW DO NOT USE FOR CATCH ALL- BREAK OUT SEARCH AND FILTER COMPONENTS

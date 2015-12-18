@@ -1,0 +1,53 @@
+
+
+// 
+// Inbox
+// 
+
+.cmuInbox {
+
+}
+	.cmuInbox__container {
+
+	}
+
+	.cmuInbox__controls {
+		margin-bottom: $cmu-vertical-rhythm / 2;
+	}
+
+	.cmuInbox__update {
+		margin-bottom: $cmu-vertical-rhythm / 2;
+	}
+
+	.cmuInbox__update {
+		max-height: $cmu-base * 37;
+		overflow: scroll;
+	}
+
+	.cmuInbox__message {
+		padding: $cmu-base/2;
+		padding-right: $cmu-base*2;
+		display: block;
+		border-bottom: $style-line;
+
+		&:hover {
+			background-color: $cmu-color-hover;
+		}
+	}
+
+// 
+// PM Menu Dropdown
+// 
+
+.cmuInbox__dropdown__header {
+
+}
+
+.cmuInbox__dropdown__content {
+	background-color: $cmu-color-purewhite;
+}
+
+    .cmuInbox__dropdown__date {
+        @extend %size-xsmaller;
+        color: $cmu-color-mdgray;
+    }

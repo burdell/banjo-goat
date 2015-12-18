@@ -24,6 +24,7 @@
 }
 	.cmuStoriesNew__form--title {
 		@extend .cmuStoriesNew__title;
+		padding-left: $cmu-base/2;
 	}
 	.cmuStoriesNew__form--intro {
 	 	padding-bottom: $cmu-base/2;
@@ -285,6 +286,7 @@
 	}
 	.cmuStoriesNew__form--additional--controller {
 		@extend %ease-fast;
+		cursor: pointer;
 		&:hover {
 			.cmuStoriesNew__form--title,
 			.cmuStoriesNew__form--intro, .icon {

@@ -1,11 +1,11 @@
 <span class="cmuDropdown--span"><li class="{{ dropdown.elementClassname }}" ng-click="dropdown.toggle()" ng-class="{ 'active' : dropdown.isOpen }">
       <a>
-         <span class="{{ dropdown.iconClassname }}" ng-if="dropdown.iconClassname"><span ng-if="dropdown.templateCtrl.newDataCount()">{{ dropdown.templateCtrl.newDataCount() }}</span></span>
+         <span class="{{ dropdown.iconClassname }}" ng-if="dropdown.iconClassname"><span class="cmuDropdown__count" ng-if="dropdown.templateCtrl.newDataCount()"><span>{{ dropdown.templateCtrl.newDataCount() }}</span></span></span>
          <span class="cmuDropdown--label" ng-if="dropdown.label">{{ dropdown.label }}</span>
       </a>
     </li>
 
 	<div ng-class="{ 'cmuDropdown--show' : dropdown.isOpen }" class="cmuDropdown">
-		<div ng-include="dropdown.menuTemplateUrl" class=""></div>
+		<div ng-include="dropdown.menuTemplateUrl" class="cmuDropdown__container"></div>
 	</div>
 </span>

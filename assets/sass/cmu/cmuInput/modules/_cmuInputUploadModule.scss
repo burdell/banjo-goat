@@ -95,41 +95,41 @@ _cmuInputUploadModule.scss
 			}
 		}
 
-		// infield label
-		&+label {
-			position: absolute;
-			top: 8px;
-			left: 9px;
+		// // infield label
+		// &+label {
+		// 	position: absolute;
+		// 	top: 8px;
+		// 	left: 9px;
 
-			text-transform: uppercase;
-			color: $cmu-color-gray;
-			font-size: $cmu-size-form;
-			cursor: text;
-		}
+		// 	text-transform: uppercase;
+		// 	color: $cmu-color-gray;
+		// 	font-size: $cmu-size-form;
+		// 	cursor: text;
+		// }
 
 		// upload button non-active state
-		&+label+.cmuInputUrl--button {
-			@extend .cmuButton;
-			@extend .button--ghost;
-			cursor: default; 
-		    display: inline-block;
-		    margin: $cmu-base/2 0;
-		    margin-top: 0;
-		    padding: $cmu-base/12 $cmu-base/2;
-		    width: 100%;
-			text-align: left;
-			// background-color: $cmu-color-ltmdgray;
-			// color: $cmu-color-purewhite;
-			border-color: $cmu-color-gray;
-			border-width: 1px;
-			border-top: 0;
+		// &+label+.cmuInputUrl--button {
+		// 	@extend .cmuButton;
+		// 	@extend .button--ghost;
+		// 	cursor: default; 
+		//     display: inline-block;
+		//     margin: $cmu-base/2 0;
+		//     margin-top: 0;
+		//     padding: $cmu-base/12 $cmu-base/2;
+		//     width: 100%;
+		// 	text-align: left;
+		// 	// background-color: $cmu-color-ltmdgray;
+		// 	// color: $cmu-color-purewhite;
+		// 	border-color: $cmu-color-gray;
+		// 	border-width: 1px;
+		// 	border-top: 0;
 
-			&:hover {
-				background-color: $cmu-color-ltmdgray;
-				color: $cmu-color-blue;
-				border-color: $cmu-color-gray;
-			}
-		}
+		// 	&:hover {
+		// 		background-color: $cmu-color-ltmdgray;
+		// 		color: $cmu-color-blue;
+		// 		border-color: $cmu-color-gray;
+		// 	}
+		// }
 
 		// upload button active state 
 		&:valid { 

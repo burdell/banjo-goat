@@ -40,9 +40,9 @@
 
 		<!-- sidebar -->
 		<div class="row">
-			<div class="cmuDirectory__sidebar cmuSidebar col--md3">
+			<div class="cmuDirectory__sidebar  col--md3">
 				<div class="cmuDirectory__sidebar__main" ng-repeat="section in ::vm.directoryList">
-					<div class="cmuDirectory__sidebar__headline">{{ section.header }}</div>
+					<div class="cmuDirectory__sidebar__headline"><h5>{{ section.header }}</h5></div>
 
 					<div class="cmuDirectory__sidebar__item" ng-repeat="discussion in ::section.list | orderBy: 'name'">
 						<div ng-if="discussion.children">
@@ -55,15 +55,15 @@
 				</div>
 
 				<div class="cmuDirectory__sidebar__other">
-					<div class="cmuDirectory__sidebar__headline"></div>
+					<!-- <div class="cmuDirectory__sidebar__headline"></div> -->
 					<div class="cmuDirectory__sidebar__item" ng-repeat="landingPage in ::vm.landingPages">
-						<a href="{{ landingPage.href }}" target="_self">{{ landingPage.area }}</a>
+						<a class="button button--ghost button--blue-on-white" href="{{ landingPage.href }}" target="_self">{{ landingPage.area }}</a>
 					</div>
 				</div>
 			</div>
 			
 			<!-- main body -->
-			<div class="col--md9 noPadding">
+			<div class="cmuDirectory__main col--md9">
 				<div class="cmuDirectory__item" ng-repeat="section in ::vm.directoryList">
 
 					<div class="cmuDirectory__header">{{ section.header }} <!-- Discussions --></div>

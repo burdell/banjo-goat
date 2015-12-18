@@ -179,6 +179,9 @@
 
 			// isRead styles are designed separately
 			&.isRead {
+				.cmuFeed__subject {
+					font-weight: 400;
+				}
 				background-color: $cmu-color-isRead--background;
 				color: $cmu-color-isRead;
 				.cmuFeed__content {
@@ -257,12 +260,7 @@
 
 .cmuFeed__sidebar {
 	padding-left: $cmu-base;
-
-	h5 {
-		padding-bottom: $cmu-base/4;
-		margin-bottom: $cmu-base/4;
-		border-bottom: $style-line;
-	}
+	@extend %cmuSidebar__title;
 }
 
 	.cmuFeed__hub {

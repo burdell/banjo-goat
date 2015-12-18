@@ -2,12 +2,6 @@
 <div class="row">
 	<h3>
 		{{ vm.story.subject || vm.placeholders.subject }}
-		<span ng-if="vm.canEdit">
-			<a area-link-handler="{{ vm.editUrl }}">
-				<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
-				<div class="cmuTooltip  cmuTooltip--top" data-tooltip="Edit this announcement" data-textalign="left"></div>
-			</a>
-		</span>
 	</h3>	
 	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 
@@ -53,6 +47,12 @@
 			community-class-toggle="button--voted">
 				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
 		</button>
+		<a  ng-if="vm.canEdit"
+			class="button button--outline" 
+			area-link-handler="{{ vm.editUrl }}">
+			<span class="icon ubnt-icon--pencil-2"></span>
+			<span>Edit Story</span>
+		</a>
 	</div>
 <!-- 
 	<div 

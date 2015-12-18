@@ -6,48 +6,31 @@
 // SIDEBAR
 	.cmuDirectory__sidebar {
 		position: relative;
-		left: $cmu-base;
+		padding-right: $cmu-base;
 	}
 
 	.cmuDirectory__sidebar__main:first-child {
 		.cmuDirectory__sidebar__headline {
-			margin-top: $cmu-base/2;
+			margin-top: $cmu-base/4;
 		}
 	}
 
 	.cmuDirectory__sidebar__headline {
-		color: $cmu-color-ltblack;
-		margin-top: $cmu-base;
-		font-weight: 600;
-		// letter-spacing: $size-letterspacing-text;
+		@extend %cmuSidebar__title;
+		margin-top: $cmu-vertical-rhythm;
 	}
 
-	.cmuDirectory__sidebar__item a {
-		color: $cmu-color-dkgray;
-    	font-weight: 400;
+	.cmuDirectory__sidebar__main a {
+		@extend %style-link--dark;
+	}
 
-		&:hover {
-			color: $cmu-color-blue;
+	.cmuDirectory__sidebar__other {
+		margin-top: $cmu-vertical-rhythm;
+
+		div {
+			margin-bottom: $cmu-vertical-rhythm/2;
 		}
 	}
-
-	.cmuDirectory__sidebar__other > div a {
-		text-transform: uppercase;
-		color: $cmu-color-blue;
-		font-size: $cmu-base * 0.7;
-		line-height: $cmu-base * 2;
-		background-color: $cmu-color-ltgray;
-		padding: $cmu-base/2;
-
-		&:hover {
-			color: $cmu-color-blue;
-			background-color: $cmu-color-mdgray;
-		}
-	}
-	.cmuDirectory__sidebar > div {
-		margin-top: 0;
-	}
-
 
 	// SIDEBAR? These could be potentially be broken up into a separate module just for sidebars
 
@@ -57,7 +40,15 @@
 		}
 	}
 
+
+
+
 // MAIN list
+
+.cmuDirectory__main {
+	padding: 0;
+	padding-left: $cmu-base;
+}
 
 .cmuDirectory__item {
 	&:first-child {
@@ -86,7 +77,7 @@
 
 		&:hover {
     		@extend %ease-fast;
-			background-color: $cmu-color-purewhite;
+			background-color: $cmu-color-hover--background;
 		}
 	}
 

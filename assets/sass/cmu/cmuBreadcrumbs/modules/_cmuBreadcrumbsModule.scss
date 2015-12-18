@@ -18,9 +18,16 @@
 	// margin-bottom: $cmu-base/2;
 	font-weight: 300; 
 	@extend %type-minor;
+	@extend %ease-fast;
 
-	&:hover a { 
+	a span { 
+		color: $cmu-color-mdgray;
+		@extend %ease-fast;
+	}
+
+	&:hover a span { 
 		color: $cmu-color-black;
+		@extend %ease-fast;
 	}
 	
 	* { cursor: default; }
@@ -33,7 +40,15 @@
 		display: inline-block;
 		list-style-type: none;
 
-		span { cursor: pointer; }
+		span {
+			cursor: pointer; 
+			border-bottom: $style-line;
+			&:hover {
+				color: $cmu-color-active;
+				border-color: $cmu-color-active;
+			}
+		}
+
 		&:after {
 			content: '/';
 			padding: 0 $cmu-base/3;
@@ -44,14 +59,25 @@
 			&:hover { color: $cmu-color-link--dark_hover; }
 		}
 
-		&:last-child:after {
-			display: none;
+		&:last-child {
+			span {
+				border-bottom: 0;
+				&:hover {
+					color: $cmu-color-black;
+				}
+			}
+
+			&:after {
+				display: none;
+			}
 		}
 	}
 
 	// current crumb isn't clickable, so is grayed out
 	.cmuBreadcrumbs__last {
 		color: $cmu-color-link--dark; 
+		cursor: default;
+		text-decoration: none;
 	}
 
 }

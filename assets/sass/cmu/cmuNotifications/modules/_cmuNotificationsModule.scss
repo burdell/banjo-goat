@@ -25,11 +25,10 @@
 
     .cmuNotifications__dropdown__user {
         font-weight: 600;
-        margin-right: $cmu-base/4;
+        // margin-right: $cmu-base/4;
     }
     .cmuNotifications__dropdown__date {
         @extend %size-xsmaller;
-        margin-left: 3.3rem;
         color: $cmu-color-mdgray;
     }
 

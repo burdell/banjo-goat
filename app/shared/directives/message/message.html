@@ -34,29 +34,17 @@
 				<div class="cmuMessage__controls"> 
 					<div class="cmuMessage__reply noPadding">
 						<span community-permissions denied-behavior="disable" class="cmuPermissions">
-							<!-- <div ng-if="messageDisplay.canEditMessage" class="cmuMessage__flag cmuTooltip__trigger"> -->
-							<span class="cmuMessage__actions cmuTooltip__trigger">
+							<span 
+								ng-if="messageDisplay.canEditMessage"
+								class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--pencil-2"></span>
 								</span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Edit post" data-textalign="left"></div>
+								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Edit post"></div>
 							</span>
 							<span class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon cmuIcon-flag"></span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Flag post" data-textalign="left"></div>
+								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Flag post"></div>
 							</span>
-							<!-- 
-							<div class="cmuMessage__edit cmuTooltip__trigger">
-								<a area-link-handler="{{ messageDisplay.editUrl }}">
-									<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
-									<div class="cmuTooltip cmuTooltip--top" data-tooltip="Edit this post" data-textalign="left"></div>
-								</a>
-							</div>
-
-							<div class="cmuMessage__flag cmuTooltip__trigger">
-								<span class="cmuIcon cmuIcon--small cmuIcon-flag"></span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Flag this post" data-textalign="left"></div>
-							</div> 
-							-->
 
 							<div class="button button--vote button--vote--kudo button--thin button--lowercase" community-class-toggle="button--voted">
 								<div class="button--vote--points">123</div>

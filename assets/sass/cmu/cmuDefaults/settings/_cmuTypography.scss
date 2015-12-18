@@ -209,8 +209,8 @@ $cmu-base-spacing-unit: $cmu-base;
 // 
 // Form typography
 // 
-$cmu-size-form: $size-normal;
-$cmu-input-font-size: $size-normal;
+$size-input-hint: $size-xsmaller;
+$size-form-input: $size-normal; 
 
 
 // 
@@ -231,6 +231,11 @@ $size-letterspacing-text: 0.2px;
 %size-letterspacing-text {
 	letter-spacing: $size-letterspacing-text;
 }
+
+// 
+// Navigation
+// 
+$size-notification: $size-xsmaller;
 
 
 

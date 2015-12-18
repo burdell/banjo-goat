@@ -4,7 +4,7 @@ $cmu-searchbox-form-spacing: remCalc($cmu-base) !default;
 
 // We use these to style the labels in different ways
 $cmu-searchbox-font-family: inherit !default;
-$cmu-searchbox-font-size: $cmu-input-font-size;
+$cmu-searchbox-font-size: $size-form-input;
 $cmu-searchbox-border-radius: 0 !default;
 $cmu-searchbox-box-shadow: none;
 
@@ -68,7 +68,7 @@ $input-disabled-color: $cmu-color-disabled;
 	@extend %ease-fast;
 
 	@include cmu-placeholder {
-		color: $cmu-color-black;
+		color: $cmu-color-gray;
 	}
 
 	&:focus {

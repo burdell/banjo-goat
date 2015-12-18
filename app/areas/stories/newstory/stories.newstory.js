@@ -15,7 +15,7 @@ var _ = require('underscore');
 function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults, storyDetail){
 	var ctrl = this;
 
-	breadcrumbService.setCurrentBreadcrumb('Tell Your Story');
+	breadcrumbService.setCurrentBreadcrumb('Share a Story');
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});

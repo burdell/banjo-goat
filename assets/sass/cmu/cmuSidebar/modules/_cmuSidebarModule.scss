@@ -13,3 +13,11 @@
 	.cmuSidebar__container {
 		margin-bottom: $cmu-vertical-rhythm;
 	}
+
+	%cmuSidebar__title, .cmuSidebar__title {
+		h5 {
+			padding-bottom: $cmu-base/4;
+			margin-bottom: $cmu-base/4;
+			border-bottom: $style-line;
+		}
+	}

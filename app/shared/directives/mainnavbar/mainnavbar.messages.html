@@ -1,35 +1,36 @@
 <div class="">
-	<div class="cmuPrivateMessage__dropdown__container cmuDropdown__container">
-		<div class="cmuPrivateMessage__dropdown__header cmuDropdown__header clearfix">
+	<div class="cmuInbox__dropdown__container">
+		<div class="cmuInbox__dropdown__header cmuDropdown__header clearfix">
 			<div class="cmuDropdown__headline">Inbox</div>
 			<community-loader show-when="dropdown.templateCtrl.loading"></community-loader> 
 		</div>
 
-		<div class="cmuPrivateMessage__dropdown__content cmuDropdown__content clearfix" ng-hide="dropdown.templateCtrl.loading">
+		<div class="cmuInbox__dropdown__content cmuDropdown__content clearfix" ng-hide="dropdown.templateCtrl.loading">
 			<ul class="col--md12 noPadding">
-				<li class="clearfix" ng-repeat="message in dropdown.templateCtrl.list">
-					<a area-link-handler="{{ dropdown.templateCtrl.getUrl(message) }}">
+				<li ng-repeat="message in dropdown.templateCtrl.list">
+					<a class="clearfix" area-link-handler="{{ dropdown.templateCtrl.getUrl(message) }}">
 						<div class="col--md12">
 							<div class="col--md1 noPadding"><span class="cmuProfile__avatar"></span></div>
 							<div class="col--md10 noPadding"> 
-								<div class="cmuPrivateMessage__dropdown__title">
+								<div class="cmuInbox__dropdown__title">
 									{{ dropdown.templateCtrl.getRecipientString(message.recipients) }}
 								</div>
-								<div class="cmuPrivateMessage__dropdown__preview">
+								<div class="cmuInbox__dropdown__preview">
 									{{ message.topic.subject }}
 								</div>
+								
+								<div class="cmuInbox__dropdown__date">
+									{{ message.topic.postDate | timeFromNow }}
+								</div>
 							</div>
-						</div>
-						<div class="cmuPrivateMessage__dropdown__date noPadding col--md10 col--mdOffset1">
-							{{ message.topic.postDate | timeFromNow }}
 						</div>
 					</a>
 				</li>
 			</ul>
 		</div>
 
-		<div class="cmuPrivateMessage__dropdown__footer cmuDropdown__footer clearfix">
-			<div class="col--md6 noPadding"><a area-link-handler link-handler-route="inbox">Read All Messages</a></div>
+		<div class="cmuInbox__dropdown__footer cmuDropdown__footer clearfix">
+			<div class="col--md6 noPadding"><a area-link-handler link-handler-route="inbox">All Messages</a></div>
 			<div class="col--md6 alignRight noPadding"><a area-link-handler link-handler-route="inbox.newtopic">Send a Message</a></div>
 		</div>
 	</div>

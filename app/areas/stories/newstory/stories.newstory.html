@@ -2,7 +2,8 @@
 <div class="cmuStoriesNew row">
 	<div class="cmuStoriesNew__form col--md4">
 		<div class="cmuStoriesNew__title">
-			Share a Story, {{ vm.currentUserLogin }}
+			<!-- Share a Story, {{ vm.currentUserLogin }} -->
+			Share a Story
 		</div>
 
 		<div class="cmuStoriesNew__form--subject cmuInputContainer">
@@ -52,7 +53,7 @@
 				Photos and Videos
 			</div>
 			<div class="cmuStoriesNew__form--intro">
-				A picture is worth a thousand kudos. Add photos and videos from the web, Youtube, or Vimeo. Or upload photos directly from your device.
+				A picture is worth a thousand kudos! Upload photos directly from your device or the web, and add videos from the web, Youtube, or Vimeo.
 			</div>
 
 			<div class="cmuStoriesNew__form--uploads" ng-sortable="vm.sortConfig" ng-model="vm.story.mediaList" on-update="vm.setMediaOrder">
@@ -89,14 +90,17 @@
 			</div>
 
 			<div class="cmuStoriesNew__form--url cmuInputContainer">
-				<div class="cmuInputUrl cmuInput--stacked">
-					<input class="cmuInputUrl--input"
-						ng-model="vm.newMediaUrl" 
-						placeholder="Paste link here"
-						id="cmuInputUrl--input"
-						required />
-					<label for="cmuInputUrl--input">Image, YouTube or Vimeo URL</label>
-					<button class="cmuInputUrl--button" ng-click="vm.addNewMedia(vm.newMediaUrl)">Upload From URL</button>
+				<div class="">
+					<div>
+						<input class="cmuInput cmuInput--wide"
+							ng-model="vm.newMediaUrl" 
+							placeholder="Image, YouTube or Vimeo URL"
+							id="cmuInputUrl--input"
+							required />
+					</div>
+					<div>
+						<button class="cmuInputUrl--button" ng-click="vm.addNewMedia(vm.newMediaUrl)">Add From URL</button>
+					</div>
 				</div>
 			</div>
 
@@ -113,11 +117,11 @@
 				<span class="icon" ng-class="{ 'ubnt-icon--pointer-down': vm.showAdditionalInfoFields, 'ubnt-icon--pointer-right': !vm.showAdditionalInfoFields }"></span> 
 
 				<span class="cmuStoriesNew__form--title">
-					Add More Details
+					Optional Details
 				</span>
 
 				<div class="cmuStoriesNew__form--intro">
-					Let us know about your team size, budget, bandwidth requirements, and other details.
+					Let us know about your team size, budget, and other details.
 				</div>
 			</div>
 			<div ng-show="vm.showAdditionalInfoFields">
@@ -189,6 +193,10 @@
 		</div>
 	</div>
 
+
+
+
+	<!-- PREVIEW -->
 	<div class="cmuStoriesNew__preview col--md8">
 		<div class="cmuStoryDetail__container">
 			<div ng-include="'stories/detail/stories.body.html'"></div>

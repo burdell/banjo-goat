@@ -206,9 +206,14 @@
 	    @include respondTo(medium-up) {
 			opacity: 0; 
 	    }
+	    &.visible {
+	    	opacity: 1;
+	    	border: 0;
+	    }
 
 		&:hover {
 			opacity: 1 !important;
+	    	border: $style-line;
 			border-color: $cmu-color-blue;
 		}
 	}
