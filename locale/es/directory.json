@@ -1,0 +1,61 @@
+{
+	"directory": {
+
+	},
+	"feed": {
+		"allContent": "Todo el Contenido",
+		"allAnnouncements": "Todos los Anuncios",
+		"allSections": "Todas las Secciones",
+		"header": "Comunidad de alimentación",
+		"followedContent": "Contenido Seguido",
+		"newUpdates": "Nuevas Actualizaciones",
+		"latestAnnouncements": "Los últimos anuncios",
+		"latestStories": "últimas Historias",
+		"links": "Enlazars",
+		"manageSubscriptions": "Administrar Suscripciones",
+		"myContent": "Mi Contenido",
+		"recentContent": "Contenido Reciente",
+		"refresh": "Haga clic para actualizar"
+	},
+	"hub": {
+		"allStories": "Todas as Histórias",
+		"discussions": "Discusiones",
+		"pulse": "Pulso"
+	},
+	"inbox": {
+		"header": "Mis mensajes",
+		"messageCta": "Dele a su mensaje un título",
+		"newMessage": "Mensaje nuevo",
+		"newMessages": "Nuevos mensajes",
+		"replyFeedback": "Enviar Tu Respuesta",
+		"sendMessage": "Enviar Mensaje",
+		"sendingMessage": "Enviando tu Mensaje",
+		"with": "con"
+	},
+	"notifications": {
+		"myNotifications": "Mis Notificaciones"
+	},
+	"search": {
+		"discussionStyles": "Estilos Discusión",
+		"header": "Buscar",
+		"searchbarPlaceholder": "Buscar Comunidad",
+		"noResults": "No hay resultados para ",
+		"postedOn": "Publicado en ",
+		"results": "Mostrando {{ vm.searchResults.length | number }} de {{ vm.totalResults | number}} resultados para:"
+	},
+	"user": {
+		"aboutMe": "Sobre mi",
+		"activities": "Ocupaciones",
+		"dateLastVisited": "Fecha de Último visitado",
+		"dateRegistered": "Fecha de Registro",
+		"earnPoints": "Gana Puntos",
+		"editProfile": "Editar Perfil",
+		"location": "Localización",
+		"moreStories": "Más Historias",
+		"occupation": "Ocupación",
+		"personalWebpage": "Pagina web personal",
+		"profileInfo": "Información del Perfil",
+		"recentActivity": "Actividad Reciente",
+		"totalPoints": "Punto Total"
+	}
+}

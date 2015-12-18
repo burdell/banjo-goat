@@ -17,48 +17,43 @@
 
       <span class="ubnt--icon ubnt-icon--pointer-up" page-scroll></span>
 
-      <div class="cmuTooltip  cmuTooltip--top" data-tooltip="Back to top" data-textalign="left"></div>
+      <div class="cmuTooltip  cmuTooltip--top" data-tooltip="${{ directives.globalfooter.backToTop }}$" data-textalign="left"></div>
 
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row"> 
         <div class="cmuGloNav__community col--sm3 noPaddingLeft">
-          <li><a area-link-handler link-handler-route="feed">Community</a></li>
-          <li class="cmuGloNav__discussions"><a ng-click="vm.toggleDiscussionsMenu()">All Topics<span class="ubnt-icon ubnt-icon--menu"></span></a></li>
-          <!-- <li><a href="#">Q&amp;A</a></li> -->
-          <li><a area-link-handler link-handler-route="stories.landing">Stories</a></li>
-          <li><a area-link-handler link-handler-route="announcements.landing">Announcements</a></li>
+          <li><a area-link-handler link-handler-route="feed">${{ core.cmuName }}$</a></li>
+          <li class="cmuGloNav__discussions"><a ng-click="vm.toggleDiscussionsMenu()">${{ directives.mainnavbar.topics }}$<span class="ubnt-icon ubnt-icon--menu"></span></a></li>
+          <li><a area-link-handler link-handler-route="stories.landing">${{ core.areas.stories }}$</a></li>
+          <li><a area-link-handler link-handler-route="announcements.landing">${{ core.areas.announcements }}$</a></li>
         </div>
         <div class="col--sm3 noPaddingLeft">
           <ul>
-          <li><a href="http://www.ubnt.com">ubnt.com</a></li>
-          <li><a href="https://help.ubnt.com">Knowledge Base</a></li>
-          <li><a href="https://help.ubnt.com">Support</a></li>
-          <li><a href="https://www.ubnt.com/training">Training</a></li>
-          <li><a href="https://store.ubnt.com/">Store</a></li>
+          <li><a href="http://www.ubnt.com">${{ directives.globalfooter.dotCom }}$</a></li>
+          <li><a href="https://help.ubnt.com">${{ directives.globalfooter.knowledgeBase }}$</a></li>
+          <li><a href="https://help.ubnt.com">${{ directives.globalfooter.support }}$</a></li>
+          <li><a href="https://www.ubnt.com/training">${{ directives.globalfooter.training }}$</a></li>
+          <li><a href="https://store.ubnt.com/">${{ directives.globalfooter.store }}$</a></li>
           </ul>
         </div>
         <div class="col--sm3 noPaddingLeft">
-          <!-- <li><a href="http://www.ubnt.com/marketing">Marketing</a></li> -->
-          <!-- <li><a href="http://ir.ubnt.com">Investors</a></li> -->
-          <li><a href="http://www.ubnt.com/company/contact">Contact Us</a></li>
-          <li><a href="https://www.ubnt.com/legal/termsofservice/">Terms of Service</a></li>
-          <li><a href="https://www.ubnt.com/legal/privacypolicy/">Privacy Policy</a></li>
+          <li><a href="http://www.ubnt.com/company/contact">${{ directives.globalfooter.contact }}$</a></li>
+          <li><a href="https://www.ubnt.com/legal/termsofservice/">${{ directives.globalfooter.termsOfService }}$</a></li>
+          <li><a href="https://www.ubnt.com/legal/privacypolicy/">${{ directives.globalfooter.privacy }}$</a></li>
         </div>
         <div class="col--sm3 noPaddingLeft">
-          <!-- <li class="cmuGloNav__social--label">Social</li> -->
           <li class="cmuGloNav__social">
-            <a target="_blank" href="https://twitter.com/ubnt"><span class="ubnt-icon ubnt-icon--twitter"></span></a>
-            <a target="_blank" href="https://www.facebook.com/Ubiquiti"><span class="ubnt-icon ubnt-icon--facebook"></span></a></span>
-            <a target="_blank" href="https://www.youtube.com/user/ubnt"><span class="ubnt-icon ubnt-icon--youtube"></span></a>
+            <a target="_blank" href="${{ directives.globalfooter.twitterUrl }}$"><span class="ubnt-icon ubnt-icon--twitter"></span></a>
+            <a target="_blank" href="${{ directives.globalfooter.facebookUrl }}$"><span class="ubnt-icon ubnt-icon--facebook"></span></a></span>
+            <a target="_blank" href="${{ directives.globalfooter.youtubeUrl }}$"><span class="ubnt-icon ubnt-icon--youtube"></span></a>
           </li>
         </div>
       </div>
     </div>
     <div class="cmuGloNav__legal row col--md6">
-      <span>&copy; 2015 Ubiquiti Networks. All Rights Reserved.</span>
+      <span>${{ directives.globalfooter.copyright }}$</span>
     </div>
-
   </div>
 </div>

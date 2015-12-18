@@ -3,7 +3,8 @@
 
 var _ = require('underscore');
 
-var inboxService = function(){
+var inboxService = function(localizationService){
+	var inboxStrings = localizationService.data.core;
 	return {
 		getRecipientString: function(recipientData, numberOfRecs) {
 			if (!numberOfRecs) {
@@ -25,7 +26,7 @@ var inboxService = function(){
 
 			var moreRecipients = recipientData.totalElements - RECIPIENTS_SHOWN;
 			if (moreRecipients > 0) {
-				recipientString += ' & ' + moreRecipients + (moreRecipients > 1 ? ' others' : ' other');
+				recipientString += ' & ' + moreRecipients + (moreRecipients > 1 ? ' ' + inboxStrings.others : ' ' + inboxStrings.other);
 			}
 
 			return recipientString;
@@ -33,7 +34,7 @@ var inboxService = function(){
 		newDataCount: 0
 	}
 };
-inboxService.$inject = [];
+inboxService.$inject = ['CommunityLocalizationService'];
 
 
 var serviceName = 'CommunityInboxService';

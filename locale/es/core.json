@@ -1,0 +1,54 @@
+{
+	"actionsText": "Comportamiento",
+	"actions": {
+		"addComment": "Agregar comentario",
+		"delete": "Borrar",
+		"edited": "editado",
+		"more": "Más",
+		"postReply": "Enviar Respuesta",
+		"posted": "Al corriente",
+		"postingReply": "Publicación Responder",
+		"reply": "Respuesta",
+		"replyTo": "Responder a",
+		"subscribe": "Suscribir"
+	},
+	"areas": {
+		"home": "Casa",
+		"forums": "Foros",
+		"forumsAlpha": "Alfa",
+		"forumsBeta": "Beta",
+		"forumsPublic": "Público",
+		"stories": "Historias",
+		"announcements": "Avisos",
+		"features": "Solicitud de Funcións" 
+	},
+	"allTopics": "Todos los Temas",
+	"cancel": "Cancelar",
+	"cmuName": "Comunidad",
+	"kudos": "Prestigio",
+	"manageSubscriptions": "Administrar Suscripciones",
+	"model": "Modelo",
+	"options": "Opciones",
+	"other": "otro",
+	"others": "otros",
+	"points": "Puntos",
+	"posts": "Mesajes",
+	"product": "Producto",
+	"productCategories": {
+		"enterprise": "Empresa",
+		"general": "General",
+		"serviceProviders": "Proveedores de servicio"
+	},
+	"replies": "Respuestas",
+	"standardSort": {
+		"postDate": "Posfechar",
+		"recentActivity": "Actividad Reciente"
+	},
+	"thanks": "Gracias",
+	"time": {
+		"popular": "Popular",
+		"latest": "Último"
+	},
+	"version": "Versión",
+	"views": "Vistas"
+}

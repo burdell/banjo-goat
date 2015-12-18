@@ -8,10 +8,10 @@ require('directives/texteditor/texteditor.js');
 
 require('services/products.js')
 
-function newMessage($state, $scope, breadcrumbService, communityApi, currentUserService, routingService) {	
+function newMessage($state, $scope, breadcrumbService, communityApi, currentUserService, localizationService, routingService) {	
 	var ctrl = this;
 
-	breadcrumbService.setCurrentBreadcrumb('New Message');
+	breadcrumbService.setCurrentBreadcrumb(localizationService.data.directory.inbox.newMessage);
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
@@ -58,6 +58,7 @@ newMessage.$inject = [
 	require('services/breadcrumb.js'),
 	require('services/api.js'), 
 	require('services/currentuser.js'),
+	"CommunityLocalizationService",
 	require('services/routing.js')
 ];
 

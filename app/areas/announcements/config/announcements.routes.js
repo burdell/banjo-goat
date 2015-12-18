@@ -28,7 +28,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			})
 			.state('announcements.newtopic', standardRoutes.newTopic())
 			.state('announcements.list', {
-				url: 'list',
+				url: announcementsRoutes.list,
 				templateUrl: 'announcements/list/announcements.list.html',
 				views: {
 					'mainContent': {

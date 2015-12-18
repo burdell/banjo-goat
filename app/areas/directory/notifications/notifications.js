@@ -9,7 +9,7 @@ require('directives/useravatar/useravatar.js');
 
 require('filters/timefromnow.js');
 
-var notificationsController = function($scope, breadcrumbService, notificationsService, notificationsFilter){
+var notificationsController = function($scope, breadcrumbService, localizationService, notificationsService, notificationsFilter){
 	var ctrl = this;
 
 	function setNotificationData(result) {
@@ -29,12 +29,12 @@ var notificationsController = function($scope, breadcrumbService, notificationsS
 		}
 	});
 
-	breadcrumbService.setCurrentBreadcrumb('My Notifications');
+	breadcrumbService.setCurrentBreadcrumb( localizationService.data.directory.notifications.myNotifications);
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
 };
-notificationsController.$inject = ['$scope', require('services/breadcrumb.js'), require('services/notifications.js'), 'NotificationsFilter'];
+notificationsController.$inject = ['$scope', require('services/breadcrumb.js'), 'CommunityLocalizationService', require('services/notifications.js'), 'NotificationsFilter'];
 
 angular.module('community.directory')
 	.controller('Notifications', notificationsController);

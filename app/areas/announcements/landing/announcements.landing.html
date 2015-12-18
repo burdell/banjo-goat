@@ -1,6 +1,6 @@
 <div>	
 	<community-page-header 
-		header-text="Announcements"
+		header-text="${{ core.areas.announcements }}$"
 		hide-element-selector=".landing-container">
 	</community-page-header>
 
@@ -9,13 +9,13 @@
 			<div class="cmuThreadlist__listInfo row">
 				<div class="col--md4 noPadding">
 					<community-product-navigator 
-						display-text="Select Platform"
+						display-text="${{ directives.productnavigator.selectPlatform }}$"
 						product-route="announcements.list"
 						discussion-style="announcements">
 					</community-product-navigator>
 				</div>
 				<div class="col--md3 noPadding floatRight">
-					<button community-permissions="" class="button--outline button--padded button-blue-white">Manage Subscriptions</button>
+					<button community-permissions="" class="button--outline button--padded button-blue-white">${{ core.manageSubscriptions }}$</button>
 				</div>
 			</div>
 		</div>

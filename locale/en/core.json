@@ -1,0 +1,56 @@
+{
+	"actionsText": "Actions",
+	"actions": {
+		"addComment": "Add Comment",
+		"delete": "Delete",
+		"edited": "edited",
+		"more": "More",
+		"postReply": "Post Reply",
+		"posted": "Posted",
+		"postingReply": "Posting Reply",
+		"reply": "Reply",
+		"replyTo": "Reply to",
+		"subscribe": "Subscribe"
+	},
+	"areas": {
+		"home": "Home",
+		"forums": "Forums",
+		"forumsAlpha": "Alpha",
+		"forumsBeta": "Beta",
+		"forumsPublic": "Public",
+		"stories": "Stories",
+		"announcements": "Announcements",
+		"features": "Feature Requests" 
+	},
+	"allTopics": "All Topics",
+	"cancel": "Cancel",
+	"cmuName": "Community",
+	"kudos": "Kudos",
+	"manageSubscriptions": "Manage Subscriptions",
+	"model": "Model",
+	"of": "of",
+	"options": "Options",
+	"other": "other",
+	"others": "others",
+	"points": "Points",
+	"posts": "Posts",
+	"product": "Product",
+	"productCategories": {
+		"enterprise": "Enterprise",
+		"general": "General",
+		"serviceProviders": "Service Providers"
+	},
+	"replies": "Replies",
+	"standardSort": {
+		"postDate": "Post Date",
+		"recentActivity": "Recent Activity",
+		"views": "Views"
+	},
+	"thanks": "Thanks",
+	"time": {
+		"popular": "Popular",
+		"latest": "Latest"
+	},
+	"version": "Version",
+	"views": "Views"
+}

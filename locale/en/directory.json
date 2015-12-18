@@ -1,0 +1,61 @@
+{
+	"directory": {
+
+	},
+	"feed": {
+		"allContent": "All Content",
+		"allAnnouncements": "All Announcements",
+		"allSections": "All Sections",
+		"header": "Community Feed",
+		"followedContent": "Followed Content",
+		"newUpdates": "New Updates",
+		"latestAnnouncements": "Latest Announcements",
+		"latestStories": "Latest Stories",
+		"links": "Links",
+		"manageSubscriptions": "Manage Subscibtions",
+		"myContent": "My Content",
+		"recentContent": "Recent Content",
+		"refresh": "Click To Refresh"
+	},
+	"hub": {
+		"allStories": "Todas as Histórias",
+		"discussions": "Discussions",
+		"pulse": "Pulse"
+	},
+	"inbox": {
+		"header": "My Messages",
+		"messageCta": "Give your message a title",
+		"newMessage": "New Message",
+		"newMessages": "New Messages",
+		"replyFeedback": "Sending your reply",
+		"sendMessage": "Send Message",
+		"sendingMessage": "Sending your message",
+		"with": "with"
+	},
+	"notifications": {
+		"myNotifications": "My Notifications"
+	},
+	"search": {
+		"discussionStyles": "Discussion Styles",
+		"header": "Search",
+		"searchbarPlaceholder": "Search Community",
+		"noResults": "No results found for ",
+		"postedOn": "Posted on ",
+		"results": "Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for:"
+	},
+	"user": {
+		"aboutMe": "About Me",
+		"activities": "Activities",
+		"dateLastVisited": "Date Last Visited",
+		"dateRegistered": "Date Registered",
+		"earnPoints": "Earn Points",
+		"editProfile": "Edit Profile",
+		"location": "Location",
+		"moreStories": "More Stories",
+		"occupation": "Occupation",
+		"personalWebpage": "Personal Web Page",
+		"profileInfo": "Profile Info",
+		"recentActivity": "Recent Activity",
+		"totalPoints": "Total Points"
+	}
+}

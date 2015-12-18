@@ -1,0 +1,16 @@
+{
+	"areaName": "Forums",
+	"message": {
+		"reply": "Reply",
+		"subscribe": "Subscribe",
+		"usersViewingThread": "users viewing this thread"
+	},
+	"list": {
+		"threads": "threads",
+		"created": "Created",
+		"createTopic": "Create a Topic",
+		"emptyPreview": "This post only contains images or video",
+		"filterTopics": "Filter Topics",
+		"topic": "Topic"
+	}
+}

@@ -7,20 +7,20 @@
 
 		<div class="cmuProfile__dropdown__content cmuDropdown__content clearfix">
 			<ul>
-				<li>
-					<a ng-href="{{ dropdown.templateCtrl.profileUrl }}" target="{{ dropdown.templateCtrl.profileUrlTarget }}">User Profile</a>
+				<li class="col--md12">
+					<a ng-href="{{ dropdown.templateCtrl.profileUrl }}" target="{{ dropdown.templateCtrl.profileUrlTarget }}">${{ directives.mainnavbar.userProfile }}$</a>
 				</li>
-				<li>
-					<a>Account Settings</a>
+				<li class="col--md12">
+					<a>${{ directives.mainnavbar.accountSettings }}$</a>
 				</li>
-				<li>
-					<a>Support</a>
+				<li class="col--md12">
+					<a>${{ directives.mainnavbar.support }}$</a>
 				</li>
 			</ul>
 		</div>
 
 		<div class="cmuDropdown__header cmuProfile__dropdown__footer clearfix">
-			<div class="col--md12 noPadding"><a>Sign Out</a></div>
+			<div class="col--md12 noPadding"><a>${{ directives.mainnavbar.signOut }}$</a></div>
 		</div>
 	</div>
 </div>

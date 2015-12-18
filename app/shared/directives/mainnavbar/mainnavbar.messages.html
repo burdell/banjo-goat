@@ -1,7 +1,7 @@
 <div class="">
 	<div class="cmuInbox__dropdown__container">
 		<div class="cmuInbox__dropdown__header cmuDropdown__header clearfix">
-			<div class="cmuDropdown__headline">Inbox</div>
+			<div class="cmuDropdown__headline">${{ directives.mainnavbar.inbox }}$</div>
 			<community-loader show-when="dropdown.templateCtrl.loading"></community-loader> 
 		</div>
 
@@ -30,8 +30,8 @@
 		</div>
 
 		<div class="cmuInbox__dropdown__footer cmuDropdown__footer clearfix">
-			<div class="col--md6 noPadding"><a area-link-handler link-handler-route="inbox">All Messages</a></div>
-			<div class="col--md6 alignRight noPadding"><a area-link-handler link-handler-route="inbox.newtopic">Send a Message</a></div>
+			<div class="col--md6 noPadding"><a area-link-handler link-handler-route="inbox">${{ directives.mainnavbar.readAllMessages }}$</a></div>
+			<div class="col--md6 alignRight noPadding"><a area-link-handler link-handler-route="inbox.newtopic">${{ directives.mainnavbar.sendAMessage }}$</a></div>
 		</div>
 	</div>
 </div>

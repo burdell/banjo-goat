@@ -103,7 +103,6 @@
 				</div>
 
 				<div class="cmuStories__story__mediaItem__vidContainer" ng-if="mediaUpload.type === 'video'">
-					<!-- <div class="cmuStories__story__mediaItem__vidContainer--title" ng-bind="mediaUpload.meta.title"></div> -->
 					<div class="cmuStories__story__mediaItem__vidContainer--video">
 						<community-video-embed video-id="mediaUpload.meta.videoId.value" video-type="mediaUpload.meta.origin.value"></community-video-embed>
 					</div>
@@ -133,32 +132,32 @@
 			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.projectRole">
-		 	<label>Project Role</label>
+		 	<label>${{ stories.body.projectRole }}$</label>
 			<p>{{ vm.story.meta.projectRole }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.finishDate">
-			<label>Finish Date</label>
+			<label>${{ stories.body.finishDate }}$</label>
 			<p>{{ vm.story.meta.finishDate | date }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.numberOfUsers">
-			<label>Users in Networks</label>
+			<label>${{ stories.body.usersInNetwork }}$</label>
 			<p>{{ vm.story.meta.numberOfUsers | number }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.budgetAmount">
-			<label>Budget</label>
+			<label>${{ stories.body.budget }}$t</label>
 			<p>{{ vm.story.meta.budgetAmount | currency }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.dataRequirement">
-			<label>Data Requirement</label>
+			<label>${{ stories.body.dataRequirement }}$</label>
 			<p>{{ vm.story.meta.dataRequirement }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.bandwidth">
-			<label>Bandwidth</label>
+			<label>${{ stories.body.bandwidth }}$</label>
 			<p>{{ vm.story.meta.bandwidth }}</p>
 		</div>
 
 		<div class="cmuStory__sidebar__item clearfix" class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">
-			<div class="cmuStory__products--header">Products Used</div>
+			<div class="cmuStory__products--header">${{ stories.body.productsUsed }}$</div>
 			<div ng-repeat="product in vm.productList track by $index">
 				<a class="cmuStory__product style-tag" area-link-handler="{{ vm.getProductUrl(product) }}" >
 					<!-- <div class="cmuStory__product__icon">

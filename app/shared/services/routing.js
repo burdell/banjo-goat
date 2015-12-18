@@ -3,7 +3,14 @@
 
 var _ = require('underscore');
 
-	var routingService = function($location, communityRoutes){
+	var routingService = function($location, localizationService, communityRoutes){
+		var areaStrings = localizationService.data.core.areas;
+
+		var localeToArea = _.invert(require('locale/routing.locale.js').routing);
+		function localeMapper(string) {
+			return localeToArea[string];
+		}
+
 		return {
 			getCurrentUrl: function(){
 				return $location.url();
@@ -12,7 +19,7 @@ var _ = require('underscore');
 				return this.getArea($location.path());
 			},
 			getArea: function(url) {
-				var areaName = url.split('/')[1];
+				var areaName = localeMapper(url.split('/')[1]);
 				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' || areaName === 'inbox' ) {
 					areaName = 'directory';
 				}
@@ -20,14 +27,6 @@ var _ = require('underscore');
 			},
 			getDetailId: function(areaName) {
 				return communityRoutes.detailIds[areaName];
-			},
-			areaSlugs: {
-				announcements: 'announcements',
-				bugs: 'bugs',
-				featureRequests: 'features',
-				forums: 'forums',
-				qna: 'qna',
-				stories: 'stories'
 			},
 			generateUrl: function(route, data, params){
 				if (!route) return null;
@@ -82,13 +81,13 @@ var _ = require('underscore');
 					{ 
 						area: 'Announcements', 
 						href: communityRoutes.announcements.landing, 
-						description: 'Announcements',
+						description: areaStrings.announcements,
 						callToAction: 'View Announcements' 
 					},
 					{ 
 						area: 'Stories', 
 						href: communityRoutes.stories.landing, 
-						description: 'Stories',
+						description: areaStrings.stories,
 						callToAction: 'Read Members Stories'  
 					}
 				]
@@ -108,7 +107,7 @@ var _ = require('underscore');
 		}
 	};
 };
-routingService.$inject = ['$location', require('providers/routes.js')];
+routingService.$inject = ['$location', 'CommunityLocalizationService', require('providers/routes.js')];
 
 var serviceName = 'CommunityRoutingService';
 angular.module('community.services')

@@ -3,7 +3,7 @@
 	var _ = require('underscore');
 
 	
-	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, routingService, routesProvider){
+	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, localizationService, routingService, routesProvider){
 		var nodeStructureService;
 		var nodesById = {};
 		var nodesByUrl = {};
@@ -84,6 +84,7 @@
 			nodeStructureService.CurrentNode = currentNode;
 		}
 
+		var strings = localizationService.data.core.productCategories;
 		nodeStructureService = {
 			NodeStructure: null,
 			CurrentNode: null,
@@ -128,9 +129,21 @@
 			},
 			getProductTypeList: function(){
 				return [
-					{ header: 'Community', list: this.DiscussionTypes.general },
-					{ header: 'Service Providers', list: this.DiscussionTypes.broadband },
-					{ header: 'Enterprise', list: this.DiscussionTypes.enterprise }
+					{ 
+						header: localizationService.data.core.cmuName, 
+						list: this.DiscussionTypes.general,
+						type: 'community' 
+					},
+					{ 
+						header: strings.serviceProviders, 
+						list: this.DiscussionTypes.broadband,
+						type: 'serviceProviders'
+					},
+					{ 
+						header: strings.enterprise, 
+						list: this.DiscussionTypes.enterprise,
+						type: 'enterprise' 
+					}
 				];
 			}
 		};
@@ -159,7 +172,16 @@
 			}
 		}
 	};
-	nodeStructure.$inject = ['$q', '$rootScope', '$stateParams', require('services/icon.js'), require('services/initialize.js'), require('services/routing.js'), require('providers/routes.js')];
+	nodeStructure.$inject = [
+		'$q', 
+		'$rootScope', 
+		'$stateParams', 
+		require('services/icon.js'), 
+		require('services/initialize.js'), 
+		'CommunityLocalizationService',
+		require('services/routing.js'), 
+		require('providers/routes.js')
+	];
 
 	var serviceName = 'CommunityNodeService';
 	angular.module('community.services')

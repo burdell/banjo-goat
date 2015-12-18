@@ -13,7 +13,7 @@ require('directives/productdiscussiontag/productdiscussiontag.js');
 
 var _ = require('underscore');
 
-function feedContent($compile, $templateCache) {
+function feedContent($compile, $templateCache, localizationService) {
 
 	var baseTemplateUrl = 'directory/feed/feedcontent/';
 	var templateUrls = {
@@ -31,6 +31,8 @@ function feedContent($compile, $templateCache) {
 	var controller = function(dataService, routingService) {
 		var ctrl = this;
 
+		var feedStrings = localizationService.data.directives.feedcontent;
+
 		var discussionIcons = dataService.DiscussionTypeIcons;
 		var contentType = ctrl.contentModel.type;
 
@@ -39,7 +41,7 @@ function feedContent($compile, $templateCache) {
 		var contentNode = contentType === 'topic' ? ctrl.contentModel.data.message.node : ctrl.contentModel.data.node;
 
 		var commentText = function(){
-			return contentUser.login + " replied to " + ctrl.contentModel.data.context.parentAuthor.login;
+			return contentUser.login + feedStrings.repliedTo + ctrl.contentModel.data.context.parentAuthor.login;
 		};
 
 		var contentUrl = function(routeString, dataOptions) {
@@ -53,7 +55,7 @@ function feedContent($compile, $templateCache) {
 		var discussionActionTexts = {
 			features: {
 				topic: function(contentData){
-					return contentUser.login + " posted a feature request"; 
+					return contentUser.login + feedStrings.postedTopic; 
 				},
 				comment: function(contentData){
 					return commentText();
@@ -64,11 +66,10 @@ function feedContent($compile, $templateCache) {
 			},
 			announcements: {
 				topic: function(contentData){
-					return " posted an announcement"; 
+					return feedStrings.postedAnnouncement; 
 				},
 				comment: function(contentData){
-					return " replied to an announcement"; 
-					return contentUser.login + " replied to an announcement"; 
+					return feedStrings.repliedAnnouncements; 
 				},
 				url: function(){
 					return contentUrl('announcements.detail', { announcementId: urlId });
@@ -76,7 +77,7 @@ function feedContent($compile, $templateCache) {
 			},
 			stories: {
 				topic: function(contentData){
-					return " posted a story"; 
+					return feedStrings.postedStory; 
 				},
 				comment: function(){
 					return commentText();
@@ -87,7 +88,7 @@ function feedContent($compile, $templateCache) {
 			},
 			forums: {
 				topic: function(){
-					return " posted a topic"; 
+					return feedStrings.postedTopic; 
 				},
 				comment: function(){
 					return commentText();
@@ -157,7 +158,7 @@ function feedContent($compile, $templateCache) {
 
     return directive;
 }
-feedContent.$inject = ['$compile', '$templateCache']
+feedContent.$inject = ['$compile', '$templateCache', 'CommunityLocalizationService']
 
 angular.module('community.directory')
 	.directive('communityFeedContent', feedContent);

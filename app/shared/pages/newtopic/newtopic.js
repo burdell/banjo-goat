@@ -8,13 +8,9 @@ function creatNewTopicPage(areaName) {
 
 	require('services/products.js')
 
-	var newTopicController = function($scope, $state, $templateCache, breadcrumbService, communityApi, nodeStructure, routingService){
+	var newTopicController = function($scope, $state, $templateCache, breadcrumbService, communityApi, localizationService, nodeStructure, routingService){
 		var ctrl = this;
-		breadcrumbService.setCurrentBreadcrumb('New Announcement');
-		$scope.$on('$stateChangeStart', function(){
-			breadcrumbService.clearCurrentBreadcrumb();
-		});
-
+		
 		var currentNode = null;
 		var currentArea = routingService.getCurrentArea();
 
@@ -26,30 +22,19 @@ function creatNewTopicPage(areaName) {
 			}
 		});
 
-		
+		var newTopicStrings = localizationService.data.directives.newtopic;
 		var texts = {
-			announcements: { 
-				action: 'Post Announcement', 
-				feedback: 'Posting Your Announcement',
-				title: 'Give your Announcement a title' 
-			},
-			forums: { 
-				action: 'Post Topic', 
-				feedback: 'Posting Your Topic',
-				title: 'Give your Topic a title' 
-
-			},
-			features: { 
-				action: 'Submit Feature Request', 
-				feedback: 'Submitting Your Feature Request',
-				title: 'Give your Feature Request a title' 
-			},
-			directory: {
-				action: 'Submit New Message',
-				feedback: 'Submitting Your Message',
-				title: 'Give your message a title'
-			}
+			announcements: newTopicStrings.announcements,
+			forums: newTopicStrings.forums,
+			features: newTopicStrings.features,
+			directory: newTopicStrings.directory
 		};
+
+		breadcrumbService.setCurrentBreadcrumb(newTopicStrings[currentArea].breadcrumb);
+		$scope.$on('$stateChangeStart', function(){
+			breadcrumbService.clearCurrentBreadcrumb();
+		});
+
 
 		var areaConfig = {
 			directory: {
@@ -118,6 +103,7 @@ function creatNewTopicPage(areaName) {
 		'$templateCache',
 		require('services/breadcrumb.js'),
 		require('services/api.js'), 
+		"CommunityLocalizationService",
 		require('services/nodestructure.js'),
 		require('services/routing.js')
 	];

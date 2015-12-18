@@ -21,26 +21,24 @@
 					<div class="row">
 						<div class="col--md12">
 							<div class="cmuThread__stat">
-								<span class="cmuThread__stat__desc">Product:</span>
+								<span class="cmuThread__stat__desc">${{ core.product }}$:</span>
 								<span class="cmuThread__stat__status">{{ ::vm.productName }}</span>
 							</div>
 							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.versionNumber">
-								<span class="cmuThread__stat__desc">Version:</span>
+								<span class="cmuThread__stat__desc">${{ core.version }}$:</span>
 								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.versionNumber }}</span>
 							</div>
 							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.productModel">
-								<span class="cmuThread__stat__desc">Model:</span>
+								<span class="cmuThread__stat__desc">${{ core.model }}$:</span>
 								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.productModel }}</span>
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
 
 		<div class="cmuThread__firstPost clearfix">
-
 			<community-user-badge 
 				class="cmuUserbadge--thin"
 				user="vm.currentAnnouncement.insertUser"
@@ -66,28 +64,27 @@
 				<div ng-if="vm.canEdit" class="cmuMessage__flag cmuTooltip__trigger">
 					<a area-link-handler="{{ vm.editUrl }}">
 						<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
-						<div class="cmuTooltip cmuTooltip--top" data-tooltip="Edit" data-textalign="left"></div>
+						<div class="cmuHoverflag  cmuHoverflag--top" data-tooltip="${{ announcements.detail.edit }}$" data-textalign="left"></div>
 					</a>
 				</div>
 
 				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
-					<div class="button--vote--points">123</div><div class="button--vote--action">Kudos</div>
+					<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
 	<div class="row">
 		<community-comment-form
 			autofocus="false"
-			header-title="Post a new comment"
+			header-title="${{ directives.commentform.postNewComment }}$"
 			minimal-editor="true"
 			toggle-attribute="true"
 			parent-message="vm.currentAnnouncement"
 			comment-list="vm.currentComments"
-			reply-button-text="Post Comment" 
-			replying-button-text="Posting Comment..."
+			reply-button-text="${{ directives.commentform.postComment }}$" 
+			replying-button-text="${{ directives.commentform.postingComment }}$..."
 			autofocus="false" 
 		>
 		</community-comment-form>

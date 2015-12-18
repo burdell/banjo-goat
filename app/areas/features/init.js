@@ -4,6 +4,7 @@
 var app = require('app.init');
 app('features');
 
+require('services/localization.js')(require('locale/features.locale.js'));
 
 //area files
 require('shared/pages/newtopic/editmessage.js')('features');

@@ -1,5 +1,4 @@
-var gulp = require('gulp');
-var del = require('del');
+var gulp = require('gulp'); var del = require('del');
 var buffer = require('vinyl-buffer');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
@@ -46,13 +45,13 @@ var sources = {
 	]
 };
 
+var buildConfig = require('./build_config.json');
 
 //
 //
 // BUILD HELPERS
 //
 //
-
 
 function areaBuilder(taskFn){
     var areas = ['announcements', 'directory', 'features', 'stories', 'forums'];
@@ -68,7 +67,7 @@ function areaPath(areaName, prodBuild) {
 }
 
 gulp.task('clean', function(){
-    del([ './dist/', './app/design/community.css', './app/design/community.vendor.css', './app/design/community.css.map' ]);
+    del([ './dist/', './app/design/community.css', './app/design/community.vendor.css', './app/design/community.css.map', './app/locale' ]);
 });
 
 
@@ -88,9 +87,44 @@ gulp.task('index', function(){
     });
 });
 
+
+/***** 
+    LOCALIZATION 
+                *******/
+var targetLocale = buildConfig.locale;
+var localeFolder = './locale/' + targetLocale + '/';
+
+gulp.task('route-localization', function(){
+      return gulp.src(localeFolder + "routing.json")
+        .pipe($.jsoncombine("routing.locale.js", function(data){
+            return new Buffer("module.exports = " + JSON.stringify(data));
+        }))
+        .pipe(gulp.dest('./app/locale/'));
+});
+
+
+gulp.task('localization', ['route-localization'], function(){
+    areaBuilder(function(areaName){
+        var locales = [localeFolder + 'core.json', localeFolder + 'directives.json', localeFolder + areaName + '.json' ];
+         return gulp.src(locales)
+            .pipe($.jsoncombine(areaName + ".locale.js", function(data){
+                data.locale = buildConfig.locale;
+                if (targetLocale !== 'en') {
+                    data.momentConfig = require(localeFolder + 'momentConfig.js');    
+                }
+
+                return new Buffer("module.exports = " + JSON.stringify(data));
+            }))
+            .pipe(gulp.dest('./app/locale/'));
+    });
+});
+
+
 /****  
         SCRIPT TASKS 
                          *****/
+
+
 gulp.task('scripts', function() {
     browserifyHelper();
 });
@@ -155,7 +189,7 @@ function bundleHelper(prodBuild, b, areaName){
             .pipe(gulp.dest(areaPath(areaName, prodBuild) + '/js/'))
     }
 }
-
+    
 /**** 
         TEMPLATE TASKS 
                         *****/
@@ -185,14 +219,24 @@ function buildTemplates(areaName) {
             .pipe($.concat('community.templates.js'))
 }
 
-
 function getSharedTemplates(){
-      return gulp.src(['app/shared/**/*.html', '!app/index.html'])
+    var targetLanguage = 'es';
+      return gulp.src(['app/shared/**/*.html', '!app/index.html' ])
+            .pipe($.htmlI18n({
+                langDir: './locale',
+                trace: false,
+                inline: buildConfig.locale
+            }))
             .pipe($.ngHtml2js({ moduleName: "community.templates" }));
 }
 
 function getAreaTemplates(areaName) {
      return gulp.src(['app/areas/' + areaName + '/**/**/*.html', '!app/index.html'])
+            .pipe($.htmlI18n({
+                langDir: './locale',
+                trace: false,
+                inline: buildConfig.locale
+            }))
             .pipe($.ngHtml2js({ moduleName: "community.templates", prefix: areaName + '/' }))
 }
 
@@ -242,6 +286,28 @@ gulp.task('prod-stylesheets', ['compile-stylesheets'], function(){
 //
 //
 
+var routingLocale = {
+    en: {
+        "announcements": "announcements",
+        "directory": "directory",
+        "features": "features",
+        "forums": "forums",
+        "stories": "stories",
+        "user": "user" 
+    },
+    es: {
+        "announcements": "avisos",
+        "directory": "directorio",
+        "features": "caracteristicas",
+        "forums": "foros",
+        "stories": "historias",
+        "user": "usuario"
+    }
+}
+
+var routingStrings = routingLocale[targetLocale];
+
+
 gulp.task('express', function() {
     var express = require('express');
     var app = express();
@@ -250,32 +316,32 @@ gulp.task('express', function() {
     app.set('views', __dirname + '/dist/build/');
     
     app.use(express.static(__dirname + '/dist/build/'));
-    app.get('/forums/*', function (req,res) {
+    app.get('/' + routingStrings.forums + '/*', function (req,res) {
         res.render('forums/index.html');
         console.log('served forums index.html');
     });
 
-    app.get('/announcements/*', function (req,res) {
+    app.get('/' + routingStrings.announcements + '/*', function (req,res) {
         res.render('announcements/index.html');
         console.log('served announcements index.html');
     });
 
-    app.get('/stories/*', function (req,res) {
+    app.get('/' + routingStrings.stories + '/*', function (req,res) {
         res.render('stories/index.html');
         console.log('served stories index.html');
     });
 
-    app.get('/directory/*', function (req,res) {
+    app.get('/' + routingStrings.directory + '/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served directory index.html');
     });
 
-    app.get('/user/*', function (req,res) {
+    app.get('/' + routingStrings.user + '/*', function (req,res) {
         res.render('directory/index.html');
         console.log('served (user) directory index.html');
     });
 
-    app.get('/features/*', function (req,res) {
+    app.get('/' + routingStrings.features + '/*', function (req,res) {
         res.render('features/index.html');
         console.log('served feature requests index.html');
     });
@@ -295,7 +361,7 @@ gulp.task('express', function() {
 //
 
 gulp.task('watch', function () {
-	gulp.watch(sources.partials, ['templates']);
+	gulp.watch(['locale/**/*.json'].concat(sources.partials), ['templates']);
     gulp.watch(sources.sass, ['stylesheets']);
 });
 
@@ -311,7 +377,7 @@ gulp.task('dev-prod', ['prod', 'watch', 'express']);
 
 gulp.task('deploy', ['prod']);
 
-gulp.task('dev', ['index', 'scripts', 'templates', 'stylesheets']);
+gulp.task('dev', ['index', 'localization', 'scripts', 'templates', 'stylesheets']);
 
 gulp.task('prod', ['index', 'prod-scripts', 'prod-templates', 'prod-stylesheets']);
 

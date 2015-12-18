@@ -1,11 +1,10 @@
 <div class="cmuSearchpage cmuThreadlist">
  	<community-page-header 
- 		header-text="Search"
+ 		header-text="${{ directory.search.header }}$"
 		hide-element-selector=".cmuSearchpage__container">
 	</community-page-header>
 
 	<div class="cmuSearchpage__container">
-
 		<div class="cmuSearchpage__searchbar row">
 			<div class="col--md12 noPadding">
 				<div class="cmuSearchbox cmuSearchbox--page">
@@ -13,7 +12,7 @@
 						<div class="appIconInput__icon icon ubnt-icon--search-2"></div>
 						<input 
 							class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-							placeholder="Type here to search" 
+							placeholder="${{ directory.search.searchbarPlaceholder }}$" 
 							type="text" 
 							ng-model="vm.searchText"
 							community-enter="vm.search()">
@@ -27,17 +26,16 @@
 
     		<!-- sidebar - hide when no query -->
 	    	<div class="cmuSearchpage__sidebar cmuSidebar col--md3" ng-show="vm.searchTextDisplay">
-
 	    		<div class="cmuSidebar__container">
 	    			<community-datepicker 
 	    				class="cmuInput"
-	    				placeholder="From Date"
+	    				placeholder="${{ directives.datepicker.fromDate }}$"
 	    				ng-model="vm.filterOptions.postDate.min"
 	    				on-change="vm.search()">
 	    			</community-datepicker>
 	    			<community-datepicker 
 	    				class="cmuInput"
-	    				placeholder="To Date"
+	    				placeholder="${{ directives.datepicker.toDate }}$"
 	    				ng-model="vm.filterOptions.postDate.max"
 	    				on-change="vm.search()">
 	    			</community-datepicker> 
@@ -141,37 +139,13 @@
 	    		<!-- </div> -->
 	    	</div>
 	    	<!-- end sidebar -->
-
-
-
-
-
-
 	    	<div class="cmuSearchpage__main col--md9">
 	    		<community-loader show-when="vm.searchInProgress"></community-loader>
 
 	    		<div ng-hide="vm.searchInProgress">
-	    		<!-- 
-	    			We won't be showing stories in this fashion.
-	    			Adds a lot of complexity
-	    			<div>
-	    				<div class="">
-							<div class="cmuFeed__storyList__stories">
-								<div ng-repeat="story in vm.storySearchResults" class="col--md3">
-									<story-display
-										story="story"
-										story-media="story.media"
-										minimal-display="true"
-										fill-width="true">
-									</story-display>
-								</div>
-							</div>
-						</div>
-	    			</div>
-                -->
 		    		<div ng-show="vm.searchResults.length > 0">
 		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md12">
-			    			Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for: <strong>{{ vm.searchTextDisplay }}</strong>
+			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
 
 			    		<div class="cmuThreadlist__body">
@@ -181,7 +155,7 @@
 				    			 <div class="cmuSearchpage__item">
 				    				<div class="cmuSearchpage__item__subject">{{ result.subject }}</div>
 					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:140 }}</div>
-				    				<div class="cmuSearchpage__item__date">Posted on {{ result.postDate | timeFromNow }}</div>
+				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.postDate | timeFromNow }}</div>
 									<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
 								</div>
 					    	</a>
@@ -197,19 +171,16 @@
 			    	</div>
 
 			    	<div class="cmuThreadlist__messagebox" ng-show="vm.searchResults.length === 0">
-
 			    		<!-- if nothing found -->
 			    		<div class="cmuSearchpage__noResults" ng-show="vm.searchTextDisplay">
-			    			<span class="text">No results found for </span>
+			    			<span class="text">${{ directory.search.noResults }}$</span>
 			    			<span class="query">{{ vm.searchTextDisplay }}</span>
 			    		</div>
 
 			    	</div>
 		    	</div>
-
 	    	</div>
 	    	<!-- end main -->
-
     	</div>
 	</div>
 </div>

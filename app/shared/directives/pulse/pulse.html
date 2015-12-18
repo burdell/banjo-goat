@@ -3,24 +3,24 @@
 		<div class="cmuPulse__counter cmuPulse__total col--md3">
 			<div><span class="icon ubnt-icon--pencil-2"></span></div>
 			<div><span class="cmuPulse__count">{{ pulse.stats.postCount | number }}</span></div>
-			<div><span class="cmuPulse__desc">Total Posts</span></div>
+			<div><span class="cmuPulse__desc">${{ directives.pulse.totalPosts }}$</span></div>
 		</div>
 		<div class="cmuPulse__counter cmuPulse__members col--md3">
 			<div><span class="icon ubnt-icon--users"></span></div>
 			<div><span class="cmuPulse__count">{{ pulse.stats.userCount | number }}</span></div>
-			<div><span class="cmuPulse__desc">Total Members</span></div>
+			<div><span class="cmuPulse__desc">${{ directives.pulse.totalMembers }}$</span></div>
 			
 		</div>
 		<div class="cmuPulse__counter cmuPulse__online col--md3">
 			<div><span class="icon ubnt-icon--ap-airos"></span></div>
 			<div><span class="cmuPulse__count">{{ pulse.stats.onlineCount | number }}</span></div>
-			<div><span class="cmuPulse__desc">Members Online</span></div>
+			<div><span class="cmuPulse__desc">${{ directives.pulse.membersOnline }}$</span></div>
 			
 		</div>
 		<div class="cmuPulse__counter cmuPulse__recent col--md3">
 			<div><span class="icon ubnt-icon ubnt-icon--calendar-3"></span></div>
 			<div><span class="cmuPulse__count">{{ pulse.stats.recentPostCount | number }}</span></div>
-			<div><span class="cmuPulse__desc">Posts Today</span></div>		
+			<div><span class="cmuPulse__desc">${{ directives.pulse.postsToday }}$</span></div>		
 		</div>
 	</div>
 </div>

@@ -1,0 +1,47 @@
+{
+	"areaName": "Stories",
+	"body": {
+		"bandwidth": "Bandwidth",
+		"budget": "Budget",
+		"dataRequirement": "Date Requirement",
+		"finishDate": "Finish Date",
+		"productsUsed": "Products Used",
+		"projectRole": "Project Role",
+		"usersInNetwork": "Users In Network"
+	},
+	"detail": {
+		"edit": "Edit this story"
+	},
+	"list": {
+		"shareAStory": "Share A Story"
+	},
+	"newStory": {
+		"addMoreDetails": "Optional Details",
+		"additionalFieldsCta": "Let us know about your team size, budget, and other details.",
+		"caption": "Caption",
+		"coverImage": "Cover Image",
+		"location": "Project Location",
+		"mediaUrl": "Add from URL",
+		"pasteLinkHere": "Paste Link Here",
+		"photosAndVideos": "Photos and Videos",
+		"photosAndVideosCta": "A picture is worth a thousand kudos. Add photos and videos from the web, Youtube, or Vimeo. Or upload photos directly from your device.",
+		"productsUsed": "Products Used",
+		"removeAsCover": "Remove As Cover",
+		"setAsCover": "Set As Cover",
+		"shareAStory": "Share a story, ",
+		"subject": "Subject",
+		"summary": "Summary",
+		"tellUsYourStory": "Tell us your story",
+		"unavailableAsCover": "Unavailable As Cover",
+		"uploadFromUrl": "Upload From URL",
+		"tips": {
+			"addPhotos": "Add photos!",
+			"addPhotosList": "<ul><li>Beautiful, inspiring, or interesting images get more viewers</li><li>Photos of equipment, environments and screenshots help illustrate the story</li><li>Set your best image as the cover photo</li></ul>",
+			"engageTheReader": "Engage the reader",
+			"engageTheReaderList": "<ul><li>Give us some details: What did you see? What did you set out to do? What were some challenges? </li><li>How did you resolve your issues, or overcome your obstacles? What was your solution?</li><li>What did you learn?</li><li>What can you teach your readers?</li></ul>",
+			"greatTitles": "Great titles grab attention",
+			"greatTitlesList": "<ul><li>Use short, engaging, inspiring, titles</li><li><em>Ex: \"How mFi saved me another HUGE mess on the farm.\"</em></li><li><em>Ex: \"The shed caught on fire... and the airFiber still works.\"</em></li></ul>",
+			"title": "Tips to writing a great story"
+		}
+	}
+}

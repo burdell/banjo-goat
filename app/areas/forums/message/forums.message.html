@@ -1,10 +1,4 @@
-
-<!-- 
-<div class="cmuThread__subject
-	        cmuThread__subject--locked
-	        cmuThread__subject--active">
-	         -->
-
+ 
 <div class="cmuThread__subject">
 	<div class="row">
 		<h3>{{ ::vm.originalMessageSubject | htmlUnescape }}</h3>
@@ -15,14 +9,14 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
-	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()">Reply</button>
-	        	<button class="button--ghost col--md2">Subscribe</button>
+	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()">${{ forums.message.reply }}$</button>
+	        	<button class="button--ghost col--md2">${{ forums.message.subscribe }}$</button>
 				<community-drop-down
 					class="cmuInput__selectDropdown__container col--md3 noPadding"
 	                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
 	                template-ctrl="mainnavbar.currentUser"
 	                element-classname="cmuInput__selectDropdown"
-	                label="Actions">
+	                label="${{ core.actionsText }}$">
 	              </community-drop-down>
 			</span>
 		</div>
@@ -53,12 +47,12 @@
 		<!-- reply -->
 		<div class="cmuThread__reply container" ng-if="vm.messageIsBeingRepliedTo(message.id)">
 				<div class="col--md12 noPadding">
-					<div class="cmuThread__reply__to">Reply to <span class="cmuThread__replyTo__user">{{ ::message.insertUser.login }}</span></div>
+					<div class="cmuThread__reply__to">${{ core.actions.replyTo }}$ <span class="cmuThread__replyTo__user">{{ ::message.insertUser.login }}</span></div>
 					<community-comment-form
 						autofocus="true"
 						minimal-editor="true"
-						reply-button-text="Post Reply" 
-						replying-button-text="Posting Reply..." 
+						reply-button-text="${{ core.actions.postReply }}$" 
+						replying-button-text="${{ core.actions.postingReply }}$..." 
 						parent-message="message"
 						toggle-attribute="vm.currentReply"
 						on-success-fn="vm.replyPosted">
@@ -75,14 +69,14 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span community-permissions>
-	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()">Reply</button>
-	        	<button class="button--ghost button-blue-on-white col--md2">Subscribe</button>
+	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()">${{ forums.message.reply }}$</button>
+	        	<button class="button--ghost button-blue-on-white col--md2">${{ forums.message.subscribe }}$</button>
 				<community-drop-down
 					class="cmuInput__selectDropdown__container col--md3 noPadding"
 	                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
 	                template-ctrl="mainnavbar.currentUser"
 	                element-classname="cmuInput__selectDropdown"
-	                label="Actions">
+	                label="${{ core.actionsText }}$">
 	              </community-drop-down>
 			</span>
 		</div>
@@ -98,8 +92,8 @@
 		<div id="topicReply">
 			<community-comment-form
 				autofocus="true"
-				reply-button-text="Post Reply" 
-				replying-button-text="Posting Reply..." 
+				reply-button-text="${{ core.actions.postReply }}$" 
+				replying-button-text="${{ core.actions.postingReply }}$..." 
 				parent-message="vm.topicReplyMessage"
 				toggle-attribute="vm.topicReplyShown"
 				on-success-fn="vm.replyPosted">
@@ -111,7 +105,7 @@
 <div class="cmuViewingCounter">
 	<div class="row">
 		<div class="cmuViewingCounter__count">
-			5 {{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }} users viewing this thread
+			5 {{ vm.originalMessage.stats | extractKey : 'currentlyViewing' }} ${{ forums.message.usersViewingThread }}$
 		</div>
 	</div>
 </div>

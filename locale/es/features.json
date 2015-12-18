@@ -1,0 +1,12 @@
+{
+	"areaName": "Caracteristicas",
+	"detail": {
+		"editCta": "Edite este Pedido de funciones"
+	},
+	"list": {
+		"keywordFilter": "Filtro de palabras clave",
+		"requestFeature": "Solicite una Característica"
+	},
+	"vote": "Votar",
+	"votes": "votos"
+}

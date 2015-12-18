@@ -9,9 +9,9 @@ function groupData(dataList, datePropertyFn){
 	 	var date = datePropertyFn(discussion);
 
 		var momentDate = moment(date);
-
 		_.extend(discussion, {
 			month: momentDate.month(),
+			monthDisplay: momentDate.format('MMMM'),
 			year: momentDate.year()
 		})
 	});
@@ -34,7 +34,7 @@ function groupData(dataList, datePropertyFn){
 
 		_.each(dataByMonth, function(data, month){
 			yearObj.count += data.length
-			yearObj.yearData.unshift({ month: month, monthData: data });
+			yearObj.yearData.unshift({ month: month, monthDisplay: data[0].monthDisplay, monthData: data });
 		});
 		groupedData.push(yearObj);
 	});

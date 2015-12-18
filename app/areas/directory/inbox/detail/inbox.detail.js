@@ -41,7 +41,7 @@ var inboxMessageController = function($scope, $stateParams, breadcrumbService, i
 	_.extend(ctrl, {
 		threadFilter: inboxThreadFilter,
 		newMessage: {
-			body: 'hello',
+			body: '',
 			topicId: topicId
 		},
 		postNewMessage: function(){

@@ -1,20 +1,16 @@
 
 <div class="cmuFeed cmuFeed--home">
-	<community-page-header header-text="Community Feed" hide-element-selector=".feed-container"></community-page-header>
-
+	<community-page-header header-text="${{ directory.feed.header }}$" hide-element-selector=".feed-container"></community-page-header>
 	<div class="feed-container">
-
 		<!-- pulse -->
 		<community-pulse></community-pulse>
-
 		<div class="row">
 			<!-- main -->
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
-
 				<!-- filter & sort controls -->
 				<div class="cmuThreadlist__ctrl__row row">
-					<div class="col--md7">
-						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">Recent Content</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >Followed Content</button>
+					<div class="col--md8">
+						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">${{ directory.feed.recentContent }}$</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >${{ directory.feed.followedContent }}$</button>
 					</div>
 					 <div class="col--md3 noPaddingRight">
 			          	<community-sort 
@@ -42,7 +38,7 @@
 
 		        	<!-- refresh button -->
 			        <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()">
-			        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} New Updates <span class="icon ubnt-icon--refresh-2"></span> Click to Refresh</button>
+			        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon ubnt-icon--refresh-2"></span>${{ directory.feed.refresh }}$</button>
 			        </div>
 
 		        	<!-- story feed -->
@@ -50,9 +46,7 @@
 
 						<div class="cmuCollapser__header cmuCollapser__header--light open" community-class-toggle="open">
 							<div class="cmuFeed__title"> 
-								<h5>
-								<!-- <span class="cmuIcon__label stories"></span> -->
-								Latest Stories</h5>
+								<h5>${{ core.time.latest }}$ ${{ stories.areaName }}$</h5>
 							</div>
 						</div>
 						
@@ -71,7 +65,7 @@
 					</div>
 
 			        <div class="cmuFeed__container col--md12" ng-if=" vm.feedType === 'user' ">
-			        	<div class="button button--ghost">Manage Subscriptions</div>
+			        	<div class="button button--ghost">${{ directory.feed.manageSubscriptions }}$</div>
 			        </div>
 
 		        	<!-- activity feed -->
@@ -102,22 +96,21 @@
 
 				<!-- links -->
 				<div class="cmuFeed__actions cmuSidebar__container">
-					<h5>Links</h5>
+					<h5>${{ directory.feed.links }}$</h5>
 					<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 				</div>
 
 				<!-- hub -->
 				<div class="cmuFeed__announcements cmuSidebar__container">
-					<h5>Latest Announcements</h5>
+					<h5> ${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
 					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
 						<span class="product"></span>{{ announcement.topic.subject }}
 					</a>
 					<div class="cmuFeed__sidebar__ctrl">
-						<a class="cmuFeed__sidebar__link" area-link-handler="{{ ::vm.announcementsLanding.href }}">All Announcements</a>
+						<a class="cmuFeed__sidebar__link" area-link-handler="{{ ::vm.announcementsLanding.href }}">${{ directory.feed.allAnnouncements }}$</a>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

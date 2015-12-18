@@ -11,7 +11,7 @@ require('services/permissions.js');
 var _ = require('underscore');
 
 function communityMessage() {
-	function controller($anchorScroll, $location, $timeout, $stateParams, permissionsService, routingService, scrollService) {	
+	function controller($anchorScroll, $location, $timeout, $stateParams, localizationService, permissionsService, routingService, scrollService) {	
 		var ctrl = this;
 
 		var perPage = null;
@@ -46,13 +46,14 @@ function communityMessage() {
 			}
 		});
 
+		var strings = localizationService.data.directives.message;
 		_.extend(ctrl, {
 			hideVoteButtons: this.hideVoteButtons,
 			getMessagePosition: function() {
 				var currentPage = ctrl.threadFilter.model('page') || 1;
 				var total = ctrl.threadFilter.metaData('totalElements');				
 				var messageIndex = ((perPage * (currentPage - 1)) + ctrl.localIndex) + 1;
-				return  messageIndex + " of " + total;
+				return  messageIndex + " " + strings.of + " " + total;
 			},
 			goToParentMessage: function(parentId) {
 				$location.hash(parentId);
@@ -75,6 +76,7 @@ function communityMessage() {
 			'$location', 
 			'$timeout', 
 			'$stateParams',
+			"CommunityLocalizationService",
 			'CommunityPermissionsService', 
 			require('services/routing.js'), 
 			require('services/scroll.js')
