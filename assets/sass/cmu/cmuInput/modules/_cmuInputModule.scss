@@ -6,6 +6,12 @@
 // 
 
 
+.cmuInput--stretch {
+	input {
+		width: 100%;
+	}
+}
+
 // 
 %cmuInput--stacked--expanded {
 	padding-top: $cmu-base*1.7;

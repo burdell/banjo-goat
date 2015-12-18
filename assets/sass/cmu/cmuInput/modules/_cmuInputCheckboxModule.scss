@@ -24,6 +24,11 @@
 		// removed since we now just hide this
 		// margin-left: $cmu-base/2;
 	}
+
+
+	padding-bottom: $cmu-base/4;
+	margin-bottom: $cmu-base/4;
+	border-bottom: $style-line;
 }
 
 .cmuInput__checkbox {

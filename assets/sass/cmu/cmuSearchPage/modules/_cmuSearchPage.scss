@@ -18,10 +18,25 @@
 	margin-bottom: $cmu-vertical-rhythm;
 }
 
+
+
+
 .cmuSearchpage__sidebar {
+	padding-right: $cmu-base;
+
 	.cmuSidebar__container {
 		margin-bottom: $cmu-base/2;
 	}
+}
+
+
+
+
+// Main
+
+.cmuSearchpage__main {
+	padding: 0;
+	padding-left: $cmu-base;
 }
 
 .cmuSearchpage__content {
@@ -46,13 +61,16 @@
 
 .cmuSearchpage .cmuThreadlist__row {
 
-	&:first-child {
-		.cmuSearchpage__item {
-			border-top: $style-line;
-		}
+	display: block;
+	border-bottom: $style-line;
+	
+	&:first-of-type {
+		border-top: $style-line;
 	}
+
 	.cmuSearchpage__item {
 		@extend .cmuThreadlist__topic;
+		border: 0;
 	}
 		.cmuSearchpage__item__subject {
 			// font-size: $size-large;

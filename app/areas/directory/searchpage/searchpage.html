@@ -30,13 +30,13 @@
 
 	    		<div class="cmuSidebar__container">
 	    			<community-datepicker 
-	    				class="cmuInput"
+	    				class="cmuInput cmuInput--stretch"
 	    				placeholder="From Date"
 	    				ng-model="vm.filterOptions.postDate.min"
 	    				on-change="vm.search()">
 	    			</community-datepicker>
 	    			<community-datepicker 
-	    				class="cmuInput"
+	    				class="cmuInput cmuInput--stretch"
 	    				placeholder="To Date"
 	    				ng-model="vm.filterOptions.postDate.max"
 	    				on-change="vm.search()">
@@ -174,7 +174,7 @@
 			    			Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for: <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
 
-			    		<div class="cmuThreadlist__body">
+			    		<div class="cmuThreadlist__body col--md12 noPadding">
 				    		<a class="cmuThreadlist__row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
@@ -187,7 +187,7 @@
 					    	</a>
 					    </div>
 
-					    <div class="cmuThreadlist__ctrl--bottom">
+					    <div class="cmuThreadlist__ctrl--bottom col--md12 noPadding">
 			    		  <community-pager 
 				            number-of-pages="vm.totalPages" 
 				            pager-fn="vm.searchFilter"

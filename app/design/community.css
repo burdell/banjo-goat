@@ -10526,6 +10526,10 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   width: 100%;
 }
 
+.cmuInput--stretch input {
+  width: 100%;
+}
+
 .cmuInput--stacked:focus, .cmuInput--stacked:valid {
   padding-top: 1.7rem;
   padding-bottom: 0.5rem;
@@ -10717,6 +10721,11 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   border: 1px solid #dadada;
 }
 
+.cmuInput__checkbox--default {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid #dadada;
+}
 .cmuInput__checkbox--default input {
   display: none;
 }
@@ -10895,8 +10904,16 @@ select:disabled {
   margin-bottom: 1rem;
 }
 
+.cmuSearchpage__sidebar {
+  padding-right: 1rem;
+}
 .cmuSearchpage__sidebar .cmuSidebar__container {
   margin-bottom: 0.5rem;
+}
+
+.cmuSearchpage__main {
+  padding: 0;
+  padding-left: 1rem;
 }
 
 .cmuSearchpage__content {
@@ -10913,8 +10930,15 @@ select:disabled {
   display: inline-block;
 }
 
-.cmuSearchpage .cmuThreadlist__row:first-child .cmuSearchpage__item {
+.cmuSearchpage .cmuThreadlist__row {
+  display: block;
+  border-bottom: 1px solid #dadada;
+}
+.cmuSearchpage .cmuThreadlist__row:first-of-type {
   border-top: 1px solid #dadada;
+}
+.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item {
+  border: 0;
 }
 .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__subject {
   padding-bottom: 0.5rem;
