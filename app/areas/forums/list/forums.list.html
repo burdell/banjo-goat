@@ -5,7 +5,7 @@
 
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
       <div class="col--md6 noPaddingLeft" community-permissions>
-        <button class="button--solid" ng-click="vm.startNewTopic()">Create a Topic</button>
+        <button class="button--solid" ng-click="vm.startNewTopic()">${{ forums.list.createTopic }}$</button>
       </div>
 
       <div class="col--md6 noPaddingRight">
@@ -20,15 +20,18 @@
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
 
       <div class="col--md8 noPaddingLeft">
-        <div class="cmuThreadlist__postCount">Showing {{ vm.messageList.length | number }} out of {{ vm.messageCount | number}} threads
-        </div>
+        <community-show-count 
+          lower="vm.messageList.length" 
+          upper="vm.messageCount" 
+          type="${{ forums.list.threads }}$">
+        </community-show-count>
       </div>
 
       <div class="col--md2">
         <div ng-hide="vm.hideSearch()">
             <community-search 
               search-filter="vm.forumListFilter" 
-              placeholder="Filter Topics"
+              placeholder="${{ forums.list.filterTopics }}$"
               exclude="page">
            </community-search>
         </div>
@@ -43,17 +46,15 @@
 
   <div class="row">
     <div class="cmuThreadlist__table"> 
-
       <div class="cmuThreadlist__headers">
-        <div class="cmuThreadlist__topic">Topic</div>
+        <div class="cmuThreadlist__topic">${{ forums.list.topic }}$</div>
         <div class="cmuThreadlist__preview">
-          <!-- <span class="icon ubnt-icon--eye2"></span> -->
         </div>
-        <div class="cmuThreadlist__authorDate">Created</div>
+        <div class="cmuThreadlist__authorDate">${{ forums.list.created }}$</div>
         <div class="cmuThreadlist__counter cmuThreadlist__views"></div>
         <div class="cmuThreadlist__counter cmuThreadlist__replies"></div>
         <div class="cmuThreadlist__counter cmuThreadlist__kudos"></div>
-        <div class="cmuThreadlist__authorDate">Latest</div>
+        <div class="cmuThreadlist__authorDate">${{ core.time.latest }}$</div>
       </div>
 
       <div class="cmuThreadlist__body">
@@ -67,8 +68,6 @@
             {{ ::message.topic.subject | htmlUnescape }}
 
               {{message.id}}
-
-            <!-- <span ng-if="vm.isRead(message)">*</span> -->
           </div>
 
           <div class="cmuThreadlist__preview">
@@ -79,7 +78,7 @@
               ajax-populate="vm.getMessageData" 
               tooltip-template="forums/list/forums.list.messagetooltip.html"
               local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-              empty-text="This post only contains images or video."
+              empty-text="${{ forums.list.emptyPreview }}$"
               tooltip-class="cmuTooltipster"
               position="top-right"
             ><span class="icon ubnt-icon--eye2"></span>
@@ -122,7 +121,7 @@
   <div class="cmuThreadlist__ctrl cmuThreadlist__ctrl--bottom row">
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions>Create a Topic</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions>${{ forums.list.createTopic }}$</button>
         </div>
         <div class="col--md4 noPaddingLeft">
           <community-pager 
@@ -133,5 +132,4 @@
         </div>
     </div>
   </div>
-
 </div>

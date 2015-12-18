@@ -7,7 +7,7 @@
 			class="cmuPagination__txtControl cmuPagination__txtControl--prev" 
 			ng-click="pager.previousPage()"
 			ng-class="{ 'disabled' : disabledButtons.previous }">
-				Previous
+				${{ directives.pager.previous }}$
 		</div>
 
     	<!-- scrub numbers left -->
@@ -53,7 +53,7 @@
 			class="cmuPagination__txtControl cmuPagination__txtControl--next" 
 			ng-click="pager.nextPage()"
 			ng-class="{ 'disabled' : disabledButtons.next }">
-				Next
+				${{ directives.pager.next }}$
 		</div>
 
 	</div>

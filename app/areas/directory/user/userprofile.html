@@ -13,40 +13,40 @@
 		<div class="cmuProfile__sidebar col--md3">
 			<div class="cmuProfile__section row">
 				<div><img ng-src="{{ vm.userData.avatarUrl }}" /></div>
-				<button class="button--solid" >Edit Profile</button>
+				<button class="button--solid" >${{ directory.user.editProfile }}$</button>
 			</div>
 
 			<div class="cmuProfile__section row">
 				<div ng-if="vm.userData.locName">
-					<label class="cmuProfile__sidebar__label">Location</label>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.location }}$</label>
 					<p>{{ vm.userData.locName }}</p>
 				</div>
 
 				<div class="cmuProfile__subSection" ng-if="vm.userData.meta.personalSiteUrl.value">
-					<label class="cmuProfile__sidebar__label">Personal Web Page</label>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.personalWebpage }}$</label>
 					<p>{{ vm.userData.meta.personalSiteUrl.value }}</p>
 				</div>
 
 				<div class="cmuProfile__subSection" ng-if="vm.userData.meta.occupation">
-					<label class="cmuProfile__sidebar__label">Occupation</label>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.occupation }}$</label>
 					<p>{{ vm.userData.meta.occupation.value }}</p>
 				</div>
 
 				<div class="cmuProfile__subSection" >
-					<label class="cmuProfile__sidebar__label">Date Registered</label>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.dateRegistered }}$</label>
 					<p>{{ vm.userData.registrationDate | date }}</p>
 				</div>
 
 				<div class="cmuProfile__subSection" >
-					<label class="cmuProfile__sidebar__label">Date Last Visited</label>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.dateLastVisited }}$</label>
 					<p>{{ vm.userData.lastOnlineDate | date }}</p>
 				</div>
 			</div>
 
 			<div class="cmuProfile__section row" ng-if="vm.userData.meta.bioText">
 				<div class="cmuProfile__subSection" >
-					<label class="cmuProfile__sidebar__label">About Me</label>
-					<p>This is some bio text {{ vm.userData.bioText }}</p>
+					<label class="cmuProfile__sidebar__label">${{ directory.user.aboutMe }}$</label>
+					<p>{{ vm.userData.bioText }}</p>
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 
 			<div class="cmuProfile__points cmuProfile__section row">
 				<div class="cmuProfile__points__progress col--md12">
-					<h1>{{ vm.totalPoints }} Total Points ({{ vm.percentageComplete }}%)</h1>
+					<h1>{{ vm.totalPoints }} ${{ directory.user.totalPoints }}$ ({{ vm.percentageComplete }}%)</h1>
 				</div>
 
 				<div class="cmuProfile__points__stats col--md12">
@@ -70,20 +70,15 @@
 
 
 			<div class="cmuProfile__stories cmuProfile__section row">
-
 				<div class="cmuThreadlist__ctrl__row col--md12">
-					<button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == true}" ng-click="vm.profileSummaryShown = true">Profile Info</button><button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == false}" ng-click="vm.profileSummaryShown = false">Earn Points</button>
+					<button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == true}" ng-click="vm.profileSummaryShown = true">${{ directory.user.profileInfo }}$</button><button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == false}" ng-click="vm.profileSummaryShown = false">${{ directory.user.earnPoints }}$</button>
 				</div>
-
 
 				<!-- 
 					PROFILE SUMMARY
 				-->
-
 				<div class="col--md12" ng-show="vm.profileSummaryShown">
-
 					<!-- stories -->
-
 			        <div class="cmuProfile__stories">
 			        
 			        	<div class="cmuProfile__title clearfix">
@@ -104,7 +99,7 @@
 								</div>
 							</div>
 							<div class="cmuProfile__subSection col--md12">
-								<button class="button--stretch button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">More Stories</button>
+								<button class="button--stretch button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">${{ core.actions.more }}$ ${{ stories.areaName }}$</button>
 							</div>
 						</div>
 					</div>	
@@ -114,7 +109,7 @@
 				  	<!-- feed -->
 				  	<div class="cmuProfile__activity cmuProfile__section">
 			        	<div class="cmuProfile__title clearfix">
-							<h5><span class="cmuIcon__label all"></span>Recent Activity</h5>
+							<h5><span class="cmuIcon__label all"></span>${{ directory.user.recentActivity }}$</h5>
 						</div>
 
 						<div class="cmuProfile__subSection col--md12">
@@ -124,11 +119,9 @@
 				        </div>
 
 						<div class="cmuProfile__subSection col--md12">
-			        		<button class="button--stretch button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">More Activities</button>
+			        		<button class="button--stretch button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">${{ core.actions.more }}$ ${{ directory.user.activities }}$</button>
 						</div>
-
 				  	</div>
-
 				</div>
 
 
@@ -138,13 +131,10 @@
 				-->
 
 				<div class="col--md12" ng-show="!vm.profileSummaryShown">
-
 			        <div class="cmuProfile__pointsTable cmuProfile__section">
-
 			        	<div class="cmuProfile__title clearfix">
-							<h5><span class="cmuIcon__label all"></span>Recent Activity</h5>
+							<h5><span class="cmuIcon__label all"></span>${{ directory.user.recentActivity }}$</h5>
 						</div>
-
 						<div class="cmuProfile__table">
 							<div ng-repeat="category in ::vm.pointCategories" class="row row--comfy">
 								<div class="col--md1"><h2>{{ category.points }}</h2></div>
@@ -154,11 +144,8 @@
 								</div>
 							</div>
 						</div>
-						
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>

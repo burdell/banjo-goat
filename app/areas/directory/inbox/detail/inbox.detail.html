@@ -7,7 +7,7 @@
 		<div class="col--md9">
 			<h2>{{ vm.originalMessage.subject }}</h2>
 			<div>
-				<span>with {{ vm.recipientString }}</span>
+				<span>${{ directory.inbox.with }}$ {{ vm.recipientString }}</span>
 			</div>
 		</div>
 		<div class="col--md3">
@@ -35,10 +35,10 @@
 	<div class="row">
 		<community-text-editor ng-model="vm.newMessage.body"></community-text-editor>
 		<div ng-show="!vm.submittingReply">
-			<button ng-click="vm.postNewMessage()">Reply</button>
+			<button ng-click="vm.postNewMessage()">${{ core.actions.reply }}$</button>
 		</div>
 		 <div ng-show="vm.submittingReply">
-          <button class="cmuInput--waiting button--padded" disabled>Sending Your Reply...</button>
+          <button class="cmuInput--waiting button--padded" disabled>${{ directory.inbox.replyFeedback }}$...</button>
         </div>
 	</div>
 </div>

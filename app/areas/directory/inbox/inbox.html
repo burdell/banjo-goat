@@ -1,16 +1,18 @@
 
 <div>
-	<community-page-header header-text="My Messages" exclude-state="inbox.detail" hide-element-selector=".inbox-container"></community-page-header>
+	<community-page-header header-text="${{ directory.inbox.header }}$" exclude-state="inbox.detail" hide-element-selector=".inbox-container"></community-page-header>
 
-	<div class="cmuInbox__container inbox-container">
-		<div class="cmuInbox__controls row">
-			<a area-link-handler link-handler-route="inbox.newtopic"><div class="button button--solid">Send a Message</div></a>
+	<div class="inbox-container">
+		<div class="row row--comfy">
+			<div class="col--md2">
+				<a area-link-handler link-handler-route="inbox.newtopic"><button>${{ directory.inbox.newMessage }}$</button></a>
+			</div>
 		</div>
 
 		<div class="row">
 			<div class="cmuInbox__list col--md4 noPadding">
 				 <div class="cmuInbox__update" ng-show="vm.checkNewMessages()">
-		        	<button class="button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span>Refresh Messages</button>
+		        	<button class="button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
 		        </div>
 				<div ng-repeat="message in vm.messageList.content">
 					<a class="cmuInbox__message" ui-sref="inbox.detail({ messageId: message.topic.id })">

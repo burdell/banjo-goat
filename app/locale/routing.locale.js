@@ -1,0 +1,1 @@
+module.exports = {"routing":{"announcements":"announcements","directory":"directory","edit":"edit","features":"features","forums":"forums","inbox":"inbox","message":"message","notifications":"notifications","newString":"new","newtopic":"newtopic","list":"list","search":"search","stories":"stories","user":"user"}}

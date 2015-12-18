@@ -16,33 +16,29 @@
 
 		<div class="cmuUserbadge__points">
 			<div class="cmuUserbadge__kudos cmuUserbadge__stat" title="Kudos">
-				<span class="cmuUserbadge__stat__num">{{ userbadge.displayUser.score }}</span> <span class="cmuUserbadge__stat__title">points</span> 
+				<span class="cmuUserbadge__stat__num">{{ userbadge.displayUser.score }}</span> <span class="cmuUserbadge__stat__title">{{ '${{ core.points }}$' | lowercase }} </span> 
 			</div>
 			<div class="cmuUserbadge__posts cmuUserbadge__stat" title="Posts">
-				<span class="cmuUserbadge__stat__num">{{ userbadge.displayUser.postCount }}</span> <span class="cmuUserbadge__stat__title">posts</span> 
+				<span class="cmuUserbadge__stat__num">{{ userbadge.displayUser.postCount }}</span> <span class="cmuUserbadge__stat__title">{{ '${{ core.posts }}$' | lowercase }}</span> 
 			</div>
 		</div>
 
 		<div class="cmuUserbadge__info">
 			<div class="cmuUserbadge__descriptors">
 				<div class="cmuUserbadge__descriptor">{{ userbadge.displayUser.locName }}</div>
-				<div class="cmuUserbadge__descriptor"><span class="cmuUserbadge__descriptor__title">Joined</span> {{ userbadge.displayUser.registrationDate | timeFromNow }}</div>
+				<div class="cmuUserbadge__descriptor"><span class="cmuUserbadge__descriptor__title">${{ directives.userbadge.joined }}$</span> {{ userbadge.displayUser.registrationDate | timeFromNow }}</div>
 			</div>
 		</div>
 	</div>
 
 
 	<!-- userbadge flag -->
-
 	<div class="cmuUserbadge__flag">
 		<div class="cmuUserbadge__flag__container">
 			<div class="cmuUserbadge__account">
 				<div class="cmuUserbadge__user row">
 					<community-user-avatar user="userbadge.displayUser"></community-user-avatar>
 					<community-username user="userbadge.displayUser" current-user="userbadge.currentUser"></community-username>
-					<!-- <div class="cmuUserbadge__rank">
-						{{ userbadge.displayUser.rank.name }}
-					</div> -->
 				</div>
 			</div>
 		</div>

@@ -6,8 +6,6 @@
 		story display for feeds (story grid uses a different template)
 	 -->
 
-
-
 	<!--- NORMAL DISPLAY -->
 	<div ng-if="::!storydisplay.minimalDisplay">
 		<!-- storydisplay.html :: NORMAL DISPLAY -->
@@ -30,10 +28,10 @@
 				
 				<div class="cmuStoryItem__stats" >
 					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">{{ storydisplay.story.countViews | number}} </span> <span class="style-stat-title">views</span> 
+						<span class="style-stat-num">{{ storydisplay.story.countViews | number}} </span> <span class="style-stat-title">{{ '${{ core.views }}$' | lowercase }}</span> 
 					</div>
 					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">{{  storydisplay.story.stats | extractKey : 'score' | number}}</span> <span class="style-stat-title">kudos</span> 
+						<span class="style-stat-num">{{  storydisplay.story.stats | extractKey : 'score' | number}}</span> <span class="style-stat-title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
 					</div>
 				</div>
 			</div>

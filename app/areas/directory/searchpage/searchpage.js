@@ -13,7 +13,7 @@ require('filters/timefromnow.js');
 
 var _ = require('underscore');
 
-var searchPageController = function($location, $scope, breadcrumbService, nodeServiceWrapper, searchFilter){
+var searchPageController = function($location, $scope, breadcrumbService, localizationService, nodeServiceWrapper, searchFilter){
 	var ctrl = this;
 
 	nodeServiceWrapper.get().then(function(nodeService){
@@ -84,7 +84,10 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		return (selectedOptions.length > 0 ? _.pluck(selectedOptions, 'value') : selectedOptions);
 	}
 
-	breadcrumbService.setCurrentBreadcrumb('Search');
+	var searchStrings = localizationService.data.directory.search;
+	var styleStrings = localizationService.data.core.areas;
+
+	breadcrumbService.setCurrentBreadcrumb(searchStrings.header);
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
@@ -102,14 +105,14 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		searchFilter: searchFilter,
 		filterOptions: {
 			discussionStyles: {
-				defaultOption: { display: 'Discussion Styles', value: null, selected: true },
+				defaultOption: { display: searchStrings.discussionStyles, value: null, selected: true },
 				param: 'discussionStyles',
 				list: [
-					{ display: 'Announcements', value: 'announcements' },
-					{ display: 'Feature Requests', value: 'features' },
-					{ display: 'Forums', value: 'forums' },
+					{ display: styleStrings.announcements, value: 'announcements' },
+					{ display: styleStrings.features, value: 'features' },
+					{ display: styleStrings.forums, value: 'forums' },
 					{ 
-						display: 'Stories', 
+						display: styleStrings.stories, 
 						value: 'stories',
 						subfilters: {
 							list: [
@@ -179,7 +182,14 @@ var searchPageController = function($location, $scope, breadcrumbService, nodeSe
 		}
 	})
 };
-searchPageController.$inject = ['$location', '$scope', require('services/breadcrumb.js'), require('services/nodestructure.js'), 'SearchFilter'];
+searchPageController.$inject = [
+	'$location', 
+	'$scope', 
+	require('services/breadcrumb.js'), 
+	'CommunityLocalizationService',
+	require('services/nodestructure.js'), 
+	'SearchFilter'
+];
 
 angular.module('community.directory')
 	.controller('SearchPage', searchPageController);

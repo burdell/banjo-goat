@@ -28,7 +28,7 @@
 					</div>
 					<div class="cmuMessage__date">
 						{{ messageDisplay.message.postDate | exactTimeFromNow }}
-						<span ng-if="messageDisplay.isEdited"> | edited {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
+						<span ng-if="messageDisplay.isEdited"> | ${{ core.actions.edited }}$ {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
 					</div>
 				</div>
 				<div class="cmuMessage__controls"> 
@@ -39,21 +39,21 @@
 								class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--pencil-2"></span>
 								</span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Edit post"></div>
+								<div class="cmuTooltip cmuTooltip--top" data-tooltip="${{ directives.message.edit }}$"></div>
 							</span>
 							<span class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon cmuIcon-flag"></span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="Flag post"></div>
+								<div class="cmuTooltip cmuTooltip--top" data-tooltip="${{ directives.message.flag }}$"></div>
 							</span>
 
 							<div class="button button--vote button--vote--kudo button--thin button--lowercase" community-class-toggle="button--voted">
 								<div class="button--vote--points">123</div>
-								<div class="button--vote--action">Kudos</div>
+								<div class="button--vote--action">${{ core.kudos }}$</div>
 							</div>
 
 							<div class="button button--vote button--thin button--lowercase" community-class-toggle="button--voted button--lowercase">
 								<div class="button--vote--points">123</div>
-								<div class="button--vote--action">Thanks</div>
+								<div class="button--vote--action">${{ core.thanks }}$</div>
 							</div>
 						</span>
 						
@@ -61,7 +61,7 @@
 							community-permissions
 							class="button button--solid button--thin button--lowercase button-white-on-blue cmuPermissions" 
 							ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
-								Reply
+								${{ core.actions.reply }}$
 						</span>
 					</div>
 				</div>

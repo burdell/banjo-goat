@@ -4,7 +4,6 @@
 var _ = require('underscore');
 
 var routesProvider = function(){
-
 	var detailIds = {
 		announcements: 'announcementId',
 		features: 'featureRequestId',
@@ -14,51 +13,54 @@ var routesProvider = function(){
 		inbox: 'messageId'
 	};
 
-	var standardNewTopic = 'newtopic';
-	var standardEdit = ':messageType/:id/edit'; 
+	var strings = require('locale/routing.locale.js').routing;
+	
+	var standardNewTopic = strings.newtopic;
+	var standardEdit = ':messageType/:id/' + strings.edit; 
+
 
 	var routeData = {
 		announcements: {
-		    announcements: '/announcements/:nodeId/',
-		    list: 'list',
+		    announcements: '/' + strings.announcements + '/:nodeId/',
+		    list: strings.list,
 		    detail: ':' + detailIds.announcements,
-		    landing: '/announcements/',
+		    landing: '/' +  strings.announcements  +'/',
 		    newtopic: standardNewTopic,
 		    edit: standardEdit
 		},
 		features: {
-			features: '/features/:nodeId/',
-			list: 'list',
+			features: '/' +  strings.features + '/:nodeId/',
+			list: strings.list,
 			detail: ':' + detailIds.features,
 			newtopic: standardNewTopic,
 			edit: standardEdit
 		},
 		forums: {
-		    forums: '/forums/:nodeId/',
+		    forums: '/' + strings.forums + '/:nodeId/',
 		    list: 'list',
-		    detail: 'message/:' + detailIds.forums,
+		    detail:  strings.message + '/:' + detailIds.forums,
 		    newtopic: standardNewTopic,
 		    edit: standardEdit 
 		},
 		stories: {
-			landing: '/stories/',
-			stories: '/stories/:nodeId/',
-			list: 'list',
+			landing: '/' + strings.stories + '/',
+			stories: '/' + strings.stories + '/:nodeId/',
+			list: strings.list,
 			detail: ':' + detailIds.stories,
 			newstory: 'new',
-			edit: ':' + detailIds.stories + '/edit'
+			edit: ':' + detailIds.stories + '/' + strings.edit
 		},
 		inbox: {
-			inbox: '/inbox',
+			inbox: '/' + strings.inbox,
 			detail: '/:' + detailIds.inbox,
-			newtopic: '/new'
+			newtopic: '/' + strings.newString
 		},
-		directory: '/directory/',
-		hub: '/directory/:nodeId/',
+		directory: '/' + strings.directory + '/',
+		hub: '/' + strings.directory + '/:nodeId/',
 		feed: '/',
-		notifications: '/notifications',
-		userprofile: '/user/:' + detailIds.user,
-		searchpage: '/search',
+		notifications: '/' + strings.notifications,
+		userprofile: '/' + strings.user + '/:' + detailIds.user,
+		searchpage: '/' + strings.search,
 		utils: {
 			intRoute: function(route) {
 				return '{' + route.replace(':', '') + ':int}'
@@ -87,10 +89,11 @@ var routesProvider = function(){
  	}
 	
 	this.routes = routeData;
-	this.$get = function(){
+	this.$get = function($http){
 		return this.routes;
 	}
 };
+
 
 var providerName = 'communityRoutes';
 angular.module('community.providers')

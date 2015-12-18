@@ -1,0 +1,12 @@
+{
+	"areaName": "Features",
+	"detail": {
+		"editCta": "Edit this Feature Request"
+	},
+	"list": {
+		"keywordFilter": "Keyword Filter",
+		"requestFeature": "Request a Feature"
+	},
+	"vote": "Vote",
+	"votes": "votes"
+}

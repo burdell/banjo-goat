@@ -10,7 +10,7 @@
 			community-permissions
 			class="button button--vote button--vote--kudo"
 			community-class-toggle="button--voted">
-				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
+				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">${{ core.kudos }}$</div>
 		</button>
 	</div>
 

@@ -6,7 +6,7 @@
 		</li> -->
 		<li ng-repeat="navLink in ::navbar.navLinks">
 
-			<a ng-class="{ active : navLink.active, cmuDiscussionsNavbar__group : navLink.display=='Forums' }" area-link-handler="{{ ::navLink.href }}">
+			<a ng-class="{ active : navLink.active, cmuDiscussionsNavbar__group : navLink.discussionStyle=='forums' }" area-link-handler="{{ ::navLink.href }}">
 				{{ navLink.display }}
 			</a>
 

@@ -13,7 +13,7 @@
                   <span class="icon ubnt-icon--u"></span>
                 </div>
                 <div class="cmuGloNav__cmuHome">
-                  Community
+                  ${{ core.cmuName }}$
                 </div>
               </div>
             </a>
@@ -31,7 +31,7 @@
                   <div class="cmuSearchbox">
                     <div class="appIconInput appIconInput--right">
                       <div class="appIconInput__icon icon ubnt-icon--search-2" onclick="console.log('search me!')"></div>
-                      <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="Search Community" type="text">
+                      <input class="appIconInput__input ng-pristine ng-untouched ng-valid" placeholder="${{ directory.search.searchbarPlaceholder }}$" type="text">
                       </div>
                   </div>
                 </div>
@@ -53,40 +53,35 @@
                   </div>
                 </a>
 
-                <div class="cmuGloNav__mobile__accountlinks">
-                  <a href="#">
-                    <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
-                      Notifications
+                    <div class="cmuGloNav__mobile__accountlinks">
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
+                          ${{ directives.mainnavbar.notifications }}$
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
+                          <span class="icon ubnt-icon--inbox"></span>
+                          ${{ directives.mainnavbar.inbox }}$
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">${{ directives.mainnavbar.profile }}$</a>
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          ${{ directives.mainnavbar.account }}$
+                        </div>
+                      </a>
+                      <a href="#">
+                        <div class="cmuGloNav__mobile__accountlink">
+                          ${{ directives.mainnavbar.logOut }}$
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                  <a href="#">
-                    <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
-                      <span class="icon ubnt-icon--inbox"></span>
-                      Inbox
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="cmuGloNav__mobile__accountlink">
-                      <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">Profile</a>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="cmuGloNav__mobile__accountlink">
-                      Account
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="cmuGloNav__mobile__accountlink">
-                      Log Out
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-
-              <!-- regular menu -->
-
-              <!-- links -->
+                  </div>
               <ul class="cmuGloNav__links">
                 <li 
                   ng-repeat="navItem in mainnavbar.navList"
@@ -138,8 +133,8 @@
                       </community-drop-down>
                   </ul>
                   <ul ng-hide="mainnavbar.isAuthenticated">
-                       <li class="cmuGloNav__link"><a href="https://account.ubnt.com/login?redirect=https://comm2-stage.ubnt.com/" target="_blank">Login</a></li>
-                       <li class="cmuGloNav__link"><a href="https://account.ubnt.com/register?redirect=https://comm2-stage.ubnt.com/" target="_blank">Register</a></li>
+                       <li class="cmuGloNav__link"><a href="https://account.ubnt.com/login?redirect=https://comm2-stage.ubnt.com/" target="_blank">${{ directives.mainnavbar.login }}$</a></li>
+                       <li class="cmuGloNav__link"><a href="https://account.ubnt.com/register?redirect=https://comm2-stage.ubnt.com/" target="_blank">${{ directives.mainnavbar.register }}$</a></li>
                   </ul>
                 </div>
               </div>

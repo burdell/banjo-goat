@@ -1,7 +1,7 @@
 <div>
 
 	<div class="cmuMega__section noBorder col--xs4">
-		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">Directory</a>
+		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">${{ directives.mainnavbar.directory }}$</a>
 	</div>
 	<div class="col--md8 alignRight">
 		<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
@@ -10,7 +10,7 @@
 	</div>
 	<div class="cmuMega__section noPaddingBottom col--xs12">
 		<div class="cmuMega__section__head col--md12">
-			Service Providers
+			${{ core.productCategories.serviceProviders }}$
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
@@ -28,7 +28,7 @@
 	</div>
 	<div class="cmuMega__section noPaddingBottom col--xs12">
 		<div class="cmuMega__section__head col--md12">
-			Enterprise
+			${{ core.productCategories.enterprise }}$
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
@@ -48,7 +48,7 @@
 	</div>
 	<div class="cmuMega__section col--xs12">
 		 <div class="cmuMega__section__head col--md12">
-			Community Forums
+			${{ directives.mainnavbar.forums }}$
 		</div>
 
 		<div class="col--md12">
@@ -60,20 +60,20 @@
 
 	<div class="cmuMega__section col--xs12">
 		<div class="cmuMega__section__head col--md12">
-			Resources
+			${{ directives.mainnavbar.resources }}$
 		</div>
 
 		<div class="col--md12">
 			<div class="cmuMega__section__col">
-				<a>About our Community</a>
+				<a>${{ directives.mainnavbar.about }}$</a>
 			</div>
 			
 			<div class="cmuMega__section__col">
-				<a>Community Guidelines</a>
+				<a>${{ directives.mainnavbar.guidelines }}$</a>
 			</div>
 
 			<div class="cmuMega__section__col">
-				<a>Community Board</a>
+				<a>${{ directives.mainnavbar.board }}$</a>
 			</div>
 		</div>
 
@@ -81,7 +81,7 @@
 	</div>
 
 	<div class="cmuMega__section col--xs12">
-		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">Directory</a>
-		<span class="cmuMega__section__directoryDesc">Find out what the Community has to offer </span>
+		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">${{ directives.mainnavbar.directory }}$</a>
+		<span class="cmuMega__section__directoryDesc">${{ directives.mainnavbar.directoryTag }}$</span>
 	</div>
 </div>

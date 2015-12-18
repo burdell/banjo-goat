@@ -5,15 +5,18 @@ require('services/breadcrumb.js');
 require('services/routing.js');
 require('services/nodestructure.js');
 
+require('directives/pulse/pulse.js');
+
+
 var _ = require('underscore');
 
-var directoryController = function($scope, breadcrumbService, routingService, nodeService){
+var directoryController = function($scope, breadcrumbService, localizationService, routingService, nodeService){
 	var ctrl = this;
 
 	$scope.$on('$stateChangeStart', function(){
 		breadcrumbService.clearCurrentBreadcrumb();
 	});
-	breadcrumbService.setCurrentBreadcrumb('Directory');
+	breadcrumbService.setCurrentBreadcrumb(localizationService.data.directives.mainnavbar.directory);
 	
 	var discussionTypes = nodeService.DiscussionTypes;		
 	var directoryList = nodeService.getProductTypeList();
@@ -38,7 +41,7 @@ var directoryController = function($scope, breadcrumbService, routingService, no
 		}
 	});
 };
-directoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityRoutingService', 'NodeService'];
+directoryController.$inject = ['$scope', 'CommunityBreadcrumbService', 'CommunityLocalizationService', 'CommunityRoutingService', 'NodeService'];
 
 angular.module('community.directory')
 	.controller('Directory', directoryController);

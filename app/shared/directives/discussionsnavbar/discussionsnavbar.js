@@ -7,7 +7,7 @@ function discussionsNavBar() {
 	function link(scope, element, attrs) {
 	}
 
-		function controller(nodeService, routingService) {
+		function controller(localizationService, nodeService, routingService) {
 			var standardNavLinks = {
 				'Forums': { 
 					discussionType: 'forums',
@@ -51,9 +51,10 @@ function discussionsNavBar() {
 			var inDirectory = currentAreaSlug === 'directory';
 			var siblingNodeList = !inDirectory ? parentNode.children : currentNode.children;
 
+			var localizedAreas = localizationService.data.core.areas;
 			_.extend(ctrl, {
 				navLinks: [{
-					display: 'Home',
+					display: localizedAreas.home,
 					href: !inDirectory ? routingService.generateUrl('hub', { nodeId: parentNode.urlCode }) : routingService.getCurrentUrl(),
 					active: inDirectory
 				}]
@@ -71,9 +72,9 @@ function discussionsNavBar() {
 				if (navNodeCount === 1) {
 					var navNode = navNodeList[0];
 					var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
-
+					
 					ctrl.navLinks.push({ 
-						display: displayName, 
+						display: localizedAreas[navNode.discussionStyle], 
 						href: discussionHref, 
 						active: navNode.urlCode === currentNodeSlug
 					});
@@ -81,7 +82,7 @@ function discussionsNavBar() {
 				 	var subLinkList = [];
 				 	_.each(navNodeList, function(subLink, index, list){
 				 		subLinkList.push({
-				 			display: subLink.name, 
+							display: localizedAreas[subLink.discussionStyle + subLink.name],
 				 			href: routingService.generateUrl(searchObj.route, { nodeId: subLink.urlCode }),
 				 			active: subLink.urlCode === currentNodeSlug
 						});
@@ -95,15 +96,16 @@ function discussionsNavBar() {
 				 	});
 
 					ctrl.navLinks.push({
+						discussionStyle: searchObj.discussionType,
 						href: subLinkList[0].href,
-						display: displayName,
+						display: localizedAreas[searchObj.discussionType],
 						subLinks: subLinkList
 					});
 				 }
 			}, ctrl);
 		});
 	}
-	controller.$inject = ['CommunityNodeService', 'CommunityRoutingService'];
+	controller.$inject = ['CommunityLocalizationService', 'CommunityNodeService', 'CommunityRoutingService'];
     
     var directive = {
         link: link,

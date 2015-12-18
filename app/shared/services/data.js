@@ -1,22 +1,27 @@
 
 'use strict';
 
-var dataService = function(){
+var dataService = function(localizationService){
+
+	var coreStrings = localizationService.data.core;
+	var areas = coreStrings.areas;
+	var standardSort = coreStrings.standardSort;
+
 	return {
 		MessageSort: [
-			{ value: 'postDate', label: 'Post Date', default: true },
-		    { value: 'lastActivityDate', label: 'Recent Activity' },
-			{ value: 'countViews', label: 'Views' }
+			{ value: 'postDate', label: standardSort.postDate, default: true },
+		    { value: 'lastActivityDate', label: standardSort.recentActivity },
+			{ value: 'countViews', label: coreStrings.views }
 		],
 		SearchConfig: {
 			delay: 300
 		},
 		DiscussionTypeSort: [
-			{ value: null, label: 'All Topics', default: true }, 
-			{ value: 'stories', label: 'Stories'  },
-			{ value: 'announcements', label: 'Announcements'  },
-			{ value: 'forums', label: 'Forums' },
-			{ value: 'features', label: 'Feature Requests' }
+			{ value: null, label: localizationService.data.core.allTopics, default: true }, 
+			{ value: 'stories', label: areas.stories  },
+			{ value: 'announcements', label: areas.announcements  },
+			{ value: 'forums', label: areas.forums },
+			{ value: 'features', label: areas.features }
 		],
 		DiscussionTypeIcons: {
 			features: 'ubnt-icon--gears',
@@ -26,7 +31,8 @@ var dataService = function(){
 			qna: 'ubnt-icon--question'
 		}
 	};
-};
+}
+dataService.$inject = ['CommunityLocalizationService'];
 
 var serviceName = 'CommunityDataService';
 angular.module('community.services')

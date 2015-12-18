@@ -1,8 +1,9 @@
 'use strict';
 
-
 var app = require('app.init');
 app('directory');
+
+require('services/localization.js')(require('locale/directory.locale.js'));
 
 //area files
 require('directory/directory/directory.js');

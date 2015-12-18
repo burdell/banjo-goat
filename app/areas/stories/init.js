@@ -3,6 +3,8 @@
 var app = require('app.init');
 app('stories');
 
+require('services/localization.js')(require('locale/stories.locale.js'));
+
 //area files
 require('stories/stories.js');
 require('stories/detail/stories.detail.js');

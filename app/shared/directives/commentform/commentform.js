@@ -6,8 +6,10 @@ require('directives/texteditor/texteditor.js');
 var _ = require('underscore');
 
 function commentForm() {
-	var controller = function(communityApi) {
+	var controller = function(communityApi, localizationService) {
 		var ctrl = this;	
+
+		var strings = localizationService.data.directives.commentform;
 
 		var parentMessage = ctrl.parentMessage;
 		_.extend(ctrl, {
@@ -45,10 +47,10 @@ function commentForm() {
 				parentId: parentMessage.id,
 				topicId: parentMessage.topicId || parentMessage.id
 			},
-			replyButtonText: ctrl.replyButtonText || 'Submit Comment'
+			replyButtonText: ctrl.replyButtonText || strings.postComment
 		});
 	};
-	controller.$inject = [require('services/api.js')];
+	controller.$inject = [require('services/api.js'), 'CommunityLocalizationService'];
 
     var directive = {
         controller: controller,

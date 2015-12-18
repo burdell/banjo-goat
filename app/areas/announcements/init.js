@@ -1,8 +1,9 @@
 'use strict';
 
-
 var app = require('app.init');
 app('announcements');
+
+require('services/localization.js')(require('locale/announcements.locale.js'));
 
 //directives
 require('shared/directives/timeline/timeline.js');

@@ -1,6 +1,6 @@
 <div>
 	<div class="noBorder col--xs8">
-		<h1>Select Platform</h1>
+		<h1>${{ directives.productnavigator.selectPlatform }}$</h1>
 	</div>
 	<div class="col--md4 alignRight">
 		<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
@@ -9,7 +9,7 @@
 	</div>
 	<div class="cmuMega__section noPaddingBottom col--xs12">
 		<div class="cmuMega__section__head col--md12">
-			Service Providers
+			${{ core.productCategories.serviceProviders }}$
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
@@ -27,7 +27,7 @@
 	</div>
 	<div class="cmuMega__section noPaddingBottom col--xs12">
 		<div class="cmuMega__section__head col--md12">
-			Enterprise
+			${{ core.productCategories.enterprise }}$
 		</div>
 
 		<div class="cmuMega__section__col col--md12">
@@ -46,7 +46,7 @@
 
 	<div class="cmuMega__section noPaddingBottom col--xs12" ng-if="::megamenu.templateCtrl.productCategories.general.length > 0">
 		<div class="cmuMega__section__head col--md12">
-			General
+			${{ core.productCategories.general }}$
 		</div>
 
 		<div class="col--md12">

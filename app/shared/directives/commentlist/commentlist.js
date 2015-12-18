@@ -8,23 +8,26 @@ var _ = require('underscore');
 
 function communityCommentList() {
 	
-	function controller() {	
+	function controller(localizationService) {	
 		var ctrl = this;
+
+		var strings = localizationService.data.directives.commentlist;
+		
 		_.extend(ctrl, {
 			commentList: this.currentComments,
 			getCommentCountText: function(){
 				var contentLength = ctrl.currentComments.content.length;
 				if (!contentLength) {
-					return 'No comments yet.';
+					return strings.noComments;
 				} else if (contentLength === 1) {
-					return '1 comment';
+					return '1 ' + strings.comment;
 				} else {
-					return contentLength + ' comments';
+					return contentLength + ' ' + strings.comments;
 				}
 			}
 		});
 	}
-	controller.$inject = [];
+	controller.$inject = ['CommunityLocalizationService'];
     
     var directive = {
         controller: controller,

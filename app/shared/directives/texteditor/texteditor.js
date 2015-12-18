@@ -7,14 +7,15 @@ var $ = require('jquery');
 var marked = require('marked');
 var toMarkdown = require('to-markdown');
 
-function communityTextEditor($timeout, routingService) {
+function communityTextEditor($timeout, localizationService, routingService) {
 	var link = function(scope, element, attrs, ngModel) {
 		var textarea = element.find('textarea')[0];
 		
 		var editorCtrl = scope.texteditor;
 
 		var isAutofocus = (editorCtrl.autofocus == "true");
-
+		var fuckYou = localizationService;
+		
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: isAutofocus,
@@ -22,7 +23,8 @@ function communityTextEditor($timeout, routingService) {
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
 		    renderingConfig: {
 		        singleLineBreaks: true
-		    }
+		    },
+		    spellChecker: localizationService.currentLocale === 'en'
 		};
 
 		var isMinimal = (editorCtrl.minimalEditor == "true"); // unfancy but works
@@ -94,7 +96,7 @@ function communityTextEditor($timeout, routingService) {
 
     return directive;
 }
-communityTextEditor.$inject = ['$timeout', require('services/routing.js')];
+communityTextEditor.$inject = ['$timeout', 'CommunityLocalizationService', require('services/routing.js')];
 
 angular.module('community.directives')
 	.directive('communityTextEditor', communityTextEditor);

@@ -10,16 +10,18 @@ require('directives/classtoggle/classtoggle.js');
 require('directives/pulse/pulse.js');
 
 var _ = require('underscore');
-var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, routingService, feedFilter){
+var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, localizationService, routingService, feedFilter){
 	var ctrl = this;
+
+	var strings = localizationService.data.directory.feed;
 	var feedData = {
 		community: {
-			display: 'All Content',
+			display: strings.allContent,
 			param: 'community',
 			dataFn: apiService.Feed.allContent
 		},
 		user: {
-			display: 'My Content',
+			display: strings.myContent,
 			param: 'user',
 			dataFn: apiService.Feed.subscriptions
 		}
@@ -68,7 +70,7 @@ var feedController = function($scope, announcementData, storyFilter, apiService,
 	});
 
 	nodeServiceWrapper.get().then(function(nodeService) {
-		var categorySort = [{ value: null, label: 'All Sections', default: true }];
+		var categorySort = [{ value: null, label: strings.allSections, default: true }];
 
 		var discussionTypes = _.flatten(_.toArray(nodeService.DiscussionTypes));
 		var bleh = _.map(discussionTypes, function(discussionType) {
@@ -178,7 +180,8 @@ feedController.$inject = [
 	'StoryFilter',
 	require('shared/services/api.js'),
 	require('shared/services/data.js'), 
-	require('shared/services/nodestructure.js'), 
+	require('shared/services/nodestructure.js'),
+	'CommunityLocalizationService', 
 	require('shared/services/routing.js'), 
 	'FeedFilter'
 ];

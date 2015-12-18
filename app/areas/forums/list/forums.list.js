@@ -10,6 +10,7 @@ require('directives/username/username.js');
 require('directives/useravatar/useravatar.js');
 require('directives/searchbox/searchbox.js');
 require('directives/tooltip/tooltip.js');
+require('directives/showcount/showcount.js');
 
 require('filters/unescape.js');
 require('filters/timefromnow.js');

@@ -1,14 +1,16 @@
 
 'use strict';
 
-var notificationService = function(routingService, routesProvider){
+var notificationService = function(localizationService, routingService, routesProvider){
+	var notificationStrings = localizationService.data.directives.mainnavbar.notificationStrings;
+	
 	return {
 		getActionString: function(notification) {
 			var type = notification.type;
 			
 			switch(type) {
 				case 'directReply':
-					return 'replied to you in';
+					return notificationStrings.repliedTo;
 					break;
 			}
 		},
@@ -27,7 +29,7 @@ var notificationService = function(routingService, routesProvider){
 		newDataCount: 0
 	}
 };
-notificationService.$inject = [require('services/routing.js'), 'communityRoutes'];
+notificationService.$inject = ['CommunityLocalizationService', require('services/routing.js'), 'communityRoutes'];
 
 
 var serviceName = 'CommunityNotificationsService';

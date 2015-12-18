@@ -1,0 +1,144 @@
+{
+	"commentform": {
+		"postHeader": "Publicar un nuevo comentario",
+		"postComment": "Publicar Comentario",
+		"postNewComment": "Publicar un comentario nuevo",
+		"postingComment": "Publicación Comentario"
+	},
+	"commentlist": {
+		"comment": "comentario",
+		"comments": "comentarios",
+		"noComments": "Sin comentarios aún."
+	},
+	"datepicker": {
+		"fromDate": "Desde Fecha",
+		"toDate": "Hasta la Fecha"
+	},
+	"feedcontent": {
+		"postedAnnouncement": " publicado un anuncio",
+		"postedFeature": " publicado una solicitud de función",
+		"postedStory": " publicado una historia",
+		"postedTopic": " publicado un tema",
+		"repliedAnnouncements": " respondió a un anuncio",
+		"repliedTo": " replied to "
+	},
+	"globalfooter": {
+		"contact": "Contáctenos",
+		"copyright": "&copy; 2015 Ubiquiti Networks. Todos los derechos reservados.",
+		"backToTop": "Volver Arriba",
+		"dotCom": "ubnt.com",
+		"facebookUrl": "https://www.facebook.com/Ubiquiti",
+		"knowledgeBase": "Volver arriba",
+		"privacy": "Política de Privacidad",
+		"support": "Apoyo",
+		"store": "Almacenar",
+		"termsOfService": "Términos de Servicio",
+		"training": "Formación",
+		"twitterUrl": "https://twitter.com/ubnt",
+		"youtubeUrl": "https://www.youtube.com/user/ubnt"
+	},
+	"loadmore": {
+		"showMore": "Mostrar Más"
+	},
+	"mainnavbar": {
+		"about": "Sobre Nuestra Comunidad",
+		"account": "Cuenta",
+		"accountSettings": "Configuraciones de la Cuenta",
+		"board": "Junta de Comunidades",
+		"directory": "Directorio",
+		"directoryTag": "Descubra lo que la Comunidad tiene que ofrecer",
+		"forums": "Foros de la comunidad",
+		"guidelines": "Principios de la Comunidad",
+		"inbox": "Bandeja de entrada",
+		"login": "Iniciar sesión",
+		"logOut": "Log Cerrar sesión",
+		"notifications": "Notificaciones",
+		"notificationSettings": "Configuración de las notificaciones",
+		"notificationStrings": {
+			"repliedTo": "respondió a usted en"
+		},
+		"profile": "Perfil",
+		"readAllMessages": "Todos los Mensajes",
+		"readAllNotifications": "Todas las Notificaciones",
+		"register": "Registro",
+		"resources": "Recursos",
+		"search": "Buscar Comunidad",
+		"sendAMessage": "Enviar un Mensaje",
+		"signOut": "Desconectar",
+		"support": "Apoyo",
+		"topics": "Todos los Temas",
+		"userProfile": "Perfil del Usuario"
+	},
+	"message": {
+		"edit": "Editar Mensaje",
+		"flag": "Bandera del anuncio",
+		"of": "de"
+	},
+	"newtopic": {
+		"announcements": {
+			"breadcrumb": "Nuevo Anuncio",
+			"action": "Publicar Anuncio",
+			"feedback": "Colocar su anuncio",
+			"title": "Da tu Anuncio un título"
+		},
+		"forums": {
+			"breadcrumb": "Nuevo tema",
+			"action": "Publicar Tema",
+			"feedback": "Colocar su Tema",
+			"title": "Dele a su tema un título"
+		},
+		"features": {
+			"breadcrumb": "Nueva función de solicitud",
+			"action": "Envíe su Pedido de funciones",
+			"feedback": "Envío de su Pedido de funciones",
+			"title": "Dé a su Pedido de funciones un título"
+		},
+		"directory": {
+			"breadcrumb": "Mensaje nuevo",
+			"action": "Enviar Nuevo Mensaje",
+			"feedback": "Envío de su mensaje",
+			"title": "Dele a su mensaje un título"
+		}
+	},
+	"pager": {
+		"next": "Próximo",
+		"previous": "Anterior"
+	},
+	"pulse": {
+		"membersOnline": "Usuarios en línea",
+		"postsToday": "Mensajes de hoy",
+		"totalMembers": "Total de Usuarios",
+		"totalPosts": "Total de Mensajes"
+	},
+	"productnavigator": {
+		"selectPlatform": "Seleccione una plataforma"
+	},
+	"showcount": {
+		"template": "Mostrando {{ showcount.lower | number }} de {{ showcount.upper | number }} {{ showcount.type }}"
+	},
+	"texteditor": {
+		"formattingHelp": {
+			"asterisks": "Utilice 3 asteriscos para reglas horizontales",
+			"bold": "audaz",
+			"code": "Líneas envolventes de código con ",
+			"inlineCode": "O utilice <code> print 'hola' </code> para código en línea",
+			"italics": "cursiva",
+			"item": "ítem",
+			"markdownComment": "Utilizamos una versión ligeramente modificada para requisitos particulares de Markdown para el formato:",
+			"nestedLists": "Para crear listas anidadas, agregue cuatro espacios frente al carácter `*`",
+			"quotedText": "texto de la cita",
+			"result": "Resultado",
+			"strikethrough": "penetrar",
+			"superscript1": "sobre",
+			"superscript2": "scrito",
+			"title": "Formateo Ayuda"
+		},
+		"livePreview": "Vista previa en vivo"
+	},
+	"timeline": {
+		"created": "Creado"
+	},
+	"userbadge": {
+		"joined": "Unido"
+	}
+}

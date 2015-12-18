@@ -3,6 +3,7 @@
 var app = require('app.init');
 app('forums');
 
+require('services/localization.js')(require('locale/forums.locale.js'));
 
 //area files
 require('shared/pages/newtopic/editmessage.js')('forums');

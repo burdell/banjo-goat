@@ -17,7 +17,7 @@ require('services/inbox.js');
 var _ = require('underscore');
 
 function mainNavBar() {
-	function controller($scope, $state, $location, apiService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService, inboxService) {
+	function controller($scope, $state, $location, apiService, localizationService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService, inboxService) {
 		
 		var ctrl = this;
 		var hrefs = {
@@ -30,10 +30,11 @@ function mainNavBar() {
 			$scope.$broadcast('megamenu:toggleDiscussions');
 		};
 
+		var localizedAreas = localizationService.data.core.areas;
 		var navMetaData = [
-			{ display: "Topics", clickFn: toggleDiscussionsMenu, dropItem: true },
-			{ display: "Stories", href: "#", href: hrefs.stories },
-			{ display: "Announcements", href: hrefs.announcements }
+			{ display: localizationService.data.directives.mainnavbar.topics, clickFn: toggleDiscussionsMenu, dropItem: true },
+			{ display: localizedAreas.stories, href: "#", href: hrefs.stories },
+			{ display: localizedAreas.announcements, href: hrefs.announcements }
 		]; 
 
 		/*** NOTIFICATIONS / MESSAGE STUFF ***/
@@ -184,6 +185,7 @@ function mainNavBar() {
 		'$state',
 		'$location', 
 		require('services/api.js'),
+		'CommunityLocalizationService',
 		require('services/nodestructure.js'), 
 		require('services/realtime.js'),
 		require('services/routing.js'), 

@@ -1,77 +1,77 @@
 <div class="markhelp">
-    <p>We use a slightly-customized version of Markdown for formatting:</p>
+    <p>${{ directives.texteditor.formattingHelp.markdownComment }}$</p>
 
     <table class="md cmuContent">
         <tbody>
             <tr class="md-header" >
                 <td>Markdown</td>
-                <td>Result</td>
+                <td>${{ directives.texteditor.formattingHelp.result }}$</td>
             </tr>
             <tr>
-                <td>*italics*</td>
-                <td><em>italics</em></td>
+                <td>*${{ directives.texteditor.formattingHelp.italics }}$*</td>
+                <td><em>${{ directives.texteditor.formattingHelp.italics }}$</em></td>
             </tr>
             <tr>
-                <td>**bold**</td>
-                <td><b>bold</b></td>
+                <td>**${{ directives.texteditor.formattingHelp.bold }}$**</td>
+                <td><b>${{ directives.texteditor.formattingHelp.bold }}$</b></td>
             </tr>
             <tr>
                 <td>[ubnt!](http://ubnt.com)</td>
                 <td><a href="http://ubnt.com">ubnt!</a></td>
             </tr>
             <tr>
-                <td>&gt; quoted text</td>
+                <td>&gt; ${{ directives.texteditor.formattingHelp.quotedText }}$</td>
                 <td>
-                    <blockquote>quoted text</blockquote>
+                    <blockquote>${{ directives.texteditor.formattingHelp.quotedText }}$</blockquote>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <div>* item</div>
-                    <div>* item</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp; * item</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp; * item</div>
-                    <div>* item</div>
+                <td>* ${{ directives.texteditor.formattingHelp.item }}$
+                    <br>* ${{ directives.texteditor.formattingHelp.item }}$
+                    <br>* ${{ directives.texteditor.formattingHelp.item }}$
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; * ${{ directives.texteditor.formattingHelp.item }}$
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; * ${{ directives.texteditor.formattingHelp.item }}$
+                    <br>* ${{ directives.texteditor.formattingHelp.item }}$
                     <br>
-                    <h6>To create nested lists, add four spaces in front of the `*` character</h6>
+                    <br><h6>${{ directives.texteditor.formattingHelp.nestedLists }}$</h6>
                 </td>
                 <td>
                     <ul>
-                        <li>item</li>
-                        <li>item</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$</li>
                         <ul>
-                            <li>item</li>
-                            <li>item</li>
+                            <li>${{ directives.texteditor.formattingHelp.item }}$</li>
+                            <li>${{ directives.texteditor.formattingHelp.item }}$</li>
                         </ul>
-                        <li>item</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$</li>
                     </ul>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <div>1. item 1</div>
-                    <div>2. item 2</div>
-                    <div>3. item 3</div>
-                </td>
+		<td>
+               	<div>1. ${{ directives.texteditor.formattingHelp.item }}$ 1</div>
+                    <div>2. ${{ directives.texteditor.formattingHelp.item }}$ 2</div>
+                    <div># ${{ directives.texteditor.formattingHelp.item }}$ 3</div>
+		</td>
                 <td>
                     <ol>
-                        <li>item 1</li>
-                        <li>item 2</li>
-                        <li>item 3</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$ 1</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$ 2</li>
+                        <li>${{ directives.texteditor.formattingHelp.item }}$ 3</li>
                     </ol>
                 </td>
             </tr>
             <tr>
-                <td>Use 3 asterisks for horizontal rules
+                <td>${{ directives.texteditor.formattingHelp.asterisks }}$
                     <br>
                     <br>***
                 </td>
-                <td>Use asterisks for horizontal rules
+                <td>${{ directives.texteditor.formattingHelp.asterisks }}$
                     <br><hr>
                 </td>
             </tr>
             <tr>
-                <td>Surround lines of code with ```
+                <td>${{ directives.texteditor.formattingHelp.code }}$ ```
                     <br>
                     <br><span>```
                     <br>if 1 * 2 &lt; 3:
@@ -80,20 +80,20 @@
                     <br>
                     <br>Or use ` print "hello" ` for inline code
                 </td>
-                <td>Surround lines of code with ```
+                <td>${{ directives.texteditor.formattingHelp.code }}$ ```
                     <br>
                     <br><pre><code>if 1 * 2 &lt; 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;print "hello, world!"</code></pre>
                     <br>
-                    <br>Or use <code>print "hello"</code> for inline code
+                    <br>${{ directives.texteditor.formattingHelp.inlineCode }}$
                 </td>
             </tr>
             <tr>
-                <td>~~strikethrough~~</td>
-                <td><strike>strikethrough</strike></td>
+                <td>~~${{ directives.texteditor.formattingHelp.strikethrough }}$~~</td>
+                <td><strike>${{ directives.texteditor.formattingHelp.strikethrough }}$</strike></td>
             </tr>
             <tr>
-                <td>super^script</td>
-                <td>super<sup>script</sup></td>
+                <td>${{ directives.texteditor.formattingHelp.superscript1 }}$^${{ directives.texteditor.formattingHelp.superscript2 }}$</td>
+                <td>${{ directives.texteditor.formattingHelp.superscript1 }}$<sup>${{ directives.texteditor.formattingHelp.superscript2 }}$</sup></td>
             </tr>
         </tbody>
     </table>

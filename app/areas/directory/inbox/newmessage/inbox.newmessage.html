@@ -18,7 +18,7 @@
 
           <div class="appIconInput appIconInput--left">
             <div class="appIconInput__icon icon ubnt-icon--pencil-2"></div>
-            <input class="appIconInput__input" placeholder="Give you message a title..." type="text" ng-model="vm.newTopic.subject">
+            <input class="appIconInput__input" placeholder="${{ directory.inbox.messageCta }}$..." type="text" ng-model="vm.newTopic.subject">
           </div>
         </div>
       </div>
@@ -33,11 +33,11 @@
           <button 
             class="button-full button-blue-white"
             ng-click="vm.submitTopic()">
-              Send Message
+              ${{ directory.inbox.sendMessage }}$
           </button>
         </div>
         <div ng-show="vm.submittingTopic">
-          <button class="cmuInput--waiting button--padded" disabled>Sending Your Message...</button>
+          <button class="cmuInput--waiting button--padded" disabled>${{ directory.inbox.sendingMessage }}$...</button>
         </div>
       </div>
     </div>

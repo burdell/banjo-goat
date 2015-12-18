@@ -2,10 +2,10 @@
 <div class="cmuThreadlist__ctrl">
 	<div class="cmuThreadlist__ctrl__row row">
 		<div class="col--md10 noPaddingLeft">
-			<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">Share A Story</button>
+			<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">${{ stories.list.shareAStory }}$</button>
 			<div ng-if="vm.hideNewStoryButton">
 				<community-product-navigator 
-					display-text="Share A Story"
+					display-text="${{ stories.list.shareAStory }}$"
 					product-route="stories.newstory"
 					discussion-style="stories">
 				</community-product-navigator>
@@ -23,7 +23,6 @@
 
 <div class="row">
 	<div class="col--md12 noPadding" community-grid-list>
-
 		<div class="cmuStoryGrid">
 			<div class="cmuStoryGrid__item" ng-repeat="story in vm.storyList.content">
 				<div>
@@ -35,7 +34,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 
