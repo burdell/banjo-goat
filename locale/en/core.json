@@ -52,5 +52,8 @@
 		"latest": "Latest"
 	},
 	"version": "Version",
-	"views": "Views"
+	"views": "Views",
+	"ui": {
+		"clear": "clear"
+	}
 }

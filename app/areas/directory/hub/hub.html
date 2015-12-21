@@ -7,13 +7,13 @@
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<!-- story feed -->
 				<div class="cmuFeed__container col--md12" ng-if="vm.storyList.length > 0">
-		        	<div class="cmuFeed__title clearfix">
-		        		<div class="col--md10">
-							<h5><span class="cmuIcon__label stories"></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ stories.areaName }}$</h5>
+		        	<div class="cmuFeed__title clearfix noPaddingLeft noPaddingRight">
+		        		<div class="col--md10 noPaddingLeft">
+							<h5><span class=""></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ stories.areaName }}$</h5>
 						</div>
 
-						<div class="col--md2 alignRight">
-							<a class="style-link" ng-href="{{ vm.productStoriesUrl }}" target="_self">Read All Stories</a>
+						<div class="col--md2 alignRight noPaddingRight">
+							<a class="style-link" ng-href="{{ vm.productStoriesUrl }}" target="_self">${{ directory.hub.allStories }}$</a>
 						</div>
 
 					</div>
@@ -29,14 +29,14 @@
 								</story-display>
 							</div>
 						</div>
-						<a ng-href="{{ vm.productStoriesUrl }}" target="_self" class="button button--ghost">${{ directory.hub.allStories }}$</a>					</div>
+					</div>
 				</div>
 
 				<!-- activity feed -->
 				<div class="cmuFeed__container col--md12">
-					<div class="cmuFeed__title clearfix">
-		        		<div class="col--md12">
-							<h5><span class="cmuIcon__label all"></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ directory.hub.discussions }}$</h5>
+					<div class="cmuFeed__title clearfix noPaddingLeft">
+		        		<div class="col--md12 noPaddingLeft">
+							<h5><span class=""></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ directory.hub.discussions }}$</h5>
 						</div>
 					</div>
 

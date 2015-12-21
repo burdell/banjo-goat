@@ -1,33 +1,28 @@
-<div>
-	<div class="row row--comfy">
+<div class="cmuInbox__detail col--md12 noPadding">
+
+	<div class="cmuInbox__detail--header">
+		<h2>{{ vm.originalMessage.subject }}</h2>
+		<div class="cmuInbox__list__title">{{ vm.originalMessage.postDate | timeFromNow }} | ${{ directory.inbox.with }}$ {{ vm.recipientString }}</div>
+	</div>
+
+	<div class="clearfix cmuRow">
 		<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>
 	</div>
 
-	<div class="row row--comfy">
-		<div class="col--md9">
-			<h2>{{ vm.originalMessage.subject }}</h2>
-			<div>
-				<span>${{ directory.inbox.with }}$ {{ vm.recipientString }}</span>
-			</div>
-		</div>
-		<div class="col--md3">
-			<h6>{{ vm.originalMessage.postDate | timeFromNow }}</h6>
-		</div>
-	</div>
-
-	<div class="row row--comfy">
-		<div ng-repeat="message in vm.messageList.content" class="row row--comfy">
-			<div class="col--md2">
+	<div class="">
+		<div ng-repeat="message in vm.messageList.content" class="cmuInbox__message clearfix noPadding">
+			<div class="cmuInbox__message__badge">
 				<community-user-badge 
 					class="cmuUserbadge--comment"
 					user="message.insertUser">
 				</community-user-badge>
 			</div>
-			<div class="col--md10">
+			<div class="cmuInbox__message__main">
+			    <community-user-badge class="cmuUserbadge--nameOnly" user="message.insertUser"></community-user-badge>
 				<span class="cmuComments__date">
-					{{ message.postDate | timeFromNow }}
+			        {{ message.postDate | timeFromNow }}
 				</span>
-				<div ng-bind-html="message.body | sanitize"></div>
+				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize"></div>
 			</div>
 		</div>
 	</div>

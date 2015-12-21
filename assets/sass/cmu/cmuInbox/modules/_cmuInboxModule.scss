@@ -11,29 +11,173 @@
 
 	}
 
+
+
+	// sidebar
+	.cmuInbox__list {
+		// border-right: $style-line;
+		height: $cmu-base * 37;
+		overflow: scroll;
+	}
+		.cmuInbox__list__title {
+			display: inline-block;
+			margin-top: $cmu-base/2;
+			margin-bottom: $cmu-base/2;
+			h5 { display: inline }
+		}
+		.cmuInbox__list__message {
+			display: block;
+			border: $style-line;
+			padding: $cmu-base/2;
+			margin-bottom: $cmu-base/2;
+
+			&:hover {
+				background-color: $cmu-color-hover;
+			}
+		}
+			.cmuInbox__list__rowFirst {
+			}
+			.cmuInbox__list__subject {
+				font-weight: 600;
+			}
+			.cmuInbox__list__recipients {
+				margin-bottom: $cmu-vertical-rhythm/2;
+
+			}
+
 	.cmuInbox__controls {
 		margin-bottom: $cmu-vertical-rhythm / 2;
 	}
 
 	.cmuInbox__update {
 		margin-bottom: $cmu-vertical-rhythm / 2;
-	}
-
-	.cmuInbox__update {
-		max-height: $cmu-base * 37;
-		overflow: scroll;
-	}
-
-	.cmuInbox__message {
-		padding: $cmu-base/2;
-		padding-right: $cmu-base*2;
-		display: block;
-		border-bottom: $style-line;
-
-		&:hover {
-			background-color: $cmu-color-hover;
+	
+		&:not(.new) {
+			button {
+				cursor: default;
+				border-color: $cmu-color-mdgray;
+				color: $cmu-color-mdgray;
+			}
 		}
 	}
+
+
+
+	// main
+	.cmuInbox__main {
+		padding: 0;
+		padding-left: $cmu-base;
+	}
+
+
+
+
+
+
+// 
+// New Message
+// 
+
+.cmuInbox__newMessage {
+
+}
+
+
+
+
+
+// 
+// Message Body / details
+// 
+.cmuInbox__detail {
+
+}
+
+	.cmuInbox__detail--header {
+		// margin-top: $cmu-vertical-rhythm;
+		margin-bottom: $cmu-vertical-rhythm/2;
+
+		h2 {
+		    margin-bottom: $cmu-base/2;
+		    line-height: $cmu-base*2;
+		}
+		// padding-bottom: $cmu-base/2;
+		border-bottom: $style-line;
+
+	}
+
+	// 
+	// Main Message area
+	// 
+
+	.cmuInbox__message {
+		display: block;
+		padding: $cmu-base/2;
+		margin-bottom: $cmu-base;
+
+		// border: $style-line;
+		border-bottom: 0;
+
+		&:last-of-type {
+			border-bottom: $style-line;
+		}
+		// background: $cmu-color-purewhite;
+		// margin-bottom: $cmu-vertical-rhythm/2;
+
+		// @include box-shadow(2px, 2px, 2px, rgba($cmu-color-dkgray, 0.2));
+
+
+		.cmuUserbadge__user {
+			display: inline-block;
+		}
+
+		.cmuInbox__message__badge {
+			width: 10%;
+		    display: inline-block;
+		    float: left;
+
+		    .cmuUserbadge__account {
+		    	padding-left: 0;
+		    }
+			.cmuUsername {
+				display: none;
+			}
+		}
+
+		.cmuInbox__message__main {
+			width: 90%;
+			float: left;
+			// padding-right: $cmu-base/2;
+
+			.cmuUserbadge { 
+				float: left;
+			}
+			.cmuComments__date { 
+				float: right; 
+			}
+			.cmuInbox__message__body {
+				clear: both;
+			}
+		}
+
+		.cmuUserbadge__user {
+			margin: 0;
+		}
+
+		.cmuUserbadge__account .cmuUsername {
+			margin-top: 0;
+
+			a {
+				@extend %style-link;
+			}
+		}
+	}
+
+
+
+
+
+
 
 // 
 // PM Menu Dropdown

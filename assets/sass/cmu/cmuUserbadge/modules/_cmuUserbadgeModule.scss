@@ -343,8 +343,6 @@
 
 
 
-
-
 // 
 // Hover Flag
 // - hoverable expandable tooltip
@@ -444,9 +442,9 @@
 
 // 
 // Avatar-only display of user badge
-// (only shows user-avatar, can be paired with userbadge__flag)
+// (only shows user-avatar, can be paired with userbadge__flag for hover)
 //
-.cmuUserbadge--showUser .cmuUserbadge__main {
+.cmuUserbadge--avatarOnly .cmuUserbadge__main {
 	.cmuUsername,
 	.cmuUserbadge__points,
 	.cmuUserbadge__info
@@ -460,6 +458,22 @@
 }
 
 
+
+.cmuUserbadge--nameOnly .cmuUserbadge__main {
+	.cmuUserbadge__avatar,
+	.cmuUserbadge__points,
+	.cmuUserbadge__info
+	{
+		display: none;
+	}
+
+	.cmuUserbadge__account {
+		padding: 0;
+		cursor: inherit;
+	}
+
+
+}
 
 
 

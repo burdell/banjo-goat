@@ -87,7 +87,7 @@
 
           <div class="cmuThreadlist__created cmuThreadlist__authorDate">
             <div class="cmuThreadlist__avatar"> 
-              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--showUser" user="message.topic.message.insertUser"></community-user-badge>
+              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
             </div>
             
             <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
@@ -105,7 +105,7 @@
           </div>
           <div class="cmuThreadlist__latest cmuThreadlist__authorDate">
             <div class="cmuThreadlist__avatar"> 
-              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--showUser" user="message.context.lastestMessage.insertUser"></community-user-badge>
+              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.context.lastestMessage.insertUser"></community-user-badge>
             </div>
             <div class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
             </div>
