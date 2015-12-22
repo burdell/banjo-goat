@@ -5,9 +5,9 @@
 		"budget": "Budget",
 		"dataRequirement": "Date Requirement",
 		"finishDate": "Finish Date",
-		"productsUsed": "Products Used",
 		"projectRole": "Project Role",
-		"usersInNetwork": "Users In Network"
+		"usersInNetwork": "Users In Network",
+		"productsUsed": "Products Used"
 	},
 	"detail": {
 		"edit": "Edit this story"
@@ -25,15 +25,16 @@
 		"pasteLinkHere": "Paste Link Here",
 		"photosAndVideos": "Photos and Videos",
 		"photosAndVideosCta": "A picture is worth a thousand kudos. Add photos and videos from the web, Youtube, or Vimeo. Or upload photos directly from your device.",
-		"productsUsed": "Products Used",
+		"searchUsers": "Search Users",
 		"removeAsCover": "Remove As Cover",
 		"setAsCover": "Set As Cover",
-		"shareAStory": "Share a story, ",
+		"shareAStory": "Share a story",
 		"subject": "Subject",
 		"summary": "Summary",
 		"tellUsYourStory": "Tell us your story",
 		"unavailableAsCover": "Unavailable As Cover",
 		"uploadFromUrl": "Upload From URL",
+		"productsUsed": "Products Used",
 		"tips": {
 			"addPhotos": "Add photos!",
 			"addPhotosList": "<ul><li>Beautiful, inspiring, or interesting images get more viewers</li><li>Photos of equipment, environments and screenshots help illustrate the story</li><li>Set your best image as the cover photo</li></ul>",

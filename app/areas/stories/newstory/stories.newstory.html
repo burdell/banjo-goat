@@ -2,7 +2,6 @@
 <div class="cmuStoriesNew row">
 	<div class="cmuStoriesNew__form col--md4">
 		<div class="cmuStoriesNew__title">
-
 			${{ stories.newStory.shareAStory }}$
 		</div>
 
@@ -13,6 +12,7 @@
 				maxlength="{{ ::vm.titleCharacterLimit }}" required />
 			<label for="${{ stories.newStory.subject }}$">${{ stories.newStory.subject }}$</label>
 		</div>
+		
 		<div class="cmuStoriesNew__form--summary cmuInputContainer">
 			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
 				id="${{ stories.newStory.subject }}$" 
@@ -39,13 +39,13 @@
 			<label for="${{ stories.newStory.location }}$">${{ stories.newStory.location }}$</label>
 		</div>
 		<div class="cmuStoriesNew__form--products cmuInputContainer">
-			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList">
+			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList" id="productSelector">
 			    <ui-select-match placeholder="Click to add" >{{ $item.name }}</ui-select-match>
 			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.id as product in vm.productData | filter: { name: $select.search }">
 			      	<li ng-bind-html="product.name | highlight: $select.search"></li>
 			    </ui-select-choices>
 			</ui-select>
-			<label for="${{ stories.newStory.productsUsed }}$">${{ stories.newStory.productsUsed }}$</label>
+			<label>${{ stories.newStory.productsUsed }}$</label>
 		</div> 
 
 		<div class="cmuStoriesNew__form--media">

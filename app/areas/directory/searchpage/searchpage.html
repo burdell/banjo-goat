@@ -44,7 +44,7 @@
 	    			<!-- Discussion Styles filter -->
 	    		<div class="cmuInputGroup">	
 
-    				<div class="cmuInputGroup__first cmuInput__checkbox cmuInput__checkbox--default">
+    				<div class=" cmuInput__checkbox cmuInput__checkbox--default">
 						<label>
 							<input 
 								type="checkbox" 
@@ -53,7 +53,7 @@
 								ng-model="vm.filterOptions.discussionStyles.defaultOption.selected" 
 								ng-change="vm.defaultChanged(vm.filterOptions.discussionStyles)"
 								ng-checked="vm.filterOptions.discussionStyles.defaultOption.selected" />
-								<span>{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
+								<span data-content="${{ core.ui.clear }}$">{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
 						</label>
 					</div>
     				<div class="cmuInputGroup__checkbox" ng-repeat="filter in vm.filterOptions.discussionStyles.list">
@@ -118,7 +118,7 @@
 									ng-model="product.defaultOption.selected" 
 									ng-change="vm.defaultChanged(product)"
 									ng-checked="product.defaultOption.selected" />
-									<span>{{ product.defaultOption.display }}</span>
+									<span data-content="${{ core.ui.clear }}$">{{ product.defaultOption.display }}</span>
 							</label>
 						</div>
 	    				<div ng-repeat="filter in product.list | orderBy:'display'" >

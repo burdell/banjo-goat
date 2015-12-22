@@ -18,19 +18,21 @@
 		"refresh": "Click To Refresh"
 	},
 	"hub": {
-		"allStories": "Read All Stories",
+		"allStories": "All Stories",
 		"discussions": "Discussions",
 		"pulse": "Pulse"
 	},
 	"inbox": {
 		"header": "My Messages",
-		"messageCta": "Give your message a title",
+		"messageCta": "Message Title",
 		"newMessage": "New Message",
 		"newMessages": "New Messages",
 		"replyFeedback": "Sending your reply",
 		"sendMessage": "Send Message",
 		"sendingMessage": "Sending your message",
-		"with": "with"
+		"with": "with",
+		"recipients": "Recipients",
+		"addUser": "Start typing username to add a user"
 	},
 	"notifications": {
 		"myNotifications": "My Notifications"
