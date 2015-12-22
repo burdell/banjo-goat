@@ -80,7 +80,7 @@
 			}
 
 			//set node to base if the node url isn't valid (used for dealing with pages that arent nodes...like announcements landing page)
-			var currentNode = nodesByUrl[nodeUrl.toLowerCase()] || nodesByUrl['community'];
+			var currentNode = nodesByUrl[nodeUrl.toLowerCase()] || nodesById[-1];
 			nodeStructureService.CurrentNode = currentNode;
 		}
 

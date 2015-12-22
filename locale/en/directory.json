@@ -12,13 +12,13 @@
 		"latestAnnouncements": "Latest Announcements",
 		"latestStories": "Latest Stories",
 		"links": "Links",
-		"manageSubscriptions": "Manage Subscibtions",
+		"manageSubscriptions": "Manage Subscriptions",
 		"myContent": "My Content",
 		"recentContent": "Recent Content",
 		"refresh": "Click To Refresh"
 	},
 	"hub": {
-		"allStories": "Todas as Histórias",
+		"allStories": "Read All Stories",
 		"discussions": "Discussions",
 		"pulse": "Pulse"
 	},
