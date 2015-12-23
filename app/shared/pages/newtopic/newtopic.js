@@ -90,7 +90,8 @@ function creatNewTopicPage(areaName) {
 			actionButtonText: currentAreaTexts.action,
 			feedbackButtonText: currentAreaTexts.feedback,
 			titleText: currentAreaTexts.title,
-			moreFieldsPartial: areaTemplates[currentArea]
+			moreFieldsPartial: areaTemplates[currentArea],
+			currentArea: currentArea
 		});
 
 		if (currentArea !== 'forums') {

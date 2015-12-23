@@ -1,0 +1,48 @@
+
+
+// 
+// NEW TOPIC PAGE
+// - new announcements, thread, etc.
+// - (does not apply to new PM messages)
+// 
+
+.cmuNewtopic {
+
+}
+
+
+
+
+// tips, hints
+
+.cmuNewtopic .cmuSidebar {
+	padding-left: $cmu-base*2;
+
+	.cmuSidebar__title {
+		font-size: $size-large;
+		line-height: $size-large__lineHeight;
+		color: $cmu-color-blue;
+		margin: $cmu-base 0;
+    	vertical-align: middle;
+
+		.icon {
+    		vertical-align: middle;
+			font-size: $size-larger;
+		    padding: $cmu-base/4;
+		    border: $style-line--light;
+		    border-radius: 50%;
+		    margin-right: $cmu-base;
+		    color: $cmu-color-blue;
+		    border-color: $cmu-color-blue;
+		}
+	}
+
+	.cmuSidebar__subtitle {
+		font-size: $size-normal;
+		font-weight: 600;
+		line-height: $size-large__lineHeight;
+		color: $cmu-color-dkgray;
+		margin-top: $cmu-base;
+    	vertical-align: middle;
+	}
+}

@@ -191,6 +191,9 @@
 					color: $cmu-color-threadlist-hover ;
 					background-color: $cmu-color-threadlist-hover--background;
 				}
+				.icon:before {
+					color: $cmu-color-isRead; 
+				}
 			}
 		}
 

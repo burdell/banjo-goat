@@ -78,26 +78,26 @@
 		"announcements": {
 			"breadcrumb": "New Announcement",
 			"action": "Post Announcement",
-			"feedback": "Posting Your Announcement",
-			"title": "Give your Announcement a title"
+			"feedback": "Posting Announcement",
+			"title": "Announcement title"
 		},
 		"forums": {
 			"breadcrumb": "New Topic",
 			"action": "Post Topic",
-			"feedback": "Posting Your Topic",
-			"title": "Give your Topic a title"
+			"feedback": "Posting Topic",
+			"title": "Topic Subject"
 		},
 		"features": {
 			"breadcrumb": "New Feature Request",
-			"action": "Submit Your Feature Request",
-			"feedback": "Submitting Your Feature Request",
-			"title": "Give Your Feature Request a title"
+			"action": "Submit Feature Request",
+			"feedback": "Submitting Request",
+			"title": "Feature Title"
 		},
 		"directory": {
 			"breacrumb": "New Message",
-			"action": "Submit New Message",
-			"feedback": "Submitting Your Message",
-			"title": "Give your message a title"
+			"action": "Send Message",
+			"feedback": "Submitting Message",
+			"title": "Message Subject"
 		}
 	},
 	"pager": {

@@ -9,7 +9,7 @@
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<!-- filter & sort controls -->
 				<div class="cmuThreadlist__ctrl__row row">
-					<div class="col--md7">
+					<div class="col--md6">
 						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">${{ directory.feed.recentContent }}$</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >${{ directory.feed.followedContent }}$</button>
 					</div>
 					 <div class="col--md3 noPaddingRight">
@@ -22,7 +22,7 @@
 			          		on-sort-fn="vm.setDiscussionStyleList">
 			          	</community-sort>
 			        </div>
-					<div class="col--md2">
+					<div class="col--md3">
 					  <community-sort 
 					  	sort-options="vm.discussionSortOptions" 
 					  	sort-filter="vm.feedFilter" 
@@ -72,7 +72,6 @@
 			        <div class="cmuFeed__container col--md12">
 			        	<div class="cmuFeed__title clearfix">
 							<h5>
-							<!-- <span class="cmuIcon__label all"></span> -->
 							{{ vm.feedTypeDisplay }}</h5>
 						</div>
 			        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList.content">

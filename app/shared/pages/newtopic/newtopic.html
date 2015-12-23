@@ -1,46 +1,90 @@
-<div class="row">
-  <div class="row row--comfy" ng-cloak>
-    <div class="col--md2">
-      <community-user-badge current-user="true"></community-user-badge>
+<div class="cmuNewtopic row" ng-cloak>
+  <!-- <div class="col--md2">
+    <community-user-badge current-user="true"></community-user-badge>
+  </div> -->
+  <div class="col--md8">
+
+    <div class="row" ng-if="!vm.editType || vm.editType !== 'comment'">
+      <input class="cmuInput cmuInput--stretch" placeholder="{{ vm.titleText }}" type="text" ng-model="vm.newTopic.subject">
     </div>
-    <div class="col--md10">
-      <div class="row" ng-if="!vm.editType || vm.editType !== 'comment'">
-        <div class="col--md12 cmuSearchbox">
-          <div class="appIconInput appIconInput--left">
-            <div class="appIconInput__icon icon ubnt-icon--pencil-2"></div>
-            <input class="appIconInput__input" placeholder="{{ vm.titleText }}..." type="text" ng-model="vm.newTopic.subject">
-          </div>
-        </div>
-      </div>
-      <div class="row row--comfy">
-        <community-text-editor 
-          ng-model="vm.newTopic.body"
-          editor-height="300">
-        </community-text-editor>
+
+    <div class="row">
+      <community-text-editor 
+        ng-model="vm.newTopic.body"
+        editor-height="300">
+      </community-text-editor>
+    </div>
+
+    <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+
+    <div class="row cmuRow" ng-if="::vm.moreFieldsPartial">
+      <div ng-include src="vm.moreFieldsPartial"></div>
+    </div>
+
+
+    <div class="row cmuRow">  
+      <div ng-show="!vm.submittingTopic">
+        <button 
+          class="button button--ghost button-blue-on-white" 
+          ng-if="!vm.config.noCancel"
+          ng-click="vm.cancelTopic()">
+            ${{ core.cancel }}$
+        </button>
+        <button 
+          class="button button--solid button-white-on-blue"
+          ng-click="vm.submitTopic()">
+            {{ vm.actionButtonText }}
+        </button>
       </div>
 
-      <div class="row row--comfy" ng-if="::vm.moreFieldsPartial">
-        <div ng-include src="vm.moreFieldsPartial"></div>
-      </div>
-      
-      <div class="row row--comfy">  
-        <div ng-show="!vm.submittingTopic">
-          <button 
-            ng-if="!vm.config.noCancel"
-            class="button-square button-white-blue" 
-            ng-click="vm.cancelTopic()">
-              ${{ core.cancel }}$
-          </button>
-          <button 
-            class="button-full button-blue-white"
-            ng-click="vm.submitTopic()">
-              {{ vm.actionButtonText }}
-          </button>
-        </div>
-        <div ng-show="vm.submittingTopic">
-          <button class="cmuInput--waiting button--padded" disabled>{{ vm.feedbackButtonText }}...</button>
-        </div>
+      <div ng-show="vm.submittingTopic">
+        <button class="cmuInput--waiting button--padded" disabled>{{ vm.feedbackButtonText }}</button>
       </div>
     </div>
+
   </div>
+
+
+  <div class="cmuSidebar col--md4">
+    <div ng-switch on="vm.currentArea">
+
+
+
+      <div ng-switch-when="announcements">
+        <div class="cmuSidebar__container">
+          <div class='cmuSidebar__title'><span class="icon ubnt-icon--kb"></span>Posting Announcements</div>
+          <p>Keep the community involved and updated about the latest product updates and downloads. 
+          </p>
+          <div class='cmuSidebar__subtitle'>Tips</div>
+          <ul>
+            <li>If your update has downloads, link to the download source</li>
+            <li>Post the changelog – users love perusing these, and may help track down new bugs and request new features</li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div ng-switch-when="features">
+        <div class="cmuSidebar__container">
+          <div class='cmuSidebar__title'><span class="icon ubnt-icon--kb"></span>Suggest a Feature</div>
+          <p>Do you have a new idea for our product? Help us improve! Let us know what you would like to see in our product, and gain votes for your ideas.
+          </p>
+
+          <div class='cmuSidebar__subtitle'>Get More Upvotes</div>
+          <ul>
+            <li>There are no bad ideas</li>
+            <li>The simplest ideas could be the most popular</li>
+            <li>Lastly, make sure your idea hasn't already been suggested!</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div ng-switch-default>
+      </div>
+  </div>
+
 </div>
+

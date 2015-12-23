@@ -6890,7 +6890,7 @@ h6 {
 }
 
 .style-listItem:hover, .cmuFeed__story:hover, .cmuFeed__item:hover, .cmuThreadlist__row:hover, .cmuStoryItem:hover {
-  background-color: #ebebeb;
+  background-color: #f3f3f3;
   cursor: pointer;
 }
 
@@ -8980,7 +8980,7 @@ div.cmuCollapser__content {
 }
 .cmuFeed__item:hover {
   color: #00a0df;
-  background-color: #ebebeb;
+  background-color: #f3f3f3;
 }
 .cmuFeed__item .cmuIcon__label:before {
   color: #00a0df;
@@ -8997,7 +8997,10 @@ div.cmuCollapser__content {
 }
 .cmuFeed__item.isRead:hover {
   color: #00a0df;
-  background-color: #ebebeb;
+  background-color: #f3f3f3;
+}
+.cmuFeed__item.isRead .icon:before {
+  color: #969ba3;
 }
 
 .cmuFeed__item__container:last-child .cmuFeed__item {
@@ -9191,7 +9194,7 @@ div.cmuCollapser__content {
 }
 .cmuThreadlist__row:hover {
   color: #00a0df;
-  background-color: #ebebeb;
+  background-color: #f3f3f3;
 }
 .cmuThreadlist__row > div:last-child {
   padding-right: 0.5rem;
@@ -10615,7 +10618,7 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   width: 100%;
 }
 
-.cmuInput--stretch input {
+.cmuInput--stretch input, .cmuInput--stretch {
   width: 100%;
 }
 
@@ -11300,6 +11303,35 @@ select.cmuSort {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.cmuNewtopic .cmuSidebar {
+  padding-left: 2rem;
+}
+.cmuNewtopic .cmuSidebar .cmuSidebar__title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #00a0df;
+  margin: 1rem 0;
+  vertical-align: middle;
+}
+.cmuNewtopic .cmuSidebar .cmuSidebar__title .icon {
+  vertical-align: middle;
+  font-size: 1.3125rem;
+  padding: 0.25rem;
+  border: 1px solid #ebebeb;
+  border-radius: 50%;
+  margin-right: 1rem;
+  color: #00a0df;
+  border-color: #00a0df;
+}
+.cmuNewtopic .cmuSidebar .cmuSidebar__subtitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: #474b52;
+  margin-top: 1rem;
+  vertical-align: middle;
 }
 
 .cmuContent p, .cmuComments__body__content p {
