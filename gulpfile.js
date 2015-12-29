@@ -379,7 +379,7 @@ gulp.task('deploy', ['prod']);
 
 gulp.task('dev', ['index', 'localization', 'scripts', 'templates', 'stylesheets']);
 
-gulp.task('prod', ['index', 'prod-scripts', 'prod-templates', 'prod-stylesheets']);
+gulp.task('prod', ['index', 'localization', 'prod-scripts', 'prod-templates', 'prod-stylesheets']);
 
 
 
