@@ -89,7 +89,7 @@ var routesProvider = function(){
  	}
 	
 	this.routes = routeData;
-	this.$get = function($http){
+	this.$get = function(){
 		return this.routes;
 	}
 };
