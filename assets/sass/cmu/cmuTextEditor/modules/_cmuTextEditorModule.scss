@@ -50,6 +50,9 @@ $editor-height--minimal: 60px;
             padding-left: 0;
         }
 }
+    .cmuTextEditor__container {
+        cursor: text;
+    }
 
     .CodeMirror, .CodeMirror-scroll {
         min-height: 200px;

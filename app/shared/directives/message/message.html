@@ -34,16 +34,25 @@
 				<div class="cmuMessage__controls"> 
 					<div class="cmuMessage__reply noPadding">
 						<span community-permissions denied-behavior="disable" class="cmuPermissions">
+							<span
+								class="
+								cmuMessage__actions
+								cmuTooltip__trigger"
+								community-class-toggle="showLink">
+								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--link"></span>
+								</span>
+								<div class="cmuTooltip cmuTooltip--top"><span>Banana pie</span></div>
+							</span>
 							<span 
 								ng-if="messageDisplay.canEditMessage"
 								class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--pencil-2"></span>
 								</span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="${{ directives.message.edit }}$"></div>
+								<div class="cmuTooltip cmuTooltip--top"><span>${{ directives.message.edit }}$</span></div>
 							</span>
 							<span class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon cmuIcon-flag"></span>
-								<div class="cmuTooltip cmuTooltip--top" data-tooltip="${{ directives.message.flag }}$"></div>
+								<div class="cmuTooltip cmuTooltip--top" ><span>${{ directives.message.flag }}$</span></div>
 							</span>
 
 							<div class="button button--vote button--vote--kudo button--thin button--lowercase" community-class-toggle="button--voted">

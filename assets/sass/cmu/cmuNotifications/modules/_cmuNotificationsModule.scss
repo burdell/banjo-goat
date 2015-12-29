@@ -21,6 +21,9 @@
 .cmuNotifications__dropdown__content {
 	background-color: $cmu-color-purewhite;
 
+    .cmuProfile__avatar:before {
+        margin-top: 2px;
+    }
 }
 
     .cmuNotifications__dropdown__user {

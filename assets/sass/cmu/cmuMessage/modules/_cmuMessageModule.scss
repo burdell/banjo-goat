@@ -235,12 +235,21 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		position: relative;
 		top: -2px;
 		margin-right: 0;
+
+		.ubnt-icon--link {
+			left: -5px;
+		}
+
 		&:last-of-type {
 			margin-right: $cmu-base/2;
 		}
 
 		.cmuTooltip {
 			top: 0;
+		}
+
+		.showLink + .cmuMessage__link {
+			display: block;
 		}
 	}
 		.cmuMessage__body:hover {

@@ -813,10 +813,10 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		    // left: inherit;
 		    // right: inherit;
 
-		    &:before {
+		    &:before, span {
     			// transform: translate(-50%, -259990%);
-    			left: 50%;
-    			transform: translate(-50%, 0%);
+    			// left: 50%;
+    			// transform: translate(-50%, 0%);
     			top: -80px; // hard coded bc of fixed position underlying element
 		    }
 		    &:after {

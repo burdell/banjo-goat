@@ -3,10 +3,14 @@
 
 	require('services/data.js');
 
+	require('directives/username/username.js');
+	require('directives/showcount/showcount.js');
+
 	require('filters/extractkey.js');
 	require('filters/timefromnow.js');
 	require('filters/unformattext.js');
 	require('filters/wordcut.js');
+
 
 	require('directives/texteditor/texteditor.js');
 	require('directives/pager/pager.js');
@@ -94,8 +98,8 @@
 
 				filterRequests();
 			},
-			isUnread: function(featureData){
-				return !featureData.context.lastReadDate;
+			isRead: function(featureData){
+				return !!featureData.context.lastReadDate;
 			},
 			newFeature: function(){
 				$state.go('features.newtopic');

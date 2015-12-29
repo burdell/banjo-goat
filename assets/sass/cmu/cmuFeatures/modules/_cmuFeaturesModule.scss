@@ -14,22 +14,30 @@
 }
 
 	.cmuFeatures__sidebar .cmuSearchbox {
-		margin-bottom: $cmu-base;
+		margin-bottom: $cmu-base/2;
 	}
 
 
 
 // Features Thread List
-
 .cmuFeatures__threadlist__row {
-	padding-bottom: $cmu-base;
-	margin-bottom: $cmu-base;
-	border-bottom: $style-line;
-
-	&:first-child {
-		margin-top: $cmu-base;
+	&.isRead {
+		// background-color: $cmu-color-isRead--background;
+		* { 
+			color: $cmu-color-isRead;
+		}
 	}
 }
+
+.cmuFeatures__threadlist__content {
+	padding: $cmu-base 0;
+	border-bottom: $style-line;
+}
+	.cmuFeatures__threadlist__row:first-of-type .cmuFeatures__threadlist__content {
+		padding-top: 0;
+	}
+
+
 
 .cmuFeatures__votes {
 	text-align: center;
@@ -89,6 +97,7 @@
 .cmuFeatures__threadlist__body {
 
 }
+
 .cmuFeatures__threadlist__body__content {
 	padding-top: $cmu-base/4;
 	padding-bottom: $cmu-base/2;

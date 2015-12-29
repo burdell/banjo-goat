@@ -18,6 +18,11 @@
     ng-model="vm.newTopic.body"
     editor-height="300">
   </community-text-editor>
+
+    <div class="row cmuRow">
+      <div class="cmuTextEditor__preview" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+    </div>
+
     <div ng-show="!vm.submittingTopic">
       <button 
         class="button-full button-blue-white"

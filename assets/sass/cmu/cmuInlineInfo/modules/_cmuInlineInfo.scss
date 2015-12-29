@@ -42,7 +42,7 @@
 		vertical-align: top;
 		&:not(:first-child):before {
 			content: attr(data-divider);
-			padding: 0 $cmu-base/4; 
+			padding: 0 $cmu-base/2; 
 		}
 	}
 }

@@ -72,7 +72,8 @@
 	"message": {
 		"edit": "Edit post",
 		"flag": "Flag post",
-		"of": "of"
+		"of": "of",
+		"link": "Get link"
 	},
 	"newtopic": {
 		"announcements": {
