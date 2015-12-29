@@ -253,7 +253,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
 		.cmuMessage__body:hover {
-			@extend %cmuIcon-action--halfOpacity;
+			// @extend %cmuIcon-action--halfOpacity;
 		}
 
 	.cmuMessage__reply {

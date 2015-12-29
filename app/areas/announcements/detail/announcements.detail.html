@@ -35,6 +35,23 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="cmuThread__stats">
+					<div class="row">
+						<div class="col--md12">
+							<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+								<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
+							</div>
+
+							<a  ng-if="vm.canEdit"
+								class="button button--ghost" 
+								area-link-handler="{{ vm.editUrl }}">
+								<span class="icon ubnt-icon--pencil-2"></span>
+								<span>${{ announcements.detail.edit }}$</span>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -59,29 +76,21 @@
 
 			</div>
 
-
-			<div class="cmuMessage__data">
-<!-- 
-				<span 
-					ng-if="vm.canEdit"
-					class="cmuMessage__actions cmuTooltip__trigger">
-					<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--pencil-2"></span>
-					</span>
-					<div class="cmuTooltip cmuTooltip--top"><span>${{ directives.message.edit }}$</span></div>
-				</span>
-						 -->	
-				<div ng-if="vm.canEdit" class="cmuMessage__actions cmuMessage__flag cmuTooltip__trigger">
-					<a area-link-handler="{{ vm.editUrl }}">
-						<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
-						<div class="cmuTooltip cmuTooltip--top" data-textalign="left"><span>${{ announcements.detail.edit }}$</span></div>
-					</a>
-				</div>
-
-				<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
-					<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
-				</div>
-			</div>
 		</div>
+	</div>
+
+	<div class="row">
+		<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+			<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
+		</div>
+
+		<a  ng-if="vm.canEdit"
+			class="button button--ghost" 
+			area-link-handler="{{ vm.editUrl }}">
+			<span class="icon ubnt-icon--pencil-2"></span>
+			<span>${{ announcements.detail.edit }}$</span>
+		</a>
+
 	</div>
 
 	<div class="row">

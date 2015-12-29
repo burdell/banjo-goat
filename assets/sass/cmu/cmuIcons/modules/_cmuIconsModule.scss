@@ -204,7 +204,7 @@
 		// hide action icons for desktop so they only appear on hover
 		// remember to trigger half opacity when user hovers over the row
 	    @include respondTo(medium-up) {
-			opacity: 0; 
+			opacity: 0.5; 
 	    }
 	    &.visible {
 	    	opacity: 1;
