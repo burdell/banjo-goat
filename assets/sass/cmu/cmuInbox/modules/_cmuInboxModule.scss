@@ -50,10 +50,11 @@
 	}
 
 	.cmuInbox__update {
+		margin-left: $cmu-base/2; 
 		margin-bottom: $cmu-vertical-rhythm / 2;
 	
 		&:not(.new) {
-			button {
+			button, & {
 				cursor: default;
 				border-color: $cmu-color-mdgray;
 				color: $cmu-color-mdgray;
@@ -94,17 +95,27 @@
 }
 
 	.cmuInbox__detail--header {
+		position: relative;
 		// margin-top: $cmu-vertical-rhythm;
 		margin-bottom: $cmu-vertical-rhythm/2;
 
 		h2 {
-		    margin-bottom: $cmu-base/2;
+		    // margin-bottom: $cmu-base/2;
 		    line-height: $cmu-base*2;
+		}
+		span {
+			font-weight: bold;
 		}
 		// padding-bottom: $cmu-base/2;
 		border-bottom: $style-line;
 
 	}
+		.cmuInbox__pagerContainer {
+		    vertical-align: bottom;
+		    position: absolute;
+		    right: 0;
+		    bottom: $cmu-base*3/4;
+		}
 
 	// 
 	// Main Message area
@@ -119,7 +130,9 @@
 		border-bottom: 0;
 
 		&:last-of-type {
+			padding-bottom: $cmu-vertical-rhythm !important;
 			border-bottom: $style-line;
+			margin-bottom: $cmu-vertical-rhythm * 2;
 		}
 		// background: $cmu-color-purewhite;
 		// margin-bottom: $cmu-vertical-rhythm/2;

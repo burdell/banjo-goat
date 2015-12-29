@@ -3,6 +3,10 @@
 
 require('filters/sanitize.js');
 
+require('directives/username/username.js');
+require('directives/useravatar/useravatar.js');
+require('directives/showcount/showcount.js');
+
 require('directives/message/message.js');
 require('directives/pager/pager.js');
 require('directives/commentform/commentform.js');

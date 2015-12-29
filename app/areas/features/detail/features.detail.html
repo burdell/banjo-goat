@@ -43,12 +43,10 @@
 			</div>
 		</div>
 
-
-
 		<div class="cmuThread__firstPost">
 			<community-user-badge 
 				class="cmuUserbadge--thin"
-				user="vm.originalMessage.message.context.parentAuthor"
+				user="vm.originalMessage.message.insertUser"
 				op-id="messageDisplay.showOp">
 			</community-user-badge>
 
@@ -67,7 +65,7 @@
 					<div ng-if="vm.canEdit" class="cmuMessage__flag cmuTooltip__trigger">
 						<a area-link-handler="{{ vm.editUrl }}">
 							<span class="cmuIcon cmuIcon--small icon ubnt-icon--pencil-2"></span>
-							<div class="cmuTooltip  cmuTooltip--top" data-tooltip="${{ features.detail.editCta }}$" data-textalign="left"></div>
+							<div class="cmuTooltip cmuTooltip--top" data-textalign="left"><span>${{ features.detail.editCta }}$</span></div>
 						</a>
 					</div>
 				</div>

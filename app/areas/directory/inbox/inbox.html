@@ -6,11 +6,12 @@
 
 		<div class="cmuInbox__controls row">
 			<a area-link-handler link-handler-route="inbox.newtopic"><div class="button button--solid">${{ directory.inbox.newMessage }}$</div></a>
+			<button class="cmuInbox__update button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
 		</div>
-
+<!-- 
 		 <div class="cmuInbox__update row" ng-class="{'new':vm.checkNewMessages()}">
         	<button class="button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
-        </div>
+        </div> -->
 
 		<div class="row">
 			<div class="cmuInbox__sidebar col--md4 noPadding">
@@ -21,11 +22,11 @@
 						ui-sref="inbox.detail({ messageId: message.topic.id })"
 						ng-repeat="message in vm.messageList.content">
 							<div class="cmuInbox__list__rowFirst row">
-								<div class="col--md9">
+								<div class="col--md8">
 									<div class="cmuInbox__list__subject">{{ message.topic.subject }}</div>
 								</div>
-								<div class="col--md3 alignRight">
-									<span>{{ message.topic.postDate | timeFromNow }}</span>
+								<div class="col--md4 alignRight">
+									<span class="style-date">{{ message.topic.postDate | timeFromNow }}</span>
 								</div>
 							</div>
 
@@ -35,6 +36,11 @@
 								<p>{{ message.topic.body | unformatText | wordCut:20 }}</p>
 							</div>
 					</a>
+
+					<div class="cmuInbox__list--empty" ng-if="vm.messageList.content.length < 1">
+						<h2 class="cmuHalfRow"> ${{ directory.inbox.noMessages }}$ </h2>
+						<span> <a area-link-handler link-handler-route="inbox.newtopic"><span class="button button--solid"> ${{ directory.inbox.whyNotSend }}$ </span> </a>
+					</div>
 				</div>
 				<community-load-more list-model="vm.messageList" load-filter="vm.messageFilter"></community-load-more>
 			</div>

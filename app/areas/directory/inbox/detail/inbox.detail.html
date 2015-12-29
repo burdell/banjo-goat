@@ -1,15 +1,19 @@
 <div class="cmuInbox__detail col--md12 noPadding">
 
-	<div class="cmuInbox__detail--header">
-		<h2>{{ vm.originalMessage.subject }}</h2>
-		<div class="cmuInbox__list__title">{{ vm.originalMessage.postDate | timeFromNow }} | ${{ directory.inbox.with }}$ {{ vm.recipientString }}</div>
+	<div class="cmuInbox__detail--header row">
+		<div class="col--md6">
+			<h2>{{ vm.originalMessage.subject }}</h2>
+			<div class="cmuInbox__list__title"><span>{{ vm.originalMessage.postDate | timeFromNow }}</span> ${{ directory.inbox.with }}$ {{ vm.recipientString }}</div>
+		</div>
+		<div class="cmuInbox__pagerContainer col--md6">
+			<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>
+		</div>
 	</div>
 
 	<div class="clearfix cmuRow">
-		<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>
 	</div>
 
-	<div class="">
+	<div class="clearfix">
 		<div ng-repeat="message in vm.messageList.content" class="cmuInbox__message clearfix noPadding">
 			<div class="cmuInbox__message__badge">
 				<community-user-badge 
@@ -27,10 +31,15 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="clearfix">
 		<community-text-editor ng-model="vm.newMessage.body"></community-text-editor>
+
+	    <div class="row cmuRow">
+	      <div class="cmuTextEditor__preview" ng-if="vm.newMessage.body" ng-bind-html="vm.newMessage.body | sanitize"></div>
+	    </div>
+	    
 		<div ng-show="!vm.submittingReply">
-			<button ng-click="vm.postNewMessage()">${{ core.actions.reply }}$</button>
+			<button class="button button--solid button--wide" ng-click="vm.postNewMessage()">${{ core.actions.reply }}$</button>
 		</div>
 		 <div ng-show="vm.submittingReply">
           <button class="cmuInput--waiting button--padded" disabled>${{ directory.inbox.replyFeedback }}$...</button>

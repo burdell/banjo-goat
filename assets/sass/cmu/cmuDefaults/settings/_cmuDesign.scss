@@ -13,6 +13,10 @@
 	height: $cmu-height--slim;
 }
 
+%inline, .inline {
+	display: inline;
+}
+
 
 // 
 // Lines and Borders
@@ -364,11 +368,12 @@ $stat-padding: 4.5px $cmu-base/2;
 	}
 
 	// tooltip content container
-	&:before {
+	%messageSpan {
 		opacity: 0;
 		visibility: hidden;
 
-		content: attr(data-tooltip);
+		// content: attr(data-tooltip);
+
 		@extend %style-tag;
 		max-width: initial;
 		@extend %ease-fast;
@@ -380,9 +385,16 @@ $stat-padding: 4.5px $cmu-base/2;
     	white-space: nowrap;
 
     	position: absolute;
-    	left: -100%;
-    	transform: translate(0,-100%);
+    	// left: -100%; // as a :before 
+
+    	transform: translate(0,-100%); // as a :before 
+
+    	transform: translate(-50%,-100%); // as a span
     	top: -$size-arrow - remCalc(4px);
+	}
+
+	span, &:before {
+		@extend %messageSpan;
 	}
 
 	&:after {
@@ -420,7 +432,7 @@ $stat-padding: 4.5px $cmu-base/2;
 		position: relative; // helps position the flag
 
 		&:hover {
-			.cmuTooltip:before, .cmuTooltip:after {
+			.cmuTooltip:before, .cmuTooltip:after, .cmuTooltip span{
 				opacity: 1;
 				display: inline-block;
 				visibility: inherit;

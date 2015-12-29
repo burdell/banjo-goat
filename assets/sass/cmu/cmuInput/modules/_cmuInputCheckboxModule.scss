@@ -11,6 +11,7 @@
 	// margin-bottom: $cmu-base/2;
 
 	// most sites actually hide this guy, since it's implied 
+	
 	input {
 		display: none;
 	}
@@ -25,8 +26,9 @@
 		// margin-left: $cmu-base/2;
 	}
 
-	padding-bottom: $cmu-base/4;
-	margin-bottom: $cmu-base/4;
+	line-height: $cmu-vertical-rhythm*2;
+	// padding-bottom: $cmu-base/4;
+	margin-bottom: $cmu-base/2;
 	border-bottom: $style-line;
 
 	span:after {
@@ -38,6 +40,7 @@
 }
 
 .cmuInput__checkbox {
+
 	&, * { 
 		@extend %user-select-none;
 	}

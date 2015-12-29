@@ -5,7 +5,7 @@
 	</community-page-header>
 
 	<div class="notifications-container">
-		<div class="row row--comfy" ng-repeat="notification in vm.notificationList">
+		<div class="row cmuRow" ng-repeat="notification in vm.notificationList">
 			<a area-link-handler="{{ vm.getUrl(notification) }}">
 				<div class="col--md10">
 					<community-user-avatar user="notification.message.context.parentAuthor"></community-user-avatar>

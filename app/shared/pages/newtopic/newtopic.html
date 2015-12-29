@@ -5,7 +5,10 @@
   <div class="col--md8">
 
     <div class="row" ng-if="!vm.editType || vm.editType !== 'comment'">
-      <input class="cmuInput cmuInput--stretch" placeholder="{{ vm.titleText }}" type="text" ng-model="vm.newTopic.subject">
+      <div class="cmuInput__container">
+        <input class="cmuInput cmuInput--stacked cmuInput--stretch" type="text" ng-model="vm.newTopic.subject" required />
+        <label for="${{ stories.newStory.subject }}$">{{ vm.titleText }}</label>
+      </div>
     </div>
 
     <div class="row">
@@ -15,7 +18,9 @@
       </community-text-editor>
     </div>
 
-    <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+    <div class="row cmuRow">
+      <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+    </div>
 
     <div class="row cmuRow" ng-if="::vm.moreFieldsPartial">
       <div ng-include src="vm.moreFieldsPartial"></div>
@@ -55,11 +60,11 @@
           <div class='cmuSidebar__title'><span class="icon ubnt-icon--kb"></span>Posting Announcements</div>
           <p>Keep the community involved and updated about the latest product updates and downloads. 
           </p>
-          <div class='cmuSidebar__subtitle'>Tips</div>
+          <div class='cmuSidebar__subtitle'>Update Tips</div>
           <ul>
             <li>If your update has downloads, link to the download source</li>
-            <li>Post the changelog – users love perusing these, and may help track down new bugs and request new features</li>
-            <li></li>
+            <li>Post the changelog – users love perusing logs, and may help track down new bugs and request new features</li>
+            <li>Don't skip the details – adding version and model number help users stay up to date</li>
           </ul>
         </div>
       </div>

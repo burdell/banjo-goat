@@ -32,7 +32,9 @@
 		"sendingMessage": "Sending your message",
 		"with": "with",
 		"recipients": "Recipients",
-		"addUser": "Start typing username to add a user"
+		"addUser": "Add a recipient",
+		"noMessages": "Inbox is empty",
+		"whyNotSend": "Why not send one?"
 	},
 	"notifications": {
 		"myNotifications": "My Notifications"

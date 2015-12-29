@@ -7,10 +7,10 @@ angular.module('community.features')
 			StatusTypes: {
 				'New': { code: 'pending', display: 'New' },
 				'Accepted': { code: 'inprogress', display: 'Accepted' },
-				'Under Consideration': { code: 'unspecified', display: 'Under Consideration' },
+				'Under Consideration': { code: 'unspecified', display: 'Under Review' },
 				'Duplicate': { code: 'wontfix', display: 'Duplicate' },
-				'Future Consideration': { code: 'invalid', display: 'Future Consideration' },
-				'Implemented': { code: 'fixed', display: 'Implemented' },
+				'Future Consideration': { code: 'invalid', display: 'Future' },
+				'Implemented': { code: 'fixed', display: 'Completed' },
 			},
 			SeverityLevels: {
 				1: { code: 'high', display: 'High' },

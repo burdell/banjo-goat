@@ -115,6 +115,7 @@ $cmu-color-purewhite: 	#FFF;
 	$cmu-color-threadlist-hover--background: $cmu-color-xltgray; //$cmu-color-ltgray; 			// used when hovering over a row in a list
 	$cmu-color-unread: $cmu-color-black;
 	$cmu-color-isRead: $cmu-color-gray;
+	$cmu-color-isReadOpacity: 0.83;
 	$cmu-color-isRead--background: $cmu-color-xltgray;
 
 	// custom scroll bar
@@ -148,10 +149,10 @@ $cmu-color-status-fixed: $cmu-color-green;
 $cmu-color-status-investigating: $cmu-color-teal;
 .cmu-status-investigating { background-color: $cmu-color-status-investigating !important; color: $cmu-color-white; }
 
-$cmu-color-status-inprogress: $cmu-color-dkblue;
+$cmu-color-status-inprogress: $cmu-color-blue;
 .cmu-status-inprogress { background-color: $cmu-color-status-inprogress !important; color: $cmu-color-white; }
 
-$cmu-color-status-pending: $cmu-color-yellow;
+$cmu-color-status-pending: $cmu-color-dkblue; // (just received, haven't been reviewed, 'new')
 .cmu-status-pending { background-color: $cmu-color-status-pending !important; color: $cmu-color-white; }
 
 $cmu-color-status-invalid: $cmu-color-yellow;
@@ -160,10 +161,11 @@ $cmu-color-status-invalid: $cmu-color-yellow;
 $cmu-color-status-unspecified: $cmu-color-purple;
 .cmu-status-unspecified { background-color: $cmu-color-status-unspecified !important; color: $cmu-color-white; }
 
-$cmu-color-status-wontfix: $cmu-color-dkgray;
+$cmu-color-status-wontfix: $cmu-color-gray;
 .cmu-status-wontfix { background-color: $cmu-color-status-wontfix !important; color: $cmu-color-white; }
 
-$cmu-color-status-duplicate: $cmu-color-gray;
+// treated as same thing
+$cmu-color-status-duplicate: $cmu-color-status-wontfix;
 .cmu-status-duplicate { background-color: $cmu-color-status-duplicate !important; color: $cmu-color-white; }
 
 
