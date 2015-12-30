@@ -391,6 +391,11 @@ $stat-padding: 4.5px $cmu-base/2;
 
     	transform: translate(-50%,-100%); // as a span
     	top: -$size-arrow - remCalc(4px);
+
+    	&:hover, span:hover {
+			color: $cmu-color-white !important;
+			cursor: default;
+    	}
 	}
 
 	span, &:before {

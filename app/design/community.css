@@ -7007,6 +7007,10 @@ h6 {
   transform: translate(-50%, -100%);
   top: -0.75rem;
 }
+.cmuTooltip span:hover, .cmuTooltip .cmuTooltip:hover:before, .cmuTooltip span span:hover, .cmuTooltip .cmuTooltip:before span:hover {
+  color: #fafafa !important;
+  cursor: default;
+}
 .cmuTooltip:after {
   opacity: 0;
   visibility: hidden;
@@ -7258,6 +7262,12 @@ pre {
 
 .cmuIcon-action--halfOpacity .cmuIcon-action__icon, .cmuComments__row:hover .cmuIcon-action__icon {
   opacity: 0.465;
+}
+
+.showLink .cmuIcon-action__icon {
+  opacity: 1 !important;
+  border: 1px solid #dadada;
+  border-color: #00a0df;
 }
 
 .cmuIcon--platform, .cmuIcon-airFiber, .cmuIcon-airMax, .cmuIcon-airControl, .cmuIcon-edgeMax, .cmuIcon-edgeSwitch, .cmuIcon-toughSwitch, .cmuIcon-airCrmBilling, .cmuIcon-airCrmControl, .cmuIcon-airCrmMarket, .cmuIcon-airCrmOps, .cmuIcon-unifi, .cmuIcon-unifiVideo, .cmuIcon-unifiVoip, .cmuIcon-switching, .cmuIcon-mfi {
@@ -9535,15 +9545,36 @@ div.cmuCollapser__content {
 .cmuMessage__actions .cmuTooltip {
   top: 0;
 }
-.cmuMessage__actions .showLink + .cmuMessage__link {
-  display: block;
-}
 
 .cmuMessage__reply {
   text-align: right;
 }
 .cmuMessage__reply .cmuPermissions {
   margin-left: 0.5rem;
+}
+
+.cmuMessage__link {
+  cursor: pointer;
+}
+.cmuMessage__link .cmuIcon, .cmuMessage__link .cmuIcon--hoverOff, .cmuMessage__link .cmuIcon-pin, .cmuMessage__link .cmuIcon-star, .cmuMessage__link .cmuIcon-flag, .cmuMessage__link .cmuIcon-cool, .cmuMessage__link .cmuIcon-kudos, .cmuMessage__link .cmuIcon-airFiber, .cmuMessage__link .cmuIcon-airMax, .cmuMessage__link .cmuIcon-airControl, .cmuMessage__link .cmuIcon-edgeMax, .cmuMessage__link .cmuIcon-edgeSwitch, .cmuMessage__link .cmuIcon-toughSwitch, .cmuMessage__link .cmuIcon-airCrmBilling, .cmuMessage__link .cmuIcon-airCrmControl, .cmuMessage__link .cmuIcon-airCrmMarket, .cmuMessage__link .cmuIcon-airCrmOps, .cmuMessage__link .cmuIcon-unifi, .cmuMessage__link .cmuIcon-unifiVideo, .cmuMessage__link .cmuIcon-unifiVoip, .cmuMessage__link .cmuIcon-switching, .cmuMessage__link .cmuIcon-mfi {
+  color: #bbbbbd;
+  line-height: 1.8rem;
+}
+.cmuMessage__link:hover .cmuIcon, .cmuMessage__link:hover .cmuIcon--hoverOff, .cmuMessage__link:hover .cmuIcon-pin, .cmuMessage__link:hover .cmuIcon-star, .cmuMessage__link:hover .cmuIcon-flag, .cmuMessage__link:hover .cmuIcon-cool, .cmuMessage__link:hover .cmuIcon-kudos, .cmuMessage__link:hover .cmuIcon-airFiber, .cmuMessage__link:hover .cmuIcon-airMax, .cmuMessage__link:hover .cmuIcon-airControl, .cmuMessage__link:hover .cmuIcon-edgeMax, .cmuMessage__link:hover .cmuIcon-edgeSwitch, .cmuMessage__link:hover .cmuIcon-toughSwitch, .cmuMessage__link:hover .cmuIcon-airCrmBilling, .cmuMessage__link:hover .cmuIcon-airCrmControl, .cmuMessage__link:hover .cmuIcon-airCrmMarket, .cmuMessage__link:hover .cmuIcon-airCrmOps, .cmuMessage__link:hover .cmuIcon-unifi, .cmuMessage__link:hover .cmuIcon-unifiVideo, .cmuMessage__link:hover .cmuIcon-unifiVoip, .cmuMessage__link:hover .cmuIcon-switching, .cmuMessage__link:hover .cmuIcon-mfi {
+  color: #474b52;
+}
+
+.showLink ~ .cmuMessage__link__container {
+  display: block;
+}
+
+.cmuMessage__link__container {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  background: #ebebeb;
+  padding: 0.5rem;
+  transform: translateX(50%);
 }
 
 .cmuInbox__list {
@@ -9712,6 +9743,32 @@ div.cmuCollapser__content {
 
 .cmuProfile__dropdown__footer {
   border-top: 1px solid #dadada;
+}
+
+.cmuNotifications .cmuUsername__login {
+  font-weight: 600;
+}
+.cmuNotifications .cmuUserbadge__avatar {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.cmuNotfication__item {
+  border: 1px solid #dadada;
+  border-bottom: 0;
+  background-color: #fafafa;
+  padding: 0.5rem;
+}
+.cmuNotfication__item:last-of-type {
+  border-bottom: 1px solid #dadada;
+}
+.cmuNotfication__item:hover {
+  cursor: pointer;
+  background-color: #f3f3f3;
+}
+
+.cmuNotifications__info {
+  padding-top: 2px;
 }
 
 .cmuNotifications__dropdown__content {
@@ -10668,7 +10725,7 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   left: 9px;
   text-transform: uppercase;
   color: #969ba3;
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   cursor: text;
 }
 

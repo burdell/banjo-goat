@@ -50,6 +50,8 @@
 		"forums": "Community Forums",
 		"guidelines": "Community Guidelines",
 		"inbox": "Inbox",
+		"emptyInbox": "Inbox empty. Send a message",
+		"emptyNotifications": "No notifications. View History",
 		"login": "Login", 
 		"logOut": "Log Out",
 		"notifications": "Notifications",

@@ -1,6 +1,6 @@
 <div id="{{ messageDisplay.message.id }}">
 	<div class="cmuMessage__container">
-		
+
 		<community-user-badge
 			user="messageDisplay.message.insertUser"
 			op-id="messageDisplay.showOp">
@@ -30,20 +30,21 @@
 						{{ messageDisplay.message.postDate | exactTimeFromNow }}
 						<span ng-if="messageDisplay.isEdited"> | ${{ core.actions.edited }}$ {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
 					</div>
+
+					<span class="cmuMessage__link"
+						community-class-toggle="showLink">
+						<span class="cmuIcon cmuIcon--small alignCenter"><span class="ubnt--icon ubnt-icon--link"></span>
+						</span>
+					</span>
+					<span class="cmuMessage__link__container">
+						REPLACE WITH LINK 
+					</span>
 				</div>
 				<div class="cmuMessage__controls"> 
 					<div class="cmuMessage__reply noPadding">
 						<span community-permissions denied-behavior="disable" class="cmuPermissions">
-							<span
-								class="
-								cmuMessage__actions
-								cmuTooltip__trigger"
-								community-class-toggle="showLink">
-								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--link"></span>
-								</span>
-								<div class="cmuTooltip cmuTooltip--top"><span>Banana pie</span></div>
-							</span>
 							<span 
+								ng-if="messageDisplay.canEditMessage"
 								class="cmuMessage__actions cmuTooltip__trigger">
 								<span class="cmuIcon cmuIcon--small cmuIcon-action__icon"><span class="ubnt--icon ubnt-icon--pencil-2"></span>
 								</span>

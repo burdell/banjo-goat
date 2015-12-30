@@ -6,8 +6,34 @@
 // 
 
 .cmuNotifications {
+    .cmuUsername__login {
+        font-weight: 600;
+    }
+    .cmuUserbadge__avatar {
+        height: $cmu-base*1.5;
+        width: $cmu-base*1.5;
+    }
 
 }
+
+    .cmuNotfication__item {
+        border: $style-line;
+        border-bottom: 0;
+        background-color: $cmu-color-post;
+        padding: $cmu-base/2;
+
+        &:last-of-type {
+            border-bottom: $style-line;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $cmu-color-hover--background
+        }
+    }
+        .cmuNotifications__info {
+            padding-top: 2px;
+        }
 
 
 // 

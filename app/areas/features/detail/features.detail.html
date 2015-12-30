@@ -1,4 +1,4 @@
-<div class="cmuFeatureDetails cmuThread">
+<div class="cmuFeatureDetails">
 	<div class="row">
 		<div class="row">
 			<div class="cmuFeatures__votes col--md2">
@@ -84,7 +84,7 @@
 				local-index="$index">
 			</community-message>
 		
-			<div class="cmuThread__reply container noPadding" ng-if="vm.messageIsBeingRepliedTo(message.id)">
+			<div class="cmuThread__reply container" ng-if="vm.messageIsBeingRepliedTo(message.id)">
 					<div class="col--md12 noPadding">
 						<div class="cmuThread__reply__to">${{ core.actions.replyTo }}$ <span>{{ ::message.insertUser.login }}</span></div>
 						<community-comment-form
@@ -100,7 +100,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="banana row">
 		<div class="col--md2 noPadding">
 			<span community-permissions>
 	        	<button class="button--solid button--stretch button-blue-white" ng-click="vm.showFeatureReply()">${{ core.actions.reply }}$</button>

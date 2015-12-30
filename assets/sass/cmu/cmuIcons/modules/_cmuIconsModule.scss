@@ -240,8 +240,11 @@
 			opacity: 0.465; @extend %ease-fast;
 		}
 	}
-
-
+	.showLink .cmuIcon-action__icon {
+		opacity: 1 !important;
+    	border: $style-line;
+		border-color: $cmu-color-blue;
+	}
 
 
 

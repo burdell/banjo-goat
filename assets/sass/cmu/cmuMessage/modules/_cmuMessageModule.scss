@@ -248,9 +248,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			top: 0;
 		}
 
-		.showLink + .cmuMessage__link {
-			display: block;
-		}
 	}
 		.cmuMessage__body:hover {
 			// @extend %cmuIcon-action--halfOpacity;
@@ -264,6 +261,32 @@ $cmu-thread-message-height:	$cmu-base * 3;
 			margin-left: $cmu-base/2;
 		}
 	}
+
+		.cmuMessage__link {
+			cursor: pointer;
+
+			.cmuIcon {
+				color: $cmu-color-mdgray;
+				line-height: $cmu-base*1.8;
+			}
+
+			&:hover .cmuIcon{
+				color: $cmu-color-dkgray;
+			}
+		}
+
+		.showLink ~ .cmuMessage__link__container {
+			display: block;
+		}
+		.cmuMessage__link__container {
+			display: none;
+    		position: absolute;
+		    z-index: $z-top;
+
+		    background: $cmu-color-ltgray;
+		    padding: $cmu-base/2;
+		    transform: translateX(50%);
+		}
 
 
 

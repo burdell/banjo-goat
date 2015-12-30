@@ -1,29 +1,32 @@
-<div>
+<div class="cmuNotifications">
  	<community-page-header 
 		header-text="${{ directory.notifications.myNotifications }}$"
-		hide-element-selector=".notifications-container">
+		hide-element-selector=".cmuNotifications__container">
 	</community-page-header>
 
-	<div class="notifications-container">
-		<div class="row cmuRow" ng-repeat="notification in vm.notificationList">
+	<div class="cmuNotifications__container row cmuRow">
+		<div class="cmuNotfication__item col--md12 " ng-repeat="notification in vm.notificationList">
 			<a area-link-handler="{{ vm.getUrl(notification) }}">
 				<div class="col--md10">
 					<community-user-avatar user="notification.message.context.parentAuthor"></community-user-avatar>
-					<community-username user="notification.message.context.parentAuthor"></community-username>
-					<span class="cmuNotifications__dropdown__action">{{ vm.getActionString(notification) }}</span>
-					<span class="cmuNotifications__dropdown__link">{{ notification.message.context.topicSubject | unformatText }}</span>
+					<div class="cmuNotifications__info">
+						<community-username user="notification.message.context.parentAuthor"></community-username>
+						<span class="cmuNotifications__dropdown__action">{{ vm.getActionString(notification) }}</span>
+						<span class="cmuNotifications__dropdown__link">{{ notification.message.context.topicSubject | unformatText }}</span>
+					</div>
 				</div>
-				<div class="col--md2">
+				<div class="style-date col--md2 alignRight">
 					{{ notification.time | timeFromNow }}
 				</div>
 			</a>
 		</div>
-		<div>	
-			<community-pager 
-				number-of-pages="vm.totalPages" 
-				pager-fn="vm.notificationsFilter"
-				front-biased="true">
-			</community-pager>
-		</div>
+	</div>
+	
+	<div class="row cmuRow">	
+		<community-pager 
+			number-of-pages="vm.totalPages" 
+			pager-fn="vm.notificationsFilter"
+			front-biased="true">
+		</community-pager>
 	</div>
 </div>
