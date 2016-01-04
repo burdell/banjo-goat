@@ -20,23 +20,6 @@
 			user="vm.storyAuthor"
 			op-id="messageDisplay.showOp">
 		</community-user-badge>
-
-<!-- 
-		<button 
-			community-permissions 
-			denied-behavior="disable" 
-			community-permissions ng-if="
-			vm.coordinates.locName || vm.story.meta.projectRole ||  
-				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
-				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
-				vm.story.meta.bandwidth ||
-				(vm.productList && vm.productList.length > 0)
-			" 
-			class="button button--vote button--vote--kudo"
-			community-class-toggle="button--voted">
-				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
-		</button>
-		 -->
 	</div>
 	<div>
 		<button 
@@ -54,26 +37,6 @@
 			<span>${{ stories.detail.edit }}$</span>
 		</a>
 	</div>
-<!-- 
-	<div 
-		class="cmuStories__story__controlsTop--right col--md3 alignRight noPadding"
-		ng-hide="
-			vm.coordinates.locName || vm.story.meta.projectRole ||  
-				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
-				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
-				vm.story.meta.bandwidth ||
-				(vm.productList && vm.productList.length > 0)
-			" >
-		<button 
-			community-permissions 
-			denied-behavior="disable"
-			class="button button--vote button--vote--kudo"
-			community-class-toggle="button--voted"
-			>
-			<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
-		</button>
-	</div>
-	 -->
 </div>
 
 <div class="cmuStories__story__body row">
@@ -94,7 +57,7 @@
 			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
-		<div class="cmuStories__story__body__content" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize" handle-image-error></div>	
+		<div class="cmuStories__story__body__content" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize:vm.bodyFormat" handle-image-error></div>	
 
 		<div class="cmuStories__story__imageContainer" ng-class="vm.story.media.length > 2 ? 'break-columns' : '' ">
 			<div class="cmuStories__story__mediaItem" ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		

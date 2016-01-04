@@ -14,7 +14,6 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		var editorCtrl = scope.texteditor;
 
 		var isAutofocus = (editorCtrl.autofocus == "true");
-		var fuckYou = localizationService;
 		
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
@@ -22,7 +21,7 @@ function communityTextEditor($timeout, localizationService, routingService) {
 			status: false,
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
 		    renderingConfig: {
-		        singleLineBreaks: true
+		       
 		    },
 		    spellChecker: localizationService.currentLocale === 'en'
 		};
@@ -36,22 +35,27 @@ function communityTextEditor($timeout, localizationService, routingService) {
 
 		var editorInstance = new SimpleMDE(editorOptions);
 		editorInstance.codemirror.on('changes', function(){
-			var markedDownText = marked(editorInstance.value(), editorCtrl.markdownOptions);
-			ngModel.$setViewValue(markedDownText);
-			editorCtrl.ngModel = markedDownText;
+			var rawText = editorInstance.value();
+			ngModel.$setViewValue(rawText);
+			editorCtrl.ngModel = rawText;
 		});
 
-		scope.texteditor.setValue = function(value){
+		scope.texteditor.setValue = function(value, appendValue){
 			if (!value) {
 				value = '';
 			}
+			
+			if (appendValue) {
+				value = editorInstance.value() + '' + value;
+			}
+
 			editorInstance.value(value);
 		}
 
 		var initialValue = editorCtrl.ngModel;
 		if (initialValue) {
 			var markedDownValue = toMarkdown(initialValue);
-			editorCtrl.setValue(markedDownValue);
+			editorCtrl.setValue(markedDownValue, true);
 		}
 	};
 
@@ -63,6 +67,28 @@ function communityTextEditor($timeout, localizationService, routingService) {
 				ctrl.setValue();
 			}
 		}, true);
+
+		$scope.$on('texteditor:addQuote', function(event, quotedMessage){
+			var quotedValue = quotedMessage.body;
+			var isHtml = quotedMessage.format === 'html';
+
+			if (isHtml) {
+				quotedValue = toMarkdown(quotedValue);
+			}
+
+			var newQuote = _.map(quotedValue.split('\n'), function(line){
+				return '> ' + line;
+			});
+
+			if (isHtml) {
+				newQuote.pop();
+				newQuote.shift();
+			}
+
+			newQuote = newQuote.join('\n');
+
+			ctrl.setValue('\n\n###### ' + quotedMessage.insertUser.login + ':\n' + newQuote, true);
+		});
 
 		_.extend(ctrl, {
 			editorId: 'community-editor-' + $scope.$id,

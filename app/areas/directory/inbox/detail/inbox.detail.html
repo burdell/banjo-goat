@@ -26,7 +26,7 @@
 				<span class="cmuComments__date">
 			        {{ message.postDate | timeFromNow }}
 				</span>
-				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize"></div>
+				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize:message.format"></div>
 			</div>
 		</div>
 	</div>
@@ -35,7 +35,7 @@
 		<community-text-editor ng-model="vm.newMessage.body"></community-text-editor>
 
 	    <div class="row cmuRow">
-	      <div class="cmuTextEditor__preview" ng-if="vm.newMessage.body" ng-bind-html="vm.newMessage.body | sanitize"></div>
+	      <div class="cmuTextEditor__preview" ng-if="vm.newMessage.body" ng-bind-html="vm.newMessage.body | sanitize:'markdown'"></div>
 	    </div>
 	    
 		<div ng-show="!vm.submittingReply">

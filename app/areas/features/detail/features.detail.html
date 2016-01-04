@@ -60,7 +60,7 @@
 			</div>
 
 			<div class="cmuMessage__content cmuContent row">
-				<div class="col--md12" ng-bind-html="vm.originalMessage.message.body | sanitize"></div>
+				<div class="col--md12" ng-bind-html="vm.originalMessage.message.body | sanitize:vm.originalMessage.format"></div>
 				<div class="cmuMessage__data">
 					<div ng-if="vm.canEdit" class="cmuMessage__flag cmuTooltip__trigger">
 						<a area-link-handler="{{ vm.editUrl }}">
@@ -83,24 +83,10 @@
 				thread-filter="vm.commentFilter"
 				local-index="$index">
 			</community-message>
-		
-			<div class="cmuThread__reply container" ng-if="vm.messageIsBeingRepliedTo(message.id)">
-					<div class="col--md12 noPadding">
-						<div class="cmuThread__reply__to">${{ core.actions.replyTo }}$ <span>{{ ::message.insertUser.login }}</span></div>
-						<community-comment-form
-							reply-button-text="${{ core.actions.postReply }}$" 
-							replying-button-text="${{ core.actions.postingReply }}$..." 
-							parent-message="message"
-							toggle-attribute="vm.currentReply"
-							on-success-fn="vm.replyPosted">
-						</community-comment-form>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 
-	<div class="banana row">
+	<div class="row">
 		<div class="col--md2 noPadding">
 			<span community-permissions>
 	        	<button class="button--solid button--stretch button-blue-white" ng-click="vm.showFeatureReply()">${{ core.actions.reply }}$</button>
@@ -121,7 +107,8 @@
 				replying-button-text="${{ core.actions.postingReply }}..." 
 				parent-message="vm.originalMessage.message"
 				toggle-attribute="vm.featureReplyShown"
-				on-success-fn="vm.replyPosted">
+				on-success-fn="vm.replyPosted"
+				form-comment="vm.replyMessage">
 			</community-comment-form>
 		</div>
 	</div>

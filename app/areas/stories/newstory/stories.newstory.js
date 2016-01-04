@@ -61,6 +61,7 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 	};
 
 	_.extend(ctrl, {
+		bodyFormat: 'markdown',
 		hideStoryControls: true,
 		titleCharacterLimit: 140,
 		subtitleWordLimit: 35,

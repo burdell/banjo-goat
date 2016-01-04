@@ -20,7 +20,7 @@
   </community-text-editor>
 
     <div class="cmuRow">
-      <div class="cmuTextEditor__preview" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+      <div class="cmuTextEditor__preview" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize:'markdown'"></div>
     </div>
 
     <div ng-show="!vm.submittingTopic">

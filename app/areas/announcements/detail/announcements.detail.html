@@ -64,7 +64,7 @@
 
 			<div class="announcementThread__post cmuThread__post">
 
-				<div class="cmuMessage__content cmuContent" ng-bind-html="vm.currentAnnouncement.body | sanitize">
+				<div class="cmuMessage__content cmuContent" ng-bind-html="vm.currentAnnouncement.body | sanitize:vm.currentAnnouncement.format">
 				</div>
 
 				<div class="highlight">

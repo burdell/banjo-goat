@@ -1,7 +1,4 @@
 <div class="cmuNewtopic row" ng-cloak>
-  <!-- <div class="col--md2">
-    <community-user-badge current-user="true"></community-user-badge>
-  </div> -->
   <div class="col--md8">
 
     <div class="row" ng-if="!vm.editType || vm.editType !== 'comment'">
@@ -19,7 +16,7 @@
     </div>
 
     <div class="row cmuRow">
-      <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize"></div>
+      <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize:'markdown'"></div>
     </div>
 
     <div class="row cmuRow" ng-if="::vm.moreFieldsPartial">
@@ -52,9 +49,6 @@
 
   <div class="cmuSidebar col--md4">
     <div ng-switch on="vm.currentArea">
-
-
-
       <div ng-switch-when="announcements">
         <div class="cmuSidebar__container">
           <div class='cmuSidebar__title'><span class="icon ubnt-icon--kb"></span>Posting Announcements</div>
@@ -68,8 +62,6 @@
           </ul>
         </div>
       </div>
-
-
 
       <div ng-switch-when="features">
         <div class="cmuSidebar__container">
@@ -90,6 +82,5 @@
       <div ng-switch-default>
       </div>
   </div>
-
 </div>
 
