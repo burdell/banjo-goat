@@ -7,6 +7,8 @@ var $ = require('jquery');
 var marked = require('marked');
 var toMarkdown = require('to-markdown');
 
+require('directives/emojipicker/emojipicker.js');
+
 function communityTextEditor($timeout, localizationService, routingService) {
 	var link = function(scope, element, attrs, ngModel) {
 		var textarea = element.find('textarea')[0];
@@ -40,16 +42,44 @@ function communityTextEditor($timeout, localizationService, routingService) {
 			editorCtrl.ngModel = rawText;
 		});
 
-		scope.texteditor.setValue = function(value, appendValue){
+		scope.texteditor.setValue = function(value, appendValue, newLine){
 			if (!value) {
 				value = '';
 			}
 			
+			var cursorPosition = editorInstance.codemirror.getCursor();
+
 			if (appendValue) {
-				value = editorInstance.value() + '' + value;
+				var lines = editorInstance.value().split('\n');
+				var currentLine = lines[cursorPosition.line];
+				var currentCharacter = cursorPosition.ch;
+
+				lines[cursorPosition.line] = currentLine.substring(0, currentCharacter) + value + currentLine.substring(currentCharacter);
+				value = lines.join('\n');
+				if (newLine) {
+					value += '\n\n';
+				}
 			}
 
 			editorInstance.value(value);
+			return cursorPosition;
+		}
+
+		scope.texteditor.lineCount = function(){
+			return editorInstance.codemirror.lineCount();
+		}
+
+		scope.texteditor.setCursor = function(coordinates){
+			//by default go to end
+			if (!coordinates) {
+				coordinates = {
+					ch: 0,
+					line: editorInstance.codemirror.lineCount()
+				}
+			}
+
+			editorInstance.codemirror.focus();
+			editorInstance.codemirror.setCursor(coordinates);
 		}
 
 		var initialValue = editorCtrl.ngModel;
@@ -87,7 +117,12 @@ function communityTextEditor($timeout, localizationService, routingService) {
 
 			newQuote = newQuote.join('\n');
 
-			ctrl.setValue('\n\n###### ' + quotedMessage.insertUser.login + ':\n' + newQuote, true);
+			var newValue = '###### ' + quotedMessage.insertUser.login + ':\n' + newQuote;
+			if (ctrl.lineCount() > 1) {
+				newValue = '\n\n' + newValue;
+			}
+			ctrl.setValue(newValue, true, true);
+			ctrl.setCursor();
 		});
 
 		_.extend(ctrl, {
@@ -96,6 +131,11 @@ function communityTextEditor($timeout, localizationService, routingService) {
 			markdownOptions: {
 				sanitize: true,
 				breaks: true
+			},
+			addEmoji: function(selectedEmoji) {
+				var emojiValue = ' :' + selectedEmoji.shortcode + ': ';
+				var originalCoordinates = ctrl.setValue(emojiValue, true);
+				ctrl.setCursor({ line: originalCoordinates.line, ch: originalCoordinates.ch + emojiValue.length });
 			}
 		});
 

@@ -25,6 +25,7 @@
 			var replyMessage = ctrl.replyMessage;
 			
 			replyMessage.topicId = message.id;
+			replyMessage.parentId = message.id;
 			replyMessage.node = message.node;
 		});
 

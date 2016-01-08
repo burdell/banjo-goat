@@ -2,6 +2,10 @@
 'use strict';
 
 var marked = require('marked');
+var emojify = require('emojify.js');
+emojify.setConfig({
+	mode: 'data-uri'
+})
 
 var sanitize = function($sce){
 	return function(body, format){
@@ -9,7 +13,8 @@ var sanitize = function($sce){
 			return $sce.trustAsHtml(body);
 		} 
 
-		return marked(body, { sanitize: true, breaks: true });
+		body = marked(body, { sanitize: true, breaks: true });
+		return emojify.replace(body);
 	};
 };
 sanitize.$inject = ['$sce'];

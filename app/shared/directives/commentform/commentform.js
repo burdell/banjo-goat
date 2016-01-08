@@ -11,6 +11,7 @@ function commentForm() {
 
 		var strings = localizationService.data.directives.commentform;
 
+		var parentMessage = ctrl.parentMessage;
 		var formComment = ctrl.formComment ||  {
 			body: null,
 			nodeId: parentMessage.node.id,
@@ -18,7 +19,6 @@ function commentForm() {
 			topicId: parentMessage.topicId || parentMessage.id
 		};		
 	
-		var parentMessage = ctrl.parentMessage;
 		_.extend(ctrl, {
 			showReply: function(){
 				ctrl.replyInProgress = true;
