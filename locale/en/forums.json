@@ -11,6 +11,7 @@
 		"createTopic": "Create a Topic",
 		"emptyPreview": "This post only contains images or video",
 		"filterTopics": "Filter Topics",
-		"topic": "Topic"
+		"topic": "Topic",
+		"emptyList": "No threads posted yet. Be the first!"
 	}
 }

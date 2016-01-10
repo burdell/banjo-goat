@@ -6784,7 +6784,7 @@ h1 {
   font-weight: 300;
 }
 
-h2, .cmuStories .cmuStories__summary {
+h2, .cmuUsername--header .cmuUsername__login, .cmuStories .cmuStories__summary {
   font-size: 1.3125rem;
   line-height: 2.25rem;
   font-weight: 400;
@@ -9571,7 +9571,7 @@ div.cmuCollapser__content {
 .cmuMessage__link__container {
   display: none;
   position: absolute;
-  z-index: 1000;
+  z-index: 875;
   background: #ebebeb;
   padding: 0.5rem;
   transform: translateX(50%);
@@ -9700,6 +9700,10 @@ div.cmuCollapser__content {
   color: #bbbbbd;
 }
 
+.cmuProfile .cmuDiscussionsControls {
+  display: none;
+}
+
 .cmuProfile__section {
   margin-bottom: 1rem;
 }
@@ -9710,11 +9714,30 @@ div.cmuCollapser__content {
 }
 
 .cmuProfile__title {
-  border-bottom: 1px solid #dadada;
-  padding: 0.25rem 0;
+  font-weight: bold;
+  border-bottom: 1px solid #474b52;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
 }
-.cmuProfile__title h5 {
+.cmuProfile__title div {
+  font-size: 1rem;
   display: inline;
+}
+
+.cmuProfile__header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cmuProfile__rank span {
+  display: block;
+  font-size: 1rem;
+  border-bottom: 2px solid #474b52;
+  padding-bottom: 1rem;
+}
+
+.cmuProfile .button--tab.active {
+  border-bottom-color: white;
 }
 
 .cmuProfile__main {
@@ -9724,8 +9747,33 @@ div.cmuCollapser__content {
   margin-bottom: 2rem;
 }
 
+.cmuProfile__summary {
+  padding: 1rem;
+  border: 1px solid #dadada;
+  margin-top: -1px;
+}
+
 .cmuProfile__table {
   margin-top: 1rem;
+}
+
+.cmuProfile__loadMore {
+  margin-top: 0.5rem;
+}
+
+.cmuProfile__story.cmuStoryGrid__item {
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: calc((100% - 14px * 2) / 2);
+}
+@media only screen and (max-width: 480px) {
+  .cmuProfile__story.cmuStoryGrid__item {
+    width: calc((100% - 14px * 0) / 1);
+  }
+}
+.cmuProfile__story.cmuStoryGrid__item:nth-child(2n+1) {
+  margin-right: 1rem;
 }
 
 .cmuProfile__dropdown__content {
@@ -10277,13 +10325,19 @@ button .icon, .button .icon {
   margin-right: 0.25rem;
   font-size: 0.5rem;
   background: #00a0df;
-  color: white;
+  color: white !important;
   position: relative;
   top: -1px;
   line-height: 1rem;
 }
 .cmuUsername .cmuUsername__icon.ubnt-icon--u {
   padding: 0.25rem;
+}
+
+.cmuUsername--header .cmuUsername__icon {
+  font-size: 1rem;
+  padding: 0.33333rem !important;
+  margin-right: 0.5rem;
 }
 
 .cmuUserbadge {
@@ -10354,6 +10408,10 @@ button .icon, .button .icon {
 }
 .cmuUserbadge__account .cmuUsername__icon {
   line-height: 1.5rem;
+}
+
+.cmuMessage--sidebyside .cmuUsername {
+  margin-top: 0;
 }
 
 .cmuUserbadge__descriptors {
@@ -11443,7 +11501,7 @@ select.cmuSort {
   display: block;
   margin-bottom: 0;
 }
-.cmuContent .highlight, .cmuComments__body__content .highlight {
+.cmuContent .highlight, .cmuContent + .highlight, .cmuComments__body__content .highlight, .cmuComments__body__content + .highlight {
   background: #ebebeb;
   padding: 1rem;
   margin-top: 0.5rem;

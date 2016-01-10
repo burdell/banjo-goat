@@ -13,7 +13,8 @@
 		"edit": "Edit"
 	},
 	"list": {
-		"shareAStory": "Share A Story"
+		"shareAStory": "Share A Story",
+		"emptyList": "No one's shared a story yet. Be the first!"
 	},
 	"newStory": {
 		"addMoreDetails": "Optional Details",
@@ -44,5 +45,10 @@
 			"greatTitlesList": "<ul><li>Use short, engaging, inspiring, titles</li><li><em>Ex: \"How mFi saved me another HUGE mess on the farm.\"</em></li><li><em>Ex: \"The shed caught on fire... and the airFiber still works.\"</em></li></ul>",
 			"title": "Tips to writing a great story"
 		}
+	},
+	"noun": {
+		"none":"No Stories",
+		"singular":"story",
+		"plural":"stories"
 	}
 }

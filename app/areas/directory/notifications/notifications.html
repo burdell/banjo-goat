@@ -20,6 +20,12 @@
 				</div>
 			</a>
 		</div>
+
+		<div ng-if="vm.notificationList.length < 1">
+			<div class="col--md12">
+				<h2>${{ directory.notifications.emptyNotifications }}$</h2>
+			</div>
+		</div>
 	</div>
 	
 	<div class="row cmuRow">	

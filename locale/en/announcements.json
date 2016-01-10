@@ -4,6 +4,7 @@
 		"edit": "Edit"
 	},
 	"list": {
-		"postCta": "Post an Announcement"
+		"postCta": "Post an Announcement",
+		"emptyList": "No announcements posted yet."
 	}
 }

@@ -44,7 +44,11 @@
   </div>
 
 
-  <div class="row">
+  <div class="row" ng-if="vm.messageList.length < 1">
+    <h2 class="cmuHalfRow"> ${{ forums.list.emptyList }}$ </h2>
+  </div>
+
+  <div class="row" ng-if="vm.messageList.length > 0">
     <div class="cmuThreadlist__table"> 
       <div class="cmuThreadlist__headers">
         <div class="cmuThreadlist__topic">${{ forums.list.topic }}$</div>

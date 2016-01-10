@@ -76,7 +76,18 @@
 
 			<!-- feature requests list -->
 			<div class="cmuFeatures__threadlist__body">
-				<div class="cmuFeatures__threadlist__row row" ng-class="{'isRead': vm.isRead(feature)}" ng-repeat="feature in vm.featuresList">
+
+				<div class="row" ng-if="vm.featuresList.length < 1">
+					<div class="col--md12">
+						<h2 class="cmuHalfRow"> ${{ features.list.emptyList }}$ </h2>
+					</div>
+				</div>
+
+				<div 
+					class="cmuFeatures__threadlist__row row"
+					ng-class="{'isRead': vm.isRead(feature)}"
+					ng-repeat="feature in vm.featuresList"
+					ng-if="vm.featuresList.length > 0">
 					<div class="cmuFeatures__threadlist__content col--md12">
 						<div class="cmuFeatures__votes col--md2">
 							<div class="cmuFeatures__votes__count">{{ feature.topic.countVotes | number }}</div>

@@ -100,13 +100,19 @@
 			line-height: $cmu-base * 3/4;
 			margin-top: $cmu-base/2;
     		min-width: 100px;
-
 		}
 
 		// icons have more lineheight
 		.cmuUsername__icon {
 			@extend %type-base;
 			line-height: $cmu-base*1.5;
+		}
+	}
+
+	// reset top margin only for sidebyside
+	.cmuMessage--sidebyside {
+		.cmuUsername {
+			margin-top: 0;
 		}
 	}
 

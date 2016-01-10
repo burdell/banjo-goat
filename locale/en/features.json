@@ -5,7 +5,8 @@
 	},
 	"list": {
 		"keywordFilter": "Keyword Filter",
-		"requestFeature": "Request a Feature"
+		"requestFeature": "Request a Feature",
+		"emptyList": "No feature requests posted yet"
 	},
 	"vote": "Vote",
 	"votes": "votes"

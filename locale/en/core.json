@@ -10,7 +10,8 @@
 		"postingReply": "Posting Reply",
 		"reply": "Reply",
 		"replyTo": "Reply to",
-		"subscribe": "Subscribe"
+		"subscribe": "Subscribe",
+		"showMore": "Show More"
 	},
 	"areas": {
 		"home": "Home",

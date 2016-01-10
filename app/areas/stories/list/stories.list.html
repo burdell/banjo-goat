@@ -12,13 +12,19 @@
 			</div>
 		</div>
 		<div class="col--md2 noPaddingRight">
-	          <community-sort 
-	          	sort-options="vm.sortOptions" 
-	          	sort-filter="vm.storyFilter"
-	          	sort-exclude="page">
-	          </community-sort>
+			<community-sort 
+				sort-options="vm.sortOptions" 
+				sort-filter="vm.storyFilter"
+				sort-exclude="page">
+			</community-sort>
 		</div>
 	</div>
+</div>
+
+
+
+<div class="row" ng-if="vm.storyList.content.length < 1">
+	<h2 class="cmuHalfRow"> ${{ stories.list.emptyList }}$ </h2>
 </div>
 
 <div class="row">

@@ -37,7 +37,8 @@
 		"whyNotSend": "Why not send one?"
 	},
 	"notifications": {
-		"myNotifications": "My Notifications"
+		"myNotifications": "My Notifications",
+		"emptyNotifications": "No notifications"
 	},
 	"search": {
 		"discussionStyles": "Discussion Styles",

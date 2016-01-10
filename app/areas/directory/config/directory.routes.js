@@ -97,14 +97,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
-								constants: { per_page: 3, author_id: $stateParams.userId },
+								constants: { per_page: 2, author_id: $stateParams.userId },
 								persistFilterModel: false
 							});
 					}],
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 3, author_id: $stateParams.userId, topics: false },
+								constants: { size: 4, author_id: $stateParams.userId, topics: false },
 								persistFilterModel: false
 							});
 					}],

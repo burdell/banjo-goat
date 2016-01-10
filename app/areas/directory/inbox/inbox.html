@@ -17,7 +17,7 @@
 			<div class="cmuInbox__sidebar col--md4 noPadding">
 
 		        <div class="cmuInbox__list">
-		        	<span class="cmuInbox__list__title">Showing <h5>10</h5> of <h5>40</h5></span>
+		        	<!-- <span class="cmuInbox__list__title">Showing <h5>10</h5> of <h5>40</h5></span> -->
 					<a class="cmuInbox__list__message" 
 						ui-sref="inbox.detail({ messageId: message.topic.id })"
 						ng-repeat="message in vm.messageList.content">
@@ -39,7 +39,7 @@
 
 					<div class="cmuInbox__list--empty" ng-if="vm.messageList.content.length < 1">
 						<h2 class="cmuHalfRow"> ${{ directory.inbox.noMessages }}$ </h2>
-						<span> <a area-link-handler link-handler-route="inbox.newtopic"><span class="button button--solid"> ${{ directory.inbox.whyNotSend }}$ </span> </a>
+						<span> <a area-link-handler link-handler-route="inbox.newtopic"><span class="button button--solid"> ${{ directory.inbox.whyNotSend }}$ </span> </a> </span>
 					</div>
 				</div>
 				<community-load-more list-model="vm.messageList" load-filter="vm.messageFilter"></community-load-more>

@@ -1,6 +1,11 @@
 
 <div class="cmuTimeline" >
 
+
+	<div class="row" ng-if="timeline.timelineData.length < 1">
+		<h2 class="cmuHalfRow"> ${{ announcements.list.emptyList }}$ </h2>
+	</div>
+
 	<div class="timeline__container cmuCollapser__container" ng-repeat="yearData in timeline.timelineData">
 		<div class="timeline__title cmuCollapser__header" ng-class='{open:$first || openAll()}' 
 		community-class-toggle="open">

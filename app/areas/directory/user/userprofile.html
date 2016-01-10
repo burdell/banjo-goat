@@ -1,10 +1,18 @@
 
 <div class="cmuProfile">
- 	<community-page-header 
- 		header-text="{{ vm.userData.login }}"
- 		subtitle-text="{{ vm.userData.rank.name }}"
- 		hide-element-selector=".profile-container">
+ 	<community-page-header
+ 		hide-element-selector=".cmuDiscussionsControls">
  	</community-page-header>
+
+ 	<!-- custom header -->
+ 	<div class="cmuProfile__header">
+		<div class="row">
+			<community-username class="cmuUsername--header" user="vm.userData"></community-username>
+		</div>
+		<div class="cmuProfile__rank row">
+			<span>{{ vm.userData.rank.name }}</span>
+		</div>
+	</div>
 
 
 	<div class="row profile-container">
@@ -12,7 +20,10 @@
 		<!-- sidebar -->
 		<div class="cmuProfile__sidebar col--md3">
 			<div class="cmuProfile__section row">
-				<div><img ng-src="{{ vm.userData.avatarUrl }}" /></div>
+
+
+
+				<div><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
 				<button class="button--solid" >${{ directory.user.editProfile }}$</button>
 			</div>
 
@@ -56,11 +67,11 @@
 		<div class="cmuProfile__main col--md9">
 
 			<div class="cmuProfile__points cmuProfile__section row">
-				<div class="cmuProfile__points__progress col--md12">
+				<div class="cmuProfile__points__progress">
 					<h1>{{ vm.totalPoints }} ${{ directory.user.totalPoints }}$ ({{ vm.percentageComplete }}%)</h1>
 				</div>
 
-				<div class="cmuProfile__points__stats col--md12">
+				<div class="cmuProfile__points__stats">
 					<div class="col--md2" ng-repeat="category in ::vm.scoreCategories">
 						<div><h3>{{ category.count }}</h3></div>
 						<h6>{{ category.name }}</h6>
@@ -69,37 +80,41 @@
 			</div>
 
 
-			<div class="cmuProfile__stories cmuProfile__section row">
-				<div class="cmuThreadlist__ctrl__row col--md12">
+			<div class="cmuProfile__section row">
+				<div class="cmuProfile__tabs">
 					<button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == true}" ng-click="vm.profileSummaryShown = true">${{ directory.user.profileInfo }}$</button><button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == false}" ng-click="vm.profileSummaryShown = false">${{ directory.user.earnPoints }}$</button>
 				</div>
+
 
 				<!-- 
 					PROFILE SUMMARY
 				-->
-				<div class="col--md12" ng-show="vm.profileSummaryShown">
+				<div class="cmuProfile__summary" ng-show="vm.profileSummaryShown">
+
 					<!-- stories -->
 			        <div class="cmuProfile__stories">
 			        
 			        	<div class="cmuProfile__title clearfix">
-							<h5><span class="cmuIcon__label stories"></span></h5>
-							<h5 ng-pluralize count="vm.totalStories" when="{ '0': 'No stories', 'one': '1 story', 'other': '{} stories' }"></h5>
+							<div ng-pluralize count="vm.totalStories" when="{ '0': '${{ stories.noun.none }}$', 'one': '1 ${{ stories.noun.singular }}$', 'other': '{} ${{ stories.noun.plural }}$' }"></div>
 						</div>
 
 						<div class="cmuProfile__section clearfix">
-							<div class="cmuStoryGrid">
-								<div class="cmuProfile__story cmuStoryGrid__item" ng-repeat="story in vm.storyList">
-									<story-display 
-										story="story"
-										story-media="story.media"
-										hide-summary="true"
-										hide-author="true"
-										fill-width="true">
-									</story-display>
+							<div class="col--md12 noPadding" community-grid-list>
+								<div class="cmuStoryGrid">
+									<div class="cmuProfile__story cmuStoryGrid__item" ng-repeat="story in vm.storyList">
+										<story-display 
+											story="story"
+											story-media="story.media"
+											default-photo-url="vm.defaultPhoto">
+										</story-display>
+									</div>
 								</div>
 							</div>
-							<div class="cmuProfile__subSection col--md12">
-								<button class="button--stretch button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">${{ core.actions.more }}$ ${{ stories.areaName }}$</button>
+							<div class="cmuProfile__subSection">
+								<button class="cmuProfile__loadMore button--stretch
+								button--large
+								button--wide
+								button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">${{ core.actions.showMore }}$</button>
 							</div>
 						</div>
 					</div>	
@@ -107,19 +122,20 @@
 
 
 				  	<!-- feed -->
-				  	<div class="cmuProfile__activity cmuProfile__section">
+				  	<div class="cmuProfile__activity">
+
 			        	<div class="cmuProfile__title clearfix">
-							<h5><span class="cmuIcon__label all"></span>${{ directory.user.recentActivity }}$</h5>
+							<div>${{ directory.user.recentActivity }}$</div>
 						</div>
 
-						<div class="cmuProfile__subSection col--md12">
+						<div class="cmuProfile__subSection">
 					  		<div ng-repeat="activityItem in vm.activityList">
 				        		<community-feed-content content-model="activityItem"></community-feed-content>
 				        	</div>
 				        </div>
 
-						<div class="cmuProfile__subSection col--md12">
-			        		<button class="button--stretch button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">${{ core.actions.more }}$ ${{ directory.user.activities }}$</button>
+						<div class="cmuProfile__subSection">
+			        		<button class="cmuProfile__loadMore button--stretch button--center button--large button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">${{ core.actions.showMore }}$</button>
 						</div>
 				  	</div>
 				</div>

@@ -67,8 +67,9 @@
 
 	// 
 	// used especially for announcements
+	// - the second part is for demo
 	// 
-	.highlight {
+	.highlight, &+.highlight {
 		background: $cmu-color-ltgray;
 	    padding: $cmu-base;
 	    // margin-left: -$cmu-base;

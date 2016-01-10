@@ -14,7 +14,7 @@
 		margin-right: $cmu-base/4;
 		font-size: $cmu-base/2;
 		background: $cmu-color-blue;
-		color: white;
+		color: white !important; // prevent overrides at all times
 		// padding: $cmu-base/3;
 		position: relative;
 		top: -1px;
@@ -30,4 +30,16 @@
 		@extend %style-link--dark;
 	}
 
+}
+
+// used for userprofile
+.cmuUsername--header {
+	.cmuUsername__icon {
+		font-size: $cmu-base;
+		padding: $cmu-base/3 !important;
+		margin-right: $cmu-base/2;
+	}
+	.cmuUsername__login {
+		@extend %h2;
+	}
 }

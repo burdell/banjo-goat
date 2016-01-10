@@ -281,7 +281,7 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		.cmuMessage__link__container {
 			display: none;
     		position: absolute;
-		    z-index: $z-top;
+		    z-index: $z-overlay;
 
 		    background: $cmu-color-ltgray;
 		    padding: $cmu-base/2;

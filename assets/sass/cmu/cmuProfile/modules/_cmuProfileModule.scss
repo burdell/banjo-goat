@@ -9,6 +9,11 @@
 // profile page
 // 
 
+.cmuProfile {
+	.cmuDiscussionsControls {
+		display: none;
+	}
+}
 
 .cmuProfile__section {
 	margin-bottom: $cmu-vertical-rhythm;
@@ -21,17 +26,37 @@
 
 
 .cmuProfile__title {
-	border-bottom: $style-line;
-	padding: $cmu-base/4 0;
-	h5 {
+	font-weight: bold;
+	border-bottom: $style-line--dark;
+	padding: $cmu-vertical-rhythm/2 0;
+	margin-bottom: $cmu-vertical-rhythm;
+
+	div {
+		font-size: $size-large;
 		display: inline;
 	}
 }
 
 
+.cmuProfile__header {
+	margin-top: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm;
+}
+	.cmuProfile__rank span {
+		display: block;
+		font-size: $size-large;
+		border-bottom: $style-line--medium;
+		padding-bottom: $cmu-vertical-rhythm;
+	}
+
 
 
 // sidebar
+.cmuProfile__sidebar {
+	img {
+		// width: $cmu-profile-avatar-maxW;
+	}
+}
 
 .cmuProfile__sidebar__label {
 	@extend %type-sidebar-label;
@@ -40,7 +65,11 @@
 
 
 // main
-
+.cmuProfile {
+	.button--tab.active {
+		border-bottom-color: $cmu-color-purewhite;
+	}
+}
 .cmuProfile__main {
 	padding-left: $cmu-base;
 
@@ -50,6 +79,13 @@
 	}
 
 }
+
+	.cmuProfile__summary {
+		padding: $cmu-base;
+		// padding-top: 0;
+		border: $style-line;
+		margin-top: -1px;
+	}
 
 
 	// stories
@@ -71,11 +107,31 @@
 		margin-top: $cmu-vertical-rhythm;
 	}
 
+.cmuProfile__loadMore {
+	margin-top: $cmu-vertical-rhythm/2;
+}
 
+.cmuProfile__story {
+	// fluidlayout.js target
+	&.cmuStoryGrid__item {
+		vertical-align: top;
+	    display: inline-block;
+	    margin-bottom: $cmu-vertical-rhythm;
+	    // width: 100%;
+	    // width: 200px;
+	    width: calc((100% - 14px * 2) / 2);
 
+		@include respondTo(xsmall-only) {
+			// regular width, 1 columns / 0 gutters
+			width: calc((100% - 14px * 0) / 1); // technically just 100%
+		}
 
+		&:nth-child(2n+1) {
+	    	margin-right: $cmu-base;
+		}
+	}
 
-
+}
 
 
 
