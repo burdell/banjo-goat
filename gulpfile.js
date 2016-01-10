@@ -35,7 +35,12 @@ var sources = {
     vendorCss: [
         'node_modules/simplemde/dist/simplemde.min.css', 
         'node_modules/angular-ui-select/select.min.css',
-        'node_modules/angular-pikaday/node_modules/∂¬pikaday/css/pikaday.css'
+        'node_modules/angular-pikaday/node_modules/∂¬pikaday/css/pikaday.css',
+        'node_modules/emojify.js/dist/css/basic/emojify.css',
+        'node_modules/emojify.js/dist/css/data-uri/emojify-emoticons.css',
+        'node_modules/emojify.js/dist/css/data-uri/emojify.css',
+        'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.css',
+        'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.a.css'
     ],
 	partials: [
 		'app/areas/**/*.html',

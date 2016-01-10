@@ -43,23 +43,7 @@
 			thread-filter="vm.messageThreadFilter"
 			local-index="$index">
 		</community-message>
-
-		<!-- reply -->
-		<div class="cmuThread__reply container" ng-if="vm.messageIsBeingRepliedTo(message.id)">
-				<div class="col--md12 noPadding">
-					<div class="cmuThread__reply__to">${{ core.actions.replyTo }}$ <span class="cmuThread__replyTo__user">{{ ::message.insertUser.login }}</span></div>
-					<community-comment-form
-						autofocus="true"
-						minimal-editor="true"
-						reply-button-text="${{ core.actions.postReply }}$" 
-						replying-button-text="${{ core.actions.postingReply }}$..." 
-						parent-message="message"
-						toggle-attribute="vm.currentReply"
-						on-success-fn="vm.replyPosted">
-					</community-comment-form>
-				</div>
-			</div>
-		</div>
+	</div>
 </div>
 
 
@@ -96,7 +80,8 @@
 				replying-button-text="${{ core.actions.postingReply }}$..." 
 				parent-message="vm.topicReplyMessage"
 				toggle-attribute="vm.topicReplyShown"
-				on-success-fn="vm.replyPosted">
+				on-success-fn="vm.replyPosted"
+				form-comment="vm.replyMessage">
 			</community-comment-form>
 		</div>
 	</div>

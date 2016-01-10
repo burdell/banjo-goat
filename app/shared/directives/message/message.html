@@ -12,7 +12,7 @@
 				<a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)"><span class="cmuMessage__replyTo__user">{{ messageDisplay.reply.username }}</span></a>
 			</div>
 
-			<div class="cmuMessage__content cmuContent" ng-bind-html="messageDisplay.message.body | sanitize">
+			<div class="cmuMessage__content cmuContent" ng-bind-html="messageDisplay.message.body | sanitize: messageDisplay.message.format">
 			</div>
 
 			<div class="cmuMessage__signature ">
@@ -70,8 +70,8 @@
 						<span 
 							community-permissions
 							class="button button--solid button--thin button--lowercase button-white-on-blue cmuPermissions" 
-							ng-click="messageDisplay.replyClickFn(messageDisplay.message.id)">
-								${{ core.actions.reply }}$
+							ng-click="messageDisplay.replyClickFn(messageDisplay.message)">
+								${{ core.actions.quote }}$
 						</span>
 					</div>
 				</div>

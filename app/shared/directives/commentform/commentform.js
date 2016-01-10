@@ -12,6 +12,13 @@ function commentForm() {
 		var strings = localizationService.data.directives.commentform;
 
 		var parentMessage = ctrl.parentMessage;
+		var formComment = ctrl.formComment ||  {
+			body: null,
+			nodeId: parentMessage.node.id,
+			parentId: parentMessage.id,
+			topicId: parentMessage.topicId || parentMessage.id
+		};		
+	
 		_.extend(ctrl, {
 			showReply: function(){
 				ctrl.replyInProgress = true;
@@ -41,12 +48,7 @@ function commentForm() {
 					});
 				}
 			},
-			comment: {
-				body: null,
-				nodeId: parentMessage.node.id,
-				parentId: parentMessage.id,
-				topicId: parentMessage.topicId || parentMessage.id
-			},
+			comment: formComment,
 			replyButtonText: ctrl.replyButtonText || strings.postComment
 		});
 	};
@@ -68,7 +70,8 @@ function commentForm() {
         	minimalEditor: "=",
         	onSuccessFn: '=',
         	topicId: '=',
-        	autofocus: '@'
+        	autofocus: '@',
+        	formComment: '='
         }
     };
     return directive;

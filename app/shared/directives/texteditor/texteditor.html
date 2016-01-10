@@ -2,11 +2,12 @@
 	<div class="cmuTextEditor__container">
 		<textarea class="texteditor__editor"></textarea>
 	</div>
+	<div>
+		<community-emoji-picker on-select="texteditor.addEmoji"></community-emoji-picker>
+	</div>
 
 	<div class="cmuTextEditor__help clearfix">
-
 		<div class="cmuCollapser__container collapseSubtle">
-
 			<div class="cmuCollapser__header cmuCollapser__header--light" community-class-toggle="open">
 				<div class="cmuCollapser__header__title"> 
 					<h5>${{ directives.texteditor.formattingHelp.title }}$</h5>

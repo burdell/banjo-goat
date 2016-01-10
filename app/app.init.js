@@ -5,6 +5,7 @@ require('angular-ui-router');
 require('angular-ui-select/select.js');
 require('angular-sanitize');
 require('pikaday-angular');
+
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
 

@@ -67,8 +67,8 @@ function StoryDetailController ($anchorScroll, $location, $scope, $state, commun
 			}
 		});
 
-
 		_.extend(ctrl, {
+			bodyFormat: story.message.format,
 			story: story,
 			discussion: story.message,
 			storyAuthor: storyAuthor,

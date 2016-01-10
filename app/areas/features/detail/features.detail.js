@@ -16,6 +16,13 @@ var _ = require('underscore');
 function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServiceWrapper, scrollService, permissionsService, routingService, featuresCommentFilter, featuresData, featuresDetail){
 	var ctrl = this;
 	var featureRequest = featuresDetail;
+
+	ctrl.replyMessage = {
+		id: null,
+		topicId: featureRequest.id,
+		node: featureRequest.node,
+		parentId: featureRequest.id
+	};
 	
 	function setCommentData (result){
 		ctrl.commentList = result.content;
@@ -69,8 +76,13 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 		messageIsBeingRepliedTo: function(messageId){
 			return messageId === this.currentReply;
 		},
-		showReply: function(messageId){
-			ctrl.currentReply = messageId;
+		showReply: function(message){
+			ctrl.showFeatureReply();
+
+			$timeout(function(){
+				ctrl.replyMessage.parentId = message.id;
+				$scope.$broadcast('texteditor:addQuote', message);
+			}, 0);
 		},
 		isEdited: featureRequest.message.editDate && (featureRequest.message.postDate != featureRequest.message.editDate)
 	});

@@ -1,9 +1,20 @@
 
 'use strict';
 
+var marked = require('marked');
+var emojify = require('emojify.js');
+emojify.setConfig({
+	mode: 'data-uri'
+})
+
 var sanitize = function($sce){
-	return function(html){
-		return $sce.trustAsHtml(html);
+	return function(body, format){
+		if (!format || format === 'html') {
+			return $sce.trustAsHtml(body);
+		} 
+
+		body = marked(body, { sanitize: true, breaks: true });
+		return emojify.replace(body);
 	};
 };
 sanitize.$inject = ['$sce'];

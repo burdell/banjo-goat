@@ -23,7 +23,7 @@
 						<div class="cmuTooltip cmuTooltip--top"><span>${{ directives.message.flag }}$</span></div>
 					</span>
 				</div>
-				<div class="cmuComments__body__content" ng-bind-html="comment.body | sanitize">
+				<div class="cmuComments__body__content" ng-bind-html="comment.body | sanitize:comment.format">
 				</div>
 			</div>
 
