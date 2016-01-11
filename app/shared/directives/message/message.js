@@ -33,10 +33,10 @@ function communityMessage() {
 			};	
 		}
 
+		var currentArea = routingService.getCurrentArea();
 		permissionsService.canEdit(ctrl.message.insertUser.id).then(function(canEdit){
 			ctrl.canEditMessage = canEdit;
 			if (canEdit) {
-				var currentArea = routingService.getCurrentArea();
 				var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';
 				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
 					nodeId: $stateParams.nodeId, 
@@ -68,7 +68,27 @@ function communityMessage() {
 			},
 			reply: reply,
 			messageStats: ctrl.message.scores,
-			isEdited: ctrl.message.editDate && (ctrl.message.postDate != ctrl.message.editDate)
+			isEdited: ctrl.message.editDate && (ctrl.message.postDate != ctrl.message.editDate),
+			setMessageUrl: function(){
+				if (!ctrl.messageUrl) {
+					var originalMessageId = ctrl.originalMessage.id;
+					var specificMessageId = ctrl.message.id;
+
+					var detailId = routingService.getDetailId(currentArea);
+					var routeData = {
+						nodeId: ctrl.message.node.urlCode
+					};
+					routeData[detailId] = ctrl.originalMessage.id;
+
+					var hash = null;
+					if (originalMessageId !== specificMessageId) {
+						hash = specificMessageId;
+					}
+
+					var baseUrl = $location.protocol() + '://' + location.host;
+					ctrl.messageUrl = baseUrl + routingService.generateUrl(currentArea + '.detail', routeData, hash);
+				}
+			}
 		});
 		}
 		controller.$inject = [
