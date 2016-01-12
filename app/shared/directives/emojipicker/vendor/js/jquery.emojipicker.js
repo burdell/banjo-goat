@@ -2,12 +2,12 @@
 module.exports = function($){ 
   var pluginName = "emojiPicker",
       defaults = {
-        width: '200',
-        height: '350',
-        position: 'right',
+        width: '360',
+        height: '360',
+        position: 'left',
         fadeTime: 100,
         iconColor: 'black',
-        iconBackgroundColor: '#eee',
+        iconBackgroundColor: 'transparent',
         container: 'body',
         button: true
       };

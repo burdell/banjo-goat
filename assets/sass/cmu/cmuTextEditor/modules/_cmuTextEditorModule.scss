@@ -13,7 +13,7 @@ $editor-height--minimal: 60px;
 
 .cmuTextEditor {
 	// cursor: text;
-
+    position: relative;
 
 	iframe html{
 		  // does nothing:  content_css.css affects the interior of the editor
@@ -169,4 +169,13 @@ $editor-height--minimal: 60px;
     ul {
         margin-bottom: 0;
     }
+}
+
+// Emoji (in context of the text editor)
+
+.cmuTextEditor__emoji {
+    position: absolute;
+    top: 0;
+    top: 13px;
+    left: 290px;
 }
