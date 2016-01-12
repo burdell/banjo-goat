@@ -64,6 +64,7 @@ var profileController = function($scope, breadcrumbService, communityDefaults, a
 		scoreCategories: categoriesWithScore,
 		pointCategories: categoriesWithPoints,
 		totalPoints: userPointData.score,
+		nextRankName: userPointData.nextRank.name,
 		percentageComplete: (userPointData.score / userPointData.nextRank.minScore) * 100,
 		profileSummaryShown: true,
 		loadMore: function(type){

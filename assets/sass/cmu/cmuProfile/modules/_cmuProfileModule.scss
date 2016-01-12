@@ -6,7 +6,11 @@
 
 
 // 
+// 
+// 
 // profile page
+// 
+// 
 // 
 
 .cmuProfile {
@@ -39,19 +43,42 @@
 
 
 .cmuProfile__header {
-	margin-top: $cmu-vertical-rhythm;
-	margin-bottom: $cmu-vertical-rhythm;
+	// margin-top: $cmu-vertical-rhythm;
+	// margin-bottom: $cmu-vertical-rhythm;
+	margin-bottom: $cmu-vertical-rhythm/2;
 }
-	.cmuProfile__rank span {
-		display: block;
+	.cmuProfile__header__username {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
+	.cmuProfile__rank {
+		display: inline-block;
 		font-size: $size-large;
-		border-bottom: $style-line--medium;
-		padding-bottom: $cmu-vertical-rhythm;
+		float: left;
+		// border-bottom: $style-line--medium;
+		// padding-bottom: $cmu-vertical-rhythm;
+	}
+	.cmuProfile__nextRank {
+		display: inline-block;
+		font-size: $size-normal;
+		color: $cmu-color-mdgray;
+		float: right;
 	}
 
 
 
+
+
+
+
+
+
+// 
+// 
 // sidebar
+// 
+// 
+
+
 .cmuProfile__sidebar {
 	img {
 		// width: $cmu-profile-avatar-maxW;
@@ -64,10 +91,35 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 
+// 
+// 
 // main
+// 
+// 
+// 
+
+
 .cmuProfile {
 	.button--tab.active {
 		border-bottom-color: $cmu-color-purewhite;
+		z-index: $z-overlay;
 	}
 }
 .cmuProfile__main {
@@ -88,20 +140,6 @@
 	}
 
 
-	// stories
-	// .cmuProfile__storyList {
-	// 	// margin-top: $cmu-vertical-rhythm;
-	// }
-
-	// .cmuProfile__story {
-	// 	&:first-child {
-	// 		padding-left: 0;
-	// 	}
-	// 	&:last-child {
-	// 		padding-right: 0;
-	// 	}
-	// }
-
 	// points table
 	.cmuProfile__table {
 		margin-top: $cmu-vertical-rhythm;
@@ -119,11 +157,11 @@
 	    margin-bottom: $cmu-vertical-rhythm;
 	    // width: 100%;
 	    // width: 200px;
-	    width: calc((100% - 14px * 2) / 2);
+	    width: calc((100% - 8px * 2) / 2);
 
 		@include respondTo(xsmall-only) {
 			// regular width, 1 columns / 0 gutters
-			width: calc((100% - 14px * 0) / 1); // technically just 100%
+			width: calc((100% - 8px * 0) / 1); // technically just 100%
 		}
 
 		&:nth-child(2n+1) {
@@ -134,11 +172,119 @@
 }
 
 
+// Profile Gamification Area
+
+.cmuProfile__points {
+	margin-bottom: $cmu-vertical-rhythm;
+}
+
+	.cmuProfile__pointContainer {
+		margin: $cmu-vertical-rhythm;
+		margin-left: 0;
+	}
+		.cmuProfile__pointCount {
+			font-weight: bold;
+			font-size: $size-largest;
+		}
+		.cmuProfile__pointCountDesc {
+			font-size: $size-largest; 
+			margin-right: $cmu-base/2;
+			font-weight: 300;
+		}
+	
+
+	// progress bar
+	.cmuProfile__points__progress {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
+	.cmuProfile__progressBar {
+		position: relative;
+	}
+		.cmuProfile__progressBar__container {
+			display: block;
+			border: $style-line;
+			width: 100%;
+			line-height: 0;
+			padding: $cmu-base*3/2 0;
+		}
+
+		.cmuProfile__progressBar__bar {
+			display: block;
+			border: 1px solid $cmu-color-green;
+			border-right-width: 8px;
+			padding: $cmu-base*3/2 0;
+			position: absolute;
+			top: 0;
+			background-color: $cmu-color-ltgreen;
+			line-height: 0;
+		}
+		.cmuProfile__progressBar__text {
+			color: $cmu-color-dkgray;
+			// font-weight: bold;
+			font-size: $size-large;
+			padding-left: $cmu-base;
+
+			position: absolute;
+			left: 0px;
+			top: $cmu-base - remCalc(1px);
+		}
 
 
+	// stat markers
+	.cmuProfile__stats {
+		// margin-bottom: $cmu-vertical-rhythm;
+	}
+		.cmuProfile__stat {
+			text-align: center;
+			padding: $cmu-base/2 $cmu-base*1.5;
+		}
+		.cmuProfile__stat__num {
+		    display: inline-block;
+			color: $cmu-color-dkgray;
+			font-size: $size-larger;
+			font-weight: bold;
+
+		    width: $cmu-base*4;
+		    height: $cmu-base*4;
+		    padding-top: $cmu-base*1.3;
+		    text-align: center;
+		    vertical-align: middle;
+		    border: 1px solid #ccc;
+		    border-radius: 50%;
+		    margin-bottom: $cmu-vertical-rhythm/2;
+		}
+
+
+
+
+	// points table
+	.cmuProfile__table__row {
+		padding: $cmu-base/2 0;
+		&:nth-child(2n+1) {
+			background-color: $cmu-color-ltgray;
+		}
+	}
+	.cmuProfile__table__num {
+		text-align: right;
+		padding-right: $cmu-base;
+	}
+		.cmuProfile__table__count {
+			font-size: $size-large;
+			font-weight: 300;
+		}
+		.cmuProfile__x {
+			font-size: $size-large;
+			font-weight: 300;
+			padding: 0 $cmu-base/6;
+		}
+		.cmuProfile__table__points {
+			@extend %h2;
+			font-size: $size-large;
+		}
 
 // 
-// dropdown
+// dropdown in main menu
 // 
 
 .cmuProfile__dropdown__content {

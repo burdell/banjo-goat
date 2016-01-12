@@ -5,13 +5,16 @@
  	</community-page-header>
 
  	<!-- custom header -->
+
  	<div class="cmuProfile__header">
+<!-- 
 		<div class="row">
 			<community-username class="cmuUsername--header" user="vm.userData"></community-username>
 		</div>
 		<div class="cmuProfile__rank row">
 			<span>{{ vm.userData.rank.name }}</span>
 		</div>
+		 -->
 	</div>
 
 
@@ -21,14 +24,12 @@
 		<div class="cmuProfile__sidebar col--md3">
 			<div class="cmuProfile__section row">
 
-
-
 				<div><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
 				<button class="button--solid" >${{ directory.user.editProfile }}$</button>
 			</div>
 
 			<div class="cmuProfile__section row">
-				<div ng-if="vm.userData.locName">
+				<div class="cmuProfile__subSection" ng-if="vm.userData.locName">
 					<label class="cmuProfile__sidebar__label">${{ directory.user.location }}$</label>
 					<p>{{ vm.userData.locName }}</p>
 				</div>
@@ -66,23 +67,76 @@
 		<!-- main body -->
 		<div class="cmuProfile__main col--md9">
 
-			<div class="cmuProfile__points cmuProfile__section row">
+			<div class="cmuProfile__points cmuProfile__section clearfix">
+
+			 	<div class="cmuProfile__header">
+					<div class="cmuProfile__header__username">
+						<community-username class="cmuUsername--header" user="vm.userData"></community-username>
+					</div>
+					<div class="clearfix">
+						<div class="cmuProfile__rank">
+							<span>{{ vm.userData.rank.name }}</span>
+						</div>
+						<div class="cmuProfile__nextRank clearfix">
+							<span>${{ directory.user.nextRank }}$:</span>
+							<span>{{ vm.nextRankName }}</span>
+						</div>
+					</div>
+				</div>	
+
 				<div class="cmuProfile__points__progress">
-					<h1>{{ vm.totalPoints }} ${{ directory.user.totalPoints }}$ ({{ vm.percentageComplete }}%)</h1>
+					<!-- <div class="cmuProfile__pointContainer">
+						<span class="cmuProfile__pointDesc">${{ directory.user.totalPoints }}$</span>
+					</div> -->
+
+					<div class="cmuProfile__progressBar">
+						<span class="cmuProfile__progressBar__container"></span>
+						<span class="cmuProfile__progressBar__bar" style="width:{{ vm.percentageComplete | number: 0}}%"></span>
+						<span class="cmuProfile__progressBar__text">
+							<span class="cmuProfile__pointCount">{{ vm.totalPoints }}</span>
+							<span class="cmuProfile__pointCountDesc">XP</span>
+							/ {{ vm.percentageComplete | number: 0}}%
+						</span>
+					</div>
 				</div>
 
-				<div class="cmuProfile__points__stats">
+				<div class="cmuProfile__stats col--md12">
+
+					<!-- feature topic -->
+					<div class="cmuProfile__stat col--md3">
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[11].count }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[11].name }}</div>
+					</div>
+
+					<div class="cmuProfile__stat col--md3">
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[5].count }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[5].name }}</div>
+					</div>
+
+
+					<div class="cmuProfile__stat col--md3">
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[9].count }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[9].name }}</div>
+					</div>
+
+
+					<div class="cmuProfile__stat col--md3">
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[7].count }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[7].name }}</div>
+					</div>
+
+<!-- 
 					<div class="col--md2" ng-repeat="category in ::vm.scoreCategories">
 						<div><h3>{{ category.count }}</h3></div>
 						<h6>{{ category.name }}</h6>
-					</div>
+					</div> -->
 				</div>
 			</div>
 
 
-			<div class="cmuProfile__section row">
+			<div class="cmuProfile__section clearfix">
 				<div class="cmuProfile__tabs">
-					<button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == true}" ng-click="vm.profileSummaryShown = true">${{ directory.user.profileInfo }}$</button><button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == false}" ng-click="vm.profileSummaryShown = false">${{ directory.user.earnPoints }}$</button>
+					<button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == true}" ng-click="vm.profileSummaryShown = true">${{ directory.user.profileInfo }}$</button><button class="button--tab button--wide" ng-class="{'active': vm.profileSummaryShown == false}" ng-click="vm.profileSummaryShown = false">${{ directory.user.pointsSummary }}$</button>
 				</div>
 
 
@@ -146,15 +200,19 @@
 					POINTS TABLE
 				-->
 
-				<div class="col--md12" ng-show="!vm.profileSummaryShown">
+				<div class="cmuProfile__summary col--md12" ng-show="!vm.profileSummaryShown">
 			        <div class="cmuProfile__pointsTable cmuProfile__section">
 			        	<div class="cmuProfile__title clearfix">
-							<h5><span class="cmuIcon__label all"></span>${{ directory.user.recentActivity }}$</h5>
+							<div>${{ directory.user.pointsSummary }}$</div>
+						</div>
+			        	<div class="cmuProfile__desc clearfix">
+							<div>${{ directory.user.pointsSummaryDesc }}$</div>
 						</div>
 						<div class="cmuProfile__table">
-							<div ng-repeat="category in ::vm.pointCategories" class="row row--comfy">
-								<div class="col--md1"><h2>{{ category.points }}</h2></div>
-								<div class="col--md11">
+							<div class="cmuProfile__table__row row" ng-repeat="category in ::vm.pointCategories" class="row">
+								<div class="cmuProfile__table__num col--md2">
+									<span class="cmuProfile__table__count">{{ category.count }}</span> <span class="cmuProfile__x">x</span> <span class="cmuProfile__table__points">{{ category.points }}</span></div>
+								<div class="cmuProfile__table__desc col--md9">
 									<h5>{{ category.name }}</h5>
 									<p>{{ category.description }}</p>
 								</div>

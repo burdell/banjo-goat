@@ -61,6 +61,9 @@
 		"personalWebpage": "Personal Web Page",
 		"profileInfo": "Profile Info",
 		"recentActivity": "Recent Activity",
-		"totalPoints": "Total Points"
+		"totalPoints": "Community Experience",
+		"pointsSummary": "Earning Points",
+		"pointsSummaryDesc": "The following chart shows the breakdown of how many points you have earned, and how to earn more points towards boosting your community street cred.",
+		"nextRank": "Next Rank"
 	}
 }

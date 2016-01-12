@@ -26,6 +26,7 @@ $cmu-color-vltblue: 	#ace7ff;	// unofficial; used for blue highlights
 $cmu-color-yellow:		#d5c819;
 $cmu-color-purple:		#81419f;
 $cmu-color-green: 		#48AF65;
+$cmu-color-ltgreen: 	lighten($cmu-color-green, 18%);
 $cmu-color-teal: 		#3CCCAC;				// old: #43CEAE;
 
 $cmu-color-red: 		#FF3516;

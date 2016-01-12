@@ -6784,7 +6784,7 @@ h1 {
   font-weight: 300;
 }
 
-h2, .cmuUsername--header .cmuUsername__login, .cmuStories .cmuStories__summary {
+h2, .cmuProfile__table__points, .cmuUsername--header .cmuUsername__login, .cmuStories .cmuStories__summary {
   font-size: 1.3125rem;
   line-height: 2.25rem;
   font-weight: 400;
@@ -9725,19 +9725,29 @@ div.cmuCollapser__content {
 }
 
 .cmuProfile__header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.cmuProfile__rank span {
-  display: block;
+.cmuProfile__header__username {
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfile__rank {
+  display: inline-block;
   font-size: 1rem;
-  border-bottom: 2px solid #474b52;
-  padding-bottom: 1rem;
+  float: left;
+}
+
+.cmuProfile__nextRank {
+  display: inline-block;
+  font-size: 0.8125rem;
+  color: #bbbbbd;
+  float: right;
 }
 
 .cmuProfile .button--tab.active {
   border-bottom-color: white;
+  z-index: 875;
 }
 
 .cmuProfile__main {
@@ -9765,15 +9775,118 @@ div.cmuCollapser__content {
   vertical-align: top;
   display: inline-block;
   margin-bottom: 1rem;
-  width: calc((100% - 14px * 2) / 2);
+  width: calc((100% - 8px * 2) / 2);
 }
 @media only screen and (max-width: 480px) {
   .cmuProfile__story.cmuStoryGrid__item {
-    width: calc((100% - 14px * 0) / 1);
+    width: calc((100% - 8px * 0) / 1);
   }
 }
 .cmuProfile__story.cmuStoryGrid__item:nth-child(2n+1) {
   margin-right: 1rem;
+}
+
+.cmuProfile__points {
+  margin-bottom: 1rem;
+}
+
+.cmuProfile__pointContainer {
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.cmuProfile__pointCount {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.cmuProfile__pointCountDesc {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  font-weight: 300;
+}
+
+.cmuProfile__points__progress {
+  margin-bottom: 1rem;
+}
+
+.cmuProfile__progressBar {
+  position: relative;
+}
+
+.cmuProfile__progressBar__container {
+  display: block;
+  border: 1px solid #dadada;
+  width: 100%;
+  line-height: 0;
+  padding: 1.5rem 0;
+}
+
+.cmuProfile__progressBar__bar {
+  display: block;
+  border: 1px solid #48af65;
+  border-right-width: 8px;
+  padding: 1.5rem 0;
+  position: absolute;
+  top: 0;
+  background-color: #86cd9a;
+  line-height: 0;
+}
+
+.cmuProfile__progressBar__text {
+  color: #474b52;
+  font-size: 1rem;
+  padding-left: 1rem;
+  position: absolute;
+  left: 0px;
+  top: 0.9375rem;
+}
+
+.cmuProfile__stat {
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+}
+
+.cmuProfile__stat__num {
+  display: inline-block;
+  color: #474b52;
+  font-size: 1.3125rem;
+  font-weight: bold;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 1.3rem;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfile__table__row {
+  padding: 0.5rem 0;
+}
+.cmuProfile__table__row:nth-child(2n+1) {
+  background-color: #ebebeb;
+}
+
+.cmuProfile__table__num {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.cmuProfile__table__count {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.cmuProfile__x {
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0 0.16667rem;
+}
+
+.cmuProfile__table__points {
+  font-size: 1rem;
 }
 
 .cmuProfile__dropdown__content {
