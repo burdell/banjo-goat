@@ -32,13 +32,11 @@
 					</div>
 
 					<span class="cmuMessage__link"
-						community-class-toggle="showLink">
+						community-class-toggle="showLink" ng-click="messageDisplay.setMessageUrl()">
 						<span class="cmuIcon cmuIcon--small alignCenter"><span class="ubnt--icon ubnt-icon--link"></span>
 						</span>
 					</span>
-					<span class="cmuMessage__link__container">
-						REPLACE WITH LINK 
-					</span>
+					<span class="cmuMessage__link__container">{{ messageDisplay.messageUrl }}</span>
 				</div>
 				<div class="cmuMessage__controls"> 
 					<div class="cmuMessage__reply noPadding">
