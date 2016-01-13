@@ -37,21 +37,17 @@ var sources = {
         'node_modules/angular-ui-select/select.min.css',
         'node_modules/angular-pikaday/node_modules/∂¬pikaday/css/pikaday.css',
         'node_modules/emojify.js/dist/css/basic/emojify.css',
-<<<<<<< HEAD
         'node_modules/emojify.js/dist/css/data-uri/emojify.css',
-        'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.css'
-=======
-        // 'node_modules/emojify.js/dist/css/data-uri/emojify-emoticons.css',
-        // 'node_modules/emojify.js/dist/css/data-uri/emojify.css',
+        'node_modules/emojify.js/dist/css/data-uri/emojify-emoticons.css',
         'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.css',
-        'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.a.css'
->>>>>>> 3ada07334c08f0a8e58617d216c52975627ad874
+        // 'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.a.css'
     ],
     vendorImg: [
-        'node_modules/emojify.js/dist/images/sprites/emojify-emoticons.png',
-        'node_modules/emojify.js/dist/images/sprites/emojify-emoticons@2x.png',
-        'node_modules/emojify.js/dist/images/sprites/emojify.png',
-        'node_modules/emojify.js/dist/images/sprites/emojify@2x.png'
+        // we can either use these for emojify, or we can use emojify-emoticons.css for both emojify and emojipicker
+        // 'node_modules/emojify.js/dist/images/sprites/emojify-emoticons.png',
+        // 'node_modules/emojify.js/dist/images/sprites/emojify-emoticons@2x.png',
+        // 'node_modules/emojify.js/dist/images/sprites/emojify.png',
+        // 'node_modules/emojify.js/dist/images/sprites/emojify@2x.png'
     ],
 	partials: [
 		'app/areas/**/*.html',

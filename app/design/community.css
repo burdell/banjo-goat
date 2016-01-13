@@ -11375,7 +11375,7 @@ select.cmuSort {
   z-index: 875;
   width: calc(100% - 40px);
   left: 20px;
-  max-height: 200px;
+  max-height: 400px;
   overflow: scroll;
 }
 .cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer .CodeMirror {
