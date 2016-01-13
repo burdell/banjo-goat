@@ -37,10 +37,16 @@ var sources = {
         'node_modules/angular-ui-select/select.min.css',
         'node_modules/angular-pikaday/node_modules/∂¬pikaday/css/pikaday.css',
         'node_modules/emojify.js/dist/css/basic/emojify.css',
-        'node_modules/emojify.js/dist/css/data-uri/emojify-emoticons.css',
-        'node_modules/emojify.js/dist/css/data-uri/emojify.css',
+        // 'node_modules/emojify.js/dist/css/data-uri/emojify-emoticons.css',
+        // 'node_modules/emojify.js/dist/css/data-uri/emojify.css',
         'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.css',
         'app/shared/directives/emojipicker/vendor/css/jquery.emojipicker.a.css'
+    ],
+    vendorImg: [
+        'node_modules/emojify.js/dist/images/sprites/emojify-emoticons.png',
+        'node_modules/emojify.js/dist/images/sprites/emojify-emoticons@2x.png',
+        'node_modules/emojify.js/dist/images/sprites/emojify.png',
+        'node_modules/emojify.js/dist/images/sprites/emojify@2x.png'
     ],
 	partials: [
 		'app/areas/**/*.html',
@@ -277,11 +283,19 @@ function stylesheetHelper(prodBuild) {
     });
 }
 
-gulp.task('stylesheets', ['compile-stylesheets'], function(){
+
+gulp.task('vendor-images', function(){
+    areaBuilder(function(areaName){
+        return gulp.src(sources.vendorImg)
+            .pipe(gulp.dest(areaPath(areaName) + '/css/images'))
+    });
+});
+
+gulp.task('stylesheets', ['compile-stylesheets', 'vendor-images'], function(){
     stylesheetHelper();
 });
 
-gulp.task('prod-stylesheets', ['compile-stylesheets'], function(){
+gulp.task('prod-stylesheets', ['compile-stylesheets', 'vendor-images'], function(){
    stylesheetHelper(true);
 });
 
