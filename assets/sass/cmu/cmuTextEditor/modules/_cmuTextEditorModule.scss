@@ -62,6 +62,26 @@ $editor-height--minimal: 60px;
     }
 
 
+.cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer {
+    background-color: $cmu-color-white;
+    position: fixed;
+    bottom: 10px;
+    z-index: $z-overlay;
+    width: calc(100% - 40px);
+    left: 20px;
+    max-height: 200px;
+    overflow: scroll;
+
+    .CodeMirror {
+        min-height: 80px !important;
+    }
+
+    .CodeMirror, .CodeMirror-scroll {
+        min-height: 40px;
+        // max-height: $editor-height--minimal;
+        // height: $editor-height--minimal;
+    }
+}
 
 
 

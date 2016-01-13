@@ -8049,7 +8049,7 @@ div.cmuUserbadge__avatar {
 
 .cmuGloNav--footer {
   background-color: #ebebeb;
-  z-index: 850;
+  z-index: 200;
   padding: 1rem 0;
   padding-bottom: 2rem;
   position: absolute;
@@ -8467,7 +8467,7 @@ div.cmuOverlay--show {
 .cmuSearchbar .row {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  z-index: 850;
+  z-index: 200;
   position: relative;
 }
 
@@ -11368,6 +11368,23 @@ select.cmuSort {
   border-color: #00a0df;
 }
 
+.cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer {
+  background-color: #fafafa;
+  position: fixed;
+  bottom: 10px;
+  z-index: 875;
+  width: calc(100% - 40px);
+  left: 20px;
+  max-height: 200px;
+  overflow: scroll;
+}
+.cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer .CodeMirror {
+  min-height: 80px !important;
+}
+.cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer .CodeMirror, .cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer .CodeMirror-scroll {
+  min-height: 40px;
+}
+
 .cmuTextEditor--minimal .CodeMirror, .cmuTextEditor--minimal .CodeMirror-scroll {
   min-height: 60px;
 }
@@ -11612,7 +11629,7 @@ select.cmuSort {
   margin-left: -20px;
   margin-top: 10px;
   box-shadow: none;
-  z-index: 500 !important;
+  z-index: 895 !important;
 }
 .emojiPicker:before {
   content: '';
@@ -11629,6 +11646,12 @@ select.cmuSort {
   border-right: 0.5rem solid transparent;
   top: -0.5rem;
   z-index: 500 !important;
+}
+
+.cmuTextEditor__fixToBottom .emojiPicker {
+  top: 0 !important;
+  margin-left: -40px;
+  margin-top: 40px;
 }
 
 .cmuContent p, .cmuComments__body__content p {

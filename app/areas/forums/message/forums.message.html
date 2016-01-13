@@ -75,6 +75,8 @@
 	<div class="row" ng-if="vm.topicReplyShown">
 		<div id="topicReply">
 			<community-comment-form
+				class="cmuTextEditor__fixToBottom"
+				fixedtobottom="true"
 				autofocus="true"
 				reply-button-text="${{ core.actions.postReply }}$" 
 				replying-button-text="${{ core.actions.postingReply }}$..." 

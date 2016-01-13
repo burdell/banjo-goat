@@ -3,7 +3,7 @@ module.exports = function($){
   var pluginName = "emojiPicker",
       defaults = {
         width: '360',
-        height: '360',
+        height: '260',
         position: 'left',
         fadeTime: 100,
         iconColor: 'black',
@@ -24,7 +24,7 @@ module.exports = function($){
     this.$el = $(element);
 
     this.settings = $.extend( {}, defaults, options );
-
+ 
     this.$container = $(this.settings.container);
 
     // (type) Safety first

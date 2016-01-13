@@ -169,14 +169,15 @@ $z-top: 1000;	// Top z-index: gives us 10 levels to play with
 $z-gloNav: 900;	// global community menu
 $z-gloNav--drop: 895;	// comm menu dropdown
 $z-overlay: 875;
-$z-gloNav--footer: 850;
 $z-mega: 800;	// mega popover
 
 
 // Medium 400-700
 $z-contentFloat: 500;
+$z-contentFixed: 400;
 
 // Low 0-400
+$z-gloNav--footer: 200;
 
 
 // 

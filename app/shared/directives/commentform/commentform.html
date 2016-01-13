@@ -8,7 +8,8 @@
 	<div class="col--md12">
 			<community-text-editor
 				autofocus="{{ commentform.autofocus }}"
-				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}" 
+				fixedtobottom="{{ commentform.fixedtobottom }}"
+				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}"
 				ng-model="commentform.comment.body" 
 				minimal-editor="{{ commentform.minimalEditor }}"
 				autofocus="commentform.autofocus">

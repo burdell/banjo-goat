@@ -11,7 +11,18 @@ function emojipicker() {
     var link = function(scope, element, attrs) {
         var emojiInput = $(element).find('.emojiPicker-input');
 
-        var emojiPicker = emojiInput.emojiPicker();
+        var emojiCtrl = scope.emojipicker;
+
+        var emojiPicker;
+        if (emojiCtrl.fixedtobottom) {
+            emojiPicker = emojiInput.emojiPicker({
+                                                    width:'300px',
+                                                    height: '80px',
+                                                    container: '.cmuTextEditor__floatContainer',
+                                                });
+        } else {
+            emojiPicker = emojiInput.emojiPicker();
+        }
         emojiInput.width(0);
 
         emojiInput.keyup(function(event, selectedData){
@@ -33,6 +44,7 @@ function emojipicker() {
         restrict: 'E',
         replace: true,
         scope: {
+            fixedtobottom: '@',
             onSelect: '='
         }
     };

@@ -71,6 +71,7 @@ function commentForm() {
         	onSuccessFn: '=',
         	topicId: '=',
         	autofocus: '@',
+        	fixedtobottom: '@',
         	formComment: '='
         }
     };
