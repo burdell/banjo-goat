@@ -41,7 +41,6 @@
     "gulp-compass": "^2.0.4",
     "gulp-concat": "^2.5.2",
     "gulp-ext-replace": "^0.2.0",
-    "gulp-filter": "^2.0.2",
     "gulp-html-i18n": "^0.2.3",
     "gulp-inject": "^1.2.0",
     "gulp-jshint": "^1.9.2",

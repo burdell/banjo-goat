@@ -157,7 +157,8 @@ function communityTextEditor($timeout, localizationService, routingService) {
         	placeholder: '@',
         	hidePreviewLink: '@',
         	fixedtobottom: '@',
-        	autofocus: '@' // note that autofocus causes the browser to scroll to the textbox
+        	autofocus: '@', // note that autofocus causes the browser to scroll to the textbox
+        	fileUpload: '='
         }
     };
 

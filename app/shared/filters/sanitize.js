@@ -4,8 +4,8 @@
 var marked = require('marked');
 var emojify = require('emojify.js');
 emojify.setConfig({
-	mode: 'data-uri'
-})
+	mode: 'sprite'
+});
 
 var sanitize = function($sce){
 	return function(body, format){

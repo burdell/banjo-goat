@@ -104,7 +104,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 4, author_id: $stateParams.userId, topics: false },
+								constants: { size: 4, topics: false },
 								persistFilterModel: false
 							});
 					}],
