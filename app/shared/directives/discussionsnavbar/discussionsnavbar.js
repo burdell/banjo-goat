@@ -52,14 +52,20 @@ function discussionsNavBar() {
 			var siblingNodeList = !inDirectory ? parentNode.children : currentNode.children;
 
 			var localizedAreas = localizationService.data.core.areas;
-			_.extend(ctrl, {
-				navLinks: [{
-					display: localizedAreas.home,
-					href: !inDirectory ? routingService.generateUrl('hub', { nodeId: parentNode.urlCode }) : routingService.getCurrentUrl(),
-					active: inDirectory
-				}]
-			})
 
+			//have to hard code to exclude 'Other Products' home
+			if (parentNode.urlCode !== 'other') {
+				_.extend(ctrl, {
+					navLinks: [{
+						display: localizedAreas.home,
+						href: !inDirectory ? routingService.generateUrl('hub', { nodeId: parentNode.urlCode }) : routingService.getCurrentUrl(),
+						active: inDirectory
+					}]
+				});
+			} else {
+				ctrl.navLinks = [];
+			}
+			
 				
 			var SUBLIST_ORDER = ['Public', 'Beta', 'Alpha'];
 
@@ -67,12 +73,12 @@ function discussionsNavBar() {
 				var navNodeList = _.filter(siblingNodeList, function(node){
 					return node.discussionStyle === searchObj.discussionType;
 				});
-				
+
 				var navNodeCount = navNodeList.length;
 				if (navNodeCount === 1) {
 					var navNode = navNodeList[0];
 					var discussionHref = routingService.generateUrl(searchObj.route, { nodeId: navNode.urlCode });
-					
+
 					ctrl.navLinks.push({ 
 						display: localizedAreas[navNode.discussionStyle], 
 						href: discussionHref, 
@@ -82,7 +88,7 @@ function discussionsNavBar() {
 				 	var subLinkList = [];
 				 	_.each(navNodeList, function(subLink, index, list){
 				 		subLinkList.push({
-							display: localizedAreas[subLink.discussionStyle + subLink.name],
+							display: localizedAreas[subLink.discussionStyle + subLink.name] || subLink.name,
 				 			href: routingService.generateUrl(searchObj.route, { nodeId: subLink.urlCode }),
 				 			active: subLink.urlCode === currentNodeSlug
 						});
