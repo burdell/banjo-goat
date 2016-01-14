@@ -185,13 +185,6 @@
 		margin-bottom: $cmu-vertical-rhythm*2;
 		line-height: $cmu-vertical-rhythm*2;
 	}
-	.cmuStories__summary {
-		@extend %h2;
-	  	color: $cmu-color-gray;
-
-		margin-top: -$cmu-vertical-rhythm*3/2;
-		margin-bottom: $cmu-vertical-rhythm*3/2;
-	}
 }
 
 .cmuStories__story__controlsTop {
@@ -210,39 +203,49 @@
 			margin-top: $cmu-base/2;
 		}
 	}
+		.cmuStories__by {
+			margin-right: $cmu-base;
+		}
 
-	.cmuStories__author--avatar {
-		float: left;
-		padding-left: $cmu-base/2;
+		.cmuStories__author {
+			display: inline-block;
+			vertical-align: middle;
+			border-right: $style-line;
+			margin-right: $cmu-base;
+		}
+
+	// .cmuStories__author--avatar {
+	// 	float: left;
+	// 	padding-left: $cmu-base/2;
 		
-		.cmuUserbadge__avatar {
-			margin-left: -3px;
-  			width: 32px;
-			padding-left: 0;
-			height: 1rem;
-			&:after {
-			  width: 2rem;
-			  height: 2rem;
-			}
-		}
-	}
+	// 	.cmuUserbadge__avatar {
+	// 		margin-left: -3px;
+ //  			width: 32px;
+	// 		padding-left: 0;
+	// 		height: 1rem;
+	// 		&:after {
+	// 		  width: 2rem;
+	// 		  height: 2rem;
+	// 		}
+	// 	}
+	// }
 
-	.cmuStories__author--info {
+	// .cmuStories__author--info {
 
-		float: left;
-		font-size: 11px;
-		line-height: 16px;
-		padding-left: $cmu-base/2;
-		padding-top: $cmu-base/2;
-	}
-		.cmuStories__postTime {
-			color: $cmu-color-gray;
+	// 	float: left;
+	// 	font-size: 11px;
+	// 	line-height: 16px;
+	// 	padding-left: $cmu-base/2;
+	// 	padding-top: $cmu-base/2;
+	// }
+	// 	.cmuStories__postTime {
+	// 		color: $cmu-color-gray;
 
-			&:before {
-				content: ' | ';
-				padding: 0 4px;
-			}
-		}
+	// 		&:before {
+	// 			content: ' | ';
+	// 			padding: 0 4px;
+	// 		}
+	// 	}
 
 .cmuStories__story__cover {
 	// margin-top: $cmu-base; // separates either title or subtitle

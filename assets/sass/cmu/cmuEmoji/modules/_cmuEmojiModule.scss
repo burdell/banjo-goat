@@ -6,6 +6,10 @@
 	// border: 1px solid $cmu-color-mdgray;
 }
 
+.emoji {
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 
 .cmuEmoji {
 	.emojiPickerIcon {
@@ -72,3 +76,5 @@ Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4
     margin-left: -40px;
     margin-top: 40px;
 }
+
+

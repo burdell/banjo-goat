@@ -276,7 +276,8 @@ module.exports = function($){
       { name: 'food',     symbol: 'hamburger' },
       { name: 'folderol', symbol: 'sunny' },
       { name: 'thing',    symbol: 'kiss' },
-      { name: 'travel',   symbol: 'rocket' }
+      { name: 'travel',   symbol: 'rocket' },
+      { name: 'ubnt',     symbol: 'ubnt' }
     ];
     var aliases = {
       'people':    'emotion',

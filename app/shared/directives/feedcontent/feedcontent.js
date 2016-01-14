@@ -55,7 +55,7 @@ function feedContent($compile, $templateCache, localizationService) {
 		var discussionActionTexts = {
 			features: {
 				topic: function(contentData){
-					return contentUser.login + feedStrings.postedTopic; 
+					return feedStrings.postedTopic; 
 				},
 				comment: function(contentData){
 					return commentText();

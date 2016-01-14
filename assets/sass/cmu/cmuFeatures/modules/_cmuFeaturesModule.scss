@@ -106,6 +106,10 @@
     margin-bottom: remCalc(5px);
     overflow: hidden;
     @extend %type-minor;
+
+    .cmuUsername__login {
+    	font-weight: bold;
+    }
 }
 
 	.cmuFeatures__threadlist__body__title {

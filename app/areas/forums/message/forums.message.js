@@ -67,7 +67,8 @@
 			showTopicReply: function(){
 				ctrl.topicReplyShown = true
 				scrollService.scroll('topicReply');
-			}
+			},
+			isEdited: ctrl.originalMessage.editDate && (ctrl.originalMessage.postDate != ctrl.originalMessage.editDate)
 		});
 
 	};

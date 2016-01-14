@@ -2,10 +2,13 @@
 'use strict';
 
 var marked = require('marked');
-var emojify = require('emojify.js');
+var emojify = require('filters/commemojify.js');
+
+emojify.setEmoji(",ca,ch,cn,co,dk,fi,ie,il,in,ubnt,ubnt-banana");
 emojify.setConfig({
-	mode: 'sprite'
+	mode: 'data-uri'
 });
+
 
 var sanitize = function($sce){
 	return function(body, format){
@@ -14,6 +17,8 @@ var sanitize = function($sce){
 		} 
 
 		body = marked(body, { sanitize: true, breaks: true });
+
+
 		return emojify.replace(body);
 	};
 };

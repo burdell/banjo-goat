@@ -29,6 +29,40 @@ $cmu-thread-message-height:	$cmu-base * 3;
 	margin-bottom: $cmu-vertical-rhythm*2;
 	line-height: $cmu-base*2;
 }
+	
+	.cmuThread__subject__subtitle {
+		@extend %h2;
+	  	color: $cmu-color-gray;
+	  	font-weight: bold;
+
+		margin-top: -$cmu-vertical-rhythm*2;
+		// margin-bottom: $cmu-vertical-rhythm;
+	}
+
+		// Stats, used for announcements, feature bugs, etc.
+		.cmuThread__stats {
+			@extend %type-base;
+			margin-top: -$cmu-vertical-rhythm*3/2;
+			margin-bottom: $cmu-vertical-rhythm;
+		}
+			
+			.cmuThread__stat {
+				display: inline-block;
+				padding: $cmu-base/4 $cmu-base/2;
+				background: $cmu-color-bg;
+				margin-right: $cmu-base/2;
+				line-height: $cmu-base;
+			}
+
+			.cmuThread__stat__desc {
+				padding-right: $cmu-base/4;
+			}
+
+			.cmuThread__stat__status {
+				font-weight: 600;
+			}
+
+
 	// in announcements, the date is part of the title
 	.cmuThread__subject__date {
 		margin-top: -$cmu-vertical-rhythm*3/2;
@@ -70,28 +104,6 @@ $cmu-thread-message-height:	$cmu-base * 3;
 		}
 	}
  
-// Stats, used for announcements, feature bugs, etc.
-.cmuThread__stats {
-	@extend %type-info;
-	margin: $cmu-base/2 0;
-}
-	
-	.cmuThread__stat {
-		display: inline-block;
-		padding: $cmu-base/4 $cmu-base/2;
-		background: $cmu-color-bg;
-		margin-right: $cmu-base/2;
-		line-height: $cmu-base;
-	}
-
-	.cmuThread__stat__desc {
-		padding-right: $cmu-base/4;
-	}
-
-	.cmuThread__stat__status {
-		font-weight: 600;
-	}
-
 
 .cmuThread__date {
 	margin-right: $cmu-base/2;

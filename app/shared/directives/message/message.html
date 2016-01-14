@@ -27,8 +27,8 @@
 						{{ messageDisplay.getMessagePosition() }}
 					</div>
 					<div class="cmuMessage__date">
-						{{ messageDisplay.message.postDate | exactTimeFromNow }}
-						<span ng-if="messageDisplay.isEdited"> | ${{ core.actions.edited }}$ {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
+						<span ng-if="!messageDisplay.isEdited">{{ messageDisplay.message.postDate | exactTimeFromNow }}</span>
+						<span ng-if="messageDisplay.isEdited"> ${{ core.actions.edited }}$ {{ messageDisplay.message.editDate | exactTimeFromNow }}</span>
 					</div>
 
 					<span class="cmuMessage__link"

@@ -2,6 +2,20 @@
 module.exports = function($) {
   $.fn.emojiPicker.emojis = [
     {
+      "name": "ubnt",
+      "unicode": "0",
+      "shortcode": "ubnt",
+      "description": "Ubiquiti Symbol",
+      "category": "ubnt"
+    },
+    {
+      "name": "ubnt-banana",
+      "unicode": "0",
+      "shortcode": "ubnt-banana",
+      "description": "Dancing Banana",
+      "category": "ubnt"
+    },
+    {
       "name": "copyright",
       "unicode": "00A9",
       "shortcode": "copyright",
@@ -5849,6 +5863,7 @@ module.exports = function($) {
       "name": "flag-ca",
       "unicode": "1F1E8-1F1E6",
       "shortcode": "flag-ca",
+      "shortcode": "ca", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS CA",
       "category": "folderol"
     },
@@ -5856,6 +5871,7 @@ module.exports = function($) {
       "name": "flag-ch",
       "unicode": "1F1E8-1F1ED",
       "shortcode": "flag-ch",
+      "shortcode": "ch", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS CH",
       "category": "folderol"
     },
@@ -5863,6 +5879,7 @@ module.exports = function($) {
       "name": "flag-cl",
       "unicode": "1F1E8-1F1F1",
       "shortcode": "flag-cl",
+      "shortcode": "cl", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS CL",
       "category": "folderol"
     },
@@ -5870,6 +5887,7 @@ module.exports = function($) {
       "name": "flag-cn",
       "unicode": "1F1E8-1F1F3",
       "shortcode": "flag-cn",
+      "shortcode": "cn", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS CN",
       "category": "folderol"
     },
@@ -5877,6 +5895,7 @@ module.exports = function($) {
       "name": "flag-co",
       "unicode": "1F1E8-1F1F4",
       "shortcode": "flag-co",
+      "shortcode": "co", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS CO",
       "category": "folderol"
     },
@@ -5884,6 +5903,7 @@ module.exports = function($) {
       "name": "flag-de",
       "unicode": "1F1E9-1F1EA",
       "shortcode": "flag-de",
+      "shortcode": "de", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS DE",
       "category": "folderol"
     },
@@ -5891,6 +5911,7 @@ module.exports = function($) {
       "name": "flag-dk",
       "unicode": "1F1E9-1F1F0",
       "shortcode": "flag-dk",
+      "shortcode": "dk", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS DK",
       "category": "folderol"
     },
@@ -5898,6 +5919,7 @@ module.exports = function($) {
       "name": "flag-es",
       "unicode": "1F1EA-1F1F8",
       "shortcode": "flag-es",
+      "shortcode": "es", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS ES",
       "category": "folderol"
     },
@@ -5905,6 +5927,7 @@ module.exports = function($) {
       "name": "flag-fi",
       "unicode": "1F1EB-1F1EE",
       "shortcode": "flag-fi",
+      "shortcode": "fi", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS FI",
       "category": "folderol"
     },
@@ -5912,6 +5935,7 @@ module.exports = function($) {
       "name": "flag-fr",
       "unicode": "1F1EB-1F1F7",
       "shortcode": "flag-fr",
+      "shortcode": "fr", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS FR",
       "category": "folderol"
     },
@@ -5919,6 +5943,7 @@ module.exports = function($) {
       "name": "flag-gb",
       "unicode": "1F1EC-1F1E7",
       "shortcode": "flag-gb",
+      "shortcode": "gb", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS GB",
       "category": "folderol"
     },
@@ -5926,6 +5951,7 @@ module.exports = function($) {
       "name": "flag-id",
       "unicode": "1F1EE-1F1E9",
       "shortcode": "flag-id",
+      "shortcode": "id", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS ID",
       "category": "folderol"
     },
@@ -5933,6 +5959,7 @@ module.exports = function($) {
       "name": "flag-ie",
       "unicode": "1F1EE-1F1EA",
       "shortcode": "flag-ie",
+      "shortcode": "ie", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS IE",
       "category": "folderol"
     },
@@ -5940,6 +5967,7 @@ module.exports = function($) {
       "name": "flag-il",
       "unicode": "1F1EE-1F1F1",
       "shortcode": "flag-il",
+      "shortcode": "il", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS IL",
       "category": "folderol"
     },
@@ -5947,6 +5975,7 @@ module.exports = function($) {
       "name": "flag-in",
       "unicode": "1F1EE-1F1F3",
       "shortcode": "flag-in",
+      "shortcode": "in", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS IN",
       "category": "folderol"
     },
@@ -5954,6 +5983,7 @@ module.exports = function($) {
       "name": "flag-it",
       "unicode": "1F1EE-1F1F9",
       "shortcode": "flag-it",
+      "shortcode": "it", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS IT",
       "category": "folderol"
     },
@@ -5961,6 +5991,7 @@ module.exports = function($) {
       "name": "flag-jp",
       "unicode": "1F1EF-1F1F5",
       "shortcode": "flag-jp",
+      "shortcode": "jp", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS JP",
       "category": "folderol"
     },
@@ -5968,6 +5999,7 @@ module.exports = function($) {
       "name": "flag-kr",
       "unicode": "1F1F0-1F1F7",
       "shortcode": "flag-kr",
+      "shortcode": "kr", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS KR",
       "category": "folderol"
     },
@@ -5975,6 +6007,7 @@ module.exports = function($) {
       "name": "flag-ru",
       "unicode": "1F1F7-1F1FA",
       "shortcode": "flag-ru",
+      "shortcode": "ru", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS RU",
       "category": "folderol"
     },
@@ -5982,6 +6015,7 @@ module.exports = function($) {
       "name": "flag-us",
       "unicode": "1F1FA-1F1F8",
       "shortcode": "flag-us",
+      "shortcode": "us", // http://www.emoji-cheat-sheet.com/
       "description": "REGIONAL INDICATOR SYMBOL LETTERS US",
       "category": "folderol"
     }

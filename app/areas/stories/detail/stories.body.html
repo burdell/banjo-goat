@@ -3,23 +3,21 @@
 	<h3>
 		{{ vm.story.subject || vm.placeholders.subject }}
 	</h3>	
-	<div class="cmuStories__summary" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
-
-	<div class="col--md12 noPadding">
-		<div class="cmuThread__subject__date">{{ vm.story.message.postDate | exactTimeFromNow }} <span class="cmuThread__subject__date--edited" ng-if="vm.isEdited">Edited {{ vm.story.message.editDate | exactTimeFromNow }}</span>
-		</div>
-	</div>
+	<div class="cmuThread__subject__subtitle" ng-show="vm.story.summary">{{ vm.story.summary }}</div>
 </div>
 
 <div class="cmuStories__story__controlsTop row" ng-hide="vm.hideStoryControls">
 
-
 	<div class="cmuStories__story__controlsTop--left col--md12 noPadding">
 		<community-user-badge 
-			class="cmuUserbadge--thin cmuUserbadge--thin--open"
+			class="cmuStories__author cmuUserbadge--thin cmuUserbadge--thin--open"
 			user="vm.storyAuthor"
 			op-id="messageDisplay.showOp">
 		</community-user-badge>
+
+
+		<span class="cmuThread__subject__date">{{ vm.story.message.postDate | exactTimeFromNow }} <span class="cmuThread__subject__date--edited" ng-if="vm.isEdited">Edited {{ vm.story.message.editDate | exactTimeFromNow }}</span>
+		</span>
 	</div>
 	<div>
 		<button 
