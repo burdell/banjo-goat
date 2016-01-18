@@ -23,14 +23,9 @@ var profileController = function($scope, breadcrumbService, communityDefaults, a
 			count: userPointDetails[categoryKey],
 			score: userPointDetails[categoryKey + '_SCORE']
 		});
-
-		if (categoryData.count > 0) {
-			categoriesWithScore.push(categoryData);
-		}
-
-		if (categoryData.points > 0) {
-			categoriesWithPoints.push(categoryData);
-		}
+		
+		categoriesWithScore.push(categoryData);
+		categoriesWithPoints.push(categoryData);
 	});
 	
 	activityFilter.set({ 
