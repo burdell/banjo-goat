@@ -54,7 +54,9 @@ function discussionsNavBar() {
 			var localizedAreas = localizationService.data.core.areas;
 
 			//have to hard code to exclude 'Other Products' home
-			if (parentNode.urlCode !== 'other') {
+			var parentUrlCode = parentNode.urlCode;
+			var noHome = parentUrlCode === 'other' || parentUrlCode === 'ubnt'; 
+			if (!noHome) {
 				_.extend(ctrl, {
 					navLinks: [{
 						display: localizedAreas.home,
