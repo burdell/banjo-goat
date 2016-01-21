@@ -69,7 +69,7 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 			subject: 'Story Name',
 			summary: 'Subtitle',
 			coverPhotoUrl: storyDefaults.coverPhoto,
-			body: '<div>Tell us your story!</div>',
+			body: 'Tell us your story!!!',
 			location: 'Project location',
 			productsUsed: 'Products mentioned'
 		},

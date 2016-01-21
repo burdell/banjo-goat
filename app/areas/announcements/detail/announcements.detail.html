@@ -56,7 +56,7 @@
 								<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
 							</div>
 
-							<a  
+							<a  ng-if="vm.canEdit"
 								class="button button--ghost" 
 								area-link-handler="{{ vm.editUrl }}">
 								<span class="icon ubnt-icon--pencil-2"></span>

@@ -71,7 +71,8 @@ function commentForm() {
         	onSuccessFn: '=',
         	topicId: '=',
         	autofocus: '@',
-        	fixedtobottom: '@',
+        	fixedtobottom: '=',
+        	fixedtobottomtoggle: '=',
         	formComment: '='
         }
     };

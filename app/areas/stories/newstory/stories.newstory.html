@@ -15,15 +15,15 @@
 		
 		<div class="cmuStoriesNew__form--summary cmuInputContainer">
 			<input class="cmuInput cmuInput--stacked cmuInput--wide" 
-				id="${{ stories.newStory.subject }}$" 
+				id="${{ stories.newStory.summary }}$" 
 				ng-model="vm.story.summary" required />
-			<label for="${{ stories.newStory.subject }}$">${{ stories.newStory.summary }}$</label>
+			<label for="${{ stories.newStory.summary }}$">${{ stories.newStory.summary }}$</label>
 		</div>
 		<div class="cmuStoriesNew__form--text">
 		  <community-text-editor 
 	          ng-model="vm.discussion.body"
 	          editor-height="200"
-	          minimal-editor="true"
+	          minimal-editor="false"
 	          placeholder="${{ stories.newStory.tellUsYourStory }}$"
 	          hide-preview-link="true"
 	          autofocus="false">
@@ -40,7 +40,7 @@
 		</div>
 		<div class="cmuStoriesNew__form--products cmuInputContainer">
 			<ui-select class="cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.productList" id="productSelector">
-			    <ui-select-match placeholder="Click to add" >{{ $item.name }}</ui-select-match>
+			    <ui-select-match placeholder="${{ core.clickToAdd }}$" >{{ $item.name }}</ui-select-match>
 			    <ui-select-choices class="cmuInputSelector--choices" repeat="product.id as product in vm.productData | filter: { name: $select.search }">
 			      	<li ng-bind-html="product.name | highlight: $select.search"></li>
 			    </ui-select-choices>

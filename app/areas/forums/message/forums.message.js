@@ -7,7 +7,7 @@
 	require('directives/commentform/commentform.js');
 	require('directives/message/message.js');
 
-	var forumMessageController = function($scope, $stateParams, $timeout, communityApi, breadcrumbService, scrollService, messageThreadFilter){
+	var forumMessageController = function($scope, $state, $stateParams, $timeout, communityApi, breadcrumbService, permissionsService, routingService, scrollService, messageThreadFilter){
 		var ctrl = this;
 		ctrl.replyMessage = {
 			id: null,
@@ -42,6 +42,19 @@
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 		
+
+		permissionsService.canEdit(ctrl.originalMessage.insertUser.id).then(function(canEdit){
+			ctrl.canEdit = canEdit;
+			if (canEdit) {
+				var currentArea = routingService.getCurrentArea();
+				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
+					nodeId: $state.params.nodeId, 
+					id: ctrl.originalMessage.id,
+					messageType: 'topic'
+				});
+			}
+		});
+
 		_.extend(ctrl, {
 			currentReply: null,
 			messageReplyText: null,
@@ -74,10 +87,13 @@
 	};
 	forumMessageController.$inject = [
 		'$scope',
+		'$state', 
 		'$stateParams',
 		'$timeout',
 		require('services/api.js'),
 		require('services/breadcrumb.js'),
+		require('services/permissions.js'),
+		require('services/routing.js'),
 		require('services/scroll.js'),
 		'MessageThreadFilter'
 	];

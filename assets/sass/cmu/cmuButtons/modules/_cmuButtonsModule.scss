@@ -208,11 +208,17 @@ button, .button, .cmuButton {
 	// we want all buttons to be clickable, and redirect users to the login / sign up process
 	cursor: pointer !important;
 
-	// space them out if next to each other
+	// space them out if next to each other // apparently doesn't work
 	&+&, &+select {
 		margin-left: $cmu-base/2;
 	}
 }
+	button + .button {
+		margin-left: $cmu-base/2;
+	}
+	.button+.button {
+		margin-left: $cmu-base/2;
+	}
 
 
 

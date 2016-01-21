@@ -248,19 +248,22 @@
     	max-width: 210px;
 		// white-space: nowrap;
     }
+    	.cmuUserbadge__user {
+    		padding-top: 5px;
+    	}
     	.cmuUsername {
     		margin-top: 0;
     	}
 
     	.cmuUserbadge__avatar {
    			// padding-left: $cmu-base/2;
-   			
    			// required for thin to align profile image w/ rank and name
+		    margin-top: -5px;
 		    vertical-align: top;
 		    float: left;
     	}
 
-    $thin-vertical-margin: 2px;
+    $thin-vertical-margin: 6px;
     
     .cmuUserbadge__points {
     	display: inline-block;

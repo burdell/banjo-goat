@@ -78,3 +78,17 @@ Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4
 }
 
 
+// special case for stories creation
+.cmuStories .cmuTextEditor__custom {
+    position: absolute;
+    right: 12px;
+    left: inherit;
+}
+
+// have to move the standard toolbar over / temp fix
+.cmuStories .editor-toolbar {
+	padding-right: $cmu-base*2
+
+}
+
+

@@ -7,7 +7,8 @@
 		"finishDate": "Finish Date",
 		"projectRole": "Project Role",
 		"usersInNetwork": "Users In Network",
-		"productsUsed": "Products Used"
+		"productsUsed": "Products Used",
+		"location": "Project Location"
 	},
 	"detail": {
 		"edit": "Edit"
@@ -30,8 +31,8 @@
 		"removeAsCover": "Remove As Cover",
 		"setAsCover": "Set As Cover",
 		"shareAStory": "Share a story",
-		"subject": "Subject",
-		"summary": "Summary",
+		"subject": "Story Name",
+		"summary": "Short Summary",
 		"tellUsYourStory": "Tell us your story",
 		"unavailableAsCover": "Unavailable As Cover",
 		"uploadFromUrl": "Upload From URL",

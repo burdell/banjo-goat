@@ -8,27 +8,28 @@
 	<div class="col--md12">
 			<community-text-editor
 				autofocus="{{ commentform.autofocus }}"
-				fixedtobottom="{{ commentform.fixedtobottom }}"
 				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}"
 				ng-model="commentform.comment.body" 
 				minimal-editor="{{ commentform.minimalEditor }}"
+				fixedtobottomtoggle="commentform.fixedtobottomtoggle"
+				fixedtobottom="commentform.fixedtobottom"
 				autofocus="commentform.autofocus">
 			</community-text-editor>
 
 			<div class="cmuTextEditor__preview cmuContent" ng-if="commentform.comment.body" ng-bind-html="commentform.comment.body | sanitize:'markdown'"></div>
 	</div>
 
-	<div class="col--md12">
+	<div class="col--md12 cmuRow">
 		<div ng-show="!commentform.submittingComment">
 			<div 
-				class="button button--solid"
+				class="button button--solid button--padded button--wide"
 				ng-click="commentform.submitReply()">
 					{{ commentform.replyButtonText }}
 			</div>
 		</div>
 
 		<div ng-show="commentform.submittingComment">
-			<div class="button cmuInput--waiting button--padded" disabled>
+			<div class="button cmuInput--waiting button--padded button--wide" disabled>
 					{{ commentform.replyButtonText }}
 			</div>
 		</div>

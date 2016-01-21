@@ -158,7 +158,9 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	// Preview
 	.cmuThreadlist__preview {
 		padding-left: $cmu-threadlist-offset;
-		padding-right: $cmu-threadlist-offset;
+		padding-right: $cmu-threadlist-offset*2;
+		max-width: $cmu-base*2;
+		text-align: right;
 	}
 
 	// Auhtor Date

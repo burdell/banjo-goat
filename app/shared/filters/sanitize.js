@@ -4,7 +4,8 @@
 var marked = require('marked');
 var emojify = require('filters/commemojify.js');
 
-emojify.setEmoji(",ca,ch,cn,co,dk,fi,ie,il,in,ubnt,ubnt-banana");
+// additional custom emoji keywords ex: ":ubnt:"  
+emojify.setEmoji(",ca,ch,cn,co,dk,fi,ie,il,in,ubnt,ubnt-banana,poo,poop");
 emojify.setConfig({
 	mode: 'data-uri'
 });

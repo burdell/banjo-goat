@@ -62,24 +62,26 @@ $editor-height--minimal: 60px;
     }
 
 
-.cmuTextEditor__fixToBottom .cmuTextEditor__floatContainer {
-    background-color: $cmu-color-white;
-    position: fixed;
-    bottom: 10px;
-    z-index: $z-overlay;
-    width: calc(100% - 40px);
-    left: 20px;
-    max-height: 400px;
-    overflow: scroll;
+.cmuTextEditor--fixToBottom {
+    &+.cmuTextEditor__floatContainer, .cmuTextEditor__floatContainer {
+        background-color: $cmu-color-white;
+        position: fixed;
+        bottom: 10px;
+        z-index: $z-overlay;
+        width: calc(100% - 40px);
+        left: 20px;
+        max-height: 400px;
+        overflow: scroll;
 
-    .CodeMirror {
-        min-height: 80px !important;
-    }
+        .CodeMirror {
+            min-height: 80px !important;
+        }
 
-    .CodeMirror, .CodeMirror-scroll {
-        min-height: 40px;
-        // max-height: $editor-height--minimal;
-        // height: $editor-height--minimal;
+        .CodeMirror, .CodeMirror-scroll {
+            min-height: 40px;
+            // max-height: $editor-height--minimal;
+            // height: $editor-height--minimal;
+        }
     }
 }
 
@@ -193,9 +195,16 @@ $editor-height--minimal: 60px;
 
 // Emoji (in context of the text editor)
 
-.cmuTextEditor__emoji {
+.cmuTextEditor__custom {
     position: absolute;
     top: 0;
     top: 13px;
     left: 290px;
 }
+    .cmuTextEditor__popout {
+        margin-left: $cmu-base/2;
+        cursor: pointer;
+        &:hover {
+            color: $cmu-color-active;
+        }
+    }

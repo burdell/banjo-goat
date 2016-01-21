@@ -44,7 +44,7 @@ function emojipicker() {
         restrict: 'E',
         replace: true,
         scope: {
-            fixedtobottom: '@',
+            fixedtobottom: '=',
             onSelect: '='
         }
     };

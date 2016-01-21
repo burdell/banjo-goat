@@ -21,7 +21,7 @@ function communityTextEditor($timeout, localizationService, routingService) {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: isAutofocus,
 			status: false,
-			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide'],
+			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide', 'image'],
 		    renderingConfig: {
 		       
 		    },
@@ -136,6 +136,9 @@ function communityTextEditor($timeout, localizationService, routingService) {
 				var emojiValue = ' :' + selectedEmoji.shortcode + ': ';
 				var originalCoordinates = ctrl.setValue(emojiValue, true);
 				ctrl.setCursor({ line: originalCoordinates.line, ch: originalCoordinates.ch + emojiValue.length });
+			},
+			toggleFloat: function() {
+				ctrl.fixedtobottom = !ctrl.fixedtobottom; 
 			}
 		});
 
@@ -156,7 +159,8 @@ function communityTextEditor($timeout, localizationService, routingService) {
         	minimalEditor: '@',
         	placeholder: '@',
         	hidePreviewLink: '@',
-        	fixedtobottom: '@',
+        	fixedtobottom: '=',
+        	fixedtobottomtoggle: '=',
         	autofocus: '@', // note that autofocus causes the browser to scroll to the textbox
         	fileUpload: '='
         }

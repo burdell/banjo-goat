@@ -55,7 +55,7 @@
 			<div class="cmuStories__story__cover--caption">{{ vm.cover.caption }}</div>
 		</div>
 
-		<div class="cmuStories__story__body__content" ng-bind-html="vm.discussion.body || vm.placeholders.body | sanitize:vm.bodyFormat" handle-image-error></div>	
+		<div class="cmuStories__story__body__content" ng-bind-html="vm.discussion.body | sanitize:vm.bodyFormat" handle-image-error></div>	
 
 		<div class="cmuStories__story__imageContainer" ng-class="vm.story.media.length > 2 ? 'break-columns' : '' ">
 			<div class="cmuStories__story__mediaItem" ng-repeat="mediaUpload in vm.story.media | filter:vm.notCoverPhoto">		
@@ -74,6 +74,10 @@
 		</div>
 	</div>
 
+
+
+
+
 	<!-- 
 		Sidebar
 	 -->
@@ -88,7 +92,7 @@
 			" 
 		>
 		<div class="cmuStory__sidebar__item" ng-if="vm.coordinates.locName">
-			<div class="cmuStory__sidebar__title">Story Location</div>
+			<div class="cmuStory__sidebar__title">${{ stories.body.location }}$</div>
 			<community-map class="cmuStory__sidebar__map" map-coordinates="vm.coordinates"></community-map>
 			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
 		</div>
@@ -118,13 +122,16 @@
 		</div>
 
 		<div class="cmuStory__sidebar__item clearfix" class="cmuStory__products" ng-show="vm.productList && vm.productList.length > 0">
-			<div class="cmuStory__products--header">${{ stories.body.productsUsed }}$</div>
+			<!-- <div class="cmuStory__products--header">${{ stories.body.productsUsed }}$</div> -->
+			<div class="cmuStory__sidebar__title">${{ stories.body.productsUsed }}$</div>
 			<div ng-repeat="product in vm.productList track by $index">
 				<a class="cmuStory__product style-tag" area-link-handler="{{ vm.getProductUrl(product) }}" >
-					<!-- <div class="cmuStory__product__icon">
-						<span class="icon {{ vm.getProductIcon(product) }}"></span>
-					</div> -->
-					<div class="cmuStory__product__name">{{ vm.getProductName(product) }}</div>
+					<div class="cmuStory__product__large">
+						<span class="{{ vm.getProduct(product).urlCode }}"></span>
+					</div>
+					<div class="cmuStory__product__icon">
+						<span class="{{ vm.getProductIcon(product) }}"></span>
+					</div>
 				</a>
 			</div>
 		</div>

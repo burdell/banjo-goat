@@ -404,27 +404,78 @@
 	.cmuStory__products {
 
 	}
-
 		.cmuStory__products--header {
-			// font-weight: 700;
-			color: $cmu-color-gray;
-			font-size: remCalc(10px);
-			text-transform: uppercase;
-			margin-bottom: $cmu-vertical-rhythm/2;
+			margin-top: $cmu-base/4;
+			margin-bottom: $cmu-base;
+			@extend %size-large;
+		}
+		.cmuStory__product {
+			width: 100%;
+			// text-align: center;
+			border-color: $cmu-color-xltgray;
+			&:hover {
+				border: 1px solid $cmu-color-active;
+			}
 		}
 
-		// .cmuStory__product {
-		// 	display: block; 
-		// 	margin-bottom: $cmu-base;
+		.cmuStory__product__name {
+			margin-top: 4px;
+			@extend %size-large;
+		}
+		.cmuStory__product__large {
+    		display: inline-block;
+    		vertical-align: middle;
+		    width: 50px;
+			text-align: center;
+    		// margin-top: $cmu-base*3/4;
+			span {
+				display: block;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+			.airMAX {
+				height: 50px;
+				background-image: url('http://p6.zdassets.com/hc/theme_assets/77613/200012210/air_max_img.png');
+			}
+			.UniFi {
+				height: 50px;
+				background-image: url('http://p6.zdassets.com/hc/theme_assets/77613/200012210/unifi_img.png');
+			}
+			.EdgeMAX {
+				height: 50px;
+				background-position-y: $cmu-base;
+				background-image: url('http://p6.zdassets.com/hc/theme_assets/77613/200012210/edge_max_img.png');
+			}
+			.UniFiVid {
+				height: 50px;
+				background-image: url('http://p6.zdassets.com/hc/theme_assets/77613/200012210/unifi_video_img.png');
+			}
+			.airFiber {
+				height: 50px;
+				background-image: url('http://p6.zdassets.com/hc/theme_assets/77613/200012210/air_fiber_img.png');
+			}
+			.UniFiVoip {
+				height: 50px;
+				background-image: url('http:////p6.zdassets.com/hc/theme_assets/77613/200012210/voip_img.png');
+			}
+		}
+		.cmuStory__product__icon {
+			display: inline-block;
+    		vertical-align: middle;
+			margin-left: $cmu-base;
 
-		// 	&:nth-child(1) {
-		// 		padding-left: 0;
-		// 	}
-		// }
+			span {
+				height: $cmu-base*2;
+			}
 
-		// .cmuStory__product__name {
-		// 	margin-top: 4px;
-		// }
+			.cmuIcon-edgeMax {
+				margin-top: -6px;
+			}
+			.cmuIcon-airFiber {
+				margin-top: 12px;
+			}
+		}
 
 
 
