@@ -9,7 +9,7 @@
 		</div>
 		<div class="cmuFeed__content">
 
-			<span class="cmuFeed__content__body" ng-bind-html="feedcontent.contentDisplay.body | sanitize: 'markdown'"></span>
+			<span class="cmuFeed__content__body" ng-bind-html="feedcontent.contentDisplay.body | unformatText"></span>
 		</div>
 		<div class="cmuFeed__userAction">
 			<community-username user="feedcontent.contentDisplay.getUser"></community-username>

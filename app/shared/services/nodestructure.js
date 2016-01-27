@@ -22,7 +22,7 @@
 
 			//hard coded includes/excludes :/ 
 			var exclude = [-1, 75];
-			var include = [30, 20, 42, 43, 83];
+			var include = [30, 42, 43, 83];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {

@@ -5,7 +5,7 @@ require('shared/services/data.js');
 require('shared/services/routing.js');
 
 require('shared/filters/timefromnow.js');
-require('filters/sanitize.js');
+require('filters/unformattext.js');
 require('shared/filters/wordcut.js');
 
 
