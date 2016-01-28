@@ -20,19 +20,6 @@
 
 
 // 
-// Overall Typography Definitions
-// 
-
-body {
-	font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-	font-weight: 400;
-	font-size: $cmu-base;
-	@include fontSmoothing(subpixel-antialiased);
-}
-
-
-
-// 
 // SIZES
 // Base typography size definitions
 // 
@@ -159,6 +146,18 @@ $size-h6__lineHeight: $size-smaller__lineHeight;
 
 
 $cmu-base-spacing-unit: $cmu-base;
+
+
+
+// 
+// Overall Typography Definitions
+// 
+
+body {
+	font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	@include fontSmoothing(subpixel-antialiased);
+    @extend %type-base;
+}
 
 
 

@@ -9,7 +9,7 @@
 		<div class="cmuMessage__body" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == messageDisplay.message.id }">
 
 			<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply">
-				<a ng-click="messageDisplay.goToParentMessage(messageDisplay.reply.parentId)"><span class="cmuMessage__replyTo__user">{{ messageDisplay.reply.username }}</span></a>
+				<span class="cmuMessage__replyTo__desc">${{ forums.message.inReplyTo }}$</span>
 			</div>
 
 			<div class="cmuMessage__content cmuContent" ng-bind-html="messageDisplay.message.body | sanitize: messageDisplay.message.format">
@@ -69,7 +69,8 @@
 							community-permissions
 							class="button button--solid button--thin button--lowercase button-white-on-blue cmuPermissions" 
 							ng-click="messageDisplay.replyClickFn(messageDisplay.message)">
-								${{ core.actions.quote }}$
+								<span ng-if="messageDisplay.replyShown == true">${{ core.actions.quote }}$</span>
+								<span ng-if="messageDisplay.replyShown != true">${{ core.actions.reply }}$</span>
 						</span>
 					</div>
 				</div>

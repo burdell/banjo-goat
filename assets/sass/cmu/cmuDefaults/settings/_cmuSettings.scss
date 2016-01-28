@@ -17,7 +17,8 @@ $cmu-maxwidth:				1400px;	// applied separately on all partials and templates fo
 $cmu-maxwidth--longform:	1000px; // centered longform content for readability
 $cmu-maxwidth--post:		640px;	// widest post width for readability // might not be used
 $cmu-maxwidth--reply:		240px;	// for inline post replies
-$size-badgewidth-min:		$cmu-base*11;
+$cmu-badgewidth-min:		$cmu-base*7;
+$cmu-messagebody-width:	83%;
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
 $cmu-min-pageHeight--m:		$cmu-base*35; // mobile is higher bc of footer

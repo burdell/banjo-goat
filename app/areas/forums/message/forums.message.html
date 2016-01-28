@@ -18,7 +18,7 @@
 					class="button button--ghost col--md2" 
 					area-link-handler="{{ vm.editUrl }}">
 					<span class="icon ubnt-icon--pencil-2"></span>
-					<span>${{ announcements.detail.edit }}$</span>
+					<span>${{ core.actions.edit }}$</span>
 				</a>
 				<community-drop-down
 					class="cmuInput__selectDropdown__container col--md3 noPadding"
@@ -39,7 +39,6 @@
     </div>
 </div>
 
-
 <div class="cmuThread__container row">
 	<div class="col--md12 noPadding" ng-repeat="message in vm.messageThread" handle-image-error>
 		<community-message
@@ -50,6 +49,7 @@
 			reply-click-fn="vm.showReply"
 			show-op="vm.originalMessage.message.insertUser.id"
 			thread-filter="vm.messageThreadFilter"
+	        reply-shown="vm.topicReplyShown"
 			local-index="$index">
 		</community-message>
 	</div>

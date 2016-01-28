@@ -16,6 +16,12 @@ $loader-small-border: 5px;
 		margin-bottom: $cmu-base*2;
 	}
 
+	.cmuLoader__container--tight {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+
 	.cmuLoader {
 		position:relative;
 		margin: 0 auto;

@@ -9,7 +9,7 @@
 	// so this is moved to each discussion module ex: forumthreadmodule
 	// @extend %ease-fast;
 	opacity: 1;
-	min-width: $size-badgewidth-min; // 176px min width
+	min-width: $cmu-badgewidth-min; // 176px min width
 	// &:hover {
 	// 	opacity: 1;
 	// }
@@ -114,6 +114,10 @@
 		.cmuUsername {
 			margin-top: 0;
 		}
+
+		.cmuUserbadge__rank {
+		    display: inline-block;
+		}
 	}
 
 
@@ -156,11 +160,18 @@
 .cmuUserbadge__rank {
 	@extend %type-info;
     vertical-align: top;
-	display: block;
+	display: inline-block;
 	// display: inline-block;
     // line-height: 0.75rem; // looks weird when no ubnt logo on username, but might cause problems
 	text-align: left;
 	// font-weight: 300;
+
+    background: $cmu-color-mdgray;
+    color: $cmu-color-white;
+    padding: 0 4px;
+    /* border-radius: 4px; */
+    line-height: 21px;
+
 }
 
 
@@ -249,7 +260,7 @@
 		// white-space: nowrap;
     }
     	.cmuUserbadge__user {
-    		padding-top: 5px;
+    		padding-top: 2px;
     	}
     	.cmuUsername {
     		margin-top: 0;
@@ -258,9 +269,13 @@
     	.cmuUserbadge__avatar {
    			// padding-left: $cmu-base/2;
    			// required for thin to align profile image w/ rank and name
-		    margin-top: -5px;
+		    margin-top: -2px;
 		    vertical-align: top;
 		    float: left;
+    	}
+
+    	.cmuUserbadge__rank {
+    		line-height: 14px;
     	}
 
     $thin-vertical-margin: 6px;
@@ -356,6 +371,25 @@
 // Hover Flag
 // - hoverable expandable tooltip
 // 
+
+// AJAX using tooltipster;
+// template at forums.list.usertooltip.html
+.cmuUserbadge--tooltip {
+
+	.cmuUserbadge__account .cmuUsername {
+	    margin-top: 0
+	}
+
+
+	.cmuUserbadge__rank {
+		display: inline-block;
+	}
+}
+
+
+
+
+// non-AJAX
 .cmuUserbadge--showFlag {
 	// @include cmuAnimate(fadeInFromNone, $speed-medium);
 }
@@ -456,6 +490,7 @@
 .cmuUserbadge--avatarOnly .cmuUserbadge__main {
 	.cmuUsername,
 	.cmuUserbadge__points,
+	.cmuUserbadge__rank,
 	.cmuUserbadge__info
 	{
 		display: none;

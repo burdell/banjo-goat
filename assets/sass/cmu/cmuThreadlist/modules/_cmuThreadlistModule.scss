@@ -40,6 +40,9 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	// border-bottom: 1px solid $cmu-color-ltgray;
 	margin-bottom: $cmu-vertical-rhythm;
 }
+	.cmuThreadlist__ctrl--top {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
 	.cmuThreadlist__ctrl--bottom {
 		margin-top: $cmu-vertical-rhythm;
 	}
@@ -158,7 +161,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	// Preview
 	.cmuThreadlist__preview {
 		padding-left: $cmu-threadlist-offset;
-		padding-right: $cmu-threadlist-offset*2;
+		padding-right: $cmu-threadlist-offset*1.5;
 		max-width: $cmu-base*2;
 		text-align: right;
 	}
@@ -183,6 +186,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 			// display: inline-block;
 			float: left; 
 			// vertical-align: middle;
+			height: 10px;
 		}
 		.cmuUserbadge {
 			display: inline;

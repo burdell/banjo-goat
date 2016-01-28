@@ -1,0 +1,45 @@
+<div class="tooltip__user col--md12">
+
+	<div class="col--md12 noPadding cmuUserbadge--tooltip">
+
+		<div class="cmuUserbadge__main ">
+			<div class="cmuUserbadge__account">
+				<div class="cmuUserbadge__user">
+					<community-user-avatar user="user.login"></community-user-avatar>
+
+					<div class="cmuUserbadge__avatar" style="background-image: url({{ user.avatarUrl }})">
+						<div 
+							class="cmuUserbadge__activity cmuUserbadge__activity--active">
+						</div>
+					</div>
+
+					<span class="cmuUsername" >
+						<!-- <span class="cmuUsername__icon {{ username.specialUser().iconClass }}"></span> -->
+						<span class="cmuUsername__login">{{ user.login }}</span>
+					</span>
+					<br>
+					<div class="cmuUserbadge__rank">
+						{{ user.rank.name }}
+					</div>
+				</div>
+			</div>
+
+			<div class="cmuUserbadge__points">
+				<div class="cmuUserbadge__kudos cmuUserbadge__stat" title="Kudos">
+					<span class="cmuUserbadge__stat__num">{{ user.gamification.score }}</span> <span class="cmuUserbadge__stat__title">{{ '${{ core.points }}$' | lowercase }} </span> 
+				</div>
+				<div class="cmuUserbadge__posts cmuUserbadge__stat" title="Posts">
+					<span class="cmuUserbadge__stat__num">{{ user.gamification.details.POST_COUNT }}</span> <span class="cmuUserbadge__stat__title">{{ '${{ core.posts }}$' | lowercase }}</span> 
+				</div>
+			</div>
+
+			<div class="cmuUserbadge__info">
+				<div class="cmuUserbadge__descriptors">
+					<div class="cmuUserbadge__descriptor">{{ user.locName }}</div>
+					<div class="cmuUserbadge__descriptor"><span class="cmuUserbadge__descriptor__title">${{ directives.userbadge.joined }}$</span> {{ user.registrationDate | timeFromNow }}</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -117,7 +117,7 @@ function communityTextEditor($timeout, localizationService, routingService) {
 
 			newQuote = newQuote.join('\n');
 
-			var newValue = '###### ' + quotedMessage.insertUser.login + ':\n' + newQuote;
+			var newValue = '##### ' + quotedMessage.insertUser.login + ':\n' + newQuote;
 			if (ctrl.lineCount() > 1) {
 				newValue = '\n\n' + newValue;
 			}

@@ -9,6 +9,7 @@
 
 	var forumMessageController = function($scope, $state, $stateParams, $timeout, communityApi, breadcrumbService, permissionsService, routingService, scrollService, messageThreadFilter){
 		var ctrl = this;
+
 		ctrl.replyMessage = {
 			id: null,
 			topicId: null,
@@ -58,17 +59,21 @@
 		_.extend(ctrl, {
 			currentReply: null,
 			messageReplyText: null,
+			topicReplyShown: false,
 			messageThreadFilter: messageThreadFilter,
 			messageIsBeingRepliedTo: function(messageId){
 				return messageId === this.currentReply;
 			},
 			showReply: function(message){
-				ctrl.showTopicReply();
 
-				$timeout(function(){
-					ctrl.replyMessage.parentId = message.id;
-					$scope.$broadcast('texteditor:addQuote', message);
-				}, 0);
+				if (ctrl.topicReplyShown){
+					$timeout(function(){
+						ctrl.replyMessage.parentId = message.id;
+						$scope.$broadcast('texteditor:addQuote', message);
+					}, 0);
+				}
+				
+				ctrl.showTopicReply();
 			},
 			cancelReply: function(){
 				this.currentReply = null;
@@ -78,7 +83,7 @@
 				scrollService.scroll(result.id);
 			},
 			showTopicReply: function(){
-				ctrl.topicReplyShown = true
+				ctrl.topicReplyShown = true;
 				scrollService.scroll('topicReply');
 			},
 			isEdited: ctrl.originalMessage.editDate && (ctrl.originalMessage.postDate != ctrl.originalMessage.editDate)

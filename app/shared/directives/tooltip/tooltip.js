@@ -8,14 +8,12 @@ require('tooltipster');
 
 var _ = require('underscore');
 
-require('filters/wordcut.js');
-
 function communityTooltip() {
 	var link = function(scope, element, attrs) {			
 		$(element).tooltipster({
 			contentAsHtml: true,
-			content: 'Loading...',
-			position: 'top-right',
+			content: '<div class="cmuLoader__container cmuLoader__container--small cmuLoader__container--tight"><div class="cmuLoader"><span></span></div></div>',
+			position: 'bottom',
 			position: scope.tooltip.position,
 			interactiveTolerance: '550',
 			onlyOne: 'true',
@@ -29,19 +27,32 @@ function communityTooltip() {
 
 					if (origin.data('ajax') !== 'cached') {
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-							var content = result.message;
+							console.log('tooltip.js content returned:')
+							console.log(result)
 
-							var tooltipText = $('<div>' + content.body + '</div>').text();
-							if (tooltipText === "") {
-								tooltipText = "<strong>" + scope.tooltip.emptyText + "</strong>";
+							if (typeof(result.message) !== 'undefined') {
+								// thread message object
+								console.log(result.message)
+								var content = result.message;
+
+								var tooltipText = $('<div>' + content.body + '</div>').text();
+								if (tooltipText === "") {
+									tooltipText = "<strong>" + scope.tooltip.emptyText + "</strong>";
+								}
+
+								var tooltipData = _.extend(content, {
+									text: tooltipText
+								});
+
+								var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
+								origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
+							} else if (typeof(result.login) !== 'undefined') {
+								// user object
+								var tooltipData = { user: result }
+
+								var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
+								origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
 							}
-
-							var tooltipData = _.extend(content, {
-								text: tooltipText
-							});
-
-							var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
-							origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
 						});
 					}
 

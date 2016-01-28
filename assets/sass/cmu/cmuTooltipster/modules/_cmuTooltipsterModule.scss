@@ -4,9 +4,8 @@
 // Modified from the default theme
 //
 
-$tooltip-text-height: $cmu-base*6.3;
 $tooltip-height: $cmu-base*12;
-$tooltip-width: $cmu-base*20;
+$tooltip-width: $cmu-base*30;
 
 .cmuTooltipster {
 	// @extend %style-border-medium-blue;
@@ -47,11 +46,31 @@ $tooltip-width: $cmu-base*20;
 	}
 }
 
+
+// text response / message preview
 .tooltip__message__text {
-	max-height: $tooltip-text-height;
+	height: $cmu-base*5;
+	width: $cmu-base*12;
 	// margin-bottom: $cmu-base*0.75;
 	overflow: hidden;
 }
+
+
+
+
+// user hover
+.tooltip__message__user {
+	height: $cmu-base*5;
+	width: 300px;
+	// margin-bottom: $cmu-base*0.75;
+	overflow: hidden;
+
+}
+
+
+
+
+
 
 .tooltip__button button {
 	margin-bottom: $cmu-base*0.75;

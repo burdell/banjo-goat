@@ -117,6 +117,7 @@ function communityMessage() {
 	        	showOp: '=',
 	        	upvoteOnly: '=',
 	        	threadFilter: '=',
+	            replyShown: "=",
 	        	localIndex: '='
 	        }
 	    };

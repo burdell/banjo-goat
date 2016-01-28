@@ -12,6 +12,11 @@
 
 .cmuSearchpage {
 	margin-bottom: $cmu-vertical-rhythm;
+
+	.cmuThreadlist__ctrl--top, 
+	.cmuThreadlist__ctrl--bottom {
+		padding: 0 $cmu-base/2;
+	}
 }
 
 .cmuSearchpage__searchbar {

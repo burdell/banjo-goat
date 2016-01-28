@@ -32,6 +32,7 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 		nodeId: $stateParams.nodeId,
 		currentNode: nodeService.CurrentNode,
 		getMessageData: communityApiService.Forums.message,
+		getUserData: communityApiService.Users.userData,
 		getMessageUrl: function(messageId){
 			return $state.href('forums.detail', { messageId: messageId } );
 		},

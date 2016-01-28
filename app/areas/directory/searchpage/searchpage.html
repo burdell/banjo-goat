@@ -148,20 +148,28 @@
 			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
 
+					    <div class="cmuThreadlist__ctrl--top col--md12">
+			    		  <community-pager 
+				            number-of-pages="vm.totalPages" 
+				            pager-fn="vm.searchFilter"
+				            front-biased="true">
+				          </community-pager>
+				    	</div>
+
 			    		<div class="cmuThreadlist__body col--md12 noPadding">
 				    		<a class="cmuThreadlist__row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
 				    			 <div class="cmuSearchpage__item">
 				    				<div class="cmuSearchpage__item__subject">{{ result.subject }}</div>
-					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:140 }}</div>
+					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:40 }}</div>
 				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.postDate | timeFromNow }}</div>
 									<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
 								</div>
 					    	</a>
 					    </div>
 
-					    <div class="cmuThreadlist__ctrl--bottom col--md12 noPadding">
+					    <div class="cmuThreadlist__ctrl--bottom col--md12">
 			    		  <community-pager 
 				            number-of-pages="vm.totalPages" 
 				            pager-fn="vm.searchFilter"

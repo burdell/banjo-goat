@@ -85,11 +85,24 @@
               position="top-right"
             ><span class="icon ubnt-icon--eye2"></span>
             </span>
+
+            
           </div>
 
           <div class="cmuThreadlist__created cmuThreadlist__authorDate">
             <div class="cmuThreadlist__avatar"> 
-              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
+              <span 
+                class="cmuThreadlist__tooltip"
+                community-tooltip
+                data-id-field="{{ message.topic.message.insertUser.id }}" 
+                ajax-populate="vm.getUserData" 
+                tooltip-template="forums/list/forums.list.usertooltip.html"
+                empty-text="${{ forums.list.emptyPreview }}$"
+                tooltip-class="cmuTooltipster"
+                position="top"
+              >
+                <community-user-badge class="cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
+              </span>
             </div>
             
             <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
@@ -107,7 +120,19 @@
           </div>
           <div class="cmuThreadlist__latest cmuThreadlist__authorDate">
             <div class="cmuThreadlist__avatar"> 
-              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.context.lastestMessage.insertUser"></community-user-badge>
+              <!-- <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.context.lastestMessage.insertUser"></community-user-badge> -->
+              <span 
+                class="cmuThreadlist__tooltip"
+                community-tooltip
+                data-id-field="{{ message.topic.message.insertUser.id }}" 
+                ajax-populate="vm.getUserData" 
+                tooltip-template="forums/list/forums.list.usertooltip.html"
+                empty-text="${{ forums.list.emptyPreview }}$"
+                tooltip-class="cmuTooltipster"
+                position="top"
+              >
+                <community-user-badge class="cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
+              </span>
             </div>
             <div class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
             </div>

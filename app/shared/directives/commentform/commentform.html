@@ -21,11 +21,16 @@
 
 	<div class="col--md12 cmuRow">
 		<div ng-show="!commentform.submittingComment">
-			<div 
+			<span 
 				class="button button--solid button--padded button--wide"
 				ng-click="commentform.submitReply()">
 					{{ commentform.replyButtonText }}
-			</div>
+			</span>
+			<span 
+				class="button button--padded button--wide"
+				ng-click="commentform.cancelReply()">
+					${{ core.cancel }}$
+			</span>
 		</div>
 
 		<div ng-show="commentform.submittingComment">

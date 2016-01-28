@@ -331,6 +331,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				return goToApi(v2Url + urlSegments.User('self'));
 			},
 			userData: function(userId){
+				console.log('userdata: ' + userId);
 				return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 			},
 			search: function(q) {

@@ -3,6 +3,7 @@
 // New Primary+Secondary Nav
 $nav-height: $cmu-nav-height;
 $nav-border: 1px solid $cmu-color-dkblue;
+	$nav-border: 0;
 
 %nav-style {
 	text-transform: uppercase;
@@ -13,7 +14,8 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	padding: $cmu-base*0.7;
 	height: $nav-height;
 	cursor: pointer;
-	border-bottom: 1px solid $cmu-color-dkblue;
+	border-bottom: $nav-border;
+	border-left: $cmu-color-blue;
 	// line-height: $cmu-base;
 
 	@extend %ease-fast;
@@ -32,6 +34,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	font-size: $cmu-base;
 	color: $cmu-color-white;
 	width: $nav-height; //$cmu-base*3;
+	border-left: $cmu-color-blue;
 	// margin-left: -4px;
 	// margin-right: -4px;
 	text-align: center;

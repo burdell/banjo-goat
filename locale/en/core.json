@@ -3,6 +3,7 @@
 	"actions": {
 		"addComment": "Add Comment",
 		"delete": "Delete",
+		"edit": "edit",
 		"edited": "edited",
 		"more": "More",
 		"postReply": "Post Reply",
@@ -30,6 +31,7 @@
 	"cmuName": "Community",
 	"directory": "Community Directory",
 	"kudos": "Kudos",
+	"liveActivity": "Live Activity",
 	"manageSubscriptions": "Manage Subscriptions",
 	"model": "Model",
 	"of": "of",
