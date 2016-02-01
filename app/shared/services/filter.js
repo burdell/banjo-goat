@@ -52,8 +52,9 @@ var communityFilter = function($location, communityApi, realtimeServiceWrapper, 
 
 		var setQueryParams = function(queryModel) {
 			var queryParams = {};
+
 			_.each(queryModel, function(value, key) {
-				if (_.isUndefined(options.constants[key])) {
+				if (_.isUndefined(options.constants[key]) && key !== 'entityPolicies') {
 					queryParams[key] = value;
 				}
 			});

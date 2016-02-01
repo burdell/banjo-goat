@@ -43,17 +43,10 @@
 		}
 		messageThreadFilter.set({ onFilter: setThreadData });
 		
-
-		permissionsService.canEdit(ctrl.originalMessage.insertUser.id).then(function(canEdit){
-			ctrl.canEdit = canEdit;
-			if (canEdit) {
-				var currentArea = routingService.getCurrentArea();
-				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
-					nodeId: $state.params.nodeId, 
-					id: ctrl.originalMessage.id,
-					messageType: 'topic'
-				});
-			}
+		ctrl.editUrl = routingService.generateUrl(routingService.getCurrentArea() + '.edit', { 
+			nodeId: $state.params.nodeId, 
+			id: ctrl.originalMessage.id,
+			messageType: 'topic'
 		});
 
 		_.extend(ctrl, {

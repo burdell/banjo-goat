@@ -12,6 +12,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 
 	var forumRoutes = routesProvider.routes.forums;
 	var standardRoutes = routesProvider.routes.standardRoutes;
+
 	$stateProvider
 		.state('forums', {
 			abstract: true,
@@ -82,7 +83,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 		})
 		.state('forums.newtopic', standardRoutes.newTopic());
 	};
-	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider'];
+	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'communityRoutesProvider', '$httpProvider'];
 	
 	angular.module('community.forums')
 		.config(config);

@@ -1,5 +1,7 @@
-(function(_){
+
 	'use strict';
+
+	var _ = require('underscore');
 	
 	function communityPermissions(permissionsService, userService) {
 		var link = function(scope, element, attrs) {
@@ -11,22 +13,22 @@
 					return permission.replace(/ /g, '');
 				});
 			}
-
+			
 			userService.get().then(function(user){
-				var hasPermission = permissionsService.hasPermission(requestedPermissions, user);
+				var hasPermission = permissionsService.hasPermission(requestedPermissions, user, Number(scope.permissionsId));
 				if (!hasPermission) {
-					if (attrs.deniedBehavior === 'disable') {
-						disableElement()
+					if (attrs.deniedBehavior === 'hide') {
+						hideElement();
 					} else {
-						hideElement()
+						disableElement();
 					}
 				}
 			});
 
 			function hideElement() {
 				// jan: experimenting with adding a "disabled" container class
-				// element[0].style.display = 'none';
-				element[0].setAttribute("class", "cmuDisabled " + element[0].getAttribute("class") );
+				 element[0].style.display = 'none';
+				//element[0].setAttribute("class", "cmuDisabled " + element[0].getAttribute("class") );
 			}
 
 			function disableElement() {
@@ -38,14 +40,16 @@
 	    var directive = {
 	        link: link,
 	        bindToController: true,
-	        restrict: 'A'
+	        restrict: 'A',
+	        scope: {
+	        	permissionsId: '='
+	        }
 	    };
 	    return directive;
 	}
-	communityPermissions.$inject = ['CommunityPermissionsService', 'CurrentUserService'];
+	communityPermissions.$inject = [require('services/permissions.js'), require('services/currentuser.js')];
 
 
 	angular.module('community.directives')
 		.directive('communityPermissions', communityPermissions);
 		
-}(window._));

@@ -57,15 +57,10 @@ function StoryDetailController ($anchorScroll, $location, $scope, $state, commun
 						
 		});
 
-		permissionsService.canEdit(story.message.insertUser.id).then(function(canEdit){
-			ctrl.canEdit = canEdit;
-			if (canEdit) {
-				ctrl.editUrl = routingService.generateUrl('stories.edit', { 
-					nodeId: story.node.urlCode, 
-					storyId: story.id
-				});
-			}
-		});
+		ctrl.editUrl = routingService.generateUrl('stories.edit', { 
+				nodeId: story.node.urlCode, 
+				storyId: story.id
+			});
 
 		_.extend(ctrl, {
 			bodyFormat: story.message.format,

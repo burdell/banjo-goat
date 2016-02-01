@@ -33,17 +33,11 @@ function communityMessage() {
 			};	
 		}
 
-		var currentArea = routingService.getCurrentArea();
-		permissionsService.canEdit(ctrl.message.insertUser.id).then(function(canEdit){
-			ctrl.canEditMessage = canEdit;
-			if (canEdit) {
-				var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';
-				ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
-					nodeId: $stateParams.nodeId, 
-					id: ctrl.message.id,
-					messageType: messageType
-				});
-			}
+		var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';
+		ctrl.editUrl = routingService.generateUrl(routingService.getCurrentArea() + '.edit', { 
+			nodeId: $stateParams.nodeId, 
+			id: ctrl.message.id,
+			messageType: messageType
 		});
 
 		var strings = localizationService.data.directives.message;

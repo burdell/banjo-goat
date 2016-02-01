@@ -10,7 +10,20 @@
 				<!-- filter & sort controls -->
 				<div class="cmuThreadlist__ctrl__row row">
 					<div class="col--md6">
-						<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">${{ directory.feed.recentContent }}$</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >${{ directory.feed.followedContent }}$</button>
+						<span community-permissions denied-behavior="hide">
+							<button 
+								class="button--tab button--wide" 
+								ng-class="{'active': vm.feedType=='community'}" 
+								ng-click="vm.setFeedType('community')">
+									${{ directory.feed.recentContent }}$
+							</button>
+							<button 
+								class="button--tab button--wide" 
+								ng-click="vm.setFeedType('user')" 
+								ng-class="{'active': vm.feedType=='user'}">
+									${{ directory.feed.followedContent }}$
+							</button>
+						</span>
 					</div>
 					 <div class="col--md3 noPaddingRight">
 			          	<community-sort 

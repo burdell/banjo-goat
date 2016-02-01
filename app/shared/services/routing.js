@@ -3,7 +3,7 @@
 
 var _ = require('underscore');
 
-	var routingService = function($location, localizationService, communityRoutes){
+	var routingService = function($location, $stateParams, localizationService, communityRoutes){
 		var areaStrings = localizationService.data.core.areas;
 
 		var localeToArea = _.invert(require('locale/routing.locale.js').routing);
@@ -27,6 +27,11 @@ var _ = require('underscore');
 			},
 			getDetailId: function(areaName) {
 				return communityRoutes.detailIds[areaName];
+			},
+			getCurrentId: function(){
+				var detailId = this.getDetailId(this.getCurrentArea());
+				return $stateParams[detailId];
+
 			},
 			generateUrl: function(route, data, params){
 				if (!route) return null;
@@ -107,7 +112,7 @@ var _ = require('underscore');
 		}
 	};
 };
-routingService.$inject = ['$location', 'CommunityLocalizationService', require('providers/routes.js')];
+routingService.$inject = ['$location', '$stateParams', 'CommunityLocalizationService', require('providers/routes.js')];
 
 var serviceName = 'CommunityRoutingService';
 angular.module('community.services')

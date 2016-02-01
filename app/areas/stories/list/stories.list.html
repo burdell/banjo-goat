@@ -3,7 +3,7 @@
 	<div class="cmuThreadlist__ctrl__row row">
 		<div class="col--md10 noPaddingLeft">
 			<button community-permissions ng-if="!vm.hideNewStoryButton" class="button--solid button--padded button-blue-white" ng-click="vm.createStory()">${{ stories.list.shareAStory }}$</button>
-			<div ng-if="vm.hideNewStoryButton">
+			<div ng-if="vm.hideNewStoryButton" community-permissions="node.can_post_topic">
 				<community-product-navigator 
 					display-text="${{ stories.list.shareAStory }}$"
 					product-route="stories.newstory"
