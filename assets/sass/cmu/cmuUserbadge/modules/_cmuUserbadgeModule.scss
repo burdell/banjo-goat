@@ -48,7 +48,9 @@
 	overflow: hidden;
 	cursor: pointer;
 	// margin-bottom: $cmu-base/4;
-	padding: $cmu-base/2 $cmu-base;
+	padding: $cmu-base;
+	padding-left: $cmu-base/2;
+	padding-right: $cmu-base/4;
     padding-bottom: 0;
 
 	&:hover {
@@ -66,6 +68,8 @@
 		display: inline-block;
 		float: left;
 		margin-right: $cmu-base/2;
+    	margin-bottom: 4px; // for too long, wrapped userbadges
+    	
 		cursor: pointer;
 		border-radius: 99999px;
 
@@ -99,7 +103,8 @@
 			@extend %type-base;
 			line-height: $cmu-base * 3/4;
 			margin-top: $cmu-base/2;
-    		min-width: 100px;
+    		// min-width: 100px;
+    		min-width: 60px; // this is to hold the username and tag on the same line, otherwise the tag might wrap and username not wrap
 		}
 
 		// icons have more lineheight
@@ -126,7 +131,7 @@
 // 
 .cmuUserbadge__descriptors {
 	word-wrap: break-word;
-	padding: 0 $cmu-base;
+	padding: 0 $cmu-base/2;
 	padding-bottom: $cmu-base;
 
 	.cmuUserbadge__descriptor__title {
@@ -154,6 +159,10 @@
 			font-weight: 600;
 		}
 	}
+		.cmuUserbadge__userText {
+			white-space: nowrap;
+			display: inline-block;
+		}
 
 
 
@@ -164,14 +173,24 @@
 	// display: inline-block;
     // line-height: 0.75rem; // looks weird when no ubnt logo on username, but might cause problems
 	text-align: left;
+	border: 1px solid transparent; // to play well with tags with borders
 	// font-weight: 300;
 
     background: $cmu-color-mdgray;
     color: $cmu-color-white;
     padding: 0 4px;
     /* border-radius: 4px; */
-    line-height: 21px;
+    // line-height: 21px;
+    line-height: 14px;
+}
 
+.cmuUserbadge__OP {
+	@extend .cmuUserbadge__rank;
+	background: $cmu-color-white;
+	color: $cmu-color-dkgray;
+	border: $style-line;
+	font-size: $size-xsmaller;
+	@extend %font-oswald;
 }
 
 
@@ -189,6 +208,10 @@
 		// @extend %style-stat;
 
 		// margin-top: $cmu-base/2;
+
+		&:first-of-type, &:first-child {
+			margin-left: 0;
+		}
 	}
 
 	.cmuUserbadge__stat__num {
@@ -222,6 +245,41 @@
 .cmuUserbadge--ubnt {
 	background-color: $cmu-color-blue;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -272,7 +330,8 @@
 		    margin-top: -2px;
 		    vertical-align: top;
 		    float: left;
-    	}
+		    margin-bottom: 0;
+		}
 
     	.cmuUserbadge__rank {
     		line-height: 14px;
@@ -339,6 +398,14 @@
 
 
 
+
+
+
+
+
+
+
+
 // 
 // Super Thin Userbadge for Comments
 // 
@@ -367,6 +434,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 
 // Hover Flag
 // - hoverable expandable tooltip
@@ -385,6 +465,13 @@
 		display: inline-block;
 	}
 }
+
+
+
+
+
+
+
 
 
 
@@ -483,41 +570,51 @@
 	}
 }
 
+
+
+
+
+
+
+
+
+
 // 
 // Avatar-only display of user badge
 // (only shows user-avatar, can be paired with userbadge__flag for hover)
+// DEPRECATED AND WILL BE DELETED
 //
-.cmuUserbadge--avatarOnly .cmuUserbadge__main {
-	.cmuUsername,
-	.cmuUserbadge__points,
-	.cmuUserbadge__rank,
-	.cmuUserbadge__info
-	{
-		display: none;
-	}
+// .cmuUserbadge--avatarOnly .cmuUserbadge__main {
+// 	.cmuUsername,
+// 	.cmuUserbadge__points,
+// 	.cmuUserbadge__rank,
+// 	.cmuUserbadge__info
+// 	{
+// 		display: none;
+// 	}
 
-	.cmuUserbadge__account {
-		padding: 0;
-	}
-}
-
-
-
-.cmuUserbadge--nameOnly .cmuUserbadge__main {
-	.cmuUserbadge__avatar,
-	.cmuUserbadge__points,
-	.cmuUserbadge__info
-	{
-		display: none;
-	}
-
-	.cmuUserbadge__account {
-		padding: 0;
-		cursor: inherit;
-	}
+// 	.cmuUserbadge__account {
+// 		padding: 0;
+// 	}
+// }
 
 
-}
+
+// .cmuUserbadge--nameOnly .cmuUserbadge__main {
+// 	.cmuUserbadge__avatar,
+// 	.cmuUserbadge__points,
+// 	.cmuUserbadge__info
+// 	{
+// 		display: none;
+// 	}
+
+// 	.cmuUserbadge__account {
+// 		padding: 0;
+// 		cursor: inherit;
+// 	}
+
+
+// }
 
 
 

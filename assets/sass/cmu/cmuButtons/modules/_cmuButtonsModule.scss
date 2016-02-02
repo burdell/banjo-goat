@@ -398,10 +398,14 @@ button, .button {
 .button--tall {
 	padding-top: $cmu-base/2;
 	padding-bottom: $cmu-base/2;
- }
- .button--lowercase {
- 	text-transform: lowercase;
- }
+}
+.button--lowercase {
+	text-transform: lowercase;
+}
+.button--extraSpace {
+	margin-left: $cmu-base;
+	margin-right: $cmu-base;
+}
 
 
 

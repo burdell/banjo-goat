@@ -23,21 +23,21 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 .cmuBanner {
 
 	// JAN TESTING DEMO
-	display: none !important;
+	// display: none !important;
 	
-	cursor: pointer;
+	// cursor: pointer;
 	// padding: $cmu-base 0;
-	background-color: $cmu-banner-background-color;
-	font-weight: 300; 
-	color: $cmu-banner-text-color;
-	@extend %ease-fast; 
+	// background-color: $cmu-banner-background-color;
+	// font-weight: 300; 
+	// color: $cmu-banner-text-color;
+	// @extend %ease-fast; 
 
 	&:not(.cmuBanner__close):hover {
-		background-color: $cmu-banner-hover-background-color;
+		// background-color: $cmu-banner-hover-background-color;
 
 		a, span {
-			color: $cmu-banner-hover-text-color;
-			@extend %ease-fast; 
+			// color: $cmu-banner-hover-text-color;
+			// @extend %ease-fast; 
 		}
 	}
 }

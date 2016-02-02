@@ -2,7 +2,7 @@
 
 	<div class="col--md12 noPadding cmuUserbadge--tooltip">
 
-		<div class="cmuUserbadge__main ">
+		<div class="cmuUserbadge__main col--md6">
 			<div class="cmuUserbadge__account">
 				<div class="cmuUserbadge__user">
 					<community-user-avatar user="user.login"></community-user-avatar>
@@ -13,14 +13,16 @@
 						</div>
 					</div>
 
-					<span class="cmuUsername" >
-						<!-- <span class="cmuUsername__icon {{ username.specialUser().iconClass }}"></span> -->
-						<span class="cmuUsername__login">{{ user.login }}</span>
+					<span class="cmuUserbadge__userText">
+						<span class="cmuUsername" >
+							<!-- <span class="cmuUsername__icon {{ username.specialUser().iconClass }}"></span> -->
+							<span class="cmuUsername__login">{{ user.login }}</span>
+						</span>
+						<br>
+						<div class="cmuUserbadge__rank">
+							{{ user.rank.name }}
+						</div>
 					</span>
-					<br>
-					<div class="cmuUserbadge__rank">
-						{{ user.rank.name }}
-					</div>
 				</div>
 			</div>
 
@@ -35,11 +37,14 @@
 
 			<div class="cmuUserbadge__info">
 				<div class="cmuUserbadge__descriptors">
-					<div class="cmuUserbadge__descriptor">{{ user.locName }}</div>
+					<div class="cmuUserbadge__descriptor">{{ user.locName }}Atlanta</div>
 					<div class="cmuUserbadge__descriptor"><span class="cmuUserbadge__descriptor__title">${{ directives.userbadge.joined }}$</span> {{ user.registrationDate | timeFromNow }}</div>
 				</div>
 			</div>
 		</div>
 
+		<div class="cmuUserbadge__tooltipSidebar col--md6">
+			Stuff goes in here
+		</div>
 	</div>
 </div>

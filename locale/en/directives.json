@@ -118,7 +118,7 @@
 		"selectPlatform": "Select Platform"
 	},
 	"showcount": {
-		"template": "Showing {{ showcount.lower | number }} of {{ showcount.upper | number }} of {{ showcount.type }}"
+		"template": "Showing <strong>{{ showcount.lower | number }} of {{ showcount.upper | number }}</strong> of {{ showcount.type }}"
 	},
 	"texteditor": {
 		"formattingHelp": {

@@ -21,6 +21,7 @@ function initializeApp(areaName) {
         'ui.router',
         'ui.select',
         'ngSanitize',
+        'ngCookies',
         //'ng-sortable',
         'community.templates',
         'pikaday',
@@ -50,6 +51,7 @@ function initializeApp(areaName) {
     require('directives/discussionsnavbar/discussionsnavbar.js');
     require('directives/megamenu/megamenu.js');
     require('directives/pageheader/pageheader.js');
+    require('directives/announcement/announcement.js');
     require('directives/pagescroll/pagescroll.js');
     
     require('basecontroller.js');

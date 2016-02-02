@@ -103,6 +103,7 @@
 		border-left: $style-line--thick;
 		border-left-color: $cmu-color-blue;
 		padding: $cmu-base/2 $cmu-base;
+		background-color: rgba($cmu-color-xltgray, 1);
 
 		p:last-child {
 			margin-bottom: 0;

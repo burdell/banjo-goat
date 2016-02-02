@@ -1,5 +1,6 @@
 
 <div>
+<!-- <div class="cmuHints--menu__topics"> -->
 
   <div class="cmuGloNav__metaContainer">
     <div class="cmuGloNav cmuGloNav--header">
@@ -82,7 +83,7 @@
                       </a>
                     </div>
                   </div>
-              <ul class="cmuGloNav__links">
+              <ul class="cmuGloNav__links cmuGloNav__main">
                 <li 
                   ng-repeat="navItem in mainnavbar.navList"
                   ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
@@ -100,15 +101,15 @@
               </ul><div class="cmuGloNav__accountControl">
 
               <!-- menu buttons - note how <div>s start on the same line, to prevent the browser from adding extra padding for inline elements-->
-                <div ng-class="{'hideNav':mainnavbar.hideSearch()}" class="cmuGloNav__cmuSearch"
-                     ng-click="$broadcast('searchbar:toggleSearchbar');">
-                  <span class="icon ubnt-icon--search-2"></span>
-                </div><community-drop-down
+                <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.language.html"
                         template-ctrl="mainnavbar.currentUser"
                         element-classname="cmuGloNav__cmuLang"
                         icon-classname="icon ubnt-icon--world">
-                      </community-drop-down><div 
+                      </community-drop-down><div ng-class="{'hideNav':mainnavbar.hideSearch()}" class="cmuGloNav__cmuSearch"
+                     ng-click="$broadcast('searchbar:toggleSearchbar');">
+                  <span class="icon ubnt-icon--search-2"></span>
+                </div><div 
                   class="cmuGloNav__cmuAccount">
                   <ul ng-show="mainnavbar.isAuthenticated">
                       <community-drop-down

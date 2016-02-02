@@ -84,9 +84,10 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		@extend %disp--cell;
 		cursor: default;
 		border-bottom: $style-line;
-		font-weight: 300; 
+		// font-weight: 300; 
 		@extend %size-xsmaller;
-		color: $cmu-color-inactive;
+		// color: $cmu-color-inactive;
+		color: $cmu-color-mdgray; // technically these aren't inactive
 		padding-bottom: $cmu-base/4;
 	}
 }
@@ -170,41 +171,54 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 	// - combining author and date
 	// - Created column
 	// - Latest column
-
-	.cmuThreadlist__authorDate {
-		overflow: visible !important;
+	.cmuThreadlist__author {
 		font-size: $cmu-threadlist-size-numerical;
-		// min-width: $cmu-base*30/4;
 		width: $cmu-base*7;
 		white-space: nowrap;
-		// white-space: nowrap;
-		// * { overflow: hidden; } // date or usernames might be really long
 
 		.cmuThreadlist__avatar {
-			// width: $size-avatar--small;
-			// height: $size-avatar--small;
-			// display: inline-block;
 			float: left; 
-			// vertical-align: middle;
 			height: 10px;
 		}
 		.cmuUserbadge {
 			display: inline;
-		// 	float: left; 
 		}
 		.cmuUserbadge__avatar {
-			// @extend .cmuUserbadge__avatar--small;
-			// position: absolute;
-    		// top: $cmu-vertical-rhythm/2;
     		height: $cmu-threadlist-avatar;
     		width: $cmu-threadlist-avatar;
 		}
 		.cmuThreadlist__date {
 			overflow: hidden;
-			// display: inline-block;
-			// margin-left: $cmu-base*2.5;
 		}
 	}
+	.cmuThreadlist__authorDate {
+		@extend .cmuThreadlist__author;
+		width: $cmu-base*7;
+	}
+	.cmuThreadlist__authorDateCreated {
+		@extend .cmuThreadlist__author;
+		width: $cmu-base*9;
+	}
+
+	// only shows up on max width
+	.cmuThreadlist__authorName {
+		@extend .cmuThreadlist__author;
+		width: inherit;
+		padding-right: $cmu-base/2;
+		overflow: hidden;
+		width: $cmu-base*8;
+
+		.cmuThreadlist__avatar {
+			height: 18px;
+		}
+	}
+		.cmuThreadlist__created {
+			// width: $cmu-base*12;
+
+			.cmuThreadlist__avatar {
+    			// padding-right: 12px;
+			}
+		}
 
 
 // Counters (kudos, etc.)
@@ -235,27 +249,27 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		}	
 
 		// threadlist headers responsive text
-		.cmuThreadlist__headers {
+		// .cmuThreadlist__headers {
 
-			.cmuThreadlist__views {
-				&:after {content: 'Views';}
-				@include respondTo(small-down) {
-					&:after {content: 'V';}
-				}
-			}
-			.cmuThreadlist__replies {
-				&:after {content: 'Replies';}
-				@include respondTo(small-down) {
-					&:after {content: 'R';}
-				}
-			}
-			.cmuThreadlist__kudos {
-				&:after {content: 'Kudos';}
-				@include respondTo(small-down) {
-					&:after {content: 'K';}
-				}
-			}	
-		}
+		// 	.cmuThreadlist__views {
+		// 		&:after {content: '${{ forums.list.createTopic }}$';}
+		// 		@include respondTo(small-down) {
+		// 			&:after {content: 'V';}
+		// 		}
+		// 	}
+		// 	.cmuThreadlist__replies {
+		// 		&:after {content: 'Replies';}
+		// 		@include respondTo(small-down) {
+		// 			&:after {content: 'R';}
+		// 		}
+		// 	}
+		// 	.cmuThreadlist__kudos {
+		// 		&:after {content: 'Kudos';}
+		// 		@include respondTo(small-down) {
+		// 			&:after {content: 'K';}
+		// 		}
+		// 	}	
+		// }
 
 
 
@@ -279,6 +293,11 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
     // right: 8px;
     // height: 100%;
 
+    .icon {
+    	padding-bottom: 3px;
+	    vertical-align: bottom;
+	    display: inline-block;
+    }
 	.icon:before {
 		color: $cmu-color-mdgray;
 		@extend %ease-fast;

@@ -2,7 +2,7 @@
 .cmuSearchbar__container {
     position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: $z-top;
     // position: relative;
     top: $cmu-nav-height;
 }

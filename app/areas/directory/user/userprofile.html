@@ -78,7 +78,7 @@
 							<span>{{ vm.userData.rank.name }}</span>
 						</div>
 						<div class="cmuProfile__nextRank clearfix">
-							<span>${{ directory.user.nextRank }}$:</span>
+							${{ directory.user.nextRank }}$:
 							<span>{{ vm.nextRankName }}</span>
 						</div>
 					</div>
@@ -94,7 +94,7 @@
 						<span class="cmuProfile__progressBar__bar" style="width:{{ vm.percentageComplete | number: 0}}%"></span>
 						<span class="cmuProfile__progressBar__text">
 							<span class="cmuProfile__pointCount">{{ vm.totalPoints | number }}</span>
-							<span class="cmuProfile__pointCountDesc">XP</span>
+							<span class="cmuProfile__pointCountDesc">${{ directory.user.points }}$</span>
 							/ {{ vm.percentageComplete | number: 0}}%
 						</span>
 					</div>

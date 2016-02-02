@@ -29,7 +29,7 @@ $tooltip-width: $cmu-base*30;
 .cmuTooltipster .tooltipster-content {
 	@extend %size-normal;
 	overflow: hidden;
-	padding: $cmu-base;
+	// padding: $cmu-base;
 	@extend %ease-fast; 
 }
 
@@ -48,6 +48,9 @@ $tooltip-width: $cmu-base*30;
 
 
 // text response / message preview
+.tooltip__message {
+	padding: $cmu-base;
+}
 .tooltip__message__text {
 	height: $cmu-base*5;
 	width: $cmu-base*12;

@@ -26,10 +26,14 @@
 		"features": "Feature Requests" 
 	},
 	"allTopics": "All Topics",
+	"author": "Author",
 	"cancel": "Cancel",
 	"clickToAdd": "Click to Add",
 	"cmuName": "Community",
 	"directory": "Community Directory",
+	"hints": {
+		"nav": "Click <div class='button button--solid button--extraSpace button--white-on-blue' ng-click='vm.toggleDiscussionsMenu()'>Topics <span class='icon ubnt-icon--menu'></span></div> on the main menu to find forums, stories, and announcements for our products"
+	},
 	"kudos": "Kudos",
 	"liveActivity": "Live Activity",
 	"manageSubscriptions": "Manage Subscriptions",
@@ -59,6 +63,11 @@
 	},
 	"version": "Version",
 	"views": "Views",
+	"replies": "Replies",
+	"kudos": "Kudos",
+	"v": "V",
+	"r": "R",
+	"k": "K",
 	"ui": {
 		"clear": "clear"
 	}

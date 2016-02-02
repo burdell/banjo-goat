@@ -1,0 +1,9 @@
+
+// 
+// Hints & Onboarding 
+// 
+
+// Will sometimes trickle styles down into other components
+// Keep these selectors very specific e.g. cmuHints--menu_topics so we know what the hints are affecting.
+// These areas will also need to be "enabled" as part of the hints system (so they can light up, etc)
+@import 'modules/cmuHintsModule';

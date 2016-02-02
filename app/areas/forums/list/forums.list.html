@@ -4,28 +4,10 @@
   <div class="cmuThreadlist__ctrl row">
 
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
-      <div class="col--md6 noPaddingLeft" community-permissions>
+      <div class="col--md8 noPaddingLeft" community-permissions>
         <button class="button--solid" ng-click="vm.startNewTopic()">${{ forums.list.createTopic }}$</button>
       </div>
 
-      <div class="col--md6 noPaddingRight">
-        <community-pager 
-          number-of-pages="vm.numberOfPages" 
-          pager-fn="vm.forumListFilter"
-          front-biased="true">
-        </community-pager>
-      </div>
-    </div>
-
-    <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
-
-      <div class="col--md8 noPaddingLeft">
-        <community-show-count 
-          lower="vm.messageList.length" 
-          upper="vm.messageCount" 
-          type="${{ forums.list.threads }}$">
-        </community-show-count>
-      </div>
 
       <div class="col--md2">
         <div ng-hide="vm.hideSearch()">
@@ -40,6 +22,27 @@
       <div class="col--md2 noPaddingRight">
         <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="page"></community-sort>
       </div>
+
+    </div>
+
+    <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
+
+      <div class="col--md6 noPaddingLeft">
+        <community-show-count 
+          lower="vm.messageList.length" 
+          upper="vm.messageCount" 
+          type="${{ forums.list.threads }}$">
+        </community-show-count>
+      </div>
+
+      <div class="col--md6 noPaddingRight">
+        <community-pager 
+          number-of-pages="vm.numberOfPages" 
+          pager-fn="vm.forumListFilter"
+          front-biased="true">
+        </community-pager>
+      </div>
+
     </div>
   </div>
 
@@ -54,11 +57,24 @@
         <div class="cmuThreadlist__topic">${{ forums.list.topic }}$</div>
         <div class="cmuThreadlist__preview">
         </div>
-        <div class="cmuThreadlist__authorDate">${{ forums.list.created }}$</div>
-        <div class="cmuThreadlist__counter cmuThreadlist__views"></div>
-        <div class="cmuThreadlist__counter cmuThreadlist__replies"></div>
-        <div class="cmuThreadlist__counter cmuThreadlist__kudos"></div>
-        <div class="cmuThreadlist__authorDate">${{ core.time.latest }}$</div>
+        <div class="cmuThreadlist__authorName visible--lgUp">${{ core.time.latest }}$</div>
+        <div class="cmuThreadlist__authorDate"><span class="visible--mdDown">${{ core.time.latest }}$</span></div>
+        <div class="cmuThreadlist__counter cmuThreadlist__views">
+          <span class="visible--mdUp">${{ core.views }}$</span>
+          <span class="visible--smDown">${{ core.v }}$</span>
+        </div>
+        <div class="cmuThreadlist__counter
+                    cmuThreadlist__replies">
+          <span class="visible--mdUp">${{ core.replies }}$</span>
+          <span class="visible--smDown">${{ core.r }}$</span>
+        </div>
+        <div class="cmuThreadlist__counter 
+                    cmuThreadlist__kudos">
+          <span class="visible--mdUp">${{ core.kudos }}$</span>
+          <span class="visible--smDown">${{ core.k }}$</span>
+        </div>
+        <div class="cmuThreadlist__authorName visible--xlgUp">${{ forums.list.created }}$</div>
+        <div class="cmuThreadlist__authorDateCreated visible--lgDown visible--mdUp">${{ forums.list.created }}$</div>
       </div>
 
       <div class="cmuThreadlist__body">
@@ -85,28 +101,44 @@
               position="top-right"
             ><span class="icon ubnt-icon--eye2"></span>
             </span>
-
-            
           </div>
 
-          <div class="cmuThreadlist__created cmuThreadlist__authorDate">
-            <div class="cmuThreadlist__avatar"> 
-              <span 
-                class="cmuThreadlist__tooltip"
+          <div class="cmuThreadlist__latest
+                      cmuThreadlist__authorName
+                      visible--lgUp">
+            <div class="cmuThreadlist__avatar">
+              <div
                 community-tooltip
-                data-id-field="{{ message.topic.message.insertUser.id }}" 
+                data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
                 ajax-populate="vm.getUserData" 
                 tooltip-template="forums/list/forums.list.usertooltip.html"
                 empty-text="${{ forums.list.emptyPreview }}$"
                 tooltip-class="cmuTooltipster"
                 position="top"
               >
-                <community-user-badge class="cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
+                <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+                <span>{{ message.context.lastestMessage.insertUser.login }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmuThreadlist__latest 
+                      cmuThreadlist__authorDate">
+            <div class="cmuThreadlist__avatar visible--mdDown">
+              <span
+                community-tooltip
+                data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
+                ajax-populate="vm.getUserData" 
+                tooltip-template="forums/list/forums.list.usertooltip.html"
+                empty-text="${{ forums.list.emptyPreview }}$"
+                tooltip-class="cmuTooltipster"
+                position="top"
+              >
+                <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
               </span>
             </div>
-            
-            <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
-            </div>
+            <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
+            </span>
           </div>
 
           <div class="cmuThreadlist__counter cmuThreadlist__views">
@@ -118,11 +150,12 @@
           <div class="cmuThreadlist__counter cmuThreadlist__kudos">
             {{  message.topic.message.scores.kudo | number}}
           </div>
-          <div class="cmuThreadlist__latest cmuThreadlist__authorDate">
-            <div class="cmuThreadlist__avatar"> 
-              <!-- <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="message.context.lastestMessage.insertUser"></community-user-badge> -->
-              <span 
-                class="cmuThreadlist__tooltip"
+
+          <div class="cmuThreadlist__created
+                      cmuThreadlist__authorName
+                      visible--xlgUp">
+            <div class="cmuThreadlist__avatar">
+              <div
                 community-tooltip
                 data-id-field="{{ message.topic.message.insertUser.id }}" 
                 ajax-populate="vm.getUserData" 
@@ -131,10 +164,30 @@
                 tooltip-class="cmuTooltipster"
                 position="top"
               >
-                <community-user-badge class="cmuUserbadge--avatarOnly" user="message.topic.message.insertUser"></community-user-badge>
-              </span>
+                <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+                <span>{{ message.topic.message.insertUser.login }}</span>
+              </div>
             </div>
-            <div class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
+          </div>
+
+
+          <div class="cmuThreadlist__created cmuThreadlist__authorDateCreated visible--mdUp">
+            <div class="cmuThreadlist__avatar visible--lgDown"> 
+              <span 
+                community-tooltip
+                data-id-field="{{ message.topic.message.insertUser.id }}" 
+                ajax-populate="vm.getUserData" 
+                tooltip-template="forums/list/forums.list.usertooltip.html"
+                empty-text="${{ forums.list.emptyPreview }}$"
+                tooltip-class="cmuTooltipster"
+                position="top"
+              >
+                <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+                <!-- <span>{{ message.topic.message.insertUser.login }}</span> -->
+              </div>
+            </span>
+            
+            <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
             </div>
           </div>
         </a>

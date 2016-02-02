@@ -1,0 +1,83 @@
+
+// 
+// Hints & Onboarding 
+// 
+
+// Will sometimes trickle styles down into other components
+// Keep these selectors very specific e.g. cmuHints--menu_topics so we know what the hints are affecting.
+// These areas will also need to be "enabled" as part of the hints system (so they can light up, etc)
+
+
+.cmuHints {
+	// border: 1px solid $cmu-color-mdgray;
+}
+
+// 
+// Main Nav
+// 
+// main nav highlight arrow
+.cmuHints--menu__topics {
+	.cmuGloNav__main .cmuGloNav__link { 
+		position: relative;
+		&:first-child, &:first-of-type {
+			&:after  {
+				@include triangle(top, $cmu-color-dkgray, $size-arrow);
+		    	z-index: $z-contentFloat !important;
+
+		    	position: absolute;
+    			left: calc(50% - #{$size-arrow} /2);
+    			bottom: 0;
+			}
+		}
+	}
+}
+// main nav banner module
+.cmuHints--mainNav {
+	margin-bottom: $cmu-base*5;
+
+	.cmuBanner {
+		z-index: $z-gloNav;
+		position: fixed;
+		margin-top: -8px;
+		width: 100%;
+		left: 0;
+
+		background-color: $cmu-color-dkgray;
+		color: $cmu-color-ltgray;
+
+		&:before  {
+			@include triangle(top, $cmu-color-dkgray, $size-arrow);
+	    	z-index: $z-contentFloat !important;
+
+	    	position: absolute;
+			left: calc(50% - #{$size-arrow} /2);
+			bottom: 0;
+		}
+	}
+
+	.button {
+		cursor: default;
+		&:hover {
+			background-color: $cmu-color-active;
+			border-color: $cmu-color-active;
+		}
+	}
+	.cmuBanner__message {
+		.icon {
+			font-size: $size-smaller;
+			margin-left: 6px;
+    		position: relative;
+    		top: -0.2px;
+		}
+	}
+
+	.cmuBanner__close {
+		color: $cmu-color-white;
+		&:hover { 
+			color: $cmu-color-active;
+		}
+	}
+}
+
+
+	

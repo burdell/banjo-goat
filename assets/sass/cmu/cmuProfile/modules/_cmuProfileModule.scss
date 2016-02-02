@@ -50,17 +50,32 @@
 	.cmuProfile__header__username {
 		margin-bottom: $cmu-vertical-rhythm/2;
 	}
-	.cmuProfile__rank {
+	%profileTag {
+		// color: $cmu-color-dkgray;
+		// border: $style-line;
+		padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
+		background-color: $cmu-color-ltgray;
+
+		// redesign (#95)
+		// background-color: $cmu-color-purewhite;
+		background-color: $cmu-color-mdgray;
+		// color: $cmu-color-blue; // too loud
+		// color: $cmu-color-dkblue;
+		color: $cmu-color-white;
+
 		display: inline-block;
-		font-size: $size-large;
+		font-size: $size-normal;
+	}
+	.cmuProfile__rank {
+		span { @extend %profileTag; }
 		float: left;
 		// border-bottom: $style-line--medium;
 		// padding-bottom: $cmu-vertical-rhythm;
 	}
 	.cmuProfile__nextRank {
-		display: inline-block;
-		font-size: $size-normal;
-		color: $cmu-color-mdgray;
+		span { @extend %profileTag; }
+
+		// color: $cmu-color-mdgray;
 		float: right;
 	}
 

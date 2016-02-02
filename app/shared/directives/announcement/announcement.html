@@ -1,11 +1,14 @@
-  <div class="cmuBanner container">
-	<div class="cmuBanner__container row cmuFlexCenter">
-		<div class="cmuBanner__main col--md11">
-		  <span class="cmuBanner__message">airOS v5.5.9 for NanoBeam series products (and other XWmodels) has been released! airOS v5.5.9 for NanoBeam series products (and other XWmodels) has been released!
-		  </span>
-		  <!-- <span class="cmuBanner__button button button-square">Go to Announcements</span> -->
+<div>
+	<div class="cmuHints--mainNav clearfix" ng-if="announcement.isOpen">
+	  	<div class="cmuBanner container clearfix">
+			<div class="cmuBanner__container row cmuFlexCenter">
+				<div class="cmuBanner__main col--md11">
+				  <span class="cmuBanner__message">${{ core.hints.nav }}$
+				  </span>
+				  <!-- <span class="cmuBanner__button button button-square">Go to Announcements</span> -->
+				</div>
+			<div class="cmuBanner__close icon ubnt-icon--x col--md1" ng-click="announcement.closeMenu()"></div>
+			</div>
 		</div>
-	<div class="cmuBanner__close icon ubnt-icon--x col--md1"></div>
 	</div>
-
-</div>
+<div>

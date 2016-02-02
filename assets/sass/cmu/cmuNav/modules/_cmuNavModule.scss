@@ -76,25 +76,25 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	// -webkit-animation:rainbow 5s infinite; /* Safari and Chrome */
 }
 
-    @-moz-keyframes rainbow /* Firefox */
-    {
-	    0%   {background:red;}
-	    20%  {background:orange;}
-	    40%  {background:yellow;}
-	    60%  {background:green;}
-	    80%  {background:blue;}
-	    100%   {background:red;}
-    }
+    // @-moz-keyframes rainbow /* Firefox */
+    // {
+	   //  0%   {background:red;}
+	   //  20%  {background:orange;}
+	   //  40%  {background:yellow;}
+	   //  60%  {background:green;}
+	   //  80%  {background:blue;}
+	   //  100%   {background:red;}
+    // }
 
-    @-webkit-keyframes rainbow /* Safari and Chrome */
-    {
-	    0%   {background:red;}
-	    20%  {background:orange;}
-	    40%  {background:yellow;}
-	    60%  {background:green;}
-	    80%  {background:blue;}
-	    100%   {background:red;}
-    }
+    // @-webkit-keyframes rainbow /* Safari and Chrome */
+    // {
+	   //  0%   {background:red;}
+	   //  20%  {background:orange;}
+	   //  40%  {background:yellow;}
+	   //  60%  {background:green;}
+	   //  80%  {background:blue;}
+	   //  100%   {background:red;}
+    // }
 
 
 
@@ -205,6 +205,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 		}
 		.cmuGloNav__link {
+
 			a { 
 				@extend %nav-style; 
 				padding-left: $cmu-base;
@@ -229,6 +230,15 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				}
 			}
 		}
+
+		.cmuGloNav__main .cmuGloNav__link { 
+			&:first-child, &:first-of-type {
+				a {
+					background-color: $cmu-color-active;
+				}
+			}
+		}
+		
 		a.cmuGloNav__dropItem {
 			// margin-right: $cmu-base;
 			padding-right: $cmu-base;
@@ -292,7 +302,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 
 			.cmuGloNav__cmuSearch {
 				@extend %nav-icon-style;
-				background-color: $cmu-color-blue;
+				// background-color: $cmu-color-blue;
 				border-bottom: $nav-border;
 			}
 			.cmuGloNav__cmuLang {
