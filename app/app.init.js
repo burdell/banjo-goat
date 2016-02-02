@@ -60,6 +60,7 @@ function initializeApp(areaName) {
     require('directives/announcement/announcement.js');
     require('directives/pagescroll/pagescroll.js');
     require('directives/permissions/permissions.js');
+    require('directives/error/error.js');
     
     require('basecontroller.js');
 

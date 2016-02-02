@@ -5,7 +5,7 @@ require('services/error.js');
 
 var _ = require('underscore');
 
-var communityApiService = function($http, $q, $timeout, errorService){
+var communityApiService = function($http, $q, $timeout){
 	function getCallOptions(url, data, verb, isMedia) {
 		if (_.isUndefined(verb)) {
 			verb = 'GET';
@@ -45,11 +45,6 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				} else {
 					return result.data;
 				}
-			},
-			function(error){
-				//ERROR :(
-				errorService.showErrors(error);
-				return $q.reject();
 			}
 		);
 	}
@@ -362,7 +357,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 	return service;
 };
 
-communityApiService.$inject = ['$http', '$q', '$timeout', 'CommunityErrorService'];
+communityApiService.$inject = ['$http', '$q', '$timeout'];
 
 var serviceName = 'CommunityApiService';
 angular.module('community.services')

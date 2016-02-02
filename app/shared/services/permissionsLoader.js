@@ -3,7 +3,7 @@
 
 var _ = require('underscore');
 
-var permissionsLoader = function(permissionsService){
+var permissionsLoader = function($q, errorService, permissionsService){
 	return {
 		response: function(result){
 			if (_.isObject(result.data)){
@@ -16,10 +16,14 @@ var permissionsLoader = function(permissionsService){
 				}
 			}
  			return result;
+		},
+		responseError: function(result) {
+			errorService.showErrors(result.data);
+			return $q.reject();
 		}
 	}
 };
-permissionsLoader.$inject = [require('services/permissions.js')];
+permissionsLoader.$inject = ['$q', require('services/error.js'), require('services/permissions.js')];
 
 var serviceName = 'CommunityPermissionsInterceptor';
 angular.module('community.services')
