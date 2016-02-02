@@ -3,6 +3,7 @@
 require('angular');
 require('angular-ui-router');
 require('angular-ui-select/select.js');
+//require('angular-cookies');
 require('angular-sanitize');
 require('pikaday-angular');
 
@@ -21,7 +22,6 @@ function initializeApp(areaName) {
         'ui.router',
         'ui.select',
         'ngSanitize',
-        'ngCookies',
         //'ng-sortable',
         'community.templates',
         'pikaday',
