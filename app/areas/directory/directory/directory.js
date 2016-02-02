@@ -23,8 +23,7 @@ var directoryController = function($scope, breadcrumbService, localizationServic
 
 	var discussionNodeOrder = ['Alpha', 'Beta', 'Public', 'stories', 'qa', 'announcements', 'features', 'bugs'];
 
-	var mainSectionExclude  = [43, 83];
-
+	var mainSectionExclude  = [];
 	_.extend(ctrl, {
 		directoryList: directoryList,
 		landingPages: routingService.landingPages(),

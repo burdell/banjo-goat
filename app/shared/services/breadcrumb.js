@@ -12,8 +12,8 @@ var breadcrumbService = function(nodeServiceWrapper, pageTitleService, routingSe
 			node.href = routingService.generateUrl(node.discussionStyle + '.list', { nodeId: node.urlCode });
 		}
 
-	var PRODUCT_NODE = 75;
-	var UBNT_NODE = 569;
+	var PRODUCT_NODE = 8;
+	var UBNT_NODE = 36;
 	var OTHER_PRODUCTS_NODE = 121;
 
 	return {
@@ -27,7 +27,6 @@ var breadcrumbService = function(nodeServiceWrapper, pageTitleService, routingSe
 					var parentNode = nodeServiceHolder.parent(currentBreadcrumb.id);
 					while(parentNode) {
 						//hide the 'products' abnd 'ubnt' node
-
 						if (parentNode.id !== PRODUCT_NODE && parentNode.id !== UBNT_NODE && parentNode.id !== OTHER_PRODUCTS_NODE) {
 							setNodeUrl(parentNode);
 							breadCrumbList.unshift(parentNode);
