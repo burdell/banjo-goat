@@ -1,6 +1,8 @@
 'use strict';
 
-require('shared/services/error.js');
+require('services/error.js');
+
+
 var _ = require('underscore');
 
 var communityApiService = function($http, $q, $timeout, errorService){
@@ -63,7 +65,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			}
 			//GET
 			else {
-				payload = params;
+				payload = addPermissionData(params, 'message');
 				verb = 'GET';
 				id = callData;
 			}
@@ -83,6 +85,23 @@ var communityApiService = function($http, $q, $timeout, errorService){
 
 	function hasNoStories(nodeUrlCode){
 		return nodeUrlCode === 'comm_stories' || nodeUrlCode.indexOf('airCRM') >= 0
+	}
+
+	var permissionKeys = {
+		message: [ 'can_comment',  'can_edit_message', 'can_kudo', 'can_thank', 'can_view_message', 'can_vote' ],
+		node: ['can_post_topic', 'can_view_threads']
+	};
+
+	var permissionStrings = {
+		message: permissionKeys.message.join(','),
+		node: permissionKeys.node.join(',')
+	};
+	function addPermissionData(paramObject, type){
+		if (!paramObject) {
+			paramObject = {};	
+		}
+		paramObject.entityPolicies = permissionStrings[type];
+		return paramObject;
 	}
 
 	var v2Url = 'https://comm2-dev-api.ubnt.com/2/'; // original
@@ -124,10 +143,10 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 			},
 			detail: function(announcementId){
-				return goToApi(v2Url + 'announcements/' + announcementId);
+				return goToApi(v2Url + 'announcements/' + announcementId, addPermissionData({}, 'message'));
 			},
 			comments: function(announcementId, commentData){
-				return goToApi(v2Url + 'announcements/' + announcementId + '/comments', commentData);
+				return goToApi(v2Url + 'announcements/' + announcementId + '/comments', addPermissionData(commentData, 'message'));
 			},
 			thread: function(announcementId, options){
 				return $q.all([ this.detail(announcementId), this.comments(announcementId, options) ]).then(function(result){
@@ -196,7 +215,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 		},
 		Forums: {
 			messages: function(nodeId, data){
-				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', data);
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', addPermissionData(data, 'node'));
 			},
 			message: function(messageData, mock) {
 				var callData = getCallType(messageData);
@@ -209,7 +228,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				return goToApi(url, callData.payload, callData.verb);
 			},
 			comments: function(messageId, data) {
-				return goToApi(v2Url + 'forums/' + messageId + '/comments', data);
+				return goToApi(v2Url + 'forums/' + messageId + '/comments', addPermissionData(data, 'message'));
 			},
 			thread: function(messageId, data){
 				return $q.all([ this.message(messageId), this.comments(messageId, data) ])
@@ -317,7 +336,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 					return emptyResponse();
 				}
 
-				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', data);
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', addPermissionData(data, 'node'));
 			},
 			search: function(options){
 				if (options.nodeUrlCode && hasNoStories(options.nodeUrlCode)) {

@@ -30,7 +30,11 @@ function initializeApp(areaName) {
         moduleBuilder('community.directives'),
         moduleBuilder('community.filters'),
         moduleBuilder('community.' + areaName)
-    ]).run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper){
+    ])    
+    .config(['$httpProvider', function($httpProvider){
+        $httpProvider.interceptors.push('CommunityPermissionsInterceptor');
+    }])
+    .run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper){
         $rootScope.$on('$stateChangeStart', function(event, newState, stateParams){
             $window.scrollTo(0,0);
 
@@ -46,6 +50,8 @@ function initializeApp(areaName) {
     }]);
 
     //core stuff
+    require('services/permissionsLoader.js');
+    
     require('directives/mainnavbar/mainnavbar.js');
     require('directives/breadcrumbs/breadcrumbs.js');
     require('directives/discussionsnavbar/discussionsnavbar.js');
@@ -53,6 +59,7 @@ function initializeApp(areaName) {
     require('directives/pageheader/pageheader.js');
     require('directives/announcement/announcement.js');
     require('directives/pagescroll/pagescroll.js');
+    require('directives/permissions/permissions.js');
     
     require('basecontroller.js');
 

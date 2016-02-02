@@ -1,7 +1,7 @@
 
 <div>
-	<div class="row cmuRow">
-		<button community-permissions class="button--solid button--padded button-blue-white" ng-click="vm.createAnnouncement()">${{ announcements.list.postCta }}$</button>
+	<div class="row cmuRow" community-permissions="node.can_post_topic" denied-behavior="hide">
+		<button class="button--solid button--padded button-blue-white" ng-click="vm.createAnnouncement()">${{ announcements.list.postCta }}$</button>
 	</div>
 
 	<div class="row">

@@ -1,9 +1,6 @@
 'use strict';
 
-require('shared/services/api.js');
-require('shared/services/initialize.js');
-
-var currentUser = function($q, apiService, intializeService){
+var currentUser = function(apiService, $q){
 	var currentUser = {
 		user: null,
 		isAuthenticated: function(){
@@ -14,8 +11,8 @@ var currentUser = function($q, apiService, intializeService){
 		return {
 			get: function(attr){
 				if (!currentUser.user) {
-					return intializeService.initialize().then(function(result){
-						currentUser.user = result.auth;
+					return apiService.Users.authentication().then(function(result){
+						currentUser.user = result;
 						return currentUser;
 					});
 				} 
@@ -23,7 +20,7 @@ var currentUser = function($q, apiService, intializeService){
 			}
 		};
 	};
-	currentUser.$inject = ['$q', 'CommunityApiService', 'CommunityInitializeService'];
+	currentUser.$inject = [require('services/api.js'), '$q'];
 
 var serviceName = 'CurrentUserService';
 require('angular').module('community.services')

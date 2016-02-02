@@ -11,22 +11,25 @@
 <div class="cmuThread__controls">
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
-        	<span community-permissions>
-	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()">${{ forums.message.reply }}$</button>
-	        	<button class="button--ghost col--md2">${{ forums.message.subscribe }}$</button>
-				<a  ng-if="vm.canEdit"
-					class="button button--ghost col--md2" 
-					area-link-handler="{{ vm.editUrl }}">
-					<span class="icon ubnt-icon--pencil-2"></span>
-					<span>${{ core.actions.edit }}$</span>
-				</a>
-				<community-drop-down
-					class="cmuInput__selectDropdown__container col--md3 noPadding"
-	                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
-	                template-ctrl="mainnavbar.currentUser"
-	                element-classname="cmuInput__selectDropdown"
-	                label="${{ core.actionsText }}$">
-	              </community-drop-down>
+        	<span>
+	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
+	        	<button community-permissions class="button--ghost col--md2" community-permissions>${{ forums.message.subscribe }}$</button>
+	        	<span community-permissions="message.can_edit_message" denied-behavior="hide">
+					<a class="button button--ghost col--md2" 
+						area-link-handler="{{ vm.editUrl }}">
+						<span class="icon ubnt-icon--pencil-2"></span>
+						<span>${{ core.actions.edit }}$</span>
+					</a>
+				</span>
+				<span community-permissions denied-behavior="hide">
+					<community-drop-down
+						class="cmuInput__selectDropdown__container col--md3 noPadding"
+		                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
+		                template-ctrl="mainnavbar.currentUser"
+		                element-classname="cmuInput__selectDropdown"
+		                label="${{ core.actionsText }}$">
+		              </community-drop-down>
+	              </span>
 			</span>
 		</div>
 
@@ -61,22 +64,24 @@
 			cmuThread__controls--bottom">
 	<div class="cmuRow row">
         <div class="col--md8 noPaddingLeft">
-        	<span community-permissions>
-	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()">${{ forums.message.reply }}$</button>
-	        	<button class="button--ghost button-blue-on-white col--md2">${{ forums.message.subscribe }}$</button>
-				<a  ng-if="vm.canEdit"
-					class="button button--ghost col--md2" 
-					area-link-handler="{{ vm.editUrl }}">
-					<span class="icon ubnt-icon--pencil-2"></span>
-					<span>${{ announcements.detail.edit }}$</span>
-				</a>
-				<community-drop-down
-					class="cmuInput__selectDropdown__container col--md3 noPadding"
-	                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
-	                template-ctrl="mainnavbar.currentUser"
-	                element-classname="cmuInput__selectDropdown"
-	                label="${{ core.actionsText }}$">
-	            </community-drop-down>
+        	<span>
+	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
+	        	<button class="button--ghost button-blue-on-white col--md2" community-permissions denied-behavior="hide">${{ forums.message.subscribe }}$</button>
+				<span community-permissions="message.can_edit_message" denied-behavior="hide">
+					<a  class="button button--ghost col--md2" area-link-handler="{{ vm.editUrl }}">
+						<span class="icon ubnt-icon--pencil-2"></span>
+						<span>${{ announcements.detail.edit }}$</span>
+					</a>
+				</span>
+				<span community-permissions denied-behavior="hide">
+					<community-drop-down
+						class="cmuInput__selectDropdown__container col--md3 noPadding"
+		                menu-template-url="directives/mainnavbar/mainnavbar.actions.html"
+		                template-ctrl="mainnavbar.currentUser"
+		                element-classname="cmuInput__selectDropdown"
+		                label="${{ core.actionsText }}$">
+		            </community-drop-down>
+	            </span>
 			</span>
 		</div>
 

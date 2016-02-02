@@ -18,7 +18,7 @@
 					<span class="cmuComments__date">
 						{{ comment.postDate | timeFromNow }}
 					</span>
-					<span class="cmuComments__flag cmuIcon-action cmuTooltip__trigger">
+					<span class="cmuComments__flag cmuIcon-action cmuTooltip__trigger" community-permissions denied-behavior="hide">
 						<span class="cmuIcon cmuIcon--small cmuIcon-action__icon cmuIcon-flag"></span>
 						<div class="cmuTooltip cmuTooltip--top"><span>${{ directives.message.flag }}$</span></div>
 					</span>

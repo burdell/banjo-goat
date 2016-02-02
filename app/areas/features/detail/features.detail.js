@@ -38,18 +38,6 @@ function featuresDetailController ($scope, $timeout, breadcrumbService, nodeServ
 		ctrl.productName = productNode.name;
 	});
 
-	permissionsService.canEdit(featureRequest.message.insertUser.id).then(function(canEdit){
-		ctrl.canEdit = canEdit;
-		if (canEdit) {
-			var currentArea = routingService.getCurrentArea();
-			ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
-				nodeId: featureRequest.node.urlCode, 
-				id: featureRequest.id,
-				messageType: 'topic'
-			});
-		}
-	});
-
 	var statusTypes = featuresData.StatusTypes;
 	_.extend(ctrl, {
 		currentReply: null,

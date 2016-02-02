@@ -4,10 +4,9 @@
   <div class="cmuThreadlist__ctrl row">
 
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
-      <div class="col--md8 noPaddingLeft" community-permissions>
-        <button class="button--solid" ng-click="vm.startNewTopic()">${{ forums.list.createTopic }}$</button>
+      <div class="col--md8 noPaddingLeft">
+        <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions="node.can_post_topic">${{ forums.list.createTopic }}$</button>
       </div>
-
 
       <div class="col--md2">
         <div ng-hide="vm.hideSearch()">
@@ -201,7 +200,7 @@
   <div class="cmuThreadlist__ctrl cmuThreadlist__ctrl--bottom row">
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
         <div class="col--md8 noPaddingLeft">
-          <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions>${{ forums.list.createTopic }}$</button>
+          <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions="node.can_post_topic">${{ forums.list.createTopic }}$</button>
         </div>
         <div class="col--md4 noPaddingLeft">
           <community-pager 

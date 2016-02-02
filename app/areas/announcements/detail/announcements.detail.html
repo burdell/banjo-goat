@@ -29,39 +29,21 @@
 
 					</div>
 				</div>
-<!-- 
+
 				<div class="cmuThread__stats">
 					<div class="row">
 						<div class="col--md12">
-							<div class="cmuThread__stat">
-								<span class="cmuThread__stat__desc">${{ core.product }}$:</span>
-								<span class="cmuThread__stat__status">{{ ::vm.productName }}</span>
-							</div>
-							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.versionNumber">
-								<span class="cmuThread__stat__desc">${{ core.version }}$:</span>
-								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.versionNumber }}</span>
-							</div>
-							<div class="cmuThread__stat" ng-if="::vm.currentAnnouncement.meta.productModel">
-								<span class="cmuThread__stat__desc">${{ core.model }}$:</span>
-								<span class="cmuThread__stat__status">{{ ::vm.currentAnnouncement.meta.productModel }}</span>
-							</div>
-						</div>
-					</div>
-				</div>
- -->
-				<div class="cmuThread__stats">
-					<div class="row">
-						<div class="col--md12">
-							<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+							<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted" community-permissions="message.can_kudo">
 								<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
 							</div>
 
-							<a  ng-if="vm.canEdit"
-								class="button button--ghost" 
-								area-link-handler="{{ vm.editUrl }}">
-								<span class="icon ubnt-icon--pencil-2"></span>
-								<span>${{ announcements.detail.edit }}$</span>
-							</a>
+							<span community-permissions="message.can_edit_message">
+								<a class="button button--ghost" 
+									area-link-handler="{{ vm.editUrl }}">
+									<span class="icon ubnt-icon--pencil-2"></span>
+									<span>${{ announcements.detail.edit }}$</span>
+								</a>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -93,20 +75,20 @@
 	</div>
 
 	<div class="row">
-		<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted">
+		<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted" community-permissions="message.can_kudo" denied-behavior="hide">
 			<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
 		</div>
 
-		<a  ng-if="vm.canEdit"
-			class="button button--ghost" 
-			area-link-handler="{{ vm.editUrl }}">
-			<span class="icon ubnt-icon--pencil-2"></span>
-			<span>${{ announcements.detail.edit }}$</span>
-		</a>
-
+		<span community-permissions="message.can_edit_message" denied-behavior="hide">
+			<a  class="button button--ghost" 
+				area-link-handler="{{ vm.editUrl }}">
+				<span class="icon ubnt-icon--pencil-2"></span>
+				<span>${{ announcements.detail.edit }}$</span>
+			</a>
+			</span>
 	</div>
 
-	<div class="row">
+	<div class="row" community-permissions="message.can_comment" denied-behavior="hide">
 		<community-comment-form
 			autofocus="false"
 			header-title="${{ directives.commentform.postNewComment }}$"

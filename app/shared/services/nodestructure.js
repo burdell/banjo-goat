@@ -3,7 +3,7 @@
 	var _ = require('underscore');
 
 	
-	var nodeStructure = function($q, $rootScope, $stateParams, iconService, initService, localizationService, routingService, routesProvider){
+	var nodeStructure = function($q, $rootScope, $stateParams, iconService, apiService, localizationService, routingService, routesProvider){
 		var nodeStructureService;
 		var nodesById = {};
 		var nodesByUrl = {};
@@ -157,13 +157,13 @@
 		return {
 			get: function(nodeId){
 				if (!nodeStructureService.NodeStructure) {
-					return initService.initialize().then(function(result){
+					return apiService.Core.nodeStructure().then(function(result){
 						if (!nodeId) {
 							nodeId = $stateParams.nodeId;
 						}
 
 						if (!nodeStructureService.NodeStructure) {
-							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result.node);
+							nodeStructureService.NodeStructure = setNodeStructure(nodeId, result);
 						}
 						return nodeStructureService;
 					});
@@ -177,7 +177,7 @@
 		'$rootScope', 
 		'$stateParams', 
 		require('services/icon.js'), 
-		require('services/initialize.js'), 
+		require('services/api.js'), 
 		'CommunityLocalizationService',
 		require('services/routing.js'), 
 		require('providers/routes.js')
