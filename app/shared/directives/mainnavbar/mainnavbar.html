@@ -101,12 +101,13 @@
               </ul><div class="cmuGloNav__accountControl">
 
               <!-- menu buttons - note how <div>s start on the same line, to prevent the browser from adding extra padding for inline elements-->
-                <community-drop-down
+                <!-- no languages for spanish -->
+                <!-- <community-drop-down
                         menu-template-url="directives/mainnavbar/mainnavbar.language.html"
                         template-ctrl="mainnavbar.currentUser"
                         element-classname="cmuGloNav__cmuLang"
                         icon-classname="icon ubnt-icon--world">
-                      </community-drop-down><div ng-class="{'hideNav':mainnavbar.hideSearch()}" class="cmuGloNav__cmuSearch"
+                      </community-drop-down> --><div ng-class="{'hideNav':mainnavbar.hideSearch()}" class="cmuGloNav__cmuSearch"
                      ng-click="$broadcast('searchbar:toggleSearchbar');">
                   <span class="icon ubnt-icon--search-2"></span>
                 </div><div 

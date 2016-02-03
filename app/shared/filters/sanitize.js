@@ -4,7 +4,7 @@
 var marked = require('marked');
 var emojify = require('filters/commemojify.js');
 
-// additional custom emoji keywords ex: ":ubnt:"  
+// additional custom emoji keywords ex: ":ubnt:". needs to lead with ','
 emojify.setEmoji(",ca,ch,cn,co,dk,fi,ie,il,in,ubnt,ubnt-banana,poo,poop");
 emojify.setConfig({
 	mode: 'data-uri'

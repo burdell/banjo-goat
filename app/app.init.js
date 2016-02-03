@@ -6,6 +6,7 @@ require('angular-ui-select/select.js');
 //require('angular-cookies');
 require('angular-sanitize');
 require('pikaday-angular');
+require('angular-cookies');
 
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
