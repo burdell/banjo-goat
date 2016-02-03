@@ -1,8 +1,7 @@
 <div>
 	<community-announcement></community-announcement>
 	<div class="cmuFeed cmuFeed--home">
-		
-		<community-page-header header-text="${{ directory.feed.header }}$" hide-element-selector=".feed-container"></community-page-header>
+
 <!-- 
 		<div class="feed-container">
 			<!-- pulse --
@@ -36,109 +35,109 @@
 						  </community-sort>
 				        </div>
 				         -->
-<div class="cmuFeed cmuFeed--home">
-	<community-page-header header-text="${{ directory.feed.header }}$" hide-element-selector=".feed-container"></community-page-header>
-	<div class="feed-container">
-		<!-- pulse -->
-		<community-pulse></community-pulse>
-		<div class="row">
-			<!-- main -->
-			<div class="cmuFeed__main col--md9 noPaddingLeft">
-				<!-- filter & sort controls -->
-				<div class="cmuThreadlist__ctrl__row row">
-					<div class="col--md6">
-						<span community-permissions denied-behavior="hide">
-							<button 
-								class="button--tab button--wide" 
-								ng-class="{'active': vm.feedType=='community'}" 
-								ng-click="vm.setFeedType('community')">
-									${{ directory.feed.recentContent }}$
-							</button>
-							<button 
-								class="button--tab button--wide" 
-								ng-click="vm.setFeedType('user')" 
-								ng-class="{'active': vm.feedType=='user'}">
-									${{ directory.feed.followedContent }}$
-							</button>
-						</span>
-					</div>
-					 <div class="col--md3 noPaddingRight">
-			          	<community-sort 
-			          		sort-options="vm.categorySortOptions" 
-			          		sort-filter="vm.feedFilter" 
-			          		sort-exclude="page" 
-			          		class="community__sort"
-			          		sort-param="nodeUrlCode",
-			          		on-sort-fn="vm.setDiscussionStyleList">
-			          	</community-sort>
-			        </div>
-					<div class="col--md3">
-					  <community-sort 
-					  	sort-options="vm.discussionSortOptions" 
-					  	sort-filter="vm.feedFilter" 
-					  	sort-exclude="page" 
-					  	class="community__sort"
-					  	sort-param="style"
-					  	on-sort-fn="vm.checkStoryData">
-					  </community-sort>
-			        </div>
-
-					<div class="cmuFeed__container">
-
-			        	<!-- refresh button -->
-				        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
-				        <div class="cmuFeed__update col--md12 noPadding">
-				        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon ubnt-icon--refresh-2"></span>${{ directory.feed.refresh }}$</button>
+		<community-page-header header-text="${{ directory.feed.header }}$" hide-element-selector=".feed-container"></community-page-header>
+		<div class="feed-container">
+			<!-- pulse -->
+			<community-pulse></community-pulse>
+			<div class="row">
+				<!-- main -->
+				<div class="cmuFeed__main col--md9 noPaddingLeft">
+					<!-- filter & sort controls -->
+					<div class="cmuThreadlist__ctrl__row row">
+						<div class="col--md6">
+							<span community-permissions denied-behavior="hide">
+								<button 
+									class="button--tab button--wide" 
+									ng-class="{'active': vm.feedType=='community'}" 
+									ng-click="vm.setFeedType('community')">
+										${{ directory.feed.recentContent }}$
+								</button>
+								<button 
+									class="button--tab button--wide" 
+									ng-click="vm.setFeedType('user')" 
+									ng-class="{'active': vm.feedType=='user'}">
+										${{ directory.feed.followedContent }}$
+								</button>
+							</span>
+						</div>
+						 <div class="col--md3 noPaddingRight">
+				          	<community-sort 
+				          		sort-options="vm.categorySortOptions" 
+				          		sort-filter="vm.feedFilter" 
+				          		sort-exclude="page" 
+				          		class="community__sort"
+				          		sort-param="nodeUrlCode",
+				          		on-sort-fn="vm.setDiscussionStyleList">
+				          	</community-sort>
+				        </div>
+						<div class="col--md3">
+						  <community-sort 
+						  	sort-options="vm.discussionSortOptions" 
+						  	sort-filter="vm.feedFilter" 
+						  	sort-exclude="page" 
+						  	class="community__sort"
+						  	sort-param="style"
+						  	on-sort-fn="vm.checkStoryData">
+						  </community-sort>
 				        </div>
 
-			        	<!-- story feed -->
-				        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding collapseRight collapseSubtle" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
+						<div class="cmuFeed__container">
 
-							<div class="cmuCollapser__header cmuCollapser__header--light open" community-class-toggle="open">
-								<div class="cmuFeed__title"> 
-									<h5>${{ core.time.latest }}$ ${{ stories.areaName }}$</h5>
+				        	<!-- refresh button -->
+					        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
+					        <div class="cmuFeed__update col--md12 noPadding">
+					        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon ubnt-icon--refresh-2"></span>${{ directory.feed.refresh }}$</button>
+					        </div>
+
+				        	<!-- story feed -->
+					        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding collapseRight collapseSubtle" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
+
+								<div class="cmuCollapser__header cmuCollapser__header--light open" community-class-toggle="open">
+									<div class="cmuFeed__title"> 
+										<h5>${{ core.time.latest }}$ ${{ stories.areaName }}$</h5>
+									</div>
 								</div>
-							</div>
-							
-							<div class="cmuFeed__storyList cmuCollapser__content clearfix">
-								<div class="cmuFeed__storyList__stories clearfix">
-									<div ng-repeat="story in vm.storyData" class="col--md3">
-										<story-display
-											story="story"
-											story-media="story.media"
-											minimal-display="true"
-											fill-width="true">
-										</story-display>
+								
+								<div class="cmuFeed__storyList cmuCollapser__content clearfix">
+									<div class="cmuFeed__storyList__stories clearfix">
+										<div ng-repeat="story in vm.storyData" class="col--md3">
+											<story-display
+												story="story"
+												story-media="story.media"
+												minimal-display="true"
+												fill-width="true">
+											</story-display>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-				        <div class="cmuFeed__container col--md12" ng-if=" vm.feedType === 'user' ">
-				        	<div class="button button--ghost">${{ directory.feed.manageSubscriptions }}$</div>
-				        </div>
+					        <div class="cmuFeed__container col--md12" ng-if=" vm.feedType === 'user' ">
+					        	<div class="button button--ghost">${{ directory.feed.manageSubscriptions }}$</div>
+					        </div>
 
-			        	<!-- activity feed -->
-				        <div class="cmuFeed__container col--md12">
-				        	<div class="cmuFeed__title clearfix">
-								<h5>
-								{{ vm.feedTypeDisplay }}</h5>
-							</div>
-				        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList.content">
-				        		<community-feed-content content-model="feedItem"></community-feed-content>
-				        	</div>
+				        	<!-- activity feed -->
+					        <div class="cmuFeed__container col--md12">
+					        	<div class="cmuFeed__title clearfix">
+									<h5>
+									{{ vm.feedTypeDisplay }}</h5>
+								</div>
+					        	<div class="cmuFeed__item__container"ng-repeat="feedItem in vm.feedList.content">
+					        		<community-feed-content content-model="feedItem"></community-feed-content>
+					        	</div>
+						    </div>
+
+						    <!-- load more button -->
+					        <div class="cmuFeed__pagerBottom col--md12 noPaddingLeft noPaddingRight">
+						        <community-load-more
+									list-model="vm.feedList"
+									load-filter="vm.feedFilter">
+								</community-load-more>
+					        </div>
 					    </div>
+					</div>
 
-					    <!-- load more button -->
-				        <div class="cmuFeed__pagerBottom col--md12 noPaddingLeft noPaddingRight">
-					        <community-load-more
-								list-model="vm.feedList"
-								load-filter="vm.feedFilter">
-							</community-load-more>
-				        </div>
-				    </div>
 				</div>
-
 
 				<!-- sidebar -->
 				<div class="cmuFeed__sidebar col--md3 noPaddingRight">

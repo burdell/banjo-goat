@@ -4,18 +4,21 @@
 var _ = require('underscore');
 
 function communityAnnouncement() {
-	var controller = function($scope) {
+	var controller = function($cookies, $cookieStore) {
 		var ctrl = this;
 
+  		ctrl.isOpen = true;
+        if ($cookieStore.get('introBannerIsOpen') === 'false') { ctrl.isOpen = false; }
+
 		_.extend(ctrl, {
-            isOpen: true,
 			closeMenu: function() {
 				ctrl.isOpen = false;
+				$cookieStore.put('introBannerIsOpen','false');
 				console.log('cloooose');
 			}
 		}); 
 	};
-	controller.$inject = ['$scope'];
+	controller.$inject = ['$cookies', '$cookieStore'];
 
     var directive = {
         controller: controller,
@@ -29,43 +32,7 @@ function communityAnnouncement() {
     return directive;
 }
 
+
 angular.module('community.directives')
 	.directive('communityAnnouncement', communityAnnouncement);
 
-
-
-
-
-
-
-// (function(_){
-// 	'use strict';
-
-// 	function communityAnnouncement() {
-// 		function link(scope, element, attrs) {
-		    
-// 		}
-
-// 		function controller(nodeService) {
-		
-// 		}
-// 		controller.$inject = [];
-	    
-// 	    var directive = {
-// 	        link: link,
-// 	        controller: controller,
-// 	        templateUrl: 'directives/announcement/announcement.html',
-// 	        restrict: 'E',
-// 	        controllerAs: 'announcement',
-// 	        bindToController: true,
-// 	        replace: true,
-// 	        scope: {}
-// 	    };
-
-// 	    return directive;
-// 	}
-
-// 	angular.module('community.directives')
-// 		.directive('communityAnnouncement', communityAnnouncement);
-
-// }(window._));
