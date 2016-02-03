@@ -135,7 +135,7 @@ var communityApiService = function($http, $q, $timeout){
 				return goToApi(v2Url + 'announcements/threads', options);
 			},
 			announcements: function(nodeId, options) {
-				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
 			},
 			detail: function(announcementId){
 				return goToApi(v2Url + 'announcements/' + announcementId, addPermissionData({}, 'message'));
