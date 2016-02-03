@@ -7,7 +7,7 @@ require('directives/map/locationsearch.js');
 require('directives/mediadisplay/video.js');
 require('directives/mediadisplay/mediadisplay.js');
 require('directives/texteditor/texteditor.js');
-
+require('directives/fileupload/fileupload.js');
 
 
 var _ = require('underscore');

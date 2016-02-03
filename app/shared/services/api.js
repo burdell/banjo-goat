@@ -268,11 +268,13 @@ var communityApiService = function($http, $q, $timeout){
 			}
 		},
 		Media: {
-			upload: function(fileData){
+			upload: function(fileData, isAttachment){
 				var formData = new FormData();
 				formData.append('file', fileData);
 
-				return goToApi(v2Url + 'media', formData, 'POST', true);
+				var fileUrl = isAttachment ? 'uploads/attachments' : 'uploads/images';
+
+				return goToApi(v2Url + fileUrl, formData, 'POST', true);
 			}
 		},
 		Messages: {
