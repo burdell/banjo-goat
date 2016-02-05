@@ -58,138 +58,198 @@
         </div>
         <div class="cmuThreadlist__authorName visible--lgUp">${{ core.time.latest }}$</div>
         <div class="cmuThreadlist__authorDate"><span class="visible--mdDown">${{ core.time.latest }}$</span></div>
-        <div class="cmuThreadlist__counter cmuThreadlist__views">
+        <div class="cmuThreadlist__counter 
+                    cmuThreadlist__views 
+                    visible--smUp">
           <span class="visible--mdUp">${{ core.views }}$</span>
           <span class="visible--smDown">${{ core.v }}$</span>
         </div>
         <div class="cmuThreadlist__counter
-                    cmuThreadlist__replies">
+                    cmuThreadlist__replies visible--smUp">
           <span class="visible--mdUp">${{ core.replies }}$</span>
           <span class="visible--smDown">${{ core.r }}$</span>
         </div>
         <div class="cmuThreadlist__counter 
-                    cmuThreadlist__kudos">
+                    cmuThreadlist__kudos visible--smUp">
           <span class="visible--mdUp">${{ core.kudos }}$</span>
           <span class="visible--smDown">${{ core.k }}$</span>
         </div>
         <div class="cmuThreadlist__authorName visible--xlgUp">${{ forums.list.created }}$</div>
-        <div class="cmuThreadlist__authorDateCreated visible--lgDown visible--mdUp">${{ forums.list.created }}$</div>
+        <div class="cmuThreadlist__authorDateCreated visible--smUp"><span class="visible--lgDown visible--smUp">${{ forums.list.created }}$</span></div>
       </div>
 
+
+
+
+
+
+
       <div class="cmuThreadlist__body">
-        <a class="cmuThreadlist__row" 
-            area-link-handler="{{ vm.getMessageUrl(message.id) }}"
+        <span class="cmuThreadlist__row"
             ng-repeat="message in vm.messageList"
             ng-class="{'isRead':vm.isRead(message)}"
             >
 
-          <div class="cmuThreadlist__topic">
-            {{ ::message.topic.subject | htmlUnescape }}
-          </div>
-
-          <div class="cmuThreadlist__preview">
-            <span 
-              class="cmuThreadlist__tooltip"
-              community-tooltip
-              data-id-field="{{ ::message.id }}" 
-              ajax-populate="vm.getMessageData" 
-              tooltip-template="forums/list/forums.list.messagetooltip.html"
-              local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
-              empty-text="${{ forums.list.emptyPreview }}$"
-              tooltip-class="cmuTooltipster"
-              position="top-right"
-            ><span class="icon ubnt-icon--eye2"></span>
-            </span>
-          </div>
-
-          <div class="cmuThreadlist__latest
-                      cmuThreadlist__authorName
-                      visible--lgUp">
-            <div class="cmuThreadlist__avatar">
-              <div
-                community-tooltip
-                data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
-                ajax-populate="vm.getUserData" 
-                tooltip-template="forums/list/forums.list.usertooltip.html"
-                empty-text="${{ forums.list.emptyPreview }}$"
-                tooltip-class="cmuTooltipster"
-                position="top"
-              >
-                <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
-                <span>{{ message.context.lastestMessage.insertUser.login }}</span>
-              </div>
+          <a area-link-handler="{{ vm.getMessageUrl(message.id) }}">
+            <div class="cmuThreadlist__topic">
+              {{ ::message.topic.subject | htmlUnescape }}
             </div>
-          </div>
+          </a>
 
-          <div class="cmuThreadlist__latest 
-                      cmuThreadlist__authorDate">
-            <div class="cmuThreadlist__avatar visible--mdDown">
-              <span
+
+          <a area-link-handler="{{ vm.getMessageUrl(message.id) }}">
+            <div class="cmuThreadlist__preview">
+              <span 
+                class="cmuThreadlist__tooltip"
                 community-tooltip
-                data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
-                ajax-populate="vm.getUserData" 
-                tooltip-template="forums/list/forums.list.usertooltip.html"
+                data-id-field="{{ ::message.id }}" 
+                ajax-populate="vm.getMessageData" 
+                tooltip-template="forums/list/forums.list.messagetooltip.html"
+                local-data="{ messageUrl: vm.getMessageUrl(message.id) }"
                 empty-text="${{ forums.list.emptyPreview }}$"
                 tooltip-class="cmuTooltipster"
-                position="top"
-              >
-                <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+                position="top-right"
+              ><span class="icon ubnt-icon--eye2"></span>
               </span>
             </div>
-            <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
-            </span>
-          </div>
+          </a>
 
-          <div class="cmuThreadlist__counter cmuThreadlist__views">
-            {{  message.topic.countViews | number}}
-          </div>
-          <div class="cmuThreadlist__counter cmuThreadlist__replies">
-            {{  message.context.totalMessageCount - 1 | number}}
-          </div>
-          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
-            {{  message.topic.message.scores.kudo | number}}
-          </div>
-
-          <div class="cmuThreadlist__created
-                      cmuThreadlist__authorName
-                      visible--xlgUp">
-            <div class="cmuThreadlist__avatar">
-              <div
-                community-tooltip
-                data-id-field="{{ message.topic.message.insertUser.id }}" 
-                ajax-populate="vm.getUserData" 
-                tooltip-template="forums/list/forums.list.usertooltip.html"
-                empty-text="${{ forums.list.emptyPreview }}$"
-                tooltip-class="cmuTooltipster"
-                position="top"
-              >
-                <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
-                <span>{{ message.topic.message.insertUser.login }}</span>
+          <a 
+            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
+            class="visible--lgUp">
+            <div class="cmuThreadlist__latest
+                        cmuThreadlist__authorName">
+              <div class="cmuThreadlist__avatar">
+                <div
+                  community-tooltip
+                  data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
+                  ajax-populate="vm.getUserData" 
+                  tooltip-template="forums/list/forums.list.usertooltip.html"
+                  empty-text="${{ forums.list.emptyPreview }}$"
+                  tooltip-class="cmuTooltipster"
+                  position="top"
+                >
+                  <span area-link-handler="{{ message.context.lastestMessage.insertUser.profileUrl }}">
+                    <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+                    <span>{{ message.context.lastestMessage.insertUser.login }}</span>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
 
-
-          <div class="cmuThreadlist__created cmuThreadlist__authorDateCreated visible--mdUp">
-            <div class="cmuThreadlist__avatar visible--lgDown"> 
-              <span 
-                community-tooltip
-                data-id-field="{{ message.topic.message.insertUser.id }}" 
-                ajax-populate="vm.getUserData" 
-                tooltip-template="forums/list/forums.list.usertooltip.html"
-                empty-text="${{ forums.list.emptyPreview }}$"
-                tooltip-class="cmuTooltipster"
-                position="top"
-              >
-                <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
-                <!-- <span>{{ message.topic.message.insertUser.login }}</span> -->
+          <a 
+            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
+            class="">
+            <div class="cmuThreadlist__latest 
+                        cmuThreadlist__authorDate">
+              <div class="cmuThreadlist__avatar visible--mdDown">
+                <span
+                  community-tooltip
+                  data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
+                  ajax-populate="vm.getUserData" 
+                  tooltip-template="forums/list/forums.list.usertooltip.html"
+                  empty-text="${{ forums.list.emptyPreview }}$"
+                  tooltip-class="cmuTooltipster"
+                  position="top"
+                >
+                  <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+                </span>
               </div>
-            </span>
-            
-            <div class="cmuThreadlist__date">{{ ::message.topic.message.postDate | timeFromNow }}
+              <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
+              </span>
             </div>
-          </div>
-        </a>
+          </a>
+
+          <a area-link-handler="{{ vm.getMessageUrl(message.id) }}"
+             class="visible--smUp">
+            <div class="cmuThreadlist__counter cmuThreadlist__views">
+              {{  message.topic.countViews | number}}
+            </div>
+          </a>
+          <a area-link-handler="{{ vm.getMessageUrl(message.id) }}"
+             class="visible--smUp">
+            <div class="cmuThreadlist__counter cmuThreadlist__replies">
+              {{  message.context.totalMessageCount - 1 | number}}
+            </div>
+          </a>
+          <a area-link-handler="{{ vm.getMessageUrl(message.id) }}"
+             class="visible--smUp">
+            <div class="cmuThreadlist__counter cmuThreadlist__kudos">
+              {{  message.topic.message.scores.kudo | number}}
+            </div>
+          </a>
+
+          <a 
+            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.id) }}"
+            class="visible--xlgUp"
+            >
+            <div class="cmuThreadlist__created
+                        cmuThreadlist__authorName">
+              <div class="cmuThreadlist__avatar">
+                <div
+                  community-tooltip
+                  data-id-field="{{ message.topic.message.insertUser.id }}" 
+                  ajax-populate="vm.getUserData" 
+                  tooltip-template="partials/usertooltip.html"
+                  empty-text="${{ forums.list.emptyPreview }}$"
+                  tooltip-class="cmuTooltipster"
+                  position="top"
+                >
+                  <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+                  <span>{{ message.topic.message.insertUser.login }}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a 
+            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.id) }}" 
+            class="visible--smUp">
+            <div class="cmuThreadlist__authorDateCreated cmuThreadlist__created">
+              <div class="cmuThreadlist__avatar visible--lgDown"> 
+                <span 
+                  community-tooltip
+                  data-id-field="{{ message.topic.message.insertUser.id }}" 
+                  ajax-populate="vm.getUserData" 
+                  tooltip-template="forums/list/forums.list.usertooltip.html"
+                  empty-text="${{ forums.list.emptyPreview }}$"
+                  tooltip-class="cmuTooltipster"
+                  position="top"
+                >
+                  <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+                </span>
+              </div>
+              <div class="cmuThreadlist__authorDate">{{ ::message.topic.message.postDate | timeFromNow }}</div>
+            </div>
+          </a>
+<!-- 
+          <a 
+            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
+            class="">
+            <div class="cmuThreadlist__latest 
+                        cmuThreadlist__authorDate">
+              <div class="cmuThreadlist__avatar visible--mdDown">
+                <span
+                  community-tooltip
+                  data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
+                  ajax-populate="vm.getUserData" 
+                  tooltip-template="forums/list/forums.list.usertooltip.html"
+                  empty-text="${{ forums.list.emptyPreview }}$"
+                  tooltip-class="cmuTooltipster"
+                  position="top"
+                >
+                  <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
+                </span>
+              </div>
+              <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
+              </span>
+            </div>
+          </a>
+ -->
+
+          
+        </span>
       </div>
       <!-- end body -->
 
@@ -202,7 +262,7 @@
         <div class="col--md8 noPaddingLeft">
           <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions="node.can_post_topic">${{ forums.list.createTopic }}$</button>
         </div>
-        <div class="col--md4 noPaddingLeft">
+        <div class="col--md4 noPadding">
           <community-pager 
             number-of-pages="vm.numberOfPages" 
             pager-fn="vm.forumListFilter"

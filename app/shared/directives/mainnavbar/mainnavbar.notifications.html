@@ -1,10 +1,10 @@
 <div class="">
 	<div class="cmuNotifications__dropdown__container">
 		<div class="cmuNotifications__dropdown__header cmuDropdown__header clearfix">
-			<div class="cmuDropdown__headline">${{ directives.mainnavbar.notifications }}$<span></span></div>
-			<community-loader show-when="dropdown.templateCtrl.loading"></community-loader> 
+			<div class="cmuDropdown__headline">${{ directives.mainnavbar.notifications }}$</div>
 		</div>
-
+		<div class="cmuDropdown__loader" show-when="dropdown.templateCtrl.loading">
+		<community-loader class="cmuLoader__container--tight cmuLoader__container--small" show-when="dropdown.templateCtrl.loading"></community-loader></div>
 		<div class="cmuNotifications__dropdown__content cmuDropdown__content clearfix" ng-hide="dropdown.templateCtrl.loading">
 			<ul class="col--md12 noPadding">
 				<li ng-repeat="notification in dropdown.templateCtrl.list">

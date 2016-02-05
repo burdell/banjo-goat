@@ -106,6 +106,20 @@ $style-line: 1px solid $cmu-color-line;
 	}
 }
 
+	.style-link--content, %style-link--content {
+		@extend %ease-fast;
+		@extend %user-select-none;
+		// display: inline-block;
+		color: $cmu-color-link !important;
+		cursor: pointer !important;
+		&.active {
+			color: $cmu-color-link_active !important;
+		}
+		&:hover {
+			@extend %ease-fast;
+			color: $cmu-color-link_hover !important;
+		}
+	}
 
 
 

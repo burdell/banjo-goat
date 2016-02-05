@@ -14,12 +14,34 @@ $loader-small-border: 5px;
 	.cmuLoader__container--short {
 		margin-top: $cmu-base*2;
 		margin-bottom: $cmu-base*2;
+
+		// can be switched
+		.cmuLoader__container {
+			margin-top: $cmu-base*2;
+			margin-bottom: $cmu-base*2;
+		}
 	}
 
 	.cmuLoader__container--tight {
 		margin-top: 0;
 		margin-bottom: 0;
 		padding: $cmu-base;
+
+		// can be switched
+		.cmuLoader__container {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding: $cmu-base;
+		}
+	}
+
+	.cmuLoader__container--noPadding {
+		padding: 0;
+
+		// can be switched
+		.cmuLoader__container {
+			padding: 0;
+		}
 	}
 
 

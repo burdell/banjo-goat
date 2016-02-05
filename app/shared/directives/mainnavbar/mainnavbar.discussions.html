@@ -1,9 +1,16 @@
 <div>
 
-	<div class="cmuMega__section noBorder col--xs4">
-		<a area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}" class="button button--outline button--padded button-blue-on-black">${{ directives.mainnavbar.directory }}$</a>
+	<div class="cmuMega__section noBorder col--xs10">
+		<div class="cmuMega__section__head col--md12">
+			Community
+		</div>
+		<div class="cmuMega__section__head col--md12">
+			<a class="button button--padded button--outline button-gray-on-black" href="/stories/" target="_self" ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }" class="ng-binding">Stories</a>
+			<a class="button button--padded button--outline button-gray-on-black" href="/announcements/" target="_self" ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }" class="ng-binding">Announcements</a>
+			<a class="button button--outline button--padded button-blue-on-black" area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}">${{ directives.mainnavbar.directory }}$</a>
+		</div>
 	</div>
-	<div class="col--md8 alignRight">
+	<div class="col--md2 alignRight">
 		<div class="cmuMega__close" ng-click="megamenu.toggleMenu()" >
 			<span class="icon ubnt-icon--x"></span>
 		</div>

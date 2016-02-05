@@ -129,9 +129,13 @@ function mainNavBar() {
 					case hrefs.stories:
 						active = currentState === 'storiesLanding'
 						break;
+
 				}
 				
 				return active;
+			},
+			isHome: function () {
+				return $state.current.name === 'feed';
 			},
 			openDropdown: function(eventName) {
 				$scope.$broadcast('dropdown:' + eventName);

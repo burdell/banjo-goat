@@ -93,11 +93,11 @@ $cmu-color-purewhite: 	#FFF;
 
 	// Links (default - blue, hover to black)
 	$cmu-color-link: $cmu-color-blue;
-	$cmu-color-link_hover: $cmu-color-dkgray;
+	$cmu-color-link_hover: $cmu-color-dkblue; // was -dkgray
 	$cmu-color-link_active: $cmu-color-blue;
 
 	// Links (dark / reverse - black, hover to blue)
-	$cmu-color-link--dark: $cmu-color-link_hover;
+	$cmu-color-link--dark: $cmu-color-dkgray;
 	$cmu-color-link--dark_hover: $cmu-color-link;
 	$cmu-color-link--dark_active: $cmu-color-link_active;
 

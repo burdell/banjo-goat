@@ -56,6 +56,10 @@
 	// border-left: 1px solid $cmu-color-mdgray;
 	
 	border-bottom: $style-line;
+	&.noNavLinks {
+		border-bottom: 0; // gets rid of double line issue
+	}
+
 	border-top: $style-line--dark;
 	border-top-width: 2px; // thicker
 

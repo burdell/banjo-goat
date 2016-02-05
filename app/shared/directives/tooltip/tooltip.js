@@ -51,6 +51,10 @@ function communityTooltip() {
 								var tooltipData = { user: result }
 
 								var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
+
+								console.log('what: ' + tooltipData)
+								console.log(tooltipData)
+
 								origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
 							}
 						});
@@ -66,8 +70,12 @@ function communityTooltip() {
 
 	var controller = function($templateCache, $interpolate) {
 		this.getTemplate = function(templateData) {
+
+			console.log('test 1: ' + templateData)
+			console.log(this.tooltipTemplateName)
 			var tooltipTemplate = $templateCache.get(this.tooltipTemplateName);
 			
+			console.log('test 2: ' + tooltipTemplate)
 			if (this.localData) {
 				templateData = _.extend(templateData, this.localData);
 			}

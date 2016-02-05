@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col--xs12 noPadding">
             <a area-link-handler="/">
-              <div class="cmuGloNav__left">
+              <div class="cmuGloNav__left" ng-class="{ 'active' : mainnavbar.isHome() }">
                 <div class="cmuGloNav__logo">
                   <span class="icon ubnt-icon--u"></span>
                 </div>
@@ -88,11 +88,11 @@
                   ng-repeat="navItem in mainnavbar.navList"
                   ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
                   class="cmuGloNav__link">
-                    <span ng-if="navItem.href">
+                    <!-- <span ng-if="navItem.href">
                       <a href="{{ navItem.href }}" 
                         target="{{ mainnavbar.target(navItem.href) }}"
                         ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
-                    </span>
+                    </span> -->
                     <span ng-if="navItem.clickFn">
                       <a ng-click="navItem.clickFn()" 
                         ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>

@@ -268,6 +268,9 @@ button, .button, .cmuButton {
 	&.button-blue-on-black {
 		@include cmuButton($mode,$cmu-color-dkblue,$cmu-color-black,$cmu-color-blue,$cmu-color-black);
 	}
+	&.button-gray-on-black {
+		@include cmuButton($mode,$cmu-color-gray,$cmu-color-black,$cmu-color-dkgray,$cmu-color-black);
+	}
 }
 
 
