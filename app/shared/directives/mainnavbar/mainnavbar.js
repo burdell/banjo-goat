@@ -17,7 +17,7 @@ require('services/inbox.js');
 var _ = require('underscore');
 
 function mainNavBar() {
-	function controller($scope, $state, $location, apiService, localizationService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService, inboxService) {
+	function controller($rootScope, $scope, $state, $location, apiService, localizationService, nodeServiceWrapper, realtimeService, routingService, userServiceWrapper, routesProvider, notificationService, inboxService) {
 		
 		var ctrl = this;
 		var hrefs = {
@@ -72,6 +72,28 @@ function mainNavBar() {
 				});
 			}
 		}
+
+		$rootScope.$on('rootScope:closeAllDropdowns', function(){
+			console.log('mainnavbar closeAll')
+			// ctrl.searchIsOpen = false;
+		});
+		$rootScope.$on('rootScope:zztop', function(){
+			console.log('mainnavbar zztop')
+			// ctrl.searchIsOpen = false;
+		});
+		
+		
+		$rootScope.$on('rootScope:openSearchbar', function(){
+			console.log('search openSearchbar: ' + ctrl.searchIsOpen)
+			ctrl.searchIsOpen = true;
+		});
+
+		$rootScope.$on('rootScope:closeSearchbar', function(){
+			console.log('search closeSearchbar: ' + ctrl.searchIsOpen)
+			ctrl.searchIsOpen = false;
+		});
+		
+		
 
 		userServiceWrapper.get().then(function(userObj){
 			ctrl.isAuthenticated = userObj.isAuthenticated();
@@ -137,8 +159,16 @@ function mainNavBar() {
 			isHome: function () {
 				return $state.current.name === 'feed';
 			},
+			isSearch: function () {
+				return $state.current.name === 'searchpage';
+			},
 			openDropdown: function(eventName) {
 				$scope.$broadcast('dropdown:' + eventName);
+			},
+			searchIsOpen: false,
+			searchOpen: function(){
+				// console.log('what')
+				// ctrl.searchIsOpen = !ctrl.searchIsOpen;
 			},
 			templateData: {
 				getDiscussionUrl: function(node){
@@ -178,13 +208,11 @@ function mainNavBar() {
 				getRecipientString: function(recipientData){
 					return inboxService.getRecipientString(recipientData);
 				}
-			},
-			hideSearch: function(){
-				return $state.current.name === 'searchpage';
 			}
 		 });			
 	}
 	controller.$inject = [
+		'$rootScope',
 		'$scope', 
 		'$state',
 		'$location', 

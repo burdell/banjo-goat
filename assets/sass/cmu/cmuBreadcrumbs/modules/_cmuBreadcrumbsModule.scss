@@ -8,15 +8,11 @@
 // BREADCRUMBS
 // 
 
-// $cmu-breadcrumbs-link-color: $cmu-color-gray;
-// $cmu-breadcrumbs-hover-link-color: $cmu-color-hover;
-// $cmu-breadcrumbs-last-color: $cmu-color-gray;
-
 
 .cmuBreadcrumbs {
  	margin-top: 1rem;
 	// margin-bottom: $cmu-base/2;
-	font-weight: 300; 
+	font-weight: 400; 
 	@extend %type-minor;
 	@extend %ease-fast;
 
@@ -39,10 +35,11 @@
 	li {
 		display: inline-block;
 		list-style-type: none;
+		cursor: default;
 
 		span {
 			cursor: pointer; 
-			border-bottom: $style-line;
+			// border-bottom: $style-line;
 			&:hover {
 				color: $cmu-color-active;
 				border-color: $cmu-color-active;
@@ -55,8 +52,9 @@
 		}
 
 		a {
-			color: $cmu-color-link--dark;
-			&:hover { color: $cmu-color-link--dark_hover; }
+			// 	color: $cmu-color-link--dark;
+			// 	&:hover { color: $cmu-color-link--dark_hover; }
+			@extend %style-link--dark;
 		}
 
 		&:last-child {
@@ -75,7 +73,7 @@
 
 	// current crumb isn't clickable, so is grayed out
 	.cmuBreadcrumbs__last {
-		color: $cmu-color-link--dark; 
+		color: $cmu-color-dkgray; 
 		cursor: default;
 		text-decoration: none;
 	}

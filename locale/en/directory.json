@@ -46,7 +46,7 @@
 		"searchbarPlaceholder": "Search Community",
 		"noResults": "No results found for ",
 		"postedOn": "Posted on ",
-		"results": "Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for:"
+		"results": "Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for"
 	},
 	"user": {
 		"aboutMe": "About Me",

@@ -85,13 +85,20 @@
     }
 }
 
+    // the searchbox's look on the search page
+    .cmuSearchpage--searchbox {
+        @extend %cmuSearchbox--large;
 
-.cmuSearchbox.cmuSearchbox--page {
-    @extend %cmuSearchbox--large;
-
-    input {
-        @extend %h3;
-        border: $style-line; 
+        input {
+            // @extend %h3; // doesn't extend for some reason
+            font-size: $size-h3;
+            line-height: $size-h3__lineHeight;
+            font-weight: 600;
+            color: $cmu-color-dkgray;
+            
+            // font-size: 999px;
+            border: $style-line;
+            border-color: $cmu-color-blue; 
+        }
     }
-}
 

@@ -1,25 +1,30 @@
 <div class="cmuSearchpage cmuThreadlist">
+ 	
  	<community-page-header 
+ 		hidden="true"
  		header-text="${{ directory.search.header }}$"
 		hide-element-selector=".cmuSearchpage__container">
 	</community-page-header>
 
 	<div class="cmuSearchpage__container">
-		<div class="cmuSearchpage__searchbar row">
-			<div class="col--md12 noPadding">
-				<div class="cmuSearchbox cmuSearchbox--page">
-					<div class="appIconInput appIconInput--right">
-						<div ng-click="vm.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
-						<input 
-							class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-							placeholder="${{ directory.search.searchbarPlaceholder }}$" 
-							type="text" 
-							ng-model="vm.searchText"
-							community-enter="vm.search()">
-				    </div>
+
+		<!-- <div class="cmuSearchpage__searchbar__container"> -->
+			<div class="cmuSearchpage__searchbar row">
+				<div class="col--md12 noPadding">
+					<div class="cmuSearchbox cmuSearchpage--searchbox">
+						<div class="appIconInput appIconInput--right">
+							<div ng-click="vm.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
+							<input 
+								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+								placeholder="${{ directory.search.searchbarPlaceholder }}$" 
+								type="text" 
+								ng-model="vm.searchText"
+								community-enter="vm.search()">
+					    </div>
+					</div>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 		<!-- end searchbar -->
 		
     	<div class="cmuSearchpage__content row">
@@ -41,9 +46,8 @@
 	    			</community-datepicker> 
 	    		</div>
 
-	    			<!-- Discussion Styles filter -->
+	    		<!-- Discussion Styles filter -->
 	    		<div class="cmuInputGroup">	
-
     				<div class=" cmuInput__checkbox cmuInput__checkbox--default">
 						<label>
 							<input 
@@ -53,7 +57,7 @@
 								ng-model="vm.filterOptions.discussionStyles.defaultOption.selected" 
 								ng-change="vm.defaultChanged(vm.filterOptions.discussionStyles)"
 								ng-checked="vm.filterOptions.discussionStyles.defaultOption.selected" />
-								<span data-content="${{ core.ui.clear }}$">{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
+								<span ng-attr-data-content="{{ !vm.filterOptions.discussionStyles.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
 						</label>
 					</div>
     				<div class="cmuInputGroup__checkbox" ng-repeat="filter in vm.filterOptions.discussionStyles.list">
@@ -118,7 +122,7 @@
 									ng-model="product.defaultOption.selected" 
 									ng-change="vm.defaultChanged(product)"
 									ng-checked="product.defaultOption.selected" />
-									<span data-content="${{ core.ui.clear }}$">{{ product.defaultOption.display }}</span>
+									<span ng-attr-data-content="{{ !product.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ product.defaultOption.display }}</span>
 							</label>
 						</div>
 	    				<div ng-repeat="filter in product.list | orderBy:'display'" >
@@ -139,15 +143,32 @@
 	    		<!-- </div> -->
 	    	</div>
 	    	<!-- end sidebar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    	<!-- main column -->
 	    	<div class="cmuSearchpage__main col--md9">
 	    		<community-loader show-when="vm.searchInProgress"></community-loader>
 
 	    		<div ng-hide="vm.searchInProgress">
 		    		<div ng-show="vm.searchResults.length > 0">
-		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md12">
+		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md9">
 			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
-
+			    		<div class="cmuThreadlist__ctrl col--md3 alignRight noPaddingRight">
+      						<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="page"></community-sort>
+			    		</div>
+<!-- takes a lot of room and might not be necessary
 					    <div class="cmuThreadlist__ctrl--top col--md12">
 			    		  <community-pager 
 				            number-of-pages="vm.totalPages" 
@@ -155,16 +176,33 @@
 				            front-biased="true">
 				          </community-pager>
 				    	</div>
-
+ -->
 			    		<div class="cmuThreadlist__body col--md12 noPadding">
-				    		<a class="cmuThreadlist__row"
+				    		<a class="cmuThreadlist__row row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
-				    			 <div class="cmuSearchpage__item">
+				    			 <div class="cmuSearchpage__item col--md12">
 				    				<div class="cmuSearchpage__item__subject">{{ result.subject }}</div>
 					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:40 }}</div>
 				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.postDate | timeFromNow }}</div>
-									<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
+				    				<div class="col--md7 noPaddingLeft">
+										<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
+									</div>
+									<!-- <div class="col--md6 alignRight noPaddingRight">
+										<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
+									</div> -->
+									<div class="cmuFeed__stats col--md5">
+										{{ result.scores }}
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
+										</div>
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
+										</div>
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.message.scores || 0 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+										</div>
+									</div>
 								</div>
 					    	</a>
 					    </div>

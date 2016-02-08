@@ -109,6 +109,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		}
 	}
 
+		// hacky
 		// align everything properly
 		.cmuGloNav__left,
 			.cmuGloNav__logo, .cmuGloNav__logo .icon, 
@@ -231,7 +232,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 		}
 
-		.cmuGloNav__main .cmuGloNav__link { 
+		.searchClosed .cmuGloNav__link { 
 			&:first-child, &:first-of-type {
 				a {
 					background-color: $cmu-color-active;
@@ -313,6 +314,16 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				@extend %nav-icon-style;
 				// background-color: $cmu-color-blue;
 				border-bottom: $nav-border;
+
+				&.isSearch {
+					cursor: default;
+					// color: $cmu-color-white;
+					// background-color: $cmu-color-ltblue;
+					color: rgba($cmu-color-white, 0.5);
+					&:hover {
+						background: transparent;
+					}
+				}
 			}
 			.cmuGloNav__cmuLang {
 				@extend %nav-icon-style;
@@ -330,12 +341,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 
 
-			.cmuGloNav__cmuAccount {
-
-				span { 
-					// display: inline-block;
-					// width: $cmu-nav-height;
-				}
+			.cmuGloNav__accountControl, .cmuGloNav__cmuAccount {
 
 				.active {
 	    			position: relative;
@@ -345,9 +351,6 @@ $nav-border: 1px solid $cmu-color-dkblue;
 						color: $cmu-color-white; 
 					}
 
-    				&:after {
-						@extend %dropdownArrow;
-					}
 					// &:after {
 					// 	content: ' ';
 					// 	display: block;
@@ -362,6 +365,13 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					// 	border-bottom: 7px solid $cmu-color-ltgray;
 					// }
 				}
+			}
+			.cmuGloNav__cmuAccount {
+
+				.active:after {
+					@extend %dropdownArrow;
+				}
+
 				.cmuGloNav__profile.active:after {
 					content: ' ';
 					position: absolute;
@@ -765,6 +775,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	.cmuGloNav__social {
 		cursor: default !important;
     	margin-top: 2px;
+    	text-align: right;
 
     	a {
     		padding: 0 !important;

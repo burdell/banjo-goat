@@ -33,7 +33,7 @@
 
 	span:after {
 		content: attr(data-content);
-		@extend %style-link;
+		@extend %style-link--light;
 		font-weight: 400;
 		float: right;
 	}
@@ -43,6 +43,10 @@
 
 	&, * { 
 		@extend %user-select-none;
+	}
+
+	&:not(.cmuInput__checkbox--default) span:hover {
+		color: $style-link-color__hover !important;
 	}
 
 	/* hide default checkbox */

@@ -117,12 +117,16 @@
 	    overflow: hidden;
 	    display: inline-block;
 
+		// a {
+		// 	color: $cmu-color-link--dark;
+		// 	@extend %size-large;
+		// 	&:hover {
+		// 		color: $cmu-color-link--dark_hover;
+		// 	}
+		// }
+		@extend %style-link--dark;
 		a {
-			color: $cmu-color-link--dark;
-			@extend %size-large;
-			&:hover {
-				color: $cmu-color-link--dark_hover;
-			}
+			@extend %size-large; // needs testing 
 		}
 	}
 
