@@ -5,6 +5,7 @@ function creatNewTopicPage(areaName) {
 
 	require('directives/userbadge/userbadge.js');
 	require('directives/texteditor/texteditor.js');
+	require('directives/fileupload/fileupload.js');
 
 	require('services/products.js')
 
@@ -91,7 +92,14 @@ function creatNewTopicPage(areaName) {
 			feedbackButtonText: currentAreaTexts.feedback,
 			titleText: currentAreaTexts.title,
 			moreFieldsPartial: areaTemplates[currentArea],
-			currentArea: currentArea
+			currentArea: currentArea,
+			addAttachment: function(fileData) {
+				ctrl.attachmentList.push({
+					fileName: fileData.fileName,
+					fileUrl: fileData.fileUrl
+				})
+			},
+			attachmentList: []
 		});
 
 		if (currentArea !== 'forums') {

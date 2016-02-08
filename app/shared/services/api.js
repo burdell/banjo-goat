@@ -5,7 +5,7 @@ require('services/error.js');
 
 var _ = require('underscore');
 
-var communityApiService = function($http, $q, $timeout, errorService){
+var communityApiService = function($http, $q, $timeout){
 	function getCallOptions(url, data, verb, isMedia) {
 		if (_.isUndefined(verb)) {
 			verb = 'GET';
@@ -45,11 +45,6 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				} else {
 					return result.data;
 				}
-			},
-			function(error){
-				//ERROR :(
-				errorService.showErrors(error);
-				return $q.reject();
 			}
 		);
 	}
@@ -140,7 +135,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 				return goToApi(v2Url + 'announcements/threads', options);
 			},
 			announcements: function(nodeId, options) {
-				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
 			},
 			detail: function(announcementId){
 				return goToApi(v2Url + 'announcements/' + announcementId, addPermissionData({}, 'message'));
@@ -273,11 +268,13 @@ var communityApiService = function($http, $q, $timeout, errorService){
 			}
 		},
 		Media: {
-			upload: function(fileData){
+			upload: function(fileData, isAttachment){
 				var formData = new FormData();
 				formData.append('file', fileData);
 
-				return goToApi(v2Url + 'media', formData, 'POST', true);
+				var fileUrl = isAttachment ? 'uploads/attachments' : 'uploads/images';
+
+				return goToApi(v2Url + fileUrl, formData, 'POST', true);
 			}
 		},
 		Messages: {
@@ -362,7 +359,7 @@ var communityApiService = function($http, $q, $timeout, errorService){
 	return service;
 };
 
-communityApiService.$inject = ['$http', '$q', '$timeout', 'CommunityErrorService'];
+communityApiService.$inject = ['$http', '$q', '$timeout'];
 
 var serviceName = 'CommunityApiService';
 angular.module('community.services')

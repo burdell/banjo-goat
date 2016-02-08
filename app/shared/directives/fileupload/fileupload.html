@@ -2,8 +2,8 @@
 	<div ng-show="!fileupload.uploadInProgress">
 		<form>
 			<label class="cmuInputFile--label">
+				<div>{{ fileupload.displayText || 'Upload a File' }}</div>
 			    <input type="file" class="file-input" ng-model="fileupload.chosenFile" multiple required/>
-			    <span>Upload Photo</span>
 			</label>
 		</form>
 	</div>

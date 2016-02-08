@@ -20,6 +20,21 @@
       <div class="cmuTextEditor__preview cmuContent" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize:'markdown'"></div>
     </div>
 
+    <div class="row cmuRow row--comfy">
+      <community-file-upload 
+        display-text="Add an attachment"
+        on-success-fn="vm.addAttachment"
+        is-attachment="true">
+      </community-file-upload>
+    </div>
+
+     <div class="row row--comfy" ng-show="vm.attachmentList.length > 0">
+        <h5>Uploaded attachments:</h5>
+        <div ng-repeat="attachment in vm.attachmentList">
+          <a ng-href="{{ attachment.fileUrl }}" target="self">{{ attachment.fileName }}</a>
+        </div>
+    </div>
+
     <div class="row cmuRow" ng-if="::vm.moreFieldsPartial">
       <div ng-include src="vm.moreFieldsPartial"></div>
     </div>

@@ -3,6 +3,7 @@
 require('angular');
 require('angular-ui-router');
 require('angular-ui-select/select.js');
+//require('angular-cookies');
 require('angular-sanitize');
 require('pikaday-angular');
 require('angular-cookies');
@@ -22,7 +23,6 @@ function initializeApp(areaName) {
         'ui.router',
         'ui.select',
         'ngSanitize',
-        'ngCookies',
         //'ng-sortable',
         'community.templates',
         'pikaday',
@@ -61,6 +61,7 @@ function initializeApp(areaName) {
     require('directives/announcement/announcement.js');
     require('directives/pagescroll/pagescroll.js');
     require('directives/permissions/permissions.js');
+    require('directives/error/error.js');
     
     require('basecontroller.js');
 

@@ -12,9 +12,15 @@
 				<span class="icon ubnt-icon--popout"></span>
 			</span>
 		</div>
+		 <div class="row cmuRow" ng-if="false">
+			<community-file-upload 
+				display-text="Upload a Photo"
+				on-success-fn="texteditor.embedPhoto">
+			</community-file-upload>
+	    </div>
 	</div>
 
-	<div class="cmuTextEditor__help cmuRow clearfix">
+	<div class="cmuTextEditor__help clearfix">
 		<div class="cmuCollapser__container collapseSubtle">
 			<div class="cmuCollapser__header cmuCollapser__header--light" community-class-toggle="open">
 				<div class="cmuCollapser__header__title"> 

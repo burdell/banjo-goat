@@ -8,6 +8,7 @@ var marked = require('marked');
 var toMarkdown = require('to-markdown');
 
 require('directives/emojipicker/emojipicker.js');
+require('directives/fileupload/fileupload.js');
 
 function communityTextEditor($timeout, localizationService, routingService) {
 	var link = function(scope, element, attrs, ngModel) {
@@ -137,11 +138,13 @@ function communityTextEditor($timeout, localizationService, routingService) {
 				var originalCoordinates = ctrl.setValue(emojiValue, true);
 				ctrl.setCursor({ line: originalCoordinates.line, ch: originalCoordinates.ch + emojiValue.length });
 			},
+			embedPhoto: function(photoData) {
+				ctrl.setValue('![](' + photoData.fileUrl + ')', true);
+			},
 			toggleFloat: function() {
 				ctrl.fixedtobottom = !ctrl.fixedtobottom; 
 			}
 		});
-
 	};
 	controller.$inject = ['$scope'];
 

@@ -1,22 +1,22 @@
-(function(_) {
-	'use strict';
-	
-	var errorService = function(){
-		var errorList = [];
 
-		return {
-			errorList: errorList,
-			showErrors: function(errorResult){		
-				errorList.push(errorResult.data.message);
-			},
-			clearErrors: function(){
-				errorList.length = 0;
-			}
-		};
+'use strict';
+
+var errorService = function(){
+	var errorList = [];
+
+	return {
+		errorList: errorList,
+		showErrors: function(errorResult){		
+			errorList.push(errorResult.message);
+		},
+		clearErrors: function(){
+			errorList.length = 0;
+		}
 	};
-	errorService.$inject = [];
+};
+errorService.$inject = [];
 
-	angular.module('community.services')
-		.service('CommunityErrorService', errorService);
-
-}(window._));
+var serviceName = 'CommunityErrorService';
+angular.module('community.services')
+	.service(serviceName, errorService);
+module.exports = serviceName;

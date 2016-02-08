@@ -21,8 +21,8 @@
 			});
 
 			//hard coded includes/excludes :/ 
-			var exclude = [-1, 75];
-			var include = [30, 42, 43, 83];
+			var exclude = [-1];
+			var include = [];
 
 			var discussionTypes = nodeStructureService.DiscussionTypes;
 			_.each(nodeCollection, function(node) {
@@ -35,12 +35,17 @@
 					var discussionCategory = node.meta.org;
 					var discussionCategoryList = discussionTypes[discussionCategory];
 					
-					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise' || (discussionCategory === 'general')) {
+					if (discussionCategory === 'broadband' || discussionCategory === 'enterprise') {
 						if (!discussionCategoryList) {
 							discussionTypes[discussionCategory] = []
 						}
 						node.iconClass = iconService[node.urlCode];
 						discussionTypes[discussionCategory].push(node);
+					} else if (discussionCategory === 'legacy') {
+						if (!discussionCategoryList) {
+							discussionTypes[discussionCategory] = []
+						}
+						discussionTypes[discussionCategory] = discussionTypes[discussionCategory].concat(node.children);
 					}
 				}
 
@@ -131,7 +136,7 @@
 				return [
 					{ 
 						header: localizationService.data.core.cmuName, 
-						list: this.DiscussionTypes.general,
+						list: this.DiscussionTypes.legacy,
 						type: 'community' 
 					},
 					{ 
