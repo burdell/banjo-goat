@@ -31,7 +31,8 @@ function pageHeader() {
             headerText: '@',
             subtitleText: '@',
             hideElementSelector: '@',
-            excludeState: '@'
+            excludeState: '@',
+            hidden: '='
         }
     };
     return directive;

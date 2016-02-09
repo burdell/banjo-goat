@@ -8,6 +8,7 @@ require('directives/sorter/sorter.js');
 require('directives/pagescroll/pagescroll.js');
 require('directives/username/username.js');
 require('directives/useravatar/useravatar.js');
+
 require('directives/searchbox/searchbox.js');
 require('directives/tooltip/tooltip.js');
 require('directives/showcount/showcount.js');
@@ -16,7 +17,7 @@ require('filters/unescape.js');
 require('filters/timefromnow.js');
 require('filters/extractkey.js');
 
-function ForumListController ($stateParams, $state, dataService, nodeService, communityApiService, forumListFilter){
+function ForumListController ($stateParams, $state, dataService, nodeService, communityApiService, forumListFilter, routingService){
 	var controller = this;
 
 	function setMessageData (result){
@@ -48,6 +49,9 @@ function ForumListController ($stateParams, $state, dataService, nodeService, co
 		},
 		isRead: function(forumThread){
 			return !!forumThread.context.lastReadDate;
+		},
+		getProfileUrl: function(id) {
+			return routingService.generateUrl('userprofile', { userId: id })
 		}
 	});
 }
@@ -57,7 +61,8 @@ ForumListController.$inject = [
 	require('services/data.js'), 
 	require('services/nodestructure.js'), 
 	require('services/api.js'),
-	'ForumListFilter'
+	'ForumListFilter',
+	require('services/routing.js')
 ];
 
 angular.module('community.forums')

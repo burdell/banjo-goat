@@ -1,5 +1,5 @@
 
-<div class="cmuDiscussionsNavbar">
+<div class="cmuDiscussionsNavbar" ng-class="{'noNavLinks': navbar.navLinks==undefined}">
 	<ul>
 		<li ng-repeat="navLink in ::navbar.navLinks">
 			<a ng-class="{ active : navLink.active, cmuDiscussionsNavbar__group : navLink.discussionStyle=='forums' }" area-link-handler="{{ ::navLink.href }}">

@@ -1,6 +1,7 @@
 
 'use strict';
 
+require('directives/tooltip/tooltip.js');
 require('shared/services/timeline.js');
 require('shared/filters/monthdisplay.js');
 require('shared/filters/extractkey.js');
@@ -15,7 +16,7 @@ function communityTimeline() {
 	var link = function(scope, element, attrs) {
 	};
 
-		var controller = function($state, timelineService, routingService) {
+		var controller = function($state, timelineService, routingService, communityApiService) {
 			var ctrl =  this;
 			var announcementNodeId = $state.params.nodeId;
 			
@@ -46,15 +47,19 @@ function communityTimeline() {
 				getTimelineHref: function(data) {
 					return this.hrefFn(data);
 				},
+				getProfileUrl: function(id) {
+					return routingService.generateUrl('userprofile', { userId: id })
+				},
 				go: function(data) {
 					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.topic.node.urlCode });
 				},
 				isRead: function(data){
-					return !!data.context.lastReadDate;
-				}
+					return !!data.message.context.lastReadDate;
+				},
+				getUserData: communityApiService.Users.userData
 			});
 		};
-		controller.$inject = ['$state', 'CommunityTimelineService', 'CommunityRoutingService'];
+		controller.$inject = ['$state', 'CommunityTimelineService', 'CommunityRoutingService', require('services/api.js')];
 
     var directive = {
         link: link,

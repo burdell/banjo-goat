@@ -32,7 +32,7 @@
 	"cmuName": "Community",
 	"directory": "Community Directory",
 	"hints": {
-		"nav": "Looking for Forums? Click <div class='button button--solid button--extraSpace button--white-on-blue' ng-click='vm.toggleDiscussionsMenu()'>Topics <span class='icon ubnt-icon--menu'></span></div> to find forums, stories, and announcements"
+		"nav": "Looking for <span class='highlight'>Forums?</span> Click <span class='topics'>Topics <span class='icon ubnt-icon--menu'></span></span> to find forums, stories, and announcements"
 	},
 	"kudos": "Kudos",
 	"liveActivity": "Live Activity",

@@ -18,7 +18,7 @@
 			}
 		});
 	};
-	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityRoutingService', '$templateCache'];
+	announcementsController.$inject = ['$state', 'AnnouncementList', 'CommunityRoutingService'];
 
 	angular.module('community.announcements')
 		.controller('CommunityAnnouncements', announcementsController);

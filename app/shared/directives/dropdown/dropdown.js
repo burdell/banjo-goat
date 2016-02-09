@@ -2,6 +2,7 @@
 	'use strict';
 
 	require('services/utils.js');
+    require('shared/filters/numberLimit.js');
 
 	var _ = require('underscore');
 	

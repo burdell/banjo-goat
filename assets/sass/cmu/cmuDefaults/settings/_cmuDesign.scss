@@ -70,41 +70,88 @@ $style-line: 1px solid $cmu-color-line;
 
 
 
+
+
+
+
+
+
+
+
 // 
 // Basic Link Styles
 // 
 
-// Standard Links blue w/ dark hover
+// 1. Basic Link
+// base: 	cmu-color-blue
+			$style-link-color: $cmu-color-blue;
+// hover:	cmu-color-dkblue
+			$style-link-color__hover: $cmu-color-dkblue;
+// style:	none
+// 
+// Used as a basic <a> in text, in user content, and basic links over a white background
+// important! is added to override imported inline lithium and vanilla styling
+
 .style-link, %style-link {
 	@extend %ease-fast;
 	@extend %user-select-none;
 	// display: inline-block;
-	color: $cmu-color-link;
-	cursor: pointer;
+	color: $style-link-color !important;
+	cursor: pointer !important;
 	&.active {
-		color: $cmu-color-link_active;
+		color: $cmu-color-active !important;
 	}
 	&:hover {
 		@extend %ease-fast;
-		color: $cmu-color-link_hover;
+		color: $style-link-color__hover !important;
 	}
 }
 
-// Reverse Links / dark w/ blue hover
+// 2. Reverse Links / dark w/ blue hover
+// base: 	cmu-color-dkgray
+// hover:	cmu-color-blue
+// style:	none
+// 
+// Used in lists and pages where most texts are linke
+// e.g. in a list of links in a sidebar, links in the directory, threadlists
 .style-link--dark, %style-link--dark {
 	@extend %ease-fast;
 	// display: inline-block;
-	color: $cmu-color-link--dark;
+	color: $cmu-color-dkgray;
 	cursor: pointer;
 	&.active {
-		color: $cmu-color-link--dark_active;
+		color: $cmu-color-active;
 	}
 	&:hover {
 		// @extend %ease-fast;
-		color: $cmu-color-link--dark_hover;
+		color: $cmu-color-blue;
 		text-decoration: none;
 	}
 }
+
+// 3. Light Links
+// base:	cmu-color-mdgray
+// hover:	cmu-color-dkblue
+// style:	none
+// 
+// Used like a basic link, but should not be as attention-grabbing
+// e.g. used in the 'clear' button for select filters
+.style-link--light, %style-link--light {
+	@extend %ease-fast;
+	// display: inline-block;
+	color: $cmu-color-mdgray;
+	cursor: pointer;
+	&.active {
+		color: $cmu-color-active;
+	}
+	&:hover {
+		// @extend %ease-fast;
+		color: $cmu-color-dkblue;
+		text-decoration: none;
+	}
+}
+
+
 
 
 

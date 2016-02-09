@@ -10,11 +10,17 @@
 .cmuContent, %cmuContent {
 
 
+	* {
+		// background: none !important; // prevents emojis from showing up
+		background-color: transparent !important;
+		line-height: $size-normal__lineHeight !important;
+		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+	}
+
 	// users like to add empty paragraphs that lithium doesn't strip out
 	// we need to deal with it in code, so this is temporary
 	p {
 		margin-bottom: $size-normal__lineHeight;
-		font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
 	}
 
 

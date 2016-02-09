@@ -1,0 +1,237 @@
+
+
+// 
+// FOOTER 
+// 
+
+%nav-style-footer {
+	text-transform: uppercase;
+	color: $cmu-color-dkgray;
+	letter-spacing: 0.4px;
+	font-size: $size-xsmaller;
+	vertical-align: top;
+	padding: $cmu-base*0.7;
+	height: $nav-height;
+	cursor: pointer;
+	line-height: $cmu-base;
+
+	@extend %ease-fast;
+	&:hover {
+		color: $cmu-color-ltblue;
+		@extend %ease-fast;
+	}
+}
+
+
+
+.cmuGloNav--footer {
+	background-color: $cmu-color-ltgray;
+	z-index: $z-gloNav--footer;
+	padding: $cmu-base 0;
+	padding-bottom: $cmu-base*2;
+
+	position: absolute;
+	// position: relative;
+	width: 100%;
+	bottom: 0;
+	
+	@include respondTo(xsmall-down) {
+		// padding: $cmu-base $cmu-base*4;
+		// position: relative;
+	}
+
+	li {
+		display: block;
+	}
+
+	li a {
+		cursor: default;
+		display: inline-block;
+		@extend %nav-style-footer;
+		font-size: $size-smaller;
+		line-height: $size-smaller__lineHeight;
+		text-transform: inherit;
+		height: auto;
+		padding: $cmu-base/2 0;
+		cursor: pointer;
+
+		@include respondTo(small-down) {
+			padding-left: $cmu-base/2;
+		}
+
+	}
+
+	.cmuGloNav__legal {
+		@extend %type-info;
+		color: $cmu-color-dkgray;
+	}
+
+}
+
+// 
+// Community part of the footer
+// 
+
+	.cmuGloNav__community {
+
+	}
+
+	.cmuGloNav__discussions {
+		a:hover {
+			span:before {
+				@extend %ease-fast;
+				color: $cmu-color-ltblue;
+				background-color: transparent;
+			}
+		}
+
+		.ubnt-icon {
+			padding-left: $cmu-base/2;
+			color: $cmu-color-dkgray;
+			margin-left: $cmu-base/2;
+			padding-left: 0;
+
+			// font-size: $cmu-base/2;
+			// color: $cmu-color-gray;
+			// display: inline-block;
+		    // border-radius: 50%;
+		    // 	width: 16px;
+		    // 	height: 16px;
+		    // 	padding-left: 0.2rem;
+		    // border: $style-line--dark;
+		}
+			.ubnt-icon--menu {
+				// padding: 0;
+				position: relative;
+				top:1px;
+				&:before {
+					@extend %ease-fast;
+					// background-color: transparent;
+					// color: $cmu-color-vltblue;
+				}
+			}
+
+	}
+
+	// .cmuGloNav__social--label {
+	// 	cursor: default !important;
+	// 	@extend %nav-style-footer;
+	// 	font-size: $size-smaller;
+	// 	line-height: $size-smaller__lineHeight;
+	// 	text-transform: inherit;
+	// 	padding: $cmu-base/2;
+	// 	padding-left: 0;
+	// 	padding-bottom: 0;
+	// 	// margin-bottom: $cmu-base/2;
+
+	// 	&:hover {
+	// 		color: $cmu-color-dkgray;
+	// 	}
+	// 	// margin-top: $cmu-base*2;
+	// }
+
+	.cmuGloNav__social {
+		cursor: default !important;
+    	margin-top: 2px;
+    	text-align: right;
+
+    	a {
+    		padding: 0 !important;
+    		margin-right: $cmu-base/2;
+    		&:hover {
+				.ubnt-icon:before {
+					@extend %ease-fast;
+					background-color: $cmu-color-xdkgray;
+					color: $cmu-color-purewhite;
+				}
+    		}
+    	}
+		span:before {
+			@extend %ease-fast;
+			cursor: pointer;
+			font-size: $cmu-base*1.5;
+			background-color: $cmu-color-gray;
+			color: $cmu-color-ltgray;
+
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 28px;
+		    	height: 28px;
+		    	padding: 0.2rem 0.1rem;
+		    	padding-left: 2px;
+		}
+	}
+
+	.cmuGloNav__backtotop {
+	    position: fixed;
+	    display:inline-block;
+	    opacity: 0.7;
+	    bottom: $cmu-base;
+	    right: $cmu-base*2;
+	    text-align: center;
+
+	    // .cmuTooltip {
+	    // 	bottom: 50px;
+	    // }
+
+		.ubnt--icon {
+			display: inline-block;
+		}
+		.ubnt--icon:before {
+			@extend %ease-fast;
+			cursor: pointer;
+			font-size: $cmu-base*1.8;
+			background-color: $cmu-color-blue;
+			color: $cmu-color-white;
+			text-align: center;
+			display: inline-block;
+		    border-radius: 50%;
+		    	width: 45px;
+		    	height: 45px;
+		    	padding: 0.45rem 0rem;
+
+		}
+		.ubnt--icon:hover:before {
+			@extend %ease-fast;
+			background-color: $cmu-color-ltblue;
+		}
+
+		// different bc this is a fixed pos item
+		.cmuTooltip {
+		    // position: absolute;
+		    // left: -50%;
+		    // right: -50%;
+
+		    // left: inherit;
+		    // right: inherit;
+
+		    &:before, span {
+    			// transform: translate(-50%, -259990%);
+    			// left: 50%;
+    			// transform: translate(-50%, 0%);
+    			top: -58px; // hard coded bc of fixed position underlying element
+		    }
+		    &:after {
+		    	top: -58px;
+			    left: 50%;
+		    	transform: translate(-50%,0);
+		    }
+		}
+		.cmuTooltip--top {
+			// &:before {
+			//     position: fixed;
+			//     right: 14px;
+			//     bottom: 75px;
+			// }
+			// &:after {
+			//     position: fixed;
+			//     top: inherit;
+			//     bottom: 65px;
+			//     right: 36px;
+			// }
+		}
+	}
+
+	.cmuGloNav__legal {
+		margin-top: $cmu-base * 2;
+	}

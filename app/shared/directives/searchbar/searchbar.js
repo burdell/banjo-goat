@@ -29,12 +29,16 @@
 			});
 
 			$rootScope.$on('rootScope:closeAllDropdowns', function(){
+				console.log('searchbarjs closed')
+				$scope.$emit('rootScope:closeSearchbar');
 				ctrl.isOpen = false;
 			});
 
 			_.extend(ctrl, {
 				isOpen: false,
 				toggleMenu: function(){
+					console.log('searchbarjs togglemenu()')
+
 					if(!ctrl.isOpen) {
 						$scope.$emit('rootScope:closeAllDropdowns');
 					}
@@ -43,6 +47,9 @@
 					
 					if (ctrl.isOpen) {
 						ctrl.focus();
+						$scope.$emit('rootScope:openSearchbar');
+					} else {
+						$scope.$emit('rootScope:closeSearchbar');
 					}
 				},
 				search: function(){

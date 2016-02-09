@@ -120,9 +120,9 @@
 	    left: 0;
 
 
+	    margin-right: $cmu-base/2; // expose the natural scrollbar
 		// @include scrollbars($cmu-base, $cmu-color-scrollFg, $cmu-color-scrollBg);
-
-		@include scrollbars($cmu-base, $cmu-color-scrollFg, transparent);
+		// @include scrollbars($cmu-base, $cmu-color-scrollFg, transparent);
 
 		// height: 100%;
 		// border-bottom: 1px solid $cmu-color-dkgray;

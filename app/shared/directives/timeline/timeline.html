@@ -33,16 +33,17 @@
 
 
 		      <div class="cmuThreadlist__body">
-		        <a class="cmuThreadlist__row" 
-		            area-link-handler="{{ timeline.getTimelineHref(data) }}"
-		            ng-repeat="data in monthData.monthData"
+		        <div class="cmuThreadlist__row" 
+		          	ng-repeat="data in monthData.monthData"
 		            ng-class="{'isRead':timeline.isRead(data)}">
 
-		          <div class="cmuThreadlist__topic">
-		          	<span class="cmuThreadlist__topic__title">{{ data.topic.subject | htmlUnescape }}</span> 
-			        <span ng-if="timeline.showProductInfo"><product-discussion-tag node-id="data.topic.node.id"></product-discussion-tag></span>
-		          </div>
-
+		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
+			          <div class="cmuThreadlist__topic">
+			          	<span class="cmuThreadlist__topic__title">{{ data.subject | htmlUnescape }}</span> 
+				        	<span ng-if="timeline.showProductInfo"><product-discussion-tag node-id="data.topic.node.id"></product-discussion-tag></span>
+			          </div>
+			        </a>
+<!-- 
 		          <div class="cmuThreadlist__created cmuThreadlist__authorDate">
 		            <div class="cmuThreadlist__avatar"> 
 		              <community-user-badge class="cmuUserbadge--showFlag cmuUserbadge--avatarOnly" user="data.topic.message.insertUser"></community-user-badge>
@@ -51,17 +52,72 @@
 		            <div class="cmuThreadlist__date">{{ ::data.topic.message.postDate | timeFromNow }}
 		            </div>
 		          </div>
-		          
-		          <div class="cmuThreadlist__counter cmuThreadlist__views">
-		            {{  data.topic.countViews | number}}
-		          </div>
-		          <div class="cmuThreadlist__counter cmuThreadlist__replies">
-		            {{  data.context.totalMessageCount - 1 | number}}
-		          </div>
-		          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
-		            {{  data.topic.message.scores.kudo | number}}
-		          </div>
-		        </a>
+		           -->
+<!-- 
+		          <a 
+		            area-link-handler="{{ timeline.getProfileUrl(data.topic.message.insertUser.id) }}"
+		            class="visible--xlgUp"
+		            > -->
+		          <a 
+		            area-link-handler="{{ timeline.getProfileUrl(data.topic.message.insertUser.id) }}"
+		            class=""
+		            >
+		            <div class="cmuThreadlist__created
+		                        cmuThreadlist__authorName">
+		              <div class="cmuThreadlist__avatar">
+		                <div
+		                  community-tooltip
+		                  data-id-field="{{ data.topic.message.insertUser.id }}" 
+		                  ajax-populate="timeline.getUserData" 
+		                  tooltip-template="partials/usertooltip.html"
+		                  empty-text="${{ forums.list.emptyPreview }}$"
+		                  tooltip-class="cmuTooltipster"
+		                  position="top"
+		                >
+		                  <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
+		                  <span>{{ data.topic.message.insertUser.login }}</span>
+		                </div>
+		              </div>
+		            </div>
+		          </a>
+<!-- 
+		          <a 
+		            area-link-handler="{{ timeline.getProfileUrl(message.topic.message.insertUser.id) }}" 
+		            class="visible--smUp">
+		            <div class="cmuThreadlist__authorDateCreated cmuThreadlist__created">
+		              <div class="cmuThreadlist__avatar visible--lgDown"> 
+		                <span 
+		                  community-tooltip
+		                  data-id-field="{{ message.topic.message.insertUser.id }}" 
+		                  ajax-populate="vm.getUserData" 
+		                  tooltip-template="forums/list/forums.list.usertooltip.html"
+		                  empty-text="${{ forums.list.emptyPreview }}$"
+		                  tooltip-class="cmuTooltipster"
+		                  position="top"
+		                >
+		                  <community-user-avatar user="message.topic.message.insertUser"></community-user-avatar>
+		                </span>
+		              </div>
+		              <div class="cmuThreadlist__authorDate">{{ ::message.topic.message.postDate | timeFromNow }}</div>
+		            </div>
+		          </a>
+ -->
+		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
+			          <div class="cmuThreadlist__counter cmuThreadlist__views">
+			            {{  data.topic.countViews | number}}
+			          </div>
+			        </a>
+		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
+			          <div class="cmuThreadlist__counter cmuThreadlist__replies">
+			            {{  data.context.totalMessageCount - 1 | number}}
+			          </div>
+			        </a>
+		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
+			          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
+			            {{  data.topic.message.scores.kudo | number}}
+			          </div>
+			        </a>
+		        </div>
 		      </div>
 		    </div>
 		  </div>

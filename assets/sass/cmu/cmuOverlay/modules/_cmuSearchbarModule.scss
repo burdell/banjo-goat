@@ -5,6 +5,10 @@
     z-index: $z-top;
     // position: relative;
     top: $cmu-nav-height;
+
+    // bleed for bottom box-shadow
+    overflow: hidden;
+    padding-bottom: $cmu-base/2;
 }
 
 .cmuSearchbar {

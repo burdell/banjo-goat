@@ -1,7 +1,7 @@
 
  <div class="row">
-	<community-breadcrumbs></community-breadcrumbs>
-	<div class="cmuDiscussionsControls">
+	<community-breadcrumbs ng-if="!hidden"></community-breadcrumbs>
+	<div class="cmuDiscussionsControls" ng-if="!hidden">
 		<discussions-header header-text="{{ pageheader.headerText }}" subtitle-text="{{ pageheader.subtitleText }}"></discussions-header>
 		<discussions-nav-bar></discussions-nav-bar>
 	</div>

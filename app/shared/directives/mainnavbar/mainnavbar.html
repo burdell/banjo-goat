@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col--xs12 noPadding">
             <a area-link-handler="/">
-              <div class="cmuGloNav__left">
+              <div class="cmuGloNav__left" ng-class="{ 'active' : mainnavbar.isHome() }">
                 <div class="cmuGloNav__logo">
                   <span class="icon ubnt-icon--u"></span>
                 </div>
@@ -19,7 +19,26 @@
               </div>
             </a>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="cmuGloNav__right">
+
+
+
+
+
+
 
               <!-- mobile menu -->
               <div class="cmuGloNav__mobile"
@@ -54,45 +73,52 @@
                   </div>
                 </a>
 
-                    <div class="cmuGloNav__mobile__accountlinks">
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
-                          ${{ directives.mainnavbar.notifications }}$
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
-                          <span class="icon ubnt-icon--inbox"></span>
-                          ${{ directives.mainnavbar.inbox }}$
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">${{ directives.mainnavbar.profile }}$</a>
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          ${{ directives.mainnavbar.account }}$
-                        </div>
-                      </a>
-                      <a href="#">
-                        <div class="cmuGloNav__mobile__accountlink">
-                          ${{ directives.mainnavbar.logOut }}$
-                        </div>
-                      </a>
+                <div class="cmuGloNav__mobile__accountlinks">
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__notifications cmuGloNav__mobile__accountlink">
+                      ${{ directives.mainnavbar.notifications }}$
                     </div>
-                  </div>
-              <ul class="cmuGloNav__links cmuGloNav__main">
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__inbox cmuGloNav__mobile__accountlink">
+                      <span class="icon ubnt-icon--inbox"></span>
+                      ${{ directives.mainnavbar.inbox }}$
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      <a ng-href="{{ mainnavbar.currentUser.profileUrl }}" target="{{ mainnavbar.currentUser.profileUrlTarget }}">${{ directives.mainnavbar.profile }}$</a>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      ${{ directives.mainnavbar.account }}$
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="cmuGloNav__mobile__accountlink">
+                      ${{ directives.mainnavbar.logOut }}$
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+
+
+
+
+
+
+              <ul class="cmuGloNav__links cmuGloNav__main" ng-class="{'searchClosed':!mainnavbar.searchIsOpen}">
                 <li 
                   ng-repeat="navItem in mainnavbar.navList"
                   ng-class="{ 'active' : mainnavbar.isActive(navItem.href) }"
                   class="cmuGloNav__link">
-                    <span ng-if="navItem.href">
+                    <!-- <span ng-if="navItem.href">
                       <a href="{{ navItem.href }}" 
                         target="{{ mainnavbar.target(navItem.href) }}"
                         ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
-                    </span>
+                    </span> -->
                     <span ng-if="navItem.clickFn">
                       <a ng-click="navItem.clickFn()" 
                         ng-class="{ 'cmuGloNav__dropItem': navItem.dropItem }">{{ navItem.display }}</a>
@@ -107,8 +133,8 @@
                         template-ctrl="mainnavbar.currentUser"
                         element-classname="cmuGloNav__cmuLang"
                         icon-classname="icon ubnt-icon--world">
-                      </community-drop-down> --><div ng-class="{'hideNav':mainnavbar.hideSearch()}" class="cmuGloNav__cmuSearch"
-                     ng-click="$broadcast('searchbar:toggleSearchbar');">
+                      </community-drop-down> --><div ng-class="{'isSearch':mainnavbar.isSearch(), 'active':mainnavbar.searchIsOpen}" class="cmuGloNav__cmuSearch"
+                     ng-click="!mainnavbar.isSearch() && $broadcast('searchbar:toggleSearchbar')">
                   <span class="icon ubnt-icon--search-2"></span>
                 </div><div 
                   class="cmuGloNav__cmuAccount">

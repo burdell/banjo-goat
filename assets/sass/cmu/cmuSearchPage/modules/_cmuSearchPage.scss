@@ -16,13 +16,52 @@
 	.cmuThreadlist__ctrl--top, 
 	.cmuThreadlist__ctrl--bottom {
 		padding: 0 $cmu-base/2;
+		padding-top: $cmu-base/2;
+		margin-top: 0;
 	}
 }
 
-.cmuSearchpage__searchbar {
-	margin-bottom: $cmu-vertical-rhythm;
+.cmuSearchpage__container {
+	margin-top: -$cmu-vertical-rhythm;
+	// overflow: hidden;
+	padding-bottom: $cmu-vertical-rhythm;
 }
 
+.cmuSearchpage__searchbar__container {
+    overflow: hidden;
+    margin-left: -$cmu-base;
+    margin-right: -$cmu-base;
+    padding-bottom: $cmu-base;
+    margin-top: $cmu-base/2; 
+
+    // position: relative;
+    // z-index: $z-gloNav + 1;
+}
+
+.cmuSearchpage__searchbar {
+	margin-top: $cmu-vertical-rhythm/2;
+	margin-bottom: $cmu-vertical-rhythm;//*2;
+
+	padding-top: $cmu-vertical-rhythm;
+	padding-bottom: $cmu-vertical-rhythm;
+	// background-color: $cmu-color-blue;
+ //    @include box-shadow(0, 0, 5px, $cmu-color-black);
+
+    position:relative;
+
+}
+
+
+	// the searchbox's look on the search page
+	.cmuSearchpage--searchbox {
+	    @extend %cmuSearchbox--large;
+
+	    input {
+	        @extend %h3;
+	        border: $style-line;
+	        border-color: $cmu-color-blue; 
+	    }
+	}
 
 
 
