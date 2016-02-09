@@ -45,9 +45,23 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 		@extend %cmu-maxwidth;
 	}
 	.cmuBanner__main {
-		text-align: left;
+		text-align: center;
 		padding: $cmu-base 0;
+		font-size: $size-large;
+		font-weight: 300;
+		color: $cmu-color-gray;
 
+		.highlight {
+			color: $cmu-color-white;
+			padding-right: $cmu-base/4;
+		}
+		.topics {
+			color: $cmu-color-white;
+			text-transform: uppercase;
+			padding: 0 $cmu-base/2;
+			padding-right: $cmu-base;
+			font-size: $size-normal;
+		}
 	}
 
 	.cmuBanner__message {
@@ -56,6 +70,9 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 
 	.cmuBanner__close {
 		padding: $cmu-base;
+
+	    text-align: right;
+	    padding-right: $cmu-base/4;
 
 		// add a little bit more on right
 		// padding-right: $cmu-base;

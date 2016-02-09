@@ -39,7 +39,7 @@
 
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__topic">
-			          	<span class="cmuThreadlist__topic__title">{{ data.topic.subject | htmlUnescape }}</span> 
+			          	<span class="cmuThreadlist__topic__title">{{ data.subject | htmlUnescape }}</span> 
 				        	<span ng-if="timeline.showProductInfo"><product-discussion-tag node-id="data.topic.node.id"></product-discussion-tag></span>
 			          </div>
 			        </a>
