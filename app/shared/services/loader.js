@@ -7,6 +7,8 @@ var products = function(){
 	};
 };
 
+var serviceName = 'CommunityLoaderService';
 angular.module('community.services')
-	.service('CommunityLoaderService', products);
+	.service(serviceName, products);
+module.exports = serviceName;
 
