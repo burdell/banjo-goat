@@ -16,6 +16,11 @@ function pulse() {
 
         realtime.start(function(){
             communityApi.Core.pulse($stateParams.nodeId).then(function(result){
+
+                if(!_.isEqual(ctrl.stats, result)) {
+                    // add an update animation class
+                }
+
                 _.extend(ctrl.stats, result);
             })
         }, true);

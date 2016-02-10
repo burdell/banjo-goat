@@ -18,29 +18,31 @@
 	}
 
 	@include respondTo(large-up) {
-    	padding: 0 $cmu-base*4;
+    	// padding: 0 $cmu-base*4;
 	}
 
 	// place flush to the menu
 	margin-top: $cmu-base * -1;
 }
+.cmuPulse__container {
+	display: table-cell;
+}
 
 .cmuPulse__label {
 	display: table-cell;
 	vertical-align: middle;
-	border-bottom: $style-line;
 
-	min-width: $cmu-base * 9;
+	min-width: $cmu-base * 4;
 	@include respondTo(medium-down) {
 		display: none;
 	}
 
-	padding: $cmu-base;
-	padding-right: 4px;
+	// padding: $cmu-base;
+	// padding-right: 4px;
 	position: relative;
 	text-transform: uppercase;
-	color: $cmu-color-white;
-	background-color: $cmu-color-mdgray;
+	color: $cmu-color-gray;
+	background-color: $cmu-color-ltgray;
 	font-size: $size-large;
 	line-height: $size-larger__lineHeight;
 
@@ -49,11 +51,11 @@
 		display: block;
 		position: absolute;
 		right: -10px;
-		top: $cmu-base/4;
+		top: 6px;
 
     	border-top: 20px solid transparent;
 		border-bottom: 20px solid transparent;
-		border-left: 20px solid $cmu-color-mdgray;
+		border-left: 20px solid $cmu-color-ltgray;
 		line-height: 0;
 	}
 }
@@ -64,7 +66,7 @@
 
 	padding: $cmu-base*3/4;
 	padding-left: 0;
-	overflow: hidden;
+	// overflow: hidden;
 
 	text-transform: uppercase;
 	color: $cmu-color-dkgray;
@@ -108,8 +110,21 @@
 			display: inline-block;
 		}
 
+// 			@include respondTo(medium-down) {
+// 				// on smaller screens...
+// 				.cmuPulse__total, .cmuPulse__members {
 
-// 
+// 				}
+
+// 				// make these wider
+// 				// make these narrower
+// 				.cmuPulse__online, .cmuPulse__recent {
+
+// 				}
+
+// 			}
+
+// // 
 // Sidebar design
 // 
 
