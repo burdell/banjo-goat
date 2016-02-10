@@ -11,11 +11,3 @@
 @import "settings/cmuSettings";						// Heights, widths, universal sizing
 @import "settings/cmuTypography";					// Typography: font sizing, line height, etc.
 @import "settings/cmuDesign";						// Settings that combine colors, widths, and type
-
-
-@import "modules/cmuOverrideGridModule"; 			// Similar to comOverrideGridModule. Uses the same padding but we don't use maxwidth settings from comWrapper
-
-
-// old and unnecessary
-// @import "modules/cmuOverrideGlobalHeaderModule";	// Overrides the global header module styling
-// @import "modules/cmuHorizontalRuleModule";		// We don't really use these
