@@ -12,13 +12,13 @@ $loader-small-border: 5px;
 }
 
 	.cmuLoader__container--short {
-		margin-top: $cmu-base*2;
-		margin-bottom: $cmu-base*2;
+		margin-top: $cmu-base;
+		margin-bottom: $cmu-base;
 
 		// can be switched
 		.cmuLoader__container {
-			margin-top: $cmu-base*2;
-			margin-bottom: $cmu-base*2;
+			margin-top: $cmu-base;
+			margin-bottom: $cmu-base;
 		}
 	}
 
