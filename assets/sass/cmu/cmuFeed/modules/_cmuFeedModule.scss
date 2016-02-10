@@ -250,7 +250,11 @@
 		.cmuFeed__pagerBottom {
 			padding: $cmu-base/2 $cmu-base;
 			padding-top: $cmu-base;
+			margin-top: $cmu-base;
 		}
+			.cmuFeed__loadMore {
+				text-align: center;
+			}
 
 
 

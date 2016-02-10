@@ -45,8 +45,11 @@ $nav-border: 1px solid $cmu-color-dkblue;
 %dropdownArrow {
     content: ' ';
     @include triangle(top, $cmu-color-white, $size-arrow*3/4);
-    position: relative;
-    bottom: 15px;
+    // position: relative;
+    // bottom: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 14px;
     @extend %ease-fast;
 }
 
@@ -388,23 +391,32 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				}
 				
 				// temp placeholder
-				.cmuProfile__avatar {
-					&:before {
-						content: ' ';
-						display: block;
-						background: #969ba3;
-						border-radius: 50%;
-						margin-top: 5px;
-						margin-right: 0;
-						// margin-left: 4px;
-						@extend %ease-fast;
-						height: remCalc(28px);
-						width: remCalc(28px);
+				.cmuGloNav__avatar {
+					// &:before {
+					// 	content: ' ';
+					// 	display: block;
+					// 	background: #969ba3;
+					// 	border-radius: 50%;
+					// 	margin-top: 5px;
+					// 	margin-right: 0;
+					// 	// margin-left: 4px;
+					// 	@extend %ease-fast;
+					// 	height: remCalc(28px);
+					// 	width: remCalc(28px);
 
-						background-color: orange;
-						background-size: cover;
-						background-repeat: no-repeat;
-					}
+					// 	background-color: orange;
+					// 	background-size: cover;
+					// 	background-repeat: no-repeat;
+					// }
+				    // background-image: url(https://i1.wp.com/vanillicon.com/ff28f25f43349680c6f051fd933cdcda?s=80&d=mm&r=g);
+				    /* background: #969ba3; */
+				    border-radius: 50%;
+				    margin-top: 5px;
+				    margin-right: 0;
+					height: remCalc(28px);
+					width: remCalc(28px);
+				    background-size: cover;
+				    background-repeat: no-repeat;
 				}
 
 				.ubnt-icon--inbox {

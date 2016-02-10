@@ -47,6 +47,7 @@
 	        	templateCtrl: '=',
 	        	elementClassname: '@',
 	        	iconClassname: '@',
+	        	avatarUrl: '@',
 	        	label: '@',
 	        	onOpenFn: '='
 	        }

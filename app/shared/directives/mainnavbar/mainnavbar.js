@@ -72,15 +72,6 @@ function mainNavBar() {
 				});
 			}
 		}
-
-		$rootScope.$on('rootScope:closeAllDropdowns', function(){
-			console.log('mainnavbar closeAll')
-			// ctrl.searchIsOpen = false;
-		});
-		$rootScope.$on('rootScope:zztop', function(){
-			console.log('mainnavbar zztop')
-			// ctrl.searchIsOpen = false;
-		});
 		
 		
 		$rootScope.$on('rootScope:openSearchbar', function(){

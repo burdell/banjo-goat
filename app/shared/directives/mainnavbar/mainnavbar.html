@@ -157,7 +157,8 @@
                         menu-template-url="directives/mainnavbar/mainnavbar.profile.html"
                         template-ctrl="mainnavbar.currentUser"
                         element-classname="cmuGloNav__profile"
-                        icon-classname="cmuProfile__avatar">
+                        icon-classname="cmuGloNav__avatar"
+                        avatar-url="{{ mainnavbar.currentUser.avatarUrl }}">
                       </community-drop-down>
                   </ul>
                   <ul ng-hide="mainnavbar.isAuthenticated">

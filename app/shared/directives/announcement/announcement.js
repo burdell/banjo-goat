@@ -10,8 +10,6 @@ function communityAnnouncement() {
   		ctrl.isOpen = true;
         if ($cookieStore.get('introBannerIsOpen') === 'false') { ctrl.isOpen = false; }
 
-		console.log('announcement banner open ? ' + ctrl.isOpen);
-
 		_.extend(ctrl, {
 			closeMenu: function() {
 				ctrl.isOpen = false;

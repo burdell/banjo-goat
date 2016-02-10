@@ -8,6 +8,10 @@
 			<a area-link-handler link-handler-route="inbox.newtopic"><div class="button button--solid">${{ directory.inbox.newMessage }}$</div></a>
 			<button class="cmuInbox__update button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
 		</div>
+
+		<div class="row">
+			<div class="col--md12">3 of {{ vm.messageList.content.length }} unread.</div>
+		</div>
 <!-- 
 		 <div class="cmuInbox__update row" ng-class="{'new':vm.checkNewMessages()}">
         	<button class="button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>

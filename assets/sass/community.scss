@@ -10,6 +10,35 @@
 // Required by com Theme
 @import "compass/css3"; 
 
+
+// Define the base grid here to override COM Base
+
+// XS
+$base-lower-xsmall: 0px !default;
+$base-upper-xsmall: 480px !default;
+
+// Small
+$base-lower-small: 481px !default;
+$base-upper-small: 749px !default;
+
+// Medium
+$base-lower-medium: 750px !default;
+$base-upper-medium: 1023px !default;
+
+// Large
+$base-lower-large: 1024px !default;
+$base-upper-large: 1440px !default;
+
+// X large
+$base-lower-xlarge: 1441px !default;
+$base-upper-xlarge: 1920px !default;
+
+// XX large
+$base-lower-xxlarge: 1921px !default;
+$base-upper-xxlarge: 2400px !default;
+
+
+
 // Base is used to create defaults
 @import "../../node_modules/css-base/src/baseTools/index";
 @import "../../node_modules/css-base/src/baseLayout/index";

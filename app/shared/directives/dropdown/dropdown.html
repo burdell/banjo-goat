@@ -1,6 +1,6 @@
 <span class="cmuDropdown--span"><li class="{{ dropdown.elementClassname }}" ng-click="dropdown.toggle()" ng-class="{ 'active' : dropdown.isOpen }">
       <a>
-         <span class="{{ dropdown.iconClassname }}" ng-if="dropdown.iconClassname"><span class="cmuDropdown__count" ng-if="dropdown.templateCtrl.newDataCount()"><span>{{ dropdown.templateCtrl.newDataCount() | maxLimit: 99 }}</span></span></span>
+         <span class="{{ dropdown.iconClassname }}" style="background-image:url({{ dropdown.avatarUrl }})" ng-if="dropdown.iconClassname"><span class="cmuDropdown__count" ng-if="dropdown.templateCtrl.newDataCount()"><span>{{ dropdown.templateCtrl.newDataCount() | maxLimit: 99 }}</span></span></span>
          <span class="cmuDropdown--label" ng-if="dropdown.label">{{ dropdown.label }}</span>
       </a>
     </li>
