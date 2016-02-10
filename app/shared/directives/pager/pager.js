@@ -1,10 +1,10 @@
 
 'use strict';
 
-require('shared/services/filter.js');
-
 var _ = require('underscore');
 var $ = require('jquery/dist/jquery.js');
+
+require('services/scroll.js')
 
 function communityFilter($timeout) {
 	var link = function(scope, element, attrs) {
@@ -171,7 +171,7 @@ function communityFilter($timeout) {
 		}
 	};
 
-	var controller = function($scope, filterService) {
+	var controller = function($scope, filterService, scrollService) {
 		var ctrl = this;
 		var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
@@ -180,7 +180,9 @@ function communityFilter($timeout) {
 		/*** CONTROL FUNCTIONS *****/
 		function page() {
 			setUiPage();
-			filterer.filter(pageData);
+			filterer.filter(pageData).finally(function(){
+				scrollService.scroll('pageTop');
+			});
 		}
 
 		function nextPage (){
@@ -291,7 +293,7 @@ function communityFilter($timeout) {
 			info: pagerInfo
 		});
 	};
-	controller.$inject = ['$scope', 'CommunityFilterService'];
+	controller.$inject = ['$scope', require('services/filter.js'), 'CommunityScrollService'];
 
     var directive = {
         link: link,
