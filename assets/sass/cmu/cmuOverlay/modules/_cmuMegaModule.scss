@@ -106,6 +106,8 @@
 	}
 
 	.cmuMega__content {
+		@extend .cmu-width;
+
 		@extend %megaContentTopOffset;
 		color: $cmu-color-mdgray;
 		padding-bottom: $cmu-base*2;
@@ -120,7 +122,8 @@
 	    left: 0;
 
 
-	    margin-right: $cmu-base/2; // expose the natural scrollbar
+	    margin-right: $cmu-base/2; // expose the browser scrollbar
+
 		// @include scrollbars($cmu-base, $cmu-color-scrollFg, $cmu-color-scrollBg);
 		// @include scrollbars($cmu-base, $cmu-color-scrollFg, transparent);
 
@@ -135,6 +138,9 @@
 			padding: $cmu-base;
 			border: $style-line--dark;
 			background-color: rgba($cmu-color-black, 0.88);
+		
+			// readjust the content container bc we're exposing the scroller
+	    	margin-right: -$cmu-base/2; // expose the browser scrollbar
 		}
 
 	.cmuMega__section {

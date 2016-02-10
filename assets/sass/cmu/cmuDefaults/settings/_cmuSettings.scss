@@ -89,16 +89,41 @@ body {
     @extend %ease-slow;
 }
 
-%cmu-maxwidth {
-	max-width: $cmu-maxwidth;
-	margin: 0 auto;
-}
-
 %radius { border-radius: 8px; }
 
 ol, li {
 	list-style-position: inside;
 }
+
+%cmu-maxwidth {
+	max-width: $cmu-maxwidth;
+	margin: 0 auto;
+}
+
+.cmu-width, %cmu-width {
+	@extend %cmu-maxwidth;
+
+	@include respondTo(xlarge-up) {
+    	padding-left: $cmu-base*8;
+    	padding-right: $cmu-base*8;
+	}
+
+	@include respondTo(large-down) {
+    	padding-left: $cmu-base*7;
+    	padding-right: $cmu-base*7;
+	}
+
+	@include respondTo(medium-down) {
+    	padding-left: $cmu-base*5;
+    	padding-right: $cmu-base*5;
+	}
+
+	@include respondTo(small-down) {
+    	padding-left: $cmu-base;
+    	padding-right: $cmu-base;
+	}
+}
+
 
 // CONTAINER--RESPONSIVE IS NOT USED
 // responsive containers are always 100% wide, and have no side margins
@@ -112,17 +137,21 @@ ol, li {
 // base container for all community content
 // min-height is set so the footer doesn't jump up/down on page load
 .community__content {
+	@extend %cmu-width;
+
+	// this is to adjust for annoying negative margin in COM framework
+	margin-left: 5px;
+	margin-right: 5px;
+
 	padding-top: $cmu-base*3; // give some room for fixed header
 	position: relative;
 	padding-bottom: $cmu-min-pageHeight;
 
-		@include respondTo(xsmall-down) {
-	    	padding-bottom: $cmu-min-pageHeight--m;
-		}
+	@include respondTo(xsmall-down) {
+    	padding-bottom: $cmu-min-pageHeight--m;
+	}
 		
-
 	min-height: 100%;
-	@extend %cmu-maxwidth;
     @extend %ease-slow;
 }
 

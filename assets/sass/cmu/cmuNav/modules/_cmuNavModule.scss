@@ -67,6 +67,8 @@ $nav-border: 1px solid $cmu-color-dkblue;
 	background-color: $cmu-color-menu;
 	z-index: $z-gloNav;
 	position: relative;
+	
+	@extend .cmu-width;
 
 
 	* {

@@ -48,7 +48,7 @@
 @import "cmuEmoji/index";				// :D
 @import "cmuHints/index";				// onboarding and onscreen hints; might trickle down into other components
 
-// content styles
+// content styles; included separately because of dependency
 @import "cmuDefaults/settings/cmuContentDesign";
 
 
