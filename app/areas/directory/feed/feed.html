@@ -43,16 +43,16 @@
 				<!-- main -->
 				<div class="cmuFeed__main col--md9 noPaddingLeft">
 					<!-- filter & sort controls -->
-					<div class="cmuThreadlist__ctrl__row row">
-						<div class="col--md6">
+					<div class="cmuThreadlist__ctrl__row clearfix">
+						<div class="col--md12 noPadding">
+
 							<span community-permissions denied-behavior="hide">
 								<button 
 									class="button--tab button--wide" 
 									ng-class="{'active': vm.feedType=='community'}" 
 									ng-click="vm.setFeedType('community')">
 										${{ directory.feed.recentContent }}$
-								</button>
-								<button 
+								</button><button 
 									class="button--tab button--wide" 
 									ng-click="vm.setFeedType('user')" 
 									ng-class="{'active': vm.feedType=='user'}">
@@ -60,29 +60,32 @@
 								</button>
 							</span>
 						</div>
-						 <div class="col--md3 noPaddingRight">
-				          	<community-sort 
-				          		sort-options="vm.categorySortOptions" 
-				          		sort-filter="vm.feedFilter" 
-				          		sort-exclude="page" 
-				          		class="community__sort"
-				          		sort-param="nodeUrlCode",
-				          		on-sort-fn="vm.setDiscussionStyleList">
-				          	</community-sort>
-				        </div>
-						<div class="col--md3">
-						  <community-sort 
-						  	sort-options="vm.discussionSortOptions" 
-						  	sort-filter="vm.feedFilter" 
-						  	sort-exclude="page" 
-						  	class="community__sort"
-						  	sort-param="style"
-						  	on-sort-fn="vm.checkStoryData">
-						  </community-sort>
-				        </div>
 
-						<div class="cmuFeed__container">
+						<div class="cmuFeed__container button--tabContainer col--md12">
 
+							<div class="cmuFeed__filters col--md12 noPadding">
+								<div class="col--md6 noPaddingLeft">
+								  	<community-sort 
+								  		sort-options="vm.categorySortOptions" 
+								  		sort-filter="vm.feedFilter" 
+								  		sort-exclude="page" 
+								  		class="community__sort"
+								  		sort-param="nodeUrlCode",
+								  		on-sort-fn="vm.setDiscussionStyleList">
+								  	</community-sort>
+								</div>
+								<div class="col--md6 noPaddingRight">
+								  <community-sort 
+								  	sort-options="vm.discussionSortOptions" 
+								  	sort-filter="vm.feedFilter" 
+								  	sort-exclude="page" 
+								  	class="community__sort"
+								  	sort-param="style"
+								  	on-sort-fn="vm.checkStoryData">
+								  </community-sort>
+								</div>
+							</div>
+						 
 				        	<!-- refresh button -->
 					        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
 					        <div class="cmuFeed__update col--md12 noPadding">

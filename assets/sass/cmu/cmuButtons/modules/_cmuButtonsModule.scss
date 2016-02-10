@@ -436,7 +436,7 @@ button, .button {
 // 
 
 .button--tab {
-	@include cmuButton('outline',$cmu-color-mdgray,$cmu-color-ltgray);
+	@include cmuButton('outline',$cmu-color-line,$cmu-color-ltgray);
 	color: $cmu-color-unselected;
 	background-color: $cmu-color-unselected--background;
 	margin-left: 0;
@@ -446,7 +446,7 @@ button, .button {
     z-index: inherit;
 	@extend %ease-fast;
 
-	&:hover {
+	&:not(.active):hover {
 		@extend %ease-fast;
 		color: $cmu-color-selected;
 		border-color: $cmu-color-selected;
@@ -474,9 +474,12 @@ button, .button {
 		@extend %ease-none;
 		// border-top: 3px solid $cmu-color-selected;
 		color: $cmu-color-selected;
-		background-color: $cmu-color-selected--background;
+		// background-color: $cmu-color-selected--background;
 		// line-height: $cmu-button-lineheight - remCalc(3px) * 2;
 		// top: 1px;
+		
+		border-bottom-color: $cmu-color-bodybg;
+		z-index: $z-overlay;
 
 		&:before {
 			@extend %ease-fast;
@@ -488,3 +491,11 @@ button, .button {
 		}
 	}
 }
+	.button--tabContainer {
+		border: $style-line;
+		margin-top: -1px;
+	}
+
+
+
+

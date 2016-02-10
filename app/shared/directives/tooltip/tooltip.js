@@ -27,12 +27,12 @@ function communityTooltip() {
 
 					if (origin.data('ajax') !== 'cached') {
 						scope.tooltip.ajaxPopulate(scope.tooltip.idField).then(function(result){
-							console.log('tooltip.js content returned:')
-							console.log(result)
+							// console.log('tooltip.js content returned:')
+							// console.log(result)
 
 							if (typeof(result.message) !== 'undefined') {
 								// thread message object
-								console.log(result.message)
+								// console.log(result.message)
 								var content = result.message;
 
 								var tooltipText = $('<div>' + content.body + '</div>').text();
@@ -52,9 +52,6 @@ function communityTooltip() {
 
 								var tooltipElement = angular.element(scope.tooltip.getTemplate(tooltipData));
 
-								console.log('what: ' + tooltipData)
-								console.log(tooltipData)
-
 								origin.tooltipster('content', tooltipElement).data('ajax', 'cached');
 							}
 						});
@@ -71,11 +68,8 @@ function communityTooltip() {
 	var controller = function($templateCache, $interpolate) {
 		this.getTemplate = function(templateData) {
 
-			console.log('test 1: ' + templateData)
-			console.log(this.tooltipTemplateName)
 			var tooltipTemplate = $templateCache.get(this.tooltipTemplateName);
 			
-			console.log('test 2: ' + tooltipTemplate)
 			if (this.localData) {
 				templateData = _.extend(templateData, this.localData);
 			}

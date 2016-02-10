@@ -37,7 +37,15 @@ $style-line: 1px solid $cmu-color-line;
 // - good with comments, not so much with forum-style replies
 // 
 %style-longform {
-	max-width: $cmu-maxwidth--longform;
+	@include respondTo(medium-up) {
+		padding-left: $cmu-base*3;
+		padding-right: $cmu-base*3;
+    }
+	@include respondTo(xlarge-up) {
+		padding-left: $cmu-base*6;
+		padding-right: $cmu-base*6;
+    }
+	// max-width: $cmu-maxwidth--longform;
     // margin: 0 auto; // centered-ness is annoying; keep it left-aligned
 }
 

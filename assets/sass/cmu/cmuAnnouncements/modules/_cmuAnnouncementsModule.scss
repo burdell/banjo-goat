@@ -32,9 +32,12 @@
 
 
 .cmuAnnouncementsDetails {
-	@extend %style-longform;
+	.cmuThread__firstPost {
+		@extend %style-longform;
+	}
 
 	.cmuUserbadge__op:before {
 		display: none;
 	}
 }
+

@@ -17,7 +17,8 @@ $cmu-thread-message-height:	$cmu-base * 3;
 .cmuThread__firstPost {
     position: relative;
 	padding: $cmu-base;
-	margin-bottom: $cmu-vertical-rhythm/2;
+	// margin-bottom: $cmu-vertical-rhythm/2;
+	margin-bottom: $cmu-vertical-rhythm;
     border: $style-line;
     background-color: $cmu-color-post;
     

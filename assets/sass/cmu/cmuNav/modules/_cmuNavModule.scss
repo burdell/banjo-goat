@@ -221,6 +221,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				color: $cmu-color-white;
 				outline:none;
 				text-align: center;
+				line-height: $size-normal__lineHeight;
 
 				&:hover {
 					color: $cmu-color-ltblue;

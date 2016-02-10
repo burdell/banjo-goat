@@ -26,9 +26,22 @@
 		      <div class="cmuThreadlist__headers">
 		        <div class="cmuThreadlist__topic">{{ monthData.monthDisplay }} {{ yearData.year }}</div>
 		        <div class="cmuThreadlist__authorDate">${{ directives.timeline.created }}$</div>
-		        <div class="cmuThreadlist__counter cmuThreadlist__views"></div>
-		        <div class="cmuThreadlist__counter cmuThreadlist__replies"></div>
-		        <div class="cmuThreadlist__counter cmuThreadlist__kudos"></div>
+		        <div class="cmuThreadlist__counter 
+                    cmuThreadlist__views 
+                    visible--smUp">
+		          <span class="visible--mdUp">${{ core.views }}$</span>
+		          <span class="visible--smDown">${{ core.v }}$</span>
+		        </div>
+		        <div class="cmuThreadlist__counter
+                    cmuThreadlist__replies visible--smUp">
+		          <span class="visible--mdUp">${{ core.replies }}$</span>
+		          <span class="visible--smDown">${{ core.r }}$</span>
+		        </div>
+		        <div class="cmuThreadlist__counter 
+		                    cmuThreadlist__kudos visible--smUp">
+		          <span class="visible--mdUp">${{ core.kudos }}$</span>
+		          <span class="visible--smDown">${{ core.k }}$</span>
+		        </div>
 		      </div>
 
 
@@ -59,7 +72,7 @@
 		            class="visible--xlgUp"
 		            > -->
 		          <a 
-		            area-link-handler="{{ timeline.getProfileUrl(data.topic.message.insertUser.id) }}"
+		            area-link-handler="{{ timeline.getProfileUrl(data.message.insertUser.id) }}"
 		            class=""
 		            >
 		            <div class="cmuThreadlist__created
@@ -67,15 +80,15 @@
 		              <div class="cmuThreadlist__avatar">
 		                <div
 		                  community-tooltip
-		                  data-id-field="{{ data.topic.message.insertUser.id }}" 
+		                  data-id-field="{{ data.message.insertUser.id }}" 
 		                  ajax-populate="timeline.getUserData" 
 		                  tooltip-template="partials/usertooltip.html"
 		                  empty-text="${{ forums.list.emptyPreview }}$"
 		                  tooltip-class="cmuTooltipster"
 		                  position="top"
 		                >
-		                  <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
-		                  <span>{{ data.topic.message.insertUser.login }}</span>
+		                  <community-user-avatar user="data.message.insertUser"></community-user-avatar>
+		                  <span>{{ data.message.insertUser.login }}</span>
 		                </div>
 		              </div>
 		            </div>
@@ -104,7 +117,7 @@
  -->
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__counter cmuThreadlist__views">
-			            {{  data.topic.countViews | number}}
+			            {{ data.countViews | number}}
 			          </div>
 			        </a>
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
@@ -114,7 +127,7 @@
 			        </a>
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
-			            {{  data.topic.message.scores.kudo | number}}
+			            {{  data.message.scores.kudoCount | number}}
 			          </div>
 			        </a>
 		        </div>

@@ -133,8 +133,9 @@
 
 .cmuProfile {
 	.button--tab.active {
-		border-bottom-color: $cmu-color-purewhite;
-		z-index: $z-overlay;
+		// border-bottom-color: $cmu-color-purewhite;
+		// border-bottom-color: $cmu-color-bodybg;
+		// z-index: $z-overlay;
 	}
 }
 .cmuProfile__main {
@@ -150,7 +151,7 @@
 	.cmuProfile__summary {
 		padding: $cmu-base;
 		// padding-top: 0;
-		border: $style-line;
+		// border: $style-line;
 		margin-top: -1px;
 	}
 
