@@ -3,6 +3,7 @@
 // 
 // Banner (Announcements)
 // 
+// 
 
 // 
 // BANNER
@@ -19,18 +20,9 @@ $cmu-banner-icon-color: $cmu-color-black;
 $cmu-banner-hover-icon-color: $cmu-color-white;
 
 
-// Note that the html uses Flexbox to center
 .cmuBanner {
 
-	// JAN TESTING DEMO
-	// display: none !important;
-	
-	// cursor: pointer;
-	// padding: $cmu-base 0;
-	// background-color: $cmu-banner-background-color;
-	// font-weight: 300; 
-	// color: $cmu-banner-text-color;
-	// @extend %ease-fast; 
+	@extend .cmu-width;
 
 	&:not(.cmuBanner__close):hover {
 		// background-color: $cmu-banner-hover-background-color;
@@ -59,7 +51,7 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 			color: $cmu-color-white;
 			text-transform: uppercase;
 			padding: 0 $cmu-base/2;
-			padding-right: $cmu-base;
+			padding-right: $cmu-base*3/4;
 			font-size: $size-normal;
 		}
 	}
@@ -77,10 +69,11 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 		// add a little bit more on right
 		// padding-right: $cmu-base;
 		position: relative;
-		right: -$cmu-base*1.7;
+		right: 6px;
+		// right: -$cmu-base*1.7;
 
 		color: $cmu-banner-icon-color;
-		text-align: center;
+		text-align: right;
 		font-size: $cmu-base * 1.5;
 		@extend %ease-fast; 
 		cursor: pointer; 

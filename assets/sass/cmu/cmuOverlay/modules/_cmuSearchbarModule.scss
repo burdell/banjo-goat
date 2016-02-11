@@ -12,6 +12,8 @@
 }
 
 .cmuSearchbar {
+    @extend %cmu-width;
+    
 	// position: fixed;
     @extend %ease-fast;
     display: none; // default is hidden
