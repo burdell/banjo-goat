@@ -4,6 +4,7 @@
 require('directives/userbadge/userbadge.js');
 require('directives/loadmore/loadmore.js');
 
+
 var _ = require('underscore');
 
 function communityCommentList() {
