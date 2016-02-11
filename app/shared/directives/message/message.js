@@ -34,8 +34,9 @@ function communityMessage() {
 			};	
 		}
 
+		var currentArea = routingService.getCurrentArea();
 		var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';
-		ctrl.editUrl = routingService.generateUrl(routingService.getCurrentArea() + '.edit', { 
+		ctrl.editUrl = routingService.generateUrl(currentArea + '.edit', { 
 			nodeId: $stateParams.nodeId, 
 			id: ctrl.message.id,
 			messageType: messageType

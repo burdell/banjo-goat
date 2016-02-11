@@ -17,13 +17,23 @@
 			userService.get().then(function(user){
 				var hasPermission = permissionsService.hasPermission(requestedPermissions, user, Number(scope.permissionsId));
 				if (!hasPermission) {
-					if (attrs.deniedBehavior === 'hide') {
+					var deniedBehavior = attrs.deniedBehavior;
+					if (deniedBehavior === 'hide') {
 						hideElement();
-					} else {
+					} else if (deniedBehavior === 'addClass'){
+						addClass(attrs.deniedClass);
+					}else {
 						disableElement();
 					}
 				}
 			});
+
+			function addClass(className){
+				if (!className) {
+					className = 'notLoggedIn';
+				}
+				element[0].classList.add(className);
+			}
 
 			function hideElement() {
 				// jan: experimenting with adding a "disabled" container class

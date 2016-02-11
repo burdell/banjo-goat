@@ -10,20 +10,39 @@ emojify.setConfig({
 	mode: 'data-uri'
 });
 
+var _ = require('underscore');
 
-var sanitize = function($sce){
+
+var userNamePattern = /\B@[a-z0-9_\-]+/gi;
+var sanitize = function($sce, routingService){
 	return function(body, format){
-		if (!format || format === 'html') {
+		var messageFormat = (!format || format === 'html') ? 'html' : 'markdown';
+		
+		var mentionedUsers = body.match(userNamePattern);
+		if (mentionedUsers) {
+			_.each(mentionedUsers, function(user){
+				var justTheName = user.substr(1);
+				body = body.replace(justTheName, function(userName){
+					var profileUrl = routingService.generateUrl('userprofile', {  userId: userName });
+
+					if (messageFormat === 'html') {
+						return '<a href="' + profileUrl + '">' + userName + '</a>';
+					} 
+
+					return '[' + userName + '](' + profileUrl + ')';
+				});
+			});
+		}	
+		
+		if (messageFormat === 'html') {
 			return $sce.trustAsHtml(body);
 		} 
 
 		body = marked(body, { sanitize: true, breaks: true });
-
-
 		return emojify.replace(body);
 	};
 };
-sanitize.$inject = ['$sce'];
+sanitize.$inject = ['$sce', require('services/routing.js')];
 
 angular.module('community.filters')
 	.filter('sanitize', sanitize);

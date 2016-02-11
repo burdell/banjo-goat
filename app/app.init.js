@@ -14,7 +14,6 @@ function initializeApp(areaName) {
     var baseTag = document.createElement('base');
     baseTag.setAttribute('href', '/');
     document.head.appendChild(baseTag);
-    document.cookie = "COMM_AUTH=3";
 
     var moduleBuilder = require('modulebuilder');
 
