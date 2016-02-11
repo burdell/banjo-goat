@@ -1,71 +1,15 @@
 
 
-// New Primary+Secondary Nav
-$nav-height: $cmu-nav-height;
-$nav-border: 1px solid $cmu-color-dkblue;
-	$nav-border: 0;
 
-%nav-style {
-	text-transform: uppercase;
-	color: $cmu-color-white;
-	letter-spacing: 0.4px;
-	font-size: $size-xsmaller;
+
+%navInline {
+	display: inline-block;
 	vertical-align: top;
-	padding: $cmu-base*0.7;
-	height: $nav-height;
-	cursor: pointer;
-	border-bottom: $nav-border;
-	border-left: $cmu-color-blue;
-	// line-height: $cmu-base;
-	line-height: 0;
-
-	@extend %ease-fast;
-	&:hover {
-		color: $cmu-color-white;
-		background-color: $cmu-color-ltblue;
-		border-bottom: $nav-border;
-		@extend %ease-fast;
-	}
 }
 
-%nav-icon-style {
-	@extend %nav-style;
-	// padding-left: $cmu-base*0.5;
-	// padding-right: $cmu-base*0.5;
-	font-size: $cmu-base;
-	color: $cmu-color-white;
-	width: $nav-height; //$cmu-base*3;
-	border-left: $cmu-color-blue;
-	// margin-left: -4px;
-	// margin-right: -4px;
-	text-align: center;
-}
-
-// dropdown arrow
-%dropdownArrow {
-    content: ' ';
-    @include triangle(top, $cmu-color-white, $size-arrow*3/4);
-    // position: relative;
-    // bottom: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 14px;
-    @extend %ease-fast;
-}
-
-
-
-
-// required to position:fix the nav
-.cmuGloNav__metaContainer {
-	position: fixed;
-	width: 100%;
-	z-index: $z-top;
-}
-
-.cmuGloNav {
+.cmuNav {
 	background-color: $cmu-color-menu;
-	z-index: $z-gloNav;
+	z-index: $z-nav;
 	position: relative;
 	
 	@extend .cmu-width;
@@ -105,7 +49,17 @@ $nav-border: 1px solid $cmu-color-dkblue;
 
 
 
-	.cmuGloNav--header {
+
+
+    /* 
+
+
+    MAIN NAV 
+
+
+    */
+
+	.cmuNav--header {
 		height: $nav-height;
 		border-bottom: $nav-border;
 		@include box-shadow(0, 0, 5px, $cmu-color-black);
@@ -115,35 +69,35 @@ $nav-border: 1px solid $cmu-color-dkblue;
 		}
 	}
 
-		// hacky
-		// align everything properly
-		.cmuGloNav__left,
-			.cmuGloNav__logo, .cmuGloNav__logo .icon, 
-			.cmuGloNav__cmuHome,
-		.cmuGloNav__right,
-		.cmuGloNav__links, .cmuGloNav__link, .cmuGloNav__link span, .cmuGloNav__link span a, .cmuGloNav__link a,
-		.cmuGloNav__accountControl,
-		.cmuGloNav__cmuSearch, .cmuGloNav__cmuLang,
-		.cmuGloNav__cmuAccount, .cmuGloNav__cmuAccount ul, .cmuGloNav__cmuAccount ul span > li,  .cmuGloNav__cmuAccount .cmuGloNav__inbox, .cmuGloNav__cmuAccount li > a > span, .cmuGloNav__notifications li > a > span {
+		.cmuNav__accountNav, 
+			.cmuNav__accountNav ul, 
+			.cmuNav__accountNav ul span > li,
+			// .cmuNav__accountNav li > a > span, 
+		{
 			display: inline-block;
 			vertical-align: top;
 		}
 
-	.cmuGloNav__cmuHome {
-    	line-height: $cmu-base;
+	.cmuNav__cmuHome {
+    	line-height: $size-normal__lineHeight;
 	}
 	
-	.cmuGloNav__container {
+	.cmuNav__container {
 		@extend %cmu-maxwidth;
 		display: block;
 	}
 
-	.cmuGloNav__left {
+
+
+
+	.cmuNav__left {
+		&,* { 
+			@extend %navInline;
+		}
+
 		@extend %nav-style;
 		padding-left: 0;
 		padding-right: 0;
-		// border-left: 1px solid $cmu-color-dkgray;
-		// padding-left: 0;
 		color: $cmu-color-white;
 		&:hover {
 			color: $cmu-color-ltblue;
@@ -161,7 +115,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 		}
 	}
-		.cmuGloNav__logo {;
+		.cmuNav__logo {;
     		margin-top: -0.7rem;
 
 			.icon {
@@ -172,27 +126,43 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 		}
 
-	.cmuGloNav__right {
-		// @extend %nav-style;
-		// float: right;
+
+
+
+
+
+
+
+	/*
+
+	
+		RIGHT SIDE NAV
+
+
+	*/
+
+
+	.cmuNav__right {
 		position: absolute;
 		right: 0;
-		// margin-right: $cmu-base;
+		display: inline-block;
+		vertical-align: top;
 
 		// hide for mobile
 		@include respondTo(small-down) {
-			.cmuGloNav__links, 
-			.cmuGloNav__cmuSearch,
-			.cmuGloNav__cmuLang,
-			.cmuGloNav__cmuAccount {
+			.cmuNav__links, 
+			.cmuNav__search,
+			.cmuNav__cmuLang,
+			.cmuNav__cmuAccount {
 				display: none;
 			}
 		}
 	}
 
-		// fake active button
-		.cmuGloNav__links {
-			// margin-right: $cmu-base;
+		.cmuNav__linkNav {
+			&,* {
+				@extend %navInline;
+			}
 
 			.active {
 				background-color: $cmu-color-vdkblue;
@@ -217,7 +187,10 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				}
 			}
 		}
-		.cmuGloNav__link {
+		.cmuNav__link {
+			&,* {
+				@extend %navInline;
+			}
 
 			a { 
 				@extend %nav-style; 
@@ -232,12 +205,11 @@ $nav-border: 1px solid $cmu-color-dkblue;
 					color: $cmu-color-ltblue;
 					background-color: transparent;
 					border-bottom: $nav-border;
-					// @extend %ease-fast;
 				}
 			}
 
 			&:hover {
-				.cmuGloNav__dropItem:after {
+				.cmuNav__dropItem:after {
 					// color: $cmu-color-purewhite;
 					// color: $cmu-color-ltblue;
 					// @extend %ease-fast;
@@ -245,7 +217,7 @@ $nav-border: 1px solid $cmu-color-dkblue;
 			}
 		}
 
-		.searchClosed .cmuGloNav__link { 
+		.searchClosed .cmuNav__link { 
 			&:first-child, &:first-of-type {
 				a {
 					background-color: $cmu-color-active;
@@ -255,26 +227,18 @@ $nav-border: 1px solid $cmu-color-dkblue;
 						color: $cmu-color-white !important;
 					}
 
-					&.cmuGloNav__dropItem:after:hover {
+					&.cmuNav__dropItem:after:hover {
 						color: $cmu-color-white !important;
 					}
 				}
 			}
 		}
 		
-		a.cmuGloNav__dropItem {
-			// margin-right: $cmu-base;
+		a.cmuNav__topics {
 			padding-right: $cmu-base;
-			// background-color: $cmu-color-dkgray;
-			// color: $cmu-color-ltmdgray;
-
-			// background-color: $cmu-color-blue;
 			color: $cmu-color-white;
 
 			&:hover {
-				// background-color: $cmu-color-ltblue;
-				// color: $cmu-color-purewhite;
-
 				color: $cmu-color-ltblue;
 			}
 
@@ -284,13 +248,10 @@ $nav-border: 1px solid $cmu-color-dkblue;
 				content: "\e68b";
 				position: relative;
 				margin-left: $cmu-base/2;
-				// margin-right: $cmu-base*2;
 				font-size: $size-xsmaller;
 				// color: $cmu-color-gray;
 				display: inline-block;
 			    border-radius: 50%;
-			    	// width: 19px;
-			    	// height: 19px;
 			    padding-left: 0.26rem;
 				line-height: 18px;
 			    border: $style-line--dark;
@@ -314,346 +275,115 @@ $nav-border: 1px solid $cmu-color-dkblue;
 
 
 
-		// 
-		// Account Controls
-		// 
+	// 
+	// Account Controls
+	// 
 
+	// temp. disabled for Spanish
+	/*
+	.cmuNav__cmuLang {
+		@extend %navInline;
+		@extend %nav-icon-style;
+		border-bottom: $nav-border;
+		&.active {
+			background-color: $cmu-color-blue;
+			span { 
+				color: white;
+			}
 
-		.cmuGloNav__accountControl {
-			// background-color: $cmu-color-blue;
+			&:after {
+				@extend %dropdownArrow;
+			}
+		}
+	}
+	*/
+
+	.cmuNav__iconNav {
+		@extend %navInline;
+
+		.active {
+			position: relative;
+			background-color: $cmu-color-blue;
+
+			span {
+				color: $cmu-color-white; 
+			}
+		}
+	}
+		.cmuNav__search {
+			&,* { 
+				@extend %navInline;
+			}
+
+			@extend %nav-icon-style;
+			border-bottom: $nav-border;
+
+			&.isSearch {
+				cursor: default;
+				color: rgba($cmu-color-white, 0.5);
+				&:hover {
+					background: transparent;
+				}
+			}
 		}
 
-			.cmuGloNav__cmuSearch {
+		.cmuNav__accountNav {
+
+			// triangles only apply to account icons
+			.active:after {
+				@extend %dropdownArrow;
+			}
+		}
+
+			.cmuNav__notifications, .cmuNav__inbox {
 				@extend %nav-icon-style;
-				// background-color: $cmu-color-blue;
-				border-bottom: $nav-border;
-
-				&.isSearch {
-					cursor: default;
-					// color: $cmu-color-white;
-					// background-color: $cmu-color-ltblue;
-					color: rgba($cmu-color-white, 0.5);
-					&:hover {
-						background: transparent;
-					}
-				}
-			}
-			.cmuGloNav__cmuLang {
-				@extend %nav-icon-style;
-				border-bottom: $nav-border;
-				&.active {
-					background-color: $cmu-color-blue;
-					span { 
-						color: white;
-					}
-
-    				&:after {
-						@extend %dropdownArrow;
-					}
-				}
+				position: relative;
 			}
 
-
-			.cmuGloNav__accountControl, .cmuGloNav__cmuAccount {
-
-				.active {
-	    			position: relative;
-					background-color: $cmu-color-blue;
-
-					span {
-						color: $cmu-color-white; 
-					}
-
-					// &:after {
-					// 	content: ' ';
-					// 	display: block;
-					// 	position: absolute;
-					// 	z-index: $z-gloNav;
-					// 	left: $cmu-base;
-					// 	bottom: 0;
-					// 	width: 0; 
-					// 	height: 0; 
-					// 	border-left: 7px solid transparent;
-					// 	border-right: 7px solid transparent;
-					// 	border-bottom: 7px solid $cmu-color-ltgray;
-					// }
-				}
-			}
-			.cmuGloNav__cmuAccount {
-
-				.active:after {
-					@extend %dropdownArrow;
-				}
-
-				.cmuGloNav__profile.active:after {
-					content: ' ';
-					position: absolute;
-   					right: 14px;
-   					bottom: -1px;
-				}
-				
-				// temp placeholder
-				.cmuGloNav__avatar {
-					// &:before {
-					// 	content: ' ';
-					// 	display: block;
-					// 	background: #969ba3;
-					// 	border-radius: 50%;
-					// 	margin-top: 5px;
-					// 	margin-right: 0;
-					// 	// margin-left: 4px;
-					// 	@extend %ease-fast;
-					// 	height: remCalc(28px);
-					// 	width: remCalc(28px);
-
-					// 	background-color: orange;
-					// 	background-size: cover;
-					// 	background-repeat: no-repeat;
-					// }
-				    // background-image: url(https://i1.wp.com/vanillicon.com/ff28f25f43349680c6f051fd933cdcda?s=80&d=mm&r=g);
-				    /* background: #969ba3; */
-				    border-radius: 50%;
-				    margin-top: 5px;
-				    margin-right: 0;
-					height: remCalc(28px);
-					width: remCalc(28px);
-				    background-size: cover;
-				    background-repeat: no-repeat;
-				}
-
+			.cmuNav__inbox {
 				.ubnt-icon--inbox {
 					font-size: 19px;
 					position: relative;
 					top: -3px;
 				}
-
 			}
 
-				.cmuGloNav__notifications, .cmuGloNav__inbox {
-					@extend %nav-icon-style;
-					// padding-left: $cmu-base/4;
-					// padding-right: $cmu-base/2;
-					position: relative;
+			.cmuNav__profile {
+				@extend %nav-icon-style;
+				padding-left: $cmu-base/4;
+				padding-right: 0;
+				text-align: center;
+			    width: $cmu-nav-height;
+			    
+				a {
+				    display: inline-block;
+				    vertical-align: top;
+				    line-height: 40px;
+				    top: -10px;
+				    position: relative;
 				}
 
-				.cmuGloNav__profile {
-					@extend %nav-icon-style;
-					padding-left: $cmu-base/4;
-					padding-right: $cmu-base/4;
-					text-align: center;
-					margin-right: 0px;
-					// padding-right: 0;
-				    cursor: pointer;
-				    width: $cmu-nav-height;
-				    
-					a {
-					    display: inline-block;
-					    vertical-align: top;
-					    line-height: 40px;
-					    top: -10px;
-					    position: relative;
+				&:hover, &.active {
+					background-color: transparent;
+				}
+
+				&.active:after {
+					content: ' ';
+					position: absolute;
+					right: 14px;
+					bottom: -1px;
+				}
+					.cmuNav__profile__avatar {
+						@extend %navInline;
+					    border-radius: 50%;
+					    margin-top: 5px;
+					    margin-right: 0;
+						height: $size-avatar--small;
+						width: $size-avatar--small;
+					    background-size: cover;
+					    background-repeat: no-repeat;
 					}
-
-					&:hover, &.active {
-						background-color: transparent;
-					}
-
-				}
-
-
-
-
-
-
-// 
-// DROPDOWNS (notifications, inbox)
-// 
-
-
-
-
-// 
-// MOBILE MENU 
-// 
-
-.cmuGloNav__mobile {
-	// hide on desktop
-	@include respondTo(medium-up) {
-		display: none;
-	}
-
-}
-	.cmuGloNav__mobile__btn {
-		float: right;
-	    text-align: right;
-
-	    &:before {
-	    	display: block;
-    		padding: 0.7rem;
-    		padding-right: 0.3rem;
-	    	content: 'Menu';
-	    	float: left;
-			@extend %nav-style;
-			top: 1px;
-	    }
-
-	    &:after {
-     		font-family: 'ubnt';
-	    	display: block;
-    		padding: 0.7rem;
-    		padding-top: 0.72rem;
-    		padding-left: 0.3rem;
-	    	content: '\e6d9';
-	    	float: left;
-		    position: relative;
-			@extend %nav-style;
-	    }
-	}
-		.cmuGloNav__mobile__menu--open {
-			.cmuGloNav__mobile__btn {
-	    		&:after {
-	    			content: '\e6cc';
-	    		}
 			}
-		}
-
-	%nav-style--mobile {
-		color: $cmu-color-white;
-		padding: $cmu-base/2 $cmu-base;
-		border-bottom: $style-line--dark;
-
-		text-transform: uppercase;
-		letter-spacing: 0.4px;
-		font-size: $size-xsmaller;
-		line-height: $cmu-base*1.5;
-	}
-
-	.cmuGloNav__mobile__container {
-		// hide normally even in mobile (until --open flag)
-		display: none; 
-		position: absolute;
-		top: remCalc(40px);
-		right: $cmu-base * -1;
-		width: $cmu-base * 20;
-		background: $cmu-color-menu;
-
-		// hide on desktop
-		@include respondTo(medium-up) {
-			// use !important to override
-			display: none !important;
-		}
-
-		a {
-			display: block;
-			&:hover {
-				div {
-					background-color: $cmu-color-blue;
-				}
-			}
-		}
-	}
-
-	.cmuGloNav__mobile__menu--open
-		+ .cmuGloNav__mobile__container {
-			display: block;
-		}
-
-	// 
-	// Nav Mobile Items
-	// 
-		.cmuGloNav__mobile__search {
-			@extend %nav-style--mobile;
-			@extend %type-base;
-			background: $cmu-color-blue;
-
-
-			// special search styling
-			.cmuSearchbox {
-				.appIconInput__icon {
-					padding-right: $cmu-base;
-				}
-				.appIconInput__input {
-					padding-left: $cmu-base;
-				}
-
-				input {
-					border: 0;
-				}
-			}
-			// text-transform: uppercase;
-			// font-weight: 300;
-			// padding: 0;
-
-			// span {
-			// 	padding: $cmu-base *3/4 $cmu-base;
-			// 	@extend %type-base;
-			// }
-
-			// .ubnt-icon {
-			// 	float: right; 
-			// 	padding-left: $cmu-base*3/2;
-			// 	padding-right: $cmu-base*3/2;
-			// 	border-left: $style-line--dark;
-			// 	font-size: $cmu-base;
-			// }
-		}
-
-		.cmuGloNav__mobile__link {
-			@extend %nav-style--mobile;
-
-			.ubnt-icon {
-				vertical-align: initial;
-				padding-left: $cmu-base/2;
-			}
-		}
-
-		.cmuGloNav__mobile__username {
-			@extend %nav-style--mobile;
-			display: block;
-			border: 0;
-			color: white;
-			font-size: $size-normal;
-			background-color: transparent !important;
-			margin-bottom: $cmu-base/2;
-
-			.cmuProfile__avatar {
-				float: left;
-				&:before {
-					margin: 0;
-				}
-				margin-right: $cmu-base;
-			}
-
-			.cmuGloNav__mobile__user {
-				position: relative;
-				top: 3px;
-			}
-		}
-			.cmuGloNav__mobile__container
-				div.cmuUserbadge__avatar {
-				display: inline-block;
-				float: none;
-				line-height: 0;
-			}
-
-			.cmuGloNav__mobile__accountlinks {
-				position: relative;
-				// top: $cmu-base * -1;
-
-				.icon {
-					font-size: $size-large;
-					margin-right: $cmu-base/2;
-				}
-			}
-
-				.cmuGloNav__mobile__accountlink {
-					@extend %nav-style--mobile;
-					display: block;
-					// margin-left: 50px;
-				}
-
-
-
 
 
 

@@ -131,7 +131,6 @@ $style-line: 1px solid $cmu-color-line;
 		color: $cmu-color-active;
 	}
 	&:hover {
-		// @extend %ease-fast;
 		color: $cmu-color-blue;
 		text-decoration: none;
 	}
@@ -146,20 +145,35 @@ $style-line: 1px solid $cmu-color-line;
 // e.g. used in the 'clear' button for select filters
 .style-link--light, %style-link--light {
 	@extend %ease-fast;
-	// display: inline-block;
 	color: $cmu-color-mdgray;
 	cursor: pointer;
 	&.active {
 		color: $cmu-color-active;
 	}
 	&:hover {
-		// @extend %ease-fast;
 		color: $cmu-color-dkblue;
 		text-decoration: none;
 	}
 }
 
-
+// 4. White Links
+// base:	cmu-color-white
+// hover:	cmu-color-dkblue
+// style:	none
+// 
+// Used as bottom row of dropdown, and in situations with blue or gray bg
+.style-link--white, %style-link--white {
+	@extend %ease-fast;
+	color: $cmu-color-white;
+	cursor: pointer;
+	&.active {
+		color: $cmu-color-active;
+	}
+	&:hover {
+		color: $cmu-color-dkblue;
+		text-decoration: none;
+	}
+}
 
 
 
@@ -505,24 +519,6 @@ $stat-padding: 4.5px $cmu-base/2;
 
 
 
-// placeholder avatar, use with <span>
-
-.cmuFakeAvatar {
-	&:before {
-		content: ' ';
-		display: block;
-		background: #969ba3;
-		border-radius: 50%;
-		margin-top: 5px;
-		margin-right: 0;
-		margin-left: 4px;
-		@extend %ease-fast;
-		height: $size-avatar--small;
-		width: $size-avatar--small;
-	}
-}
-
-
 .floatLeft {
 	float: left !important;
 }
@@ -533,6 +529,17 @@ $stat-padding: 4.5px $cmu-base/2;
 }
 
 
+
+
+
+// 
+// Floating / fixed elements to page
+// ex: required to fix the nav
+.cmuFixed__container {
+	position: fixed;
+	width: 100%;
+	z-index: $z-top;
+}
 
 
 

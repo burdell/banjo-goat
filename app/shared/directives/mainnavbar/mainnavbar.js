@@ -32,7 +32,7 @@ function mainNavBar() {
 
 		var localizedAreas = localizationService.data.core.areas;
 		var navMetaData = [
-			{ display: localizationService.data.directives.mainnavbar.topics, clickFn: toggleDiscussionsMenu, dropItem: true },
+			{ display: localizationService.data.directives.mainnavbar.topics, clickFn: toggleDiscussionsMenu, topics: true },
 			{ display: localizedAreas.stories, href: "#", href: hrefs.stories },
 			{ display: localizedAreas.announcements, href: hrefs.announcements }
 		]; 

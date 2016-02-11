@@ -1,4 +1,63 @@
 
-@import 'settings/cmuNavSettings';
+/*
+
+	Nav
+
+	- Header Nav
+	- Footer Nav
+	- Mobile Nav
+
+*/
+
+// New Primary+Secondary Nav
+$nav-height: $cmu-nav-height;
+$nav-border: 1px solid $cmu-color-dkblue;
+	$nav-border: 0;
+
+%nav-style {
+	text-transform: uppercase;
+	color: $cmu-color-white;
+	letter-spacing: 0.4px;
+	font-size: $size-xsmaller;
+	vertical-align: top;
+	padding: $cmu-base*0.7;
+	height: $nav-height;
+	cursor: pointer;
+	border-bottom: $nav-border;
+	border-left: $cmu-color-blue;
+	line-height: 0;
+
+	@extend %ease-fast;
+	&:hover {
+		color: $cmu-color-white;
+		background-color: $cmu-color-ltblue;
+		border-bottom: $nav-border;
+		@extend %ease-fast;
+	}
+}
+
+%nav-icon-style {
+	@extend %nav-style;
+	font-size: $cmu-base;
+	color: $cmu-color-white;
+	width: $nav-height;
+	border-left: $cmu-color-blue;
+	text-align: center;
+	cursor: pointer;
+}
+
+// dropdown arrow
+%dropdownArrow {
+    content: ' ';
+    @include triangle(top, $cmu-color-white, $size-arrow*3/4);
+    position: absolute;
+    bottom: 0;
+    left: 14px;
+    @extend %ease-fast;
+}
+
 @import 'modules/cmuNavModule';
-@import 'modules/cmuNavFooterModule'
+@import 'modules/cmuNavFooterModule';
+@import 'modules/cmuNavMobileModule';
+
+

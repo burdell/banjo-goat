@@ -268,7 +268,8 @@
 // 
 
 .cmuFeed__sidebar {
-	margin-top: $cmu-vertical-rhythm/2;
+	// margin-top: $cmu-vertical-rhythm/2;
+
 	padding-left: $cmu-base;
 	@extend %cmuSidebar__title;
 }
@@ -286,23 +287,9 @@
 	}
 	
 	.cmuFeed__actions {
-		a {
-			display: block;
-			padding: $cmu-base/4 0;
-			@extend %ease-fast;
-			@extend %style-link;
-
-			// icon color
-			span:before { 
-				@extend %ease-fast;
-				color: $cmu-color-active;
-			}
-
+		*, span:before {
+			color: $cmu-color-white;
 		}
-	}
-
-	.cmuFeed__announcements {
-
 	}
 
 		.cmuFeed__anno {

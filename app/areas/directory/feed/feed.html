@@ -89,7 +89,7 @@
 				        	<!-- refresh button -->
 					        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
 					        <div class="cmuFeed__update col--md12 noPadding">
-					        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon ubnt-icon--refresh-2"></span>${{ directory.feed.refresh }}$</button>
+					        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon cmuIcon-refresh cmuIcon--small"></span>${{ directory.feed.refresh }}$</button>
 					        </div>
 
 				        	<!-- story feed -->
@@ -147,11 +147,11 @@
 
 					<!-- links -->
 					<div class="cmuFeed__actions cmuSidebar__container">
-						<h5>${{ directory.feed.links }}$</h5>
-						<a href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+						<!-- <h5>${{ directory.feed.links }}$</h5> -->
+						<a class="button button--solid button--row" href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 					</div>
 
-					<!-- hub -->
+					<!-- announcements -->
 					<div class="cmuFeed__announcements cmuSidebar__container">
 						<h5> ${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
 						<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">

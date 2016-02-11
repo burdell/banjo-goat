@@ -1,20 +1,8 @@
-<div class="cmuGloNav cmuGloNav--footer" >
-  <div class="cmuGloNav__container">
+<div class="cmuNav cmuNav--footer" >
+  <div class="cmuNav__container">
 
 
-    <div class="cmuGloNav__backtotop cmuTooltip__trigger">
-<!-- 
-      <div 
-        community-tooltip
-        tooltip-template="forums/list/forums.list.messagetooltip.html"
-        tooltip-class="cmuTooltipster--inline"
-        text-data="Back to Top"
-        position="top"
-      >
-        <span class="ubnt--icon ubnt-icon--pointer-up" page-scroll></div>
-      </span>
- -->
-
+    <div class="cmuNav__backtotop cmuTooltip__trigger">
       <span class="ubnt--icon ubnt-icon--pointer-up" page-scroll></span>
 
       <div class="cmuTooltip"><span>${{ directives.globalfooter.backToTop }}$</span></div>
@@ -23,9 +11,9 @@
 
     <div class="container">
       <div class="row"> 
-        <div class="cmuGloNav__community col--sm3 noPaddingLeft">
+        <div class="cmuNav__community col--sm3 noPaddingLeft">
           <li><a area-link-handler link-handler-route="feed">${{ core.cmuName }}$</a></li>
-          <li class="cmuGloNav__discussions"><a ng-click="vm.toggleDiscussionsMenu()">${{ directives.mainnavbar.topics }}$<span class="ubnt-icon ubnt-icon--menu"></span></a></li>
+          <li class="cmuNav__discussions"><a ng-click="vm.toggleDiscussionsMenu()">${{ directives.mainnavbar.topics }}$<span class="ubnt-icon ubnt-icon--menu"></span></a></li>
           <li><a area-link-handler link-handler-route="stories.landing">${{ core.areas.stories }}$</a></li>
           <li><a area-link-handler link-handler-route="announcements.landing">${{ core.areas.announcements }}$</a></li>
         </div>
@@ -44,7 +32,7 @@
           <li><a href="https://www.ubnt.com/legal/privacypolicy/">${{ directives.globalfooter.privacy }}$</a></li>
         </div>
         <div class="col--sm3 noPaddingLeft">
-          <li class="cmuGloNav__social">
+          <li class="cmuNav__social">
             <a target="_blank" href="${{ directives.globalfooter.twitterUrl }}$"><span class="ubnt-icon ubnt-icon--twitter"></span></a>
             <a target="_blank" href="${{ directives.globalfooter.facebookUrl }}$"><span class="ubnt-icon ubnt-icon--facebook"></span></a></span>
             <a target="_blank" href="${{ directives.globalfooter.youtubeUrl }}$"><span class="ubnt-icon ubnt-icon--youtube"></span></a>
@@ -53,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="cmuGloNav__legal row col--md6">
+    <div class="cmuNav__legal row col--md6">
       <span>${{ directives.globalfooter.copyright }}$</span>
     </div>
   </div>

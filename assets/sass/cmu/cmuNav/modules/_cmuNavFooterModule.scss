@@ -24,16 +24,15 @@
 
 
 
-.cmuGloNav--footer {
+.cmuNav--footer {
 	@extend .cmu-width;
 
 	background-color: $cmu-color-ltgray;
-	z-index: $z-gloNav--footer;
+	z-index: $z-nav--footer;
 	padding-top: $cmu-base;
 	padding-bottom: $cmu-base*2;
 
 	position: absolute;
-	// position: relative;
 	width: 100%;
 	bottom: 0;
 
@@ -58,7 +57,7 @@
 
 	}
 
-	.cmuGloNav__legal {
+	.cmuNav__legal {
 		@extend %type-info;
 		color: $cmu-color-dkgray;
 	}
@@ -69,11 +68,11 @@
 // Community part of the footer
 // 
 
-	.cmuGloNav__community {
+	.cmuNav__community {
 
 	}
 
-	.cmuGloNav__discussions {
+	.cmuNav__discussions {
 		a:hover {
 			span:before {
 				@extend %ease-fast;
@@ -87,15 +86,6 @@
 			color: $cmu-color-dkgray;
 			margin-left: $cmu-base/2;
 			padding-left: 0;
-
-			// font-size: $cmu-base/2;
-			// color: $cmu-color-gray;
-			// display: inline-block;
-		    // border-radius: 50%;
-		    // 	width: 16px;
-		    // 	height: 16px;
-		    // 	padding-left: 0.2rem;
-		    // border: $style-line--dark;
 		}
 			.ubnt-icon--menu {
 				// padding: 0;
@@ -110,24 +100,8 @@
 
 	}
 
-	// .cmuGloNav__social--label {
-	// 	cursor: default !important;
-	// 	@extend %nav-style-footer;
-	// 	font-size: $size-smaller;
-	// 	line-height: $size-smaller__lineHeight;
-	// 	text-transform: inherit;
-	// 	padding: $cmu-base/2;
-	// 	padding-left: 0;
-	// 	padding-bottom: 0;
-	// 	// margin-bottom: $cmu-base/2;
 
-	// 	&:hover {
-	// 		color: $cmu-color-dkgray;
-	// 	}
-	// 	// margin-top: $cmu-base*2;
-	// }
-
-	.cmuGloNav__social {
+	.cmuNav__social {
 		cursor: default !important;
     	margin-top: 2px;
     	text-align: right;
@@ -152,24 +126,21 @@
 
 			display: inline-block;
 		    border-radius: 50%;
-		    	width: 28px;
-		    	height: 28px;
+		    	width: $size-avatar--small;
+		    	height: $size-avatar--small;
 		    	padding: 0.2rem 0.1rem;
 		    	padding-left: 2px;
 		}
 	}
 
-	.cmuGloNav__backtotop {
+	.cmuNav__backtotop {
 	    position: fixed;
 	    display:inline-block;
 	    opacity: 0.7;
 	    bottom: $cmu-base;
 	    right: $cmu-base*2;
 	    text-align: center;
-
-	    // .cmuTooltip {
-	    // 	bottom: 50px;
-	    // }
+	    z-index: $z-top;
 
 		.ubnt--icon {
 			display: inline-block;
@@ -195,12 +166,6 @@
 
 		// different bc this is a fixed pos item
 		.cmuTooltip {
-		    // position: absolute;
-		    // left: -50%;
-		    // right: -50%;
-
-		    // left: inherit;
-		    // right: inherit;
 
 		    &:before, span {
     			// transform: translate(-50%, -259990%);
@@ -214,21 +179,8 @@
 		    	transform: translate(-50%,0);
 		    }
 		}
-		.cmuTooltip--top {
-			// &:before {
-			//     position: fixed;
-			//     right: 14px;
-			//     bottom: 75px;
-			// }
-			// &:after {
-			//     position: fixed;
-			//     top: inherit;
-			//     bottom: 65px;
-			//     right: 36px;
-			// }
-		}
 	}
 
-	.cmuGloNav__legal {
+	.cmuNav__legal {
 		margin-top: $cmu-base * 2;
 	}

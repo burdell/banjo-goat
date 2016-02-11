@@ -1,0 +1,188 @@
+
+
+// 
+// MOBILE MENU 
+// 
+
+.cmuNav__mobile {
+	// hide on desktop
+	@include respondTo(medium-up) {
+		display: none;
+	}
+
+}
+	.cmuNav__mobile__btn {
+		float: right;
+	    text-align: right;
+
+	    &:before {
+	    	display: block;
+    		padding: 0.7rem;
+    		padding-right: 0.3rem;
+	    	content: 'Menu';
+	    	float: left;
+			@extend %nav-style;
+			top: 1px;
+	    }
+
+	    &:after {
+     		font-family: 'ubnt';
+	    	display: block;
+    		padding: 0.7rem;
+    		padding-top: 0.72rem;
+    		padding-left: 0.3rem;
+	    	content: '\e6d9';
+	    	float: left;
+		    position: relative;
+			@extend %nav-style;
+	    }
+	}
+		.cmuNav__mobile__menu--open {
+			.cmuNav__mobile__btn {
+	    		&:after {
+	    			content: '\e6cc';
+	    		}
+			}
+		}
+
+	%nav-style--mobile {
+		color: $cmu-color-white;
+		padding: $cmu-base/2 $cmu-base;
+		border-bottom: $style-line--dark;
+
+		text-transform: uppercase;
+		letter-spacing: 0.4px;
+		font-size: $size-xsmaller;
+		line-height: $cmu-base*1.5;
+	}
+
+	.cmuNav__mobile__container {
+		// hide normally even in mobile (until --open flag)
+		display: none; 
+		position: absolute;
+		top: remCalc(40px);
+		right: $cmu-base * -1;
+		width: $cmu-base * 20;
+		background: $cmu-color-menu;
+
+		// hide on desktop
+		@include respondTo(medium-up) {
+			// use !important to override
+			display: none !important;
+		}
+
+		a {
+			display: block;
+			&:hover {
+				div {
+					background-color: $cmu-color-blue;
+				}
+			}
+		}
+	}
+
+	.cmuNav__mobile__menu--open
+		+ .cmuNav__mobile__container {
+			display: block;
+		}
+
+	// 
+	// Nav Mobile Items
+	// 
+		.cmuNav__mobile__search {
+			@extend %nav-style--mobile;
+			@extend %type-base;
+			background: $cmu-color-blue;
+
+
+			// special search styling
+			.cmuSearchbox {
+				.appIconInput__icon {
+					padding-right: $cmu-base;
+				}
+				.appIconInput__input {
+					padding-left: $cmu-base;
+				}
+
+				input {
+					border: 0;
+				}
+			}
+			// text-transform: uppercase;
+			// font-weight: 300;
+			// padding: 0;
+
+			// span {
+			// 	padding: $cmu-base *3/4 $cmu-base;
+			// 	@extend %type-base;
+			// }
+
+			// .ubnt-icon {
+			// 	float: right; 
+			// 	padding-left: $cmu-base*3/2;
+			// 	padding-right: $cmu-base*3/2;
+			// 	border-left: $style-line--dark;
+			// 	font-size: $cmu-base;
+			// }
+		}
+
+		.cmuNav__mobile__link {
+			@extend %nav-style--mobile;
+
+			.ubnt-icon {
+				vertical-align: initial;
+				padding-left: $cmu-base/2;
+			}
+		}
+
+		.cmuNav__mobile__username {
+			@extend %nav-style--mobile;
+			display: block;
+			border: 0;
+			color: white;
+			font-size: $size-normal;
+			background-color: transparent !important;
+			margin-bottom: $cmu-base/2;
+
+			.cmuProfile__avatar {
+				float: left;
+				&:before {
+					margin: 0;
+				}
+				margin-right: $cmu-base;
+			}
+
+			.cmuNav__mobile__user {
+				position: relative;
+				top: 3px;
+			}
+		}
+			.cmuNav__mobile__container
+				div.cmuUserbadge__avatar {
+				display: inline-block;
+				float: none;
+				line-height: 0;
+			}
+
+			.cmuNav__mobile__accountlinks {
+				position: relative;
+				// top: $cmu-base * -1;
+
+				.icon {
+					font-size: $size-large;
+					margin-right: $cmu-base/2;
+				}
+			}
+
+				.cmuNav__mobile__accountlink {
+					@extend %nav-style--mobile;
+					display: block;
+					// margin-left: 50px;
+				}
+
+
+
+
+
+
+

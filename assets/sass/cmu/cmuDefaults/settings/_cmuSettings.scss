@@ -196,8 +196,8 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 
 // High 700-1000
 $z-top: 1000;	// Top z-index: gives us 10 levels to play with
-$z-gloNav: 900;	// global community menu
-$z-gloNav--drop: 895;	// comm menu dropdown
+$z-nav: 900;	// global community menu
+$z-nav--drop: 895;	// comm menu dropdown
 $z-overlay: 875;
 $z-mega: 800;	// mega popover
 
@@ -207,7 +207,7 @@ $z-contentFloat: 500;
 $z-contentFixed: 400;
 
 // Low 0-400
-$z-gloNav--footer: 200;
+$z-nav--footer: 200;
 
 
 // 

@@ -301,24 +301,3 @@
 			font-size: $size-large;
 		}
 
-// 
-// dropdown in main menu
-// 
-
-.cmuProfile__dropdown__content {
-	background-color: $cmu-color-purewhite;
-	ul { 
-		display: block;
-	}
-	li {
-		display: block;
-	}
-	li:hover {
-		a {
-			text-decoration: underline;
-		}
-	}
-}
-// .cmuProfile__dropdown__footer {
-//     // border-top: $style-line;	
-// }

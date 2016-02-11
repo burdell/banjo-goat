@@ -4,22 +4,9 @@
 // Dropdown
 // 
 
-// general dropdown 
-%dropdownTopOffset {
-}
-
-// general settings; acts as a "blackout"
 .cmuDropdown {
-    // position to the right edge of button
-    // note that absolute doesn't let you calc height
     position: absolute;
     right: -$cmu-base;
-
-    // this lets you calc height, but position is to the edge of container
-    // position: fixed;
-    // right: $cmu-base*4.5;
-    // right: calc(16px);
-    // height: 100%;
 
     top: $cmu-nav-height;
     z-index: $z-overlay;
@@ -27,24 +14,16 @@
     @extend %ease-fast;
 
     overflow: hidden;
-    /* margin-top: 30px; */
     padding: 0;
-    // padding-right: $cmu-base;
     padding-bottom: $cmu-base;
 
-    // margin-right: -$cmu-base*2;
     padding-top: 0;
 
-    // * {
-        // display: block;
-    // }
+    a {
 
-    a:hover {
-        text-decoration: underline;
-        cursor: pointer;
     }
-
 }
+
 
     .cmuDropdown__loader {
         background: $cmu-color-bodybg;
@@ -144,9 +123,15 @@
     .cmuDropdown__footer {
         background-color: $cmu-color-active;
         color: $cmu-color-purewhite;
-        padding: $cmu-base/4 $cmu-base/2;
-        // text-transform: capitalize;
-        // @extend %size-xsmaller;
+
+        a {
+            // @extend %style-link--white;
+            display: inline-block;
+            padding: $cmu-base/4 $cmu-base/2;
+            &:hover {
+                background-color: $cmu-color-ltblue;
+            }
+        }
     }
 
 

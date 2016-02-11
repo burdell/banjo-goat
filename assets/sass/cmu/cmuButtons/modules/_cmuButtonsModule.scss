@@ -392,6 +392,10 @@ button, .button {
 	padding-left: $cmu-base;
 	padding-right: $cmu-base;
 }
+.button--wider {
+	padding-left: $cmu-base*3;
+	padding-right: $cmu-base*3;
+}
 .button--stretch {
 	width: 100%;
  }
@@ -408,6 +412,12 @@ button, .button {
 .button--extraSpace {
 	margin-left: $cmu-base;
 	margin-right: $cmu-base;
+}
+.button--row {
+	display: block;
+	@extend .button--stretch;
+	margin-bottom: $cmu-vertical-rhythm/4;
+	margin-left: 0 !important;
 }
 
 
