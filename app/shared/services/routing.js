@@ -20,7 +20,7 @@ var _ = require('underscore');
 			},
 			getArea: function(url) {
 				var areaName = localeMapper(url.split('/')[1]);
-				if (areaName === '' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' || areaName === 'inbox' ) {
+				if (!areaName || areaName === '/' || areaName === 'user' || areaName === 'notifications' || areaName === 'search' || areaName === 'inbox' ) {
 					areaName = 'directory';
 				}
 				return areaName;
