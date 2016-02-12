@@ -58,10 +58,10 @@
 				return messageId === this.currentReply;
 			},
 			showReply: function(message){
-
+				ctrl.replyMessage.parentId = message.id;
+				
 				if (ctrl.topicReplyShown){
 					$timeout(function(){
-						ctrl.replyMessage.parentId = message.id;
 						$scope.$broadcast('texteditor:addQuote', message);
 					}, 0);
 				}

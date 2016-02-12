@@ -9,7 +9,8 @@ function creatNewTopicPage(areaName) {
 	var editMessageController = function($scope, $state, $templateCache, breadcrumbService, communityApi, routingService, messageDetail){
 		var ctrl = this;
 
-		breadcrumbService.setCurrentBreadcrumb(messageDetail.subject || messageDetail.message.context.topicSubject);
+		var context = messageDetail.message ? messageDetail.message.context : messageDetail.context;
+		breadcrumbService.setCurrentBreadcrumb(messageDetail.subject || context.topicSubject);
 		 
 
 		$scope.$on('$stateChangeStart', function(){
