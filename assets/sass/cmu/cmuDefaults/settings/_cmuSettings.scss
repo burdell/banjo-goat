@@ -140,8 +140,8 @@ ol, li {
 	@extend %cmu-width;
 
 	// this is to adjust for annoying negative margin in COM framework
-	margin-left: 5px;
-	margin-right: 5px;
+	// margin-left: 5px;
+	// margin-right: 5px;
 
 	padding-top: $cmu-base*3; // give some room for fixed header
 	position: relative;

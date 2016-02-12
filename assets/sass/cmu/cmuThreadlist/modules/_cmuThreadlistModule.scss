@@ -154,7 +154,7 @@ $cmu-threadlist-avatar: remCalc(20px); // hard coded for now
 		padding-right: $cmu-threadlist-padding;
 	}
 		.cmuThreadlist__topic__title {
-			line-height: $cmu-threadlist-lineheight;
+			// line-height: $cmu-threadlist-lineheight;
 			padding-right: $cmu-base/2;
 			float: left; // useful for placing product tags inline
 		}

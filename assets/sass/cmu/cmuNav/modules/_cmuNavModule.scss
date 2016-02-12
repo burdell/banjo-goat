@@ -12,7 +12,6 @@
 	z-index: $z-nav;
 	position: relative;
 	
-	@extend .cmu-width;
 
 
 	* {
@@ -82,12 +81,6 @@
     	line-height: $size-normal__lineHeight;
 	}
 	
-	.cmuNav__container {
-		@extend %cmu-maxwidth;
-		display: block;
-	}
-
-
 
 
 	.cmuNav__left {
@@ -316,6 +309,7 @@
 			}
 
 			@extend %nav-icon-style;
+			padding-top: 0.8rem;
 			border-bottom: $nav-border;
 
 			&.isSearch {
@@ -334,13 +328,18 @@
 				@extend %dropdownArrow;
 			}
 		}
-
 			.cmuNav__notifications, .cmuNav__inbox {
 				@extend %nav-icon-style;
 				position: relative;
 			}
 
+			.cmuNav__notifications {
+				padding-top: 0.75rem;
+			}
+
 			.cmuNav__inbox {
+				padding-top: 0.75rem;
+
 				.ubnt-icon--inbox {
 					font-size: 19px;
 					position: relative;

@@ -56,6 +56,15 @@ $nav-border: 1px solid $cmu-color-dkblue;
     @extend %ease-fast;
 }
 
+// container for both header and footer
+.cmuNav__container {
+	@extend .cmu-width;
+	// @extend %cmu-maxwidth;
+	display: block;
+}
+
+
+
 @import 'modules/cmuNavModule';
 @import 'modules/cmuNavFooterModule';
 @import 'modules/cmuNavMobileModule';

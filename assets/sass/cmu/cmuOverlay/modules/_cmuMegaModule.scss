@@ -121,8 +121,8 @@
 	    right: 0;
 	    left: 0;
 
-
-	    margin-right: $cmu-base/2; // expose the browser scrollbar
+	    // this doesn't work well on super large screens
+	    // margin-right: $cmu-base/2; // expose the browser scrollbar
 
 		// @include scrollbars($cmu-base, $cmu-color-scrollFg, $cmu-color-scrollBg);
 		// @include scrollbars($cmu-base, $cmu-color-scrollFg, transparent);
@@ -144,13 +144,23 @@
 		}
 
 	.cmuMega__section {
-		border-top: 1px solid $cmu-color-dkgray;
+		// border-top: 1px solid $cmu-color-dkgray;
 		padding: $cmu-base 0;
 
 		&.noBorder {
 			border: 0;
 		}
 	}
+		.cmuMega__section--product {
+			display: inline-block;
+			float: left;
+		}
+
+		.cmuMega__section--links {
+			a {
+				margin-right: $cmu-base/2; 
+			}
+		}
 
 		.cmuMega__section__head {
 			text-transform: uppercase;
@@ -162,7 +172,10 @@
 
 		.cmuMega__section__col {
 			display: inline-block; 
+
+			// for side-by-side products (Spanish) reduce margin
 			margin-right: $cmu-base;
+			// margin-right: $cmu-base;
 
 			@include respondTo(small-down) {
 				display: block;
@@ -187,7 +200,7 @@
 		.cmuMega__item {
 			display: inline-block;
 			text-align: center;
-			margin-right: $cmu-base;
+			margin-right: $cmu-base/2;
 			margin-bottom: $cmu-base*3/2;
 
 			a, a:hover {
@@ -205,13 +218,14 @@
 
 		.cmuMega__icon {
 			border: 1px solid $cmu-color-dkgray;
-			padding: 0 $cmu-base;
+			padding: $cmu-base/2;
 
 			display: inline-block; 
 			cursor: pointer;
 			@extend %ease-fast;
 
-			height: $cmu-base*2.5;
+			// height: $cmu-base*2.5; // basic icon
+			height: $cmu-base*5; // basic icon
 			overflow: hidden; // creates phantom padding/margin at the bottom...?
 
 		}

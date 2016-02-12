@@ -64,7 +64,12 @@
 						<div class="cmuFeed__container button--tabContainer col--md12">
 
 							<div class="cmuFeed__filters col--md12 noPadding">
-								<div class="col--md6 noPaddingLeft">
+					        	<!-- refresh button -->
+						        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
+						        <div class="cmuFeed__update col--md4 noPaddingLeft">
+						        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()"><span class="icon cmuIcon-refresh cmuIcon--tiny"></span><span ng-if="!vm.hasFeedUpdates()">${{ directory.feed.refresh }}$</span><span ng-if="vm.hasFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.new }}$</span></button>
+						        </div>
+								<div class="col--md4">
 								  	<community-sort 
 								  		sort-options="vm.categorySortOptions" 
 								  		sort-filter="vm.feedFilter" 
@@ -74,7 +79,7 @@
 								  		on-sort-fn="vm.setDiscussionStyleList">
 								  	</community-sort>
 								</div>
-								<div class="col--md6 noPaddingRight">
+								<div class="col--md4 noPaddingRight">
 								  <community-sort 
 								  	sort-options="vm.discussionSortOptions" 
 								  	sort-filter="vm.feedFilter" 
@@ -86,11 +91,6 @@
 								</div>
 							</div>
 						 
-				        	<!-- refresh button -->
-					        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
-					        <div class="cmuFeed__update col--md12 noPadding">
-					        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.newUpdates }}$ <span class="icon cmuIcon-refresh cmuIcon--small"></span>${{ directory.feed.refresh }}$</button>
-					        </div>
 
 				        	<!-- story feed -->
 					        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding collapseRight collapseSubtle" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
