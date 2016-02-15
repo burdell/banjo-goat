@@ -84,7 +84,7 @@ var routesProvider = function(){
 					}			
 				};
 				return !options ? standardOptions : _.extend(standardOptions, options); 
-			}
+			},
 		}
  	}
 	

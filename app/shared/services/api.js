@@ -5,7 +5,7 @@ require('services/error.js');
 
 var _ = require('underscore');
 
-var communityApiService = function($http, $q, $timeout){
+var communityApiService = function($http, $q, $timeout, loaderService, errorService){
 	function getCallOptions(url, data, verb, isMedia) {
 		if (_.isUndefined(verb)) {
 			verb = 'GET';
@@ -80,6 +80,13 @@ var communityApiService = function($http, $q, $timeout){
 
 	function hasNoStories(nodeUrlCode){
 		return nodeUrlCode === 'comm_stories' || nodeUrlCode.indexOf('airCRM') >= 0
+	}
+
+	function showPageError(type) {
+		loaderService.showBaseLoader = false;
+		errorService.pageError = type;
+
+		return $q.reject();
 	}
 
 	var permissionKeys = {
@@ -350,8 +357,20 @@ var communityApiService = function($http, $q, $timeout){
 				// console.log('userdata: ' + userId);
 				return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 			},
-			search: function(q) {
-				return goToApi(v2Url + 'users/search', { q: q });
+			search: function(q, onlyOne) {
+				var promise = goToApi(v2Url + 'users/search', { q: q });
+				if (onlyOne) {
+					return promise.then(function(result){
+						if (result.content.length !== 1) {
+							return showPageError('404');
+						}
+
+						return result;
+					});
+				} else {
+					return promise;
+				}
+				
 			}
 		}
 	}
@@ -359,7 +378,7 @@ var communityApiService = function($http, $q, $timeout){
 	return service;
 };
 
-communityApiService.$inject = ['$http', '$q', '$timeout'];
+communityApiService.$inject = ['$http', '$q', '$timeout', require('services/loader.js'), require('services/error.js')];
 
 var serviceName = 'CommunityApiService';
 angular.module('community.services')

@@ -11,7 +11,8 @@ var errorService = function(){
 		},
 		clearErrors: function(){
 			errorList.length = 0;
-		}
+		},
+		pageError: null
 	};
 };
 errorService.$inject = [];

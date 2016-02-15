@@ -56,8 +56,11 @@
 						<div id='main-content'>
 							<community-error></community-error> 
 							<community-loader base-loader="true"></community-loader>
-							
-							<div ui-view ng-hide="vm.showBaseLoader"></div>
+
+							<div ng-if="vm.pageError()">
+								<div ng-include src="vm.pageError()"></div>
+							</div>
+							<div ui-view></div>
 						</div>
 					</div>
 					<div ng-include="'partials/globalfooter.html'"></div>
