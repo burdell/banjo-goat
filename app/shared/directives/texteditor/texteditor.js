@@ -26,7 +26,8 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		    renderingConfig: {
 		       
 		    },
-		    spellChecker: localizationService.currentLocale === 'en'
+		    spellChecker: localizationService.currentLocale === 'en',
+		    placeholder: editorCtrl.placeholder
 		};
 
 		var isMinimal = (editorCtrl.minimalEditor == "true"); // unfancy but works

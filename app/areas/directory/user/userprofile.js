@@ -70,9 +70,16 @@ var profileController = function($scope, breadcrumbService, communityDefaults, a
 		}
 	});
 
-	breadcrumbService.setCurrentBreadcrumb(userData.user.login);
-	$scope.$on('$stateChangeStart', function(){
-		breadcrumbService.clearCurrentBreadcrumb();
+	var userName = ctrl.userData.login;
+	
+	if (!breadcrumbService.CurrentBreadcrumb || breadcrumbService.CurrentBreadcrumb.name !== userName) {
+		breadcrumbService.setCurrentBreadcrumb(userData.user.login);
+	}
+
+	$scope.$on('$stateChangeStart', function(event, toState){
+		if (toState.name !== 'userprofile.usersettings') {
+			breadcrumbService.clearCurrentBreadcrumb();
+		}
 	});
 };
 profileController.$inject = ['$scope', 'CommunityBreadcrumbService', 'communityDefaults', 'ActivityDataFilter', 'GamificationInfo', 'StoryDataFilter', 'UserData'];

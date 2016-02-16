@@ -115,7 +115,7 @@
           </a>
 
           <a 
-            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
+            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.login) }}"
             class="visible--lgUp">
             <div class="cmuThreadlist__latest
                         cmuThreadlist__authorName">
@@ -139,7 +139,7 @@
           </a>
 
           <a 
-            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
+            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.login) }}"
             class="">
             <div class="cmuThreadlist__latest 
                         cmuThreadlist__authorDate">
@@ -181,7 +181,7 @@
           </a>
 
           <a 
-            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.id) }}"
+            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.login) }}"
             class="visible--xlgUp"
             >
             <div class="cmuThreadlist__created
@@ -204,7 +204,7 @@
           </a>
 
           <a 
-            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.id) }}" 
+            area-link-handler="{{ vm.getProfileUrl(message.topic.message.insertUser.login) }}" 
             class="visible--smUp">
             <div class="cmuThreadlist__authorDateCreated cmuThreadlist__created">
               <div class="cmuThreadlist__avatar visible--lgDown"> 
@@ -223,32 +223,6 @@
               <div class="cmuThreadlist__authorDate">{{ ::message.topic.message.postDate | timeFromNow }}</div>
             </div>
           </a>
-<!-- 
-          <a 
-            area-link-handler="{{ vm.getProfileUrl(message.context.lastestMessage.insertUser.id) }}"
-            class="">
-            <div class="cmuThreadlist__latest 
-                        cmuThreadlist__authorDate">
-              <div class="cmuThreadlist__avatar visible--mdDown">
-                <span
-                  community-tooltip
-                  data-id-field="{{ message.context.lastestMessage.insertUser.id }}" 
-                  ajax-populate="vm.getUserData" 
-                  tooltip-template="forums/list/forums.list.usertooltip.html"
-                  empty-text="${{ forums.list.emptyPreview }}$"
-                  tooltip-class="cmuTooltipster"
-                  position="top"
-                >
-                  <community-user-avatar user="message.context.lastestMessage.insertUser"></community-user-avatar>
-                </span>
-              </div>
-              <span class="cmuThreadlist__date">{{ message.topic.lastActivityDate | timeFromNow }}
-              </span>
-            </div>
-          </a>
- -->
-
-          
         </span>
       </div>
       <!-- end body -->

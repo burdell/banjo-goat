@@ -361,16 +361,26 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				var promise = goToApi(v2Url + 'users/search', { q: q });
 				if (onlyOne) {
 					return promise.then(function(result){
-						if (result.content.length !== 1) {
+						var numberOfResults = result.content.length;
+						if (!numberOfResults) {
 							return showPageError('404');
+						} else if (numberOfResults > 1) {
+							var exactMatch = _.findWhere(result.content, { login: q });
+							if (exactMatch) {
+								result.content = [ exactMatch ];
+							} else {
+								return showPageError('404');
+							}
 						}
-
 						return result;
 					});
 				} else {
 					return promise;
 				}
 				
+			},
+			settings: function(){
+				return goToApi(v2Url + 'settings');
 			}
 		}
 	}

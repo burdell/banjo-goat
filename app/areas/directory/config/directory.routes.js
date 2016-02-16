@@ -72,9 +72,10 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				}
 			})
 			.state('userprofile', {
-				url: routes.userprofile,
-				templateUrl: 'directory/user/userprofile.html',
-				controller: 'UserProfile as vm',
+				abstract: true,
+				url: routes.userprofile.userprofile,
+				templateUrl: 'directory/user/profilecontainer.html',
+				controller: 'UserProfileContainer as vm',
 				resolve: {
 					UserData: ['$stateParams', 'CommunityApiService', 'CurrentUserService', function($stateParams, communityApi, userServiceWrapper){
 						var userId = $stateParams.userId;
@@ -106,7 +107,14 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 								} 
 							});
 						}
-					}],
+					}]
+				}			
+			})
+			.state('userprofile.userprofile', {
+				url: '',
+				controller: 'UserProfile as vm',
+				templateUrl: 'directory/user/userprofile.html',
+				resolve: {
 					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
@@ -125,6 +133,16 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						return communityApi.Gamification.info();
 					}]
 				}			
+			})
+			.state('userprofile.usersettings', {
+				url: routes.userprofile.usersettings,
+				controller: 'UserSettings as vm',
+				templateUrl: 'directory/user/usersettings.html',
+				resolve: {
+					UserSettings: ['CommunityApiService', function(communityApi){
+						return communityApi.Users.settings();
+					}]
+				}		
 			})
 			.state('notifications', {
 				url: routes.notifications,

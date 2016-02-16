@@ -67,5 +67,18 @@
 		"pointsSummaryDesc": "The following chart shows the breakdown of how many points you have earned, and how to earn more points towards boosting your community street cred.",
 		"nextRank": "Next Rank",
 		"points": "Points"
+	},
+	"usersettings": {
+		"automaticallySubscribe": "Automatically subscribe me to topics I participate in",
+		"biography": "Enter A Short Biography About Yourself",
+		"emailAlerts": "Email Alerts - Be notified about important events",
+		"emailSettings": "Email Settings",
+		"location": "Location",
+		"moderatorControls": "Moderator Controls",
+		"profileSettings": "Profile Settings",
+		"signature": "Signature",
+		"subscriptionSettings": "Subscription Settings",
+		"userSettings": "User Settings",
+		"weeklyEmailDigest": "Weekly Email Digest"
 	}
 }
