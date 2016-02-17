@@ -12,6 +12,7 @@ function classToggle() {
 		}
 
 		element.on('click', function(){
+
 			if (hasClass()) {
 				this.classList.remove(className);
 			} else {

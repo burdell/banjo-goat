@@ -7,10 +7,11 @@ require('shared/directives/pager/pager.js');
 
 require('directives/loadmore/loadmore.js')
 require('directives/classtoggle/classtoggle.js');
+require('directives/sticky/sticky.js');
 require('directives/pulse/pulse.js');
 
 var _ = require('underscore');
-var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, localizationService, routingService, feedFilter){
+var feedController = function($scope, announcementData, storyFilter, apiService, dataService, nodeServiceWrapper, localizationService, routingService, feedFilter, $document){
 	var ctrl = this;
 
 	var strings = localizationService.data.directory.feed;
@@ -131,6 +132,9 @@ var feedController = function($scope, announcementData, storyFilter, apiService,
 	var landingPages = routingService.landingPages();
 	var announcementsLanding = _.where(landingPages, { area: 'Announcements' });
 	
+
+
+
 	var currentFeedType = feedData.community;
 	_.extend(ctrl, {
 		feedFilter: feedFilter,
@@ -183,7 +187,8 @@ feedController.$inject = [
 	require('shared/services/nodestructure.js'),
 	'CommunityLocalizationService', 
 	require('shared/services/routing.js'), 
-	'FeedFilter'
+	'FeedFilter',
+	'$document'
 ];
 
 angular.module('community.directory')

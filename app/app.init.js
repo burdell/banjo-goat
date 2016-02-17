@@ -6,6 +6,7 @@ require('angular-ui-select/select.js');
 require('angular-sanitize');
 require('pikaday-angular');
 require('angular-cookies');
+require('angular-scroll');
 
 // require('Sortable/Sortable.js');
 // require('Sortable/ng-sortable');
@@ -23,6 +24,7 @@ function initializeApp(areaName) {
         'ngSanitize',
         // 'ng-sortable',
         'ngCookies',
+        'duScroll',
         'community.templates',
         'pikaday',
         moduleBuilder('community.providers'),

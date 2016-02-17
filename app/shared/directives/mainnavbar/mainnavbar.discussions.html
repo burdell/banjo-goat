@@ -15,42 +15,46 @@
 			<span class="icon ubnt-icon--x"></span>
 		</div>
 	</div>
-	<div class="cmuMega__section cmuMega__section--product noPaddingBottom">
-		<div class="cmuMega__section__head">
-			${{ core.productCategories.serviceProviders }}$
-		</div>
 
-		<div class="cmuMega__section__col">
-			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.broadband">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
-					<div class="cmuMega__icon">
-						<span class="icon {{ product.iconClass }}"></span>
-					</div>
-					<div class="cmuMega__desc">
-						{{ product.name }}
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="cmuMega__section cmuMega__section--product noPaddingBottom">
-		<div class="cmuMega__section__head">
-			${{ core.productCategories.enterprise }}$
-		</div>
 
-		<div class="cmuMega__section__col">
-
-			<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise">
-				<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
-					<div class="cmuMega__icon">
-						<span class="icon {{ product.iconClass }}"></span>
-					</div>
-					<div class="cmuMega__desc">
-						{{ product.name }}
-					</div>
-				</a>
+	<div class="col--md12">
+		<div class="cmuMega__section cmuMega__section--product noPaddingBottom">
+			<div class="cmuMega__section__head">
+				${{ core.productCategories.serviceProviders }}$
 			</div>
 
+			<div class="cmuMega__section__col">
+				<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.broadband">
+					<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
+						<div class="cmuMega__icon">
+							<span class="icon {{ product.iconClass }}"></span>
+						</div>
+						<div class="cmuMega__desc">
+							{{ product.name }}
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="cmuMega__section cmuMega__section--product noPaddingBottom">
+			<div class="cmuMega__section__head">
+				${{ core.productCategories.enterprise }}$
+			</div>
+
+			<div class="cmuMega__section__col">
+
+				<div class="cmuMega__item" ng-repeat="product in ::megamenu.templateCtrl.discussionTypes.enterprise">
+					<a area-link-handler="{{ megamenu.templateCtrl.getDiscussionUrl(product) }}">
+						<div class="cmuMega__icon">
+							<span class="icon {{ product.iconClass }}"></span>
+						</div>
+						<div class="cmuMega__desc">
+							{{ product.name }}
+						</div>
+					</a>
+				</div>
+
+			</div>
 		</div>
 	</div>
 	<div class="cmuMega__section cmuMega__section--links col--xs12">
@@ -83,8 +87,6 @@
 				<a>${{ directives.mainnavbar.board }}$</a>
 			</div>
 		</div>
-
-
 	</div>
 
 	<div class="cmuMega__section col--xs12">

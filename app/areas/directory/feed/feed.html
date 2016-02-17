@@ -63,31 +63,32 @@
 
 						<div class="cmuFeed__container button--tabContainer col--md12">
 
-							<div class="cmuFeed__filters col--md12 noPadding">
-					        	<!-- refresh button -->
-						        <!-- <div class="cmuFeed__update col--md12 noPadding" ng-show="vm.hasFeedUpdates()"> -->
-						        <div class="cmuFeed__update col--md4 noPaddingLeft">
-						        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()"><span class="icon cmuIcon-refresh cmuIcon--tiny"></span><span ng-if="!vm.hasFeedUpdates()">${{ directory.feed.refresh }}$</span><span ng-if="vm.hasFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.new }}$</span></button>
-						        </div>
-								<div class="col--md4">
-								  	<community-sort 
-								  		sort-options="vm.categorySortOptions" 
-								  		sort-filter="vm.feedFilter" 
-								  		sort-exclude="page" 
-								  		class="community__sort"
-								  		sort-param="nodeUrlCode",
-								  		on-sort-fn="vm.setDiscussionStyleList">
-								  	</community-sort>
-								</div>
-								<div class="col--md4 noPaddingRight">
-								  <community-sort 
-								  	sort-options="vm.discussionSortOptions" 
-								  	sort-filter="vm.feedFilter" 
-								  	sort-exclude="page" 
-								  	class="community__sort"
-								  	sort-param="style"
-								  	on-sort-fn="vm.checkStoryData">
-								  </community-sort>
+							<div class="cmuFeed__filters col--md12 noPadding" community-sticky sticky-class="cmuStuck" offset="30">
+							<!-- <div class="cmuFeed__filters col--md12 noPadding"> -->
+								<div>
+							        <div class="cmuFeed__update col--md4 noPaddingLeft" >
+							        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()"><span class="icon cmuIcon-refresh cmuIcon--tiny"></span><span ng-if="!vm.hasFeedUpdates()">${{ directory.feed.refresh }}$</span><span ng-if="vm.hasFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.new }}$</span></button>
+							        </div>
+									<div class="col--md4">
+									  	<community-sort 
+									  		sort-options="vm.categorySortOptions" 
+									  		sort-filter="vm.feedFilter" 
+									  		sort-exclude="page" 
+									  		class="community__sort"
+									  		sort-param="nodeUrlCode",
+									  		on-sort-fn="vm.setDiscussionStyleList">
+									  	</community-sort>
+									</div>
+									<div class="col--md4 noPaddingRight">
+									  <community-sort 
+									  	sort-options="vm.discussionSortOptions" 
+									  	sort-filter="vm.feedFilter" 
+									  	sort-exclude="page" 
+									  	class="community__sort"
+									  	sort-param="style"
+									  	on-sort-fn="vm.checkStoryData">
+									  </community-sort>
+									</div>
 								</div>
 							</div>
 						 
@@ -144,24 +145,27 @@
 
 				<!-- sidebar -->
 				<div class="cmuFeed__sidebar col--md3 noPaddingRight">
+					<div 
+					 community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuFeed">
+						<div>
+							<!-- links -->
+							<div class="cmuFeed__actions cmuSidebar__container">
+								<!-- <h5>${{ directory.feed.links }}$</h5> -->
+								<a class="button button--solid button--row" href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+							</div>
 
-					<!-- links -->
-					<div class="cmuFeed__actions cmuSidebar__container">
-						<!-- <h5>${{ directory.feed.links }}$</h5> -->
-						<a class="button button--solid button--row" href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
-					</div>
-
-					<!-- announcements -->
-					<div class="cmuFeed__announcements cmuSidebar__container">
-						<h5> ${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
-						<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
-							<span class="product"></span>{{ announcement.topic.subject }}
-						</a>
-						<div class="cmuFeed__sidebar__ctrl">
-							<a class="cmuFeed__sidebar__link" area-link-handler="{{ ::vm.announcementsLanding.href }}">${{ directory.feed.allAnnouncements }}$</a>
+							<!-- announcements -->
+							<div class="cmuFeed__announcements cmuSidebar__container">
+								<h5> ${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
+								<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
+									<span class="product"></span>{{ announcement.topic.subject }}
+								</a>
+								<div class="cmuFeed__sidebar__ctrl">
+									<a class="cmuFeed__sidebar__link" area-link-handler="{{ ::vm.announcementsLanding.href }}">${{ directory.feed.allAnnouncements }}$</a>
+								</div>
+							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>

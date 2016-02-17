@@ -269,6 +269,15 @@ gulp.task('compile-stylesheets', ['vendor-stylesheets'], function(){
     }))
 });
 
+gulp.task('compile-prod-stylesheets', ['vendor-stylesheets'], function(){
+    return gulp.src(sources.sass)
+        .pipe($.compass({
+           css: 'app/design',
+           sass: 'assets/sass',
+           environment: 'production'
+    }))
+});
+
 function stylesheetHelper(prodBuild) {
      areaBuilder(function(areaName){
         var blob = gulp.src('app/design/*.css');

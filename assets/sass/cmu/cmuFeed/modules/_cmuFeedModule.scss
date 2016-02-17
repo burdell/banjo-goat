@@ -47,13 +47,17 @@
 }
 	.cmuFeed__filters {
 		margin-bottom: $cmu-vertical-rhythm;
+
+		.cmuStuck {
+			// background-color: $cmu-color-bodybg;
+		}
 	}
 
 
 	// update button
-	.cmuFeed__update {
-		margin-bottom: $cmu-vertical-rhythm;
-	}
+	// .cmuFeed__update {
+	// 	margin-bottom: $cmu-vertical-rhythm;
+	// }
 
 	// 
 	.cmuFeed__title {

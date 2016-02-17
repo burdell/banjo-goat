@@ -114,8 +114,8 @@ ol, li {
 	}
 
 	@include respondTo(medium-down) {
-    	padding-left: $cmu-base*5;
-    	padding-right: $cmu-base*5;
+    	padding-left: $cmu-base*3;
+    	padding-right: $cmu-base*3;
 	}
 
 	@include respondTo(small-down) {
