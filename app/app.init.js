@@ -36,8 +36,10 @@ function initializeApp(areaName) {
     .config(['$httpProvider', function($httpProvider){
         $httpProvider.interceptors.push('CommunityPermissionsInterceptor');
     }])
-    .run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper){
+    .run(['$anchorScroll', '$interpolate', '$rootScope', '$window', require('services/pagetitle.js'), 'CommunityNodeService', require('services/error.js'), function($anchorScroll, $interpolate, $rootScope, $window, titleService, nodeServiceWrapper, errorService){
         $rootScope.$on('$stateChangeStart', function(event, newState, stateParams){
+            errorService.pageError = null;
+
             $window.scrollTo(0,0);
 
             nodeServiceWrapper.get().then(function(nodeService){

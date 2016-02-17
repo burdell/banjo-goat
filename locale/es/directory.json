@@ -57,5 +57,18 @@
 		"profileInfo": "Información del Perfil",
 		"recentActivity": "Actividad Reciente",
 		"totalPoints": "Punto Total"
+	},
+	"usersettings": {
+		"automaticallySubscribe": "Me suscribirse automáticamente a los temas en los que participo",
+		"biography": "Introduzca una breve biografía sobre usted mismo",
+		"emailAlerts": "Alertas de correo electrónico - se notifican los eventos importantes",
+		"emailSettings": "Ajustes del correo electrónico",
+		"location": "Ubicación",
+		"moderatorControls": "Controles Moderador",
+		"profileSettings": "Configuración de perfil",
+		"signature": "Firma",
+		"subscriptionSettings": "De Configuración de Suscripción",
+		"userSettings": "Ajustes de usuario",
+		"weeklyEmailDigest": "Resumen semanal de correo electrónico"
 	}
 }

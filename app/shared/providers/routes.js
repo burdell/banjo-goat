@@ -17,7 +17,7 @@ var routesProvider = function(){
 	
 	var standardNewTopic = strings.newtopic;
 	var standardEdit = ':messageType/:id/' + strings.edit; 
-
+	var userprofileBase = '/' + strings.user + '/:' + detailIds.user;
 
 	var routeData = {
 		announcements: {
@@ -59,7 +59,11 @@ var routesProvider = function(){
 		hub: '/' + strings.directory + '/:nodeId/',
 		feed: '/',
 		notifications: '/' + strings.notifications,
-		userprofile: '/' + strings.user + '/:' + detailIds.user,
+		//userprofile: '/' + strings.user + '/:' + detailIds.user,
+		userprofile: {
+			userprofile: userprofileBase,
+			usersettings: '/' + strings.edit
+		},
 		searchpage: '/' + strings.search,
 		utils: {
 			intRoute: function(route) {
@@ -84,7 +88,7 @@ var routesProvider = function(){
 					}			
 				};
 				return !options ? standardOptions : _.extend(standardOptions, options); 
-			}
+			},
 		}
  	}
 	

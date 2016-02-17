@@ -1,0 +1,91 @@
+<div>
+	<div class="row row--comfy">
+		<div class="row row--comfy">
+			<h4>${{ directory.usersettings.profileSettings }}$</h4>
+			<div>
+				<community-text-editor 
+		          ng-model="vm.settingsModel.biography"
+		          placeholder="${{ directory.usersettings.biography }}$"
+		          editor-height="100"
+		          hide-preview-link="true">
+		        </community-text-editor>
+	        </div>
+
+			<div>
+				<community-text-editor 
+		          ng-model="vm.settingsModel.signature"
+		          placeholder="${{ directory.usersettings.signature }}$"
+		          editor-height="100"
+		          hide-preview-link="true">
+		        </community-text-editor>
+	        </div>
+
+
+	        <div class="cmuInputContainer col--md5">
+				<input class="cmuInput cmuInput--stacked cmuInput--wide" 
+					id="Location" 
+					ng-model="vm.settingsModel.location" />
+				<label for="Location">${{ directory.usersettings.location }}$</label>
+			</div>
+
+		</div>
+
+		<div class="row row--comfy">
+			<div class="row row--comfy">
+				<h4>${{ directory.usersettings.userSettings }}$</h4>
+				<div class="cmuInputGroup__checkbox">
+					<div class="cmuInput__checkbox">
+    					<label>
+    						<input 
+    							type="checkbox" 
+								name="vm.profileSettings[]"
+								ng-model="vm.settingsModel.automaticallySubscribe" />
+    						<span>${{ directory.usersettings.automaticallySubscribe }}$</span>
+    					</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row row--comfy">
+				<h5>${{ directory.usersettings.emailSettings }}$</h5>
+				<div class="cmuInputGroup__checkbox">
+					<div class="cmuInput__checkbox">
+    					<label>
+    						<input 
+    							type="checkbox" 
+								name="vm.profileSettings[]"
+								ng-model="vm.settingsModel.weeklyDigest" />
+    						<span>${{ directory.usersettings.weeklyEmailDigest }}$</span>
+    					</label>
+					</div>
+				</div>
+				
+				<div class="cmuInputGroup__checkbox">
+					<div class="cmuInput__checkbox">
+    					<label>
+    						<input 
+    							type="checkbox" 
+								name="vm.profileSettings[]"
+								ng-model="vm.settingsModel.emailAlertst" />
+    						<span>${{ directory.usersettings.emailAlerts }}$</span>
+    					</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row row--comfy">
+				<h5>${{ directory.usersettings.subscriptionSettings }}$</h5>
+			</div>
+
+		</div>
+
+		<div class="row row--comfy">
+			<h4>${{ directory.usersettings.moderatorControls }}$</h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
+		<button ng-click="vm.saveSettings()">${{ core.actions.saveChanges }}$</button>
+	</div>
+</div>
