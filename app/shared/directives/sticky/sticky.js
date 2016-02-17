@@ -74,24 +74,25 @@ function sticky($document, $window) {
 			    if (typeof(bound) != "undefined") {
 
 				    var angularBound = angular.element(bound);
-				    var boundToBottomDist, boundDistToTop, boundHeight, boundBottomDistToTop, boundPadding;
-					boundDistToTop = bound.getBoundingClientRect().top;
+				    var boundToBottomDist, boundDistToViewportTop, boundHeight, boundBottomDistToTop, boundPadding;
+					boundDistToViewportTop = bound.getBoundingClientRect().top;
+					var boundDistToPageTop = boundDistToViewportTop+ window.pageYOffset
 		    	    boundHeight = bound.clientHeight;
 		    	    boundPadding = parseInt(window.getComputedStyle(bound).paddingBottom, 10) + parseInt(window.getComputedStyle(bound).paddingTop, 10);
 		    	    // angularBound.css('padding-bottom', '123px');
 		    		// console.log('boundElem_paddbott: ' + document.getElementsByClassName(attrs.stickyBound)[0])
 		    		
-		    	    boundBottomDistToTop = boundDistToTop + boundHeight - boundPadding;
+		    	    boundBottomDistToTop = boundDistToViewportTop + boundHeight - boundPadding;
 		    	    var boundContentHeight = boundBottomDistToTop + window.pageYOffset;
 		    	    // boundBottom = parseFloat(bound.clientTop+bound.clientHeight); // client keeps it within border
 		    	    // console.log(' eeee ' + parseFloat(boundContentHeight - targetHeight - containerDistToPageTop))
-		    	    var targetBoundPosition = parseFloat(boundContentHeight - targetHeight - containerDistToPageTop);
+		    	    var targetBoundPosition = parseFloat(boundContentHeight - targetHeight - containerDistToPageTop - boundDistToPageTop);
 
 		    		// console.log('boundBottomDistToTop: ' + boundBottomDistToTop + ' boundHeight: ' + boundHeight + ' targetHEight: ' + targetHeight)
 		    	    // boundBottomDistToTop = 
 		    	    // console.log('boundHeight: ' + parseFloat(bound.clientHeight));
 		    	    // console.log(bound)
-		    	    boundToBottomDist = boundBottomDistToTop - targetHeight;
+		    	    boundToBottomDist = boundBottomDistToTop - targetHeight - boundDistToPageTop;
 
 
 
@@ -101,7 +102,7 @@ function sticky($document, $window) {
 			    	if (boundToBottomDist < 0 ) {
 			    	    
 		    	    	// console.log('boxtop: '+ box.top)
-		    	    	// console.log('hit bottom ' + parseInt(target.getBoundingClientRect().top + window.scrollY - box.top));
+		    	    	console.log('hit bottom ' + parseInt(boundDistToViewportTop + window.pageYOffset));
 		    	    	// console.log(angularBound)
 
 						angularTarget.css("top", targetBoundPosition + 'px');

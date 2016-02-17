@@ -6,7 +6,6 @@ var _ = require('underscore');
 function pageScroll() {
 	var link = function(scope, element, attrs){
 		element.on('click', function(){
-			console.log('pagescroll click')
 			scope.pagescroll.scrollPage();
 		});	
 	};
@@ -17,15 +16,9 @@ function pageScroll() {
 			scrollTo: this.scrollTo || "#pageTop",
 			text: this.scrollerText || "Back to Top",
 			scrollPage: function(){
-				// $anchorScroll(this.scrollTo);
-
 	            var top = 0;
-	            var duration = 100; //milliseconds
-	            console.log($document)
-	            //Scroll to the exact position
-	            $document.scrollTop(top, duration).then(function() {
-	              console && console.log('You just scrolled to the top!');
-	            });
+	            var duration = 220; //milliseconds
+	            $document.scrollTop(top, duration);
 			}
 		});
 	};
