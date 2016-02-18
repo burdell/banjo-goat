@@ -21,7 +21,7 @@ var _ = require('underscore');
 var userNamePattern = /\B@[a-z0-9_\-]+/gi;
 var sanitize = function($sce, routingService){
 	return function(body, format){
-		var messageFormat = (!format || format === 'html') ? 'html' : 'markdown';
+		var messageFormat = (!format || format === 'markdown') ? 'markdown' : 'html';
 		
 		var mentionedUsers = body.match(userNamePattern);
 		if (mentionedUsers) {

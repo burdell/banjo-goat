@@ -93,12 +93,6 @@ function creatNewTopicPage(areaName) {
 			titleText: currentAreaTexts.title,
 			moreFieldsPartial: areaTemplates[currentArea],
 			currentArea: currentArea,
-			addAttachment: function(fileData) {
-				ctrl.attachmentList.push({
-					fileName: fileData.fileName,
-					fileUrl: fileData.fileUrl
-				})
-			},
 			attachmentList: []
 		});
 

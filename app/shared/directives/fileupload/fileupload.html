@@ -11,5 +11,8 @@
 	<div class="cmuInputFile--uploading" ng-repeat="upload in fileupload.uploadingItems">
 		<span>Uploading {{ upload.name }}...</span>
 	</div>
+
+	<community-attachment-display ng-model="fileupload.fileListModel" can-remove="true"></community-attachment-display>
+
 </div>
 

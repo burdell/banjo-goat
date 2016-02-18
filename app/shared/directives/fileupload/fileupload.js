@@ -1,6 +1,8 @@
 
 'use strict';
 
+require('directives/attachmentdisplay/attachmentdisplay.js');
+
 var _ = require('underscore');
 
 function communityFileUpload($timeout) {
@@ -38,24 +40,28 @@ function communityFileUpload($timeout) {
 					var fileIdentifier = file.name + index;
 					ctrl.uploadingItems.push({ id: fileIdentifier, name: file.name });
 
-					communityApi.Media.upload(file, ctrl.isAttachment).then(function(result){
-						if (ctrl.onSuccessFn) {
-							ctrl.onSuccessFn({
-								fileUrl: result.url,
-								fileName: file.name
-							});
-						} else {
-							if (!ctrl.fileListModel) {
-								ctrl.fileListModel = [];
+					communityApi.Media.upload(file, ctrl.isAttachment).then(
+						//success
+						function(result){
+							if (ctrl.onSuccessFn) {
+								ctrl.onSuccessFn({
+									fileUrl: result.url,
+									fileName: file.name
+								});
+							} else {
+								if (!ctrl.fileListModel) {
+									ctrl.fileListModel = [];
+								}
+								
+								var fileData = result;
+								ctrl.fileListModel.push({
+									fileUrl: fileData.url,
+									fileCaption: fileData.fileCaption,
+									fileName: fileData.meta.originalFilename
+								});
 							}
-							
-							var fileData = result;
-							ctrl.fileListModel.push({
-								fileUrl: fileData.url,
-								fileCaption: fileData.fileCaption
-							});
-						}
-
+						})
+					.finally(function(){
 						removeUpload(fileIdentifier, ctrl.uploadingItems);
 					});
 					ctrl.resetInput();

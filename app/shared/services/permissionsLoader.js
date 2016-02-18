@@ -18,7 +18,6 @@ var permissionsLoader = function($q, errorService, permissionsService){
  			return result;
 		},
 		responseError: function(result) {
-			debugger;
 			errorService.showErrors(result.data);
 			return $q.reject();
 		}
