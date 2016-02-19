@@ -1,0 +1,9 @@
+<div>
+	<div ng-if="attachmentdisplay.ngModel.length > 0">
+		<h6>Attachments:</h6>
+		<div ng-repeat="attachment in attachmentdisplay.ngModel">
+			<span ng-if="attachmentdisplay.canRemove" ng-click="attachmentdisplay.removeAttachment($index)">X</span>
+  			<a ng-href="{{ attachment.fileUrl }}" target="self">{{ attachment.fileName }}</a>
+		</div>
+	</div>
+</div>

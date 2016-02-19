@@ -94,7 +94,7 @@ function mainNavBar() {
 			ctrl.currentUser = {
 				login: currentUser.login,
 				avatarUrl: currentUser.avatarUrl,
-				profileUrl: routingService.generateUrl('userprofile', { userId: currentUser.id }),
+				profileUrl: routingService.generateUrl('userprofile', { userId: currentUser.login }),
 				profileUrlTarget: routingService.getCurrentArea() === 'directory' ? '' : '_self'
 			};
 

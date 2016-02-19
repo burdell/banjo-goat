@@ -6,6 +6,7 @@ require('filters/timefromnow.js');
 
 require('directives/sorter/sorter.js');
 require('directives/userbadge/userbadge.js');
+require('directives/attachmentdisplay/attachmentdisplay.js');
 
 require('services/permissions.js');
 
@@ -16,7 +17,7 @@ function communityMessage() {
 		var ctrl = this;
 
 		var perPage = null;
-
+		
 		if (ctrl.threadFilter) {
 			perPage = ctrl.threadFilter.model('per_page');
 		}

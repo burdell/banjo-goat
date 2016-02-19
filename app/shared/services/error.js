@@ -6,8 +6,9 @@ var errorService = function(){
 
 	return {
 		errorList: errorList,
-		showErrors: function(errorResult){		
-			errorList.push(errorResult.message);
+		showErrors: function(errorResult){	
+			var errorMessage = errorResult && errorResult.message ? errorResult.message : "An error occured";	
+			errorList.push(errorMessage);
 		},
 		clearErrors: function(){
 			errorList.length = 0;

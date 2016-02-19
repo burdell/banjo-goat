@@ -19,6 +19,12 @@
     editor-height="300">
   </community-text-editor>
 
+   <community-file-upload 
+      file-list-model="vm.newTopic.attachments" 
+      display-text="Add an attachment"
+      is-attachment="true">
+    </community-file-upload>
+    
     <div class="cmuRow">
       <div class="cmuTextEditor__preview" ng-if="vm.newTopic.body" ng-bind-html="vm.newTopic.body | sanitize:'markdown'"></div>
     </div>

@@ -10,6 +10,7 @@ require('filters/sanitize');
 require('directives/userbadge/userbadge.js');
 require('directives/texteditor/texteditor.js');
 require('directives/pager/pager.js');
+require('directives/attachmentdisplay/attachmentdisplay.js');
 
 var inboxMessageController = function($scope, $stateParams, breadcrumbService, inboxService, apiService, inboxThreadFilter){
 	var ctrl = this;
@@ -26,7 +27,7 @@ var inboxMessageController = function($scope, $stateParams, breadcrumbService, i
 
 		breadcrumbService.setCurrentBreadcrumb(ctrl.originalMessage.subject);
 	});
-
+	
 	function setThreadData(result) {
 		ctrl.messageList = result.messages;
 		ctrl.numberOfPages = result.messages.totalPages;
@@ -49,6 +50,7 @@ var inboxMessageController = function($scope, $stateParams, breadcrumbService, i
 				ctrl.submittingReply = true;
 				apiService.Feed.inboxMessage(ctrl.newMessage).then(function(result){
 					ctrl.newMessage.body = null;
+					ctrl.newMessage.attachments = null;
 
 					var messageData = result.messages;
 					var targetPage = Math.ceil(messageData.totalElements / messagesPerPage);

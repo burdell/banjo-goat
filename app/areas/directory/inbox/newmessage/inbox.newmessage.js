@@ -34,7 +34,6 @@ function newMessage($state, $scope, breadcrumbService, communityApi, currentUser
 		},
 		submitTopic: function() {
 			ctrl.submittingTopic = true;
-			console.log(ctrl.newTopic.recipientIds);
 
 			ctrl.newTopic.recipientIds.push(currentUserId);
 			communityApi.Feed.inboxMessage(this.newTopic).then(function(result){

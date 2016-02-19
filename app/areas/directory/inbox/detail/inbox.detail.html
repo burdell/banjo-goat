@@ -26,13 +26,24 @@
 				<span class="cmuComments__date">
 			        {{ message.postDate | timeFromNow }}
 				</span>
-				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize:message.format"></div>
+
+				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize:markdown"></div>
+					
+				<community-attachment-display ng-model="message.attachments"></community-attachment-display>
 			</div>
 		</div>
 	</div>
 
 	<div class="clearfix">
 		<community-text-editor ng-model="vm.newMessage.body"></community-text-editor>
+
+		<div>
+		 <community-file-upload 
+		    file-list-model="vm.newMessage.attachments" 
+		    display-text="Add an attachment"
+		    is-attachment="true">
+		  </community-file-upload>
+		</div>
 
 	    <div class="row cmuRow">
 	      <div class="cmuTextEditor__preview" ng-if="vm.newMessage.body" ng-bind-html="vm.newMessage.body | sanitize:'markdown'"></div>
