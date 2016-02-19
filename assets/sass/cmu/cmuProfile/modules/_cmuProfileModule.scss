@@ -21,6 +21,9 @@
 
 .cmuProfile__section {
 	margin-bottom: $cmu-vertical-rhythm;
+	.cmuProfile__avatar img {
+		width: 100%;
+	}
 }
 
 .cmuProfile__subSection {
@@ -30,13 +33,12 @@
 
 
 .cmuProfile__title {
-	font-weight: bold;
-	border-bottom: $style-line--dark;
+	border-bottom: $style-line--medium;
 	padding: $cmu-vertical-rhythm/2 0;
 	margin-bottom: $cmu-vertical-rhythm;
+	color: $cmu-color-gray;
 
 	div {
-		font-size: $size-large;
 		display: inline;
 	}
 }
@@ -51,10 +53,7 @@
 		margin-bottom: $cmu-vertical-rhythm/2;
 	}
 	%profileTag {
-		// color: $cmu-color-dkgray;
-		// border: $style-line;
 		padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
-		background-color: $cmu-color-ltgray;
 
 		// redesign (#95)
 		// background-color: $cmu-color-purewhite;
@@ -198,14 +197,11 @@
 		margin: $cmu-vertical-rhythm;
 		margin-left: 0;
 	}
-		.cmuProfile__pointCount {
+		.cmuProfile__totalPoints {
 			font-weight: bold;
-			font-size: $size-largest;
 		}
-		.cmuProfile__pointCountDesc {
-			font-size: $size-largest; 
-			margin-right: $cmu-base/2;
-			font-weight: 300;
+		.cmuProfile__progress__nextRank {
+			color: $cmu-color-gray;
 		}
 	
 
@@ -222,28 +218,17 @@
 			border: $style-line;
 			width: 100%;
 			line-height: 0;
-			padding: $cmu-base*3/2 0;
+			padding: $cmu-base/4 0;
 		}
 
 		.cmuProfile__progressBar__bar {
 			display: block;
 			border: 1px solid $cmu-color-green;
-			border-right-width: 8px;
-			padding: $cmu-base*3/2 0;
+			padding: $cmu-base/4 0;
 			position: absolute;
 			top: 0;
-			background-color: $cmu-color-ltgreen;
+			background-color: $cmu-color-green;
 			line-height: 0;
-		}
-		.cmuProfile__progressBar__text {
-			color: $cmu-color-dkgray;
-			// font-weight: bold;
-			font-size: $size-large;
-			padding-left: $cmu-base;
-
-			position: absolute;
-			left: 0px;
-			top: $cmu-base - remCalc(1px);
 		}
 
 
@@ -269,8 +254,6 @@
 		    border: 1px solid #ccc;
 		    border-radius: 50%;
 		    margin-bottom: $cmu-vertical-rhythm/2;
-		
-
 		}
 
 

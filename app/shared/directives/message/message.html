@@ -19,6 +19,8 @@
 			<div class="cmuMessage__content cmuContent" ng-bind-html="messageDisplay.message.body | sanitize: messageDisplay.message.format">
 			</div>
 
+			<community-attachment-display ng-model="messageDisplay.message.attachments"></community-attachment-display>
+
 			<div class="cmuMessage__signature ">
 				WHT! This is a signature example and a horrible run on sentence because whoo signatures yeah they're great whoo signatures are so cool! What can you do with them, who knows
 			</div>
@@ -69,7 +71,7 @@
 								<div class="button--vote--action">${{ core.thanks }}$</div>
 							</div>
 						</span>
-						
+
 						<button 
 							community-permissions="message.can_comment" 
 							permissions-id="messageDisplay.message.id"

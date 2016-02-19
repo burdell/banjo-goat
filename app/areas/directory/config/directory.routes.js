@@ -99,7 +99,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 						}
 						//linking to username 
 						else {
-							return communityApi.Users.search(userId, true).then(function(result){	
+							return communityApi.Users.search(userId, true).then(function(result){
 								if (result.content.length === 1) {
 									return {
 										user: result.content[0]
@@ -115,17 +115,17 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 				controller: 'UserProfile as vm',
 				templateUrl: 'directory/user/userprofile.html',
 				resolve: {
-					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
+					StoryDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', 'UserData', function($stateParams, communityApi, filterService, userServiceWrapper, userData){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Stories.search,
-								constants: { per_page: 2, author_id: $stateParams.userId },
+								constants: { per_page: 2, insertUserId: userData.user.id },
 								persistFilterModel: false
 							});
 					}],
-					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', function($stateParams, communityApi, filterService, userServiceWrapper){
+					ActivityDataFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', 'CurrentUserService', 'UserData', function($stateParams, communityApi, filterService, userServiceWrapper, userData){
 							return filterService.getNewFilter({ 
 								filterFn: communityApi.Feed.allContent,
-								constants: { size: 4, topics: false },
+								constants: { size: 4, topics: false, insertUserId: userData.user.id },
 								persistFilterModel: false
 							});
 					}],

@@ -349,6 +349,11 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				return goToApi(v2Url + 'stories/search', options, 'GET');
 			}
 		},
+		Reactions: {
+			react: function(){
+				
+			}
+		},
 		Users: {
 			authentication: function(){
 				return goToApi(v2Url + urlSegments.User('self'));

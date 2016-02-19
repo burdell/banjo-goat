@@ -69,6 +69,12 @@
 					<div>- New: WEB UI: "Feed only - 3dBi" option for antenna type (AirGrid and NanoBridge models only)</div>
 				</div>
 
+				<div ng-if="vm.currentAnnouncement.attachments.length > 0">
+					<h6>Attachments:</h6>
+					<div ng-repeat="attachment in vm.currentAnnouncement.attachments">
+	          			<a ng-href="{{ attachment.fileUrl }}" target="self">{{ attachment.fileName }}</a>
+					</div>
+				</div>
 			</div>
 
 		</div>

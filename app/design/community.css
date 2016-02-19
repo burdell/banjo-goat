@@ -9807,6 +9807,9 @@ div.cmuCollapser__content {
 .cmuProfile__section {
   margin-bottom: 1rem;
 }
+.cmuProfile__section .cmuProfile__avatar img {
+  width: 100%;
+}
 
 .cmuProfile__subSection {
   margin-bottom: 0.5rem;
@@ -9814,13 +9817,12 @@ div.cmuCollapser__content {
 }
 
 .cmuProfile__title {
-  font-weight: bold;
-  border-bottom: 1px solid #525252;
+  border-bottom: 2px solid #525252;
   padding: 0.5rem 0;
   margin-bottom: 1rem;
+  color: #969ba3;
 }
 .cmuProfile__title div {
-  font-size: 1rem;
   display: inline;
 }
 
@@ -9834,7 +9836,6 @@ div.cmuCollapser__content {
 
 .cmuProfile__rank span, .cmuProfile__nextRank span {
   padding: 0.28125rem 0.5rem;
-  background-color: #ebebeb;
   background-color: #bbbbbd;
   color: #fafafa;
   display: inline-block;
@@ -9893,15 +9894,12 @@ div.cmuCollapser__content {
   margin-left: 0;
 }
 
-.cmuProfile__pointCount {
+.cmuProfile__totalPoints {
   font-weight: bold;
-  font-size: 1.5rem;
 }
 
-.cmuProfile__pointCountDesc {
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
-  font-weight: 300;
+.cmuProfile__progress__nextRank {
+  color: #969ba3;
 }
 
 .cmuProfile__points__progress {
@@ -9917,27 +9915,17 @@ div.cmuCollapser__content {
   border: 1px solid #dadada;
   width: 100%;
   line-height: 0;
-  padding: 1.5rem 0;
+  padding: 0.25rem 0;
 }
 
 .cmuProfile__progressBar__bar {
   display: block;
   border: 1px solid #48af65;
-  border-right-width: 8px;
-  padding: 1.5rem 0;
+  padding: 0.25rem 0;
   position: absolute;
   top: 0;
-  background-color: #86cd9a;
+  background-color: #48af65;
   line-height: 0;
-}
-
-.cmuProfile__progressBar__text {
-  color: #525252;
-  font-size: 1rem;
-  padding-left: 1rem;
-  position: absolute;
-  left: 0px;
-  top: 0.9375rem;
 }
 
 .cmuProfile__stat {
