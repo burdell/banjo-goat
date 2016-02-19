@@ -31,7 +31,7 @@
 						<span class="style-stat-num">{{ storydisplay.story.countViews | number}} </span> <span class="style-stat-title">{{ '${{ core.views }}$' | lowercase }}</span> 
 					</div>
 					<div class="cmuStoryItem__stat">
-						<span class="style-stat-num">{{  storydisplay.story.stats | extractKey : 'score' | number}}</span> <span class="style-stat-title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+						<span class="style-stat-num">{{  storydisplay.story.message.scores.kudoCount | number}}</span> <span class="style-stat-title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
 					</div>
 				</div>
 			</div>

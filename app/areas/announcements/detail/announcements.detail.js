@@ -5,6 +5,7 @@ require('directives/message/message.js');
 require('directives/commentlist/commentlist.js');
 require('directives/arealinkhandler/arealinkhandler.js');
 require('directives/commentform/commentform.js');
+require('directives/reaction/reaction.js');
 
 require('filters/unescape.js');
 

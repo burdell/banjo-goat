@@ -5,6 +5,7 @@ require('directives/commentform/commentform.js');
 require('directives/commentlist/commentlist.js');
 require('directives/username/username.js');
 require('directives/map/map.js');
+require('directives/reaction/reaction.js');
 
 require('filters/sanitize.js');
 
@@ -17,7 +18,7 @@ function StoryDetailController ($anchorScroll, $location, $scope, $state, commun
 
 	var story = storyThread.originalMessage;
 	var storyAuthor = story.message.insertUser;
-
+	
 	var cover = _.find(story.media, function(mediaObj) {
 		return mediaObj.meta && mediaObj.meta.isCover;
 	}) || { url: storyDefaults.coverPhoto };
