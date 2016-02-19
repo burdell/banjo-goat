@@ -6,6 +6,7 @@ require('filters/timefromnow.js');
 
 require('directives/sorter/sorter.js');
 require('directives/userbadge/userbadge.js');
+require('directives/sticky/sticky.js');
 
 require('services/permissions.js');
 

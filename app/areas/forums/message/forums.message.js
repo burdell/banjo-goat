@@ -33,6 +33,12 @@
 		function setThreadData(dataResult) {	
 			ctrl.originalMessage = dataResult.content[0];
 			ctrl.originalMessageSubject = ctrl.originalMessage.context.topicSubject;
+
+			if(typeof(ctrl.originalMessageEditDate) != "undefined")
+				ctrl.originalMessageEditDate = ctrl.originalMessage.context.parenteditDate;
+
+			ctrl.originalMessageEditDate = "";
+			ctrl.originalMessagePostDate = ctrl.originalMessage.context.parentPostDate;
 			
 			ctrl.messageThread = dataResult.content;;
 			ctrl.allMessageCount = dataResult.totalElements;
@@ -79,7 +85,7 @@
 				ctrl.topicReplyShown = true;
 				scrollService.scroll('topicReply');
 			},
-			isEdited: ctrl.originalMessage.editDate && (ctrl.originalMessage.postDate != ctrl.originalMessage.editDate)
+			isEdited: ctrl.originalMessageEditDate && (ctrl.originalMessagePostDate != ctrl.originalMessageEditDate)
 		});
 
 	};

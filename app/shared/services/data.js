@@ -24,11 +24,11 @@ var dataService = function(localizationService){
 			{ value: 'features', label: areas.features }
 		],
 		DiscussionTypeIcons: {
-			features: 'ubnt-icon--gears',
-			stories: 'ubnt-icon--news',
-			announcements: 'ubnt-icon--dish',
-			forums: 'ubnt-icon--chat-bubbles-2',
-			qna: 'ubnt-icon--question'
+			features: 'features',
+			stories: 'stories',
+			announcements: 'announcements',
+			forums: 'forums',
+			qna: 'qa'
 		}
 	};
 }

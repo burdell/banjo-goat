@@ -1,4 +1,6 @@
 
+// modified withthe ubnt tab
+
 module.exports = function($){ 
   var pluginName = "emojiPicker",
       defaults = {

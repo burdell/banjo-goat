@@ -142,7 +142,7 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				return goToApi(v2Url + 'announcements/threads', options);
 			},
 			announcements: function(nodeId, options) {
-				return goToApi(v2Url + urlSegments.Node(nodeId) + 'topics', options);
+				return goToApi(v2Url + urlSegments.Node(nodeId) + 'threads', options);
 			},
 			detail: function(announcementId){
 				return goToApi(v2Url + 'announcements/' + announcementId, addPermissionData({}, 'message'));

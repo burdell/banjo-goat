@@ -93,22 +93,28 @@
 	}
 	&.announcements:before {
 		@extend %sidebar-icon;
-		content: '\e710';
+		// content: '\e710'; // dish transmitter thing
+		content: '\e6e7'; // broadcast tower
 		text-decoration: none !important;
 	}
 	&.forums:before {
 		@extend %sidebar-icon;
-		content: '\e6c0';
+		content: '\e6c0'; // bubbles
 		text-decoration: none !important;
 	}
 	&.stories:before {
 		@extend %sidebar-icon;
-		content: '\e614';
+		content: '\e614'; // newspage
 		text-decoration: none !important;
 	}
 	&.qa:before {
 		@extend %sidebar-icon;
-		content: '\e6ee';
+		content: '\e6ee'; // question w/ circle
+		text-decoration: none !important;
+	}
+	&.features:before {
+		@extend %sidebar-icon;
+		content: '\e6f2'; //gears
 		text-decoration: none !important;
 	}
 

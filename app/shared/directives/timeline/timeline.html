@@ -52,7 +52,7 @@
 
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__topic">
-			          	<span class="cmuThreadlist__topic__title">{{ data.subject | htmlUnescape }}</span> 
+			          	<span class="cmuThreadlist__topic__title">{{ data.topic.subject | htmlUnescape }}</span> 
 				        	<span ng-if="timeline.showProductInfo"><product-discussion-tag node-id="data.topic.node.id"></product-discussion-tag></span>
 			          </div>
 			        </a>
@@ -66,15 +66,15 @@
 		              <div class="cmuThreadlist__avatar">
 		                <div
 		                  community-tooltip
-		                  data-id-field="{{ data.message.insertUser.id }}" 
+		                  data-id-field="{{ data.topic.message.insertUser.id }}" 
 		                  ajax-populate="timeline.getUserData" 
 		                  tooltip-template="partials/usertooltip.html"
 		                  empty-text="${{ forums.list.emptyPreview }}$"
 		                  tooltip-class="cmuTooltipster"
 		                  position="top"
 		                >
-		                  <community-user-avatar user="data.message.insertUser"></community-user-avatar>
-		                  <span>{{ data.message.insertUser.login }}</span>
+		                  <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
+		                  <span>{{ data.topic.message.insertUser.login }}</span>
 		                </div>
 		              </div>
 		            </div>
@@ -82,7 +82,7 @@
 
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__counter cmuThreadlist__views">
-			            {{ data.countViews | number}}
+			            {{ data.topic.countViews | number}}
 			          </div>
 			        </a>
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
@@ -92,7 +92,7 @@
 			        </a>
 		          <a area-link-handler="{{ timeline.getTimelineHref(data) }}">
 			          <div class="cmuThreadlist__counter cmuThreadlist__kudos">
-			            {{  data.message.scores.kudoCount | number}}
+			            {{  data.topic.message.scores.kudoCount | number}}
 			          </div>
 			        </a>
 		        </div>

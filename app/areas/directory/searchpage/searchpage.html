@@ -162,7 +162,7 @@
 
 	    		<div ng-hide="vm.searchInProgress">
 		    		<div ng-show="vm.searchResults.length > 0">
-		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md9">
+		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md9 ">
 			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
 			    		<div class="cmuThreadlist__ctrl col--md3 alignRight noPaddingRight">
@@ -177,7 +177,8 @@
 				          </community-pager>
 				    	</div>
  -->
-			    		<div class="cmuThreadlist__body col--md12 noPadding">
+
+			    		<div class="cmuThreadlist__body cmuThread__container col--md12">
 				    		<a class="cmuThreadlist__row row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
@@ -211,7 +212,7 @@
 			    		  <community-pager 
 				            number-of-pages="vm.totalPages" 
 				            pager-fn="vm.searchFilter"
-				            front-biased="true">
+				            front-biased="false">
 				          </community-pager>
 				    	</div>
 			    	</div>

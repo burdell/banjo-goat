@@ -7,10 +7,10 @@
  * These are very basic, high-level default settings to get a project started.
  */
 $cmu-base:					1rem !default; // 1rem = 16px is standard for browsers
+$cmu-vertical-rhythm: 		$cmu-base !default;
 $base-font-size:            $cmu-base !default;
 $cmu-base-font:        		remCalc(13px) !default;	// less whitespace
 $cmu-base-line-height:      $cmu-base*1.2 !default;
-$cmu-vertical-rhythm: 		$cmu-base !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1400px;	// applied separately on all partials and templates for max-width responsive
@@ -18,7 +18,7 @@ $cmu-maxwidth--longform:	1000px; // centered longform content for readability
 $cmu-maxwidth--post:		640px;	// widest post width for readability // might not be used
 $cmu-maxwidth--reply:		240px;	// for inline post replies
 $cmu-badgewidth-min:		$cmu-base*5;
-$cmu-messagebody-width:		85%;
+$cmu-messagebody-width:		82%; // [op][emerging member] tags takes most width
 $cmu-nav-height:			remCalc(40px) !default; // main nav bar
 $cmu-min-pageHeight:		$cmu-base*20;
 $cmu-min-pageHeight--m:		$cmu-base*35; // mobile is higher bc of footer
@@ -73,10 +73,10 @@ body {
 }
 	.wrapper {
 		background-color: $cmu-color-white;
-	 //    padding-bottom: $cmu-min-pageHeight;
+		// padding-bottom: $cmu-min-pageHeight;
 
 		// @include respondTo(xsmall-down) {
-	 //    	padding-bottom: $cmu-min-pageHeight--m;
+		//   padding-bottom: $cmu-min-pageHeight--m;
 		// }
 
 	    min-height: 100%;

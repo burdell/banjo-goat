@@ -70,7 +70,6 @@ Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4
 }
 
 .cmuTextEditor__fixToBottom .emojiPicker {
-	
     // override since we're not using body as a container anymore (we're using texteditor)
     top: 0 !important;
     margin-left: -40px;

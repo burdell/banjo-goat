@@ -14,7 +14,7 @@
   &:-ms-input-placeholder      {@content;};
 }
 
-@mixin background-opacity($cmu-color, $opacity: 0.3) {
+@mixin background-opacity ($cmu-color, $opacity: 0.3) {
     background: $cmu-color; /* The Fallback */
     background: rgba($cmu-color, $opacity);
 }

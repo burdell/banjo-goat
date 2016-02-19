@@ -6,14 +6,14 @@
 			<!-- main -->
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<!-- story feed -->
-				<div class="cmuFeed__container col--md12" ng-if="vm.storyList.length > 0">
+				<div class="cmuFeed__stories cmuFeed__container col--md12" ng-if="vm.storyList.length > 0">
 		        	<div class="cmuFeed__title clearfix noPaddingLeft noPaddingRight">
 		        		<div class="col--md10 noPaddingLeft">
 							<h5><span class=""></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ stories.areaName }}$</h5>
 						</div>
 
 						<div class="col--md2 alignRight noPaddingRight">
-							<a class="style-link" ng-href="{{ vm.productStoriesUrl }}" target="_self">${{ directory.hub.allStories }}$</a>
+							<a class="style-link" ng-href="{{ vm.productStoriesUrl }}" target="_self">${{ directory.hub.moreStories }}$</a>
 						</div>
 
 					</div>

@@ -12,7 +12,12 @@ $cmu-thread-message-height:	$cmu-base * 3;
 
 .cmuThread__container {
 	margin-bottom: $cmu-vertical-rhythm/2;
+	@extend %ease-fast;
 }
+	.cmuThread__container--loading {
+		opacity: 0.3;
+		@extend %ease-fast;
+	}
 
 .cmuThread__firstPost {
     position: relative;

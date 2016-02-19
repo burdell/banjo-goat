@@ -3,11 +3,12 @@
 
 var _ = require('underscore');
 
+// args:
+// stickyClass - class to attach to the target element that makes things stick [default: cmuStuck]
 
 // optional args:
-// yOffset - extra offset from the top
-// container - #id of the container to trap the sticky div; sticky ends when bottom of sticky hits the container's inside bottom (within padding and margin)
-// containerOffset - additional offset from the bottom of the container
+// yOffset - extra offset from the top of the viewport
+// stickyBound - the bounding container that stops the target from continuing further
 
 
 function sticky($document, $window) {
@@ -16,22 +17,26 @@ function sticky($document, $window) {
 		var stickyClass = attrs.stickyClass; // class that makes things sticky
 		var offset = parseFloat(attrs.offset);
 
+		if (isNaN(offset))
+			offset = 0;
+
 		// the container element
 		// needs to stay position: relative, with a manually set height
 		var container = element[0];
-	    var angularElem = angular.element(element);
+	    var angularContainer = angular.element(element);
 	    // var containerHeight = container.offsetHeight;
 	    // var windowHeight = $window.innerHeight;
 
 	    // the target within the container
 	    // fixed / floating element
-	    var target = angularElem.children()[0];
+	    var target = angularContainer.children()[0];
 	    var angularTarget = angular.element(target);
 	    var targetHeight;
 
 
 	    // heights / distances must be loaded on scroll, since elements will be populated by then
 	    $document.on('scroll', function() {
+
 	    	// offset value accounds for the fixed menu height
 	    	var menuHeight = 40;
 	    	targetHeight = target.clientHeight;
@@ -44,8 +49,8 @@ function sticky($document, $window) {
 	    	var targetTopRelative = targetTop - top;
 
 	    	// distance from container to top of viewport
-		    var containerDistToViewportTop = box.top - menuHeight - offset;
-		    var containerDistToPageTop = containerDistToViewportTop + window.pageYOffset
+		    var containerDistToViewportTopwOffset = box.top - menuHeight - offset;
+		    var containerDistToPageTop = box.top + window.pageYOffset;
 
 			var targetDistToTop = menuHeight;
 			var targetWidth = container.offsetWidth;
@@ -53,14 +58,15 @@ function sticky($document, $window) {
 				targetDistToTop += offset;
 			}
 
+			// console.log('dist: ' + containerDistToViewportTopwOffset + 'elig: ' + eligible())
 		    // console.log('elemBottom: ' + parseFloat(elemHeight+) + 'elemH: ' + elemHeight + ' windowH: ' + windowHeight);
-	    	if (containerDistToViewportTop < 0) {
+	    	if ((containerDistToViewportTopwOffset < 0) && eligible()) {
 				if (!isStuck()) {
-					// angularElem.html(angularElem.html() + angularElem.html());
+					// angularContainer.html(angularContainer.html() + angularContainer.html());
 					// container.outerHTML += copy[0].outerHTML;
 
 					// replace with a dummy height so elements don't jolt
-					angularElem.css("height", container.offsetHeight + 'px');
+					angularContainer.css("height", container.offsetHeight + 'px');
 					angularTarget.addClass(stickyClass);
 
 					// console.log('tHeight: ' + targetDistToTop)
@@ -70,40 +76,43 @@ function sticky($document, $window) {
 
 
 			    // optional bounding container
-				var bound = document.getElementsByClassName(attrs.stickyBound)[0];
+			    var bound;
+			    if(attrs.stickyBound == "::parent") {
+			    	bound = container.parentElement;
+			    } else {
+					bound = document.getElementsByClassName(attrs.stickyBound)[0];
+			    }
+
 			    if (typeof(bound) != "undefined") {
 
 				    var angularBound = angular.element(bound);
-				    var boundToBottomDist, boundDistToViewportTop, boundHeight, boundBottomDistToTop, boundPadding;
+				    var targetBottomToBoundBottom, boundDistToViewportTop, boundHeight, boundBottomDistToViewportTop, boundPadding;
 					boundDistToViewportTop = bound.getBoundingClientRect().top;
-					var boundDistToPageTop = boundDistToViewportTop+ window.pageYOffset
+					var boundDistToPageTop = boundDistToViewportTop + window.pageYOffset
 		    	    boundHeight = bound.clientHeight;
 		    	    boundPadding = parseInt(window.getComputedStyle(bound).paddingBottom, 10) + parseInt(window.getComputedStyle(bound).paddingTop, 10);
+		    	    var containerDistToBoundTop = containerDistToPageTop - boundDistToPageTop;
 		    	    // angularBound.css('padding-bottom', '123px');
 		    		// console.log('boundElem_paddbott: ' + document.getElementsByClassName(attrs.stickyBound)[0])
 		    		
-		    	    boundBottomDistToTop = boundDistToViewportTop + boundHeight - boundPadding;
-		    	    var boundContentHeight = boundBottomDistToTop + window.pageYOffset;
+		    	    boundBottomDistToViewportTop = boundDistToViewportTop + boundHeight - boundPadding;
+		    	    var boundContentHeight = boundBottomDistToViewportTop - boundDistToPageTop + window.pageYOffset;
 		    	    // boundBottom = parseFloat(bound.clientTop+bound.clientHeight); // client keeps it within border
 		    	    // console.log(' eeee ' + parseFloat(boundContentHeight - targetHeight - containerDistToPageTop))
-		    	    var targetBoundPosition = parseFloat(boundContentHeight - targetHeight - containerDistToPageTop - boundDistToPageTop);
+		    	    var targetBoundPosition = parseFloat(boundContentHeight - targetHeight - containerDistToBoundTop); // - containerDistToPageTop );
 
-		    		// console.log('boundBottomDistToTop: ' + boundBottomDistToTop + ' boundHeight: ' + boundHeight + ' targetHEight: ' + targetHeight)
-		    	    // boundBottomDistToTop = 
+		    		// console.log('boundBottomDistToViewportTop: ' + boundBottomDistToViewportTop + ' boundHeight: ' + boundHeight + ' targetHEight: ' + targetHeight)
+		    	    // boundBottomDistToViewportTop = 
 		    	    // console.log('boundHeight: ' + parseFloat(bound.clientHeight));
 		    	    // console.log(bound)
-		    	    boundToBottomDist = boundBottomDistToTop - targetHeight - boundDistToPageTop;
 
-
+		    	    // bottom of target to bottom of bound
+		    	    targetBottomToBoundBottom = boundBottomDistToViewportTop - targetHeight - offset - menuHeight; //boundBottomDistToViewportTop - targetHeight - boundDistToViewportTop;
 
 				    // console.log('bound:')
 				    // console.log(angularBound);
-
-			    	if (boundToBottomDist < 0 ) {
-			    	    
-		    	    	// console.log('boxtop: '+ box.top)
-		    	    	console.log('hit bottom ' + parseInt(boundDistToViewportTop + window.pageYOffset));
-		    	    	// console.log(angularBound)
+			    	if (targetBottomToBoundBottom < 0 ) {
+			    		// console.log('targetBoundPosition= ' + targetBoundPosition + ' (boundContentHeight ' + boundContentHeight + ' - targetHeight ' + targetHeight + ' - containerDistToBoundTop ' + containerDistToBoundTop + ' - containerDistToPageTop ' + containerDistToPageTop + ' - boundDistToPageTop ' + boundDistToPageTop);
 
 						angularTarget.css("top", targetBoundPosition + 'px');
 						angularTarget.addClass("cmuStuck--bottom");
@@ -119,14 +128,21 @@ function sticky($document, $window) {
 
 	    	} else {
 	    		if (isStuck()) {
-					angularElem.css("height");
+					angularContainer.css("height");
 					angularTarget.removeClass(stickyClass);
+					angularTarget.removeClass("cmuStuck--bottom");
 				}
 			}
 	    });
 
 		function isStuck() {
 			return angularTarget.hasClass(stickyClass);
+		}
+
+		function eligible() {
+			// eligible if target height is smaller than viewport height
+			if ( angularTarget[0].clientHeight <= parseFloat(window.innerHeight - offset) ) return true
+			return false;
 		}
 
 		scope.$on('$destroy', function(){

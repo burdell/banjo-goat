@@ -1,10 +1,14 @@
 <div id="{{ messageDisplay.message.id }}">
 	<div class="cmuMessage__container">
 
-		<community-user-badge
-			user="messageDisplay.message.insertUser"
-			op-id="messageDisplay.showOp">
-		</community-user-badge>
+		<div community-sticky sticky-class="cmuStuck" sticky-bound="::parent">
+			<div>
+				<community-user-badge
+					user="messageDisplay.message.insertUser"
+					op-id="messageDisplay.showOp">
+				</community-user-badge>
+			</div>
+		</div>
 
 		<div class="cmuMessage__body" ng-class="{  forumThreadMessage__linked : vm.linkedMessageId == messageDisplay.message.id }">
 

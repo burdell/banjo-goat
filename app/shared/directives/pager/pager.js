@@ -179,9 +179,16 @@ function communityFilter($timeout) {
 
 		/*** CONTROL FUNCTIONS *****/
 		function page() {
+			// console.log('new page whoo')
+			var targetClass = "cmuThread__container";
+			var content = angular.element(document.getElementsByClassName(targetClass)[0]);
+			content.addClass(targetClass+'--loading');
+
 			setUiPage();
 			filterer.filter(pageData).finally(function(){
 				scrollService.scroll('pageTop');
+				// console.log('new page loaded whoo whoo')
+				content.removeClass(targetClass+'--loading');
 			});
 		}
 
@@ -282,7 +289,7 @@ function communityFilter($timeout) {
 		var pagerInfo = {
 			initialPage: getPageNumber(),
 			numberOfPages: numberOfPages,
-			frontBiased: this.frontBiased === 'true'
+			frontBiased: this.frontBiased === 'true', // true: prevents users from scrolling too far back in time
 		};
 		
 		/***** EXPOSED PROPERTIES *****/

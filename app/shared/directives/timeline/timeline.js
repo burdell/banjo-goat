@@ -54,7 +54,7 @@ function communityTimeline() {
 					$state.go('announcements.detail', { announcementId: data.id, nodeId: data.topic.node.urlCode });
 				},
 				isRead: function(data){
-					return !!data.message.context.lastReadDate;
+					return !!data.context.lastReadDate;
 				},
 				getUserData: communityApiService.Users.userData
 			});

@@ -75,12 +75,10 @@ function mainNavBar() {
 		
 		
 		$rootScope.$on('rootScope:openSearchbar', function(){
-			console.log('search openSearchbar: ' + ctrl.searchIsOpen)
 			ctrl.searchIsOpen = true;
 		});
 
 		$rootScope.$on('rootScope:closeSearchbar', function(){
-			console.log('search closeSearchbar: ' + ctrl.searchIsOpen)
 			ctrl.searchIsOpen = false;
 		});
 		
@@ -158,8 +156,7 @@ function mainNavBar() {
 			},
 			searchIsOpen: false,
 			searchOpen: function(){
-				// console.log('what')
-				// ctrl.searchIsOpen = !ctrl.searchIsOpen;
+				
 			},
 			templateData: {
 				getDiscussionUrl: function(node){

@@ -1,6 +1,9 @@
 
+// updated with custom images
 module.exports = function($) {
   $.fn.emojiPicker.emojis = [
+
+    // custom
     {
       "name": "ubnt",
       "unicode": "0",
@@ -15,6 +18,8 @@ module.exports = function($) {
       "description": "Dancing Banana",
       "category": "ubnt"
     },
+
+    // standard
     {
       "name": "copyright",
       "unicode": "00A9",

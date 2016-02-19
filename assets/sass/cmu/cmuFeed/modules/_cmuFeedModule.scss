@@ -6,7 +6,7 @@
 
 
 .cmuFeed {
-
+	position: relative;
 }
 
 
@@ -279,7 +279,7 @@
 }
 
 	.cmuFeed__hub {
-    	padding-top: $cmu-base;
+    	padding-top: $cmu-base/2;
 	}
 
 	.cmuFeed__sidebar__link {

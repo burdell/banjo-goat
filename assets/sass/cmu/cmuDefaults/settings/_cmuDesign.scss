@@ -551,13 +551,13 @@ $stat-padding: 4.5px $cmu-base/2;
 // 
 .cmuStuck {
 	@include respondTo(medium-up) {
-		position: fixed;
+		position: fixed !important;
 		z-index: $z-nav--drop;
 	}
 }
 	// used to pin it to a bound
 	.cmuStuck--bottom {
-		position: absolute;
+		position: absolute !important;
 	}
 
 
