@@ -3,7 +3,7 @@
 	<div class="cmuProfile__sidebar col--md3">
 		<div class="cmuProfile__section row">
 			<!-- &s=200 forces the 200x200 avatar  -->
-			<div><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
+			<div class="cmuProfile__avatar"><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
 			<a ui-sref="userprofile.usersettings" class="button button--solid" community-permissions="node.can_post_topic" denied-behavior="hide">${{ directory.user.editProfile }}$</a>
 		</div>
 
@@ -55,10 +55,6 @@
 						<div class="cmuProfile__rank">
 							<span>{{ vm.userData.rank.name }}</span>
 						</div>
-						<div class="cmuProfile__nextRank clearfix">
-							${{ directory.user.nextRank }}$:
-							<span>{{ vm.nextRankName }}</span>
-						</div>
 					</div>
 				</div>	
 
@@ -66,10 +62,14 @@
 					<div class="cmuProfile__progressBar">
 						<span class="cmuProfile__progressBar__container"></span>
 						<span class="cmuProfile__progressBar__bar" style="width:{{ vm.percentageComplete | number: 0}}%"></span>
-						<span class="cmuProfile__progressBar__text">
-							<span class="cmuProfile__pointCount">{{ vm.totalPoints | number }}</span>
-							<span class="cmuProfile__pointCountDesc">${{ directory.user.points }}$</span>
-							/ {{ vm.percentageComplete | number: 0}}%
+					</div>
+					<div>
+						<span class="cmuProfile__totalPoints">
+							{{ vm.totalPoints | number }} ${{ directory.user.totalPoints }}$
+						</span>
+						-
+						<span class="cmuProfile__progress__nextRank">
+							${{ directory.user.nextRank }}$: <span>{{ vm.nextRankName }}</span>
 						</span>
 					</div>
 				</div>
@@ -83,18 +83,18 @@
 					</div>
 
 					<div class="cmuProfile__stat col--md3">
-						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[5].count | number }}</span>
-						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[5].name }}</div>
-					</div>
-
-					<div class="cmuProfile__stat col--md3">
-						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[9].count | number }}</span>
-						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[9].name }}</div>
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[10].count | number }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[10].name }}</div>
 					</div>
 
 					<div class="cmuProfile__stat col--md3">
 						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[7].count | number }}</span>
 						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[7].name }}</div>
+					</div>
+
+					<div class="cmuProfile__stat col--md3">
+						<span class="cmuProfile__stat__num">{{ vm.scoreCategories[12].count | number }}</span>
+						<div class="cmuProfile__stat__desc">{{ vm.scoreCategories[12].name }}</div>
 					</div>
 				</div>
 			</div>
@@ -125,19 +125,20 @@
 										<story-display 
 											story="story"
 											story-media="story.media"
-											default-photo-url="vm.defaultPhoto">
+											default-photo-url="vm.defaultPhoto"
+											minimal-display="true"
+											fill-width="true">
 										</story-display>
 									</div>
 								</div>
 							</div>
 							<div class="cmuProfile__subSection">
 								<button class="cmuProfile__loadMore button--stretch
-								button--large
 								button--wide
 								button--solid" ng-click="vm.loadMore('stories')" ng-show="vm.hasMoreStories">${{ core.actions.showMore }}$</button>
 							</div>
 						</div>
-					</div>	
+					</div>
 
 				  	<!-- feed -->
 				  	<div class="cmuProfile__activity">
@@ -153,7 +154,7 @@
 				        </div>
 
 						<div class="cmuProfile__subSection">
-			        		<button class="cmuProfile__loadMore button--stretch button--center button--large button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">${{ core.actions.showMore }}$</button>
+			        		<button class="cmuProfile__loadMore button--stretch button--center button--solid" ng-click="vm.loadMore('activity')" ng-show="vm.hasMoreActivity">${{ core.actions.showMore }}$</button>
 						</div>
 				  	</div>
 				</div>
