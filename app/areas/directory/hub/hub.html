@@ -6,7 +6,7 @@
 			<!-- main -->
 			<div class="cmuFeed__main col--md9 noPaddingLeft">
 				<!-- story feed -->
-				<div class="cmuFeed__stories cmuFeed__container col--md12" ng-if="vm.storyList.length > 0">
+				<div class="cmuFeed__stories cmuFeed__container col--md12 noPaddingLeft" ng-if="vm.storyList.length > 0">
 		        	<div class="cmuFeed__title clearfix noPaddingLeft noPaddingRight">
 		        		<div class="col--md10 noPaddingLeft">
 							<h5><span class=""></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ stories.areaName }}$</h5>
@@ -33,7 +33,7 @@
 				</div>
 
 				<!-- activity feed -->
-				<div class="cmuFeed__container col--md12">
+				<div class="cmuFeed__container col--md12 noPaddingLeft">
 					<div class="cmuFeed__title clearfix noPaddingLeft">
 		        		<div class="col--md12 noPaddingLeft">
 							<h5><span class=""></span>${{ core.time.latest }}$ {{ vm.nodeDisplay }} ${{ directory.hub.discussions }}$</h5>
@@ -56,18 +56,22 @@
 
 			<!-- sidebar -->
 			<div class="cmuFeed__sidebar cmuFeed__hub col--md3">
-				<div class="cmuFeed__pulse cmuSidebar__container">
-					<h5>{{ vm.nodeDisplay }} ${{ directory.hub.pulse }}$</h5>
-					<community-pulse class="cmuPulse--sidebar"></community-pulse>
-				</div>
+				<div community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuFeed">
+					<div>
+						<div class="cmuFeed__pulse cmuSidebar__container">
+							<h5>{{ vm.nodeDisplay }} ${{ directory.hub.pulse }}$</h5>
+							<community-pulse class="cmuPulse--sidebar"></community-pulse>
+						</div>
 
-				<div class="cmuFeed__announcements cmuSidebar__container">
-					<h5>${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
-					<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
-						<span class="product"></span>{{ announcement.topic.subject }}
-					</a>
-					<div class="cmuFeed__sidebar__ctrl">
-						<a class="cmuFeed__sidebar__link" ng-href="{{ vm.productAnnouncementsUrl }}" target="_self">${{ directory.feed.allAnnouncements }}$</a>
+						<div class="cmuFeed__announcements cmuSidebar__container">
+							<h5>${{ core.time.latest }}$ ${{ core.areas.announcements }}$</h5>
+							<a class="cmuFeed__anno" ng-repeat="announcement in vm.recentAnnouncements" ng-href="{{ vm.generateAnnouncementUrl(announcement) }}" target="_self">
+								<span class="product"></span>{{ announcement.topic.subject }}
+							</a>
+							<div class="cmuFeed__sidebar__ctrl">
+								<a class="cmuFeed__sidebar__link" ng-href="{{ vm.productAnnouncementsUrl }}" target="_self">${{ directory.feed.allAnnouncements }}$</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

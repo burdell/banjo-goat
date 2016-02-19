@@ -8877,6 +8877,9 @@ div.cmuCollapser__content {
 .cmuDirectory__item:first-child .cmuDirectory__header {
   margin-top: 0;
 }
+.cmuDirectory__item:last-child {
+  margin-bottom: 0;
+}
 
 .cmuDirectory__header {
   padding: 0.25rem 0.5rem;
@@ -8981,6 +8984,9 @@ div.cmuCollapser__content {
 
 .cmuSidebar__container {
   margin-bottom: 1rem;
+}
+.cmuSidebar__container:last-child {
+  margin-bottom: 0;
 }
 
 .cmuDirectory__sidebar__headline h5, .cmuFeed__sidebar h5, .cmuSidebar__title h5 {

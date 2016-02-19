@@ -12,6 +12,10 @@
 
 	.cmuSidebar__container {
 		margin-bottom: $cmu-vertical-rhythm;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	%cmuSidebar__title, .cmuSidebar__title {

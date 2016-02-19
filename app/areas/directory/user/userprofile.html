@@ -1,46 +1,50 @@
 
-<div>
+<div class="cmuProfile">
 	<div class="cmuProfile__sidebar col--md3">
-		<div class="cmuProfile__section row">
-			<!-- &s=200 forces the 200x200 avatar  -->
-			<div class="cmuProfile__avatar"><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
-			<a ui-sref="userprofile.usersettings" class="button button--solid" community-permissions="node.can_post_topic" denied-behavior="hide">${{ directory.user.editProfile }}$</a>
+
+		<div community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuProfile">
+			<div>
+				<div class="cmuProfile__section row">
+					<!-- &s=200 forces the 200x200 avatar  -->
+					<div class="cmuProfile__avatar"><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
+					<a ui-sref="userprofile.usersettings" class="button button--solid" community-permissions="node.can_post_topic" denied-behavior="hide">${{ directory.user.editProfile }}$</a>
+				</div>
+
+				<div class="cmuProfile__section row">
+					<div class="cmuProfile__subSection" ng-if="vm.userData.locName">
+						<label class="cmuProfile__sidebar__label">${{ directory.user.location }}$</label>
+						<p>{{ vm.userData.locName }}</p>
+					</div>
+
+					<div class="cmuProfile__subSection" ng-if="vm.userData.meta.personalSiteUrl.value">
+						<label class="cmuProfile__sidebar__label">${{ directory.user.personalWebpage }}$</label>
+						<p>{{ vm.userData.meta.personalSiteUrl.value }}</p>
+					</div>
+
+					<div class="cmuProfile__subSection" ng-if="vm.userData.meta.occupation">
+						<label class="cmuProfile__sidebar__label">${{ directory.user.occupation }}$</label>
+						<p>{{ vm.userData.meta.occupation.value }}</p>
+					</div>
+
+					<div class="cmuProfile__subSection" >
+						<label class="cmuProfile__sidebar__label">${{ directory.user.dateRegistered }}$</label>
+						<p>{{ vm.userData.registrationDate | date }}</p>
+					</div>
+
+					<div class="cmuProfile__subSection" >
+						<label class="cmuProfile__sidebar__label">${{ directory.user.dateLastVisited }}$</label>
+						<p>{{ vm.userData.lastOnlineDate | date }}</p>
+					</div>
+				</div>
+
+				<div class="cmuProfile__section row" ng-if="vm.userData.meta.bioText">
+					<div class="cmuProfile__subSection" >
+						<label class="cmuProfile__sidebar__label">${{ directory.user.aboutMe }}$</label>
+						<p>{{ vm.userData.bioText }}</p>
+					</div>
+				</div>
+			</div>
 		</div>
-
-		<div class="cmuProfile__section row">
-			<div class="cmuProfile__subSection" ng-if="vm.userData.locName">
-				<label class="cmuProfile__sidebar__label">${{ directory.user.location }}$</label>
-				<p>{{ vm.userData.locName }}</p>
-			</div>
-
-			<div class="cmuProfile__subSection" ng-if="vm.userData.meta.personalSiteUrl.value">
-				<label class="cmuProfile__sidebar__label">${{ directory.user.personalWebpage }}$</label>
-				<p>{{ vm.userData.meta.personalSiteUrl.value }}</p>
-			</div>
-
-			<div class="cmuProfile__subSection" ng-if="vm.userData.meta.occupation">
-				<label class="cmuProfile__sidebar__label">${{ directory.user.occupation }}$</label>
-				<p>{{ vm.userData.meta.occupation.value }}</p>
-			</div>
-
-			<div class="cmuProfile__subSection" >
-				<label class="cmuProfile__sidebar__label">${{ directory.user.dateRegistered }}$</label>
-				<p>{{ vm.userData.registrationDate | date }}</p>
-			</div>
-
-			<div class="cmuProfile__subSection" >
-				<label class="cmuProfile__sidebar__label">${{ directory.user.dateLastVisited }}$</label>
-				<p>{{ vm.userData.lastOnlineDate | date }}</p>
-			</div>
-		</div>
-
-		<div class="cmuProfile__section row" ng-if="vm.userData.meta.bioText">
-			<div class="cmuProfile__subSection" >
-				<label class="cmuProfile__sidebar__label">${{ directory.user.aboutMe }}$</label>
-				<p>{{ vm.userData.bioText }}</p>
-			</div>
-		</div>
-
 	</div>
 
 	<!-- main body -->

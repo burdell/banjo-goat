@@ -5,6 +5,7 @@ require('services/breadcrumb.js');
 require('services/routing.js');
 require('services/nodestructure.js');
 
+require('directives/sticky/sticky.js');
 require('directives/pulse/pulse.js');
 
 

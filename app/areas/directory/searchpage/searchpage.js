@@ -7,6 +7,7 @@ require('directives/keypress/enter.js');
 require('directives/datepicker/datepicker.js');
 require('directives/storydisplay/storydisplay.js');
 require('directives/pagescroll/pagescroll.js');
+require('directives/sticky/sticky.js');
 
 require('filters/unformattext.js');
 require('filters/timefromnow.js');

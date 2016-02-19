@@ -11,6 +11,7 @@
 		<!-- <div class="cmuSearchpage__searchbar__container"> -->
 			<div class="cmuSearchpage__searchbar row">
 				<div class="col--md12 noPadding">
+
 					<div class="cmuSearchbox cmuSearchpage--searchbox">
 						<div class="appIconInput appIconInput--right">
 							<div ng-click="vm.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
@@ -31,116 +32,119 @@
 
     		<!-- sidebar - hide when no query -->
 	    	<div class="cmuSearchpage__sidebar cmuSidebar col--md3" ng-show="vm.searchTextDisplay">
-	    		<div class="cmuSidebar__container">
-	    			<community-datepicker 
-	    				class="cmuInput cmuInput--stretch"
-	    				placeholder="${{ directives.datepicker.fromDate }}$"
-	    				ng-model="vm.filterOptions.postDate.min"
-	    				on-change="vm.search()">
-	    			</community-datepicker>
-	    			<community-datepicker
-	    				class="cmuInput cmuInput--stretch"
-	    				placeholder="${{ directives.datepicker.toDate }}$"
-	    				ng-model="vm.filterOptions.postDate.max"
-	    				on-change="vm.search()">
-	    			</community-datepicker> 
-	    		</div>
+				<div community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuSearchpage__content">
+					<div>
+			    		<div class="cmuSidebar__container">
+			    			<community-datepicker 
+			    				class="cmuInput cmuInput--stretch"
+			    				placeholder="${{ directives.datepicker.fromDate }}$"
+			    				ng-model="vm.filterOptions.postDate.min"
+			    				on-change="vm.search()">
+			    			</community-datepicker>
+			    			<community-datepicker
+			    				class="cmuInput cmuInput--stretch"
+			    				placeholder="${{ directives.datepicker.toDate }}$"
+			    				ng-model="vm.filterOptions.postDate.max"
+			    				on-change="vm.search()">
+			    			</community-datepicker> 
+			    		</div>
 
-	    		<!-- Discussion Styles filter -->
-	    		<div class="cmuInputGroup">	
-    				<div class=" cmuInput__checkbox cmuInput__checkbox--default">
-						<label>
-							<input 
-								type="checkbox" 
-								name="vm.discussionTypeFilters[]"
-								value="{{ vm.filterOptions.discussionStyles.defaultOption.value }}" 
-								ng-model="vm.filterOptions.discussionStyles.defaultOption.selected" 
-								ng-change="vm.defaultChanged(vm.filterOptions.discussionStyles)"
-								ng-checked="vm.filterOptions.discussionStyles.defaultOption.selected" />
-								<span ng-attr-data-content="{{ !vm.filterOptions.discussionStyles.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
-						</label>
-					</div>
-    				<div class="cmuInputGroup__checkbox" ng-repeat="filter in vm.filterOptions.discussionStyles.list">
-    					<div class="cmuInput__checkbox">
-	    					<label>
-	    						<input 
-	    							type="checkbox" 
+
+		    		<!-- Discussion Styles filter -->
+		    		<div class="cmuInputGroup">	
+	    				<div class=" cmuInput__checkbox cmuInput__checkbox--default">
+							<label>
+								<input 
+									type="checkbox" 
 									name="vm.discussionTypeFilters[]"
-									value="{{ filter.value }}" 
-									ng-model="filter.selected" 
-									ng-change="vm.filterChanged(vm.filterOptions.discussionStyles, filter)" />
-	    						<span>{{ filter.display }}</span>
-	    					</label>
-    					</div>
-    					<div class="cmuInputGroup__sublevel" ng-if="filter.subfilters">
-    						<div ng-repeat="subfilter in filter.subfilters.list" >
-    							<div class="cmuInput__checkbox">
-									<label>
-										<input 
-											ng-disabled="!filter.selected"
-											type="checkbox" 
-											name="vm.discussionTypeFilters[]"
-											value="{{ subfilter.value }}" 
-											ng-model="subfilter.selected" 
-											ng-change="vm.filterChanged(filter.subfilters)"
-											ng-checked="subfilter.selected" />
-											<span>{{ subfilter.display }}</span>
-									</label>
-								</div>
-    						</div>
-    					</div>
-    				</div>
-	    		</div>
-	    		<!-- end discussion type -->
+									value="{{ vm.filterOptions.discussionStyles.defaultOption.value }}" 
+									ng-model="vm.filterOptions.discussionStyles.defaultOption.selected" 
+									ng-change="vm.defaultChanged(vm.filterOptions.discussionStyles)"
+									ng-checked="vm.filterOptions.discussionStyles.defaultOption.selected" />
+									<span ng-attr-data-content="{{ !vm.filterOptions.discussionStyles.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ vm.filterOptions.discussionStyles.defaultOption.display }}</span>
+							</label>
+						</div>
+	    				<div class="cmuInputGroup__checkbox" ng-repeat="filter in vm.filterOptions.discussionStyles.list">
+	    					<div class="cmuInput__checkbox">
+		    					<label>
+		    						<input 
+		    							type="checkbox" 
+										name="vm.discussionTypeFilters[]"
+										value="{{ filter.value }}" 
+										ng-model="filter.selected" 
+										ng-change="vm.filterChanged(vm.filterOptions.discussionStyles, filter)" />
+		    						<span>{{ filter.display }}</span>
+		    					</label>
+	    					</div>
+	    					<div class="cmuInputGroup__sublevel" ng-if="filter.subfilters">
+	    						<div ng-repeat="subfilter in filter.subfilters.list" >
+	    							<div class="cmuInput__checkbox">
+										<label>
+											<input 
+												ng-disabled="!filter.selected"
+												type="checkbox" 
+												name="vm.discussionTypeFilters[]"
+												value="{{ subfilter.value }}" 
+												ng-model="subfilter.selected" 
+												ng-change="vm.filterChanged(filter.subfilters)"
+												ng-checked="subfilter.selected" />
+												<span>{{ subfilter.display }}</span>
+										</label>
+									</div>
+	    						</div>
+	    					</div>
+	    				</div>
+		    		</div>
+		    		<!-- end discussion type -->
 
 
 
-	    		<!-- PRODUCT FILTER -->
-	    		<!-- <div>
+		    		<!-- PRODUCT FILTER -->
+		    		<!-- <div>
 
-	    			"Products" label might not be necessary
-	    			<div class="cmuInput__checkbox cmuInput__checkbox--default">
-						<label>
-							<input 
-								type="checkbox" 
-								name="vm.selectedFilters[]"
-								value="{{ vm.filterOptions.productTypes.defaultOption.value }}" 
-								ng-model="vm.filterOptions.productTypes.defaultOption.selected" 
-								ng-change="vm.allProductsDefaultChanged()"
-								ng-checked="vm.filterOptions.productTypes.defaultOption.selected" />
-								<span>{{ vm.filterOptions.productTypes.defaultOption.display }}</span>
-						</label>
-					</div> -->
-
-	    			<div class="cmuInputGroup" ng-repeat="product in vm.filterOptions.productTypes.list">
-	    				<div class="cmuInput__checkbox cmuInput__checkbox--default">
+		    			"Products" label might not be necessary
+		    			<div class="cmuInput__checkbox cmuInput__checkbox--default">
 							<label>
 								<input 
 									type="checkbox" 
 									name="vm.selectedFilters[]"
-									value="{{ product.defaultOption.value }}" 
-									ng-model="product.defaultOption.selected" 
-									ng-change="vm.defaultChanged(product)"
-									ng-checked="product.defaultOption.selected" />
-									<span ng-attr-data-content="{{ !product.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ product.defaultOption.display }}</span>
+									value="{{ vm.filterOptions.productTypes.defaultOption.value }}" 
+									ng-model="vm.filterOptions.productTypes.defaultOption.selected" 
+									ng-change="vm.allProductsDefaultChanged()"
+									ng-checked="vm.filterOptions.productTypes.defaultOption.selected" />
+									<span>{{ vm.filterOptions.productTypes.defaultOption.display }}</span>
 							</label>
-						</div>
-	    				<div ng-repeat="filter in product.list | orderBy:'display'" >
-	    						<div class="cmuInput__checkbox">
-			    					<label>
-			    						<input type="checkbox" 
-											name="vm.selectedFilters[]" 
-											value="{{ filter.value }}" 
-											ng-model="filter.selected" 
-											ng-change="vm.filterChanged(product)"  />
-			    						<span>{{ filter.display }}</span>
-			    					</label>
-		    					</div>
-	    				</div>
-	    			</div>
-	    			<!-- end inputgroups -->
+						</div> -->
 
-	    		<!-- </div> -->
+		    			<div class="cmuInputGroup" ng-repeat="product in vm.filterOptions.productTypes.list">
+		    				<div class="cmuInput__checkbox cmuInput__checkbox--default">
+								<label>
+									<input 
+										type="checkbox" 
+										name="vm.selectedFilters[]"
+										value="{{ product.defaultOption.value }}" 
+										ng-model="product.defaultOption.selected" 
+										ng-change="vm.defaultChanged(product)"
+										ng-checked="product.defaultOption.selected" />
+										<span ng-attr-data-content="{{ !product.defaultOption.selected && '${{ core.ui.clear }}$' || undefined }}">{{ product.defaultOption.display }}</span>
+								</label>
+							</div>
+		    				<div ng-repeat="filter in product.list | orderBy:'display'" >
+		    						<div class="cmuInput__checkbox">
+				    					<label>
+				    						<input type="checkbox" 
+												name="vm.selectedFilters[]" 
+												value="{{ filter.value }}" 
+												ng-model="filter.selected" 
+												ng-change="vm.filterChanged(product)"  />
+				    						<span>{{ filter.display }}</span>
+				    					</label>
+			    					</div>
+		    				</div>
+		    			</div>
+		    			<!-- end inputgroups -->
+		    		</div>
+		    	</div>
 	    	</div>
 	    	<!-- end sidebar -->
 
