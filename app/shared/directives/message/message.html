@@ -61,15 +61,19 @@
 								<div class="cmuTooltip cmuTooltip--top" ><span>${{ directives.message.flag }}$</span></div>
 							</span>
 
-							<div class="button button--vote button--vote--kudo button--thin button--lowercase" community-class-toggle="button--voted" community-permissions="message.can_kudo" permissions-id="messageDisplay.message.id">
-								<div class="button--vote--points">123</div>
-								<div class="button--vote--action">${{ core.kudos }}$</div>
-							</div>
+							<community-reaction 
+								reaction-type="kudo" 
+								message-id="messageDisplay.message.id" 
+								reaction-count="messageDisplay.message.scores.kudoCount"
+								thin-display="true">
+							</community-reaction>
 
-							<div class="button button--vote button--thin button--lowercase" community-class-toggle="button--voted button--lowercase" community-permissions="message.can_thank" permissions-id="messageDisplay.message.id">
-								<div class="button--vote--points">123</div>
-								<div class="button--vote--action">${{ core.thanks }}$</div>
-							</div>
+							<community-reaction 
+								reaction-type="thank" 
+								message-id="messageDisplay.message.id"
+								reaction-count="messageDisplay.message.scores.thankCount"
+								thin-display="true">
+							</community-reaction>
 						</span>
 
 						<button 

@@ -33,9 +33,9 @@
 				<div class="cmuThread__stats">
 					<div class="row">
 						<div class="col--md12">
-							<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted" community-permissions="message.can_kudo">
-								<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
-							</div>
+							<community-reaction
+								reaction-type="kudo" 
+								reaction-count="vm.currentAnnouncement.scores.kudoCount"></community-reaction>
 
 							<span community-permissions="message.can_edit_message">
 								<a class="button button--ghost" 
@@ -81,9 +81,9 @@
 	</div>
 
 	<div class="row">
-		<div class="button button--vote button--vote--kudo" community-class-toggle="button--voted" community-permissions="message.can_kudo" denied-behavior="hide">
-			<div class="button--vote--points">123</div><div class="button--vote--action">${{ core.kudos }}$</div>
-		</div>
+		<community-reaction
+			reaction-type="kudo" 
+			reaction-count="vm.currentAnnouncement.scores.kudoCount"></community-reaction>
 
 		<span community-permissions="message.can_edit_message" denied-behavior="hide">
 			<a  class="button button--ghost" 

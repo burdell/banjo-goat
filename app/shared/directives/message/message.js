@@ -8,6 +8,7 @@ require('directives/sorter/sorter.js');
 require('directives/userbadge/userbadge.js');
 require('directives/sticky/sticky.js');
 require('directives/attachmentdisplay/attachmentdisplay.js');
+require('directives/reaction/reaction.js');
 
 require('services/permissions.js');
 
@@ -34,7 +35,7 @@ function communityMessage() {
 				parentId: ctrl.message.parentId,
 				username: ctrl.message.context.parentAuthor.login
 			};	
-		}
+		} 
 
 		var currentArea = routingService.getCurrentArea();
 		var messageType = ctrl.message.id === ctrl.message.topicId ? 'topic' : 'comment';

@@ -1,0 +1,10 @@
+<div 
+	class="button button--vote button--vote--{{ reaction.reactionType }}"
+	ng-class="{ 'button--thin button--lowercase' : reaction.thinDisplay }" 
+	community-class-toggle="button--voted" 
+	community-permissions="message.can_{{ reaction.reactionType }}" 
+	permissions-id="reaction._messageId"
+	ng-click="reaction.react()">
+		<div class="button--vote--points">{{ reaction.reactionCount }}</div>
+		<div class="button--vote--action">{{ reaction.reactionDisplay }}</div>
+</div>

@@ -20,13 +20,9 @@
 		</span>
 	</div>
 	<div>
-		<button 
-			community-permissions="message.can_kudo" 
-			permissions-id="vm.story.id"
-			class="button button--vote button--vote--kudo"
-			community-class-toggle="button--voted">
-				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">Kudos</div>
-		</button>
+		<community-reaction
+			reaction-type="kudo" 
+			reaction-count="vm.story.message.scores.kudoCount"></community-reaction>
 		<span community-permissions="message.can_edit_message" denied-behavior="hide">
 			<a class="button button--ghost" 
 				area-link-handler="{{ vm.editUrl }}">

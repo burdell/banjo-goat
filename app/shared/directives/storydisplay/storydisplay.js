@@ -25,9 +25,7 @@ function storyDisplay() {
 			return mediaObject.meta && mediaObject.meta.isCover; 
 		});
 
-		
 		ctrl.coverphoto = media ? media.url : defaults.noPhoto;
-		
 
 		_.extend(ctrl, {
 			getStoryUrl: function(){

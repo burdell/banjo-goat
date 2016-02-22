@@ -2,15 +2,9 @@
 	<div class="cmuStoryDetail__container col--md12">
 		<div ng-include="'stories/detail/stories.body.html'"></div>
 	</div>
-	<div class="cmuThread__controls cmuThread__controls--bottom" 
-			community-permissions="message.can_kudo"
-			permissions-id="vm.story.id">
-		<button 
-			class="button button--vote button--vote--kudo"
-			community-class-toggle="button--voted">
-				<div class="button--vote--points">{{ vm.discussion.stats | extractKey : 'score' }} 123</div><div class="button--vote--action">${{ core.kudos }}$</div>
-		</button>
-	</div>
+	<community-reaction
+			reaction-type="kudo" 
+			reaction-count="vm.story.message.scores.kudoCount"></community-reaction>
 
 	<div class="cmuStories__commentForm" id="comment" community-permissions="message.can_comment" permissions-id="vm.story.id" denied-behavior="hide">
 		<community-comment-form

@@ -357,8 +357,8 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 			}
 		},
 		Reactions: {
-			react: function(){
-				
+			react: function(id, type){
+				return goToApi(v2Url + 'reactions/' + type + '/' + id, null, 'POST');
 			}
 		},
 		Users: {
