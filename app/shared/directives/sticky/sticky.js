@@ -58,7 +58,7 @@ function sticky($document, $window) {
 				targetDistToTop += offset;
 			}
 
-			console.log('dist: ' + containerDistToViewportTopwOffset + 'elig: ' + eligible())
+			// console.log('dist: ' + containerDistToViewportTopwOffset + 'elig: ' + eligible())
 		    // console.log('elemBottom: ' + parseFloat(elemHeight+) + 'elemH: ' + elemHeight + ' windowH: ' + windowHeight);
 	    	if ((containerDistToViewportTopwOffset < 0) && eligible()) {
 				if (!isStuck()) {
@@ -141,7 +141,7 @@ function sticky($document, $window) {
 
 		function eligible() {
 			// eligible if target height is smaller than viewport height
-			console.log('targetHeight: ' + angularTarget[0].clientHeight + ' windowHeight ' + parseFloat(window.innerHeight - offset) )
+			// console.log('targetHeight: ' + angularTarget[0].clientHeight + ' windowHeight ' + parseFloat(window.innerHeight - offset) )
 			if ( angularTarget[0].clientHeight <= parseFloat(window.innerHeight - offset) ) return true
 			return false;
 		}

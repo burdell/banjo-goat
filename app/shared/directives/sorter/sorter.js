@@ -18,14 +18,21 @@ function communitySort() {
 		}
 
 		ctrl.sortValue = ctrl.sortFilter.model(sortParam);
+
 		ctrl.sort = function(){
 			var sortModel;
+
 			if (modelValues) {
 				sortModel = modelValues[ctrl.sortValue].model 
 			} else {
 				sortModel = {};
 				sortModel[sortParam] = ctrl.sortValue;	
 			}
+
+			if (ctrl.preSortFn) {
+				ctrl.preSortFn(sortModel);
+			}
+
 			ctrl.sortFilter.filter(sortModel, ctrl.sortExclude);
 
 			if (ctrl.onSortFn) {
@@ -43,6 +50,7 @@ function communitySort() {
         bindToController: true,
         restrict: 'E',
         scope: {
+        	'preSortFn': '=',
         	'onSortFn': '=',
         	'sortOptions': '=',
         	'sortFilter': '=',

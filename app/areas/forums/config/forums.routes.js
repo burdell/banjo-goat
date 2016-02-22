@@ -30,6 +30,16 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 			},
 			resolve: {
 				ForumListFilter: ['$stateParams', 'CommunityApiService', 'CommunityFilterService', function($stateParams, communityApi, filterService){
+					// console.log('filter service ForumListFilter: ')
+					// console.log(filterService.getNewFilter({ 
+					// 	filterFn: communityApi.Forums.messages, 
+					// 	filterArguments: [ $stateParams.nodeId ], 
+					// 	constants: {
+					// 		per_page: 30,
+					// 		sortDir: 'DESC'
+					// 	}
+					// }))
+
 					return filterService.getNewFilter({ 
 						filterFn: communityApi.Forums.messages, 
 						filterArguments: [ $stateParams.nodeId ], 

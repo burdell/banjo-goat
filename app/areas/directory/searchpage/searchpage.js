@@ -8,13 +8,14 @@ require('directives/datepicker/datepicker.js');
 require('directives/storydisplay/storydisplay.js');
 require('directives/pagescroll/pagescroll.js');
 require('directives/sticky/sticky.js');
+require('directives/sorter/sorter.js');
 
 require('filters/unformattext.js');
 require('filters/timefromnow.js');
 
 var _ = require('underscore');
 
-var searchPageController = function($location, $scope, breadcrumbService, localizationService, nodeServiceWrapper, searchFilter){
+var searchPageController = function($location, $scope, breadcrumbService, localizationService, nodeServiceWrapper, searchFilter, dataService){
 	var ctrl = this;
 
 	nodeServiceWrapper.get().then(function(nodeService){
@@ -56,7 +57,7 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 
 		var searchModel = searchFilter.model('q');
 		ctrl.searchTextDisplay = searchModel;
-		$location.search({ q: searchModel });
+		// $location.search({ q: searchModel });
 
 		ctrl.searchResults = result.content;
 		ctrl.totalResults = result.totalElements;
@@ -64,10 +65,11 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 	}
 	searchFilter.set({ onFilter: setSearchData });
 
+	ctrl.sortModel = null;
 	function getSearchModel() {
 		var searchModel = {
 			q: ctrl.searchText,
-			page: null
+			page: null,
 		};
 
 		_.each(ctrl.filterOptions, function(option){
@@ -76,6 +78,8 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 				searchModel[option.param] = filterValue;
 			}
 		});
+		if (ctrl.sortModel != null)
+			ctrl.setSortModel(ctrl.sortModel)
 
 		return searchModel;
 	}
@@ -94,6 +98,25 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 	});
 
 	_.extend(ctrl, {
+		setSortModel: function(sortModel){
+			ctrl.sortModel = sortModel; 
+			if (sortModel.sortField == 'sortNewest') {
+				sortModel.params = {
+					sortDir:'DESC',
+					sortField:'postDate'
+				}
+			} else if (sortModel.sortField == 'sortOldest') {
+				sortModel.params = {
+					sortDir:'ASC',
+					sortField:'postDate'
+				}
+			} else {
+				sortModel.params = {
+					sortField:'relevance'
+				}
+			}
+		},
+		searchSortOptions: dataService.searchSort,
 		searchText: searchFilter.model('q'),
 		search: function(){
 			if (ctrl.searchText) {
@@ -189,7 +212,8 @@ searchPageController.$inject = [
 	require('services/breadcrumb.js'), 
 	'CommunityLocalizationService',
 	require('services/nodestructure.js'), 
-	'SearchFilter'
+	'SearchFilter',
+	require('services/data.js')
 ];
 
 angular.module('community.directory')

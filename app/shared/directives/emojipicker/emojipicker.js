@@ -8,6 +8,17 @@ require('directives/emojipicker/vendor/js/jquery.emojipicker.a.js')($);
 
 function emojipicker() {
 
+    var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'http://comm-cdn.ubnt.com/cmuEmoji.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+
+
     var link = function(scope, element, attrs) {
         var emojiInput = $(element).find('.emojiPicker-input');
 

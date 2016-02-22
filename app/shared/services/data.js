@@ -13,6 +13,11 @@ var dataService = function(localizationService){
 		    { value: 'lastActivityDate', label: standardSort.recentActivity },
 			{ value: 'countViews', label: coreStrings.views }
 		],
+		searchSort: [
+		    { value: 'relevance', label: standardSort.relevance, default: true  },
+			{ value: 'sortNewest', label: standardSort.newest },
+			{ value: 'sortOldest', label: standardSort.oldest }
+		],
 		SearchConfig: {
 			delay: 300
 		},

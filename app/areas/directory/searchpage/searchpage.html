@@ -170,7 +170,7 @@
 			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
 			    		</div>
 			    		<div class="cmuThreadlist__ctrl col--md3 alignRight noPaddingRight">
-      						<community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="page"></community-sort>
+      						<community-sort pre-sort-fn="vm.setSortModel" sort-options="vm.searchSortOptions" sort-filter="vm.searchFilter"></community-sort>
 			    		</div>
 <!-- takes a lot of room and might not be necessary
 					    <div class="cmuThreadlist__ctrl--top col--md12">
@@ -182,7 +182,7 @@
 				    	</div>
  -->
 
-			    		<div class="cmuThreadlist__body cmuThread__container col--md12">
+			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPaddingRight">
 				    		<a class="cmuThreadlist__row row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">

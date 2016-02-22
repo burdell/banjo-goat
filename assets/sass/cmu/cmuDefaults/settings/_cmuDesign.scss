@@ -548,7 +548,7 @@ $stat-padding: 4.5px $cmu-base/2;
 
 
 
-// 
+// Sticky effect on sidebars
 .cmuStuck {
 	@include respondTo(medium-up) {
 		position: fixed !important;
@@ -559,6 +559,20 @@ $stat-padding: 4.5px $cmu-base/2;
 	.cmuStuck--bottom {
 		position: absolute !important;
 	}
+
+
+// Loading Effect
+.cmuLoading {
+	opacity: 1;
+	@extend %ease-fast;
+
+	&.loading {
+		opacity: 0.3;
+		@extend %ease-fast;
+	}
+}
+
+
 
 
 

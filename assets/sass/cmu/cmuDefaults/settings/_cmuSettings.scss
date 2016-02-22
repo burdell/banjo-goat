@@ -71,6 +71,14 @@ body {
 
 
 }
+
+	// override this weird .COM behavior
+	// remove if this causes weird behavior or when .COM dependency is removed
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 	.wrapper {
 		background-color: $cmu-color-white;
 		// padding-bottom: $cmu-min-pageHeight;

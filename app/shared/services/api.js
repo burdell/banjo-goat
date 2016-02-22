@@ -16,6 +16,11 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 
 		if (verb === 'GET') {
 			params = data;
+		} else if (verb === 'SEARCH') {
+			payload = data;
+			params = data.params;
+			verb = 'POST'
+
 		} else {
 			payload = data;
 		}
@@ -37,6 +42,7 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 
 	function goToApi(url, data, verb, isMedia){
 		var callOptions = getCallOptions(url, data, verb, isMedia);
+
 		return $http(callOptions).then(
 			function(result){
 				//SUCCESS :D
@@ -179,11 +185,12 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 
 				var searchUrl = v2Url + 'search/' + type
 				var page = filterModel.page;
+
 				if (page) {
 					searchUrl += '?page=' + page;
 				}
 
-				return goToApi(searchUrl, filterModel, 'POST');
+				return goToApi(searchUrl, filterModel, 'SEARCH');
 			}
 		},
 		Feed: {
@@ -359,7 +366,6 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				return goToApi(v2Url + urlSegments.User('self'));
 			},
 			userData: function(userId){
-				// console.log('userdata: ' + userId);
 				return goToApi(v2Url + urlSegments.User(userId), null, 'GET');
 			},
 			search: function(q, onlyOne) {

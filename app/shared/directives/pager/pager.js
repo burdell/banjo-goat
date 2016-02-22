@@ -171,7 +171,7 @@ function communityFilter($timeout) {
 		}
 	};
 
-	var controller = function($scope, filterService, scrollService) {
+	var controller = function($scope, filterService, scrollService, attrs) {
 		var ctrl = this;
 		var filterer = this.pagerFn ? this.pagerFn : filterService.getNewFilter();  
 
@@ -179,16 +179,19 @@ function communityFilter($timeout) {
 
 		/*** CONTROL FUNCTIONS *****/
 		function page() {
-			// console.log('new page whoo')
-			var targetClass = "cmuThread__container";
-			var content = angular.element(document.getElementsByClassName(targetClass)[0]);
-			content.addClass(targetClass+'--loading');
+			var targetClass = "cmuLoading";
+			var loadingClasses = document.getElementsByClassName(targetClass);
+			for(var i = 0; i < loadingClasses.length; i++) {
+				angular.element(loadingClasses[i]).addClass('loading');
+			}
 
 			setUiPage();
 			filterer.filter(pageData).finally(function(){
 				scrollService.scroll('pageTop');
 				// console.log('new page loaded whoo whoo')
-				content.removeClass(targetClass+'--loading');
+				for(var i = 0; i < loadingClasses.length; i++) {
+					angular.element(loadingClasses[i]).removeClass('loading');
+				}
 			});
 		}
 

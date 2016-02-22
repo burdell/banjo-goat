@@ -4,7 +4,7 @@
 		hide-element-selector=".cmuNotifications__container">
 	</community-page-header>
 
-	<div class="cmuNotifications__container row cmuRow">
+	<div class="cmuNotifications__container cmuLoading row cmuRow">
 		<div class="cmuNotfication__item col--md12 " ng-repeat="notification in vm.notificationList">
 			<a area-link-handler="{{ vm.getUrl(notification) }}">
 				<div class="col--md10">

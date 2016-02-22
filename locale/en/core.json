@@ -55,7 +55,10 @@
 	"standardSort": {
 		"postDate": "Post Date",
 		"recentActivity": "Recent Activity",
-		"views": "Views"
+		"views": "Views",
+		"relevance": "Relevance",
+		"newest": "Newest",
+		"oldest": "Oldest"
 	},
 	"thanks": "Thanks",
 	"time": {
