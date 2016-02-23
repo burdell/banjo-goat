@@ -250,7 +250,7 @@ $style-line: 1px solid $cmu-color-line;
 	// @extend %user-select-none;
 	color: $cmu-color-dkgray;
 	border: $style-line;
-	padding: $cmu-base/4 + remCalc(0.5px) $cmu-base/2;
+	padding: $cmu-base/8 $cmu-base/2;
 	background-color: $cmu-color-ltgray;
 
 	// redesign (#95)
@@ -288,7 +288,7 @@ $style-line: 1px solid $cmu-color-line;
 	}
 
 
-$stat-padding: 4.5px $cmu-base/2;
+$stat-padding: $cmu-base/8 $cmu-base/2;
 .style-stat, %style-stat {
 	display: inline-block;
 	@extend %size-xxsmaller;

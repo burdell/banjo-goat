@@ -9,7 +9,7 @@
 	display: table;
 	@extend %font-oswald;
 	padding: 0;
-	margin-bottom: $cmu-base;
+	margin-bottom: $cmu-base * 2;
 	border-bottom: $style-line;
 	text-align: center;
 

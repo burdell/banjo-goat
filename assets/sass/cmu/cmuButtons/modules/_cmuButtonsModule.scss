@@ -288,6 +288,9 @@ button, .button, .cmuButton {
 	&.button-blue-on-black {
 		@include cmuButton($mode,$cmu-color-dkblue,$cmu-color-ltblack);
 	}
+	&.button-blue-on-gray {
+		@include cmuButton($mode,$cmu-color-blue,$cmu-color-ltgray);
+	}
 }
 
 // NAKED Buttons

@@ -10,7 +10,7 @@ $cmu-base:					1rem !default; // 1rem = 16px is standard for browsers
 $cmu-vertical-rhythm: 		$cmu-base !default;
 $base-font-size:            $cmu-base !default;
 $cmu-base-font:        		remCalc(13px) !default;	// less whitespace
-$cmu-base-line-height:      $cmu-base*1.2 !default;
+$cmu-base-line-height:      $cmu-base*1.5 !default;
 $cmu-cta-height:			$cmu-base*2; // force the standard height for all cta elements
 $cmu-cta-height-large: 		$cmu-base*3;
 $cmu-maxwidth:				1400px;	// applied separately on all partials and templates for max-width responsive

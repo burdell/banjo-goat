@@ -22,8 +22,6 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 
 .cmuBanner {
 
-	@extend .cmu-width;
-
 	&:not(.cmuBanner__close):hover {
 		// background-color: $cmu-banner-hover-background-color;
 
@@ -34,7 +32,7 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 	}
 }
 	.cmuBanner__container {
-		@extend %cmu-maxwidth;
+		@extend %cmu-width;
 	}
 	.cmuBanner__main {
 		text-align: center;
@@ -74,7 +72,7 @@ $cmu-banner-hover-icon-color: $cmu-color-white;
 
 		color: $cmu-banner-icon-color;
 		text-align: right;
-		font-size: $cmu-base * 1.5;
+		font-size: $cmu-base * 1.2;
 		@extend %ease-fast; 
 		cursor: pointer; 
 
