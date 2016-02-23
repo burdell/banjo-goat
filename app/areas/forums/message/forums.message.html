@@ -4,7 +4,6 @@
 		<h3>{{ ::vm.originalMessageSubject | htmlUnescape }}</h3>
 		<div class="cmuThread__stats ">
 			<span class="cmuThread__subject__date">{{ vm.originalMessagePostDate | exactTimeFromNow }} 
-			<!-- <span class="cmuThread__subject__date--edited" ng-if="vm.isEdited">Edited {{ vm.originalMessageEditDate | exactTimeFromNow }}</span></span> -->
 		</div>
 	</div>
 </div>
@@ -71,7 +70,7 @@
 				<span community-permissions="message.can_edit_message" denied-behavior="hide">
 					<a  class="button button--ghost col--md2" area-link-handler="{{ vm.editUrl }}">
 						<span class="icon ubnt-icon--pencil-2"></span>
-						<span>${{ announcements.detail.edit }}$</span>
+						<span>${{ core.actions.edit }}$</span>
 					</a>
 				</span>
 				<span community-permissions denied-behavior="hide">
@@ -104,7 +103,8 @@
 				parent-message="vm.topicReplyMessage"
 				toggle-attribute="vm.topicReplyShown"
 				on-success-fn="vm.replyPosted"
-				form-comment="vm.replyMessage">
+				form-comment="vm.replyMessage"
+				allow-cancel="true">
 			</community-comment-form>
 		</div>
 	</div>

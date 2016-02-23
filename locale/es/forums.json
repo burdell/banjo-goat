@@ -1,6 +1,7 @@
 {
 	"areaName": "Foros",
 	"message": {
+		"inReplyTo": "En respuesta a {{ messageDisplay.reply.username }}&#8217;s <a ng-click=\"messageDisplay.goToParentMessage(messageDisplay.reply.parentId)\">mensaje</a>:",
 		"reply": "Respuesta",
 		"subscribe": "Suscribir",
 		"usersViewingThread": "usuarios que vieron este hilo"
@@ -9,6 +10,7 @@
 		"threads": "hilos",
 		"created": "Creado",
 		"createTopic": "Crear un Tema",
+		"emptyList": "Sin roscas publicado hasta el momento. ¡Sé el primero!",
 		"emptyPreview": "Este mensaje sólo contiene imágenes o vídeo",
 		"filterTopics": "Filtrar Temas",
 		"topic": "Tema"

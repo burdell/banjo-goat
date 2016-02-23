@@ -71,10 +71,9 @@
 		                  tooltip-template="partials/usertooltip.html"
 		                  empty-text="${{ forums.list.emptyPreview }}$"
 		                  tooltip-class="cmuTooltipster"
-		                  position="top"
-		                >
-		                  <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
-		                  <span>{{ data.topic.message.insertUser.login }}</span>
+		                  position="top">
+			                  <community-user-avatar user="data.topic.message.insertUser"></community-user-avatar>
+			                  <span>{{ data.topic.message.insertUser.login }}</span>
 		                </div>
 		              </div>
 		            </div>

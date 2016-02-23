@@ -5,7 +5,8 @@
 	},
 	"list": {
 		"keywordFilter": "Filtro de palabras clave",
-		"requestFeature": "Solicite una Característica"
+		"requestFeature": "Solicite una Característica",
+		"emptyList": "No hay peticiones de características publicado hasta el momento"
 	},
 	"vote": "Votar",
 	"votes": "votos"

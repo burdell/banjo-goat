@@ -3,16 +3,18 @@
 	"actions": {
 		"addComment": "Agregar comentario",
 		"delete": "Borrar",
+		"edit": "edit",
 		"edited": "editado",
 		"more": "Más",
 		"postReply": "Enviar Respuesta",
 		"posted": "Al corriente",
 		"postingReply": "Publicación Responder",
-		"qupte": "Citar",
+		"quote": "Citar",
 		"reply": "Respuesta",
 		"replyTo": "Responder a",
 		"saveChanges": "Guardar cambios",
-		"subscribe": "Suscribir"
+		"subscribe": "Suscribir",
+		"showMore": "Mostrar más"
 	},
 	"areas": {
 		"home": "Casa",
@@ -21,17 +23,25 @@
 		"forumsBeta": "Beta",
 		"forumsPublic": "Público",
 		"stories": "Historias",
-		"announcements": "Avisos",
+		"announcements": "Anuncios",
 		"features": "Solicitud de Funcións" 
 	},
 	"allTopics": "Todos los Temas",
+	"author": "Autor",
 	"cancel": "Cancelar",
+	"clickToAdd": "Haga clic para añadir",
 	"cmuName": "Comunidad",
+	"directory": "Directorio de Comunidades",
+	"hints": {
+		"nav": "Looking for <span class='highlight'>Forums?</span> Click <span class='topics'>Topics <span class='icon ubnt-icon--menu'></span></span> to find forums, stories, and announcements"
+	},
+	"k": "P",
 	"kudos": "Prestigio",
+	"liveActivity": "Actividad en vivo",
 	"manageSubscriptions": "Administrar Suscripciones",
 	"model": "Modelo",
+	"of": "de",
 	"options": "Opciones",
-	"liveActivity": "Actividad en Vivo",
 	"other": "otro",
 	"others": "otros",
 	"points": "Puntos",
@@ -45,13 +55,20 @@
 	"replies": "Respuestas",
 	"standardSort": {
 		"postDate": "Posfechar",
-		"recentActivity": "Actividad Reciente"
+		"recentActivity": "Actividad Reciente",
+		"views": "Vistas"
 	},
 	"thanks": "Gracias",
 	"time": {
 		"popular": "Popular",
 		"latest": "Último"
 	},
+	"r": "R",
+	"ui": {
+		"clear": "claro"
+	},
+	"replies": "Respuestas",
 	"version": "Versión",
+	"v": "V",
 	"views": "Vistas"
 }

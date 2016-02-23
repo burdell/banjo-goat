@@ -23,7 +23,7 @@
     <div class="row cmuRow row--comfy">
       <community-file-upload 
         file-list-model="vm.newTopic.attachments" 
-        display-text="Add an attachment"
+        display-text="${{ directives.fileupload.addAttachment }}$"
         is-attachment="true">
       </community-file-upload>
     </div>

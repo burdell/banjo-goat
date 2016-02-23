@@ -22,12 +22,18 @@
 		"repliedAnnouncements": " replied to an announcement",
 		"repliedTo": " replied to "
 	},
+	"fileupload": {
+		"uploadFile": "Upload a File",
+		"addAttachment": "Add an Attachment",
+		"browseFiles": "Browse Files"
+	},
 	"globalfooter": {
 		"contact": "Contact Us",
 		"copyright": "&copy; 2015 Ubiquiti Networks. All Rights Reserved.",
 		"backToTop": "Back To Top",
 		"dotCom": "ubnt.com",
 		"facebookUrl": "https://www.facebook.com/Ubiquiti",
+		"instagramUrl": "https://www.instagram.com/ubiquitinetworks/",
 		"knowledgeBase": "Knowledge Base",
 		"privacy": "Privacy Policy",
 		"support": "Support",
@@ -36,7 +42,7 @@
 		"training": "Training",
 		"twitterUrl": "https://twitter.com/ubnt",
 		"youtubeUrl": "https://www.youtube.com/user/ubnt",
-		"instagramUrl": "https://www.instagram.com/ubiquitinetworks/"
+		
 	},
 	"loadmore": {
 		"showMore": "Show More"
@@ -109,6 +115,7 @@
 		"previous": "Previous"
 	},
 	"pulse": {
+		"liveActivity": "Live Activity",
 		"membersOnline": "Members Online",
 		"postsToday": "Posts Today",
 		"totalMembers": "Total Members",
@@ -137,7 +144,8 @@
 			"superscript2": "script",
 			"title": "Formatting Help"
 		},
-		"livePreview": "Live Preview"
+		"livePreview": "Live Preview",
+		"uploadPhoto": "Upload A Photo"
 	},
 	"timeline": {
 		"created": "Created"

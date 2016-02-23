@@ -12,9 +12,9 @@
 				<span class="icon ubnt-icon--popout"></span>
 			</span>
 		</div>
-		 <div class="row cmuRow">
+		 <div class="row cmuRow" ng-if="::!texteditor.noPhotos">
 			<community-file-upload 
-				display-text="Upload a Photo"
+				display-text="${{ directives.texteditor.uploadPhoto }}$"
 				on-success-fn="texteditor.embedPhoto">
 			</community-file-upload>
 	    </div>

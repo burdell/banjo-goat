@@ -233,10 +233,11 @@ function buildTemplates(areaName) {
             .pipe($.concat('community.templates.js'))
 }
 
+//race condition with re-localizing :(
+var htmlLocalization = require('gulp-html-i18n');
 function getSharedTemplates(){
-    var targetLanguage = 'es';
       return gulp.src(['app/shared/**/*.html', '!app/index.html' ])
-            .pipe($.htmlI18n({
+            .pipe(htmlLocalization({
                 langDir: './locale',
                 trace: false,
                 inline: buildConfig.locale
@@ -246,7 +247,7 @@ function getSharedTemplates(){
 
 function getAreaTemplates(areaName) {
      return gulp.src(['app/areas/' + areaName + '/**/**/*.html', '!app/index.html'])
-            .pipe($.htmlI18n({
+            .pipe(htmlLocalization({
                 langDir: './locale',
                 trace: false,
                 inline: buildConfig.locale
@@ -327,7 +328,7 @@ var routingLocale = {
         "user": "user" 
     },
     es: {
-        "announcements": "avisos",
+        "announcements": "anuncios",
         "directory": "directorio",
         "features": "caracteristicas",
         "forums": "foros",

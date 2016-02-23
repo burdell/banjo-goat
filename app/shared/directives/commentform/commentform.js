@@ -61,6 +61,7 @@ function commentForm() {
         bindToController: true,
         restrict: 'E',
         scope: {
+        	allowCancel: '=',
         	headerTitle: '@',
         	toggleAttribute: '=',
         	parentMessage: '=',

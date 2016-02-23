@@ -9,10 +9,11 @@ require('directives/mediadisplay/mediadisplay.js');
 require('directives/texteditor/texteditor.js');
 require('directives/fileupload/fileupload.js');
 
+require('services/localization.js');
 
 var _ = require('underscore');
 
-function NewStoryController ($scope, $state, communityApi, breadcrumbService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults, storyDetail){
+function NewStoryController ($scope, $state, communityApi, breadcrumbService, localizationService, mediaService, nodeServiceWrapper, productService, currentUserService, storyDefaults, storyDetail){
 	var ctrl = this;
 
 	breadcrumbService.setCurrentBreadcrumb('Share a Story');
@@ -54,10 +55,12 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		}
 	});
 
+	var storyStrings = localizationService.data.stories;
+
 	var isEdit = $state.current.name === 'stories.edit';
 	var buttonTexts = {
-		publish: !isEdit ? 'Publish' : 'Update',
-		publishing: !isEdit ? 'Publishing your Story' : 'Updating your Story'
+		publish: !isEdit ? storyStrings.newStory.publish : storyStrings.newStory.update,
+		publishing: !isEdit ? storyStrings.newStory.publishing : storyStrings.newStory.updating
 	};
 
 	_.extend(ctrl, {
@@ -66,12 +69,8 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, me
 		titleCharacterLimit: 140,
 		subtitleWordLimit: 35,
 		placeholders: {
-			subject: 'Story Name',
-			summary: 'Subtitle',
-			coverPhotoUrl: storyDefaults.coverPhoto,
-			body: 'Tell us your story!!!',
-			location: 'Project location',
-			productsUsed: 'Products mentioned'
+			subject: storyStrings.newStory.subject,
+			coverPhotoUrl: storyDefaults.coverPhoto
 		},
 		storyAuthor: currentUser,
 		story: {
@@ -166,6 +165,7 @@ NewStoryController.$inject = [
 	'$state',
 	require('services/api.js'),
 	require('services/breadcrumb.js'), 
+	'CommunityLocalizationService',
 	require('services/media.js'),
 	require('services/nodestructure.js'),
 	require('services/products.js'),

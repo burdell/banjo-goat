@@ -19,6 +19,12 @@ function communityFileUpload($timeout) {
 		scope.fileupload.resetInput = function(){
 			formElement[0].reset();
 		};
+
+		scope.fileupload.triggerBrowse = function(){
+			$timeout(function(){
+				inputElement[0].click();
+			}, 0);
+		}
 	}
 
 	function removeUpload(fileIdentifier, fileList) {

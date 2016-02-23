@@ -1,8 +1,13 @@
 {
+	"areaName": "Anuncios",
 	"detail": {
 		"edit": "Editar este Anuncio"
 	},
+	"landing": {
+		"allAnnouncements": "Todos los Anuncios"
+	},
 	"list": {
-		"postCta": "Publica un Anuncio"
+		"postCta": "Publica un Anuncio",
+		"emptyList": "Si no hay anuncios publicados aún."
 	}
 }
