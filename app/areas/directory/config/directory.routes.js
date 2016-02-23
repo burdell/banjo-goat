@@ -168,7 +168,7 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					SearchFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
 						return filterService.getNewFilter({ 
 							filterFn: communityApi.Core.search,
-							filterArguments: ['messages'],
+							filterArguments: ['content'], //['content'], ['messages'],
 							constants: { per_page: 20 },
 							persistFilterModel: false
 						});

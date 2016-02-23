@@ -181,8 +181,8 @@
 				          </community-pager>
 				    	</div>
  -->
-
-			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPaddingRight">
+<!-- 
+			    		<div class="cmuThreadlist__body cmuLoading col--md6 noPaddingRight">
 				    		<a class="cmuThreadlist__row row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
@@ -193,11 +193,7 @@
 				    				<div class="col--md7 noPaddingLeft">
 										<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
 									</div>
-									<!-- <div class="col--md6 alignRight noPaddingRight">
-										<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
-									</div> -->
 									<div class="cmuFeed__stats col--md5">
-										{{ result.scores }}
 										<div class="cmuFeed__stat">
 											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
 										</div>
@@ -205,12 +201,74 @@
 											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
 										</div>
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.message.scores || 0 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ result.scores.kudo }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
 										</div>
 									</div>
 								</div>
 					    	</a>
 					    </div>
+ -->
+
+			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPaddingRight">
+				    		<a class="cmuThreadlist__row row"
+				    			 ng-repeat="result in vm.searchResults"
+				    			 area-link-handler="{{ vm.getUrl(result) }}">
+
+				    			 <!-- 
+				    			 	using /content/ returns different models for topics and replies/"comments"  
+
+				    			 	split up this way so we can potentially differentiate
+				    			 	between TOPIC and COMMENT (they're very different)
+				    			 -->
+				    			 <!-- if content == topic -->
+				    			 <div class="cmuSearchpage__item cmuSearchpage__item--topic col--md12" ng-if="result.type == 'topic'">
+				    				<div class="cmuSearchpage__item__subject">{{ result.data.subject }}</div>
+					    			<div class="cmuSearchpage__item__content">{{ result.data.message.body | unformatText | wordCut:40 }}</div>
+				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.data.message.postDate | timeFromNow }}</div>
+				    				<div class="col--md7 noPaddingLeft">
+										<product-discussion-tag node-id="result.data.node.id"></product-discussion-tag>
+									</div>
+									<div class="cmuFeed__stats col--md5">
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
+										</div>
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
+										</div>
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.data.message.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+										</div>
+									</div>
+								</div>
+								<!-- else if: content == comment; comments are replies -->
+								<div class="cmuSearchpage__item cmuSearchpage__item--comment col--md12" ng-if="result.type == 'comment'">
+				    				<div class="cmuSearchpage__item__subject">{{ result.data.context.topicSubject }}</div>
+				    				<div><span class="icon ubnt-icon--arrow-drag"></span> reply to {{ result.data.context.parentAuthor.login }}</div>
+									<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply">
+										<span class="cmuMessage__replyTo__desc">${{ forums.message.inReplyTo }}$</span>
+									</div>
+					    			<div class="cmuSearchpage__item__content">{{ result.data.body | unformatText | wordCut:40 }}</div>
+				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.data.postDate | timeFromNow }}</div>
+				    				<div class="col--md7 noPaddingLeft">
+										<product-discussion-tag node-id="result.data.node.id"></product-discussion-tag>
+									</div>
+									<div class="cmuFeed__stats col--md5">
+										<!-- countviews doesn't exist for a comment
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
+										</div>
+										 -->
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
+										</div>
+										<div class="cmuFeed__stat">
+											<span class="cmuFeed__stat__num">{{ result.data.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+										</div>
+									</div>
+								</div>
+					    	</a>
+					    </div>
+
 
 					    <div class="cmuThreadlist__ctrl--bottom col--md12">
 			    		  <community-pager 

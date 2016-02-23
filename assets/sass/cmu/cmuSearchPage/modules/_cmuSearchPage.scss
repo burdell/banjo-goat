@@ -132,6 +132,14 @@
 		.cmuSearchpage__item__date {
 			@extend %style-meta;
 		}
+
+		// .cmuSearchpage__item--comment {
+		// 	&:before {
+		// 		@extend %font-ubnt;
+		// 		display: inline-block;
+		// 		content: '\e681'
+		// 	}
+		// }
 }
 
 
