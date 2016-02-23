@@ -19,8 +19,7 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 		} else if (verb === 'SEARCH') {
 			payload = data;
 			params = data.params;
-			verb = 'POST'
-
+			verb = 'POST';
 		} else {
 			payload = data;
 		}

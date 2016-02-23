@@ -20,7 +20,7 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 
 	nodeServiceWrapper.get().then(function(nodeService){
 		ctrl.getUrl = function(item) {
-			return nodeService.generateNodeDetailUrl(item.node.id, item.topicId);
+			return nodeService.generateNodeDetailUrl(item.data.node.id, item.data.id);
 		};
 
 		var productTypes = nodeService.getProductTypeList();
@@ -57,7 +57,7 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 
 		var searchModel = searchFilter.model('q');
 		ctrl.searchTextDisplay = searchModel;
-		// $location.search({ q: searchModel });
+		$location.search({ q: searchModel });
 
 		ctrl.searchResults = result.content;
 		ctrl.totalResults = result.totalElements;

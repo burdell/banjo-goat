@@ -4,7 +4,7 @@
 		"reply": "Reply",
 		"subscribe": "Subscribe",
 		"usersViewingThread": "users viewing this thread",
-		"inReplyTo": "In reply to {{ messageDisplay.reply.username }}&#8217;s <a ng-click=\"messageDisplay.goToParentMessage(messageDisplay.reply.parentId)\">message</a>:"
+		"inReplyTo": "In reply to <a ng-click=\"messageDisplay.goToParentMessage(messageDisplay.reply.parentId)\">{{ messageDisplay.reply.username }}</a>:"
 	
 	},
 	"list": {
