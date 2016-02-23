@@ -8,7 +8,7 @@
 		"location": "Project Location",
 		"projectRole": "Project Role",
 		"usersInNetwork": "Users In Network",
-		"productsUsed": "Products Used",
+		"productsUsed": "Products Used"
 	},
 	"detail": {
 		"edit": "Edit"
