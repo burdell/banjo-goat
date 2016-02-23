@@ -4,11 +4,11 @@
   <div class="cmuThreadlist__ctrl row">
 
     <div class="cmuThreadlist__ctrl__row col--md12 noPadding">
-      <div class="col--md8 noPaddingLeft">
+      <div class="col--md9 noPaddingLeft">
         <button class="button--solid" ng-click="vm.startNewTopic()" community-permissions="node.can_post_topic">${{ forums.list.createTopic }}$</button>
       </div>
 
-      <div class="col--md2">
+      <!-- <div class="col--md2">
         <div ng-hide="vm.hideSearch()">
             <community-search 
               search-filter="vm.forumListFilter" 
@@ -16,9 +16,9 @@
               exclude="page">
            </community-search>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col--md2 noPaddingRight">
+      <div class="col--md3 noPaddingRight">
         <community-sort sort-options="vm.messageSortOptions" sort-filter="vm.forumListFilter" sort-exclude="page"></community-sort>
       </div>
 
