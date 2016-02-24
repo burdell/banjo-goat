@@ -77,10 +77,6 @@ $collapser-lineheight: $cmu-base*2.1;
 
 	&.open {
 
-		* {
-			color: $cmu-color-black;
-		}
-
 		&:hover {
 			&:before {
 				color: $cmu-color-ltblue;
