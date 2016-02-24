@@ -3,10 +3,12 @@
 
 	require('directives/productnavigator/productnavigator.js');
 
+	require('services/localization.js');
+
 	var _ = require('underscore');
 
-	var landingController = function($scope, announcements, breadcrumbService, routingService){
-		breadcrumbService.setCurrentBreadcrumb('All Announcements');
+	var landingController = function($scope, announcements, breadcrumbService, localizationService, routingService){
+		breadcrumbService.setCurrentBreadcrumb(localizationService.data.announcements.landing.allAnnouncements);
 
 		$scope.$on('$stateChangeStart', function(){
 			breadcrumbService.clearCurrentBreadcrumb();
@@ -22,7 +24,7 @@
 			}
 		});
 	};
-	landingController.$inject = ['$scope', 'AllAnnouncementsList', require('services/breadcrumb.js'), require('services/routing.js')];
+	landingController.$inject = ['$scope', 'AllAnnouncementsList', require('services/breadcrumb.js'), 'CommunityLocalizationService', require('services/routing.js')];
 
 	angular.module('community.announcements')
 		.controller('AnnouncementsLanding', landingController);

@@ -7,25 +7,22 @@
 	</community-page-header>
 
 	<div class="cmuSearchpage__container">
+		<div class="cmuSearchpage__searchbar row">
+			<div class="col--md12 noPadding">
 
-		<!-- <div class="cmuSearchpage__searchbar__container"> -->
-			<div class="cmuSearchpage__searchbar row">
-				<div class="col--md12 noPadding">
-
-					<div class="cmuSearchbox cmuSearchpage--searchbox">
-						<div class="appIconInput appIconInput--right">
-							<div ng-click="vm.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
-							<input 
-								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-								placeholder="${{ directory.search.searchbarPlaceholder }}$" 
-								type="text" 
-								ng-model="vm.searchText"
-								community-enter="vm.search()">
-					    </div>
-					</div>
+				<div class="cmuSearchbox cmuSearchpage--searchbox">
+					<div class="appIconInput appIconInput--right">
+						<div ng-click="vm.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
+						<input 
+							class="appIconInput__input ng-pristine ng-untouched ng-valid" 
+							placeholder="${{ directory.search.searchbarPlaceholder }}$" 
+							type="text" 
+							ng-model="vm.searchText"
+							community-enter="vm.search()">
+				    </div>
 				</div>
 			</div>
-		<!-- </div> -->
+		</div>
 		<!-- end searchbar -->
 		
     	<div class="cmuSearchpage__content row">
@@ -100,22 +97,6 @@
 
 
 		    		<!-- PRODUCT FILTER -->
-		    		<!-- <div>
-
-		    			"Products" label might not be necessary
-		    			<div class="cmuInput__checkbox cmuInput__checkbox--default">
-							<label>
-								<input 
-									type="checkbox" 
-									name="vm.selectedFilters[]"
-									value="{{ vm.filterOptions.productTypes.defaultOption.value }}" 
-									ng-model="vm.filterOptions.productTypes.defaultOption.selected" 
-									ng-change="vm.allProductsDefaultChanged()"
-									ng-checked="vm.filterOptions.productTypes.defaultOption.selected" />
-									<span>{{ vm.filterOptions.productTypes.defaultOption.display }}</span>
-							</label>
-						</div> -->
-
 		    			<div class="cmuInputGroup" ng-repeat="product in vm.filterOptions.productTypes.list">
 		    				<div class="cmuInput__checkbox cmuInput__checkbox--default">
 								<label>
@@ -147,18 +128,6 @@
 		    	</div>
 	    	</div>
 	    	<!-- end sidebar -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 	    	<!-- main column -->
 	    	<div class="cmuSearchpage__main col--md9">

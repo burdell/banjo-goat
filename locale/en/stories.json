@@ -5,10 +5,10 @@
 		"budget": "Budget",
 		"dataRequirement": "Date Requirement",
 		"finishDate": "Finish Date",
+		"location": "Project Location",
 		"projectRole": "Project Role",
 		"usersInNetwork": "Users In Network",
-		"productsUsed": "Products Used",
-		"location": "Project Location"
+		"productsUsed": "Products Used"
 	},
 	"detail": {
 		"edit": "Edit"
@@ -35,8 +35,12 @@
 		"summary": "Short Summary",
 		"tellUsYourStory": "Tell us your story",
 		"unavailableAsCover": "Unavailable As Cover",
+		"update": "Update",
+		"updating": "Updating Your Story",
 		"uploadFromUrl": "Upload From URL",
 		"productsUsed": "Products Used",
+		"publish": "Publish",
+		"publishing": "Publishing Your Story",
 		"tips": {
 			"addPhotos": "Add photos!",
 			"addPhotosList": "<ul><li>Beautiful, inspiring, or interesting images get more viewers</li><li>Photos of equipment, environments and screenshots help illustrate the story</li><li>Set your best image as the cover photo</li></ul>",

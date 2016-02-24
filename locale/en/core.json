@@ -39,9 +39,10 @@
 	"cmuName": "Community",
 	"directory": "Community Directory",
 	"hints": {
-		"nav": "Looking for <span class='highlight'>Forums?</span> Click <span class='topics'>Topics <span class='icon ubnt-icon--menu'></span></span> to find forums, stories, and announcements"
+		"nav": "Buscando <span class='highlight'>Foros?</span> Haga clic en <span class='topics'>Temas <span class='icon ubnt-icon--menu'></span></span> para encontrar foros, historias y anuncios"
 	},
 	"in": "In",
+	"k": "K",
 	"kudos": "Kudos",
 	"liveActivity": "Live Activity",
 	"manageSubscriptions": "Manage Subscriptions",
@@ -58,6 +59,7 @@
 		"general": "General",
 		"serviceProviders": "Service Providers"
 	},
+	"r": "R",
 	"replies": "Replies",
 	"standardSort": {
 		"postDate": "Post Date",
@@ -73,14 +75,10 @@
 		"latest": "Latest"
 	},
 	"topic": "Topic",
-	"version": "Version",
-	"views": "Views",
-	"replies": "Replies",
-	"kudos": "Kudos",
-	"v": "V",
-	"r": "R",
-	"k": "K",
 	"ui": {
 		"clear": "clear"
-	}
+	},
+	"v": "V",
+	"version": "Version",
+	"views": "Views"
 }

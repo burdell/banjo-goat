@@ -161,6 +161,7 @@ function communityTextEditor($timeout, localizationService, routingService) {
         	ngModel: '=',
         	height: '=editorHeight',
         	minimalEditor: '@',
+        	noPhotos: '=',
         	placeholder: '@',
         	hidePreviewLink: '@',
         	fixedtobottom: '=',

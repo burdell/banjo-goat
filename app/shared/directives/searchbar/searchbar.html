@@ -11,7 +11,7 @@
 							<div ng-click="searchbar.search()" class="appIconInput__icon icon ubnt-icon--search-2"></div>
 							<input 
 								class="appIconInput__input ng-pristine ng-untouched ng-valid" 
-								placeholder="Search Community" 
+								placeholder="${{ directives.mainnavbar.search }}$" 
 								type="text" 
 								ng-model="searchbar.searchText"
 								community-enter="searchbar.search()">

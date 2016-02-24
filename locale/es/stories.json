@@ -5,6 +5,7 @@
 		"budget": "Presupuesto",
 		"dataRequirement": "Requisitos de Datos",
 		"finishDate": "La Fecha Final",
+		"location": "Localización del proyecto",
 		"productsUsed": "Productos Utilizados",
 		"projectRole": "Proyecto Rol",
 		"usersInNetwork": "Usuarios En Red"
@@ -13,7 +14,8 @@
 		"edit": "Edite esta historia"
 	},
 	"list": {
-		"shareAStory": "Compartir una historia"
+		"shareAStory": "Compartir una historia",
+		"emptyList": "Nadie ha compartido una historia aún. ¡Sé el primero!"
 	},
 	"newStory": {
 		"addMoreDetails": "Añadir más detalles",
@@ -33,15 +35,24 @@
 		"summary": "Resumen",
 		"tellUsYourStory": "Cuéntenos su historia",
 		"unavailableAsCover": "No Disponible Como cubierta",
+		"update": "Actualizar",
+		"updating": "Actualización de su historia",
 		"uploadFromUrl": "Subir desde la URL",
+		"publish": "Publicar",
+		"publishing": "La publicación de su historia",
 		"tips": {
 			"addPhotos": "¡Agregar fotos!",
-			"addPhotosList": "<ul><li>Beautiful, inspiring, or interesting images get more viewers</li><li>Photos of equipment, environments and screenshots help illustrate the story</li><li>Set your best image as the cover photo</li></ul>",
-			"engageTheReader": "Engage the reader",
-			"engageTheReaderList": "<ul><li>Give us some details: What did you see? What did you set out to do? What were some challenges? </li><li>How did you resolve your issues, or overcome your obstacles? What was your solution?</li><li>What did you learn?</li><li>What can you teach your readers?</li></ul>",
+			"addPhotosList": "<ul><li>Las imágenes hermosas, inspiradoras, o interesantes obtener más televidentes</li><li>Fotos de los equipos, entornos y capturas de pantalla ayudan a ilustrar la historia</li><li>Establecer su mejor imagen como foto de portada</li></ul>",
+			"engageTheReader": "Involucrar al lector",
+			"engageTheReaderList": "<ul><li>Danos algunos detalles: ¿Qué viste? ¿Qué es lo que se dispuso a hacer? ¿Cuáles fueron algunos de los retos? </li><li>¿Cómo resolver sus problemas o superar sus obstáculos? ¿Cuál fue su solución?</li><li>¿Qué aprendiste?</li><li>¿Qué se puede enseñar a sus lectores?</li></ul>",
 			"greatTitles": "Grandes títulos captar la atención",
-			"greatTitlesList": "<ul><li>Use short, engaging, inspiring, titles</li><li><em>Ex: \"How mFi saved me another HUGE mess on the farm.\"</em></li><li><em>Ex: \"The shed caught on fire... and the airFiber still works.\"</em></li></ul>",
+			"greatTitlesList": "<ul><li>El uso a corto, con la participación, inspiración, títulos</li><li><em>Ej: \"Cómo mFi me salvó otro lío ENORME en la granja.\"</em></li><li><em>Ej: \"El cobertizo se incendió ... y el airFiber todavía funciona.\"</em></li></ul>",
 			"title": "Consejos para escribir una gran historia"
 		}
+	},
+	"noun": {
+		"none":"No hay historias",
+		"singular":"historia",
+		"plural":"historias"
 	}
 }

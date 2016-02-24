@@ -1,18 +1,19 @@
 <div class="cmuInputFile">
+	<form style="display: none;">
+		<label class="cmuInputFile--label">
+		    <input type="file" class="file-input" ng-model="fileupload.chosenFile" multiple required/>
+		</label>
+	</form>
+
+
 	<div ng-show="!fileupload.uploadInProgress">
-		<form>
-			<label class="cmuInputFile--label">
-				<div>{{ fileupload.displayText || 'Upload a File' }}</div>
-			    <input type="file" class="file-input" ng-model="fileupload.chosenFile" multiple required/>
-			</label>
-		</form>
+		<div>{{ fileupload.displayText || '${{ directives.fileupload.uploadFile }}$' }}</div>
+		<button ng-click="fileupload.triggerBrowse()">${{ directives.fileupload.browseFiles }}$</button>
 	</div>
 
 	<div class="cmuInputFile--uploading" ng-repeat="upload in fileupload.uploadingItems">
 		<span>Uploading {{ upload.name }}...</span>
 	</div>
-
 	<community-attachment-display ng-model="fileupload.fileListModel" can-remove="true"></community-attachment-display>
-
 </div>
 

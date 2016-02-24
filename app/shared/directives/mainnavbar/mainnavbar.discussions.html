@@ -5,8 +5,8 @@
 			Community
 		</div>
 		<div class="cmuMega__section__head col--md12">
-			<a class="button button--padded button--solid button-white-on-blue" href="/stories/" target="_self">Stories</a>
-			<a class="button button--padded button--solid button-white-on-blue" href="/announcements/" target="_self">Announcements</a>
+			<a class="button button--padded button--solid button-white-on-blue" area-link-handler link-handler-route="stories.landing">${{ stories.areaName }}$</a>
+			<a class="button button--padded button--solid button-white-on-blue" area-link-handler link-handler-route="announcements.landing" >${{ announcements.areaName }}$</a>
 			<a class="button button--outline button--padded button-blue-on-black" area-link-handler="{{ megamenu.templateCtrl.directoryUrl }}">${{ directives.mainnavbar.directory }}$</a>
 		</div>
 	</div>

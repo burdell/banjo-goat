@@ -25,18 +25,18 @@
 		"pulse": "Pulse"
 	},
 	"inbox": {
+		"addUser": "Add a recipient",
 		"header": "My Messages",
 		"messageCta": "Message Title",
 		"newMessage": "New Message",
 		"newMessages": "New Messages",
+		"noMessages": "Inbox is empty",
+		"recipients": "Recipients",
 		"replyFeedback": "Sending your reply",
 		"sendMessage": "Send Message",
 		"sendingMessage": "Sending your message",
-		"with": "with",
-		"recipients": "Recipients",
-		"addUser": "Add a recipient",
-		"noMessages": "Inbox is empty",
-		"whyNotSend": "Why not send one?"
+		"whyNotSend": "Why not send one?",
+		"with": "with"
 	},
 	"notifications": {
 		"myNotifications": "My Notifications",

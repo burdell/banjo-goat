@@ -3,6 +3,9 @@
 	"detail": {
 		"edit": "Edit"
 	},
+	"landing": {
+		"allAnnouncements": "All Announcements"
+	},
 	"list": {
 		"postCta": "Post an Announcement",
 		"emptyList": "No announcements posted yet."

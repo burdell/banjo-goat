@@ -1,40 +1,6 @@
 <div>
 	<community-announcement></community-announcement>
 	<div class="cmuFeed cmuFeed--home">
-
-<!-- 
-		<div class="feed-container">
-			<!-- pulse --
-			<community-pulse></community-pulse>
-			<div class="row">
-				<!-- main --
-				<div class="cmuFeed__main col--md9 noPaddingLeft">
-					<!-- filter & sort controls --
-					<div class="cmuThreadlist__ctrl__row row">
-						<div class="col--md6">
-							<button class="button--tab button--wide" ng-class="{'active': vm.feedType=='community'}" ng-click="vm.setFeedType('community')">${{ directory.feed.recentContent }}$</button><button class="button--tab button--wide" ng-click="vm.setFeedType('user')" ng-class="{'active': vm.feedType=='user'}" >${{ directory.feed.followedContent }}$</button>
-						</div>
-						 <div class="col--md3 noPaddingRight">
-				          	<community-sort 
-				          		sort-options="vm.categorySortOptions" 
-				          		sort-filter="vm.feedFilter" 
-				          		sort-exclude="page" 
-				          		class="community__sort"
-				          		sort-param="nodeUrlCode",
-				          		on-sort-fn="vm.setDiscussionStyleList">
-				          	</community-sort>
-				        </div>
-						<div class="col--md3">
-						  <community-sort 
-						  	sort-options="vm.discussionSortOptions" 
-						  	sort-filter="vm.feedFilter" 
-						  	sort-exclude="page" 
-						  	class="community__sort"
-						  	sort-param="style"
-						  	on-sort-fn="vm.checkStoryData">
-						  </community-sort>
-				        </div>
-				         -->
 		<community-page-header header-text="${{ directory.feed.header }}$" hide-element-selector=".feed-container"></community-page-header>
 		<div class="feed-container">
 			<!-- pulse -->

@@ -15,25 +15,32 @@
 		"manageSubscriptions": "Administrar Suscripciones",
 		"myContent": "Mi Contenido",
 		"recentContent": "Contenido Reciente",
-		"refresh": "Haga clic para actualizar"
+		"refresh": "Haga clic para actualizar",
+		"new": "Nuevo"
 	},
 	"hub": {
 		"allStories": "Todas as Histórias",
 		"discussions": "Discusiones",
+		"moreStories": "Más historias",
 		"pulse": "Pulso"
 	},
 	"inbox": {
+		"addUser": "Añadir un destinatario",
 		"header": "Mis mensajes",
 		"messageCta": "Dele a su mensaje un título",
 		"newMessage": "Mensaje nuevo",
 		"newMessages": "Nuevos mensajes",
+		"noMessages": "Bandeja de entrada está vacía",
+		"recipients": "Destinatarios",
 		"replyFeedback": "Enviar Tu Respuesta",
 		"sendMessage": "Enviar Mensaje",
 		"sendingMessage": "Enviando tu Mensaje",
+		"whyNotSend": "Por qué no enviar uno?",
 		"with": "con"
 	},
 	"notifications": {
-		"myNotifications": "Mis Notificaciones"
+		"myNotifications": "Mis Notificaciones",
+		"emptyNotifications": "No Notificaciones."
 	},
 	"search": {
 		"discussionStyles": "Estilos Discusión",
@@ -56,7 +63,12 @@
 		"personalWebpage": "Pagina web personal",
 		"profileInfo": "Información del Perfil",
 		"recentActivity": "Actividad Reciente",
-		"totalPoints": "Punto Total"
+		"totalPoints": "Punto Total",
+		"pointsSummary": "Obtención de puntos",
+		"pointsSummaryDesc": "La siguiente tabla muestra el desglose de la cantidad de puntos que has ganado, y cómo ganar más puntos para aumentar su reputación en la calle de la comunidad.",
+		"nextRank": "Próximo Rango",
+		"points": "Puntos",
+		"totalPoints": "Puntos totales"
 	},
 	"usersettings": {
 		"automaticallySubscribe": "Me suscribirse automáticamente a los temas en los que participo",

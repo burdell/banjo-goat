@@ -22,12 +22,18 @@
 		"repliedAnnouncements": " respondió a un anuncio",
 		"repliedTo": " replied to "
 	},
+	"fileupload": {
+		"uploadFile": "Cargar un archivo",
+		"addAttachment": "Agregar un archivo adjunto",
+		"browseFiles": "Examinar archivos"
+	},
 	"globalfooter": {
 		"contact": "Contáctenos",
 		"copyright": "&copy; 2015 Ubiquiti Networks. Todos los derechos reservados.",
 		"backToTop": "Volver Arriba",
 		"dotCom": "ubnt.com",
 		"facebookUrl": "https://www.facebook.com/Ubiquiti",
+		"instagramUrl": "https://www.instagram.com/ubiquitinetworks/",
 		"knowledgeBase": "Volver arriba",
 		"privacy": "Política de Privacidad",
 		"support": "Apoyo",
@@ -50,6 +56,8 @@
 		"forums": "Foros de la comunidad",
 		"guidelines": "Principios de la Comunidad",
 		"inbox": "Bandeja de entrada",
+		"emptyInbox": "Bandeja de entrada vacía. Enviar un mensaje",
+		"emptyNotifications": "No hay notificaciones recientes",
 		"login": "Iniciar sesión",
 		"logOut": "Log Cerrar sesión",
 		"notifications": "Notificaciones",
@@ -105,6 +113,7 @@
 		"previous": "Anterior"
 	},
 	"pulse": {
+		"liveActivity": "Actividad en vivo",
 		"membersOnline": "Usuarios en línea",
 		"postsToday": "Mensajes de hoy",
 		"totalMembers": "Total de Usuarios",
@@ -133,7 +142,8 @@
 			"superscript2": "scrito",
 			"title": "Formateo Ayuda"
 		},
-		"livePreview": "Vista previa en vivo"
+		"livePreview": "Vista previa en vivo",
+		"uploadPhoto": "Sube una foto"
 	},
 	"timeline": {
 		"created": "Creado"
