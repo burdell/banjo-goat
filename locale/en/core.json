@@ -26,6 +26,12 @@
 		"announcements": "Announcements",
 		"features": "Feature Requests" 
 	},
+	"areaNoun": {
+		"forums": "Topic",
+		"stories": "Story",
+		"announcements": "Announcement",
+		"features": "Request" 
+	},
 	"allTopics": "All Topics",
 	"author": "Author",
 	"cancel": "Cancel",
@@ -35,6 +41,7 @@
 	"hints": {
 		"nav": "Looking for <span class='highlight'>Forums?</span> Click <span class='topics'>Topics <span class='icon ubnt-icon--menu'></span></span> to find forums, stories, and announcements"
 	},
+	"in": "In",
 	"kudos": "Kudos",
 	"liveActivity": "Live Activity",
 	"manageSubscriptions": "Manage Subscriptions",
@@ -65,6 +72,7 @@
 		"popular": "Popular",
 		"latest": "Latest"
 	},
+	"topic": "Topic",
 	"version": "Version",
 	"views": "Views",
 	"replies": "Replies",

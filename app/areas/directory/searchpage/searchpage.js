@@ -10,6 +10,7 @@ require('directives/pagescroll/pagescroll.js');
 require('directives/sticky/sticky.js');
 require('directives/sorter/sorter.js');
 
+require('filters/sanitize.js');
 require('filters/unformattext.js');
 require('filters/timefromnow.js');
 
@@ -20,6 +21,8 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 
 	nodeServiceWrapper.get().then(function(nodeService){
 		ctrl.getUrl = function(item) {
+			if (item.type == "comment") 
+				return nodeService.generateNodeDetailUrl(item.data.node.id, item.data.parentId) + '#' + item.data.id;
 			return nodeService.generateNodeDetailUrl(item.data.node.id, item.data.id);
 		};
 
@@ -98,6 +101,13 @@ var searchPageController = function($location, $scope, breadcrumbService, locali
 	});
 
 	_.extend(ctrl, {
+		isResult: function(result, match) {
+			if (match=='stories' && result.discussionStyle == 'stories') return true;
+			if (match=='announcements' && result.discussionStyle == 'announcements') return true;
+			if (match=='forums' && result.discussionStyle == 'forums') return true;
+			if (match=='topic' && result.type == 'topic') return true;
+			if (match=='comment' && result.type == 'comment') return true;
+		},
 		setSortModel: function(sortModel){
 			ctrl.sortModel = sortModel; 
 			if (sortModel.sortField == 'sortNewest') {

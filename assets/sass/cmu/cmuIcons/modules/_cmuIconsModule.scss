@@ -97,7 +97,7 @@
 		content: '\e6e7'; // broadcast tower
 		text-decoration: none !important;
 	}
-	&.forums:before {
+	&.forums:before, &.topic:before {
 		@extend %sidebar-icon;
 		content: '\e6c0'; // bubbles
 		text-decoration: none !important;

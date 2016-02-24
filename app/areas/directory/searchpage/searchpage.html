@@ -31,7 +31,7 @@
     	<div class="cmuSearchpage__content row">
 
     		<!-- sidebar - hide when no query -->
-	    	<div class="cmuSearchpage__sidebar cmuSidebar col--md3" ng-show="vm.searchTextDisplay">
+	    	<div class="cmuSearchpage__sidebar cmuSidebar col--md3 noPaddingRight" ng-show="vm.searchTextDisplay">
 				<div community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuSearchpage__content">
 					<div>
 			    		<div class="cmuSidebar__container">
@@ -172,42 +172,6 @@
 			    		<div class="cmuThreadlist__ctrl col--md3 alignRight noPaddingRight">
       						<community-sort pre-sort-fn="vm.setSortModel" sort-options="vm.searchSortOptions" sort-filter="vm.searchFilter"></community-sort>
 			    		</div>
-<!-- takes a lot of room and might not be necessary
-					    <div class="cmuThreadlist__ctrl--top col--md12">
-			    		  <community-pager 
-				            number-of-pages="vm.totalPages" 
-				            pager-fn="vm.searchFilter"
-				            front-biased="true">
-				          </community-pager>
-				    	</div>
- -->
-<!-- 
-			    		<div class="cmuThreadlist__body cmuLoading col--md6 noPaddingRight">
-				    		<a class="cmuThreadlist__row row"
-				    			 ng-repeat="result in vm.searchResults"
-				    			 area-link-handler="{{ vm.getUrl(result) }}">
-				    			 <div class="cmuSearchpage__item col--md12">
-				    				<div class="cmuSearchpage__item__subject">{{ result.subject }}</div>
-					    			<div class="cmuSearchpage__item__content">{{ result.body | unformatText | wordCut:40 }}</div>
-				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.postDate | timeFromNow }}</div>
-				    				<div class="col--md7 noPaddingLeft">
-										<product-discussion-tag node-id="result.node.id"></product-discussion-tag>
-									</div>
-									<div class="cmuFeed__stats col--md5">
-										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
-										</div>
-										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ ::feedcontent.contentModel.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
-										</div>
-										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.scores.kudo }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
-										</div>
-									</div>
-								</div>
-					    	</a>
-					    </div>
- -->
 
 			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPaddingRight">
 				    		<a class="cmuThreadlist__row row"
@@ -221,48 +185,50 @@
 				    			 	between TOPIC and COMMENT (they're very different)
 				    			 -->
 				    			 <!-- if content == topic -->
-				    			 <div class="cmuSearchpage__item cmuSearchpage__item--topic col--md12" ng-if="result.type == 'topic'">
-				    				<div class="cmuSearchpage__item__subject">{{ result.data.subject }}</div>
-					    			<div class="cmuSearchpage__item__content">{{ result.data.message.body | unformatText | wordCut:40 }}</div>
-				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.data.message.postDate | timeFromNow }}</div>
-				    				<div class="col--md7 noPaddingLeft">
+				    			 <div class="cmuSearchpage__item cmuSearchpage__item--topic col--md12" ng-if="vm.isResult(result, 'topic')">
+
+				    				<div class="cmuSearchpage__item__subject"><span class="cmuIcon__label icon {{ ::result.discussionStyle }}"></span></span>{{ ::result.data.subject }}</div>
+
+				    				<div class="cmuSearchpage__item__content" ng-if="vm.isResult(result, 'forums') || vm.isResult(result, 'announcements')">{{ ::result.data.message.body | wordCut:120 }}</div>
+				    				<div class="cmuSearchpage__item__content--story" ng-if="vm.isResult(result, 'stories')">{{ ::result.data.summary }}</div>
+
+				    				<div class="cmuSearchpage__item__date">
+				    					<span ng-if="vm.isResult(result, 'forums')">${{ core.areaNoun.forums }}$</span>
+				    					<span ng-if="vm.isResult(result, 'stories')">${{ core.areaNoun.stories }}$</span>
+				    					<span ng-if="vm.isResult(result, 'announcements')">${{ core.areaNoun.announcements }}$</span>
+				    				<span class="cmuSearchpage__item__postedBy">${{ directory.search.postedBy }}$</span> {{ ::result.data.message.insertUser.login }} 
+				    					<span class="" ng-if="vm.isResult(result, 'stories') && result.data.locName">${{ core.in }}$ {{ result.data.locName }}</span>&mdash; {{ ::result.data.message.postDate | timeFromNow }}
+				    				</div>
+				    				<div class="col--md4 noPaddingLeft">
 										<product-discussion-tag node-id="result.data.node.id"></product-discussion-tag>
 									</div>
-									<div class="cmuFeed__stats col--md5">
+									<div class="cmuFeed__stats col--md8 noPaddingRight">
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ ::result.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
 										</div>
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ ::result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
 										</div>
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.data.message.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ ::result.data.message.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
 										</div>
 									</div>
 								</div>
+
 								<!-- else if: content == comment; comments are replies -->
-								<div class="cmuSearchpage__item cmuSearchpage__item--comment col--md12" ng-if="result.type == 'comment'">
-				    				<div class="cmuSearchpage__item__subject">{{ result.data.context.topicSubject }}</div>
-				    				<div><span class="icon ubnt-icon--arrow-drag"></span> reply to {{ result.data.context.parentAuthor.login }}</div>
-									<div class="cmuMessage__replyTo" ng-if="messageDisplay.reply">
-										<span class="cmuMessage__replyTo__desc">${{ forums.message.inReplyTo }}$</span>
-									</div>
-					    			<div class="cmuSearchpage__item__content">{{ result.data.body | unformatText | wordCut:40 }}</div>
-				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedOn }}$ {{ result.data.postDate | timeFromNow }}</div>
-				    				<div class="col--md7 noPaddingLeft">
+								<div class="cmuSearchpage__item cmuSearchpage__item--comment col--md12" ng-if="vm.isResult(result, 'comment')">
+				    				<div class="cmuSearchpage__item__subject"><span class="cmuSearchpage__item__re">${{ directory.search.re }}$ </span>{{ ::result.data.context.topicSubject }}</div>
+					    			<div class="cmuSearchpage__item__content">{{ ::result.data.body | unformatText | wordCut:60 }}</div>
+				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedBy }}$ {{ ::result.data.insertUser.login }} ${{ directory.search.inReplyTo }}$ {{ ::result.data.context.parentAuthor.login }} &mdash; {{ ::result.data.postDate | timeFromNow }}</div>
+				    				<div class="col--md4 noPaddingLeft">
 										<product-discussion-tag node-id="result.data.node.id"></product-discussion-tag>
 									</div>
-									<div class="cmuFeed__stats col--md5">
-										<!-- countviews doesn't exist for a comment
+									<div class="cmuFeed__stats col--md8">
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.data.countViews }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.views }}$' | lowercase }}</span> 
-										</div>
-										 -->
-										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ ::result.context.totalMessageCount - 1 }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.replies }}$' | lowercase }}</span> 
 										</div>
 										<div class="cmuFeed__stat">
-											<span class="cmuFeed__stat__num">{{ result.data.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
+											<span class="cmuFeed__stat__num">{{ ::result.data.scores.kudoCount }}</span> <span class="cmuFeed__stat__title">{{ '${{ core.kudos }}$' | lowercase }}</span> 
 										</div>
 									</div>
 								</div>
@@ -279,14 +245,20 @@
 				    	</div>
 			    	</div>
 
-			    	<div class="cmuThreadlist__messagebox" ng-show="vm.searchResults.length === 0">
-			    		<!-- if nothing found -->
-			    		<div class="cmuSearchpage__noResults" ng-show="vm.searchTextDisplay">
-			    			<span class="text">${{ directory.search.noResults }}$</span>
-			    			<span class="query">{{ vm.searchTextDisplay }}</span>
-			    		</div>
+			    	<div
+			    		ng-show="vm.searchResults.length === 0"
+			    		community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuSearchpage__content">
+			    		<div>
+					    	<div class="cmuThreadlist__messagebox">
+					    		<!-- if nothing found -->
+					    		<div class="cmuSearchpage__noResults" ng-show="vm.searchTextDisplay">
+					    			<span class="text">${{ directory.search.noResults }}$</span>
+					    			<span class="query">{{ vm.searchTextDisplay }}</span>
+					    		</div>
 
-			    	</div>
+					    	</div>
+					    </div>
+					</div>
 		    	</div>
 	    	</div>
 	    	<!-- end main -->

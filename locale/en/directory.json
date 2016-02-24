@@ -47,8 +47,10 @@
 		"header": "Search",
 		"searchbarPlaceholder": "Search Community",
 		"noResults": "No results found for ",
-		"postedOn": "Posted on ",
-		"results": "Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for"
+		"postedBy": "Posted by ",
+		"inReplyTo": "in reply to ",
+		"results": "Showing {{ vm.searchResults.length | number }} out of {{ vm.totalResults | number}} results for",
+		"re": "Re:"
 	},
 	"user": {
 		"aboutMe": "About Me",

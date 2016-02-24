@@ -6766,7 +6766,7 @@ dfn[title] {
   font-family: "Oswald", "lato", "helvetica neue", sans-serif;
 }
 
-.cmuCollapser__header:before, .cmuCollapser__header.open:before, .cmuIcon__label.all:before, .cmuIcon__label.announcements:before, .cmuIcon__label.forums:before, .cmuIcon__label.stories:before, .cmuIcon__label.qa:before, .cmuIcon__label.features:before, .cmuInput__selectDropdown:before {
+.cmuCollapser__header:before, .cmuCollapser__header.open:before, .cmuIcon__label.all:before, .cmuIcon__label.announcements:before, .cmuIcon__label.forums:before, .cmuIcon__label.topic:before, .cmuIcon__label.stories:before, .cmuIcon__label.qa:before, .cmuIcon__label.features:before, .cmuInput__selectDropdown:before {
   font-family: "ubnt";
 }
 
@@ -7243,7 +7243,7 @@ pre {
   content: '\e6e7';
   text-decoration: none !important;
 }
-.cmuIcon__label.forums:before {
+.cmuIcon__label.forums:before, .cmuIcon__label.topic:before {
   content: '\e6c0';
   text-decoration: none !important;
 }
@@ -11709,6 +11709,13 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   max-height: 6rem;
   padding-bottom: 0.5rem;
   overflow: hidden;
+}
+.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__postedBy {
+  text-transform: lowercase;
+}
+.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__re {
+  color: #969ba3;
+  font-weight: normal;
 }
 
 select.cmuSort {

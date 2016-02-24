@@ -32,8 +32,7 @@ var sanitize = function($sce, routingService){
 
 					if (messageFormat === 'html') {
 						return '<a href="' + profileUrl + '">' + userName + '</a>';
-					} 
-
+					}
 
 					return '[' + userName + '](' + profileUrl + ')';
 				});

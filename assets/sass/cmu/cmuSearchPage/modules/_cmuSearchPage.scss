@@ -128,9 +128,15 @@
 			padding-bottom: $cmu-base/2;
 			overflow: hidden;
 		}
-
 		.cmuSearchpage__item__date {
 			@extend %style-meta;
+		}
+		.cmuSearchpage__item__postedBy {
+			text-transform: lowercase;
+		}
+		.cmuSearchpage__item__re {
+			color: $cmu-color-gray;
+			font-weight: normal;
 		}
 
 		// .cmuSearchpage__item--comment {
