@@ -32,10 +32,10 @@
 							<div class="cmuFeed__filters col--md12 noPadding" community-sticky sticky-class="cmuStuck" offset="30">
 							<!-- <div class="cmuFeed__filters col--md12 noPadding"> -->
 								<div>
-							        <div class="cmuFeed__update col--md4 noPaddingLeft" >
+							        <div class="cmuFeed__update col--md6 noPaddingLeft" >
 							        	<button class="button--solid button--stretch" ng-click="vm.setFeedUpdates()"><span class="icon cmuIcon-refresh cmuIcon--tiny"></span><span ng-if="!vm.hasFeedUpdates()">${{ directory.feed.refresh }}$</span><span ng-if="vm.hasFeedUpdates()">{{ vm.updateCount() }} ${{ directory.feed.new }}$</span></button>
 							        </div>
-									<div class="col--md4">
+									<div class="col--md3">
 									  	<community-sort 
 									  		sort-options="vm.categorySortOptions" 
 									  		sort-filter="vm.feedFilter" 
@@ -45,7 +45,7 @@
 									  		on-sort-fn="vm.setDiscussionStyleList">
 									  	</community-sort>
 									</div>
-									<div class="col--md4 noPaddingRight">
+									<div class="col--md3 noPaddingRight">
 									  <community-sort 
 									  	sort-options="vm.discussionSortOptions" 
 									  	sort-filter="vm.feedFilter" 
@@ -60,9 +60,9 @@
 						 
 
 				        	<!-- story feed -->
-					        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding collapseRight collapseSubtle" ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
+					        <div class="cmuFeed__stories cmuCollapser__container col--md12 noPadding " ng-show="vm.feedType === 'community' && vm.storyData.length > 0 && vm.showStoryData">
 
-								<div class="cmuCollapser__header cmuCollapser__header--light open" community-class-toggle="open">
+								<div class="cmuCollapser__header cmuCollapser__header--medium open" community-class-toggle="open">
 									<div class="cmuFeed__title"> 
 										<h5>${{ core.time.latest }}$ ${{ stories.areaName }}$</h5>
 									</div>
@@ -115,9 +115,9 @@
 					 community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuFeed">
 						<div>
 							<!-- links -->
-							<div class="cmuFeed__actions cmuSidebar__container">
+							<div class="cmuSidebar__container">
 								<!-- <h5>${{ directory.feed.links }}$</h5> -->
-								<a class="button button--solid button--row" href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
+								<a class="button button--solid button-blue-on-gray button--row" href="{{ landingPage.href }}" target="_self" ng-repeat="landingPage in ::vm.landingPages"><span class="cmuIcon__label cmuIcon__label--inline {{ landingPage.area | lowercase }}"></span><span>{{ landingPage.description }}</span></a>
 							</div>
 
 							<!-- announcements -->

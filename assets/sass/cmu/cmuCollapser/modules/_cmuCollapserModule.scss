@@ -127,6 +127,42 @@ $collapser-lineheight: $cmu-base*2.1;
 		}
 	}
 
+		// lighter color scheme used in the feed
+	.cmuCollapser__header--medium {
+		border: 1px solid $cmu-color-ltmdgray;
+		h5 {
+			color: $cmu-color-body;
+		}
+		&:hover {
+			&:before {
+				color: $cmu-color-ltblue;
+			}
+		}
+		&:before{
+			color: $cmu-color-mdgray;
+			background-color: $cmu-color-ltgray;
+		}
+		&.open {
+			color: $cmu-color-body;
+			background-color: $cmu-color-ltblue;
+
+			&:hover {
+				background-color: transparent;
+				&:before {
+					color: $cmu-color-ltblue;
+					background-color: $cmu-color-ltgray;
+					@extend %ease-fast;
+				}
+			}
+
+			&:before {
+				@extend %ease-fast;
+				color: $cmu-color-mdgray;
+				background-color: $cmu-color-ltgray;
+			}
+		}
+	}
+
 	div.cmuCollapser__content {
 		@extend %ease-slow;
     	@include transition(max-height 360ms, opacity 360ms);

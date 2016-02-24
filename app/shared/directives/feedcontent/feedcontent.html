@@ -1,19 +1,21 @@
 
 <div class="cmuFeed__item" ng-class="{'isRead':feedcontent.isRead()}">
 	<a ng-href="{{ ::feedcontent.contentDisplay.contentUrl }}" target="_self">
-		<div class="cmuFeed__itemHeader">
-			<span class="cmuIcon__label icon {{ ::feedcontent.contentDisplay.iconClass }}"></span>
-			<span class="cmuFeed__subject">
-				{{ ::feedcontent.contentDisplay.subject }}
-			</span>
-		</div>
-		<div class="cmuFeed__content">
+		<div class="row">
+			<div class="cmuFeed__itemHeader col--md12">
+				<span class="cmuIcon__label icon {{ ::feedcontent.contentDisplay.iconClass }}"></span>
+				<span class="cmuFeed__subject">
+					{{ ::feedcontent.contentDisplay.subject }}
+				</span>
+			</div>
+			<div class="cmuFeed__content col--md12">
 
-			<span class="cmuFeed__content__body" ng-bind-html="feedcontent.contentDisplay.body | unformatText"></span>
-		</div>
-		<div class="cmuFeed__userAction">
-			<community-username user="feedcontent.contentDisplay.getUser"></community-username>
-			<span>{{ ::feedcontent.contentDisplay.discussionActionString }}</span> &mdash; {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
+				<span class="cmuFeed__content__body" ng-bind-html="feedcontent.contentDisplay.body | unformatText"></span>
+			</div>
+			<div class="cmuFeed__userAction col--md12">
+				<community-username user="feedcontent.contentDisplay.getUser"></community-username>
+				<span>{{ ::feedcontent.contentDisplay.discussionActionString }}</span> &mdash; {{ ::feedcontent.contentDisplay.postData | timeFromNow }}
+			</div>
 		</div>
 
 		<div class="row">

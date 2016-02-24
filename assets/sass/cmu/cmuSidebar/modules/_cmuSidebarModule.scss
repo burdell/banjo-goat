@@ -12,6 +12,9 @@
 
 	.cmuSidebar__container {
 		margin-bottom: $cmu-vertical-rhythm;
+		.cmuIcon__label {
+			&:before {color: $cmu-color-blue;}
+		}
 
 		&:last-child {
 			margin-bottom: 0;
