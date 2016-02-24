@@ -166,14 +166,15 @@
 
 	    		<div ng-hide="vm.searchInProgress">
 		    		<div ng-show="vm.searchResults.length > 0">
-		    			<div class="cmuSearchpage__ctrl cmuThreadlist__ctrl col--md9 ">
-			    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
-			    		</div>
-			    		<div class="cmuThreadlist__ctrl col--md3 alignRight noPaddingRight">
-      						<community-sort pre-sort-fn="vm.setSortModel" sort-options="vm.searchSortOptions" sort-filter="vm.searchFilter"></community-sort>
-			    		</div>
-
-			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPaddingRight">
+		    			<div class="cmuThreadlist__ctrl col--md12 noPadding ">
+			    			<div class="cmuSearchpage__ctrl col--md9">
+				    			${{ directory.search.results }}$ <strong>{{ vm.searchTextDisplay }}</strong>
+				    		</div>
+				    		<div class="col--md3 alignRight noPaddingRight">
+	      						<community-sort pre-sort-fn="vm.setSortModel" sort-options="vm.searchSortOptions" sort-filter="vm.searchFilter"></community-sort>
+				    		</div>
+				    	</div>
+			    		<div class="cmuThreadlist__body cmuLoading col--md12 noPadding">
 				    		<a class="cmuThreadlist__row row"
 				    			 ng-repeat="result in vm.searchResults"
 				    			 area-link-handler="{{ vm.getUrl(result) }}">
@@ -185,14 +186,14 @@
 				    			 	between TOPIC and COMMENT (they're very different)
 				    			 -->
 				    			 <!-- if content == topic -->
-				    			 <div class="cmuSearchpage__item cmuSearchpage__item--topic col--md12" ng-if="vm.isResult(result, 'topic')">
+				    			 <div class="cmuSearchpage__item col--md12" ng-if="vm.isResult(result, 'topic')">
 
-				    				<div class="cmuSearchpage__item__subject"><span class="cmuIcon__label icon {{ ::result.discussionStyle }}"></span></span>{{ ::result.data.subject }}</div>
+				    				<div class="cmuSearchpage__subject"><span class="cmuIcon__label icon {{ ::result.discussionStyle }}"></span></span>{{ ::result.data.subject }}</div>
 
-				    				<div class="cmuSearchpage__item__content" ng-if="vm.isResult(result, 'forums') || vm.isResult(result, 'announcements')">{{ ::result.data.message.body | wordCut:120 }}</div>
-				    				<div class="cmuSearchpage__item__content--story" ng-if="vm.isResult(result, 'stories')">{{ ::result.data.summary }}</div>
+				    				<div class="cmuSearchpage__content" ng-if="vm.isResult(result, 'forums') || vm.isResult(result, 'announcements')">{{ ::result.data.message.body | wordCut:120 }}</div>
+				    				<div class="cmuSearchpage__content" ng-if="vm.isResult(result, 'stories')">{{ ::result.data.summary }}</div>
 
-				    				<div class="cmuSearchpage__item__date">
+				    				<div class="cmuSearchpage__date">
 				    					<span ng-if="vm.isResult(result, 'forums')">${{ core.areaNoun.forums }}$</span>
 				    					<span ng-if="vm.isResult(result, 'stories')">${{ core.areaNoun.stories }}$</span>
 				    					<span ng-if="vm.isResult(result, 'announcements')">${{ core.areaNoun.announcements }}$</span>
@@ -216,10 +217,10 @@
 								</div>
 
 								<!-- else if: content == comment; comments are replies -->
-								<div class="cmuSearchpage__item cmuSearchpage__item--comment col--md12" ng-if="vm.isResult(result, 'comment')">
-				    				<div class="cmuSearchpage__item__subject"><span class="cmuSearchpage__item__re">${{ directory.search.re }}$ </span>{{ ::result.data.context.topicSubject }}</div>
-					    			<div class="cmuSearchpage__item__content">{{ ::result.data.body | unformatText | wordCut:60 }}</div>
-				    				<div class="cmuSearchpage__item__date">${{ directory.search.postedBy }}$ {{ ::result.data.insertUser.login }} ${{ directory.search.inReplyTo }}$ {{ ::result.data.context.parentAuthor.login }} &mdash; {{ ::result.data.postDate | timeFromNow }}</div>
+								<div class="cmuSearchpage__item col--md12" ng-if="vm.isResult(result, 'comment')">
+				    				<div class="cmuSearchpage__subject"><span class="cmuSearchpage__item__re">${{ directory.search.re }}$ </span>{{ ::result.data.context.topicSubject }}</div>
+					    			<div class="cmuSearchpage__content">{{ ::result.data.body | unformatText | wordCut:60 }}</div>
+				    				<div class="cmuSearchpage__date">${{ directory.search.postedBy }}$ {{ ::result.data.insertUser.login }} ${{ directory.search.inReplyTo }}$ {{ ::result.data.context.parentAuthor.login }} &mdash; {{ ::result.data.postDate | timeFromNow }}</div>
 				    				<div class="col--md4 noPaddingLeft">
 										<product-discussion-tag node-id="result.data.node.id"></product-discussion-tag>
 									</div>

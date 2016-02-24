@@ -116,19 +116,19 @@
 		@extend .cmuThreadlist__topic;
 		border: 0;
 	}
-		.cmuSearchpage__item__subject {
+		.cmuSearchpage__subject {
 			// font-size: $size-large;
 			// line-height: $size-large__lineHeight;
 			padding-bottom: $cmu-base/2;
 			font-weight: bold;
 		}
-		.cmuSearchpage__item__content {
+		.cmuSearchpage__content {
 			color: $cmu-color-body;
 			max-height: $cmu-base*6;
 			padding-bottom: $cmu-base/2;
 			overflow: hidden;
 		}
-		.cmuSearchpage__item__date {
+		.cmuSearchpage__date {
 			@extend %style-meta;
 		}
 		.cmuSearchpage__item__postedBy {
@@ -138,14 +138,6 @@
 			color: $cmu-color-gray;
 			font-weight: normal;
 		}
-
-		// .cmuSearchpage__item--comment {
-		// 	&:before {
-		// 		@extend %font-ubnt;
-		// 		display: inline-block;
-		// 		content: '\e681'
-		// 	}
-		// }
 }
 
 

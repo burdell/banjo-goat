@@ -6785,7 +6785,7 @@ dfn[title] {
   line-height: 1.24rem;
 }
 
-.style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuStoryItem__date, .style-meta, .cmuFeed__userAction, .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__date, .cmuThreadlist__headers div, .cmuMessage__signature, .cmuInbox__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
+.style-user, .cmuFeed__story__user, .cmuStoryItem__user, .style-date, .cmuFeed__story__date, .cmuStoryItem__date, .style-meta, .cmuFeed__userAction, .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__date, .cmuThreadlist__headers div, .cmuMessage__signature, .cmuInbox__dropdown__date, .cmuNotifications__dropdown__date, .cmuDiscussionsNavbar a {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
@@ -6965,7 +6965,7 @@ body {
   margin-bottom: 0.25rem;
 }
 
-.style-meta, .cmuFeed__userAction, .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__date {
+.style-meta, .cmuFeed__userAction, .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__date {
   color: #bbbbbd;
   margin: 0.25rem 0;
   margin-bottom: 0.5rem;
@@ -11700,11 +11700,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item {
   border: 0;
 }
-.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__subject {
+.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__subject {
   padding-bottom: 0.5rem;
   font-weight: bold;
 }
-.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item__content {
+.cmuSearchpage .cmuThreadlist__row .cmuSearchpage__content {
   color: #525252;
   max-height: 6rem;
   padding-bottom: 0.5rem;
