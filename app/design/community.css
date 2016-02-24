@@ -8622,13 +8622,12 @@ div.cmuOverlay--show {
 .cmuCollapser__header {
   position: relative;
   cursor: pointer;
-  background-color: white;
 }
 .cmuCollapser__header > div {
   margin-left: 2rem;
 }
-.cmuCollapser__header:hover {
-  background: #13bcff;
+.cmuCollapser__header:hover:before {
+  color: #13bcff;
 }
 .cmuCollapser__header:before {
   -moz-transition: max-height 360ms, opacity 360ms;
@@ -8637,7 +8636,8 @@ div.cmuOverlay--show {
   transition: max-height 360ms, opacity 360ms;
   display: inline-block;
   content: '\e6ce';
-  background-color: #dadada;
+  background-color: #ebebeb;
+  color: #bbbbbd;
   margin-right: 0.5rem;
   float: left;
   height: 2rem;
@@ -8655,20 +8655,17 @@ div.cmuOverlay--show {
   transition: max-height 360ms, opacity 360ms;
   overflow: visible;
 }
-.cmuCollapser__header.open {
-  background-color: #ace7ff;
-}
 .cmuCollapser__header.open * {
   color: black;
 }
-.cmuCollapser__header.open:hover {
-  background-color: #13bcff;
+.cmuCollapser__header.open:hover:before {
+  color: #13bcff;
 }
 .cmuCollapser__header.open:before {
   display: inline-block;
   content: '\e6d0';
-  background-color: #00a0df;
-  color: #fafafa;
+  background-color: #ebebeb;
+  color: #bbbbbd;
 }
 
 .cmuCollapser__header__title {
@@ -9067,6 +9064,10 @@ div.cmuCollapser__content {
   padding: 0.5rem;
   border-bottom: 1px solid #dadada;
   height: 2rem;
+}
+
+.cmuCollapser__header .cmuFeed__title {
+  border: none;
 }
 
 .cmuFeed__stories {
@@ -11926,6 +11927,10 @@ select.cmuSort {
 .cmuTimeline .cmuThreadlist__topic__title {
   line-height: 1.5rem;
 }
+.cmuTimeline .cmuThreadlist__topic .cmuProductTag .style-tag, .cmuTimeline .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item .cmuProductTag .style-tag, .cmuSearchpage .cmuThreadlist__row .cmuTimeline .cmuSearchpage__item .cmuProductTag .style-tag {
+  position: relative;
+  top: 0.16667rem;
+}
 
 .timeline__container {
   overflow: hidden;
@@ -11951,7 +11956,7 @@ select.cmuSort {
   content: ")";
 }
 .timeline__title.open {
-  border-color: #fafafa;
+  border: 1px solid #dadada;
 }
 
 .cmuThreadlist__table {

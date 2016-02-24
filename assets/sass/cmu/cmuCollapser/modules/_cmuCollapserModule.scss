@@ -27,7 +27,6 @@ $collapser-lineheight: $cmu-base*2.1;
 	
 	position: relative;
 	cursor: pointer;
-    background-color: $cmu-color-purewhite;
     // $padding: $cmu-base/4;
     @extend %ease-slow;
 
@@ -36,9 +35,11 @@ $collapser-lineheight: $cmu-base*2.1;
 	}
 
 	&:hover {
-		background: $cmu-color-ltblue;
 		// border: 1px solid transparent;
 		@extend %ease-fast;
+		&:before {
+			color: $cmu-color-ltblue;
+		}
 	}
 
 	// Open / Closed indicator
@@ -50,7 +51,9 @@ $collapser-lineheight: $cmu-base*2.1;
 		display: inline-block;
 		// content: '\e6cd'; // arrow up for closed
 		content: '\e6ce'; // arrow right for closed
-		background-color: $cmu-color-ltmdgray;
+		background-color: $cmu-color-ltgray;
+		color: $cmu-color-mdgray;
+
 
 		// position: absolute;
 		// right: 0;
@@ -73,22 +76,24 @@ $collapser-lineheight: $cmu-base*2.1;
     }
 
 	&.open {
-		background-color: $cmu-color-vltblue;
 
 		* {
 			color: $cmu-color-black;
 		}
 
 		&:hover {
-			background-color: $cmu-color-ltblue;
+			&:before {
+				color: $cmu-color-ltblue;
+			}
 		}
 
 		&:before {
 			@extend %font-ubnt;
 			display: inline-block;
 			content: '\e6d0';
-			background-color: $cmu-color-blue;
-			color: $cmu-color-white;
+			background-color: $cmu-color-ltgray;
+			color: $cmu-color-mdgray;
+
 		}
 
 	}
