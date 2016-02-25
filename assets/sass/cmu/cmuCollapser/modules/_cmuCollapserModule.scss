@@ -103,32 +103,25 @@ $collapser-lineheight: $cmu-base*2.1;
 	    }
 	}
 
-	// lighter color scheme used in the feed
+	// lighter color scheme 
 	.cmuCollapser__header--light {
+		background-color: $cmu-color-ltgray;
+
 		h5 {
 			color: $cmu-color-inactive;
 		}
 
-		&.open {
-			color: $cmu-color-body;
-			background-color: $cmu-color-purewhite;
-
-			&:hover {
-				background-color: $cmu-color-vltblue;
-				&:before {
-					background-color: $cmu-color-ltblue;
-					@extend %ease-fast;
-				}
-			}
-
+		&:hover {
+			
 			&:before {
+				color: $cmu-color-ltblue;
 				@extend %ease-fast;
-				background-color: $cmu-color-vltblue;
 			}
 		}
 	}
 
-		// lighter color scheme used in the feed
+
+		// medium color scheme used in the feed
 	.cmuCollapser__header--medium {
 		border: 1px solid $cmu-color-ltmdgray;
 		h5 {
