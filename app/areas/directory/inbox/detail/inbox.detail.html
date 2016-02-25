@@ -3,7 +3,24 @@
 	<div class="cmuInbox__detail--header row">
 		<div class="col--md6">
 			<h2>{{ vm.originalMessage.subject }}</h2>
-			<div class="cmuInbox__list__title"><span>{{ vm.originalMessage.postDate | timeFromNow }}</span> ${{ directory.inbox.with }}$ {{ vm.recipientString }}</div>
+			<div class="cmuInbox__list__title">
+				<!-- <span>{{ vm.originalMessage.postDate | timeFromNow }}</span>  -->
+				<!-- ${{ directory.inbox.with }}$  -->
+				{{ vm.recipientString }}</div>
+			<!-- delay feature
+				<div class="cmuSearchbox cmuHalfRow">
+				<ui-select class="cmuHalfRow cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.newTopic.recipientIds">
+					<ui-select-match placeholder="${{ directory.inbox.addUser }}$" >{{ $item.login }}</ui-select-match>
+					<ui-select-choices 
+					  refresh="vm.searchUsers($select.search)"
+					  refresh-delay="2" 
+					  class="cmuInputSelector--choices" 
+					  repeat="user.id as user in vm.searchedUsers | filter: { login: $select.search }">
+					    <li ng-bind-html="user.login | highlight: $select.search"></li>
+					</ui-select-choices>
+				</ui-select>
+				<label>${{ directory.inbox.recipients }}$</label>
+			</div> -->
 		</div>
 		<div class="cmuInbox__pagerContainer col--md6">
 			<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>

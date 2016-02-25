@@ -11,12 +11,30 @@
 
 	}
 
+	.cmuInbox__ctrl {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+		.cmuInbox__count {
+			display: inline-block;
+			margin-left: $cmu-base/2;
+		}
+		.cmuInbox__unread {
+			// display: none;
+		}
+		.cmuInbox__ctrl.new {
+			.cmuInbox__unread {
+				display: inline-block;
+				span {
+					font-weight: bold;
+				}
+			}
+		}
 
 
 	// sidebar
 	.cmuInbox__list {
-		// border-right: $style-line;
-		height: $cmu-base * 37;
+		border: $style-line;
+		// max-height: $cmu-base * 30;
 		overflow: scroll;
 	}
 		.cmuInbox__list__title {
@@ -27,14 +45,30 @@
 		}
 		.cmuInbox__list__message {
 			display: block;
-			border: $style-line;
 			padding: $cmu-base/2;
-			margin-bottom: $cmu-base/2;
+			border-right: 8px solid transparent;
+			border-bottom: $style-line;
+			// border: $style-line;
+			// margin-bottom: $cmu-base/2;
+
+			&.unread {
+
+			}
+
+			&.current {
+				border-right: 8px solid $cmu-color-active;
+				background-color: $cmu-color-xltgray;
+			}
 
 			&:hover {
 				background-color: $cmu-color-hover;
 			}
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
 		}
+
 			.cmuInbox__list__rowFirst {
 			}
 			.cmuInbox__list__subject {
@@ -44,14 +78,27 @@
 				margin-bottom: $cmu-vertical-rhythm/2;
 
 			}
+			.cmuInbox__list__unreadCount {
+				display: none
+			}
+				.unread .cmuInbox__list__unreadCount {
+					display: inline-block;
+					padding: 0 $cmu-base/3;
+					background: $cmu-color-orange;
+					border-radius: 50%;
+				}
+		.cmuInbox__list--empty {
+			padding: $cmu-base;
+			text-align: center;
+		}
 
 	.cmuInbox__controls {
 		margin-bottom: $cmu-vertical-rhythm / 2;
 	}
 
 	.cmuInbox__update {
-		margin-left: $cmu-base/2; 
-		margin-bottom: $cmu-vertical-rhythm / 2;
+		// margin-left: $cmu-base/2; 
+		// margin-bottom: $cmu-vertical-rhythm / 2;
 	
 		&:not(.new) {
 			button, & {
@@ -66,8 +113,9 @@
 
 	// main
 	.cmuInbox__main {
-		padding: 0;
-		padding-left: $cmu-base;
+		padding: $cmu-base;
+		border: $style-line;
+    	margin-left: -1px; // overlap the borders
 	}
 
 
@@ -208,3 +256,4 @@
         @extend %size-xsmaller;
         color: $cmu-color-mdgray;
     }
+

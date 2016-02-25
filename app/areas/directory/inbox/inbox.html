@@ -4,54 +4,56 @@
 
 	<div class="cmuInbox__container inbox-container">
 
-		<div class="cmuInbox__controls row">
-			<a area-link-handler link-handler-route="inbox.newtopic"><div class="button button--solid">${{ directory.inbox.newMessage }}$</div></a>
-			<button class="cmuInbox__update button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
-		</div>
+		 <div class="cmuInbox__ctrl row" ng-class="{'new':vm.checkNewMessages()}">
+		 	<a class="button button--solid" area-link-handler link-handler-route="inbox.newtopic">${{ directory.inbox.newMessage }}$</a>
+		 	<button class="cmuInbox__update" ng-class="{'new':vm.checkNewMessages()}" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
+        	<span class="cmuInbox__count">
+				<span>{{ vm.messageList.content.length }} ${{ directory.inbox.messages}}$</span><span class="cmuInbox__unread">, <span>{{ ::vm.newThreadCount() }} ${{ directory.inbox.unread}}$</span></span>
+			</span>
+        </div>
 
 		<div class="row">
-			<div class="col--md12">3 of {{ vm.messageList.content.length }} unread.</div>
-		</div>
-<!-- 
-		 <div class="cmuInbox__update row" ng-class="{'new':vm.checkNewMessages()}">
-        	<button class="button--ghost button--blue-on-white" ng-click="vm.refreshMessages()"><span class="icon ubnt-icon--refresh-2"></span> ${{ directory.feed.refresh }}$</button>
-        </div> -->
+			<div class="col--md4 noPadding">
+				<div 
+				community-sticky sticky-class="cmuStuck" offset="30" fill-viewport="true" sticky-bound="cmuInbox__container">
+					<div class="cmuInbox__sidebar">
 
-		<div class="row">
-			<div class="cmuInbox__sidebar col--md4 noPadding">
+				        <div class="cmuInbox__list">
+				        	<!-- <span class="cmuInbox__list__title">Showing <h5>10</h5> of <h5>40</h5></span> -->
+							<a class="cmuInbox__list__message" 
+								ng-class="{'current':vm.isActive(message.topic.id), 'unread': message.unreadCount > 0}"
+								ui-sref="inbox.detail({ messageId: message.topic.id })"
+								ng-repeat="message in vm.messageList.content">
+									<div class="cmuInbox__list__rowFirst row">
+										<div class="col--md8 noPadding">
+											<div class="cmuInbox__list__subject"> {{ vm.getSubject(message.topic.subject) }} 
+												<span class="cmuInbox__list__unreadCount">{{ message.unreadCount }}</span>
+											</div>
+										</div>
+										<div class="col--md4 alignRight">
+											<span class="style-date">{{ message.topic.lastActivityDate || message.topic.postDate | timeFromNow }}</span>
+										</div>
+									</div>
 
-		        <div class="cmuInbox__list">
-		        	<!-- <span class="cmuInbox__list__title">Showing <h5>10</h5> of <h5>40</h5></span> -->
-					<a class="cmuInbox__list__message" 
-						ui-sref="inbox.detail({ messageId: message.topic.id })"
-						ng-repeat="message in vm.messageList.content">
-							<div class="cmuInbox__list__rowFirst row">
-								<div class="col--md8">
-									<div class="cmuInbox__list__subject">{{ message.topic.subject }}</div>
-								</div>
-								<div class="col--md4 alignRight">
-									<span class="style-date">{{ message.topic.postDate | timeFromNow }}</span>
-								</div>
+									<div class="cmuInbox__list__rowSecond">
+										<div class="cmuInbox__list__recipients">{{ vm.getRecipientString(message.recipients) }}
+										</div>
+										<p>{{ message.topic.body | unformatText | wordCut:20 }}</p>
+									</div>
+							</a>
+
+							<div class="cmuInbox__list--empty" ng-if="vm.messageList.content.length < 1">
+								<span class="cmuHalfRow"> ${{ directory.inbox.noMessages }}$ </span>
 							</div>
-
-							<div class="cmuInbox__list__rowSecond">
-								<div class="cmuInbox__list__recipients">{{ vm.getRecipientString(message.recipients) }}
-								</div>
-								<p>{{ message.topic.body | unformatText | wordCut:20 }}</p>
-							</div>
-					</a>
-
-					<div class="cmuInbox__list--empty" ng-if="vm.messageList.content.length < 1">
-						<h2 class="cmuHalfRow"> ${{ directory.inbox.noMessages }}$ </h2>
-						<span> <a area-link-handler link-handler-route="inbox.newtopic"><span class="button button--solid"> ${{ directory.inbox.whyNotSend }}$ </span> </a> </span>
+						</div>
+						<community-load-more list-model="vm.messageList" load-filter="vm.messageFilter"></community-load-more>
 					</div>
 				</div>
-				<community-load-more list-model="vm.messageList" load-filter="vm.messageFilter"></community-load-more>
 			</div>
 
-			<div class="cmuInbox__main col--md8 noPaddingRight">
+			<div class="cmuInbox__main col--md8">
 				<div ng-show="vm.showDetailLoader">
-					<div ng-include="'partials/loader.html'"></div>
+					<div class="cmuLoader__container--tight" ng-include="'partials/loader.html'"></div>
 				</div>
 				<div ng-show="!vm.showDetailLoader">
 					<div ui-view="mainContent" autoscroll="false"></div>

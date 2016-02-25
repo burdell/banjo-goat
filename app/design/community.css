@@ -6722,7 +6722,7 @@ ol, li {
   display: none;
 }
 
-.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .cmuNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--outline.button-gray-on-black, .button-gray-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--solid.button-blue-on-gray, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
+.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .cmuNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-blue-on-white, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--outline.button-gray-on-black, .button-gray-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--solid.button-blue-on-gray, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
@@ -7119,6 +7119,11 @@ body {
 
 .cmuStuck--bottom {
   position: absolute !important;
+}
+
+.cmuStuck--fillViewport {
+  overflow-y: scroll;
+  height: calc(100vh - 100px);
 }
 
 .cmuLoading {
@@ -9723,8 +9728,24 @@ div.cmuCollapser__content {
   transform: translateX(50%);
 }
 
+.cmuInbox__ctrl {
+  margin-bottom: 1rem;
+}
+
+.cmuInbox__count {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.cmuInbox__ctrl.new .cmuInbox__unread {
+  display: inline-block;
+}
+.cmuInbox__ctrl.new .cmuInbox__unread span {
+  font-weight: bold;
+}
+
 .cmuInbox__list {
-  height: 37rem;
+  border: 1px solid #dadada;
   overflow: scroll;
 }
 
@@ -9739,12 +9760,19 @@ div.cmuCollapser__content {
 
 .cmuInbox__list__message {
   display: block;
-  border: 1px solid #dadada;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  border-right: 8px solid transparent;
+  border-bottom: 1px solid #dadada;
+}
+.cmuInbox__list__message.current {
+  border-right: 8px solid #00a0df;
+  background-color: #f3f3f3;
 }
 .cmuInbox__list__message:hover {
   background-color: #f3f3f3;
+}
+.cmuInbox__list__message:last-of-type {
+  border-bottom: 0;
 }
 
 .cmuInbox__list__subject {
@@ -9755,14 +9783,26 @@ div.cmuCollapser__content {
   margin-bottom: 0.5rem;
 }
 
+.cmuInbox__list__unreadCount {
+  display: none;
+}
+
+.unread .cmuInbox__list__unreadCount {
+  display: inline-block;
+  padding: 0 0.33333rem;
+  background: #ffaa00;
+  border-radius: 50%;
+}
+
+.cmuInbox__list--empty {
+  padding: 1rem;
+  text-align: center;
+}
+
 .cmuInbox__controls {
   margin-bottom: 0.5rem;
 }
 
-.cmuInbox__update {
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .cmuInbox__update:not(.new) button, .cmuInbox__update:not(.new) {
   cursor: default;
   border-color: #bbbbbd;
@@ -9770,8 +9810,9 @@ div.cmuCollapser__content {
 }
 
 .cmuInbox__main {
-  padding: 0;
-  padding-left: 1rem;
+  padding: 1rem;
+  border: 1px solid #dadada;
+  margin-left: -1px;
 }
 
 .cmuInbox__detail--header {
@@ -10112,11 +10153,7 @@ button + button, button + select, .button + .button, .button + select, .cmuButto
   margin-left: 0.5rem;
 }
 
-button + .button {
-  margin-left: 0.5rem;
-}
-
-.button + .button {
+button + .button, .button + .button, button + button, .button + button {
   margin-left: 0.5rem;
 }
 
@@ -10128,6 +10165,17 @@ button + .button {
   border-color: #00a0df;
 }
 .button--ghost:hover {
+  color: black;
+  border-color: black;
+}
+.button--ghost.button-blue-on-white {
+  color: #00a0df;
+  background-color: default;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
+}
+.button--ghost.button-blue-on-white:hover {
   color: black;
   border-color: black;
 }
