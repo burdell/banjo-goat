@@ -12,10 +12,10 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span>
-	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
-	        	<button community-permissions class="button--ghost col--md2" community-permissions>${{ forums.message.subscribe }}$</button>
+	        	<button class="button--solid button--thin col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
+	        	<button community-permissions class="button--ghost button--thin col--md2" community-permissions>${{ forums.message.subscribe }}$</button>
 	        	<span community-permissions="message.can_edit_message" denied-behavior="hide">
-					<a class="button button--ghost col--md2" 
+					<a class="button button--ghost button--thin col--md2" 
 						area-link-handler="{{ vm.editUrl }}">
 						<span class="icon ubnt-icon--pencil-2"></span>
 						<span>${{ core.actions.edit }}$</span>

@@ -9461,7 +9461,8 @@ div.cmuCollapser__content {
 
 .cmuThread__subject__subtitle {
   color: #969ba3;
-  font-weight: bold;
+  font-style: italic;
+  font-weight: 300;
   margin-top: -2rem;
 }
 
@@ -11862,7 +11863,6 @@ select.cmuSort {
 
 .cmuTextEditor__help {
   margin-top: 0.5rem;
-  max-width: 640px;
 }
 .cmuTextEditor__help .markhelp {
   padding: 1rem;
@@ -12639,6 +12639,8 @@ select.cmuSort {
   margin-top: 1rem;
   margin-bottom: 2rem;
   line-height: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 .cmuStories__story__controlsTop {
