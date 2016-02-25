@@ -559,6 +559,11 @@ $stat-padding: $cmu-base/8 $cmu-base/2;
 	.cmuStuck--bottom {
 		position: absolute !important;
 	}
+	// used to fill the entire viewport height
+	.cmuStuck--fillViewport {
+		overflow-y: scroll;
+		height: calc(100vh - 100px);
+	}
 
 
 // Loading Effect
@@ -571,8 +576,6 @@ $stat-padding: $cmu-base/8 $cmu-base/2;
 		@extend %ease-fast;
 	}
 }
-
-
 
 
 

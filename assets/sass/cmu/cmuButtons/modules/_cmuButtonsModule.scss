@@ -213,13 +213,9 @@ button, .button, .cmuButton {
 		margin-left: $cmu-base/2;
 	}
 }
-	button + .button {
+	button + .button, .button+.button, button+button, .button+button {
 		margin-left: $cmu-base/2;
 	}
-	.button+.button {
-		margin-left: $cmu-base/2;
-	}
-
 
 
 
@@ -233,6 +229,9 @@ button, .button, .cmuButton {
 	$mode: 'ghost';
 	@include cmuButton($mode,$cmu-button-color-base);
 
+	&.button-blue-on-white {
+		@include cmuButton($mode,$cmu-color-blue);
+	}
 	&.button-green-on-white {
 		@include cmuButton($mode,$cmu-color-green);
 	}
