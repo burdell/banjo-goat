@@ -114,10 +114,10 @@
 	},
 	"pulse": {
 		"liveActivity": "Actividad en vivo",
-		"membersOnline": "Usuarios en línea",
-		"postsToday": "Mensajes de hoy",
-		"totalMembers": "Total de Usuarios",
-		"totalPosts": "Total de Mensajes"
+		"membersOnline": "Usuarios en&nbsp;línea",
+		"postsToday": "Mensajes de&nbsp;hoy",
+		"totalMembers": "Total&nbsp;de Usuarios",
+		"totalPosts": "Total&nbsp;de Mensajes"
 	},
 	"productnavigator": {
 		"selectPlatform": "Seleccione una plataforma"
