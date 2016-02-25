@@ -27,7 +27,16 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		       
 		    },
 		    spellChecker: localizationService.currentLocale === 'en',
-		    placeholder: editorCtrl.placeholder
+		    placeholder: editorCtrl.placeholder,
+		    toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|",
+		    	"link", "|", {
+		    		name: "emoji",
+		            action: function(editor) {
+		                console.log("mogeeeey!!!");
+		            },
+		            className: "fa fa-circle",
+		            title: "Emoji"
+		    	}]
 		};
 
 		var isMinimal = (editorCtrl.minimalEditor == "true"); // unfancy but works

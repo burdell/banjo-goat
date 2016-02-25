@@ -13,6 +13,7 @@
 
 .cmuEmoji {
 	.emojiPickerIcon {
+		display: inline-block;
 		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNzYuODkxIiB
 oZWlnaHQ9IjI3Ni44OTEiIHZpZXdCb3g9IjAgMCAyNzYuODkxIDI3Ni44OTEiPgogIDxjaXJjbG
 UgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDQ0NDQ0IiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2Utb
@@ -86,7 +87,7 @@ Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4
 
 // have to move the standard toolbar over / temp fix
 .cmuStories .editor-toolbar {
-	padding-right: $cmu-base*2
+	// padding-right: $cmu-base*2
 
 }
 

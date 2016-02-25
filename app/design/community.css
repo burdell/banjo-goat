@@ -12110,6 +12110,7 @@ select.cmuSort {
 }
 
 .cmuEmoji .emojiPickerIcon {
+  display: inline-block;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNzYuODkxIiB oZWlnaHQ9IjI3Ni44OTEiIHZpZXdCb3g9IjAgMCAyNzYuODkxIDI3Ni44OTEiPgogIDxjaXJjbG UgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDQ0NDQ0IiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2Utb Wl0ZXJsaW1pdD0iMTAiIGN4PSIxMzguNDQ1IiBjeT0iMTM4LjQ0NSIgcj0iMTMyLjk0NSIvPgog IDxjaXJjbGUgY3g9IjY4LjEyIiBjeT0iMTI1LjM5NSIgcj0iMTYuNTA3IiBzdHJva2U9IiM0NDQ 0NDQiIGZpbGw9IiM0NDQ0NDQiLz4KICA8Y2lyY2xlIGN4PSIyMDguNjE3IiBjeT0iMTI1LjM5NS Igcj0iMTYuNTA4IiBzdHJva2U9IiM0NDQ0NDQiIGZpbGw9IiM0NDQ0NDQiLz4KICA8cGF0aCBma WxsPSJub25lIiBzdHJva2U9IiM0NDQ0NDQiIHN0cm9rZS13aWR0aD0iMjQiIHN0cm9rZS1saW5l Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4 3OTMgNzAuNzA0IDE0MC40OTggMCIvPgo8L3N2Zz4=");
 }
 .cmuEmoji .emojiPickerIcon:hover {
@@ -12152,10 +12153,6 @@ select.cmuSort {
   left: inherit;
 }
 
-.cmuStories .editor-toolbar {
-  padding-right: 2rem;
-}
-
 .emoji {
   width: 1.5em;
   height: 1.5em;
@@ -12172,9 +12169,6 @@ select.cmuSort {
 }
 
 .emojiPickerIcon {
-  position: absolute;
-  top: 0;
-  right: 0;
   cursor: pointer;
 }
 
