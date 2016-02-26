@@ -12,7 +12,7 @@ function communityTooltip() {
 	var link = function(scope, element, attrs) {			
 		$(element).tooltipster({
 			contentAsHtml: true,
-			content: '<div class="cmuLoader__container cmuLoader__container--small cmuLoader__container--tight"><div class="cmuLoader"><span></span></div></div>',
+			content: '',
 			position: 'bottom',
 			position: scope.tooltip.position,
 			interactiveTolerance: '550',
@@ -22,6 +22,9 @@ function communityTooltip() {
 			theme: scope.tooltip.tooltipClass,
 			functionBefore: function(origin, continueTooltip) {
 				continueTooltip();
+
+				// init with loader
+				origin.tooltipster('content', '<div class="cmuLoader__container cmuLoader__container--small cmuLoader__container--tight"><div class="cmuLoader"><span></span></div></div>') 
 
 				if (typeof(scope.tooltip.textData) == 'undefined') {
 

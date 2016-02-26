@@ -12,7 +12,7 @@ require('directives/texteditor/texteditor.js');
 require('directives/pager/pager.js');
 require('directives/attachmentdisplay/attachmentdisplay.js');
 
-var inboxMessageController = function($scope, $state, $interval, $stateParams, breadcrumbService, inboxService, apiService, inboxThreadFilter, communityApi, currentUserService, timeFromNow){
+var inboxMessageController = function($scope, $state, $interval, $stateParams, breadcrumbService, inboxService, apiService, inboxThreadFilter, communityApi, currentUserService, timeFromNow, localizationService){
 	var ctrl = this;
 
 	var currentUserId = null;
@@ -88,6 +88,12 @@ var inboxMessageController = function($scope, $state, $interval, $stateParams, b
 			ctrl.curDate = curDate;
 			return false
 		},
+		getSubject: function() {
+			if (ctrl.originalMessage.subject!="") 
+				return ctrl.originalMessage.subject;
+			else 
+				return "(" + localizationService.data.directory.inbox.noSubject + ")";
+		},
 		searchedUsers: [],
 		searchUsers: function(searchTerm){
 			if (searchTerm && searchTerm.length > 1) {
@@ -133,7 +139,8 @@ inboxMessageController.$inject = [
 	'InboxThreadFilter',
 	require('services/api.js'),
 	require('services/currentuser.js'),
-	require('filters/timefromnow.js')
+	require('filters/timefromnow.js'),
+	'CommunityLocalizationService'
 ];
 
 angular.module('community.directory')

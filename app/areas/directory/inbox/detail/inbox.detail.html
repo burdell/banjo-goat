@@ -2,11 +2,12 @@
 
 	<div class="cmuInbox__detail--header row">
 		<div class="col--md6">
-			<h2>{{ vm.originalMessage.subject }}</h2>
+			<h2>{{ vm.getSubject(message.topic.subject) }}</h2>
 			<div class="cmuInbox__list__title">
 				<!-- <span>{{ vm.originalMessage.postDate | timeFromNow }}</span>  -->
 				<!-- ${{ directory.inbox.with }}$  -->
 				{{ vm.currentUser.login }}, {{ vm.recipientString }}</div>
+
 			<!-- delay feature
 				<div class="cmuSearchbox cmuHalfRow">
 				<ui-select class="cmuHalfRow cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.newTopic.recipientIds">
