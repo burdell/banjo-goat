@@ -9817,7 +9817,6 @@ div.cmuCollapser__content {
 
 .cmuInbox__detail--header {
   position: relative;
-  margin-bottom: 0.5rem;
   border-bottom: 1px solid #dadada;
 }
 .cmuInbox__detail--header h2 {
@@ -9836,8 +9835,8 @@ div.cmuCollapser__content {
 
 .cmuInbox__message {
   display: block;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  padding-bottom: 0;
   border-bottom: 0;
 }
 .cmuInbox__message:last-of-type {
@@ -9845,19 +9844,48 @@ div.cmuCollapser__content {
   border-bottom: 1px solid #dadada;
   margin-bottom: 2rem;
 }
+.cmuInbox__message p {
+  padding: 0.25rem 0;
+}
+.cmuInbox__message p:first-of-type {
+  padding-top: 0.5rem;
+}
+.cmuInbox__message.newUser {
+  border-top: 1px solid #dadada;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  padding-bottom: 0;
+}
+.cmuInbox__message.newUser .cmuInbox__message__date {
+  padding-top: 0.25rem;
+}
+.cmuInbox__message.newUser .cmuUsername {
+  opacity: 0.4;
+}
+.cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) {
+  padding: 0;
+}
+.cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) .cmuUsername, .cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) .cmuInbox__message__badge div {
+  display: none;
+}
+.cmuInbox__message .cmuInbox__message__date {
+  padding-top: 0.5rem;
+}
+.cmuInbox__message:not(.newDate):not(.newUser) .cmuInbox__message__date {
+  display: none;
+}
+.cmuInbox__message:first-of-type {
+  border-top: 0;
+  margin-top: 0;
+}
 .cmuInbox__message .cmuUserbadge__user {
   display: inline-block;
 }
 .cmuInbox__message .cmuInbox__message__badge {
   width: 10%;
+  min-height: 1px;
   display: inline-block;
   float: left;
-}
-.cmuInbox__message .cmuInbox__message__badge .cmuUserbadge__account {
-  padding-left: 0;
-}
-.cmuInbox__message .cmuInbox__message__badge .cmuUsername {
-  display: none;
 }
 .cmuInbox__message .cmuInbox__message__main {
   width: 90%;

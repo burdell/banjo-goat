@@ -76,7 +76,6 @@ function sticky($document, $window) {
 					angularTarget.css("width", targetWidth + 'px');
 
 					if (fillViewport && !isTargetSmallerThanViewport()) {
-						console.log('yep')
 						angularTarget.addClass("cmuStuck--fillViewport");
 						angularContainer.addClass("cmuStuck--fillViewportContainer");
 					}

@@ -7,7 +7,7 @@ require('filters/unformattext.js');
 require('filters/timefromnow.js');
 require('filters/wordcut.js');
 
-var inboxController = function($location, $scope, $state, breadcrumbService, inboxService, messageFilter, localizationService){
+var inboxController = function($location, $interval, $scope, $state, breadcrumbService, inboxService, messageFilter, localizationService){
 	var ctrl = this;
 
 	$scope.$on('$stateChangeStart', function(){
@@ -35,6 +35,17 @@ var inboxController = function($location, $scope, $state, breadcrumbService, inb
 	};
 	messageFilter.set({ onFilter: setMessageData });
 	var initialNewMessageCount = inboxService.newDataCount;
+
+	// check for updates; stop when not on message
+	var checker;
+	function stopChecking() {
+		$interval.cancel(checker);
+	}
+	checker = $interval(function() {
+        if (!$state.includes('inbox'))
+        	stopChecking();
+        ctrl.refreshMessages();
+    }, 5000);
 
 	_.extend(ctrl, {
 		messageFilter: messageFilter,
@@ -71,6 +82,7 @@ var inboxController = function($location, $scope, $state, breadcrumbService, inb
 };
 inboxController.$inject = [
 	'$location',
+	'$interval', 
 	'$scope', 
 	'$state',
 	require('services/breadcrumb.js'),

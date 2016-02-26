@@ -1,5 +1,7 @@
-<div class="cmuUserbadge__avatar" ng-style="{'background-image':'url({{ useravatar.user.avatarUrl }})'}">
-	<div 
-		class="cmuUserbadge__activity cmuUserbadge__activity--active">
-	</div>
+<div>
+	<a class="cmuUserbadge__avatar" ng-style="{'background-image':'url({{ useravatar.user.avatarUrl }})'}" area-link-handler="{{ useravatar.userProfileHref }}">
+		<div 
+			class="cmuUserbadge__activity cmuUserbadge__activity--active">
+		</div>
+	</a>
 </div>

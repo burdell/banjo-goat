@@ -1,3 +1,7 @@
+'use strict';
+
+require('directives/arealinkhandler/arealinkhandler.js');
+
 (function(_){
 	'use strict';
 	
@@ -5,9 +9,15 @@
 		var link = function(scope, element, attrs) {			
 		};
 
-		var controller = function() {
+		var controller = function(routingService) {
+			var ctrl = this;
+			var displayUser = ctrl.user;
+			if (!displayUser) {
+				return;
+			}
+			ctrl.userProfileHref = routingService.generateUrl('userprofile', { userId: displayUser.login });
 		};
-		controller.$inject = [];
+		controller.$inject = ['CommunityRoutingService'];
 
 	    var directive = {
 	        link: link,

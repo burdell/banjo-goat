@@ -145,7 +145,7 @@
 	.cmuInbox__detail--header {
 		position: relative;
 		// margin-top: $cmu-vertical-rhythm;
-		margin-bottom: $cmu-vertical-rhythm/2;
+		// margin-bottom: $cmu-vertical-rhythm/2;
 
 		h2 {
 		    // margin-bottom: $cmu-base/2;
@@ -171,8 +171,9 @@
 
 	.cmuInbox__message {
 		display: block;
-		padding: $cmu-base/2;
-		margin-bottom: $cmu-base;
+		padding: $cmu-base/2 0;
+		padding-bottom: 0;
+		// margin-bottom: $cmu-base;
 
 		// border: $style-line;
 		border-bottom: 0;
@@ -188,21 +189,63 @@
 		// @include box-shadow(2px, 2px, 2px, rgba($cmu-color-dkgray, 0.2));
 
 
+		p {
+			padding: $cmu-vertical-rhythm/4 0;
+		}
+		p:first-of-type {
+			padding-top: $cmu-vertical-rhythm/2;
+		}
+
+		// first message of a user in convo
+		&.newUser {
+			border-top: $style-line;
+			margin-top: $cmu-vertical-rhythm/2;
+			padding: $cmu-vertical-rhythm/2 0;
+			padding-bottom: 0;
+
+			.cmuInbox__message__date {
+				padding-top: $cmu-vertical-rhythm/4;
+			}
+
+			.cmuUsername {
+				opacity: 0.4; // username conflicts too much with text
+			}
+		}
+
+		// more messages by same user
+		&.newUser ~ &:not(.newUser) {
+			padding: 0;
+
+			.cmuUsername, .cmuInbox__message__badge div {
+				display: none;
+			}
+		}
+
+		.cmuInbox__message__date {
+			padding-top: $cmu-vertical-rhythm/2;
+		}
+		&:not(.newDate):not(.newUser) {
+			.cmuInbox__message__date {
+				display: none;
+			}
+		}
+
+
+		&:first-of-type {
+			border-top: 0;
+			margin-top: 0;
+		}
+
+
 		.cmuUserbadge__user {
 			display: inline-block;
 		}
 
 		.cmuInbox__message__badge {
 			width: 10%;
+			min-height: 1px; // force it to block
 		    display: inline-block;
 		    float: left;
-
-		    .cmuUserbadge__account {
-		    	padding-left: 0;
-		    }
-			.cmuUsername {
-				display: none;
-			}
 		}
 
 		.cmuInbox__message__main {

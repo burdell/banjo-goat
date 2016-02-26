@@ -12,12 +12,13 @@ require('directives/texteditor/texteditor.js');
 require('directives/pager/pager.js');
 require('directives/attachmentdisplay/attachmentdisplay.js');
 
-var inboxMessageController = function($scope, $state, $interval, $stateParams, breadcrumbService, inboxService, apiService, inboxThreadFilter, communityApi, currentUserService){
+var inboxMessageController = function($scope, $state, $interval, $stateParams, breadcrumbService, inboxService, apiService, inboxThreadFilter, communityApi, currentUserService, timeFromNow){
 	var ctrl = this;
 
 	var currentUserId = null;
 	currentUserService.get().then(function(userObj){
 		currentUserId = userObj.user.id;
+		ctrl.currentUser = userObj.user;
 	});
 
 	$scope.$on('$stateChangeStart', function(e, targetState){
@@ -37,9 +38,9 @@ var inboxMessageController = function($scope, $state, $interval, $stateParams, b
 		ctrl.messageList = result.messages;
 		ctrl.numberOfPages = result.messages.totalPages;
 		setOriginalData(ctrl.messageList.content[0], result.recipients);
-
 	};
 	inboxThreadFilter.set({ onFilter: setThreadData });
+	inboxThreadFilter.filter({ page: ctrl.numberOfPages }); // turn to the last page
 
 	var messagesPerPage = inboxThreadFilter.model('per_page');
 	var topicId = Number($stateParams.messageId);
@@ -53,13 +54,40 @@ var inboxMessageController = function($scope, $state, $interval, $stateParams, b
 	checker = $interval(function() {
         if (ctrl.originalMessage.id != $state.params.messageId)
         	stopChecking();
-        inboxThreadFilter.filter({ page: 1 });
+
+        // only load new data when viewing the last page or when page first loaded, or the page will jump
+        var currentPage = ctrl.threadFilter.model('page');
+        if (currentPage == ctrl.numberOfPages || typeof(currentPage) == "undefined") {
+			var messageData = ctrl.messageList;
+			var targetPage = Math.ceil( (messageData.totalElements+1) / messagesPerPage);
+			inboxThreadFilter.filter({ page: targetPage });
+		}
     }, 5000);
-
-
-
-
 	_.extend(ctrl, {
+		curUserLogin: "",
+		isNewUser: function(user, index){
+			if (index == 0) {
+				ctrl.curUserLogin = user.login;
+				return true;
+			}
+
+			if ( ctrl.curUserLogin != user.login ) {
+				ctrl.curUserLogin = user.login;
+				return true;
+			}
+			ctrl.curUserLogin = user.login;
+		},
+		curDate: null,
+		isNewDate: function(curDate){
+			curDate = timeFromNow(curDate);
+
+			if ( ctrl.curDate != curDate ) {
+				ctrl.curDate = curDate;
+				return true;
+			}
+			ctrl.curDate = curDate;
+			return false
+		},
 		searchedUsers: [],
 		searchUsers: function(searchTerm){
 			if (searchTerm && searchTerm.length > 1) {
@@ -90,7 +118,8 @@ var inboxMessageController = function($scope, $state, $interval, $stateParams, b
 					ctrl.submittingReply = false;
 				});
 			}
-		}
+		},
+		currentUser: ""
 	});
 };
 inboxMessageController.$inject = [
@@ -103,7 +132,8 @@ inboxMessageController.$inject = [
 	require('services/api.js'),
 	'InboxThreadFilter',
 	require('services/api.js'),
-	require('services/currentuser.js')
+	require('services/currentuser.js'),
+	require('filters/timefromnow.js')
 ];
 
 angular.module('community.directory')

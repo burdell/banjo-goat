@@ -51,3 +51,10 @@ angular.module('community.filters')
 angular.module('community.filters')
 	.filter('exactTimeFromNow', exactTimeFromNow);
 
+
+// used in inbox.detail to compare fuzzy time. sorry nathan
+var serviceName = 'TimeFromNowService';
+angular.module('community.services')
+	.service(serviceName, timeFromNow);
+module.exports = serviceName;
+
