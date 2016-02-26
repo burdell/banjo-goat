@@ -313,6 +313,14 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				return goToApi(v2Url + 'messages/' + messageId + '/position');
 			}
 		},
+		Subscriptions: {
+			add: function(subscriptionModel) {
+				return goToApi(v2Url + 'subscriptions', subscriptionModel, 'POST');
+			},
+			remove: function(subscriptionId) {
+				return goToApi(v2Url + 'subscriptions/' + subscriptionId, null, 'DELETE');
+			}
+		},
 		Stories: {
 			all: function(options) {
 				return goToApi(v2Url + 'stories', options);
@@ -391,6 +399,9 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 			},
 			settings: function(){
 				return goToApi(v2Url + 'settings');
+			},
+			subscriptions: function(options) {
+				return goToApi(v2Url + urlSegments.User('self') + 'subscriptions', options);
 			}
 		}
 	}

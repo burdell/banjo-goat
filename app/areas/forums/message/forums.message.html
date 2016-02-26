@@ -13,7 +13,7 @@
         <div class="col--md8 noPaddingLeft">
         	<span>
 	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
-	        	<button community-permissions class="button--ghost col--md2" community-permissions>${{ forums.message.subscribe }}$</button>
+	        	<community-subscribe></community-subscribe>
 	        	<span community-permissions="message.can_edit_message" denied-behavior="hide">
 					<a class="button button--ghost col--md2" 
 						area-link-handler="{{ vm.editUrl }}">
@@ -66,7 +66,7 @@
         <div class="col--md8 noPaddingLeft">
         	<span>
 	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
-	        	<button class="button--ghost button-blue-on-white col--md2" community-permissions denied-behavior="hide">${{ forums.message.subscribe }}$</button>
+	        	<community-subscribe></community-subscribe>
 				<span community-permissions="message.can_edit_message" denied-behavior="hide">
 					<a  class="button button--ghost col--md2" area-link-handler="{{ vm.editUrl }}">
 						<span class="icon ubnt-icon--pencil-2"></span>

@@ -7,8 +7,6 @@ var _ = require('underscore');
 var userSettingsController = function(userData, userSettings, breadcrumbService){
 	var ctrl = this;
 
-	debugger;
-
 	var currentBreadcrumb = breadcrumbService.CurrentBreadcrumb;
 	var userName = userData.user.login;
 	if (!currentBreadcrumb || currentBreadcrumb.name !== userName) {

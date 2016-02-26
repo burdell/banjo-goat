@@ -44,7 +44,7 @@ var permissions = function($parse, $q, routingService){
 			var isAuthenticated = currentUser.isAuthenticated();
 			if (!isAuthenticated) {
 				return false;
-			}
+			} 
 
 			var hasPermissionsRequested = true;
 			 _.each(requestedPermissions, function(requestedPermission) {

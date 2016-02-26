@@ -59,10 +59,10 @@ var routesProvider = function(){
 		hub: '/' + strings.directory + '/:nodeId/',
 		feed: '/',
 		notifications: '/' + strings.notifications,
-		//userprofile: '/' + strings.user + '/:' + detailIds.user,
 		userprofile: {
 			userprofile: userprofileBase,
-			usersettings: '/' + strings.edit
+			usersettings: '/' + strings.edit,
+			subscriptions: '/subscriptions'
 		},
 		searchpage: '/' + strings.search,
 		utils: {

@@ -77,7 +77,8 @@ var profileController = function($scope, breadcrumbService, communityDefaults, a
 	}
 
 	$scope.$on('$stateChangeStart', function(event, toState){
-		if (toState.name !== 'userprofile.usersettings') {
+		var targetState = toState.name;
+		if (targetState !== 'userprofile.usersettings' && targetState !== 'userprofile.subscriptions') {
 			breadcrumbService.clearCurrentBreadcrumb();
 		}
 	});
