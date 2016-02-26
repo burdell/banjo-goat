@@ -7,8 +7,7 @@
 
 
 	<div ng-show="!fileupload.uploadInProgress">
-		<div>{{ fileupload.displayText || '${{ directives.fileupload.uploadFile }}$' }}</div>
-		<button ng-click="fileupload.triggerBrowse()">${{ directives.fileupload.browseFiles }}$</button>
+		<button ng-click="fileupload.triggerBrowse()">{{ fileupload.displayText || '${{ directives.fileupload.uploadFile }}$' }}</button>
 	</div>
 
 	<div class="cmuInputFile--uploading" ng-repeat="upload in fileupload.uploadingItems">
