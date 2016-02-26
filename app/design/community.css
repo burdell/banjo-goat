@@ -6842,7 +6842,7 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-.type-base, body, .cmuNav__mobile__search, .cmuThread__stats, .cmuUserbadge__account .cmuUsername, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
+.type-base, body, .cmuNav__mobile__search, .cmuThread__stats, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
   font-size: 0.8125rem;
   line-height: 1.24rem;
 }
@@ -6852,7 +6852,7 @@ body {
   line-height: 1.125rem;
 }
 
-.type-info, .cmuInlineInfo, .cmuNav--footer .cmuNav__legal, .cmuPulse__desc, .cmuMessage__replyTo, .cmuMessage__meta, .cmuThread__firstPost .cmuMessage__data, .cmuUserbadge__descriptors div, .cmuUserbadge__rank, .cmuUserbadge__OP, .cmuUserbadge__points, .cmuComments__info, .cmuFeatures__votes__status {
+.type-info, .cmuInlineInfo, .cmuNav--footer .cmuNav__legal, .cmuPulse__desc, .cmuMessage__replyTo, .cmuMessage__meta, .cmuThread__firstPost .cmuMessage__data, .cmuUserbadge__rank, .cmuUserbadge__OP, .cmuComments__info, .cmuFeatures__votes__status {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
@@ -10676,6 +10676,7 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__account .cmuUsername {
+  font-size: 1rem;
   line-height: 0.75rem;
   margin-top: 0.5rem;
   min-width: 60px;
@@ -10693,7 +10694,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__descriptors {
   word-wrap: break-word;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   padding-bottom: 1rem;
 }
 .cmuUserbadge__descriptors div {
@@ -10701,10 +10702,7 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__user {
-  margin-bottom: 0.5rem;
-}
-.cmuUserbadge__user .cmuUsername__login {
-  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .cmuUserbadge__userText {
@@ -10736,14 +10734,11 @@ button .icon, .button .icon {
   padding-right: 1rem;
   margin: 0 0.5rem;
   margin-bottom: 0.5rem;
+  line-height: 1rem;
 }
 
 .cmuUserbadge__stat {
   margin-left: 0.5rem;
-  display: inline-block;
-}
-.cmuUserbadge__stat:first-of-type, .cmuUserbadge__stat:first-child {
-  margin-left: 0;
 }
 
 .cmuUserbadge__stat__num {
@@ -10765,7 +10760,7 @@ button .icon, .button .icon {
   background-color: #00a0df;
 }
 
-.cmuUserbadge--thin {
+.cmuUserbadge--thin, .cmuUserbadge--tooltip {
   display: inline-block;
   opacity: 1;
   position: relative;
@@ -10776,57 +10771,62 @@ button .icon, .button .icon {
   padding-right: 2rem;
   padding-top: 0.75rem;
 }
-.cmuUserbadge--thin .cmuUserbadge__main {
+.cmuUserbadge--thin .cmuUserbadge__main, .cmuUserbadge--tooltip .cmuUserbadge__main {
   margin-top: 3px;
 }
-.cmuUserbadge--thin .cmuUserbadge__account {
+.cmuUserbadge--thin .cmuUserbadge__account, .cmuUserbadge--tooltip .cmuUserbadge__account {
   display: inline-block;
   padding: 0;
   max-width: 210px;
 }
-.cmuUserbadge--thin .cmuUserbadge__user {
+.cmuUserbadge--thin .cmuUserbadge__user, .cmuUserbadge--tooltip .cmuUserbadge__user {
   padding-top: 2px;
 }
-.cmuUserbadge--thin .cmuUsername {
+.cmuUserbadge--thin .cmuUsername, .cmuUserbadge--tooltip .cmuUsername {
   margin-top: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__avatar {
+.cmuUserbadge--thin .cmuUserbadge__avatar, .cmuUserbadge--tooltip .cmuUserbadge__avatar {
   margin-top: -2px;
   vertical-align: top;
   float: left;
   margin-bottom: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__rank, .cmuUserbadge--thin .cmuUserbadge__OP {
+.cmuUserbadge--thin .cmuUserbadge__rank, .cmuUserbadge--tooltip .cmuUserbadge__rank, .cmuUserbadge--thin .cmuUserbadge__OP, .cmuUserbadge--tooltip .cmuUserbadge__OP {
   line-height: 14px;
 }
-.cmuUserbadge--thin .cmuUserbadge__points {
+.cmuUserbadge--thin .cmuUserbadge__points, .cmuUserbadge--tooltip .cmuUserbadge__points {
   display: inline-block;
   vertical-align: top;
   margin-top: 6px;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 1rem;
+  margin: 0 1rem;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
 }
-.cmuUserbadge--thin .cmuUserbadge__points div {
+.cmuUserbadge--thin .cmuUserbadge__points div, .cmuUserbadge--tooltip .cmuUserbadge__points div {
   display: block;
   text-align: left;
 }
-.cmuUserbadge--thin .cmuUserbadge__stat {
+.cmuUserbadge--thin .cmuUserbadge__stat, .cmuUserbadge--tooltip .cmuUserbadge__stat {
   margin-top: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__posts {
+.cmuUserbadge--thin .cmuUserbadge__posts, .cmuUserbadge--tooltip .cmuUserbadge__posts {
   padding-left: 0;
   margin-top: 1px;
 }
-.cmuUserbadge--thin .cmuUserbadge__posts:after {
+.cmuUserbadge--thin .cmuUserbadge__posts:after, .cmuUserbadge--tooltip .cmuUserbadge__posts:after {
   padding-left: 3px;
 }
-.cmuUserbadge--thin .cmuUserbadge__info {
+.cmuUserbadge--thin .cmuUserbadge__info, .cmuUserbadge--tooltip .cmuUserbadge__info {
   display: inline-block;
   vertical-align: top;
-  margin-top: 6px;
+  padding-top: 0.25rem;
 }
-.cmuUserbadge--thin .cmuUserbadge__descriptors {
+.cmuUserbadge--thin .cmuUserbadge__descriptors, .cmuUserbadge--tooltip .cmuUserbadge__descriptors {
   padding: 0;
 }
-.cmuUserbadge--thin .cmuUsername__icon {
+.cmuUserbadge--thin .cmuUsername__icon, .cmuUserbadge--tooltip .cmuUsername__icon {
   line-height: 0;
 }
 
@@ -10839,6 +10839,12 @@ button .icon, .button .icon {
 }
 .cmuUserbadge--thin--open .cmuUserbadge__user {
   margin-bottom: 0;
+}
+
+.cmuUserbadge--tooltip {
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
 }
 
 .cmuUserbadge--comment {
@@ -12643,6 +12649,10 @@ select.cmuSort {
   font-weight: 300;
 }
 
+.cmuStories__author .cmuUserbadge__points, .cmuStories__author .cmuUserbadge__info {
+  display: none;
+}
+
 .cmuStories__story__controlsTop {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -13165,8 +13175,8 @@ a.appIconInput__icon {
 }
 
 .cmuTooltipster, .cmuTooltipster--inline {
-  border: 2px solid #525252;
-  border-color: #00a0df;
+  border: 1px solid #ebebeb;
+  border-color: #dadada;
   background: #fafafa;
   min-height: 2rem;
   max-height: 12rem;

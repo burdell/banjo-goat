@@ -100,7 +100,7 @@
 	.cmuUserbadge__account {
 
 		.cmuUsername {
-			@extend %type-base;
+			font-size: $cmu-base;
 			line-height: $cmu-base * 3/4;
 			margin-top: $cmu-base/2;
     		// min-width: 100px;
@@ -131,7 +131,7 @@
 // 
 .cmuUserbadge__descriptors {
 	word-wrap: break-word;
-	padding: 0 $cmu-base/2;
+	padding: 0 $cmu-base;
 	padding-bottom: $cmu-base;
 
 	.cmuUserbadge__descriptor__title {
@@ -141,7 +141,6 @@
 	// description tag
 	div {
 		text-transform: capitalize;
-		@extend %type-info;
 		// &:before {
 		// 	font-weight: 400;
 		// 	// content: attr(data-desc) ": ";
@@ -153,11 +152,7 @@
 
 
 	.cmuUserbadge__user {
-		margin-bottom: $cmu-base/2;
-
-		.cmuUsername__login {
-			font-weight: 600;
-		}
+		margin-bottom: $cmu-base;
 	}
 		.cmuUserbadge__userText {
 			white-space: nowrap;
@@ -199,19 +194,14 @@
     padding-right: $cmu-base;
 	margin: 0 $cmu-base/2;
 	margin-bottom: $cmu-base/2;
-    @extend %type-info;
+	line-height: $size-xsmaller__lineHeight;
 }
 	.cmuUserbadge__stat {
 		margin-left: $cmu-base/2;
 		// display: block;
-		display: inline-block;
 		// @extend %style-stat;
 
 		// margin-top: $cmu-base/2;
-
-		&:first-of-type, &:first-child {
-			margin-left: 0;
-		}
 	}
 
 	.cmuUserbadge__stat__num {
@@ -343,7 +333,11 @@
     	display: inline-block;
     	vertical-align: top;
     	margin-top: $thin-vertical-margin;
-
+		margin-bottom: $cmu-base/2;
+		padding: $cmu-base/4 $cmu-base;
+		margin: 0 $cmu-base;
+		border-left: 1px solid $cmu-color-ltmdgray;
+		border-right: 1px solid $cmu-color-ltmdgray;
     	div {
     		display: block;
 			text-align: left;
@@ -365,7 +359,7 @@
     .cmuUserbadge__info {
 		display: inline-block;
 		vertical-align: top;		// border-left: $style-line;
-    	margin-top: $thin-vertical-margin;
+    	padding-top: $cmu-base/4;
     }
 
     .cmuUserbadge__descriptors {
@@ -393,7 +387,13 @@
 
 
 
-
+// Thin badge is for tooltip
+.cmuUserbadge--tooltip {
+	@extend .cmuUserbadge--thin;
+	top: 0;
+	left: 0;
+	margin-top: $cmu-base;
+}
 
 
 

@@ -188,6 +188,11 @@
 		font-weight: 300;
 	}
 }
+	.cmuStories__author {
+		.cmuUserbadge__points, .cmuUserbadge__info {
+			display: none;
+		}
+	}
 
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;
