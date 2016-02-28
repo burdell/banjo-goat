@@ -183,6 +183,12 @@ $cmu-imageUrl-noImage: 'https://slack-files.com/files-tmb/T027XH0QK-F079YFZQT-b9
 	display: none;
 }
 
+// Negative margin removed from the .rows but sometimes we need neg margin for forms
+.cmuRowNegativeMargin {
+	margin-left: remCalc(5px) * -1;
+	margin-right: remCalc(5px) * -1;
+}
+
 
 
 // prevents double click highlight

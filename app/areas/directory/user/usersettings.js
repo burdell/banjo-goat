@@ -1,13 +1,14 @@
 
 'use strict';
 
-var _ = require('underscore');
+require('directives/map/locationsearch.js');
 
+var _ = require('underscore');
 
 var userSettingsController = function(userData, userSettings, breadcrumbService){
 	var ctrl = this;
 
-	debugger;
+	// debugger;
 
 	var currentBreadcrumb = breadcrumbService.CurrentBreadcrumb;
 	var userName = userData.user.login;
@@ -18,6 +19,11 @@ var userSettingsController = function(userData, userSettings, breadcrumbService)
 	_.extend(ctrl, {
 		userData: userData.user,
 		settingsModel: {},
+		coordinates: {
+			locLat: userData.locLat || null,
+			locLon: userData.locLon || null,
+			locName: userData.locName || ''
+		},
 		saveSettings: function(){
 			console.log(ctrl.settingsModel);
 		}

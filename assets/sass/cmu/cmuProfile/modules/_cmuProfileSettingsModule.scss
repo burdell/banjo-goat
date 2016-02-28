@@ -1,0 +1,90 @@
+
+
+// 
+// User Profiles
+// 
+
+
+// 
+// 
+// 
+// profile page
+// 
+// 
+// 
+
+.cmuProfileSettings {
+
+}
+	.cmuProfile__header {
+		@extend %h2;
+		border-bottom: $style-line--medium;
+		padding-bottom: $cmu-vertical-rhythm/4;
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+
+	.cmuProfileSettings__ctrl {
+		margin-bottom: $cmu-vertical-rhythm/2;
+	}
+
+	.cmuProfileSettings__links {
+		margin-right: $cmu-base;
+	}
+
+	.cmuProfileSettings__main {
+		// padding-left: $cmu-base*2;
+	}
+
+	.cmuProfileSettings__section {
+		margin-bottom: $cmu-vertical-rhythm;
+		padding: $cmu-base;
+		padding-right: $cmu-base*8;
+		border: $style-line
+	}
+
+	.cmuProfileSettings__subsection {
+		margin-bottom: $cmu-vertical-rhythm *3/2;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+		.cmuProfileSettings__sectionDivider {
+			margin-bottom: $cmu-base/2;
+		}
+
+	.cmuProfileSettings__title {
+		@extend %h2;
+		margin-bottom: $cmu-vertical-rhythm;
+		display: inline-block;
+		margin-right: $cmu-base/2;
+	}
+
+	.cmuProfileSettings__subtitle {
+		font-size: $size-large;
+		padding-bottom: $cmu-vertical-rhythm/2;
+		// margin-bottom: $cmu-vertical-rhythm/2;
+		// border-bottom: $style-line;
+
+
+		font-size: $size-xsmaller;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: $size-letterspacing-wide;
+	}
+
+	.cmuProfileSettings__onDisplay {
+		display: inline-block;
+		border: $style-line;
+		background: $cmu-color-purewhite;
+		padding: $cmu-base/2 $cmu-base;
+		margin-bottom: $cmu-base/2;
+	}
+
+
+// special input areas
+
+.cmuProfileSettings {
+	.CodeMirror, .CodeMirror-scroll {
+		min-height: 100px;
+	}
+}

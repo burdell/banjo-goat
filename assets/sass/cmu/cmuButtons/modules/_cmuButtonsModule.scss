@@ -30,7 +30,7 @@ $cmu-style-button-borderwidth: remCalc(2px);
 $cmu-button-fontsize: $size-xsmaller;
 $cmu-button-fontsize--icon: $size-normal;
 $cmu-button-lineheight: $cmu-cta-height;
-$cmu-button-letterspacing: remCalc(0.5px);
+$cmu-button-letterspacing: $size-letterspacing-wide;
 $cmu-button-color-base: $cmu-color-blue;
 
 

@@ -21,6 +21,7 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: isAutofocus,
+			height: 10,
 			status: false,
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide', 'image'],
 		    renderingConfig: {

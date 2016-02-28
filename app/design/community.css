@@ -6722,6 +6722,11 @@ ol, li {
   display: none;
 }
 
+.cmuRowNegativeMargin {
+  margin-left: -0.3125rem;
+  margin-right: -0.3125rem;
+}
+
 .style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .cmuNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-blue-on-white, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--outline.button-gray-on-black, .button-gray-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--solid.button-blue-on-gray, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
@@ -6801,7 +6806,7 @@ h1 {
   font-weight: 300;
 }
 
-h2, .cmuThread__subject__subtitle, .cmuProfile__table__points, .cmuUsername--header .cmuUsername__login {
+h2, .cmuThread__subject__subtitle, .cmuProfile__table__points, .cmuProfile__header, .cmuProfileSettings__title, .cmuUsername--header .cmuUsername__login {
   font-size: 1.3125rem;
   line-height: 2.25rem;
   font-weight: 400;
@@ -6872,7 +6877,7 @@ body {
 }
 
 .cmuFeatures__votes__status {
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125rem;
 }
 
 .cmuMessage__reply {
@@ -8446,7 +8451,7 @@ div.cmuOverlay--show {
   font-weight: 300;
   vertical-align: top;
   padding-right: 0.5rem;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05rem;
   line-height: 1.5rem;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -8496,7 +8501,7 @@ div.cmuOverlay--show {
 
 .cmuMega__section__head {
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05rem;
   font-size: 0.75rem;
   padding-bottom: 0.5rem;
 }
@@ -8511,7 +8516,7 @@ div.cmuOverlay--show {
   }
 }
 .cmuMega__section__col a {
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125rem;
   color: #fafafa;
   padding-bottom: 0.5rem;
   font-weight: 300;
@@ -10090,6 +10095,65 @@ div.cmuCollapser__content {
   font-size: 1rem;
 }
 
+.cmuProfile__header {
+  border-bottom: 2px solid #525252;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.cmuProfileSettings__ctrl {
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings__links {
+  margin-right: 1rem;
+}
+
+.cmuProfileSettings__section {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  padding-right: 8rem;
+  border: 1px solid #dadada;
+}
+
+.cmuProfileSettings__subsection {
+  margin-bottom: 1.5rem;
+}
+.cmuProfileSettings__subsection:last-of-type {
+  margin-bottom: 0;
+}
+
+.cmuProfileSettings__sectionDivider {
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings__title {
+  margin-bottom: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.cmuProfileSettings__subtitle {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03125rem;
+}
+
+.cmuProfileSettings__onDisplay {
+  display: inline-block;
+  border: 1px solid #dadada;
+  background: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings .CodeMirror, .cmuProfileSettings .CodeMirror-scroll {
+  min-height: 100px;
+}
+
 .cmuNotifications .cmuUsername__login {
   font-weight: 600;
 }
@@ -11136,12 +11200,20 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   background-color: #fafafa;
 }
 
+.cmuInput--padded {
+  min-width: 250px;
+}
+
 .cmuInput--wide {
   width: 100%;
 }
 
 .cmuInput--stretch input, .cmuInput--stretch {
   width: 100%;
+}
+
+.pac-container * {
+  cursor: pointer !important;
 }
 
 .cmuInput--stacked:focus, .cmuInput--stacked:valid {
@@ -11193,6 +11265,9 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
 \*------------------------------------*/
 .cmuInputSelector {
   background-color: white !important;
+}
+.cmuInputSelector input {
+  cursor: pointer;
 }
 .cmuInputSelector .select2-choices {
   background-color: white !important;
