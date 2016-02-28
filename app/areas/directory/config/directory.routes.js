@@ -144,6 +144,20 @@ var config = function($stateProvider, $urlRouterProvider, $locationProvider, rou
 					}]
 				}		
 			})
+			.state('userprofile.subscriptions', {
+				url: routes.userprofile.subscriptions,
+				controller: 'UserSubscriptions as vm',
+				templateUrl: 'directory/user/subscriptions.html',
+				resolve: {
+					UserSubscriptionsFilter: ['CommunityApiService', 'CommunityFilterService', function(communityApi, filterService){
+						return filterService.getNewFilter({ 
+							filterFn: communityApi.Users.subscriptions,
+							constants: { per_page: 30 },
+							persistFilterModel: false
+						});
+					}]
+				}
+			})
 			.state('notifications', {
 				url: routes.notifications,
 				templateUrl: 'directory/notifications/notifications.html',

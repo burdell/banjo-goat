@@ -6,6 +6,7 @@
 	require('directives/pager/pager.js');
 	require('directives/commentform/commentform.js');
 	require('directives/message/message.js');
+	require('directives/subscribe/subscribe.js');
 
 	var forumMessageController = function($scope, $state, $stateParams, $timeout, communityApi, breadcrumbService, permissionsService, routingService, scrollService, messageThreadFilter){
 		var ctrl = this;

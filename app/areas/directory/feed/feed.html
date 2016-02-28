@@ -83,7 +83,7 @@
 							</div>
 
 					        <div class="cmuFeed__container col--md12 noPadding" ng-if=" vm.feedType === 'user' ">
-					        	<div class="button button--ghost">${{ directory.feed.manageSubscriptions }}$</div>
+					        	<a area-link-handler link-handler-route="userprofile.subscriptions" use-current-user="true" class="button button--ghost">${{ directory.feed.manageSubscriptions }}$</a>
 					        </div>
 
 				        	<!-- activity feed -->

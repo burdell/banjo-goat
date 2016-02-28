@@ -88,5 +88,10 @@
 		"subscriptionSettings": "Subscription Settings",
 		"userSettings": "User Settings",
 		"weeklyEmailDigest": "Weekly Email Digest"
+	},
+	"subscriptions": {
+		"unsubscribe": "Unsubscribe",
+		"manageSubscriptions": "Manage Subscriptions",
+		"noSubscriptions": "No Current Subscriptions"
 	}
 }
