@@ -21,13 +21,23 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		var editorOptions = {
 			element: $(element).find('.texteditor__editor')[0],
 			autofocus: isAutofocus,
+			height: 10,
 			status: false,
 			hideIcons: ['side-by-side', 'preview', 'fullscreen', 'guide', 'image'],
 		    renderingConfig: {
 		       
 		    },
 		    spellChecker: localizationService.currentLocale === 'en',
-		    placeholder: editorCtrl.placeholder
+		    placeholder: editorCtrl.placeholder,
+		    toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|",
+		    	"link", "|", {
+		    		name: "emoji",
+		            action: function(editor) {
+		                console.log("mogeeeey!!!");
+		            },
+		            className: "fa fa-circle",
+		            title: "Emoji"
+		    	}]
 		};
 
 		var isMinimal = (editorCtrl.minimalEditor == "true"); // unfancy but works

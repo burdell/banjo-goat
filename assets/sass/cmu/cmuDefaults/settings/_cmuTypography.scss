@@ -225,8 +225,9 @@ $size-arrow: $cmu-base/2;
 // 
 
 
-$size-letterspacing-header: 0.8px;
-$size-letterspacing-text: 0.2px;
+$size-letterspacing-header: remCalc(0.8px);
+$size-letterspacing-text: remCalc(0.2px);
+$size-letterspacing-wide: remCalc(0.5px);
 
 %size-letterspacing-text {
 	letter-spacing: $size-letterspacing-text;

@@ -1,0 +1,27 @@
+<div>
+	<div class="row row--comfy">
+		<h2>${{ directory.subscriptions.manageSubscriptions }}$</h2>
+		<div class="cmuDiscussionsNavbar noNavLinks"></div>
+	</div>
+
+	<div class="row" ng-if="vm.subscriptionList.length > 0">
+		<div ng-repeat="subscription in vm.subscriptionList" class="row row--comfy">
+			<div class="col--md6">
+				<a area-link-handler="{{ ::subscription.url }}">{{ subscription.topic.subject }}</p>
+			</div>
+			<div class="col--md6">
+				<button ng-click="vm.unsubscribe(subscription.id)">${{ directory.subscriptions.unsubscribe }}$</button>
+			</div>
+		</div>
+
+		 <community-pager 
+	          number-of-pages="vm.numberOfPages" 
+	          pager-fn="vm.subscriptionsFilter"
+	          front-biased="true">
+	        </community-pager>
+	</div>
+
+	<div class="row" ng-if="!vm.subscriptionList.length">
+		<h1>${{ directory.subscriptions.noSubscriptions }}$</h1>
+	</div>
+</div>

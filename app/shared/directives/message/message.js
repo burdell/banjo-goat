@@ -89,37 +89,37 @@ function communityMessage() {
 				}
 			}
 		});
-		}
-		controller.$inject = [
-			'$anchorScroll', 
-			'$location', 
-			'$timeout', 
-			'$stateParams',
-			"CommunityLocalizationService",
-			'CommunityPermissionsService', 
-			require('services/routing.js'), 
-			require('services/scroll.js')
-		];
-	    
-	    var directive = {
-	        controller: controller,
-	        templateUrl: 'directives/message/message.html',
-	        restrict: 'E',
-	        controllerAs: 'messageDisplay',
-	        bindToController: true,
-	        replace: true,
-	        scope: {
-	        	hideVoteButtons: '=',
-	        	message: '=',
-	        	replyClickFn: '=',
-	        	originalMessage: '=',
-	        	showOp: '=',
-	        	upvoteOnly: '=',
-	        	threadFilter: '=',
-	            replyShown: "=",
-	        	localIndex: '='
-	        }
-	    };
+	}
+	controller.$inject = [
+		'$anchorScroll', 
+		'$location', 
+		'$timeout', 
+		'$stateParams',
+		"CommunityLocalizationService",
+		'CommunityPermissionsService', 
+		require('services/routing.js'), 
+		require('services/scroll.js')
+	];
+    
+    var directive = {
+        controller: controller,
+        templateUrl: 'directives/message/message.html',
+        restrict: 'E',
+        controllerAs: 'messageDisplay',
+        bindToController: true,
+        replace: true,
+        scope: {
+        	hideVoteButtons: '=',
+        	message: '=',
+        	replyClickFn: '=',
+        	originalMessage: '=',
+        	showOp: '=',
+        	upvoteOnly: '=',
+        	threadFilter: '=',
+            replyShown: "=",
+        	localIndex: '='
+        }
+    };
 
     return directive;
 }

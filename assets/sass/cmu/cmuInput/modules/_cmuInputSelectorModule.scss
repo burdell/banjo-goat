@@ -9,6 +9,10 @@
 	background-color: $cmu-color-purewhite !important;
 	@extend %ease-fast;
 
+	input {
+    	cursor: pointer;
+	}
+	
 	.select2-choices {
 		background-color: $cmu-color-purewhite !important;
 		background-image: none !important;

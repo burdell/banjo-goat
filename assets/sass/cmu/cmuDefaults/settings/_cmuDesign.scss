@@ -120,7 +120,7 @@ $style-line: 1px solid $cmu-color-line;
 // hover:	cmu-color-blue
 // style:	none
 // 
-// Used in lists and pages where most texts are linke
+// Used in lists and pages where most texts are links
 // e.g. in a list of links in a sidebar, links in the directory, threadlists
 .style-link--dark, %style-link--dark {
 	@extend %ease-fast;
@@ -559,6 +559,11 @@ $stat-padding: $cmu-base/8 $cmu-base/2;
 	.cmuStuck--bottom {
 		position: absolute !important;
 	}
+	// used to fill the entire viewport height
+	.cmuStuck--fillViewport {
+		overflow-y: scroll;
+		height: calc(100vh - 100px);
+	}
 
 
 // Loading Effect
@@ -571,8 +576,6 @@ $stat-padding: $cmu-base/8 $cmu-base/2;
 		@extend %ease-fast;
 	}
 }
-
-
 
 
 

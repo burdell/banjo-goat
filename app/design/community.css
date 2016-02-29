@@ -6722,7 +6722,12 @@ ol, li {
   display: none;
 }
 
-.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .cmuNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--outline.button-gray-on-black, .button-gray-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--solid.button-blue-on-gray, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
+.cmuRowNegativeMargin {
+  margin-left: -0.3125rem;
+  margin-right: -0.3125rem;
+}
+
+.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .cmuNav *, .cmuMega *, .cmuCollapser__header, button, .button, .cmuButton, .cmuInput--waiting, .button--ghost, .button--ghost.button-blue-on-white, .button--ghost.button-green-on-white, .button--ghost.button-black-on-white, .button--ghost.button-gray-on-white, .button--ghost.button-ltgray-on-white, .button--outline, .button--outline.button-green-on-white, .button-green-on-white.cmuInput--waiting, .button--outline.button-black-on-white, .button-black-on-white.cmuInput--waiting, .button--outline.button-gray-on-white, .button-gray-on-white.cmuInput--waiting, .button--outline.button-ltgray-on-white, .button-ltgray-on-white.cmuInput--waiting, .button--outline.button-blue-on-black, .button-blue-on-black.cmuInput--waiting, .button--outline.button-gray-on-black, .button-gray-on-black.cmuInput--waiting, .button--solid, .button--solid.button-white-on-green, .button--solid.button-white-on-black, .button--solid.button-blue-on-black, .button--solid.button-blue-on-gray, .button--naked, .button--naked.button-black-on-white, .button--vote, .button--vote.button--vote--kudo, .button--tab, .cmuInput__checkbox, .cmuInput__checkbox *, .cmuInput__checkbox input[type="checkbox"], .cmuInput__checkbox input[type="checkbox"] + span {
   -webkit-user-select: none;
   /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
@@ -6801,7 +6806,7 @@ h1 {
   font-weight: 300;
 }
 
-h2, .cmuThread__subject__subtitle, .cmuProfile__table__points, .cmuUsername--header .cmuUsername__login {
+h2, .cmuThread__subject__subtitle, .cmuProfile__table__points, .cmuProfile__header, .cmuProfileSettings__title, .cmuUsername--header .cmuUsername__login {
   font-size: 1.3125rem;
   line-height: 2.25rem;
   font-weight: 400;
@@ -6872,7 +6877,7 @@ body {
 }
 
 .cmuFeatures__votes__status {
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125rem;
 }
 
 .cmuMessage__reply {
@@ -7119,6 +7124,11 @@ body {
 
 .cmuStuck--bottom {
   position: absolute !important;
+}
+
+.cmuStuck--fillViewport {
+  overflow-y: scroll;
+  height: calc(100vh - 100px);
 }
 
 .cmuLoading {
@@ -8441,7 +8451,7 @@ div.cmuOverlay--show {
   font-weight: 300;
   vertical-align: top;
   padding-right: 0.5rem;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05rem;
   line-height: 1.5rem;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -8491,7 +8501,7 @@ div.cmuOverlay--show {
 
 .cmuMega__section__head {
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05rem;
   font-size: 0.75rem;
   padding-bottom: 0.5rem;
 }
@@ -8506,7 +8516,7 @@ div.cmuOverlay--show {
   }
 }
 .cmuMega__section__col a {
-  letter-spacing: 0.2px;
+  letter-spacing: 0.0125rem;
   color: #fafafa;
   padding-bottom: 0.5rem;
   font-weight: 300;
@@ -9715,8 +9725,24 @@ div.cmuCollapser__content {
   transform: translateX(50%);
 }
 
+.cmuInbox__ctrl {
+  margin-bottom: 1rem;
+}
+
+.cmuInbox__count {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.cmuInbox__ctrl.new .cmuInbox__unread {
+  display: inline-block;
+}
+.cmuInbox__ctrl.new .cmuInbox__unread span {
+  font-weight: bold;
+}
+
 .cmuInbox__list {
-  height: 37rem;
+  border: 1px solid #dadada;
   overflow: scroll;
 }
 
@@ -9731,12 +9757,19 @@ div.cmuCollapser__content {
 
 .cmuInbox__list__message {
   display: block;
-  border: 1px solid #dadada;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  border-right: 8px solid transparent;
+  border-bottom: 1px solid #dadada;
+}
+.cmuInbox__list__message.current {
+  border-right: 8px solid #00a0df;
+  background-color: #f3f3f3;
 }
 .cmuInbox__list__message:hover {
   background-color: #f3f3f3;
+}
+.cmuInbox__list__message:last-of-type {
+  border-bottom: 0;
 }
 
 .cmuInbox__list__subject {
@@ -9747,14 +9780,26 @@ div.cmuCollapser__content {
   margin-bottom: 0.5rem;
 }
 
+.cmuInbox__list__unreadCount {
+  display: none;
+}
+
+.unread .cmuInbox__list__unreadCount {
+  display: inline-block;
+  padding: 0 0.33333rem;
+  background: #ffaa00;
+  border-radius: 50%;
+}
+
+.cmuInbox__list--empty {
+  padding: 1rem;
+  text-align: center;
+}
+
 .cmuInbox__controls {
   margin-bottom: 0.5rem;
 }
 
-.cmuInbox__update {
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .cmuInbox__update:not(.new) button, .cmuInbox__update:not(.new) {
   cursor: default;
   border-color: #bbbbbd;
@@ -9762,13 +9807,13 @@ div.cmuCollapser__content {
 }
 
 .cmuInbox__main {
-  padding: 0;
-  padding-left: 1rem;
+  padding: 1rem;
+  border: 1px solid #dadada;
+  margin-left: -1px;
 }
 
 .cmuInbox__detail--header {
   position: relative;
-  margin-bottom: 0.5rem;
   border-bottom: 1px solid #dadada;
 }
 .cmuInbox__detail--header h2 {
@@ -9787,8 +9832,8 @@ div.cmuCollapser__content {
 
 .cmuInbox__message {
   display: block;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  padding-bottom: 0;
   border-bottom: 0;
 }
 .cmuInbox__message:last-of-type {
@@ -9796,19 +9841,48 @@ div.cmuCollapser__content {
   border-bottom: 1px solid #dadada;
   margin-bottom: 2rem;
 }
+.cmuInbox__message p {
+  padding: 0.25rem 0;
+}
+.cmuInbox__message p:first-of-type {
+  padding-top: 0.5rem;
+}
+.cmuInbox__message.newUser {
+  border-top: 1px solid #dadada;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  padding-bottom: 0;
+}
+.cmuInbox__message.newUser .cmuInbox__message__date {
+  padding-top: 0.25rem;
+}
+.cmuInbox__message.newUser .cmuUsername {
+  opacity: 0.4;
+}
+.cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) {
+  padding: 0;
+}
+.cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) .cmuUsername, .cmuInbox__message.newUser ~ .cmuInbox__message:not(.newUser) .cmuInbox__message__badge div {
+  display: none;
+}
+.cmuInbox__message .cmuInbox__message__date {
+  padding-top: 0.5rem;
+}
+.cmuInbox__message:not(.newDate):not(.newUser) .cmuInbox__message__date {
+  display: none;
+}
+.cmuInbox__message:first-of-type {
+  border-top: 0;
+  margin-top: 0;
+}
 .cmuInbox__message .cmuUserbadge__user {
   display: inline-block;
 }
 .cmuInbox__message .cmuInbox__message__badge {
   width: 10%;
+  min-height: 1px;
   display: inline-block;
   float: left;
-}
-.cmuInbox__message .cmuInbox__message__badge .cmuUserbadge__account {
-  padding-left: 0;
-}
-.cmuInbox__message .cmuInbox__message__badge .cmuUsername {
-  display: none;
 }
 .cmuInbox__message .cmuInbox__message__main {
   width: 90%;
@@ -10013,6 +10087,65 @@ div.cmuCollapser__content {
   font-size: 1rem;
 }
 
+.cmuProfile__header {
+  border-bottom: 2px solid #525252;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.cmuProfileSettings__ctrl {
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings__links {
+  margin-right: 1rem;
+}
+
+.cmuProfileSettings__section {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  padding-right: 8rem;
+  border: 1px solid #dadada;
+}
+
+.cmuProfileSettings__subsection {
+  margin-bottom: 1.5rem;
+}
+.cmuProfileSettings__subsection:last-of-type {
+  margin-bottom: 0;
+}
+
+.cmuProfileSettings__sectionDivider {
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings__title {
+  margin-bottom: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.cmuProfileSettings__subtitle {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03125rem;
+}
+
+.cmuProfileSettings__onDisplay {
+  display: inline-block;
+  border: 1px solid #dadada;
+  background: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cmuProfileSettings .CodeMirror, .cmuProfileSettings .CodeMirror-scroll {
+  min-height: 100px;
+}
+
 .cmuNotifications .cmuUsername__login {
   font-weight: 600;
 }
@@ -10103,11 +10236,7 @@ button + button, button + select, .button + .button, .button + select, .cmuButto
   margin-left: 0.5rem;
 }
 
-button + .button {
-  margin-left: 0.5rem;
-}
-
-.button + .button {
+button + .button, .button + .button, button + button, .button + button {
   margin-left: 0.5rem;
 }
 
@@ -10119,6 +10248,16 @@ button + .button {
   border-color: #00a0df;
 }
 .button--ghost:hover {
+  background-color: #dadada;
+}
+.button--ghost.button-blue-on-white {
+  color: #00a0df;
+  background-color: default;
+  color: #00a0df;
+  background-color: #fafafa;
+  border-color: #00a0df;
+}
+.button--ghost.button-blue-on-white:hover {
   background-color: #dadada;
 }
 .button--ghost.button-green-on-white {
@@ -11052,12 +11191,20 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
   background-color: #fafafa;
 }
 
+.cmuInput--padded {
+  min-width: 250px;
+}
+
 .cmuInput--wide {
   width: 100%;
 }
 
 .cmuInput--stretch input, .cmuInput--stretch {
   width: 100%;
+}
+
+.pac-container * {
+  cursor: pointer !important;
 }
 
 .cmuInput--stacked:focus, .cmuInput--stacked:valid {
@@ -11109,6 +11256,9 @@ input.cmuInput:focus, input.cmuTextEditor__textarea:focus, .cmuInput input:focus
 \*------------------------------------*/
 .cmuInputSelector {
   background-color: white !important;
+}
+.cmuInputSelector input {
+  cursor: pointer;
 }
 .cmuInputSelector .select2-choices {
   background-color: white !important;
@@ -12105,6 +12255,7 @@ select.cmuSort {
 }
 
 .cmuEmoji .emojiPickerIcon {
+  display: inline-block;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNzYuODkxIiB oZWlnaHQ9IjI3Ni44OTEiIHZpZXdCb3g9IjAgMCAyNzYuODkxIDI3Ni44OTEiPgogIDxjaXJjbG UgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDQ0NDQ0IiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2Utb Wl0ZXJsaW1pdD0iMTAiIGN4PSIxMzguNDQ1IiBjeT0iMTM4LjQ0NSIgcj0iMTMyLjk0NSIvPgog IDxjaXJjbGUgY3g9IjY4LjEyIiBjeT0iMTI1LjM5NSIgcj0iMTYuNTA3IiBzdHJva2U9IiM0NDQ 0NDQiIGZpbGw9IiM0NDQ0NDQiLz4KICA8Y2lyY2xlIGN4PSIyMDguNjE3IiBjeT0iMTI1LjM5NS Igcj0iMTYuNTA4IiBzdHJva2U9IiM0NDQ0NDQiIGZpbGw9IiM0NDQ0NDQiLz4KICA8cGF0aCBma WxsPSJub25lIiBzdHJva2U9IiM0NDQ0NDQiIHN0cm9rZS13aWR0aD0iMjQiIHN0cm9rZS1saW5l Y2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNNjguMTIgMTgyLjAzNHM2OS4 3OTMgNzAuNzA0IDE0MC40OTggMCIvPgo8L3N2Zz4=");
 }
 .cmuEmoji .emojiPickerIcon:hover {
@@ -12147,10 +12298,6 @@ select.cmuSort {
   left: inherit;
 }
 
-.cmuStories .editor-toolbar {
-  padding-right: 2rem;
-}
-
 .emoji {
   width: 1.5em;
   height: 1.5em;
@@ -12167,9 +12314,6 @@ select.cmuSort {
 }
 
 .emojiPickerIcon {
-  position: absolute;
-  top: 0;
-  right: 0;
   cursor: pointer;
 }
 

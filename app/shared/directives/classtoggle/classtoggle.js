@@ -13,10 +13,12 @@ function classToggle() {
 
 		element.on('click', function(){
 
-			if (hasClass()) {
-				this.classList.remove(className);
-			} else {
-				this.classList.add(className);
+			if ( className!="" ) {
+				if (hasClass()) {
+					this.classList.remove(className);
+				} else {
+					this.classList.add(className);
+				}
 			}
 		});
 

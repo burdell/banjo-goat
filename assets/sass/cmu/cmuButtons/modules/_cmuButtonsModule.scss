@@ -30,7 +30,7 @@ $cmu-style-button-borderwidth: remCalc(2px);
 $cmu-button-fontsize: $size-xsmaller;
 $cmu-button-fontsize--icon: $size-normal;
 $cmu-button-lineheight: $cmu-cta-height;
-$cmu-button-letterspacing: remCalc(0.5px);
+$cmu-button-letterspacing: $size-letterspacing-wide;
 $cmu-button-color-base: $cmu-color-blue;
 
 
@@ -213,13 +213,9 @@ button, .button, .cmuButton {
 		margin-left: $cmu-base/2;
 	}
 }
-	button + .button {
+	button + .button, .button+.button, button+button, .button+button {
 		margin-left: $cmu-base/2;
 	}
-	.button+.button {
-		margin-left: $cmu-base/2;
-	}
-
 
 
 
@@ -233,6 +229,9 @@ button, .button, .cmuButton {
 	$mode: 'ghost';
 	@include cmuButton($mode,$cmu-button-color-base);
 
+	&.button-blue-on-white {
+		@include cmuButton($mode,$cmu-color-blue);
+	}
 	&.button-green-on-white {
 		@include cmuButton($mode,$cmu-color-green);
 	}

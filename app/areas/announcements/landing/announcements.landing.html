@@ -15,7 +15,11 @@
 					</community-product-navigator>
 				</div>
 				<div class="col--md3 noPadding floatRight">
-					<button community-permissions denied-behavior="hide" class="button--outline button--padded button-blue-white">${{ core.manageSubscriptions }}$</button>
+					<soan community-permissions denied-behavior="hide">
+						<a area-link-handler link-handler-route="userprofile.subscriptions" use-current-user="true" class="button--outline button--padded button-blue-white">
+							${{ core.manageSubscriptions }}$
+						</a>
+					</soan>
 				</div>
 			</div>
 		</div>

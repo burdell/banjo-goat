@@ -84,10 +84,29 @@ $input-disabled-color: $cmu-color-disabled;
 		@extend %cmuInput;
 	}
 
-	.cmuInput--wide {
+
+// settings / options
+.cmuInput--padded {
+	min-width: 250px;
+}
+
+.cmuInput--wide {
+	width: 100%;
+}
+
+.cmuInput--stretch {
+	input, & {
 		width: 100%;
 	}
+}
 
+
+
+
+// Google input
+.pac-container {
+	* { cursor: pointer !important; }
+}
 
 
 

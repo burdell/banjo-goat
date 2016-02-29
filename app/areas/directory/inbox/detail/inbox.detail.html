@@ -2,34 +2,50 @@
 
 	<div class="cmuInbox__detail--header row">
 		<div class="col--md6">
-			<h2>{{ vm.originalMessage.subject }}</h2>
-			<div class="cmuInbox__list__title"><span>{{ vm.originalMessage.postDate | timeFromNow }}</span> ${{ directory.inbox.with }}$ {{ vm.recipientString }}</div>
+			<h2>{{ vm.getSubject(message.topic.subject) }}</h2>
+			<div class="cmuInbox__list__title">
+				<!-- <span>{{ vm.originalMessage.postDate | timeFromNow }}</span>  -->
+				<!-- ${{ directory.inbox.with }}$  -->
+				{{ vm.currentUser.login }}, {{ vm.recipientString }}</div>
+
+			<!-- delay feature
+				<div class="cmuSearchbox cmuHalfRow">
+				<ui-select class="cmuHalfRow cmuInputSelector cmuInput--wide cmuInput--stacked" multiple theme="select2" ng-model="vm.newTopic.recipientIds">
+					<ui-select-match placeholder="${{ directory.inbox.addUser }}$" >{{ $item.login }}</ui-select-match>
+					<ui-select-choices 
+					  refresh="vm.searchUsers($select.search)"
+					  refresh-delay="2" 
+					  class="cmuInputSelector--choices" 
+					  repeat="user.id as user in vm.searchedUsers | filter: { login: $select.search }">
+					    <li ng-bind-html="user.login | highlight: $select.search"></li>
+					</ui-select-choices>
+				</ui-select>
+				<label>${{ directory.inbox.recipients }}$</label>
+			</div> -->
 		</div>
 		<div class="cmuInbox__pagerContainer col--md6">
 			<community-pager number-of-pages="vm.numberOfPages" pager-fn="vm.threadFilter"></community-pager>
 		</div>
 	</div>
 
-	<div class="clearfix cmuRow">
-	</div>
-
 	<div class="cmuInbox__message__container cmuLoading clearfix">
-		<div ng-repeat="message in vm.messageList.content" class="cmuInbox__message clearfix noPadding">
+		<div ng-repeat="message in ::vm.messageList.content" class="cmuInbox__message clearfix" ng-class="{'newUser':vm.isNewUser(message.insertUser, $index), 'newDate':vm.isNewDate(message.postDate)}">
 			<div class="cmuInbox__message__badge">
-				<community-user-badge 
-					class="cmuUserbadge--comment"
-					user="message.insertUser">
-				</community-user-badge>
+                <community-user-avatar user="::message.insertUser"></community-user-avatar>
 			</div>
-			<div class="cmuInbox__message__main">
-			    <community-user-badge class="cmuUserbadge--nameOnly" user="message.insertUser"></community-user-badge>
-				<span class="cmuComments__date">
-			        {{ message.postDate | timeFromNow }}
-				</span>
-
-				<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize:markdown"></div>
+			<div class="cmuInbox__message__main row">
+				<div class="cmuInbox__message__content col--md10">
+					<community-username user="::message.insertUser"></community-username>
 					
-				<community-attachment-display ng-model="message.attachments"></community-attachment-display>
+					<div class="cmuInbox__message__body" ng-bind-html="message.body | sanitize:markdown"></div>
+						
+					<community-attachment-display ng-model="message.attachments"></community-attachment-display>
+				</div>
+				<div class="cmuInbox__message__date col--md2">
+					<span class="cmuComments__date">
+				        {{ message.postDate | timeFromNow }}
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>

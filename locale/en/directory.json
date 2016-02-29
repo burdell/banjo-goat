@@ -26,15 +26,19 @@
 	},
 	"inbox": {
 		"addUser": "Add a recipient",
-		"header": "My Messages",
-		"messageCta": "Message Title",
+		"header": "Inbox",
+		"messages": "Messages",
+		"messageCta": "Subject",
 		"newMessage": "New Message",
 		"newMessages": "New Messages",
-		"noMessages": "Inbox is empty",
+		"noMessages": "Your inbox is empty",
+		"noSubject": "No subject",
 		"recipients": "Recipients",
 		"replyFeedback": "Sending your reply",
 		"sendMessage": "Send Message",
 		"sendingMessage": "Sending your message",
+		"total": "Total",
+		"unread": "Unread",
 		"whyNotSend": "Why not send one?",
 		"with": "with"
 	},
@@ -73,9 +77,9 @@
 		"totalPoints": "Total Points"
 	},
 	"usersettings": {
-		"automaticallySubscribe": "Automatically subscribe me to topics I participate in",
+		"automaticallySubscribe": "Automatically subscribe to topics you reply to",
 		"biography": "Enter A Short Biography About Yourself",
-		"emailAlerts": "Email Alerts - Be notified about important events",
+		"emailAlerts": "Email Alerts – Stay notified of important events",
 		"emailSettings": "Email Settings",
 		"location": "Location",
 		"moderatorControls": "Moderator Controls",
@@ -84,5 +88,10 @@
 		"subscriptionSettings": "Subscription Settings",
 		"userSettings": "User Settings",
 		"weeklyEmailDigest": "Weekly Email Digest"
+	},
+	"subscriptions": {
+		"unsubscribe": "Unsubscribe",
+		"manageSubscriptions": "Manage Subscriptions",
+		"noSubscriptions": "No Current Subscriptions"
 	}
 }

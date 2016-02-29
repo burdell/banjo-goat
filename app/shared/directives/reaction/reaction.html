@@ -1,4 +1,4 @@
-<div 
+<button 
 	class="button button--vote button--vote--{{ reaction.reactionType }}"
 	ng-class="{ 'button--thin' : reaction.thinDisplay }" 
 	community-class-toggle="button--voted" 
@@ -7,4 +7,4 @@
 	ng-click="reaction.react()">
 		<div class="button--vote--points">{{ reaction.reactionCount }}</div>
 		<div class="button--vote--action">{{ reaction.reactionDisplay }}</div>
-</div>
+</button>

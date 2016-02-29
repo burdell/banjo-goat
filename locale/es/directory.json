@@ -82,5 +82,10 @@
 		"subscriptionSettings": "De Configuración de Suscripción",
 		"userSettings": "Ajustes de usuario",
 		"weeklyEmailDigest": "Resumen semanal de correo electrónico"
+	},
+	"subscriptions": {
+		"unsubscribe": "Suscripciones",
+		"manageSubscriptions": "Administrar Suscripciones",
+		"noSubscriptions": "Sin suscripciones actuales"
 	}
 }

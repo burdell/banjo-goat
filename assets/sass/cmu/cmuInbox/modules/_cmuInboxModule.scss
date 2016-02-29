@@ -11,12 +11,30 @@
 
 	}
 
+	.cmuInbox__ctrl {
+		margin-bottom: $cmu-vertical-rhythm;
+	}
+		.cmuInbox__count {
+			display: inline-block;
+			margin-left: $cmu-base/2;
+		}
+		.cmuInbox__unread {
+			// display: none;
+		}
+		.cmuInbox__ctrl.new {
+			.cmuInbox__unread {
+				display: inline-block;
+				span {
+					font-weight: bold;
+				}
+			}
+		}
 
 
 	// sidebar
 	.cmuInbox__list {
-		// border-right: $style-line;
-		height: $cmu-base * 37;
+		border: $style-line;
+		// max-height: $cmu-base * 30;
 		overflow: scroll;
 	}
 		.cmuInbox__list__title {
@@ -27,14 +45,30 @@
 		}
 		.cmuInbox__list__message {
 			display: block;
-			border: $style-line;
 			padding: $cmu-base/2;
-			margin-bottom: $cmu-base/2;
+			border-right: 8px solid transparent;
+			border-bottom: $style-line;
+			// border: $style-line;
+			// margin-bottom: $cmu-base/2;
+
+			&.unread {
+
+			}
+
+			&.current {
+				border-right: 8px solid $cmu-color-active;
+				background-color: $cmu-color-xltgray;
+			}
 
 			&:hover {
 				background-color: $cmu-color-hover;
 			}
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
 		}
+
 			.cmuInbox__list__rowFirst {
 			}
 			.cmuInbox__list__subject {
@@ -44,14 +78,27 @@
 				margin-bottom: $cmu-vertical-rhythm/2;
 
 			}
+			.cmuInbox__list__unreadCount {
+				display: none
+			}
+				.unread .cmuInbox__list__unreadCount {
+					display: inline-block;
+					padding: 0 $cmu-base/3;
+					background: $cmu-color-orange;
+					border-radius: 50%;
+				}
+		.cmuInbox__list--empty {
+			padding: $cmu-base;
+			text-align: center;
+		}
 
 	.cmuInbox__controls {
 		margin-bottom: $cmu-vertical-rhythm / 2;
 	}
 
 	.cmuInbox__update {
-		margin-left: $cmu-base/2; 
-		margin-bottom: $cmu-vertical-rhythm / 2;
+		// margin-left: $cmu-base/2; 
+		// margin-bottom: $cmu-vertical-rhythm / 2;
 	
 		&:not(.new) {
 			button, & {
@@ -66,8 +113,9 @@
 
 	// main
 	.cmuInbox__main {
-		padding: 0;
-		padding-left: $cmu-base;
+		padding: $cmu-base;
+		border: $style-line;
+    	margin-left: -1px; // overlap the borders
 	}
 
 
@@ -97,7 +145,7 @@
 	.cmuInbox__detail--header {
 		position: relative;
 		// margin-top: $cmu-vertical-rhythm;
-		margin-bottom: $cmu-vertical-rhythm/2;
+		// margin-bottom: $cmu-vertical-rhythm/2;
 
 		h2 {
 		    // margin-bottom: $cmu-base/2;
@@ -123,8 +171,9 @@
 
 	.cmuInbox__message {
 		display: block;
-		padding: $cmu-base/2;
-		margin-bottom: $cmu-base;
+		padding: $cmu-base/2 0;
+		padding-bottom: 0;
+		// margin-bottom: $cmu-base;
 
 		// border: $style-line;
 		border-bottom: 0;
@@ -140,21 +189,63 @@
 		// @include box-shadow(2px, 2px, 2px, rgba($cmu-color-dkgray, 0.2));
 
 
+		p {
+			padding: $cmu-vertical-rhythm/4 0;
+		}
+		p:first-of-type {
+			padding-top: $cmu-vertical-rhythm/2;
+		}
+
+		// first message of a user in convo
+		&.newUser {
+			border-top: $style-line;
+			margin-top: $cmu-vertical-rhythm/2;
+			padding: $cmu-vertical-rhythm/2 0;
+			padding-bottom: 0;
+
+			.cmuInbox__message__date {
+				padding-top: $cmu-vertical-rhythm/4;
+			}
+
+			.cmuUsername {
+				opacity: 0.4; // username conflicts too much with text
+			}
+		}
+
+		// more messages by same user
+		&.newUser ~ &:not(.newUser) {
+			padding: 0;
+
+			.cmuUsername, .cmuInbox__message__badge div {
+				display: none;
+			}
+		}
+
+		.cmuInbox__message__date {
+			padding-top: $cmu-vertical-rhythm/2;
+		}
+		&:not(.newDate):not(.newUser) {
+			.cmuInbox__message__date {
+				display: none;
+			}
+		}
+
+
+		&:first-of-type {
+			border-top: 0;
+			margin-top: 0;
+		}
+
+
 		.cmuUserbadge__user {
 			display: inline-block;
 		}
 
 		.cmuInbox__message__badge {
 			width: 10%;
+			min-height: 1px; // force it to block
 		    display: inline-block;
 		    float: left;
-
-		    .cmuUserbadge__account {
-		    	padding-left: 0;
-		    }
-			.cmuUsername {
-				display: none;
-			}
 		}
 
 		.cmuInbox__message__main {
@@ -208,3 +299,4 @@
         @extend %size-xsmaller;
         color: $cmu-color-mdgray;
     }
+

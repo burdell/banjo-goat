@@ -8,6 +8,7 @@
 					<!-- &s=200 forces the 200x200 avatar  -->
 					<div class="cmuProfile__avatar"><img ng-src="{{ vm.userData.avatarUrl }}&amp;s=200" /></div>
 					<a ui-sref="userprofile.usersettings" class="button button--solid" community-permissions="node.can_post_topic" denied-behavior="hide">${{ directory.user.editProfile }}$</a>
+					<a ui-sref="userprofile.subscriptions" class="button button--solid" community-permissions="node.can_post_topic" denied-behavior="hide">Manage Subscriptions</a>
 				</div>
 
 				<div class="cmuProfile__section row">

@@ -16,11 +16,15 @@ var timeFromNow = function(){
 			return postDate.format('ll');
 		}
 
+		// somtimes server returns times that are in the future
+		// we use "just now" time by invoking moment()
+		if ( moment().isBefore(postDate) ) {
+			return moment().fromNow();
+		}
 		// only return days, without time stamp
 		// return postDate.fromNow() + ", " + postDate.format('hh:mm a');
 		return postDate.fromNow();
 		// localized Month name, day of month, year, time	LLL	September 4 1986 8:30 PM
-		return postDate.fromNow();
 	};
 };
 
@@ -46,4 +50,11 @@ angular.module('community.filters')
 
 angular.module('community.filters')
 	.filter('exactTimeFromNow', exactTimeFromNow);
+
+
+// used in inbox.detail to compare fuzzy time. sorry nathan
+var serviceName = 'TimeFromNowService';
+angular.module('community.services')
+	.service(serviceName, timeFromNow);
+module.exports = serviceName;
 

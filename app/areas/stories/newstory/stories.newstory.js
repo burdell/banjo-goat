@@ -82,9 +82,7 @@ function NewStoryController ($scope, $state, communityApi, breadcrumbService, lo
 			subject:  storyDetail.subject || '',
 		},
 		coordinates: {
-			locLat: storyDetail.locLat || null,
-			locLon: storyDetail.locLon || null,
-			locName: storyDetail.locName || ''
+			locName: 'Banana'
 		},
 		setMetaField: function(fieldName){
 			var metaStoryFields = ctrl.story.meta;

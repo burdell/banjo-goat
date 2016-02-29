@@ -16,6 +16,8 @@ function sticky($document, $window) {
 
 		var stickyClass = attrs.stickyClass; // class that makes things sticky
 		var offset = parseFloat(attrs.offset);
+		var fillViewport = false;
+		(attrs.fillViewport=="true") ? fillViewport=true : fillViewport=false;
 
 		if (isNaN(offset))
 			offset = 0;
@@ -72,6 +74,12 @@ function sticky($document, $window) {
 					// console.log('tHeight: ' + targetDistToTop)
 					angularTarget.css("top", targetDistToTop + 'px');
 					angularTarget.css("width", targetWidth + 'px');
+
+					if (fillViewport && !isTargetSmallerThanViewport()) {
+						angularTarget.addClass("cmuStuck--fillViewport");
+						angularContainer.addClass("cmuStuck--fillViewportContainer");
+					}
+
 				}
 
 
@@ -113,7 +121,6 @@ function sticky($document, $window) {
 				    // console.log(angularBound);
 			    	if (targetBottomToBoundBottom < 0 ) {
 			    		// console.log('targetBoundPosition= ' + targetBoundPosition + ' (boundContentHeight ' + boundContentHeight + ' - targetHeight ' + targetHeight + ' - containerDistToBoundTop ' + containerDistToBoundTop + ' - containerDistToPageTop ' + containerDistToPageTop + ' - boundDistToPageTop ' + boundDistToPageTop);
-
 						angularTarget.css("top", targetBoundPosition + 'px');
 						angularTarget.addClass("cmuStuck--bottom");
 		    	    } 
@@ -131,6 +138,8 @@ function sticky($document, $window) {
 					angularContainer.css("height");
 					angularTarget.removeClass(stickyClass);
 					angularTarget.removeClass("cmuStuck--bottom");
+					angularTarget.removeClass("cmuStuck--fillViewport");
+					angularContainer.removeClass("cmuStuck--fillViewportContainer");
 				}
 			}
 	    });
@@ -139,10 +148,15 @@ function sticky($document, $window) {
 			return angularTarget.hasClass(stickyClass);
 		}
 
+		function isTargetSmallerThanViewport() {
+			if ( angularTarget[0].clientHeight <= parseFloat(window.innerHeight - offset) ) return true;
+			return false;
+		}
 		function eligible() {
 			// eligible if target height is smaller than viewport height
 			// console.log('targetHeight: ' + angularTarget[0].clientHeight + ' windowHeight ' + parseFloat(window.innerHeight - offset) )
-			if ( angularTarget[0].clientHeight <= parseFloat(window.innerHeight - offset) ) return true
+			if (isTargetSmallerThanViewport()) return true;
+			if (fillViewport) return true; // special case that fills the sticky to the height of the viewport
 			return false;
 		}
 

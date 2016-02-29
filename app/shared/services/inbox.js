@@ -5,6 +5,7 @@ var _ = require('underscore');
 
 var inboxService = function(localizationService){
 	var inboxStrings = localizationService.data.core;
+
 	return {
 		getRecipientString: function(recipientData, numberOfRecs) {
 			if (!numberOfRecs) {
