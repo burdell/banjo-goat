@@ -2,24 +2,30 @@
 
 
 	<div class="cmuProfile__header row">
-		Edit Profile <!-- (if moderator, show username here) -->
+		${{ directory.user.editProfile }}$ <!-- (if moderator, show username here) -->
 	</div>
+<!-- 
+	userData: {{ vm.userData }}
 
-	boy boy {{ vm }}
+	<hr>
+		userSettings: {{ vm.userSettings }}
+	<hr>
+ -->
+ 
 
 	<!-- sidebar -->
+
+	<div class="row cmuRow">
+		<a area-link-handler link-handler-route="userprofile" use-current-user="true" class="button button--padded">${{ directory.usersettings.backToProfile }}$</a>
+	</div>
 	<div class="col--md3 visible--mdUp noPaddingLeft" community-sticky sticky-class="cmuStuck" offset="30" sticky-bound="cmuProfileSettings">
 		<div>
 			<div>
-				<div class="cmuProfileSettings__ctrl">
-					<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
-					<button class="button--solid button--padded" ng-click="vm.saveSettings()">${{ core.actions.save }}$</button>
-				</div>
 				<div class="cmuProfileSettings__links">
-					<a href="#account" class="button button--solid button--row button-blue-on-gray">Account</a>
-					<a href="#profile" class="button button--solid button--row button-blue-on-gray">Profile</a>
-					<a href="#signature" class="button button--solid button--row button-blue-on-gray">Signature</a>
-					<a href="#subscriptions" class="button button--solid button--row button-blue-on-gray">Subscriptions</a>
+					<a href="#account" class="button button--solid button--row button-blue-on-gray">${{ directory.usersettings.account }}$</a>
+					<a href="#profile" class="button button--solid button--row button-blue-on-gray">${{ directory.usersettings.profile }}$</a>
+					<a href="#signature" class="button button--solid button--row button-blue-on-gray">${{ directory.usersettings.signature }}$</a>
+					<a href="#subscriptions" class="button button--solid button--row button-blue-on-gray">${{ directory.usersettings.subscriptions }}$</a>
 					<!-- <a href="#moderator" class="button button--solid button--row button-blue-on-gray">Moderator</a> -->
 				</div>
 			</div>
@@ -27,53 +33,51 @@
 
 	</div>
 
-	<div class="cmuProfileSettings__main col--md9">
+	<div class="cmuProfileSettings__main col--md9 noPadding">
 
 
 		<div class="cmuProfileSettings__section row" id="account">
-			<div class="cmuProfileSettings__title">Account</div>
+			<div class="cmuProfileSettings__title">${{ directory.usersettings.account }}$</div>
 
 			<div class="cmuProfileSettings__subsection row">
-				<div class="cmuProfileSettings__subtitle">Profile Picture</div>
+				<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.profilePicture }}$</div>
 				<div class="col--md2 noPaddingLeft">
 					<img ng-src="{{ vm.userData.avatarUrl }}&amp;s=100" />
 				</div>
 				<div class="col--md10 noPaddingRight">
-					<p>Community uses Gravatar.</p>
-					<p>Log in to <a class="style-link" href="http://www.gravatar.com">Gravatar</a> to change your profile picture. <br> Custom profile pictures coming soon.</p>
+					${{ directory.usersettings.gravatar }}$
 				</div>
 			</div>
 
 			<div class="cmuProfileSettings__subsection">
-				<div class="cmuProfileSettings__subtitle">User Name</div>
+				<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.userName }}$</div>
 				<div>
 					<div class="cmuProfileSettings__onDisplay">
 						{{ vm.userData.login }}
 					</div>
 				</div>
 				<p>
-					Change your user name in <a class="style-link" href="https://account.ubnt.com">Account Settings</a>. 
+					${{ directory.usersettings.userNameDesc }}$ 
 				</p>
 			</div>
 
 			<div class="cmuProfileSettings__subsection">
-				<div class="cmuProfileSettings__subtitle">Email</div>
+				<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.email }}$ </div>
 				<div>
 					<div class="cmuProfileSettings__onDisplay">
 						{{ vm.userData.email }}
 					</div>
 				</div>
 				<p class="cmuProfileSettings__sectionDivider">
-					Change your email in <a class="style-link" href="https://account.ubnt.com">Account Settings</a>.
+					${{ directory.usersettings.emailDesc }}$
 				</p>
 
 				<div class="cmuInputGroup__checkbox">
 					<div class="cmuInput__checkbox">
 						<label>
 							<input 
-								type="checkbox" 
-								name="vm.profileSettings[]"
-								ng-model="vm.settingsModel.weeklyDigest" />
+								type="checkbox"
+								ng-model="vm.accountModel.weeklyDigest" />
 							<span>${{ directory.usersettings.weeklyEmailDigest }}$</span>
 						</label>
 					</div>
@@ -84,8 +88,7 @@
 						<label>
 							<input 
 								type="checkbox" 
-								name="vm.profileSettings[]"
-								ng-model="vm.settingsModel.emailAlertst" />
+								ng-model="vm.accountModel.emailAlerts" />
 							<span>${{ directory.usersettings.emailAlerts }}$</span>
 						</label>
 					</div>
@@ -93,44 +96,47 @@
 			</div>
 			<div class="cmuProfileSettings__subsection">
 				<div class="cmuProfileSettings__ctrl">
-					<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
-					<button class="button--solid button--padded" ng-click="vm.saveSettings()">${{ core.actions.save }}$</button>
+					<button class="button--solid button--padded" ng-click="vm.saveAccount()">${{ core.actions.update }}$</button>
 				</div>
 			</div>
 		</div>
 
 
 		<div class="cmuProfileSettings__section row" id="profile">
-			<div class="cmuProfileSettings__title">Profile</div>
-			<span>Optional Information</span>
+			<div class="cmuProfileSettings__title">${{ directory.usersettings.profile }}$</div>
+			<span>${{ directory.usersettings.optional }}$</span>
 
 			<div class="cmuProfileSettings__subsection">
-				<div class="cmuProfileSettings__subtitle">Name</div>
+				<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.name }}$</div>
 				<div class="cmuInputContainer">
-					<input class="cmuInput cmuInput--padded" id="userdisplayname" placeholder="Matt Hardy" required />
+					<input class="cmuInput cmuInput--padded" 
+					 	ng-model="vm.profileModel.name" 
+					 	placeholder="Matt Hardy" />
 				</div>
 			</div>
 
 			<div class="cmuProfileSettings__subsection">
-				<div class="cmuProfileSettings__subtitle">About Me</div>		
+				<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.aboutMe }}$</div>		
 				<community-text-editor 
-		          ng-model="vm.settingsModel.biography"
+		          ng-model="vm.profileModel.about"
 		          placeholder="${{ directory.usersettings.biography }}$"
 		          hide-preview-link="true"
 	          	  no-photos="true">
 		        </community-text-editor>	
 			</div>
 
-			<div class="row cmuRowNegativeMargin">
+			<div class="cmuProfileSettings__subsection row cmuRowNegativeMargin">
 				<div class="cmuProfileSettings__subsection col--md6">
-					<div class="cmuProfileSettings__subtitle">Company</div>
+					<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.company }}$</div>
 					<div class="cmuInputContainer">
-						<input class="cmuInput cmuInput--wide" placeholder=""/>
+						<input class="cmuInput cmuInput--wide" 
+							ng-model="vm.profileModel.company" 
+							placeholder=""/>
 					</div>
 				</div>
 
 				<div class="cmuProfileSettings__subsection col--md6">
-					<div class="cmuProfileSettings__subtitle">Location</div>
+					<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.location }}$</div>
 					<div class="cmuInputContainer">
 						<input class="cmuInput cmuInput--wide"
 							community-location-search 
@@ -141,30 +147,35 @@
 				</div>
 
 				<div class="cmuProfileSettings__subsection col--md6">
-					<div class="cmuProfileSettings__subtitle">Website</div>
+					<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.website }}$</div>
 					<div class="cmuInputContainer">
-						<input class="cmuInput cmuInput--wide" placeholder=""/>
+						<input class="cmuInput cmuInput--wide" 
+							ng-model="vm.profileModel.website" 
+							placeholder=""/>
 					</div>
 				</div>
 
 				<div class="cmuProfileSettings__subsection col--md6">
-					<div class="cmuProfileSettings__subtitle">Linkedin</div>
+					<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.linkedin }}$</div>
 					<div class="cmuInputContainer">
-						<input class="cmuInput cmuInput--wide" placeholder=""/>
+						<input class="cmuInput cmuInput--wide" 
+							ng-model="vm.profileModel.linkedin" 
+							placeholder=""/>
 					</div>
 				</div>
 
 				<div class="cmuProfileSettings__subsection col--md6">
-					<div class="cmuProfileSettings__subtitle">Twitter</div>
+					<div class="cmuProfileSettings__subtitle">${{ directory.usersettings.twitter }}$</div>
 					<div class="cmuInputContainer">
-						<input class="cmuInput cmuInput--wide" placeholder=""/>
+						<input class="cmuInput cmuInput--wide" 
+							ng-model="vm.profileModel.twitter" 
+							placeholder=""/>
 					</div>
 				</div>
 			</div>
 
 			<div class="cmuProfileSettings__ctrl">
-				<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
-				<button class="button--solid button--padded" ng-click="vm.saveSettings()">${{ core.actions.save }}$</button>
+				<button class="button--solid button--padded" ng-click="vm.saveProfile()">${{ core.actions.update }}$</button>
 			</div>
 		</div>
 
@@ -173,11 +184,11 @@
 
 		<div class="cmuProfileSettings__section row" id="signature">
 
-			<div class="cmuProfileSettings__title">Signature</div>
+			<div class="cmuProfileSettings__title">${{ directory.usersettings.signature }}$</div>
 
 			<div class="cmuProfileSettings__subsection">
 				<community-text-editor 
-		          ng-model="vm.settingsModel.signature"
+		          ng-model="vm.signature"
 		          placeholder="${{ directory.usersettings.signature }}$"
 		          editor-height="100"
 		          hide-preview-link="true"
@@ -186,8 +197,7 @@
 	        </div>
 
 	        <div class="cmuProfileSettings__ctrl">
-				<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
-				<button class="button--solid" ng-click="vm.saveSettings()">${{ core.actions.saveChanges }}$</button>
+				<button class="button--solid button--padded" ng-click="vm.saveSignature()">${{ core.actions.update }}$</button>
 			</div>
 
 		</div>
@@ -196,28 +206,27 @@
 
 		<div class="cmuProfileSettings__section row" id="subscriptions">
 
-			<div class="cmuProfileSettings__title">Subscriptions</div>
+			<div class="cmuProfileSettings__title">${{ directory.usersettings.subscriptions }}$ </div>
 
 			<div class="cmuProfileSettings__subsection">
 
 				<div class="cmuInputGroup__checkbox">
+					You are currently subscribed to # threads. <a class="style-link" area-link-handler="">Manage your subscriptions here.</a>
 					<div class="cmuInput__checkbox">
     					<label>
     						<input 
-    							type="checkbox" 
-								name="vm.profileSettings[]"
-								ng-model="vm.settingsModel.automaticallySubscribe" />
+    							type="checkbox"
+								ng-model="vm.subscriptionModel.auto" />
     						<span>${{ directory.usersettings.automaticallySubscribe }}$</span>
     					</label>
 					</div>
 				</div>
-
-				<div class="cmuProfileSettings__ctrl">
-					<a ui-sref="userprofile.userprofile" class="button">${{ core.cancel }}$</a>
-					<button class="button--solid" ng-click="vm.saveSettings()">${{ core.actions.saveChanges }}$</button>
-				</div>
-
 	        </div>
+
+			<div class="cmuProfileSettings__ctrl">
+				<button class="button--solid button--padded" ng-click="vm.saveSubscription()">${{ core.actions.update }}$ </button>
+			</div>
+
 		</div>
 
 <!-- 
