@@ -62,7 +62,7 @@ var routesProvider = function(){
 		userprofile: {
 			userprofile: userprofileBase,
 			usersettings: '/' + strings.edit,
-			subscriptions: '/subscriptions'
+			subscriptions: '/' + strings.subscriptions
 		},
 		searchpage: '/' + strings.search,
 		utils: {
