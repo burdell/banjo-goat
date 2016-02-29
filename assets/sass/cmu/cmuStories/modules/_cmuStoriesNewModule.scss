@@ -17,6 +17,15 @@
   margin-bottom: $cmu-base/2;
 
 }
+	.cmuStoriesNew__title--share:before {
+		content: ' 1. ';
+	}
+	.cmuStoriesNew__title--media:before {
+		content: ' 2. ';
+	}
+	.cmuStoriesNew__title--more:before {
+		content: ' 3. ';
+	}
 
 .cmuStoriesNew__form {
 	overflow: hidden;
