@@ -22,9 +22,11 @@
 	<div>
 		<community-reaction
 			reaction-type="kudo" 
-			reaction-count="vm.story.message.scores.kudoCount"></community-reaction>
+			reaction-count="vm.story.message.scores.kudoCount"
+			thin-display="true"
+			lower-display="false"></community-reaction>
 		<span community-permissions="message.can_edit_message" denied-behavior="hide">
-			<a class="button button--ghost" 
+			<a class="button button--ghost button--thin" 
 				area-link-handler="{{ vm.editUrl }}">
 				<span class="icon ubnt-icon--pencil-2"></span>
 				<span>${{ stories.detail.edit }}$</span>
@@ -35,14 +37,7 @@
 
 <div class="cmuStories__story__body row">
 
-	<div class="cmuStories__story__body__main"
-		ng-class="{'col--md9 noPadding' : 
-			(vm.coordinates.locName || vm.story.meta.projectRole ||  
-				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
-				vm.story.meta.budgetAmount || vm.story.meta.dataRequirement ||
-				vm.story.meta.bandwidth ||
-				(vm.productList && vm.productList.length > 0)
-			)}">
+	<div class="cmuStories__story__body__main col--lg9">
 
 		<div class="cmuStories__story__cover">
 			<div class="cmuStories__story__cover--img">
@@ -78,7 +73,7 @@
 		Sidebar
 	 -->
 	<div 
-		class="cmuStory__sidebar col--md3"
+		class="cmuStory__sidebar col--lg3"
 		ng-if="
 			vm.coordinates.locName || vm.story.meta.projectRole ||  
 				vm.story.meta.finishDate || vm.story.meta.numberOfUsers ||
@@ -88,9 +83,9 @@
 			" 
 		>
 		<div class="cmuStory__sidebar__item" ng-if="vm.coordinates.locName">
-			<div class="cmuStory__sidebar__title">${{ stories.body.location }}$</div>
 			<community-map class="cmuStory__sidebar__map" map-coordinates="vm.coordinates"></community-map>
-			<div class="cmuStory__sidebar__location">{{ vm.coordinates.locName }}</div>
+			<label>${{ stories.body.location }}$</label>
+			<p>{{ vm.coordinates.locName }}</p>
 		</div>
 		<div class="cmuStory__sidebar__item" ng-if="vm.story.meta.projectRole">
 		 	<label>${{ stories.body.projectRole }}$</label>

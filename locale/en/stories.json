@@ -19,6 +19,7 @@
 	},
 	"newStory": {
 		"addMoreDetails": "Optional Details",
+		"tellUsMore": "Tell us more",
 		"additionalFieldsCta": "Let us know about your team size, budget, and other details.",
 		"caption": "Caption",
 		"coverImage": "Cover Image",
@@ -30,7 +31,7 @@
 		"searchUsers": "Search Users",
 		"removeAsCover": "Remove As Cover",
 		"setAsCover": "Set As Cover",
-		"shareAStory": "Share a story",
+		"shareAStory": "Tell your story",
 		"subject": "Story Name",
 		"summary": "Short Summary",
 		"tellUsYourStory": "Tell us your story",

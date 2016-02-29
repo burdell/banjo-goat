@@ -6505,7 +6505,7 @@ tr:last-child td {
   transition: 0.35s;
 }
 
-.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .style-link:hover, .cmuDirectory__content__title a:hover, .cmuFeed__sidebar__link:hover, .cmuMessage__replyTo a:hover, .cmuInbox__message .cmuUserbadge__account .cmuUsername a:hover, .cmuContent a:hover, .cmuComments__body__content a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadlist__row, .cmuStoryItem, .style-railLink, .cmuFeed__anno, .cmuDropdown__content a, .cmuDirectory__sidebar__main a, .cmuDirectory__content__list a, .cmuBreadcrumbs li a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuFeatures__threadlist__body__title, .style-link--light, .cmuInput__checkbox--default span:after, .style-link--white, .style-tag, .style-tag--noLine, .cmuTooltip span, .cmuTooltip .cmuTooltip:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-tag:hover, .style-tag--noLine:hover, .cmuTooltip span:hover, .cmuTooltip .cmuTooltip:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover, .cmuTooltip, .cmuTooltip:after, .cmuLoading, .cmuLoading.loading, .cmuIcon-action .cmuIcon-action__icon, .cmuMessage__actions .cmuIcon-action__icon, .cmuIcon-action--halfOpacity .cmuIcon-action__icon, .cmuComments__row:hover .cmuIcon-action__icon, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuNav__search, .cmuNav__notifications, .cmuNav__inbox, .cmuNav__profile, .cmuNav__left, .cmuNav__link a, .cmuNav__mobile__btn:before, .cmuNav__mobile__btn:after, .cmuNav__search:hover, .cmuNav__notifications:hover, .cmuNav__inbox:hover, .cmuNav__profile:hover, .cmuNav__left:hover, .cmuNav__link a:hover, .cmuNav__mobile__btn:hover:before, .cmuNav__mobile__btn:hover:after, .cmuNav__accountNav .active:after, .cmuNav__left.active *, .cmuNav__left.active *:hover, .cmuNav--footer li a, .cmuNav--footer li a:hover, .cmuNav__discussions a:hover span:before, .cmuNav__discussions .ubnt-icon--menu:before, .cmuNav__social a:hover .ubnt-icon:before, .cmuNav__social span:before, .cmuNav__backtotop .ubnt--icon:before, .cmuNav__backtotop .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__section__col a, .cmuMega__section__col a:hover, .cmuMega__item a, .cmuMega__item a:hover, .cmuMega__item:hover .cmuMega__icon, .cmuMega__icon, .cmuSearchbar, .cmuBanner__close, .cmuCollapser__header:hover, .cmuCollapser__header:before, .cmuCollapser__header--light.open:hover:before, .cmuCollapser__header--light.open:before, .cmuCollapser__header--medium.open:hover:before, .cmuCollapser__header--medium.open:before, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuBreadcrumbs, .cmuBreadcrumbs a span, .cmuBreadcrumbs:hover a span, .cmuThreadlist__tooltip, .cmuThreadlist__tooltip .icon:before, .cmuThreadlist__tooltip:hover, .cmuThreadlist__tooltip:hover .icon:before, .cmuThreadlist__row:hover .cmuThreadlist__tooltip, .cmuThread__container, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .button--vote .button--vote--points, .button--vote .button--vote--action, .button--vote:hover .button--vote--points, .button--vote:hover .button--vote--action, .button--vote:active .button--vote--action, .button--vote.button--voted .button--vote--points, .button--vote.button--voted .button--vote--action, .button--vote.button--vote--kudo .button--vote--points, .button--vote.button--vote--kudo .button--vote--action, .button--vote.button--vote--kudo:hover .button--vote--points, .button--vote.button--vote--kudo:hover .button--vote--action, .button--vote.button--vote--kudo:active .button--vote--action, .button--vote.button--vote--kudo.button--voted .button--vote--points, .button--vote.button--vote--kudo.button--voted .button--vote--action, .button--tab, .button--tab:not(.active):hover, .button--tab:before, .button--tab.active:before, .cmuUserbadge--showFlag:hover, .cmuUserbadge--showFlag:hover .cmuUserbadge__flag, .cmuUserbadge__flag, .cmuUserbadge__flag .cmuUserbadge__flag__container:before, .cmuUserbadge__flag .cmuUserbadge__flag__container:after, input.cmuInput, input.cmuTextEditor__textarea, .cmuInput input, .cmuTextEditor__textarea input, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon, .cmuSearchbar .appIconInput__icon, .cmuSearchpage--searchbox .appIconInput__icon, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon:hover, .cmuSearchbar .appIconInput__icon:hover, .cmuSearchpage--searchbox .appIconInput__icon:hover, .cmuInput__selectDropdown, .cmuInput__selectDropdown:hover, .emojiPicker:before, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .style-link:hover, .cmuDirectory__content__title a:hover, .cmuFeed__sidebar__link:hover, .cmuMessage__replyTo a:hover, .cmuInbox__message .cmuUserbadge__account .cmuUsername a:hover, .cmuContent a:hover, .cmuComments__body__content a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadlist__row, .cmuStoryItem, .style-railLink, .cmuFeed__anno, .cmuDropdown__content a, .cmuDirectory__sidebar__main a, .cmuDirectory__content__list a, .cmuBreadcrumbs li a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuFeatures__threadlist__body__title, .style-link--light, .cmuInput__checkbox--default span:after, .style-link--white, .style-tag, .style-tag--noLine, .cmuTooltip span, .cmuTooltip .cmuTooltip:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-tag:hover, .style-tag--noLine:hover, .cmuTooltip span:hover, .cmuTooltip .cmuTooltip:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover, .cmuTooltip, .cmuTooltip:after, .cmuLoading, .cmuLoading.loading, .cmuIcon-action .cmuIcon-action__icon, .cmuMessage__actions .cmuIcon-action__icon, .cmuIcon-action--halfOpacity .cmuIcon-action__icon, .cmuComments__row:hover .cmuIcon-action__icon, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuNav__search, .cmuNav__notifications, .cmuNav__inbox, .cmuNav__profile, .cmuNav__left, .cmuNav__link a, .cmuNav__mobile__btn:before, .cmuNav__mobile__btn:after, .cmuNav__search:hover, .cmuNav__notifications:hover, .cmuNav__inbox:hover, .cmuNav__profile:hover, .cmuNav__left:hover, .cmuNav__link a:hover, .cmuNav__mobile__btn:hover:before, .cmuNav__mobile__btn:hover:after, .cmuNav__accountNav .active:after, .cmuNav__left.active *, .cmuNav__left.active *:hover, .cmuNav--footer li a, .cmuNav--footer li a:hover, .cmuNav__discussions a:hover span:before, .cmuNav__discussions .ubnt-icon--menu:before, .cmuNav__social a:hover .ubnt-icon:before, .cmuNav__social span:before, .cmuNav__backtotop .ubnt--icon:before, .cmuNav__backtotop .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__section__col a, .cmuMega__section__col a:hover, .cmuMega__item a, .cmuMega__item a:hover, .cmuMega__item:hover .cmuMega__icon, .cmuMega__icon, .cmuSearchbar, .cmuBanner__close, .cmuCollapser__header:hover, .cmuCollapser__header:before, .cmuCollapser__header--light:hover:before, .cmuCollapser__header--medium.open:hover:before, .cmuCollapser__header--medium.open:before, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuBreadcrumbs, .cmuBreadcrumbs a span, .cmuBreadcrumbs:hover a span, .cmuThreadlist__tooltip, .cmuThreadlist__tooltip .icon:before, .cmuThreadlist__tooltip:hover, .cmuThreadlist__tooltip:hover .icon:before, .cmuThreadlist__row:hover .cmuThreadlist__tooltip, .cmuThread__container, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .button--vote .button--vote--points, .button--vote .button--vote--action, .button--vote:hover .button--vote--points, .button--vote:hover .button--vote--action, .button--vote:active .button--vote--action, .button--vote.button--voted .button--vote--points, .button--vote.button--voted .button--vote--action, .button--vote.button--vote--kudo .button--vote--points, .button--vote.button--vote--kudo .button--vote--action, .button--vote.button--vote--kudo:hover .button--vote--points, .button--vote.button--vote--kudo:hover .button--vote--action, .button--vote.button--vote--kudo:active .button--vote--action, .button--vote.button--vote--kudo.button--voted .button--vote--points, .button--vote.button--vote--kudo.button--voted .button--vote--action, .button--tab, .button--tab:not(.active):hover, .button--tab:before, .button--tab.active:before, .cmuUserbadge--showFlag:hover, .cmuUserbadge--showFlag:hover .cmuUserbadge__flag, .cmuUserbadge__flag, .cmuUserbadge__flag .cmuUserbadge__flag__container:before, .cmuUserbadge__flag .cmuUserbadge__flag__container:after, input.cmuInput, input.cmuTextEditor__textarea, .cmuInput input, .cmuTextEditor__textarea input, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon, .cmuSearchbar .appIconInput__icon, .cmuSearchpage--searchbox .appIconInput__icon, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon:hover, .cmuSearchbar .appIconInput__icon:hover, .cmuSearchpage--searchbox .appIconInput__icon:hover, .cmuInput__selectDropdown, .cmuInput__selectDropdown:hover, .emojiPicker:before, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
 .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster--inline, .cmuTooltipster .tooltipster-content, .cmuTooltipster--inline .tooltipster-content {
   -webkit-transition: 0.31s;
   -moz-transition: 0.31s;
@@ -6521,7 +6521,7 @@ tr:last-child td {
   transition: all 230ms ease;
 }
 
-.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .style-link:hover, .cmuDirectory__content__title a:hover, .cmuFeed__sidebar__link:hover, .cmuMessage__replyTo a:hover, .cmuInbox__message .cmuUserbadge__account .cmuUsername a:hover, .cmuContent a:hover, .cmuComments__body__content a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadlist__row, .cmuStoryItem, .style-railLink, .cmuFeed__anno, .cmuDropdown__content a, .cmuDirectory__sidebar__main a, .cmuDirectory__content__list a, .cmuBreadcrumbs li a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuFeatures__threadlist__body__title, .style-link--light, .cmuInput__checkbox--default span:after, .style-link--white, .style-tag, .style-tag--noLine, .cmuTooltip span, .cmuTooltip .cmuTooltip:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-tag:hover, .style-tag--noLine:hover, .cmuTooltip span:hover, .cmuTooltip .cmuTooltip:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover, .cmuTooltip, .cmuTooltip:after, .cmuLoading, .cmuLoading.loading, .cmuIcon-action .cmuIcon-action__icon, .cmuMessage__actions .cmuIcon-action__icon, .cmuIcon-action--halfOpacity .cmuIcon-action__icon, .cmuComments__row:hover .cmuIcon-action__icon, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuNav__search, .cmuNav__notifications, .cmuNav__inbox, .cmuNav__profile, .cmuNav__left, .cmuNav__link a, .cmuNav__mobile__btn:before, .cmuNav__mobile__btn:after, .cmuNav__search:hover, .cmuNav__notifications:hover, .cmuNav__inbox:hover, .cmuNav__profile:hover, .cmuNav__left:hover, .cmuNav__link a:hover, .cmuNav__mobile__btn:hover:before, .cmuNav__mobile__btn:hover:after, .cmuNav__accountNav .active:after, .cmuNav__left.active *, .cmuNav__left.active *:hover, .cmuNav--footer li a, .cmuNav--footer li a:hover, .cmuNav__discussions a:hover span:before, .cmuNav__discussions .ubnt-icon--menu:before, .cmuNav__social a:hover .ubnt-icon:before, .cmuNav__social span:before, .cmuNav__backtotop .ubnt--icon:before, .cmuNav__backtotop .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__section__col a, .cmuMega__section__col a:hover, .cmuMega__item a, .cmuMega__item a:hover, .cmuMega__item:hover .cmuMega__icon, .cmuMega__icon, .cmuSearchbar, .cmuBanner__close, .cmuCollapser__header:hover, .cmuCollapser__header:before, .cmuCollapser__header--light.open:hover:before, .cmuCollapser__header--light.open:before, .cmuCollapser__header--medium.open:hover:before, .cmuCollapser__header--medium.open:before, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuBreadcrumbs, .cmuBreadcrumbs a span, .cmuBreadcrumbs:hover a span, .cmuThreadlist__tooltip, .cmuThreadlist__tooltip .icon:before, .cmuThreadlist__tooltip:hover, .cmuThreadlist__tooltip:hover .icon:before, .cmuThreadlist__row:hover .cmuThreadlist__tooltip, .cmuThread__container, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .button--vote .button--vote--points, .button--vote .button--vote--action, .button--vote:hover .button--vote--points, .button--vote:hover .button--vote--action, .button--vote:active .button--vote--action, .button--vote.button--voted .button--vote--points, .button--vote.button--voted .button--vote--action, .button--vote.button--vote--kudo .button--vote--points, .button--vote.button--vote--kudo .button--vote--action, .button--vote.button--vote--kudo:hover .button--vote--points, .button--vote.button--vote--kudo:hover .button--vote--action, .button--vote.button--vote--kudo:active .button--vote--action, .button--vote.button--vote--kudo.button--voted .button--vote--points, .button--vote.button--vote--kudo.button--voted .button--vote--action, .button--tab, .button--tab:not(.active):hover, .button--tab:before, .button--tab.active:before, .cmuUserbadge--showFlag:hover, .cmuUserbadge--showFlag:hover .cmuUserbadge__flag, .cmuUserbadge__flag, .cmuUserbadge__flag .cmuUserbadge__flag__container:before, .cmuUserbadge__flag .cmuUserbadge__flag__container:after, input.cmuInput, input.cmuTextEditor__textarea, .cmuInput input, .cmuTextEditor__textarea input, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon, .cmuSearchbar .appIconInput__icon, .cmuSearchpage--searchbox .appIconInput__icon, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon:hover, .cmuSearchbar .appIconInput__icon:hover, .cmuSearchpage--searchbox .appIconInput__icon:hover, .cmuInput__selectDropdown, .cmuInput__selectDropdown:hover, .emojiPicker:before, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
+.style-link, .cmuDirectory__content__title a, .cmuFeed__sidebar__link, .cmuMessage__replyTo a, .cmuInbox__message .cmuUserbadge__account .cmuUsername a, .cmuContent a, .cmuComments__body__content a, .style-link:hover, .cmuDirectory__content__title a:hover, .cmuFeed__sidebar__link:hover, .cmuMessage__replyTo a:hover, .cmuInbox__message .cmuUserbadge__account .cmuUsername a:hover, .cmuContent a:hover, .cmuComments__body__content a:hover, .style-link--dark, .style-listItem, .cmuFeed__story, .cmuFeed__item, .cmuThreadlist__row, .cmuStoryItem, .style-railLink, .cmuFeed__anno, .cmuDropdown__content a, .cmuDirectory__sidebar__main a, .cmuDirectory__content__list a, .cmuBreadcrumbs li a, .cmuUsername a, .cmuDiscussionsNavbar a, .cmuFeatures__threadlist__body__title, .style-link--light, .cmuInput__checkbox--default span:after, .style-link--white, .style-tag, .style-tag--noLine, .cmuTooltip span, .cmuTooltip .cmuTooltip:before, .cmuFeed__location, .cmuStoryItem__desc, .cmuTag, .style-tag:hover, .style-tag--noLine:hover, .cmuTooltip span:hover, .cmuTooltip .cmuTooltip:hover:before, .cmuFeed__location:hover, .cmuStoryItem__desc:hover, .cmuTag:hover, .cmuTooltip, .cmuTooltip:after, .cmuLoading, .cmuLoading.loading, .cmuIcon-action .cmuIcon-action__icon, .cmuMessage__actions .cmuIcon-action__icon, .cmuIcon-action--halfOpacity .cmuIcon-action__icon, .cmuComments__row:hover .cmuIcon-action__icon, .cmuPagination__txtControl, .cmuPagination__txtControl:hover:not(.disabled), .cmuPagination__arrow, .cmuPagination__arrow:hover:not(.disabled), .cmuPagination__num, .cmuPagination__first, .cmuNav__search, .cmuNav__notifications, .cmuNav__inbox, .cmuNav__profile, .cmuNav__left, .cmuNav__link a, .cmuNav__mobile__btn:before, .cmuNav__mobile__btn:after, .cmuNav__search:hover, .cmuNav__notifications:hover, .cmuNav__inbox:hover, .cmuNav__profile:hover, .cmuNav__left:hover, .cmuNav__link a:hover, .cmuNav__mobile__btn:hover:before, .cmuNav__mobile__btn:hover:after, .cmuNav__accountNav .active:after, .cmuNav__left.active *, .cmuNav__left.active *:hover, .cmuNav--footer li a, .cmuNav--footer li a:hover, .cmuNav__discussions a:hover span:before, .cmuNav__discussions .ubnt-icon--menu:before, .cmuNav__social a:hover .ubnt-icon:before, .cmuNav__social span:before, .cmuNav__backtotop .ubnt--icon:before, .cmuNav__backtotop .ubnt--icon:hover:before, div.cmuOverlay--show, .cmuDropdown, .cmuDropdown--show, .cmuMega, .cmuMega__close, .cmuMega__close:hover, .cmuMega__section__col a, .cmuMega__section__col a:hover, .cmuMega__item a, .cmuMega__item a:hover, .cmuMega__item:hover .cmuMega__icon, .cmuMega__icon, .cmuSearchbar, .cmuBanner__close, .cmuCollapser__header:hover, .cmuCollapser__header:before, .cmuCollapser__header--light:hover:before, .cmuCollapser__header--medium.open:hover:before, .cmuCollapser__header--medium.open:before, .cmuDirectory__content, .cmuDirectory__content:hover, .cmuFeed__story:hover .cmuFeed__story__img, .cmuFeed__story__img, .cmuBreadcrumbs, .cmuBreadcrumbs a span, .cmuBreadcrumbs:hover a span, .cmuThreadlist__tooltip, .cmuThreadlist__tooltip .icon:before, .cmuThreadlist__tooltip:hover, .cmuThreadlist__tooltip:hover .icon:before, .cmuThreadlist__row:hover .cmuThreadlist__tooltip, .cmuThread__container, .cmuMessage__container, .cmuMessage__container:hover .cmuUserbadge, .cmuUserbadge, button, .button, .cmuButton, .cmuInput--waiting, .button--vote .button--vote--points, .button--vote .button--vote--action, .button--vote:hover .button--vote--points, .button--vote:hover .button--vote--action, .button--vote:active .button--vote--action, .button--vote.button--voted .button--vote--points, .button--vote.button--voted .button--vote--action, .button--vote.button--vote--kudo .button--vote--points, .button--vote.button--vote--kudo .button--vote--action, .button--vote.button--vote--kudo:hover .button--vote--points, .button--vote.button--vote--kudo:hover .button--vote--action, .button--vote.button--vote--kudo:active .button--vote--action, .button--vote.button--vote--kudo.button--voted .button--vote--points, .button--vote.button--vote--kudo.button--voted .button--vote--action, .button--tab, .button--tab:not(.active):hover, .button--tab:before, .button--tab.active:before, .cmuUserbadge--showFlag:hover, .cmuUserbadge--showFlag:hover .cmuUserbadge__flag, .cmuUserbadge__flag, .cmuUserbadge__flag .cmuUserbadge__flag__container:before, .cmuUserbadge__flag .cmuUserbadge__flag__container:after, input.cmuInput, input.cmuTextEditor__textarea, .cmuInput input, .cmuTextEditor__textarea input, .cmuInput--stacked:focus, .cmuInput--stacked:valid, .cmuInputSelector, .cmuInputSelector .select2-choices, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon, .cmuSearchbar .appIconInput__icon, .cmuSearchpage--searchbox .appIconInput__icon, .cmuSearchbox.cmuSearchbox--large .appIconInput__icon:hover, .cmuSearchbar .appIconInput__icon:hover, .cmuSearchpage--searchbox .appIconInput__icon:hover, .cmuInput__selectDropdown, .cmuInput__selectDropdown:hover, .emojiPicker:before, .cmuStoryItem:hover, .cmuStoryItem:hover img, .cmuStoryItem__image img, .cmuStoriesNew__form--uploadItem--downup, .cmuStoriesNew__form--uploadItem--downup + span:before, .cmuStoriesNew__form--uploadItem--downup:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--setCover:hover, .cmuStoriesNew__form--uploadItem--controls .cmuStoriesNew__form--uploadItem--controls--delete:hover, .cmuStoriesNew__form--additional, .cmuStoriesNew__form--additional .icon, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--title,
 .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .cmuStoriesNew__form--intro, .cmuStoriesNew__form--additional .cmuStoriesNew__form--additional--controller:hover .icon, .cmuTooltipster, .cmuTooltipster--inline, .cmuTooltipster .tooltipster-content, .cmuTooltipster--inline .tooltipster-content {
   -webkit-transition: all 180ms ease;
   -moz-transition: all 180ms ease;
@@ -6847,7 +6847,7 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
-.type-base, body, .cmuNav__mobile__search, .cmuThread__stats, .cmuUserbadge__account .cmuUsername, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
+.type-base, body, .cmuNav__mobile__search, .cmuThread__stats, .cmuUserbadge__account .cmuUsername__icon, .cmuFeatureDetails .cmuFeatures__votes__count span {
   font-size: 0.8125rem;
   line-height: 1.24rem;
 }
@@ -6857,7 +6857,7 @@ body {
   line-height: 1.125rem;
 }
 
-.type-info, .cmuInlineInfo, .cmuNav--footer .cmuNav__legal, .cmuPulse__desc, .cmuMessage__replyTo, .cmuMessage__meta, .cmuThread__firstPost .cmuMessage__data, .cmuUserbadge__descriptors div, .cmuUserbadge__rank, .cmuUserbadge__OP, .cmuUserbadge__points, .cmuComments__info, .cmuFeatures__votes__status {
+.type-info, .cmuInlineInfo, .cmuNav--footer .cmuNav__legal, .cmuPulse__desc, .cmuMessage__replyTo, .cmuMessage__meta, .cmuThread__firstPost .cmuMessage__data, .cmuUserbadge__rank, .cmuUserbadge__OP, .cmuComments__info, .cmuFeatures__votes__status {
   font-size: 0.6875rem;
   line-height: 1rem;
 }
@@ -8632,13 +8632,12 @@ div.cmuOverlay--show {
 .cmuCollapser__header {
   position: relative;
   cursor: pointer;
-  background-color: white;
 }
 .cmuCollapser__header > div {
   margin-left: 2rem;
 }
-.cmuCollapser__header:hover {
-  background: #13bcff;
+.cmuCollapser__header:hover:before {
+  color: #13bcff;
 }
 .cmuCollapser__header:before {
   -moz-transition: max-height 360ms, opacity 360ms;
@@ -8647,7 +8646,8 @@ div.cmuOverlay--show {
   transition: max-height 360ms, opacity 360ms;
   display: inline-block;
   content: '\e6ce';
-  background-color: #dadada;
+  background-color: #ebebeb;
+  color: #bbbbbd;
   margin-right: 0.5rem;
   float: left;
   height: 2rem;
@@ -8665,20 +8665,14 @@ div.cmuOverlay--show {
   transition: max-height 360ms, opacity 360ms;
   overflow: visible;
 }
-.cmuCollapser__header.open {
-  background-color: #ace7ff;
-}
-.cmuCollapser__header.open * {
-  color: black;
-}
-.cmuCollapser__header.open:hover {
-  background-color: #13bcff;
+.cmuCollapser__header.open:hover:before {
+  color: #13bcff;
 }
 .cmuCollapser__header.open:before {
   display: inline-block;
   content: '\e6d0';
-  background-color: #00a0df;
-  color: #fafafa;
+  background-color: #ebebeb;
+  color: #bbbbbd;
 }
 
 .cmuCollapser__header__title {
@@ -8689,21 +8683,14 @@ div.cmuOverlay--show {
   line-height: 1rem;
 }
 
+.cmuCollapser__header--light {
+  background-color: #ebebeb;
+}
 .cmuCollapser__header--light h5 {
   color: #969ba3;
 }
-.cmuCollapser__header--light.open {
-  color: #525252;
-  background-color: white;
-}
-.cmuCollapser__header--light.open:hover {
-  background-color: #ace7ff;
-}
-.cmuCollapser__header--light.open:hover:before {
-  background-color: #13bcff;
-}
-.cmuCollapser__header--light.open:before {
-  background-color: #ace7ff;
+.cmuCollapser__header--light:hover:before {
+  color: #13bcff;
 }
 
 .cmuCollapser__header--medium {
@@ -9077,6 +9064,10 @@ div.cmuCollapser__content {
   padding: 0.5rem;
   border-bottom: 1px solid #dadada;
   height: 2rem;
+}
+
+.cmuCollapser__header .cmuFeed__title {
+  border: none;
 }
 
 .cmuFeed__stories {
@@ -9480,7 +9471,8 @@ div.cmuCollapser__content {
 
 .cmuThread__subject__subtitle {
   color: #969ba3;
-  font-weight: bold;
+  font-style: italic;
+  font-weight: 300;
   margin-top: -2rem;
 }
 
@@ -10238,8 +10230,7 @@ button, .button, .cmuButton, .cmuInput--waiting {
   cursor: pointer !important;
 }
 button:hover, .button:hover, .cmuButton:hover, .cmuInput--waiting:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 button + button, button + select, .button + .button, .button + select, .cmuButton + .cmuButton, .cmuInput--waiting + .cmuButton, .cmuButton + .cmuInput--waiting, .cmuInput--waiting + .cmuInput--waiting, .cmuButton + select, .cmuInput--waiting + select {
   margin-left: 0.5rem;
@@ -10257,8 +10248,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #00a0df;
 }
 .button--ghost:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 .button--ghost.button-blue-on-white {
   color: #00a0df;
@@ -10268,8 +10258,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #00a0df;
 }
 .button--ghost.button-blue-on-white:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 .button--ghost.button-green-on-white {
   color: #48af65;
@@ -10279,8 +10268,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #48af65;
 }
 .button--ghost.button-green-on-white:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 .button--ghost.button-black-on-white {
   color: #525252;
@@ -10290,8 +10278,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #525252;
 }
 .button--ghost.button-black-on-white:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 .button--ghost.button-gray-on-white {
   color: #bbbbbd;
@@ -10301,8 +10288,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #bbbbbd;
 }
 .button--ghost.button-gray-on-white:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 .button--ghost.button-ltgray-on-white {
   color: #ebebeb;
@@ -10312,8 +10298,7 @@ button + .button, .button + .button, button + button, .button + button {
   border-color: #ebebeb;
 }
 .button--ghost.button-ltgray-on-white:hover {
-  color: black;
-  border-color: black;
+  background-color: #dadada;
 }
 
 .button--outline, .cmuInput--waiting {
@@ -10830,6 +10815,7 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__account .cmuUsername {
+  font-size: 1rem;
   line-height: 0.75rem;
   margin-top: 0.5rem;
   min-width: 60px;
@@ -10847,7 +10833,7 @@ button .icon, .button .icon {
 
 .cmuUserbadge__descriptors {
   word-wrap: break-word;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   padding-bottom: 1rem;
 }
 .cmuUserbadge__descriptors div {
@@ -10855,10 +10841,7 @@ button .icon, .button .icon {
 }
 
 .cmuUserbadge__user {
-  margin-bottom: 0.5rem;
-}
-.cmuUserbadge__user .cmuUsername__login {
-  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .cmuUserbadge__userText {
@@ -10890,14 +10873,11 @@ button .icon, .button .icon {
   padding-right: 1rem;
   margin: 0 0.5rem;
   margin-bottom: 0.5rem;
+  line-height: 1rem;
 }
 
 .cmuUserbadge__stat {
   margin-left: 0.5rem;
-  display: inline-block;
-}
-.cmuUserbadge__stat:first-of-type, .cmuUserbadge__stat:first-child {
-  margin-left: 0;
 }
 
 .cmuUserbadge__stat__num {
@@ -10919,7 +10899,7 @@ button .icon, .button .icon {
   background-color: #00a0df;
 }
 
-.cmuUserbadge--thin {
+.cmuUserbadge--thin, .cmuUserbadge--tooltip {
   display: inline-block;
   opacity: 1;
   position: relative;
@@ -10930,57 +10910,62 @@ button .icon, .button .icon {
   padding-right: 2rem;
   padding-top: 0.75rem;
 }
-.cmuUserbadge--thin .cmuUserbadge__main {
+.cmuUserbadge--thin .cmuUserbadge__main, .cmuUserbadge--tooltip .cmuUserbadge__main {
   margin-top: 3px;
 }
-.cmuUserbadge--thin .cmuUserbadge__account {
+.cmuUserbadge--thin .cmuUserbadge__account, .cmuUserbadge--tooltip .cmuUserbadge__account {
   display: inline-block;
   padding: 0;
   max-width: 210px;
 }
-.cmuUserbadge--thin .cmuUserbadge__user {
+.cmuUserbadge--thin .cmuUserbadge__user, .cmuUserbadge--tooltip .cmuUserbadge__user {
   padding-top: 2px;
 }
-.cmuUserbadge--thin .cmuUsername {
+.cmuUserbadge--thin .cmuUsername, .cmuUserbadge--tooltip .cmuUsername {
   margin-top: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__avatar {
+.cmuUserbadge--thin .cmuUserbadge__avatar, .cmuUserbadge--tooltip .cmuUserbadge__avatar {
   margin-top: -2px;
   vertical-align: top;
   float: left;
   margin-bottom: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__rank, .cmuUserbadge--thin .cmuUserbadge__OP {
+.cmuUserbadge--thin .cmuUserbadge__rank, .cmuUserbadge--tooltip .cmuUserbadge__rank, .cmuUserbadge--thin .cmuUserbadge__OP, .cmuUserbadge--tooltip .cmuUserbadge__OP {
   line-height: 14px;
 }
-.cmuUserbadge--thin .cmuUserbadge__points {
+.cmuUserbadge--thin .cmuUserbadge__points, .cmuUserbadge--tooltip .cmuUserbadge__points {
   display: inline-block;
   vertical-align: top;
   margin-top: 6px;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 1rem;
+  margin: 0 1rem;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
 }
-.cmuUserbadge--thin .cmuUserbadge__points div {
+.cmuUserbadge--thin .cmuUserbadge__points div, .cmuUserbadge--tooltip .cmuUserbadge__points div {
   display: block;
   text-align: left;
 }
-.cmuUserbadge--thin .cmuUserbadge__stat {
+.cmuUserbadge--thin .cmuUserbadge__stat, .cmuUserbadge--tooltip .cmuUserbadge__stat {
   margin-top: 0;
 }
-.cmuUserbadge--thin .cmuUserbadge__posts {
+.cmuUserbadge--thin .cmuUserbadge__posts, .cmuUserbadge--tooltip .cmuUserbadge__posts {
   padding-left: 0;
   margin-top: 1px;
 }
-.cmuUserbadge--thin .cmuUserbadge__posts:after {
+.cmuUserbadge--thin .cmuUserbadge__posts:after, .cmuUserbadge--tooltip .cmuUserbadge__posts:after {
   padding-left: 3px;
 }
-.cmuUserbadge--thin .cmuUserbadge__info {
+.cmuUserbadge--thin .cmuUserbadge__info, .cmuUserbadge--tooltip .cmuUserbadge__info {
   display: inline-block;
   vertical-align: top;
-  margin-top: 6px;
+  padding-top: 0.25rem;
 }
-.cmuUserbadge--thin .cmuUserbadge__descriptors {
+.cmuUserbadge--thin .cmuUserbadge__descriptors, .cmuUserbadge--tooltip .cmuUserbadge__descriptors {
   padding: 0;
 }
-.cmuUserbadge--thin .cmuUsername__icon {
+.cmuUserbadge--thin .cmuUsername__icon, .cmuUserbadge--tooltip .cmuUsername__icon {
   line-height: 0;
 }
 
@@ -10993,6 +10978,12 @@ button .icon, .button .icon {
 }
 .cmuUserbadge--thin--open .cmuUserbadge__user {
   margin-bottom: 0;
+}
+
+.cmuUserbadge--tooltip {
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
 }
 
 .cmuUserbadge--comment {
@@ -12028,7 +12019,6 @@ select.cmuSort {
 
 .cmuTextEditor__help {
   margin-top: 0.5rem;
-  max-width: 640px;
 }
 .cmuTextEditor__help .markhelp {
   padding: 1rem;
@@ -12077,6 +12067,10 @@ select.cmuSort {
 .cmuTimeline .cmuThreadlist__topic__title {
   line-height: 1.5rem;
 }
+.cmuTimeline .cmuThreadlist__topic .cmuProductTag .style-tag, .cmuTimeline .cmuSearchpage .cmuThreadlist__row .cmuSearchpage__item .cmuProductTag .style-tag, .cmuSearchpage .cmuThreadlist__row .cmuTimeline .cmuSearchpage__item .cmuProductTag .style-tag {
+  position: relative;
+  top: 0.16667rem;
+}
 
 .timeline__container {
   overflow: hidden;
@@ -12102,7 +12096,7 @@ select.cmuSort {
   content: ")";
 }
 .timeline__title.open {
-  border-color: #fafafa;
+  border: 1px solid #dadada;
 }
 
 .cmuThreadlist__table {
@@ -12795,6 +12789,12 @@ select.cmuSort {
   margin-top: 1rem;
   margin-bottom: 2rem;
   line-height: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.cmuStories__author .cmuUserbadge__points, .cmuStories__author .cmuUserbadge__info {
+  display: none;
 }
 
 .cmuStories__story__controlsTop {
@@ -12981,9 +12981,28 @@ select.cmuSort {
   margin-top: 12px;
 }
 
+.cmuStoriesNew__panel {
+  border: 1px solid #ebebeb;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .cmuStoriesNew__title, .cmuStoriesNew__form--title {
   font-size: 16px;
   margin-bottom: 0.5rem;
+}
+
+.cmuStoriesNew__title--share:before {
+  content: ' 1. ';
+}
+
+.cmuStoriesNew__title--media:before {
+  content: ' 2. ';
+}
+
+.cmuStoriesNew__title--more:before {
+  content: ' 3. ';
 }
 
 .cmuStoriesNew__form {
@@ -13027,12 +13046,12 @@ select.cmuSort {
   background: #fafafa;
 }
 
-.cmuStoriesNew__form--products {
-  margin-bottom: 2rem;
+.cmuStoriesNew__form--url .cmuInputUrl--button {
+  margin-bottom: 1rem;
 }
 
-.cmuStoriesNew__form--media {
-  margin-bottom: 1rem;
+.cmuStoriesNew__form--fileUpload button {
+  margin-top: 0.25rem;
 }
 
 .cmuStoriesNew__form--uploads {
@@ -13194,7 +13213,6 @@ select.cmuSort {
   border: 1px solid #ebebeb;
   padding: 1rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
 }
 .cmuStoriesNew__form--additional .icon {
   font-size: 10px;
@@ -13313,8 +13331,8 @@ a.appIconInput__icon {
 }
 
 .cmuTooltipster, .cmuTooltipster--inline {
-  border: 2px solid #525252;
-  border-color: #00a0df;
+  border: 1px solid #ebebeb;
+  border-color: #dadada;
   background: #fafafa;
   min-height: 2rem;
   max-height: 12rem;

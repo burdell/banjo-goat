@@ -18,6 +18,12 @@
 	.cmuThreadlist__topic__title {
 		line-height: $size-largest;
 	}
+
+	.cmuThreadlist__topic .cmuProductTag .style-tag{
+			position:relative;
+			top:$cmu-base/6;
+
+	}
 }
 
 	.cmuTimeline__list {
@@ -54,8 +60,8 @@
 
 	&.open {
 		// border-bottom: $style-line--thick;
-		// border: 1px solid transparent;
-		border-color: $cmu-color-white;
+		border: 1px solid $cmu-color-ltmdgray;
+		// border-color: $cmu-color-white;
     	// margin-bottom: $cmu-vertical-rhythm;
 	}
 }

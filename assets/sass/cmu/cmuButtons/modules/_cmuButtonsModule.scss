@@ -148,9 +148,9 @@ $cmu-button-color-base: $cmu-color-blue;
 		border-color: $fgColor;
 
 		&:hover {
-			color: $cmu-color-black; // can't use transparent
-			// background-color: $fgColor;
-			border-color: $cmu-color-black;
+			//color: $cmu-color-black; // can't use transparent
+			background-color: $cmu-color-ltmdgray;
+			// border-color: $cmu-color-black;
 		}
 	} @else if $type == 'outline' {
 		border-width: 1px;
