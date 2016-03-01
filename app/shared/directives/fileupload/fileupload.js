@@ -37,8 +37,15 @@ function communityFileUpload($timeout) {
 		}
 	}
 
-	function controller(communityApi) {	
+	function controller($scope, communityApi) {	
 		var ctrl = this;
+
+		if (ctrl.eventTriggered) {
+			$scope.$on('fileupload:browseFiles', function(){
+				ctrl.triggerBrowse();
+			});
+		}
+
 		_.extend(ctrl, {
 			uploadingItems: [],
 			upload: function(fileList){
@@ -75,7 +82,7 @@ function communityFileUpload($timeout) {
 			}
 		});
 	}
-	controller.$inject = [require('services/api.js')];
+	controller.$inject = ['$scope', require('services/api.js')];
     
     var directive = {
         link: link,
@@ -89,7 +96,8 @@ function communityFileUpload($timeout) {
         	displayText: '@',
         	fileListModel: '=',
         	isAttachment: '=',
-        	onSuccessFn: '='
+        	onSuccessFn: '=',
+        	eventTriggered: '='
         }
     };
 

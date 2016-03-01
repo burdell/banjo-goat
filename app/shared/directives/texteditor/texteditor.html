@@ -10,18 +10,19 @@
 				on-select="texteditor.addEmoji"></community-emoji-picker> -->
 			<!-- <span class="cmuTextEditor__popout" ng-if="texteditor.fixedtobottomtoggle" ng-click="texteditor.toggleFloat()">
 				<span class="icon ubnt-icon--popout"></span> -->
-			</span>
+			<!-- </span> -->
 		</div>
-		 <div class="row cmuRow" ng-if="::!texteditor.noPhotos">
+		 <div>
 			<community-file-upload 
 				display-text="${{ directives.texteditor.uploadPhoto }}$"
-				on-success-fn="texteditor.embedPhoto">
+				on-success-fn="texteditor.embedPhoto"
+				event-triggered="true">
 			</community-file-upload>
 	    </div>
 	</div>
 
 	<div class="cmuTextEditor__help clearfix">
-		<div class="cmuCollapser__container collapseSubtle">
+		<div class="cmuCollapser__container ">
 			<div class="cmuCollapser__header cmuCollapser__header--light" community-class-toggle="open">
 				<div class="cmuCollapser__header__title"> 
 					<h5>${{ directives.texteditor.formattingHelp.title }}$</h5>

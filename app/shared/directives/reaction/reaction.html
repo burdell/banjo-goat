@@ -1,6 +1,6 @@
 <button 
 	class="button button--vote button--vote--{{ reaction.reactionType }}"
-	ng-class="{ 'button--thin button--lowercase' : reaction.thinDisplay }" 
+	ng-class="{ 'button--thin' : reaction.thinDisplay }" 
 	community-class-toggle="button--voted" 
 	community-permissions="message.can_{{ reaction.reactionType }}" 
 	permissions-id="reaction._messageId"

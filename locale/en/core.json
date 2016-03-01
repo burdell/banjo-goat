@@ -15,7 +15,8 @@
 		"save": "Save",
 		"saveChanges": "Save Changes",
 		"subscribe": "Subscribe",
-		"showMore": "Show More"
+		"showMore": "Show More",
+		"update": "Update"
 	},
 	"areas": {
 		"home": "Home",

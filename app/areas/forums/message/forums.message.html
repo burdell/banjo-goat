@@ -12,10 +12,10 @@
 	<div class="row">
         <div class="col--md8 noPaddingLeft">
         	<span>
-	        	<button class="button--solid col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
+	        	<button class="button--solid button--thin col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
 	        	<community-subscribe></community-subscribe>
 	        	<span community-permissions="message.can_edit_message" denied-behavior="hide">
-					<a class="button button--ghost col--md2" 
+					<a class="button button--ghost button--thin col--md2" 
 						area-link-handler="{{ vm.editUrl }}">
 						<span class="icon ubnt-icon--pencil-2"></span>
 						<span>${{ core.actions.edit }}$</span>
@@ -65,10 +65,10 @@
 	<div class="cmuRow row">
         <div class="col--md8 noPaddingLeft">
         	<span>
-	        	<button class="button--solid button-white-on-blue col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
+	        	<button class="button--solid button-white-on-blue button--thin col--md2" ng-click="vm.showTopicReply()" community-permissions="message.can_comment">${{ forums.message.reply }}$</button>
 	        	<community-subscribe></community-subscribe>
 				<span community-permissions="message.can_edit_message" denied-behavior="hide">
-					<a  class="button button--ghost col--md2" area-link-handler="{{ vm.editUrl }}">
+					<a  class="button button--ghost button--thin col--md2" area-link-handler="{{ vm.editUrl }}">
 						<span class="icon ubnt-icon--pencil-2"></span>
 						<span>${{ core.actions.edit }}$</span>
 					</a>

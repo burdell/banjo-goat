@@ -7,7 +7,7 @@ require('directives/storydisplay/storydisplay.js');
 require('services/breadcrumb.js');
 require('providers/defaults.js');
 
-var profileController = function($scope, breadcrumbService, communityDefaults, activityFilter, gamificationInfo, storyFilter, userData){
+var profileController = function($state, $scope, breadcrumbService, communityDefaults, activityFilter, gamificationInfo, storyFilter, userData){
 	var ctrl = this;
 
 	var userPointData = userData.user.gamification;
@@ -83,7 +83,7 @@ var profileController = function($scope, breadcrumbService, communityDefaults, a
 		}
 	});
 };
-profileController.$inject = ['$scope', 'CommunityBreadcrumbService', 'communityDefaults', 'ActivityDataFilter', 'GamificationInfo', 'StoryDataFilter', 'UserData'];
+profileController.$inject = ['$state', '$scope', 'CommunityBreadcrumbService', 'communityDefaults', 'ActivityDataFilter', 'GamificationInfo', 'StoryDataFilter', 'UserData'];
 
 angular.module('community.directory')
 	.controller('UserProfile', profileController);

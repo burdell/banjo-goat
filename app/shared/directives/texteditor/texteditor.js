@@ -33,10 +33,18 @@ function communityTextEditor($timeout, localizationService, routingService) {
 		    	"link", "|", {
 		    		name: "emoji",
 		            action: function(editor) {
-		                console.log("mogeeeey!!!");
+		            	scope.$broadcast('emojipicker:toggle');
 		            },
 		            className: "fa fa-circle",
 		            title: "Emoji"
+		    	},
+		    	{
+		    		name: "insertimage",
+		            action: function(editor) {
+		            	scope.$broadcast('fileupload:browseFiles');
+		            },
+		            className: "cmuIcon__label icon stories",
+		            title: "Insert Image"
 		    	}]
 		};
 

@@ -5,7 +5,7 @@
 		<h5>{{ commentform.headerTitle }}</h5>
 	</div>
 
-	<div class="col--md12">
+	<div>
 			<community-text-editor
 				autofocus="{{ commentform.autofocus }}"
 				ng-class="{'cmuTextEditor--minimal':commentform.minimalEditor==true}"
@@ -19,7 +19,7 @@
 			<div class="cmuTextEditor__preview cmuContent" ng-if="commentform.comment.body" ng-bind-html="commentform.comment.body | sanitize:'markdown'"></div>
 	</div>
 
-	<div class="col--md12 cmuRow">
+	<div class="cmuRow">
 		<div ng-show="!commentform.submittingComment">
 			<span 
 				class="button button--solid button--padded button--wide"

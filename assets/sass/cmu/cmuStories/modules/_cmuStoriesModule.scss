@@ -184,8 +184,15 @@
 		margin-top: $cmu-vertical-rhythm;
 		margin-bottom: $cmu-vertical-rhythm*2;
 		line-height: $cmu-vertical-rhythm*2;
+		font-size: $cmu-base*2;
+		font-weight: 300;
 	}
 }
+	.cmuStories__author {
+		.cmuUserbadge__points, .cmuUserbadge__info {
+			display: none;
+		}
+	}
 
 .cmuStories__story__controlsTop {
 	margin-top: $cmu-base/2;

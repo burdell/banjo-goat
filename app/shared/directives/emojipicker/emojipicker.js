@@ -25,19 +25,15 @@ function emojipicker() {
         var emojiCtrl = scope.emojipicker;
 
         var emojiPicker;
-        if (emojiCtrl.fixedtobottom) {
-            emojiPicker = emojiInput.emojiPicker({
-                                                    width:'300px',
-                                                    height: '80px',
-                                                    container: '.cmuTextEditor__floatContainer',
-                                                });
-        } else {
-            emojiPicker = emojiInput.emojiPicker();
-        }
+        emojiPicker = emojiInput.emojiPicker();
         emojiInput.width(0);
 
         emojiInput.keyup(function(event, selectedData){
             scope.emojipicker.onSelect(selectedData);
+        });
+
+        scope.$on('emojipicker:toggle', function(){
+            //DO STUFF RIGHT HERE
         });
     };
 

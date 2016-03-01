@@ -2,29 +2,35 @@
 	<div class="cmuStoryDetail__container col--md12">
 		<div ng-include="'stories/detail/stories.body.html'"></div>
 	</div>
-	<community-reaction
+	
+	<div class="col--lg9"> 
+		<community-reaction
 			reaction-type="kudo" 
-			reaction-count="vm.story.message.scores.kudoCount"></community-reaction>
+			reaction-count="vm.story.message.scores.kudoCount"
+			thin-display="true"
+			></community-reaction>
+		<div class="cmuStories__commentForm" id="comment" community-permissions="message.can_comment" permissions-id="vm.story.id" denied-behavior="hide">
+			<community-comment-form
+				autofocus="false"
+				minimal-editor="true"
+				toggle-attribute="true"
+				parent-message="vm.story"
+				comment-list="vm.comments"
+				autofocus="false"
+				header-title="${{ directives.commentform.postNewComment }}$"
+				reply-button-text="${{ directives.commentform.postComment }}$" 
+				replying-button-text="${{ directives.commentform.postingComment }}$...">
+			</community-comment-form>
+		</div>
 
-	<div class="cmuStories__commentForm" id="comment" community-permissions="message.can_comment" permissions-id="vm.story.id" denied-behavior="hide">
-		<community-comment-form
-			autofocus="false"
-			minimal-editor="true"
-			toggle-attribute="true"
-			parent-message="vm.story"
-			comment-list="vm.comments"
-			autofocus="false"
-			header-title="${{ directives.commentform.postNewComment }}$"
-			reply-button-text="${{ directives.commentform.postComment }}$" 
-			replying-button-text="${{ directives.commentform.postingComment }}$...">
-		</community-comment-form>
+		<div class="cmuStories__comments">
+			<community-comment-list
+				current-comments="vm.comments"
+				comment-filter="vm.moreCommentsFilter">
+			</community-comment-list>
+		</div>
+
 	</div>
 
-	<div class="cmuStories__comments">
-		<community-comment-list
-			current-comments="vm.comments"
-			comment-filter="vm.moreCommentsFilter">
-		</community-comment-list>
-	</div>
 
 </div>

@@ -9,8 +9,8 @@ $tooltip-width: $cmu-base*30;
 
 .cmuTooltipster {
 	// @extend %style-border-medium-blue;
-	border: $style-line--medium;
-	border-color: $cmu-color-blue;
+	border: $style-line--light;
+	border-color: $cmu-color-ltmdgray;
 	background: $cmu-color-white; 
 	min-height: $cmu-base*2;
 	max-height: $tooltip-height;

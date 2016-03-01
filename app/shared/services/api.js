@@ -42,6 +42,13 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 	function goToApi(url, data, verb, isMedia){
 		var callOptions = getCallOptions(url, data, verb, isMedia);
 
+		// console.log('gotoApi')
+		// console.log('---------------------------------------------------')
+		// console.log('url: ' + url)
+		// console.log('data: ')
+		// console.log(data)
+		// console.log('verb: ' + verb)
+		// console.log('---------------------------------------------------')
 		return $http(callOptions).then(
 			function(result){
 				//SUCCESS :D
@@ -398,10 +405,16 @@ var communityApiService = function($http, $q, $timeout, loaderService, errorServ
 				
 			},
 			settings: function(){
-				return goToApi(v2Url + 'settings');
+				return goToApi(v2Url + 'users/self/settings?per_page=200');
 			},
-			subscriptions: function(options) {
-				return goToApi(v2Url + urlSegments.User('self') + 'subscriptions', options);
+			saveSettings: function(data){
+				return goToApi(v2Url + 'users/self/settings?per_page=200', data, 'PUT');
+			},
+			updateUser: function(userData) {
+				var callData = getCallType(userData);
+				console.log('updateuser:')
+				console.log(callData)
+				return goToApi(v2Url + urlSegments.User(callData.id), callData.payload, callData.verb);
 			}
 		}
 	}

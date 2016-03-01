@@ -6,7 +6,7 @@
 	</form>
 
 
-	<div ng-show="!fileupload.uploadInProgress">
+	<div ng-show="!fileupload.eventTriggered && !fileupload.uploadInProgress">
 		<div>{{ fileupload.displayText || '${{ directives.fileupload.uploadFile }}$' }}</div>
 		<button ng-click="fileupload.triggerBrowse()">${{ directives.fileupload.browseFiles }}$</button>
 	</div>
